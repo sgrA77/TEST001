@@ -1,11 +1,114 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>My Test Website</title>
+    <title>Market Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            width: 200px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .symbol {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 32px;
+            margin-top: 15px;
+        }
+
+        .status {
+            margin-top: 15px;
+            color: #777;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Hello World!</h1>
-    <p>내 첫 번째 홈페이지입니다.</p>
+
+    <h1>MARKET DASHBOARD</h1>
+
+    <div class="container">
+
+        <div class="card">
+            <div class="symbol">QLD</div>
+            <div class="price" id="QLD">Loading...</div>
+            <div class="status" id="QLD-status">불러오는 중</div>
+        </div>
+
+        <div class="card">
+            <div class="symbol">SPXL</div>
+            <div class="price" id="SPXL">Loading...</div>
+            <div class="status" id="SPXL-status">불러오는 중</div>
+        </div>
+
+    </div>
+
+<script>
+
+async function getPrice(symbol) {
+
+    const yahooURL =
+        `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?range=1d&interval=1d`;
+
+    const proxyURL =
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(yahooURL)}`;
+
+    try {
+
+        const response = await fetch(proxyURL);
+        const data = await response.json();
+
+        const result = data.chart.result[0];
+        const price = result.meta.regularMarketPrice;
+
+        document.getElementById(symbol).innerText =
+            "$" + price.toFixed(2);
+
+        document.getElementById(symbol + "-status").innerText =
+            "정상";
+
+    } catch (error) {
+
+        document.getElementById(symbol).innerText =
+            "Error";
+
+        document.getElementById(symbol + "-status").innerText =
+            "데이터 불러오기 실패";
+
+        console.log(error);
+    }
+}
+
+getPrice("QLD");
+getPrice("SPXL");
+
+</script>
+
 </body>
 </html>
+```
