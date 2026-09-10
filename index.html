@@ -75,8 +75,8 @@ async function getPrice(symbol) {
     const yahooURL =
         `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?range=1d&interval=1d`;
 
-    const proxyURL =
-        `https://api.allorigins.win/raw?url=${encodeURIComponent(yahooURL)}`;
+ const proxyURL =
+        `https://corsproxy.io/?url=${encodeURIComponent(yahooURL)}`;
 
     try {
 
