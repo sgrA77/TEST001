@@ -1,27 +1,40 @@
-```html
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>MARKET DASHBOARD</title>
+    <title>Market Dashboard</title>
 </head>
-<body>
 
+<body>
     <h1>MARKET DASHBOARD</h1>
 
-    <p>SPY: <span id="spy">Loading...</span></p>
+    <h2>SPY</h2>
+    <h1 id="price">-</h1>
+
+    <p>전일: <span id="day">-</span></p>
+    <p>전주: <span id="week">-</span></p>
+    <p>전월: <span id="month">-</span></p>
+    <p>전년: <span id="year">-</span></p>
 
     <script>
         fetch("data.json")
-            .then(response => response.json())
+            .then(r => r.json())
             .then(data => {
-                document.getElementById("spy").textContent = data.SPY;
-            })
-            .catch(error => {
-                document.getElementById("spy").textContent = "Error";
+                const s = data.SPY;
+                document.getElementById("price").textContent = s.price;
+
+                document.getElementById("day").textContent =
+                    ((s.price - s.previous_day) / s.previous_day * 100).toFixed(2) + "%";
+
+                document.getElementById("week").textContent =
+                    ((s.price - s.previous_week) / s.previous_week * 100).toFixed(2) + "%";
+
+                document.getElementById("month").textContent =
+                    ((s.price - s.previous_month) / s.previous_month * 100).toFixed(2) + "%";
+
+                document.getElementById("year").textContent =
+                    ((s.price - s.previous_year) / s.previous_year * 100).toFixed(2) + "%";
             });
     </script>
-
 </body>
 </html>
-```
