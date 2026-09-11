@@ -1,10 +1,31 @@
 import requests, json
 from datetime import datetime, timezone, timedelta
 
-stocks = ["SPY", "SPXL", "QLD", "NVDA", "NVDL", "PLTR", "KORU", "AMD", "MU", "MUU", "SNDK", "SNXX", "AMZN", "GOOG", "ORCL"]
+stocks = {
+    "SPY": "SPY",
+    "SPXL": "SPXL",
+    "QLD": "QLD",
+    "NVDA": "NVDA",
+    "NVDL": "NVDL",
+    "PLTR": "PLTR",
+    "KORU": "KORU",
+    "AMD": "AMD",
+    "MU": "MU",
+    "MUU": "MUU",
+    "SNDK": "SNDK",
+    "SNXX": "SNXX",
+    "AMZN": "AMZN",
+    "GOOG": "GOOG",
+    "ORCL": "ORCL",
+
+    # 한국 주식 추가
+    "Samsung": "005930.KS",
+    "SKHynix": "000660.KS"
+}
+
 result = {}
 
-for stock in stocks:
+for name, stock in stocks.items():
     url = f"https://query1.finance.yahoo.com/v8/finance/chart/{stock}?range=2y&interval=1d"
     data = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}).json()["chart"]["result"][0]
 
@@ -29,7 +50,7 @@ for stock in stocks:
         if d.year == today.year - 1
     ]
 
-    result[stock] = {
+    result[name] = {
         "price": data["meta"]["regularMarketPrice"],
         "previous_day": prices.get(today - timedelta(days=1)),
         "previous_week": prices.get(last_friday),
