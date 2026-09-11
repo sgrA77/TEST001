@@ -21,19 +21,18 @@
             .then(r => r.json())
             .then(data => {
                 const s = data.SPY;
-                document.getElementById("price").textContent = s.price;
+                const price = Number(s.price);
 
-                document.getElementById("day").textContent =
-                    ((s.price - s.previous_day) / s.previous_day * 100).toFixed(2) + "%";
+                document.getElementById("price").textContent = price.toFixed(2);
 
-                document.getElementById("week").textContent =
-                    ((s.price - s.previous_week) / s.previous_week * 100).toFixed(2) + "%";
+                function change(ref) {
+                    return ((price - Number(ref)) / Number(ref) * 100).toFixed(2) + "%";
+                }
 
-                document.getElementById("month").textContent =
-                    ((s.price - s.previous_month) / s.previous_month * 100).toFixed(2) + "%";
-
-                document.getElementById("year").textContent =
-                    ((s.price - s.previous_year) / s.previous_year * 100).toFixed(2) + "%";
+                document.getElementById("day").textContent = change(s.previous_day);
+                document.getElementById("week").textContent = change(s.previous_week);
+                document.getElementById("month").textContent = change(s.previous_month);
+                document.getElementById("year").textContent = change(s.previous_year);
             });
     </script>
 </body>
