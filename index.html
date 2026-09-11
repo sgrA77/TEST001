@@ -29,14 +29,18 @@ fetch("data.json?t=" + Date.now())
         <div class="stock">
             <b>${name}</b>
             <div class="price">${p.toFixed(2)}</div>
-            <p>MΔ, ${change(p, s.previous_month)}</p>
-            <p>YΔ, ${change(p, s.previous_year)}</p>
+            <p>ΔM:   ${change(p, s.previous_month)}</p>
+            <p>ΔY:   ${change(p, s.previous_year)}</p>
         </div>`;
     }
 });
 
-function change(p, r) {
-    return r == null ? "-" : ((p - Number(r)) / Number(r) * 100).toFixed(2) + "%";
+function change(p,r) {
+    if (r == null) return "-";
+    let v = (p-Number(r))/Number(r)*100;
+    let color = v > 0 ? "red" : v < 0 ? "blue" : "black";
+    let sign = v > 0 ? "+" : "";
+    return `<span style="color:${color}">${sign}${v.toFixed(2)}%</span>`;
 }
 </script>
 
