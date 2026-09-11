@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,21 +9,19 @@
 
     <h1>MARKET DASHBOARD</h1>
 
-    <h2>SPY</h2>
-    <p id="spy">불러오는 중...</p>
+    <p>SPY: <span id="spy">Loading...</span></p>
 
     <script>
         fetch("data.json")
             .then(response => response.json())
             .then(data => {
-                document.getElementById("spy").textContent =
-                    data.SPY;
+                document.getElementById("spy").textContent = data.SPY;
             })
             .catch(error => {
-                document.getElementById("spy").textContent =
-                    "불러오기 실패";
+                document.getElementById("spy").textContent = "Error";
             });
     </script>
 
 </body>
 </html>
+```
