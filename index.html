@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Market Dashboard</title>
+<meta charset="UTF-8">
+<title>Market Dashboard</title>
+
+<style>
+body { font-family: Arial; }
+#stocks { display: flex; flex-wrap: wrap; gap: 25px; }
+.stock { min-width: 130px; }
+.price { font-size: 22px; font-weight: bold; }
+p { margin: 4px 0; font-size: 13px; }
+</style>
 </head>
 
 <body>
-    <h1>MARKET DASHBOARD</h1>
 
-    <div id="stocks"></div>
+<h1>MARKET DASHBOARD</h1>
+<div id="stocks"></div>
 
-    <script>
-        fetch("data.json?t=" + Date.now())
-            .then(r => r.json())
-            .then(data => {
-                for (const [name, s] of Object.entries(data)) {
-                    const price = Number(s.price);
+<script>
+fetch("data.json?t=" + Date.now())
+.then(r => r.json())
+.then(data => {
+    for (const [name, s] of Object.entries(data)) {
+        let p = Number(s.price);
 
-                    document.getElementById("stocks").innerHTML += `
-                        <h2>${name}</h2>
-                        <h1>${price.toFixed(2)}</h1>
-                        <p>전일: ${change(price, s.previous_day)}</p>
-                        <p>전주: ${change(price, s.previous_week)}</p>
-                        <p>전월: ${change(price, s.previous_month)}</p>
-                        <p>전년: ${change(price, s.previous_year)}</p>
-                    `;
-                }
-            });
+        document.getElementById("stocks").innerHTML += `
+        <div class="stock">
+            <b>${name}</b>
+            <div class="price">${p.toFixed(2)}</div>
+            <p>전일 ${change(p,s.previous_day)}</p>
+            <p>전주 ${change(p,s.previous_week)}</p>
+            <p>전월 ${change(p,s.previous_month)}</p>
+            <p>전년 ${change(p,s.previous_year)}</p>
+        </div>`;
+    }
+});
 
-        function change(price, ref) {
-            return ((price - Number(ref)) / Number(ref) * 100).toFixed(2) + "%";
-        }
-    </script>
+function change(p,r) {
+    return ((p-Number(r))/Number(r)*100).toFixed(2)+"%";
+}
+</script>
+
 </body>
 </html>
