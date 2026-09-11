@@ -29,8 +29,8 @@ fetch("data.json?t=" + Date.now())
         <div class="stock">
             <b>${name}</b>
             <div class="price">${p.toFixed(2)}</div>
-            <p>월간변동(누적): ${change(p, s.previous_month)}</p>
-            <p>전년대비: ${change(p, s.previous_year)}</p>
+            <p>Month Δ(%): ${change(p, s.previous_month)}</p>
+            <p>Year Δ(%): ${change(p, s.previous_year)}</p>
         </div>`;
     }
 });
