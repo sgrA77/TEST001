@@ -1,7 +1,7 @@
 import requests, json
 from datetime import datetime, timezone, timedelta
 
-stocks = ["SPY", "SPXL", "QLD", "NVDA", "NVDL", "PLTR", "KORU", "AMD", "MU", "MUU", "SNDK", "SNXX", "AMZN", "GOOG", "ORCL" ]
+stocks = ["SPY", "SPXL", "QLD", "NVDA", "NVDL", "PLTR", "KORU", "AMD", "MU", "MUU", "SNDK", "SNXX", "AMZN", "GOOG", "ORCL"]
 result = {}
 
 for stock in stocks:
@@ -19,12 +19,22 @@ for stock in stocks:
     last_month = first - timedelta(days=1)
     last_friday = today - timedelta(days=today.weekday() + 3)
 
+    month_dates = [
+        d for d in prices
+        if d.year == last_month.year and d.month == last_month.month
+    ]
+
+    year_dates = [
+        d for d in prices
+        if d.year == today.year - 1
+    ]
+
     result[stock] = {
         "price": data["meta"]["regularMarketPrice"],
         "previous_day": prices.get(today - timedelta(days=1)),
         "previous_week": prices.get(last_friday),
-        "previous_month": prices[max(d for d in prices if d.year == last_month.year and d.month == last_month.month)],
-        "previous_year": prices[max(d for d in prices if d.year == today.year - 1)]
+        "previous_month": prices[max(month_dates)] if month_dates else None,
+        "previous_year": prices[max(year_dates)] if year_dates else None
     }
 
 with open("data.json", "w") as f:
