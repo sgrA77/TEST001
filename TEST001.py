@@ -1,7 +1,7 @@
 import requests, json
 from datetime import datetime, timezone, timedelta
 
-stocks = ["SPY", "SPXL", "QLD"]
+stocks = ["SPY", "SPXL", "QLD", "NVD", "AAPL", "GOOG"]
 result = {}
 
 for stock in stocks:
