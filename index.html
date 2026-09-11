@@ -4,69 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Market Dashboard</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            text-align: center;
-            padding: 40px;
-        }
-
-        h1 {
-            margin-bottom: 30px;
-        }
-
-        .container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .card {
-            background: white;
-            width: 200px;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .symbol {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .price {
-            font-size: 32px;
-            margin-top: 15px;
-        }
-
-        .status {
-            margin-top: 15px;
-            color: #777;
-        }
-    </style>
 </head>
 
 <body>
 
-    <h1>MARKET DASHBOARD</h1>
+<h1>MARKET DASHBOARD</h1>
 
-    <div class="container">
-
-        <div class="card">
-            <div class="symbol">QLD</div>
-            <div class="price" id="QLD">Loading...</div>
-            <div class="status" id="QLD-status">불러오는 중</div>
-        </div>
-
-        <div class="card">
-            <div class="symbol">SPXL</div>
-            <div class="price" id="SPXL">Loading...</div>
-            <div class="status" id="SPXL-status">불러오는 중</div>
-        </div>
-
-    </div>
+<p>QLD: <span id="QLD">Loading...</span></p>
+<p>SPXL: <span id="SPXL">Loading...</span></p>
 
 <script>
 
@@ -75,7 +20,7 @@ async function getPrice(symbol) {
     const yahooURL =
         `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?range=1d&interval=1d`;
 
- const proxyURL =
+    const proxyURL =
         `https://corsproxy.io/?url=${encodeURIComponent(yahooURL)}`;
 
     try {
@@ -83,22 +28,15 @@ async function getPrice(symbol) {
         const response = await fetch(proxyURL);
         const data = await response.json();
 
-        const result = data.chart.result[0];
-        const price = result.meta.regularMarketPrice;
+        const price =
+            data.chart.result[0].meta.regularMarketPrice;
 
         document.getElementById(symbol).innerText =
             "$" + price.toFixed(2);
 
-        document.getElementById(symbol + "-status").innerText =
-            "정상";
-
     } catch (error) {
 
-        document.getElementById(symbol).innerText =
-            "Error";
-
-        document.getElementById(symbol + "-status").innerText =
-            "데이터 불러오기 실패";
+        document.getElementById(symbol).innerText = "Error";
 
         console.log(error);
     }
