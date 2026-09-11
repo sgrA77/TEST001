@@ -1,52 +1,28 @@
-```html
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Market Dashboard</title>
+    <title>MARKET DASHBOARD</title>
 </head>
-
 <body>
 
-<h1>MARKET DASHBOARD</h1>
+    <h1>MARKET DASHBOARD</h1>
 
-<p>QLD: <span id="QLD">Loading...</span></p>
-<p>SPXL: <span id="SPXL">Loading...</span></p>
+    <h2>SPY</h2>
+    <p id="spy">불러오는 중...</p>
 
-<script>
-
-async function getPrice(symbol) {
-
-    const yahooURL =
-        `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?range=1d&interval=1d`;
-
-    const proxyURL =
-        `https://corsproxy.io/?url=${encodeURIComponent(yahooURL)}`;
-
-    try {
-
-        const response = await fetch(proxyURL);
-        const data = await response.json();
-
-        const price =
-            data.chart.result[0].meta.regularMarketPrice;
-
-        document.getElementById(symbol).innerText =
-            "$" + price.toFixed(2);
-
-    } catch (error) {
-
-        document.getElementById(symbol).innerText = "Error";
-
-        console.log(error);
-    }
-}
-
-getPrice("QLD");
-getPrice("SPXL");
-
-</script>
+    <script>
+        fetch("data.json")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("spy").textContent =
+                    data.SPY;
+            })
+            .catch(error => {
+                document.getElementById("spy").textContent =
+                    "불러오기 실패";
+            });
+    </script>
 
 </body>
 </html>
-```
