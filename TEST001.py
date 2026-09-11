@@ -20,12 +20,13 @@ stocks = {
 
     # 한국 주식 추가
     "Samsung": "005930.KS",
-    "SKHynix": "000660.KS"
+    "SKHynix": "000660.KS",
 
     # 기타 자산
     "Gold": "GC=F",
-    "Crude Oil": "CL=F"
+    "Crude Oil": "CL=F",
 
+    # 암호 화폐
     "Bitcoin": "BTC-USD"
 }
 
