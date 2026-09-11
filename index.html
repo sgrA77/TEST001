@@ -8,32 +8,29 @@
 <body>
     <h1>MARKET DASHBOARD</h1>
 
-    <h2>SPY</h2>
-    <h1 id="price">-</h1>
-
-    <p>전일: <span id="day">-</span></p>
-    <p>전주: <span id="week">-</span></p>
-    <p>전월: <span id="month">-</span></p>
-    <p>전년: <span id="year">-</span></p>
+    <div id="stocks"></div>
 
     <script>
-        fetch("data.json")
+        fetch("data.json?t=" + Date.now())
             .then(r => r.json())
             .then(data => {
-                const s = data.SPY;
-                const price = Number(s.price);
+                for (const [name, s] of Object.entries(data)) {
+                    const price = Number(s.price);
 
-                document.getElementById("price").textContent = price.toFixed(2);
-
-                function change(ref) {
-                    return ((price - Number(ref)) / Number(ref) * 100).toFixed(2) + "%";
+                    document.getElementById("stocks").innerHTML += `
+                        <h2>${name}</h2>
+                        <h1>${price.toFixed(2)}</h1>
+                        <p>전일: ${change(price, s.previous_day)}</p>
+                        <p>전주: ${change(price, s.previous_week)}</p>
+                        <p>전월: ${change(price, s.previous_month)}</p>
+                        <p>전년: ${change(price, s.previous_year)}</p>
+                    `;
                 }
-
-                document.getElementById("day").textContent = change(s.previous_day);
-                document.getElementById("week").textContent = change(s.previous_week);
-                document.getElementById("month").textContent = change(s.previous_month);
-                document.getElementById("year").textContent = change(s.previous_year);
             });
+
+        function change(price, ref) {
+            return ((price - Number(ref)) / Number(ref) * 100).toFixed(2) + "%";
+        }
     </script>
 </body>
 </html>
