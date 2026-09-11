@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>US market summary</title>
+<title>Market Dashboard</title>
 
 <style>
 body { font-family: Arial; }
@@ -15,7 +15,7 @@ p { margin: 4px 0; font-size: 13px; }
 
 <body>
 
-<h3>US market summary</h3>
+<h1>MARKET DASHBOARD</h1>
 <div id="stocks"></div>
 
 <script>
@@ -29,16 +29,14 @@ fetch("data.json?t=" + Date.now())
         <div class="stock">
             <b>${name}</b>
             <div class="price">${p.toFixed(2)}</div>
-            <p>전일 ${change(p,s.previous_day)}</p>
-            <p>전주 ${change(p,s.previous_week)}</p>
-            <p>전월 ${change(p,s.previous_month)}</p>
-            <p>전년 ${change(p,s.previous_year)}</p>
+            <p>월간변동(누적): ${change(p, s.previous_month)}</p>
+            <p>전년대비: ${change(p, s.previous_year)}</p>
         </div>`;
     }
 });
 
-function change(p,r) {
-    return ((p-Number(r))/Number(r)*100).toFixed(2)+"%";
+function change(p, r) {
+    return r == null ? "-" : ((p - Number(r)) / Number(r) * 100).toFixed(2) + "%";
 }
 </script>
 
