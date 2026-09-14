@@ -5,44 +5,90 @@
 <title>Market Dashboard</title>
 
 <style>
-body { font-family: Inter; }
-#stocks { display: flex; flex-wrap: wrap; gap: 25px; }
-.stock { min-width: 130px; }
-.price { font-size: 18px; font-weight: bold; }
-p { margin: 4px 0; font-size: 13px; }
+body {
+    font-family: Inter, Arial, sans-serif;
+}
+
+#stocks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.stock {
+    min-width: 150px;
+}
+
+.ticker {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 3px 0;
+}
+
+.change {
+    font-size: 13px;
+}
 </style>
 </head>
 
 <body>
 
 <h3>US market</h3>
+
 <div id="stocks"></div>
 
 <script>
 fetch("data.json?t=" + Date.now())
 .then(r => r.json())
 .then(data => {
+
     for (const [name, s] of Object.entries(data)) {
+
         let p = Number(s.price);
 
         document.getElementById("stocks").innerHTML += `
         <div class="stock">
-            <b>${name}</b>
-            <div class="price">${p.toFixed(2)}</div>
-            <p>ΔM:   ${change(p, s.previous_month)}</p>
-            <p>ΔY:   ${change(p, s.previous_year)}</p>
+
+            <div class="ticker">${name}</div>
+
+            <div class="price">
+                ${p.toFixed(2)}
+            </div>
+
+            <div class="change">
+                1M ${change(p, s.previous_month)}
+                |
+                1Y ${change(p, s.previous_year)}
+            </div>
+
         </div>`;
     }
 });
 
-function change(p,r) {
+function change(p, r) {
+
     if (r == null) return "-";
-    let v = (p-Number(r))/Number(r)*100;
-    let color = v > 0 ? "red" : v < 0 ? "blue" : "black";
+
+    let v = (p - Number(r)) / Number(r) * 100;
+
+    let color =
+        v > 0 ? "red" :
+        v < 0 ? "blue" :
+        "black";
+
     let sign = v > 0 ? "+" : "";
-    return `<span style="color:${color}">${sign}${v.toFixed(2)}%</span>`;
+
+    return `<span style="color:${color}">
+                ${sign}${v.toFixed(2)}%
+            </span>`;
 }
 </script>
 
 </body>
 </html>
+
