@@ -1,6 +1,7 @@
-import requests, json
+import requests, json, re
 from datetime import datetime, timezone, timedelta
-import re
+from zoneinfo import ZoneInfo
+
 
 stocks = {
     "SPY": "SPY",
@@ -19,22 +20,15 @@ stocks = {
     "GOOG": "GOOG",
     "ORCL": "ORCL",
 
-    # 한국 주식
     "Samsung": "005930.KS",
     "SKHynix": "000660.KS",
 
-    # 기타 자산
     "Gold": "GC=F",
     "Crude Oil": "CL=F",
 
-    # 암호 화폐
     "Bitcoin": "BTC-USD"
 }
 
-
-# =========================
-# Macro / Market Indicators
-# =========================
 
 indicators = {
     "US 10Y Yield": "^TNX",
@@ -49,7 +43,7 @@ indicator_result = {}
 
 
 # =========================
-# 기존 주식 / 자산 데이터
+# 주식 / 자산
 # =========================
 
 for name, stock in stocks.items():
@@ -109,15 +103,13 @@ forward_data = requests.get(
 
 forward_pe = forward_data["current"]["forward"]
 
-forward_ey = 100 / forward_pe
-
 indicator_result["S&P500 Forward Earnings Yield"] = {
-    "value": round(forward_ey, 2)
+    "value": round(100 / forward_pe, 2)
 }
 
 
 # =========================
-# 지표 데이터
+# 지표
 # =========================
 
 for name, ticker in indicators.items():
@@ -129,19 +121,33 @@ for name, ticker in indicators.items():
         headers={"User-Agent": "Mozilla/5.0"}
     ).json()["chart"]["result"][0]
 
-    indicator_prices = [
-        c
-        for c in data["indicators"]["quote"][0]["close"]
+    prices = [
+        c for c in data["indicators"]["quote"][0]["close"]
         if c is not None
     ]
 
     indicator_result[name] = {
-        "value": indicator_prices[-1] if indicator_prices else None
+        "value": prices[-1] if prices else None
     }
 
 
 # =========================
-# Fed FOMC 일정
+# 이벤트
+# =========================
+
+today = datetime.now(ZoneInfo("Asia/Seoul"))
+events = []
+
+
+# 미국시간 → 한국시간
+def kst_date(utc_time):
+    return utc_time.astimezone(
+        ZoneInfo("Asia/Seoul")
+    ).strftime("%m/%d %H:%M")
+
+
+# =========================
+# FOMC
 # =========================
 
 fed_url = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
@@ -151,20 +157,13 @@ fed_html = requests.get(
     headers={"User-Agent": "Mozilla/5.0"}
 ).text
 
-
-# HTML 태그 제거
 fed_text = re.sub(r"<[^>]+>", " ", fed_html)
-
-# 공백 정리
 fed_text = re.sub(r"\s+", " ", fed_text)
 
-
-# 2026 FOMC 일정 찾기
 fomc_dates = re.findall(
     r"(January|March|April|June|July|September|October|December)\s+(\d{1,2})-(\d{1,2})",
     fed_text
 )
-
 
 month_map = {
     "January": 1,
@@ -177,50 +176,176 @@ month_map = {
     "December": 12
 }
 
-
-today = datetime.now().date()
-
-next_fomc = None
-
-
-# 미국 FOMC 마지막 날 → 한국시간으로는 다음날 새벽
 for month, day1, day2 in fomc_dates:
 
-    date = (
-        datetime(
-            2026,
-            month_map[month],
-            int(day2)
-        ).date()
-        + timedelta(days=1)
+    us_date = datetime(
+        2026,
+        month_map[month],
+        int(day2),
+        14,
+        0,
+        tzinfo=ZoneInfo("America/New_York")
     )
 
-    if date >= today:
-        next_fomc = date
+    if us_date.astimezone(ZoneInfo("Asia/Seoul")) >= today:
+
+        events += [
+            {
+                "name": "FOMC",
+                "date": kst_date(us_date)
+            },
+            {
+                "name": "Fed Press",
+                "date": kst_date(
+                    us_date + timedelta(minutes=30)
+                )
+            }
+        ]
+
         break
 
 
 # =========================
-# 이벤트
+# BLS 일정
+# CPI / US Jobs
 # =========================
 
-events = []
+def bls_date(url, keyword):
 
-if next_fomc:
+    html = requests.get(
+        url,
+        headers={"User-Agent": "Mozilla/5.0"}
+    ).text
 
+    text = re.sub(r"<[^>]+>", " ", html)
+    text = re.sub(r"\s+", " ", text)
+
+    pattern = (
+        r"([A-Z][a-z]+)\s+2026\s+"
+        r"([A-Z][a-z]{2})\.?\s+(\d{1,2}),\s+2026\s+"
+        r"08:30 AM"
+    )
+
+    dates = []
+
+    for ref_month, month, day in re.findall(pattern, text):
+
+        if keyword.lower() in text[
+            max(0, text.find(f"{month}. {day}, 2026") - 300):
+            text.find(f"{month}. {day}, 2026") + 300
+        ].lower():
+
+            try:
+                dates.append(
+                    datetime(
+                        2026,
+                        datetime.strptime(month, "%b").month,
+                        int(day),
+                        8,
+                        30,
+                        tzinfo=ZoneInfo("America/New_York")
+                    )
+                )
+            except:
+                pass
+
+    dates = [
+        d for d in dates
+        if d.astimezone(ZoneInfo("Asia/Seoul")) > today
+    ]
+
+    return min(dates) if dates else None
+
+
+cpi = bls_date(
+    "https://www.bls.gov/schedule/news_release/cpi.htm",
+    "Consumer Price Index"
+)
+
+jobs = bls_date(
+    "https://www.bls.gov/schedule/news_release/empsit.htm",
+    "Employment Situation"
+)
+
+
+if cpi:
     events.append({
-        "name": "FOMC",
-        "date": f"{next_fomc.month:02d}/{next_fomc.day:02d} 03:00"
+        "name": "US CPI",
+        "date": kst_date(cpi)
     })
 
+
+if jobs:
     events.append({
-        "name": "Fed Press",
-        "date": f"{next_fomc.month:02d}/{next_fomc.day:02d} 03:30"
+        "name": "US Jobs",
+        "date": kst_date(jobs)
     })
 
 
 # =========================
-# JSON 저장
+# PCE
+# =========================
+
+bea_url = "https://www.bea.gov/news/schedule"
+
+bea_html = requests.get(
+    bea_url,
+    headers={"User-Agent": "Mozilla/5.0"}
+).text
+
+bea_text = re.sub(r"<[^>]+>", " ", bea_html)
+bea_text = re.sub(r"\s+", " ", bea_text)
+
+pce_dates = re.findall(
+    r"([A-Z][a-z]+)\s+(\d{1,2})\s+8:30 AM.*?"
+    r"Personal Income and Outlays",
+    bea_text
+)
+
+pce_list = []
+
+for month, day in pce_dates:
+
+    try:
+        d = datetime(
+            2026,
+            datetime.strptime(month, "%B").month,
+            int(day),
+            8,
+            30,
+            tzinfo=ZoneInfo("America/New_York")
+        )
+
+        if d.astimezone(ZoneInfo("Asia/Seoul")) > today:
+            pce_list.append(d)
+
+    except:
+        pass
+
+
+if pce_list:
+
+    pce = min(pce_list)
+
+    events.append({
+        "name": "PCE",
+        "date": kst_date(pce)
+    })
+
+
+# =========================
+# 날짜순 정렬
+# =========================
+
+events.sort(
+    key=lambda x: datetime.strptime(
+        x["date"], "%m/%d %H:%M"
+    )
+)
+
+
+# =========================
+# JSON
 # =========================
 
 output = {
