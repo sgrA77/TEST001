@@ -152,11 +152,19 @@ fed_html = requests.get(
 ).text
 
 
-# 2026 FOMC 일정만 가져오기
+# HTML 태그 제거
+fed_text = re.sub(r"<[^>]+>", " ", fed_html)
+
+# 공백 정리
+fed_text = re.sub(r"\s+", " ", fed_text)
+
+
+# 2026 FOMC 일정 찾기
 fomc_dates = re.findall(
-    r'(January|March|April|June|July|September|October|December)\s+(\d{1,2})-(\d{1,2})',
-    fed_html
+    r"(January|March|April|June|July|September|October|December)\s+(\d{1,2})-(\d{1,2})",
+    fed_text
 )
+
 
 month_map = {
     "January": 1,
@@ -173,6 +181,7 @@ month_map = {
 today = datetime.now().date()
 
 next_fomc = None
+
 
 for month, day1, day2 in fomc_dates:
 
