@@ -9,6 +9,28 @@ body {
     font-family: Inter, Arial, sans-serif;
 }
 
+#indicators {
+    display: flex;
+    gap: 25px;
+    border: 1px solid #ccc;
+    padding: 12px 15px;
+    margin-bottom: 30px;
+    width: fit-content;
+}
+
+.indicator {
+    min-width: 90px;
+}
+
+.indicator-name {
+    font-size: 13px;
+}
+
+.indicator-value {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 #stocks {
     display: flex;
     flex-wrap: wrap;
@@ -40,14 +62,28 @@ body {
 
 <h3>US market</h3>
 
+<div id="indicators"></div>
+
 <div id="stocks"></div>
 
 <script>
+
 fetch("data.json?t=" + Date.now())
 .then(r => r.json())
 .then(data => {
 
-    for (const [name, s] of Object.entries(data)) {
+    /* 지표 */
+    for (const [name, s] of Object.entries(data.indicators)) {
+
+        document.getElementById("indicators").innerHTML += `
+        <div class="indicator">
+            <div class="indicator-name">${name}</div>
+            <div class="indicator-value">${Number(s.value).toFixed(2)}</div>
+        </div>`;
+    }
+
+    /* 주식 */
+    for (const [name, s] of Object.entries(data.stocks)) {
 
         let p = Number(s.price);
 
@@ -87,8 +123,8 @@ function change(p, r) {
                 ${sign}${v.toFixed(2)}%
             </span>`;
 }
+
 </script>
 
 </body>
 </html>
-
