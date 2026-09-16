@@ -88,6 +88,25 @@ for name, stock in stocks.items():
         "previous_year": prices[max(year_dates)] if year_dates else None
     }
 
+# =========================
+# Forward Earnings Yield
+# =========================
+
+url = "https://historyofmarket.com/api/sp500/forward-pe.json"
+
+forward_data = requests.get(
+    url,
+    headers={"User-Agent": "Mozilla/5.0"}
+).json()
+
+forward_pe = forward_data["current"]["forward"]
+
+forward_ey = 100 / forward_pe
+
+indicator_result["S&P500 Forward Earnings Yield"] = {
+    "value": round(forward_ey, 2)
+}
+
 
 # =========================
 # 지표 데이터
@@ -112,25 +131,6 @@ for name, ticker in indicators.items():
         "value": indicator_prices[-1] if indicator_prices else None
     }
 
-
-# =========================
-# Forward Earnings Yield
-# =========================
-
-url = "https://historyofmarket.com/api/sp500/forward-pe.json"
-
-forward_data = requests.get(
-    url,
-    headers={"User-Agent": "Mozilla/5.0"}
-).json()
-
-forward_pe = forward_data["current"]["forward"]
-
-forward_ey = 100 / forward_pe
-
-indicator_result["S&P500 Forward Earnings Yield"] = {
-    "value": round(forward_ey, 2)
-}
 # =========================
 # JSON 저장
 # =========================
