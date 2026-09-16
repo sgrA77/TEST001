@@ -1,5 +1,6 @@
-import requests, json, re
+import requests, json
 from datetime import datetime, timezone, timedelta
+import re
 
 stocks = {
     "SPY": "SPY",
@@ -30,6 +31,7 @@ stocks = {
     "Bitcoin": "BTC-USD"
 }
 
+
 # =========================
 # Macro / Market Indicators
 # =========================
@@ -41,8 +43,10 @@ indicators = {
     "VIX": "^VIX"
 }
 
+
 result = {}
 indicator_result = {}
+
 
 # =========================
 # 기존 주식 / 자산 데이터
@@ -67,8 +71,10 @@ for name, stock in stocks.items():
     }
 
     today = max(prices)
+
     first = today.replace(day=1)
     last_month = first - timedelta(days=1)
+
     last_friday = today - timedelta(days=today.weekday() + 3)
 
     month_dates = [
@@ -89,6 +95,7 @@ for name, stock in stocks.items():
         "previous_year": prices[max(year_dates)] if year_dates else None
     }
 
+
 # =========================
 # Forward Earnings Yield
 # =========================
@@ -107,6 +114,7 @@ forward_ey = 100 / forward_pe
 indicator_result["S&P500 Forward Earnings Yield"] = {
     "value": round(forward_ey, 2)
 }
+
 
 # =========================
 # 지표 데이터
@@ -131,24 +139,26 @@ for name, ticker in indicators.items():
         "value": indicator_prices[-1] if indicator_prices else None
     }
 
+
 # =========================
-# FOMC / Fed Press
+# Fed FOMC 일정
 # =========================
 
-url = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+fed_url = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
 
 fed_html = requests.get(
-    url,
+    fed_url,
     headers={"User-Agent": "Mozilla/5.0"}
 ).text
 
-# 2026년 FOMC 일정에서 날짜 범위 추출
-matches = re.findall(
+
+# 2026 FOMC 일정만 가져오기
+fomc_dates = re.findall(
     r'(January|March|April|June|July|September|October|December)\s+(\d{1,2})-(\d{1,2})',
     fed_html
 )
 
-month_numbers = {
+month_map = {
     "January": 1,
     "March": 3,
     "April": 4,
@@ -159,32 +169,42 @@ month_numbers = {
     "December": 12
 }
 
-events = []
 
-today = datetime.now(timezone.utc).date()
+today = datetime.now().date()
 
-for month, start_day, end_day in matches:
+next_fomc = None
+
+for month, day1, day2 in fomc_dates:
 
     date = datetime(
         2026,
-        month_numbers[month],
-        int(end_day)
+        month_map[month],
+        int(day2)
     ).date()
 
-    # 가장 가까운 미래 FOMC 하나만 사용
-    if date >= today:
-
-        events.append({
-            "name": "FOMC",
-            "date": date.isoformat()
-        })
-
-        events.append({
-            "name": "Fed Press",
-            "date": date.isoformat()
-        })
-
+    if date > today:
+        next_fomc = date
         break
+
+
+# =========================
+# 이벤트
+# =========================
+
+events = []
+
+if next_fomc:
+
+    events.append({
+        "name": "FOMC",
+        "date": f"{next_fomc.month:02d}/{next_fomc.day:02d} 03:00"
+    })
+
+    events.append({
+        "name": "Fed Press",
+        "date": f"{next_fomc.month:02d}/{next_fomc.day:02d} 03:30"
+    })
+
 
 # =========================
 # JSON 저장
@@ -196,7 +216,9 @@ output = {
     "events": events
 }
 
+
 with open("data.json", "w") as f:
     json.dump(output, f)
+
 
 print(output)
