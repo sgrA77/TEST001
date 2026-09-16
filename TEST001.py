@@ -183,15 +183,19 @@ today = datetime.now().date()
 next_fomc = None
 
 
+# 미국 FOMC 마지막 날 → 한국시간으로는 다음날 새벽
 for month, day1, day2 in fomc_dates:
 
-    date = datetime(
-        2026,
-        month_map[month],
-        int(day2)
-    ).date()
+    date = (
+        datetime(
+            2026,
+            month_map[month],
+            int(day2)
+        ).date()
+        + timedelta(days=1)
+    )
 
-    if date > today:
+    if date >= today:
         next_fomc = date
         break
 
