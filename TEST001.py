@@ -35,9 +35,10 @@ stocks = {
 # =========================
 
 indicators = {
+    "US 10Y Yield": "^TNX",
     "US 3M Yield": "^IRX",
     "USD/JPY": "JPY=X",
-    "US 10Y Yield": "^TNX",
+
     "VIX": "^VIX"
 }
 
