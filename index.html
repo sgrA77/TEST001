@@ -34,6 +34,42 @@ body {
     font-weight: bold;
 }
 
+
+/* =========================
+   Market Events
+   ========================= */
+
+#events {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.event {
+    width: 130px;
+}
+
+.event-name {
+    font-size: 13px;
+}
+
+.event-date {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+.event-dday {
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+
+/* =========================
+   Stocks
+   ========================= */
+
 #stocks {
     display: flex;
     flex-wrap: wrap;
@@ -67,7 +103,14 @@ body {
 
 <div id="indicators"></div>
 
+
+<h3>MARKET EVENTS</h3>
+
+<div id="events"></div>
+
+
 <div id="stocks"></div>
+
 
 <script>
 
@@ -75,17 +118,64 @@ fetch("data.json?t=" + Date.now())
 .then(r => r.json())
 .then(data => {
 
-    /* 지표 */
+    /* =========================
+       지표
+       ========================= */
+
     for (const [name, s] of Object.entries(data.indicators)) {
 
         document.getElementById("indicators").innerHTML += `
         <div class="indicator">
             <div class="indicator-name">${name}</div>
-            <div class="indicator-value">${Number(s.value).toFixed(2)}</div>
+            <div class="indicator-value">
+                ${Number(s.value).toFixed(2)}
+            </div>
         </div>`;
     }
 
-    /* 주식 */
+
+    /* =========================
+       주요 일정
+       ========================= */
+
+    for (const e of data.events) {
+
+        let eventDate = new Date(e.date.replace(" ", "T"));
+
+        let today = new Date();
+
+        let dday = Math.ceil(
+            (eventDate - today) / (1000 * 60 * 60 * 24)
+        );
+
+        let ddayText =
+            dday > 0 ? `D-${dday}` :
+            dday === 0 ? "D-DAY" :
+            "완료";
+
+        document.getElementById("events").innerHTML += `
+        <div class="event">
+
+            <div class="event-name">
+                ${e.name}
+            </div>
+
+            <div class="event-date">
+                ${e.date}
+            </div>
+
+            <div class="event-dday">
+                ${ddayText}
+            </div>
+
+        </div>`;
+    }
+
+
+    /* =========================
+       주식
+       ========================= */
+
     for (const [name, s] of Object.entries(data.stocks)) {
 
         let p = Number(s.price);
@@ -108,6 +198,7 @@ fetch("data.json?t=" + Date.now())
         </div>`;
     }
 });
+
 
 function change(p, r) {
 
