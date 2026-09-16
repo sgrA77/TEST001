@@ -1,7 +1,9 @@
 import requests, json, re
 from datetime import datetime, timezone, timedelta
-from zoneinfo import ZoneInfo
 
+# =========================
+# Stocks
+# =========================
 
 stocks = {
     "SPY": "SPY",
@@ -25,10 +27,13 @@ stocks = {
 
     "Gold": "GC=F",
     "Crude Oil": "CL=F",
-
     "Bitcoin": "BTC-USD"
 }
 
+
+# =========================
+# Indicators
+# =========================
 
 indicators = {
     "US 10Y Yield": "^TNX",
@@ -43,7 +48,7 @@ indicator_result = {}
 
 
 # =========================
-# 주식 / 자산
+# Stock Data
 # =========================
 
 for name, stock in stocks.items():
@@ -73,7 +78,8 @@ for name, stock in stocks.items():
 
     month_dates = [
         d for d in prices
-        if d.year == last_month.year and d.month == last_month.month
+        if d.year == last_month.year
+        and d.month == last_month.month
     ]
 
     year_dates = [
@@ -91,7 +97,7 @@ for name, stock in stocks.items():
 
 
 # =========================
-# Forward Earnings Yield
+# S&P 500 Forward Earnings Yield
 # =========================
 
 url = "https://historyofmarket.com/api/sp500/forward-pe.json"
@@ -102,14 +108,15 @@ forward_data = requests.get(
 ).json()
 
 forward_pe = forward_data["current"]["forward"]
+forward_ey = 100 / forward_pe
 
 indicator_result["S&P500 Forward Earnings Yield"] = {
-    "value": round(100 / forward_pe, 2)
+    "value": round(forward_ey, 2)
 }
 
 
 # =========================
-# 지표
+# Yahoo Indicators
 # =========================
 
 for name, ticker in indicators.items():
@@ -122,7 +129,8 @@ for name, ticker in indicators.items():
     ).json()["chart"]["result"][0]
 
     prices = [
-        c for c in data["indicators"]["quote"][0]["close"]
+        c
+        for c in data["indicators"]["quote"][0]["close"]
         if c is not None
     ]
 
@@ -132,18 +140,13 @@ for name, ticker in indicators.items():
 
 
 # =========================
-# 이벤트
+# Events
 # =========================
 
-today = datetime.now(ZoneInfo("Asia/Seoul"))
 events = []
 
-
-# 미국시간 → 한국시간
-def kst_date(utc_time):
-    return utc_time.astimezone(
-        ZoneInfo("Asia/Seoul")
-    ).strftime("%m/%d %H:%M")
+KST = timezone(timedelta(hours=9))
+now = datetime.now(KST)
 
 
 # =========================
@@ -178,108 +181,81 @@ month_map = {
 
 for month, day1, day2 in fomc_dates:
 
-    us_date = datetime(
+    # 2026 일정만 사용
+    meeting_date = datetime(
         2026,
         month_map[month],
         int(day2),
         14,
         0,
-        tzinfo=ZoneInfo("America/New_York")
+        tzinfo=timezone(timedelta(hours=-4))
     )
 
-    if us_date.astimezone(ZoneInfo("Asia/Seoul")) >= today:
+    meeting_kst = meeting_date.astimezone(KST)
 
-        events += [
-            {
-                "name": "FOMC",
-                "date": kst_date(us_date)
-            },
-            {
-                "name": "Fed Press",
-                "date": kst_date(
-                    us_date + timedelta(minutes=30)
-                )
-            }
-        ]
+    press_kst = meeting_kst + timedelta(minutes=30)
+
+    if meeting_kst > now:
+
+        events.append({
+            "name": "FOMC",
+            "date": meeting_kst.strftime("%m/%d %H:%M")
+        })
+
+        events.append({
+            "name": "Fed Press",
+            "date": press_kst.strftime("%m/%d %H:%M")
+        })
 
         break
 
 
 # =========================
-# BLS 일정
-# CPI / US Jobs
+# BLS - Jobs / CPI
 # =========================
 
-def bls_date(url, keyword):
+bls_url = "https://www.bls.gov/schedule/news_release/bls.ics"
 
-    html = requests.get(
-        url,
-        headers={"User-Agent": "Mozilla/5.0"}
-    ).text
+bls_text = requests.get(
+    bls_url,
+    headers={"User-Agent": "Mozilla/5.0"}
+).text
 
-    text = re.sub(r"<[^>]+>", " ", html)
-    text = re.sub(r"\s+", " ", text)
-
-    pattern = (
-        r"([A-Z][a-z]+)\s+2026\s+"
-        r"([A-Z][a-z]{2})\.?\s+(\d{1,2}),\s+2026\s+"
-        r"08:30 AM"
-    )
-
-    dates = []
-
-    for ref_month, month, day in re.findall(pattern, text):
-
-        if keyword.lower() in text[
-            max(0, text.find(f"{month}. {day}, 2026") - 300):
-            text.find(f"{month}. {day}, 2026") + 300
-        ].lower():
-
-            try:
-                dates.append(
-                    datetime(
-                        2026,
-                        datetime.strptime(month, "%b").month,
-                        int(day),
-                        8,
-                        30,
-                        tzinfo=ZoneInfo("America/New_York")
-                    )
-                )
-            except:
-                pass
-
-    dates = [
-        d for d in dates
-        if d.astimezone(ZoneInfo("Asia/Seoul")) > today
-    ]
-
-    return min(dates) if dates else None
-
-
-cpi = bls_date(
-    "https://www.bls.gov/schedule/news_release/cpi.htm",
-    "Consumer Price Index"
+bls_events = re.findall(
+    r"DTSTART[^:]*:(\d{8}T\d{4}).*?"
+    r"SUMMARY:(.*?)\r?\n",
+    bls_text,
+    re.S
 )
 
-jobs = bls_date(
-    "https://www.bls.gov/schedule/news_release/empsit.htm",
-    "Employment Situation"
-)
+for event_name, keyword in [
+    ("Jobs", "Employment Situation"),
+    ("CPI", "Consumer Price Index")
+]:
 
+    for date_text, name in bls_events:
 
-if cpi:
-    events.append({
-        "name": "US CPI",
-        "date": kst_date(cpi)
-    })
+        if keyword not in name:
+            continue
 
+        # BLS 발표시간 = 미국 동부시간 08:30
+        dt = datetime.strptime(
+            date_text,
+            "%Y%m%dT%H%M"
+        ).replace(
+            tzinfo=timezone(timedelta(hours=-4))
+        )
 
-if jobs:
-    events.append({
-        "name": "US Jobs",
-        "date": kst_date(jobs)
-    })
+        kst = dt.astimezone(KST)
+
+        if kst > now:
+
+            events.append({
+                "name": event_name,
+                "date": kst.strftime("%m/%d %H:%M")
+            })
+
+            break
 
 
 # =========================
@@ -296,56 +272,70 @@ bea_html = requests.get(
 bea_text = re.sub(r"<[^>]+>", " ", bea_html)
 bea_text = re.sub(r"\s+", " ", bea_text)
 
-pce_dates = re.findall(
-    r"([A-Z][a-z]+)\s+(\d{1,2})\s+8:30 AM.*?"
-    r"Personal Income and Outlays",
-    bea_text
+pce_matches = re.findall(
+    r"([A-Z][a-z]+)\s+(\d{1,2}).{0,300}?Personal Income and Outlays",
+    bea_text,
+    re.S
 )
 
-pce_list = []
+month_map2 = {
+    "January": 1,
+    "February": 2,
+    "March": 3,
+    "April": 4,
+    "May": 5,
+    "June": 6,
+    "July": 7,
+    "August": 8,
+    "September": 9,
+    "October": 10,
+    "November": 11,
+    "December": 12
+}
 
-for month, day in pce_dates:
+for month, day in pce_matches:
 
-    try:
-        d = datetime(
-            2026,
-            datetime.strptime(month, "%B").month,
-            int(day),
-            8,
-            30,
-            tzinfo=ZoneInfo("America/New_York")
-        )
+    if month not in month_map2:
+        continue
 
-        if d.astimezone(ZoneInfo("Asia/Seoul")) > today:
-            pce_list.append(d)
-
-    except:
-        pass
-
-
-if pce_list:
-
-    pce = min(pce_list)
-
-    events.append({
-        "name": "PCE",
-        "date": kst_date(pce)
-    })
-
-
-# =========================
-# 날짜순 정렬
-# =========================
-
-events.sort(
-    key=lambda x: datetime.strptime(
-        x["date"], "%m/%d %H:%M"
+    dt = datetime(
+        2026,
+        month_map2[month],
+        int(day),
+        8,
+        30,
+        tzinfo=timezone(timedelta(hours=-4))
     )
-)
+
+    kst = dt.astimezone(KST)
+
+    if kst > now:
+
+        events.append({
+            "name": "PCE",
+            "date": kst.strftime("%m/%d %H:%M")
+        })
+
+        break
 
 
 # =========================
-# JSON
+# Sort Events
+# =========================
+
+def event_datetime(e):
+
+    return datetime.strptime(
+        f"2026/{e['date']}",
+        "%Y/%m/%d %H:%M"
+    )
+
+
+events.sort(key=event_datetime)
+
+
+# =========================
+# Save JSON
 # =========================
 
 output = {
@@ -354,9 +344,7 @@ output = {
     "events": events
 }
 
-
 with open("data.json", "w") as f:
     json.dump(output, f)
-
 
 print(output)
