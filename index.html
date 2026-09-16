@@ -115,17 +115,23 @@ fetch("data.json?t=" + Date.now())
 
     for (const e of data.events) {
 
-        let eventDate = new Date(
-            e.date.replace(" ", "T") + ":00+09:00"
+        const [md, time] = e.date.split(" ");
+        const [month, day] = md.split("/");
+        const [hour, minute] = time.split(":");
+
+        const year = new Date().getFullYear();
+
+        const eventDate = new Date(
+            `${year}-${month}-${day}T${hour}:${minute}:00+09:00`
         );
 
-        let now = new Date();
+        const now = new Date();
 
-        let hours = Math.ceil(
+        const hours = Math.ceil(
             (eventDate - now) / (1000 * 60 * 60)
         );
 
-        if (hours < 0) continue;
+        if (!Number.isFinite(hours) || hours <= 0) continue;
 
         document.getElementById("events").innerHTML += `
         <div class="event">
