@@ -1,4 +1,4 @@
-import requests, json
+import requests, json, re
 from datetime import datetime, timezone, timedelta
 
 stocks = {
@@ -38,7 +38,6 @@ indicators = {
     "US 10Y Yield": "^TNX",
     "US 3M Yield": "^IRX",
     "USD/JPY": "JPY=X",
-
     "VIX": "^VIX"
 }
 
@@ -50,7 +49,9 @@ indicator_result = {}
 # =========================
 
 for name, stock in stocks.items():
+
     url = f"https://query1.finance.yahoo.com/v8/finance/chart/{stock}?range=2y&interval=1d"
+
     data = requests.get(
         url,
         headers={"User-Agent": "Mozilla/5.0"}
@@ -107,7 +108,6 @@ indicator_result["S&P500 Forward Earnings Yield"] = {
     "value": round(forward_ey, 2)
 }
 
-
 # =========================
 # 지표 데이터
 # =========================
@@ -132,12 +132,68 @@ for name, ticker in indicators.items():
     }
 
 # =========================
+# FOMC / Fed Press
+# =========================
+
+url = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+
+fed_html = requests.get(
+    url,
+    headers={"User-Agent": "Mozilla/5.0"}
+).text
+
+# 2026년 FOMC 일정에서 날짜 범위 추출
+matches = re.findall(
+    r'(January|March|April|June|July|September|October|December)\s+(\d{1,2})-(\d{1,2})',
+    fed_html
+)
+
+month_numbers = {
+    "January": 1,
+    "March": 3,
+    "April": 4,
+    "June": 6,
+    "July": 7,
+    "September": 9,
+    "October": 10,
+    "December": 12
+}
+
+events = []
+
+today = datetime.now(timezone.utc).date()
+
+for month, start_day, end_day in matches:
+
+    date = datetime(
+        2026,
+        month_numbers[month],
+        int(end_day)
+    ).date()
+
+    # 가장 가까운 미래 FOMC 하나만 사용
+    if date >= today:
+
+        events.append({
+            "name": "FOMC",
+            "date": date.isoformat()
+        })
+
+        events.append({
+            "name": "Fed Press",
+            "date": date.isoformat()
+        })
+
+        break
+
+# =========================
 # JSON 저장
 # =========================
 
 output = {
     "stocks": result,
-    "indicators": indicator_result
+    "indicators": indicator_result,
+    "events": events
 }
 
 with open("data.json", "w") as f:
