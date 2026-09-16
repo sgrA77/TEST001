@@ -114,6 +114,26 @@ for name, ticker in indicators.items():
 
 
 # =========================
+# Forward Earnings Yield
+# =========================
+
+url = "https://historyofmarket.com/api/sp500/forward-pe.json"
+
+forward_data = requests.get(
+    url,
+    headers={"User-Agent": "Mozilla/5.0"}
+).json()
+
+forward_pe = forward_data[-1]["forward_pe"]
+
+forward_ey = 100 / forward_pe
+
+indicator_result["Forward Earnings Yield"] = {
+    "value": round(forward_ey, 2)
+}
+
+
+# =========================
 # JSON 저장
 # =========================
 
