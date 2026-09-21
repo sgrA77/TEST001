@@ -3,36 +3,54 @@ from datetime import datetime, timezone, timedelta
 
 # =========================================================
 # 종목/지표 설정
-# 여기 딕셔너리에 항목을 추가/삭제하면 대시보드에 바로 반영됩니다.
-# 형식: "표시 이름": "티커"
+#
+# 구조: 대분류(category) -> 테마(theme) -> 표시이름 -> 스펙
+# 스펙은 두 가지 형태 가능:
+#   "SPY"                                   (일반 종목)
+#   {"ticker": "SPXL", "leverage_of": "SPY"} (레버리지 종목 - 원종목 표기)
+#
+# 항목 추가/삭제는 아래 딕셔너리 안에서만 하면 됩니다.
+# 대분류나 테마를 새로 만들고 싶으면 새 key를 추가하면 자동 반영됩니다.
 # =========================================================
 
 STOCKS = {
     "US Stocks": {
-        "SPY": "SPY",
-        "SPXL": "SPXL",
-        "QLD": "QLD",
-        "NVDA": "NVDA",
-        "NVDL": "NVDL",
-        "PLTR": "PLTR",
-        "KORU": "KORU",
-        "AMD": "AMD",
-        "MU": "MU",
-        "MUU": "MUU",
-        "SNDK": "SNDK",
-        "SNXX": "SNXX",
-        "AMZN": "AMZN",
-        "GOOG": "GOOG",
-        "ORCL": "ORCL",
+        "Broad Market": {
+            "SPY": "SPY",
+            "SPXL": {"ticker": "SPXL", "leverage_of": "SPY"},
+            "QLD": {"ticker": "QLD", "leverage_of": "QQQ"},
+        },
+        "AI & Semiconductors": {
+            "NVDA": "NVDA",
+            "NVDL": {"ticker": "NVDL", "leverage_of": "NVDA"},
+            "AMD": "AMD",
+            "MU": "MU",
+            "MUU": {"ticker": "MUU", "leverage_of": "MU"},
+            "SNDK": "SNDK",
+            "SNXX": {"ticker": "SNXX", "leverage_of": "SNDK"},
+            "PLTR": "PLTR",
+        },
+        "Mega Cap / Cloud": {
+            "AMZN": "AMZN",
+            "GOOG": "GOOG",
+            "ORCL": "ORCL",
+        },
     },
     "KR Stocks": {
-        "Samsung": "005930.KS",
-        "SKHynix": "000660.KS",
+        "Large Cap Tech": {
+            "Samsung": "005930.KS",
+            "SKHynix": "000660.KS",
+        },
+        "Broad Market (Leveraged)": {
+            "KORU": "KORU",
+        },
     },
     "Commodities & Crypto": {
-        "Gold": "GC=F",
-        "Crude Oil": "CL=F",
-        "Bitcoin": "BTC-USD",
+        "Commodities & Crypto": {
+            "Gold": "GC=F",
+            "Crude Oil": "CL=F",
+            "Bitcoin": "BTC-USD",
+        },
     },
 }
 
@@ -50,8 +68,15 @@ INDICATORS = {
 
 
 # =========================================================
-# 유틸: 야후 파이낸스에서 시세 히스토리 가져오기
+# 유틸
 # =========================================================
+
+def normalize_spec(spec):
+    """문자열 스펙과 dict 스펙을 (ticker, leverage_of)로 통일"""
+    if isinstance(spec, dict):
+        return spec["ticker"], spec.get("leverage_of")
+    return spec, None
+
 
 def fetch_stock(ticker):
 
@@ -117,20 +142,31 @@ def fetch_indicator(ticker):
 
 
 # =========================================================
-# Stock Data (카테고리별로 수집)
+# Stock Data (대분류 -> 테마 -> 종목)
 # =========================================================
 
 stock_result = {}
 
-for category, tickers in STOCKS.items():
+for category, themes in STOCKS.items():
 
     stock_result[category] = {}
 
-    for name, ticker in tickers.items():
-        try:
-            stock_result[category][name] = fetch_stock(ticker)
-        except Exception as e:
-            print(f"[warn] {name} 시세 수집 실패: {e}")
+    for theme, tickers in themes.items():
+
+        stock_result[category][theme] = {}
+
+        for name, spec in tickers.items():
+
+            ticker, leverage_of = normalize_spec(spec)
+
+            try:
+                data = fetch_stock(ticker)
+                if leverage_of:
+                    data["leverage_of"] = leverage_of
+                stock_result[category][theme][name] = data
+
+            except Exception as e:
+                print(f"[warn] {name} 시세 수집 실패: {e}")
 
 
 # =========================================================
