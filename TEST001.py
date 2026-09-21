@@ -10,7 +10,6 @@ from datetime import datetime, timezone, timedelta
 #   {"ticker": "SPXL", "leverage_of": "SPY"} (레버리지 종목 - 원종목 표기)
 #
 # 항목 추가/삭제는 아래 딕셔너리 안에서만 하면 됩니다.
-# 대분류나 테마를 새로 만들고 싶으면 새 key를 추가하면 자동 반영됩니다.
 # =========================================================
 
 STOCKS = {
@@ -65,6 +64,10 @@ INDICATORS = {
         # S&P500 Forward Earnings Yield는 별도 API로 아래에서 추가됨
     },
 }
+
+# 트렌딩(많이 검색되는 종목) 설정
+TRENDING_REGION = "US"   # US, GB, DE, FR, IN, BR 등
+TRENDING_COUNT = 10      # 사이드바에 보여줄 개수 - 필요하면 이 숫자만 바꾸면 됨
 
 
 # =========================================================
@@ -141,6 +144,21 @@ def fetch_indicator(ticker):
     return {"value": prices[-1] if prices else None}
 
 
+def fetch_trending_symbols(region, count):
+    """Yahoo Finance 비공식 트렌딩 엔드포인트 - 지금 많이 검색되는 티커 목록"""
+
+    url = f"https://query1.finance.yahoo.com/v1/finance/trending/{region}"
+
+    data = requests.get(
+        url,
+        headers={"User-Agent": "Mozilla/5.0"}
+    ).json()
+
+    quotes = data["finance"]["result"][0]["quotes"]
+
+    return [q["symbol"] for q in quotes[:count]]
+
+
 # =========================================================
 # Stock Data (대분류 -> 테마 -> 종목)
 # =========================================================
@@ -167,6 +185,28 @@ for category, themes in STOCKS.items():
 
             except Exception as e:
                 print(f"[warn] {name} 시세 수집 실패: {e}")
+
+
+# =========================================================
+# Trending Data (순위 유지를 위해 리스트로 저장)
+# =========================================================
+
+trending_result = []
+
+try:
+    symbols = fetch_trending_symbols(TRENDING_REGION, TRENDING_COUNT)
+
+    for rank, symbol in enumerate(symbols, start=1):
+        try:
+            data = fetch_stock(symbol)
+            data["rank"] = rank
+            data["symbol"] = symbol
+            trending_result.append(data)
+        except Exception as e:
+            print(f"[warn] trending {symbol} 수집 실패: {e}")
+
+except Exception as e:
+    print(f"[warn] 트렌딩 목록 수집 실패 (Yahoo 비공식 엔드포인트 변경 가능성): {e}")
 
 
 # =========================================================
@@ -362,6 +402,7 @@ events.sort(key=event_datetime)
 output = {
     "stocks": stock_result,
     "indicators": indicator_result,
+    "trending": trending_result,
     "events": events,
 }
 
