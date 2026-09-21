@@ -12,10 +12,78 @@
 body {
     font-family: Inter, "Segoe UI", Arial, sans-serif;
     color: #1a1a1a;
-    background: #fafafa;
+    background: #f4f5f7;
     margin: 0;
-    padding: 24px 32px;
 }
+
+/* =========================================
+   상단 헤더바
+   ========================================= */
+
+.topbar {
+    background: #fff;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 14px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar-title {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.updated-at {
+    font-size: 12px;
+    color: #999;
+}
+
+/* =========================================
+   전체 레이아웃: 좌측 요약 사이드바 + 우측 종목 목록
+   ========================================= */
+
+.layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+    padding: 20px 32px;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 20px;
+}
+
+.panel {
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+.panel-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* =========================================
+   메인 영역 섹션 타이틀
+   ========================================= */
 
 h2.section-title {
     font-size: 15px;
@@ -23,13 +91,9 @@ h2.section-title {
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: #555;
-    margin: 28px 0 10px;
+    margin: 0 0 12px;
     padding-bottom: 6px;
     border-bottom: 2px solid #222;
-}
-
-h2.section-title:first-of-type {
-    margin-top: 0;
 }
 
 .theme-label {
@@ -39,24 +103,33 @@ h2.section-title:first-of-type {
     font-weight: 600;
 }
 
-/* 공통 카드 그리드 */
+.theme-label.category {
+    font-size: 13px;
+    color: #333;
+    margin-top: 22px;
+}
+
+.theme-label.category:first-child {
+    margin-top: 0;
+}
+
+/* =========================================
+   카드 (지표/종목 공용)
+   ========================================= */
 
 .grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 10px;
 }
 
 .card {
     background: #fff;
     border: 1px solid #e2e2e2;
     border-radius: 8px;
-    padding: 10px 14px;
-    min-width: 130px;
-    position: relative;
+    padding: 8px 12px;
+    min-width: 120px;
 }
-
-/* 레버리지 종목 카드는 좌측에 강조선 */
 
 .card.leveraged {
     border-left: 3px solid #e08a2c;
@@ -69,78 +142,195 @@ h2.section-title:first-of-type {
     margin-top: 2px;
 }
 
-/* 지표 카드 */
-
 .indicator-name {
-    font-size: 12px;
+    font-size: 11px;
     color: #666;
-    height: 32px;
-    line-height: 16px;
 }
 
 .indicator-value {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
-}
-
-/* 이벤트 카드 */
-
-.event-name {
-    font-size: 12px;
-    color: #666;
-}
-
-.event-date {
-    font-size: 13px;
-    margin-top: 4px;
-}
-
-.event-hours {
-    font-size: 12px;
     margin-top: 2px;
-    color: #888;
 }
-
-/* 종목 카드 */
 
 .ticker {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
 }
 
 .price {
-    font-size: 19px;
+    font-size: 17px;
     font-weight: 700;
-    margin: 4px 0;
+    margin: 3px 0;
 }
 
 .change {
-    font-size: 12px;
+    font-size: 11px;
     color: #666;
 }
 
-.updated-at {
+/* =========================================
+   사이드바 - 이벤트 리스트 (컴팩트)
+   ========================================= */
+
+.event-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f0;
     font-size: 12px;
-    color: #999;
-    margin-top: 24px;
+}
+
+.event-row:last-child {
+    border-bottom: none;
+}
+
+.event-row .event-name {
+    font-weight: 600;
+    color: #333;
+}
+
+.event-row .event-date {
+    color: #888;
+}
+
+.event-row .event-hours {
+    color: #e08a2c;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+/* =========================================
+   사이드바 - 트렌딩 랭킹 리스트
+   ========================================= */
+
+.trend-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 12px;
+}
+
+.trend-row:last-child {
+    border-bottom: none;
+}
+
+.trend-rank {
+    width: 18px;
+    font-weight: 700;
+    color: #aaa;
+    font-size: 11px;
+}
+
+.trend-symbol {
+    font-weight: 700;
+    width: 56px;
+}
+
+.trend-price {
+    width: 64px;
+    text-align: right;
+}
+
+.trend-change {
+    text-align: right;
+    flex: 1;
+}
+
+/* =========================================
+   메인 영역 - 섹션 헤더 + 기간 토글
+   ========================================= */
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #222;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+}
+
+.section-header h2.section-title {
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+}
+
+.range-toggle {
+    display: flex;
+    gap: 4px;
+}
+
+.range-toggle button {
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #666;
+    cursor: pointer;
+}
+
+.range-toggle button.active {
+    background: #222;
+    color: #fff;
+    border-color: #222;
 }
 </style>
 </head>
 
 <body>
 
-<h2 class="section-title">Indicators</h2>
-<div id="indicators"></div>
+<div class="topbar">
+    <div class="topbar-title">Market Dashboard</div>
+    <div class="updated-at" id="updated-at"></div>
+</div>
 
-<h2 class="section-title">Market Events</h2>
-<div id="events" class="grid"></div>
+<div class="layout">
 
-<h2 class="section-title">Stocks</h2>
-<div id="stocks"></div>
+    <!-- 좌측: 한눈에 보는 요약 정보 -->
+    <div class="sidebar">
 
-<div class="updated-at" id="updated-at"></div>
+        <div class="panel">
+            <div class="panel-title">Indicators</div>
+            <div id="indicators"></div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-title">🔥 Trending Now</div>
+            <div id="trending"></div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-title">Market Events</div>
+            <div id="events"></div>
+        </div>
+
+    </div>
+
+    <!-- 우측: 종목 목록 -->
+    <div class="main">
+        <div class="section-header">
+            <h2 class="section-title">Stocks</h2>
+            <div class="range-toggle" id="range-toggle">
+                <button data-range="day" class="active">1일</button>
+                <button data-range="week">1주</button>
+            </div>
+        </div>
+        <div id="stocks"></div>
+    </div>
+
+</div>
 
 <script>
+
+let currentRange = "day";   // "day" | "week" - Stocks 카드의 등락 기준
+let latestStocks = null;
 
 fetch("data.json?t=" + Date.now())
 .then(r => r.json())
@@ -149,14 +339,34 @@ fetch("data.json?t=" + Date.now())
     document.getElementById("updated-at").textContent =
         "Last updated: " + new Date().toLocaleString();
 
+    latestStocks = data.stocks;
+
     renderIndicators(data.indicators);
+    renderTrending(data.trending);
     renderEvents(data.events);
-    renderStocks(data.stocks);
+    renderStocks(latestStocks, currentRange);
+});
+
+
+document.getElementById("range-toggle").addEventListener("click", (e) => {
+
+    const btn = e.target.closest("button[data-range]");
+    if (!btn) return;
+
+    currentRange = btn.dataset.range;
+
+    document
+        .querySelectorAll("#range-toggle button")
+        .forEach(b => b.classList.toggle("active", b === btn));
+
+    if (latestStocks) {
+        renderStocks(latestStocks, currentRange);
+    }
 });
 
 
 /* =========================================
-   지표: 카테고리별 섹션
+   지표: 카테고리별 섹션 (사이드바, 컴팩트)
    ========================================= */
 
 function renderIndicators(indicatorsByCategory) {
@@ -165,7 +375,7 @@ function renderIndicators(indicatorsByCategory) {
 
     for (const [category, items] of Object.entries(indicatorsByCategory)) {
 
-        appendThemeLabel(root, category, category);
+        appendThemeLabel(root, category);
 
         const grid = document.createElement("div");
         grid.className = "grid";
@@ -189,7 +399,35 @@ function renderIndicators(indicatorsByCategory) {
 
 
 /* =========================================
-   주요 일정
+   트렌딩: 랭킹 리스트 (사이드바, Top N)
+   ========================================= */
+
+function renderTrending(trending) {
+
+    const root = document.getElementById("trending");
+
+    if (!trending || trending.length === 0) {
+        root.innerHTML = `<div style="font-size:12px;color:#999;">데이터 없음</div>`;
+        return;
+    }
+
+    for (const s of trending) {
+
+        const p = Number(s.price);
+
+        root.innerHTML += `
+        <div class="trend-row">
+            <div class="trend-rank">${s.rank}</div>
+            <div class="trend-symbol">${s.symbol}</div>
+            <div class="trend-price">${p.toFixed(2)}</div>
+            <div class="trend-change">${change(p, s.previous_day)}</div>
+        </div>`;
+    }
+}
+
+
+/* =========================================
+   주요 일정 (사이드바, 컴팩트 리스트)
    ========================================= */
 
 function renderEvents(events) {
@@ -217,32 +455,32 @@ function renderEvents(events) {
         if (!Number.isFinite(hours) || hours <= 0) continue;
 
         root.innerHTML += `
-        <div class="card">
-            <div class="event-name">${e.name}</div>
-            <div class="event-date">${e.date}</div>
-            <div class="event-hours">${hours}h</div>
+        <div class="event-row">
+            <div>
+                <span class="event-name">${e.name}</span>
+                <span class="event-date">${e.date}</span>
+            </div>
+            <span class="event-hours">${hours}h</span>
         </div>`;
     }
 }
 
 
 /* =========================================
-   종목: 대분류(category) -> 테마(theme) -> 카드
-   테마 이름이 대분류와 같으면 라벨을 중복 표시하지 않음
+   종목: 대분류(category) -> 테마(theme) -> 카드 (메인 영역)
    ========================================= */
 
-function renderStocks(stocksByCategory) {
+function renderStocks(stocksByCategory, range) {
 
     const root = document.getElementById("stocks");
+    root.innerHTML = "";   // 토글 전환 시 기존 내용 초기화 후 다시 그림
+
+    const refKey   = range === "week" ? "previous_week" : "previous_day";
+    const refLabel = range === "week" ? "1주" : "1일";
 
     for (const [category, themes] of Object.entries(stocksByCategory)) {
 
-        const categoryLabel = document.createElement("div");
-        categoryLabel.className = "theme-label";
-        categoryLabel.style.fontSize = "13px";
-        categoryLabel.style.color = "#333";
-        categoryLabel.textContent = category;
-        root.appendChild(categoryLabel);
+        appendThemeLabel(root, category, "category");
 
         for (const [theme, items] of Object.entries(themes)) {
 
@@ -263,9 +501,7 @@ function renderStocks(stocksByCategory) {
                     <div class="ticker">${name}</div>
                     <div class="price">${p.toFixed(2)}</div>
                     <div class="change">
-                        1M ${change(p, s.previous_month)}
-                        |
-                        1Y ${change(p, s.previous_year)}
+                        ${refLabel} ${change(p, s[refKey])}
                     </div>
                     ${isLev ? `<div class="lev-tag">Lv. of ${s.leverage_of}</div>` : ""}
                 </div>`;
@@ -277,9 +513,9 @@ function renderStocks(stocksByCategory) {
 }
 
 
-function appendThemeLabel(root, text) {
+function appendThemeLabel(root, text, extraClass) {
     const label = document.createElement("div");
-    label.className = "theme-label";
+    label.className = "theme-label" + (extraClass ? " " + extraClass : "");
     label.textContent = text;
     root.appendChild(label);
 }
