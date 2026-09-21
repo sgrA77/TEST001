@@ -5,91 +5,130 @@
 <title>Market Dashboard</title>
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Inter, Arial, sans-serif;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    color: #1a1a1a;
+    background: #fafafa;
+    margin: 0;
+    padding: 24px 32px;
 }
 
-#indicators,
-#events {
+h2.section-title {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #555;
+    margin: 28px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #222;
+}
+
+h2.section-title:first-of-type {
+    margin-top: 0;
+}
+
+.category-block {
+    margin-bottom: 8px;
+}
+
+.category-label {
+    font-size: 12px;
+    color: #888;
+    margin: 14px 0 6px;
+    font-weight: 600;
+}
+
+/* 공통 카드 그리드 */
+
+.grid {
     display: flex;
-    gap: 25px;
-    border: 1px solid #ccc;
-    padding: 12px 15px;
-    margin-bottom: 30px;
-    width: fit-content;
+    flex-wrap: wrap;
+    gap: 14px;
 }
 
-.indicator,
-.event {
-    width: 130px;
-    text-align: center;
+.card {
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    padding: 10px 14px;
+    min-width: 130px;
 }
 
-.indicator-name,
-.event-name {
+/* 지표 카드 */
+
+.indicator-name {
+    font-size: 12px;
+    color: #666;
     height: 32px;
-    font-size: 13px;
     line-height: 16px;
 }
 
-.indicator-value,
-.event-time {
+.indicator-value {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 700;
+}
+
+/* 이벤트 카드 */
+
+.event-name {
+    font-size: 12px;
+    color: #666;
 }
 
 .event-date {
     font-size: 13px;
-    margin-top: 3px;
+    margin-top: 4px;
 }
 
 .event-hours {
     font-size: 12px;
-    margin-top: 3px;
+    margin-top: 2px;
+    color: #888;
 }
 
-
-/* Stocks */
-
-#stocks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-}
-
-.stock {
-    min-width: 150px;
-}
+/* 종목 카드 */
 
 .ticker {
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .price {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 3px 0;
+    font-size: 19px;
+    font-weight: 700;
+    margin: 4px 0;
 }
 
 .change {
-    font-size: 13px;
+    font-size: 12px;
+    color: #666;
+}
+
+.updated-at {
+    font-size: 12px;
+    color: #999;
+    margin-top: 24px;
 }
 </style>
 </head>
 
 <body>
 
-<h3>US market</h3>
-
+<h2 class="section-title">Indicators</h2>
 <div id="indicators"></div>
 
-<h3>MARKET EVENTS</h3>
+<h2 class="section-title">Market Events</h2>
+<div id="events" class="grid"></div>
 
-<div id="events"></div>
-
+<h2 class="section-title">Stocks</h2>
 <div id="stocks"></div>
 
+<div class="updated-at" id="updated-at"></div>
 
 <script>
 
@@ -97,23 +136,60 @@ fetch("data.json?t=" + Date.now())
 .then(r => r.json())
 .then(data => {
 
-    /* 지표 */
+    document.getElementById("updated-at").textContent =
+        "Last updated: " + new Date().toLocaleString();
 
-    for (const [name, s] of Object.entries(data.indicators)) {
+    renderIndicators(data.indicators);
+    renderEvents(data.events);
+    renderStocks(data.stocks);
+});
 
-        document.getElementById("indicators").innerHTML += `
-        <div class="indicator">
-            <div class="indicator-name">${name}</div>
-            <div class="indicator-value">
-                ${Number(s.value).toFixed(2)}
-            </div>
-        </div>`;
+
+/* =========================================
+   지표: 카테고리별 섹션
+   ========================================= */
+
+function renderIndicators(indicatorsByCategory) {
+
+    const root = document.getElementById("indicators");
+
+    for (const [category, items] of Object.entries(indicatorsByCategory)) {
+
+        const label = document.createElement("div");
+        label.className = "category-label";
+        label.textContent = category;
+        root.appendChild(label);
+
+        const grid = document.createElement("div");
+        grid.className = "grid";
+
+        for (const [name, s] of Object.entries(items)) {
+
+            if (s.value == null) continue;
+
+            grid.innerHTML += `
+            <div class="card">
+                <div class="indicator-name">${name}</div>
+                <div class="indicator-value">
+                    ${Number(s.value).toFixed(2)}
+                </div>
+            </div>`;
+        }
+
+        root.appendChild(grid);
     }
+}
 
 
-    /* 주요 일정 */
+/* =========================================
+   주요 일정
+   ========================================= */
 
-    for (const e of data.events) {
+function renderEvents(events) {
+
+    const root = document.getElementById("events");
+
+    for (const e of events) {
 
         const [md, time] = e.date.split(" ");
         const [month, day] = md.split("/");
@@ -133,63 +209,67 @@ fetch("data.json?t=" + Date.now())
 
         if (!Number.isFinite(hours) || hours <= 0) continue;
 
-        document.getElementById("events").innerHTML += `
-        <div class="event">
-
-            <div class="event-name">
-                ${e.name}
-            </div>
-
-            <div class="event-date">
-                ${e.date}
-            </div>
-
-            <div class="event-hours">
-                ${hours}h
-            </div>
-
+        root.innerHTML += `
+        <div class="card">
+            <div class="event-name">${e.name}</div>
+            <div class="event-date">${e.date}</div>
+            <div class="event-hours">${hours}h</div>
         </div>`;
     }
+}
 
 
-    /* 주식 */
+/* =========================================
+   종목: 카테고리별 섹션
+   ========================================= */
 
-    for (const [name, s] of Object.entries(data.stocks)) {
+function renderStocks(stocksByCategory) {
 
-        let p = Number(s.price);
+    const root = document.getElementById("stocks");
 
-        document.getElementById("stocks").innerHTML += `
-        <div class="stock">
+    for (const [category, items] of Object.entries(stocksByCategory)) {
 
-            <div class="ticker">${name}</div>
+        const label = document.createElement("div");
+        label.className = "category-label";
+        label.textContent = category;
+        root.appendChild(label);
 
-            <div class="price">
-                ${p.toFixed(2)}
-            </div>
+        const grid = document.createElement("div");
+        grid.className = "grid";
 
-            <div class="change">
-                1M ${change(p, s.previous_month)}
-                |
-                1Y ${change(p, s.previous_year)}
-            </div>
+        for (const [name, s] of Object.entries(items)) {
 
-        </div>`;
+            const p = Number(s.price);
+
+            grid.innerHTML += `
+            <div class="card">
+                <div class="ticker">${name}</div>
+                <div class="price">${p.toFixed(2)}</div>
+                <div class="change">
+                    1M ${change(p, s.previous_month)}
+                    |
+                    1Y ${change(p, s.previous_year)}
+                </div>
+            </div>`;
+        }
+
+        root.appendChild(grid);
     }
-});
+}
 
 
 function change(p, r) {
 
     if (r == null) return "-";
 
-    let v = (p - Number(r)) / Number(r) * 100;
+    const v = (p - Number(r)) / Number(r) * 100;
 
-    let color =
-        v > 0 ? "red" :
-        v < 0 ? "blue" :
-        "black";
+    const color =
+        v > 0 ? "#c0392b" :
+        v < 0 ? "#2455a4" :
+        "#333";
 
-    let sign = v > 0 ? "+" : "";
+    const sign = v > 0 ? "+" : "";
 
     return `<span style="color:${color}">
                 ${sign}${v.toFixed(2)}%
