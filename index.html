@@ -32,11 +32,7 @@ h2.section-title:first-of-type {
     margin-top: 0;
 }
 
-.category-block {
-    margin-bottom: 8px;
-}
-
-.category-label {
+.theme-label {
     font-size: 12px;
     color: #888;
     margin: 14px 0 6px;
@@ -57,6 +53,20 @@ h2.section-title:first-of-type {
     border-radius: 8px;
     padding: 10px 14px;
     min-width: 130px;
+    position: relative;
+}
+
+/* 레버리지 종목 카드는 좌측에 강조선 */
+
+.card.leveraged {
+    border-left: 3px solid #e08a2c;
+}
+
+.lev-tag {
+    font-size: 10px;
+    color: #e08a2c;
+    font-weight: 600;
+    margin-top: 2px;
 }
 
 /* 지표 카드 */
@@ -155,10 +165,7 @@ function renderIndicators(indicatorsByCategory) {
 
     for (const [category, items] of Object.entries(indicatorsByCategory)) {
 
-        const label = document.createElement("div");
-        label.className = "category-label";
-        label.textContent = category;
-        root.appendChild(label);
+        appendThemeLabel(root, category, category);
 
         const grid = document.createElement("div");
         grid.className = "grid";
@@ -220,41 +227,61 @@ function renderEvents(events) {
 
 
 /* =========================================
-   종목: 카테고리별 섹션
+   종목: 대분류(category) -> 테마(theme) -> 카드
+   테마 이름이 대분류와 같으면 라벨을 중복 표시하지 않음
    ========================================= */
 
 function renderStocks(stocksByCategory) {
 
     const root = document.getElementById("stocks");
 
-    for (const [category, items] of Object.entries(stocksByCategory)) {
+    for (const [category, themes] of Object.entries(stocksByCategory)) {
 
-        const label = document.createElement("div");
-        label.className = "category-label";
-        label.textContent = category;
-        root.appendChild(label);
+        const categoryLabel = document.createElement("div");
+        categoryLabel.className = "theme-label";
+        categoryLabel.style.fontSize = "13px";
+        categoryLabel.style.color = "#333";
+        categoryLabel.textContent = category;
+        root.appendChild(categoryLabel);
 
-        const grid = document.createElement("div");
-        grid.className = "grid";
+        for (const [theme, items] of Object.entries(themes)) {
 
-        for (const [name, s] of Object.entries(items)) {
+            if (theme !== category) {
+                appendThemeLabel(root, theme);
+            }
 
-            const p = Number(s.price);
+            const grid = document.createElement("div");
+            grid.className = "grid";
 
-            grid.innerHTML += `
-            <div class="card">
-                <div class="ticker">${name}</div>
-                <div class="price">${p.toFixed(2)}</div>
-                <div class="change">
-                    1M ${change(p, s.previous_month)}
-                    |
-                    1Y ${change(p, s.previous_year)}
-                </div>
-            </div>`;
+            for (const [name, s] of Object.entries(items)) {
+
+                const p = Number(s.price);
+                const isLev = !!s.leverage_of;
+
+                grid.innerHTML += `
+                <div class="card ${isLev ? "leveraged" : ""}">
+                    <div class="ticker">${name}</div>
+                    <div class="price">${p.toFixed(2)}</div>
+                    <div class="change">
+                        1M ${change(p, s.previous_month)}
+                        |
+                        1Y ${change(p, s.previous_year)}
+                    </div>
+                    ${isLev ? `<div class="lev-tag">Lv. of ${s.leverage_of}</div>` : ""}
+                </div>`;
+            }
+
+            root.appendChild(grid);
         }
-
-        root.appendChild(grid);
     }
+}
+
+
+function appendThemeLabel(root, text) {
+    const label = document.createElement("div");
+    label.className = "theme-label";
+    label.textContent = text;
+    root.appendChild(label);
 }
 
 
