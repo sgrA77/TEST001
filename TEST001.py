@@ -1,15 +1,11 @@
 import requests, json, re
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone, timedelta, date
 
 # =========================================================
 # 종목/지표 설정
 #
 # 구조: 대분류(category) -> 테마(theme) -> 표시이름 -> 스펙
-# 스펙은 두 가지 형태 가능:
-#   "SPY"                                   (일반 종목)
-#   {"ticker": "SPXL", "leverage_of": "SPY"} (레버리지 종목 - 원종목 표기)
-#
-# 항목 추가/삭제는 아래 딕셔너리 안에서만 하면 됩니다.
+# 스펙: "SPY" (일반) 또는 {"ticker": "SPXL", "leverage_of": "SPY"} (레버리지)
 # =========================================================
 
 STOCKS = {
@@ -51,6 +47,22 @@ STOCKS = {
             "Bitcoin": "BTC-USD",
         },
     },
+
+    # ---- 신규: 미국 시총 상위 10개 (수동 관리 - 순위는 주기적으로 바뀌므로 필요시 업데이트) ----
+    "US Top 10 (Market Cap)": {
+        "US Top 10 (Market Cap)": {
+            "NVDA": "NVDA",
+            "AAPL": "AAPL",
+            "GOOGL": "GOOGL",
+            "MSFT": "MSFT",
+            "AMZN": "AMZN",
+            "AVGO": "AVGO",
+            "META": "META",
+            "TSLA": "TSLA",
+            "BRK-B": "BRK-B",
+            "LLY": "LLY",
+        },
+    },
 }
 
 INDICATORS = {
@@ -66,8 +78,82 @@ INDICATORS = {
 }
 
 # 트렌딩(많이 검색되는 종목) 설정
-TRENDING_REGION = "US"   # US, GB, DE, FR, IN, BR 등
-TRENDING_COUNT = 10      # 사이드바에 보여줄 개수 - 필요하면 이 숫자만 바꾸면 됨
+TRENDING_REGION = "US"
+TRENDING_COUNT = 10
+
+# =========================================================
+# AI 트렌드 키워드 (수동 큐레이션 - 설명/관련종목은 직접 수정)
+# 가격/시총/등락은 스크립트가 매번 자동으로 갱신함
+# =========================================================
+
+AI_TRENDS = {
+    "AI 데이터센터 / CapEx": {
+        "description": "빅테크(하이퍼스케일러)의 AI 데이터센터 투자가 계속 확대되는 흐름",
+        "tickers": ["NVDA", "MSFT", "AMZN", "GOOGL", "ORCL"],
+    },
+    "AI 전력 / 인프라": {
+        "description": "AI 데이터센터의 전력 수요 급증으로 전력·변압기·냉각 설비가 병목으로 부각",
+        "tickers": ["GEV", "ETN", "VRT", "CEG", "VST"],
+    },
+    "AI 추론 (Inference)": {
+        "description": "학습(training) 중심에서 실제 서비스 추론 수요로 투자 축이 이동",
+        "tickers": ["NVDA", "AVGO", "EQIX", "MSFT", "AMZN"],
+    },
+    "커스텀 AI 칩 / ASIC": {
+        "description": "하이퍼스케일러들이 자체 AI 칩을 개발하며 GPU 외 AI 반도체 수요 확대",
+        "tickers": ["AVGO", "NVDA", "AMD"],
+    },
+    "AI 네트워킹 / 인터커넥트": {
+        "description": "AI 서버간 데이터 이동 증가로 고속 네트워크/광통신 중요도 상승",
+        "tickers": ["AVGO", "ANET", "NVDA"],
+    },
+    "HBM / AI 메모리": {
+        "description": "AI 연산 증가에 따른 고대역폭 메모리(HBM) 수요 지속",
+        "tickers": ["MU"],
+    },
+    "엔터프라이즈 / 에이전틱 AI": {
+        "description": "기업 실무에 AI를 실제로 배치하는 단계로 이동",
+        "tickers": ["MSFT", "AMZN", "GOOGL", "META", "PLTR"],
+    },
+    "AI 인프라 파이낸싱": {
+        "description": "데이터센터 건설 자금조달(회사채·IPO 등) 자체가 시장 이슈로 부각",
+        "tickers": ["CRWV"],
+    },
+}
+
+# =========================================================
+# AI 주요 이벤트 (수동 관리 - 공식 자동 캘린더가 없어 직접 갱신 필요)
+# date가 없고 ongoing=True인 항목은 항상 노출됨
+# =========================================================
+
+AI_EVENTS = [
+    {
+        "name": "Accelevation IPO",
+        "date": "2026-09-28",
+        "note": "AI 데이터센터용 전력분배/냉각 인프라 기업, Nasdaq 상장 예정 (시기 유동적)",
+        "related": ["VRT", "ETN", "GEV"],
+    },
+    {
+        "name": "Anthropic IPO (예상)",
+        "date": "2026-10-15",
+        "note": "AI 모델 기업 IPO 준비 중이라는 보도 - 확정 일정 아님",
+        "related": ["AMZN", "GOOGL", "MSFT"],
+    },
+    {
+        "name": "OpenAI IPO 보류",
+        "date": None,
+        "note": "2026년 중에는 IPO를 진행하지 않겠다고 발표",
+        "related": ["MSFT"],
+        "ongoing": True,
+    },
+    {
+        "name": "AI 데이터센터 CapEx 확대",
+        "date": None,
+        "note": "빅테크의 데이터센터/전력/네트워크 투자 확대가 계속 진행 중",
+        "related": ["NVDA", "AVGO", "VRT", "GEV", "ETN", "CEG"],
+        "ongoing": True,
+    },
+]
 
 
 # =========================================================
@@ -81,7 +167,7 @@ def normalize_spec(spec):
     return spec, None
 
 
-def fetch_stock(ticker):
+def _fetch_stock_raw(ticker):
 
     url = f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker}?range=2y&interval=1d"
 
@@ -124,6 +210,39 @@ def fetch_stock(ticker):
         "previous_month": prices[max(month_dates)] if month_dates else None,
         "previous_year": prices[max(year_dates)] if year_dates else None,
     }
+
+
+# 같은 티커가 여러 섹션(종목/트렌딩/AI 트렌드)에 중복 등장해도
+# API 요청은 한 번만 나가도록 캐싱
+_STOCK_CACHE = {}
+
+def fetch_stock(ticker):
+
+    if ticker in _STOCK_CACHE:
+        return dict(_STOCK_CACHE[ticker])
+
+    data = _fetch_stock_raw(ticker)
+    _STOCK_CACHE[ticker] = data
+    return dict(data)
+
+
+def fetch_market_cap(ticker):
+    """대략적인 시가총액 (순위 계산은 무료 API로는 불가능해서 값만 제공)"""
+
+    url = (
+        f"https://query1.finance.yahoo.com/v10/finance/quoteSummary/{ticker}"
+        f"?modules=price"
+    )
+
+    data = requests.get(
+        url,
+        headers={"User-Agent": "Mozilla/5.0"}
+    ).json()
+
+    price_module = data["quoteSummary"]["result"][0]["price"]
+    market_cap = price_module.get("marketCap", {}).get("raw")
+
+    return market_cap
 
 
 def fetch_indicator(ticker):
@@ -210,6 +329,38 @@ except Exception as e:
 
 
 # =========================================================
+# AI Trends Data (키워드 -> 설명 + 관련 종목 시세/시총)
+# =========================================================
+
+ai_trends_result = {}
+
+for keyword, info in AI_TRENDS.items():
+
+    related_result = []
+
+    for ticker in info["tickers"]:
+        try:
+            data = fetch_stock(ticker)
+            data["symbol"] = ticker
+
+            try:
+                data["market_cap"] = fetch_market_cap(ticker)
+            except Exception as e:
+                data["market_cap"] = None
+                print(f"[warn] {ticker} 시가총액 수집 실패: {e}")
+
+            related_result.append(data)
+
+        except Exception as e:
+            print(f"[warn] AI 트렌드 관련종목 {ticker} 수집 실패: {e}")
+
+    ai_trends_result[keyword] = {
+        "description": info["description"],
+        "tickers": related_result,
+    }
+
+
+# =========================================================
 # Indicator Data (카테고리별로 수집)
 # =========================================================
 
@@ -249,7 +400,7 @@ except Exception as e:
 
 
 # =========================================================
-# Events
+# Macro Events (FOMC / BLS / PCE)
 # =========================================================
 
 events = []
@@ -386,13 +537,33 @@ except Exception as e:
     print(f"[warn] PCE 일정 수집 실패: {e}")
 
 
-# ---- Sort Events ----
-
 def event_datetime(e):
     return datetime.strptime(f"2026/{e['date']}", "%Y/%m/%d %H:%M")
 
 
 events.sort(key=event_datetime)
+
+
+# =========================================================
+# AI Events (수동 관리 리스트 - 지난 날짜/ongoing 여부로 필터링)
+# =========================================================
+
+ai_events_result = []
+today = date.today()
+
+for e in AI_EVENTS:
+
+    if e.get("ongoing"):
+        ai_events_result.append(e)
+        continue
+
+    if e.get("date"):
+        try:
+            event_date = datetime.strptime(e["date"], "%Y-%m-%d").date()
+            if event_date >= today:
+                ai_events_result.append(e)
+        except Exception as ex:
+            print(f"[warn] AI 이벤트 날짜 파싱 실패 ({e.get('name')}): {ex}")
 
 
 # =========================================================
@@ -403,7 +574,9 @@ output = {
     "stocks": stock_result,
     "indicators": indicator_result,
     "trending": trending_result,
+    "ai_trends": ai_trends_result,
     "events": events,
+    "ai_events": ai_events_result,
 }
 
 with open("data.json", "w") as f:
