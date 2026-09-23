@@ -145,6 +145,7 @@ h2.section-title {
 
 .change-badge {
     display: inline-block;
+    margin-right: 3px;
     font-size: 11px;
     font-weight: 700;
     padding: 2px 6px;
@@ -251,12 +252,7 @@ h2.section-title {
         <div>
             <div class="section-header">
                 <h2 class="section-title">Stocks</h2>
-                <div class="range-toggle" id="range-toggle">
-                    <button data-range="day" class="active">1일</button>
-                    <button data-range="week">1주</button>
-                    <button data-range="month">1개월</button>
-                    <button data-range="year">1년</button>
-                </div>
+                <div style="font-size:11px;color:#999;">1D · 1M · 1Y</div>
             </div>
             <div id="stocks"></div>
         </div>
@@ -453,7 +449,11 @@ function renderStocks(stocksByCategory, range) {
                 <div class="card ${isLev ? "leveraged" : ""}">
                     <div class="ticker">${name}</div>
                     <div class="price">${p.toFixed(2)}</div>
-                    <div>${refLabel} ${changeBadge(p, s[refKey])}</div>
+                    <div>
+                        ${changeBadge(p, s.previous_day, "1D")}
+                        ${changeBadge(p, s.previous_month, "1M")}
+                        ${changeBadge(p, s.previous_year, "1Y")}
+                    </div>
                     ${isLev ? `<div class="lev-tag">Lv. of ${s.leverage_of}</div>` : ""}
                 </div>`;
             }
@@ -486,6 +486,7 @@ function renderAiTrends(aiTrends) {
                 <span>${p.toFixed(2)}</span>
                 ${changeBadge(p, t.previous_month, "1M")}
                 ${changeBadge(p, t.previous_year, "1Y")}
+                ${t.market_cap_rank ? `<span class="cap">QQQ #${t.market_cap_rank}</span>` : ""}
                 ${capLabel ? `<span class="cap">${capLabel}</span>` : ""}
             </div>`;
         }).join("");
@@ -493,7 +494,7 @@ function renderAiTrends(aiTrends) {
         root.innerHTML += `
         <div class="ai-trend-card">
             <div class="ai-trend-title">${keyword}</div>
-            <div class="ai-trend-desc">${info.description}</div>
+            <div class="ai-trend-desc">${info.description} · 최근 7일 ${info.mention_count || 0}건</div>
             <div class="ai-ticker-row">${chips}</div>
         </div>`;
     }
