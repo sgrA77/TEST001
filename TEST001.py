@@ -1,4 +1,5 @@
-import requests, json, re
+import requests, json, re, xml.etree.ElementTree as ET
+from urllib.parse import quote_plus
 from datetime import datetime, timezone, timedelta, date
 
 # =========================================================
@@ -48,21 +49,7 @@ STOCKS = {
         },
     },
 
-    # ---- 신규: 미국 시총 상위 10개 (수동 관리 - 순위는 주기적으로 바뀌므로 필요시 업데이트) ----
-    "US Top 10 (Market Cap)": {
-        "US Top 10 (Market Cap)": {
-            "NVDA": "NVDA",
-            "AAPL": "AAPL",
-            "GOOGL": "GOOGL",
-            "MSFT": "MSFT",
-            "AMZN": "AMZN",
-            "AVGO": "AVGO",
-            "META": "META",
-            "TSLA": "TSLA",
-            "BRK-B": "BRK-B",
-            "LLY": "LLY",
-        },
-    },
+    # QQQ(Nasdaq-100) 시총 상위 10개는 아래에서 자동 구성
 }
 
 INDICATORS = {
@@ -82,77 +69,61 @@ TRENDING_REGION = "US"
 TRENDING_COUNT = 10
 
 # =========================================================
-# AI 트렌드 키워드 (수동 큐레이션 - 설명/관련종목은 직접 수정)
-# 가격/시총/등락은 스크립트가 매번 자동으로 갱신함
+# AI 트렌드 / 이벤트
+# 키워드와 관련 종목 매핑은 고정하고, 뉴스 언급량/이벤트는 자동 수집
 # =========================================================
 
 AI_TRENDS = {
     "AI 데이터센터 / CapEx": {
-        "description": "빅테크(하이퍼스케일러)의 AI 데이터센터 투자가 계속 확대되는 흐름",
+        "query": '"AI data center" OR "AI infrastructure" OR "data center capex"',
+        "description": "AI 데이터센터 및 하이퍼스케일러 투자",
         "tickers": ["NVDA", "MSFT", "AMZN", "GOOGL", "ORCL"],
     },
     "AI 전력 / 인프라": {
-        "description": "AI 데이터센터의 전력 수요 급증으로 전력·변압기·냉각 설비가 병목으로 부각",
+        "query": '"AI power" OR "data center power" OR "data center cooling"',
+        "description": "AI 데이터센터 전력·냉각·전력설비",
         "tickers": ["GEV", "ETN", "VRT", "CEG", "VST"],
     },
-    "AI 추론 (Inference)": {
-        "description": "학습(training) 중심에서 실제 서비스 추론 수요로 투자 축이 이동",
-        "tickers": ["NVDA", "AVGO", "EQIX", "MSFT", "AMZN"],
+    "AI 추론 / Inference": {
+        "query": '"AI inference" OR "inference demand"',
+        "description": "AI 서비스 추론 수요 확대",
+        "tickers": ["NVDA", "AVGO", "MSFT", "AMZN", "GOOGL"],
     },
     "커스텀 AI 칩 / ASIC": {
-        "description": "하이퍼스케일러들이 자체 AI 칩을 개발하며 GPU 외 AI 반도체 수요 확대",
+        "query": '"custom AI chip" OR AI ASIC OR "custom silicon"',
+        "description": "GPU 외 커스텀 AI 칩·ASIC",
         "tickers": ["AVGO", "NVDA", "AMD"],
     },
-    "AI 네트워킹 / 인터커넥트": {
-        "description": "AI 서버간 데이터 이동 증가로 고속 네트워크/광통신 중요도 상승",
+    "AI 네트워킹": {
+        "query": '"AI networking" OR "AI network" OR "AI interconnect"',
+        "description": "AI 서버간 고속 네트워크·인터커넥트",
         "tickers": ["AVGO", "ANET", "NVDA"],
     },
     "HBM / AI 메모리": {
-        "description": "AI 연산 증가에 따른 고대역폭 메모리(HBM) 수요 지속",
-        "tickers": ["MU"],
+        "query": 'HBM OR "AI memory" OR "high bandwidth memory"',
+        "description": "AI용 HBM 및 메모리 수요",
+        "tickers": ["MU", "NVDA"],
     },
     "엔터프라이즈 / 에이전틱 AI": {
-        "description": "기업 실무에 AI를 실제로 배치하는 단계로 이동",
+        "query": '"enterprise AI" OR "AI agents" OR "agentic AI"',
+        "description": "기업용 AI·AI Agent 도입",
         "tickers": ["MSFT", "AMZN", "GOOGL", "META", "PLTR"],
     },
-    "AI 인프라 파이낸싱": {
-        "description": "데이터센터 건설 자금조달(회사채·IPO 등) 자체가 시장 이슈로 부각",
-        "tickers": ["CRWV"],
+    "AI 인프라 파이낸싱 / IPO": {
+        "query": '"AI infrastructure" IPO OR "AI data center" IPO OR "AI financing"',
+        "description": "AI 인프라 자금조달·IPO",
+        "tickers": ["CRWV", "VRT", "GEV"],
     },
 }
 
-# =========================================================
-# AI 주요 이벤트 (수동 관리 - 공식 자동 캘린더가 없어 직접 갱신 필요)
-# date가 없고 ongoing=True인 항목은 항상 노출됨
-# =========================================================
+AI_EVENT_QUERY = '"AI" (IPO OR "initial public offering" OR listing OR acquisition)'
 
-AI_EVENTS = [
-    {
-        "name": "Accelevation IPO",
-        "date": "2026-09-28",
-        "note": "AI 데이터센터용 전력분배/냉각 인프라 기업, Nasdaq 상장 예정 (시기 유동적)",
-        "related": ["VRT", "ETN", "GEV"],
-    },
-    {
-        "name": "Anthropic IPO (예상)",
-        "date": "2026-10-15",
-        "note": "AI 모델 기업 IPO 준비 중이라는 보도 - 확정 일정 아님",
-        "related": ["AMZN", "GOOGL", "MSFT"],
-    },
-    {
-        "name": "OpenAI IPO 보류",
-        "date": None,
-        "note": "2026년 중에는 IPO를 진행하지 않겠다고 발표",
-        "related": ["MSFT"],
-        "ongoing": True,
-    },
-    {
-        "name": "AI 데이터센터 CapEx 확대",
-        "date": None,
-        "note": "빅테크의 데이터센터/전력/네트워크 투자 확대가 계속 진행 중",
-        "related": ["NVDA", "AVGO", "VRT", "GEV", "ETN", "CEG"],
-        "ongoing": True,
-    },
+# Nasdaq-100 API 실패 시 사용할 최소 fallback
+QQQ_FALLBACK = [
+    "NVDA", "AAPL", "MSFT", "AMZN", "META", "GOOGL", "GOOG", "AVGO",
+    "TSLA", "NFLX", "AMD", "COST", "ADBE", "QCOM", "INTC", "CSCO",
+    "PEP", "TMUS", "AMGN", "INTU", "TXN", "AMAT", "ISRG", "BKNG",
+    "HON", "LRCX", "MU", "ADI", "PANW", "GILD"
 ]
 
 
@@ -263,6 +234,126 @@ def fetch_indicator(ticker):
     return {"value": prices[-1] if prices else None}
 
 
+def fetch_news(query, days=7):
+    """Google News RSS에서 최근 기사 제목/발행일을 가져옴."""
+    url = (
+        "https://news.google.com/rss/search?q="
+        + quote_plus(query)
+        + f"+when:{days}d&hl=en-US&gl=US&ceid=US:en"
+    )
+    root = ET.fromstring(requests.get(
+        url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15
+    ).content)
+
+    items = []
+    for item in root.findall(".//item"):
+        title = item.findtext("title") or ""
+        pub = item.findtext("pubDate") or ""
+        source = item.findtext("source") or ""
+        try:
+            dt = datetime.strptime(pub, "%a, %d %b %Y %H:%M:%S %Z")
+        except Exception:
+            dt = None
+        items.append({"title": title, "date": dt, "source": source})
+    return items
+
+
+def fetch_qqq_symbols():
+    """Nasdaq-100(=QQQ의 기초지수) 구성종목을 Nasdaq API에서 자동 수집."""
+    try:
+        url = "https://api.nasdaq.com/api/quote/list-type/nasdaq100"
+        data = requests.get(
+            url,
+            headers={
+                "User-Agent": "Mozilla/5.0",
+                "Accept": "application/json, text/plain, */*"
+            },
+            timeout=15
+        ).json()
+        rows = data["data"]["data"]["rows"]
+        symbols = [r["symbol"] for r in rows if r.get("symbol")]
+        return symbols or QQQ_FALLBACK
+    except Exception as e:
+        print(f"[warn] Nasdaq-100 구성종목 수집 실패: {e}")
+        return QQQ_FALLBACK
+
+
+def build_qqq_top10():
+    """QQQ 구성종목 중 현재 시가총액 상위 10개."""
+    caps = []
+
+    for symbol in fetch_qqq_symbols():
+        try:
+            cap = fetch_market_cap(symbol)
+            if cap:
+                caps.append((symbol, cap))
+        except Exception as e:
+            print(f"[warn] QQQ 시총 수집 실패 {symbol}: {e}")
+
+    caps.sort(key=lambda x: x[1], reverse=True)
+    return [symbol for symbol, _ in caps[:10]]
+
+
+def build_ai_trends():
+    """최근 7일 뉴스 언급량을 기준으로 AI 트렌드를 자동 정렬."""
+    result = {}
+
+    for keyword, info in AI_TRENDS.items():
+        try:
+            news = fetch_news(info["query"], 7)
+            result[keyword] = {
+                "description": info["description"],
+                "mention_count": len(news),
+                "tickers": info["tickers"],
+            }
+        except Exception as e:
+            print(f"[warn] AI 트렌드 뉴스 수집 실패 {keyword}: {e}")
+            result[keyword] = {
+                "description": info["description"],
+                "mention_count": 0,
+                "tickers": info["tickers"],
+            }
+
+    return dict(sorted(
+        result.items(),
+        key=lambda x: x[1]["mention_count"],
+        reverse=True
+    ))
+
+
+def build_ai_events():
+    """최근 30일 AI IPO/상장/M&A 관련 뉴스를 자동 수집."""
+    events = []
+
+    try:
+        news = fetch_news(AI_EVENT_QUERY, 30)
+        seen = set()
+
+        for item in news:
+            title = item["title"].replace(" - Google News", "").strip()
+            key = re.sub(r"\W+", "", title.lower())
+
+            if not title or key in seen:
+                continue
+
+            seen.add(key)
+
+            events.append({
+                "name": title,
+                "date": item["date"].strftime("%Y-%m-%d") if item["date"] else "",
+                "note": item["source"],
+                "related": [],
+            })
+
+            if len(events) >= 8:
+                break
+
+    except Exception as e:
+        print(f"[warn] AI 이벤트 뉴스 수집 실패: {e}")
+
+    return events
+
+
 def fetch_trending_symbols(region, count):
     """Yahoo Finance 비공식 트렌딩 엔드포인트 - 지금 많이 검색되는 티커 목록"""
 
@@ -281,6 +372,15 @@ def fetch_trending_symbols(region, count):
 # =========================================================
 # Stock Data (대분류 -> 테마 -> 종목)
 # =========================================================
+
+# QQQ 기준 시총 상위 10개를 매 실행마다 자동 구성
+try:
+    qqq_top10 = build_qqq_top10()
+    STOCKS["QQQ Top 10 (Market Cap)"] = {
+        "QQQ Top 10 (Market Cap)": {symbol: symbol for symbol in qqq_top10}
+    }
+except Exception as e:
+    print(f"[warn] QQQ Top 10 생성 실패: {e}")
 
 stock_result = {}
 
@@ -329,12 +429,32 @@ except Exception as e:
 
 
 # =========================================================
-# AI Trends Data (키워드 -> 설명 + 관련 종목 시세/시총)
+# AI Trends Data (최근 7일 뉴스 언급량 + 관련 종목 시세/시총)
 # =========================================================
 
+ai_trends_raw = build_ai_trends()
 ai_trends_result = {}
 
-for keyword, info in AI_TRENDS.items():
+# QQQ 내 시총순위 계산
+try:
+    qqq_caps = []
+
+    for symbol in fetch_qqq_symbols():
+        try:
+            cap = fetch_market_cap(symbol)
+            if cap:
+                qqq_caps.append((symbol, cap))
+        except Exception:
+            pass
+
+    qqq_caps.sort(key=lambda x: x[1], reverse=True)
+    qqq_rank = {symbol: i + 1 for i, (symbol, _) in enumerate(qqq_caps)}
+
+except Exception as e:
+    print(f"[warn] QQQ 시총순위 생성 실패: {e}")
+    qqq_rank = {}
+
+for keyword, info in ai_trends_raw.items():
 
     related_result = []
 
@@ -342,13 +462,8 @@ for keyword, info in AI_TRENDS.items():
         try:
             data = fetch_stock(ticker)
             data["symbol"] = ticker
-
-            try:
-                data["market_cap"] = fetch_market_cap(ticker)
-            except Exception as e:
-                data["market_cap"] = None
-                print(f"[warn] {ticker} 시가총액 수집 실패: {e}")
-
+            data["market_cap"] = fetch_market_cap(ticker)
+            data["market_cap_rank"] = qqq_rank.get(ticker)
             related_result.append(data)
 
         except Exception as e:
@@ -356,6 +471,7 @@ for keyword, info in AI_TRENDS.items():
 
     ai_trends_result[keyword] = {
         "description": info["description"],
+        "mention_count": info["mention_count"],
         "tickers": related_result,
     }
 
@@ -545,25 +661,10 @@ events.sort(key=event_datetime)
 
 
 # =========================================================
-# AI Events (수동 관리 리스트 - 지난 날짜/ongoing 여부로 필터링)
+# AI Events (최근 30일 뉴스 자동 수집)
 # =========================================================
 
-ai_events_result = []
-today = date.today()
-
-for e in AI_EVENTS:
-
-    if e.get("ongoing"):
-        ai_events_result.append(e)
-        continue
-
-    if e.get("date"):
-        try:
-            event_date = datetime.strptime(e["date"], "%Y-%m-%d").date()
-            if event_date >= today:
-                ai_events_result.append(e)
-        except Exception as ex:
-            print(f"[warn] AI 이벤트 날짜 파싱 실패 ({e.get('name')}): {ex}")
+ai_events_result = build_ai_events()
 
 
 # =========================================================
