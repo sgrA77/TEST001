@@ -42,6 +42,11 @@ MARKET = {
     "Semiconductor Equipment": {
         "ASML": "ASML", "AMAT": "AMAT", "LRCX": "LRCX", "KLAC": "KLAC",
     },
+    # 선물은 연결(front-month) 시세라 월물 교체 시기에 1M/1Y가 실제 시장 표기와 조금 다를 수 있음
+    "에너지 / 원자재": {
+        "Bitcoin": "BTC-USD", "Gold": "GC=F", "Silver": "SI=F",
+        "Copper": "HG=F", "WTI Oil": "CL=F", "Natural Gas": "NG=F",
+    },
 }
 
 # =========================================================
@@ -56,13 +61,15 @@ MARKET = {
 #   kind   : "pct" = 변화율(%) / "pp" = 변화량(%p)
 #   scale  : 값에 곱할 배수 (M2: 십억달러 → 조달러)
 #   static : 모든 출처가 실패했을 때 마지막으로 쓰는 값 ("캐시" 표시가 붙음)
+#   chips  : "pct" 이면 1M/1Y/2Y 칸을 실제값 대신 변동률(%)로 표시 (기본은 실제값)
 #   prefix / suffix : 화면 표시용
 # =========================================================
 
 MACRO = {
     "유동성 / 환율": {
         "US M2": {"src": ["fedh6:M2", "fred:M2SL"], "kind": "pct",
-                  "prefix": "$", "suffix": "T", "scale": 0.001, "static": 23.0},
+                  "prefix": "$", "suffix": "T", "scale": 0.001, "static": 23.0,
+                  "chips": "pct"},  # chips="pct": 1M/1Y/2Y 칸을 실제값 대신 변동률(%)로 표시
         "USD/KRW": {"src": ["yahoo:KRW=X"], "kind": "pct"},
         "USD/JPY": {"src": ["yahoo:JPY=X"], "kind": "pct"},
     },
@@ -409,7 +416,7 @@ for group, items in MACRO.items():
     macro[group] = {}
     for name, spec in items.items():
 
-        display = {k: spec[k] for k in ("kind", "prefix", "suffix", "digits") if k in spec}
+        display = {k: spec[k] for k in ("kind", "prefix", "suffix", "digits", "chips") if k in spec}
         item = None
 
         if name in MANUAL_MACRO:
