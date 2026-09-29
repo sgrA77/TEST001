@@ -160,7 +160,7 @@ body {
 
 /* ---------- EARNINGS ---------- */
 .earn-wrap { overflow-x: auto; }
-.earn { width: 100%; min-width: 1200px; border-collapse: collapse; }
+.earn { width: 100%; min-width: 1500px; border-collapse: collapse; }
 .earn th {
     font-size: 12px;
     font-weight: 600;
@@ -180,11 +180,18 @@ body {
 .earn tr.soon .t-dday { color: var(--alert); }
 .t-est { font-weight: 700; }
 
-.q-lbl { font-size: 11px; font-weight: 700; color: var(--sub); margin-bottom: 2px; }
-.q-line { font-size: 13px; white-space: nowrap; }
-.q-line .k { display: inline-block; width: 26px; font-size: 11px; color: var(--sub); }
-.q-line .est { color: var(--sub); }
-.q-line .sur { font-size: 12px; font-weight: 700; margin-left: 4px; }
+.earn th.sub { text-align: center; font-weight: 600; padding-bottom: 4px; }
+.earn td.tc { text-align: center; padding: 6px 4px; }
+.earn .gcol { border-left: 2px solid var(--line); }
+.q-lbl { font-size: 11px; font-weight: 700; color: var(--sub); }
+.q-val { font-size: 15px; font-weight: 800; line-height: 1.25; }
+.q-est { font-size: 11px; color: var(--sub); white-space: nowrap; }
+.q-est .sur { font-size: 11px; font-weight: 700; margin-left: 3px; }
+.qoq { display: inline-block; margin-top: 2px; padding: 1px 6px; border-radius: 4px; font-size: 12px; font-weight: 700; }
+.q-next { background: #f3f6fb; border-radius: 6px; }
+.q-next .q-val { font-weight: 700; }
+.tag-stale { font-size: 10px; font-weight: 600; color: #b45309; background: #fef3c7;
+             border-radius: 3px; padding: 0 4px; margin-left: 5px; vertical-align: middle; }
 .up { color: rgb(var(--up)); }
 .down { color: rgb(var(--down)); }
 </style>
@@ -250,6 +257,7 @@ const CAP = {
     market: { m: 15,  y: 50 },   // MARKET 종목: 1M 15%, 1Y 50%
     pct:    { m: 5,   y: 15 },   // MACRO (변화율 %)
     pp:     { m: 0.5, y: 1.5 },  // MACRO (변화량 %p)
+    earn:   20,                  // EARNINGS 전분기 대비 증감 20%
 };
 
 
@@ -453,7 +461,7 @@ function renderMacro(macro) {
 
             html += `
             <div class="macro-row">
-                <span class="m-name">${name}</span>
+                <span class="m-name">${name}${s.stale ? '<span class="tag-stale" title="자동 수집 실패 → 직전/기본값">캐시</span>' : ""}</span>
                 <span class="m-val">${value}</span>
                 ${chip(m, cap.m, signed(m, 2, unit))}
                 ${chip(y, cap.y, signed(y, 2, unit))}
@@ -480,21 +488,44 @@ function shortQ(label) {
     return (label || "").replace(/^(\d)Q\d\d(\d\d)$/, "$1Q$2");
 }
 
-function quarterCell(q) {
+// 한 칸: 분기 라벨 / 값 / 전분기 대비 증감(색) / 예상치 대비 서프라이즈
+function trendCell(item, prev, fmt, first) {
 
-    if (!q) return `<td class="qcol">-</td>`;
+    const gcol = first ? " gcol" : "";
+    if (!item || item.act == null) return `<td class="tc${gcol}">-</td>`;
 
-    const eps = q.eps_act == null ? "-" : num(q.eps_act, 2);
-    const epsEst = q.eps_est == null ? "-" : num(q.eps_est, 2);
+    const qoq = prev == null || prev === 0 ? null : pctChange(item.act, prev);
+    const t = tint(qoq, CAP.earn);
+    const chipHtml = qoq == null ? ""
+        : `<div><span class="qoq" style="background:${t.bg};color:${t.fg}">${signed(qoq, 1, "%")}</span></div>`;
 
-    return `
-    <td class="qcol">
-        <div class="q-lbl">${shortQ(q.label)}</div>
-        <div class="q-line"><span class="k">EPS</span><b>${eps}</b>
-            <span class="est">(${epsEst})</span>${surprise(q.eps_act, q.eps_est)}</div>
-        <div class="q-line"><span class="k">매출</span><b>${fmtRevenue(q.rev_act)}</b>
-            <span class="est">(${fmtRevenue(q.rev_est)})</span>${surprise(q.rev_act, q.rev_est)}</div>
-    </td>`;
+    if (item.next) {
+        return `<td class="tc${gcol}"><div class="q-next">
+            <div class="q-lbl">다음 (예상)</div>
+            <div class="q-val">${fmt(item.act)}</div>${chipHtml}</div></td>`;
+    }
+    const est = item.est == null ? ""
+        : `<div class="q-est">예상 ${fmt(item.est)}${surprise(item.act, item.est)}</div>`;
+    return `<td class="tc${gcol}">
+        <div class="q-lbl">${shortQ(item.label)}</div>
+        <div class="q-val">${fmt(item.act)}</div>${chipHtml}${est}</td>`;
+}
+
+// key: "eps" | "rev"  → [3분기 전, 2분기 전, 직전, 다음 예상] 4칸
+function trendCells(e, key, fmt) {
+
+    const qs = (e.quarters || []).slice(-3).map(q => ({
+        label: q.label, act: q[key + "_act"], est: q[key + "_est"],
+    }));
+    while (qs.length < 3) qs.unshift(null);
+
+    const items = [...qs, { next: true, act: e[key + "_est"] }];
+
+    return items.map((it, i) => {
+        // 전 분기 값 (없으면 그 앞 분기)
+        const prev = i === 0 ? null : (items[i - 1] ? items[i - 1].act : null);
+        return trendCell(it, prev, fmt, i === 0);
+    }).join("");
 }
 
 function renderEarnings(earnings) {
@@ -506,13 +537,11 @@ function renderEarnings(earnings) {
         return;
     }
 
+    const fmtEps = v => v == null ? "-" : "$" + num(v, 2);
+
     const rows = list.map(e => {
 
         const cls = e.d_day == null ? "none" : (e.d_day <= 7 ? "soon" : "");
-
-        // 최근 3분기를 오른쪽(직전 분기)에 맞춰 정렬
-        const qs = (e.quarters || []).slice(-3);
-        while (qs.length < 3) qs.unshift(null);
 
         return `
         <tr class="${cls}">
@@ -522,23 +551,24 @@ function renderEarnings(earnings) {
             </td>
             <td>${mmdd(e.date)}</td>
             <td class="t-dday">${ddayLabel(e.d_day)}</td>
-            <td class="t-est">${e.eps_est == null ? "-" : "$" + num(e.eps_est, 2)}</td>
-            <td class="t-est">${fmtRevenue(e.rev_est)}</td>
-            ${qs.map(quarterCell).join("")}
+            ${trendCells(e, "eps", fmtEps)}
+            ${trendCells(e, "rev", fmtRevenue)}
         </tr>`;
     }).join("");
+
+    const sub = `<th class="sub gcol">3분기 전</th><th class="sub">2분기 전</th><th class="sub">직전 분기</th><th class="sub">다음 예상</th>`;
 
     $("earnings").innerHTML = `
     <table class="earn">
         <thead>
             <tr>
-                <th></th>
-                <th class="grp" colspan="4">다음 발표 (예상)</th>
-                <th class="grp" colspan="3">최근 3분기 · 실제 (예상)</th>
+                <th></th><th></th><th></th>
+                <th class="grp gcol" colspan="4">EPS 흐름 · 실제값 / 전분기 대비 / 예상 대비</th>
+                <th class="grp gcol" colspan="4">매출 흐름 · 실제값 / 전분기 대비 / 예상 대비</th>
             </tr>
             <tr>
-                <th>기업</th><th>날짜</th><th>D-Day</th><th>EPS</th><th>매출</th>
-                <th class="qcol">3분기 전</th><th class="qcol">2분기 전</th><th class="qcol">직전 분기</th>
+                <th>기업</th><th>날짜</th><th>D-Day</th>
+                ${sub}${sub.replace("sub gcol", "sub gcol")}
             </tr>
         </thead>
         <tbody>${rows}</tbody>
