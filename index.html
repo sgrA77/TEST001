@@ -159,22 +159,34 @@ body {
 .m-val { font-size: 16px; font-weight: 800; text-align: right; }
 
 /* ---------- EARNINGS ---------- */
-table { width: 100%; border-collapse: collapse; }
-th {
+.earn-wrap { overflow-x: auto; }
+.earn { width: 100%; min-width: 1200px; border-collapse: collapse; }
+.earn th {
     font-size: 12px;
     font-weight: 600;
     color: var(--sub);
-    text-align: right;
-    padding: 0 0 6px;
+    text-align: left;
+    padding: 0 10px 6px;
 }
-th:first-child, td:first-child { text-align: left; }
-td { padding: 7px 0; border-top: 1px solid #edf0f3; text-align: right; font-size: 14px; }
-.t-sym { font-weight: 800; }
+.earn th.grp { text-align: center; color: var(--text); border-bottom: 1px solid var(--line); }
+.earn td { padding: 9px 10px; border-top: 1px solid #edf0f3; vertical-align: middle; font-size: 14px; }
+.earn .qcol { border-left: 1px solid #edf0f3; }
+.earn tr.soon td { background: #fff7ed; }
+.earn tr.none td { color: #a0a7b2; }
+
+.t-sym { font-weight: 800; font-size: 15px; }
 .t-co { font-size: 11px; color: var(--sub); }
-.t-dday { font-weight: 800; }
-tr.soon td { background: #fff7ed; }
-tr.soon .t-dday { color: var(--alert); }
-tr.none td { color: #a0a7b2; }
+.t-dday { font-weight: 800; font-size: 15px; }
+.earn tr.soon .t-dday { color: var(--alert); }
+.t-est { font-weight: 700; }
+
+.q-lbl { font-size: 11px; font-weight: 700; color: var(--sub); margin-bottom: 2px; }
+.q-line { font-size: 13px; white-space: nowrap; }
+.q-line .k { display: inline-block; width: 26px; font-size: 11px; color: var(--sub); }
+.q-line .est { color: var(--sub); }
+.q-line .sur { font-size: 12px; font-weight: 700; margin-left: 4px; }
+.up { color: rgb(var(--up)); }
+.down { color: rgb(var(--down)); }
 </style>
 </head>
 
@@ -200,7 +212,7 @@ tr.none td { color: #a0a7b2; }
         <section class="panel">
             <div class="panel-head">
                 <h2>MARKET</h2>
-                <span class="note">상승 빨강 · 하락 파랑 · 진할수록 변화폭 큼</span>
+                <span class="note">1M·1Y = 전월 말 · 전년 말 종가 대비 · 상승 빨강 · 하락 파랑</span>
             </div>
             <div class="market" id="market"></div>
         </section>
@@ -208,18 +220,25 @@ tr.none td { color: #a0a7b2; }
         <aside class="side">
 
             <section class="panel">
-                <div class="panel-head"><h2>MACRO</h2></div>
+                <div class="panel-head">
+                    <h2>MACRO</h2>
+                    <span class="note">1M·1Y = 전월 말 · 전년 말 대비</span>
+                </div>
                 <div id="macro"></div>
-            </section>
-
-            <section class="panel">
-                <div class="panel-head"><h2>EARNINGS</h2></div>
-                <div id="earnings"></div>
             </section>
 
         </aside>
 
     </div>
+
+    <section class="panel" style="margin-top: 20px;">
+        <div class="panel-head">
+            <h2>EARNINGS</h2>
+            <span class="note">지난 분기: 실제 (예상) · ▲▼ = 예상 대비 · 매출 예상은 저장 시작 이후 분기부터 표시</span>
+        </div>
+        <div class="earn-wrap" id="earnings"></div>
+    </section>
+
 </div>
 
 <script>
@@ -448,6 +467,36 @@ function renderMacro(macro) {
 
 /* ---------- EARNINGS ---------- */
 
+function surprise(act, est) {
+    if (act == null || est == null || Number(est) === 0) return "";
+    const v = (act - est) / Math.abs(est) * 100;
+    const cls = v > 0 ? "up" : (v < 0 ? "down" : "");
+    const arrow = v > 0 ? "▲" : (v < 0 ? "▼" : "");
+    return `<span class="sur ${cls}">${arrow}${Math.abs(v).toFixed(1)}%</span>`;
+}
+
+function shortQ(label) {
+    // "2Q2025" → "2Q25"
+    return (label || "").replace(/^(\d)Q\d\d(\d\d)$/, "$1Q$2");
+}
+
+function quarterCell(q) {
+
+    if (!q) return `<td class="qcol">-</td>`;
+
+    const eps = q.eps_act == null ? "-" : num(q.eps_act, 2);
+    const epsEst = q.eps_est == null ? "-" : num(q.eps_est, 2);
+
+    return `
+    <td class="qcol">
+        <div class="q-lbl">${shortQ(q.label)}</div>
+        <div class="q-line"><span class="k">EPS</span><b>${eps}</b>
+            <span class="est">(${epsEst})</span>${surprise(q.eps_act, q.eps_est)}</div>
+        <div class="q-line"><span class="k">매출</span><b>${fmtRevenue(q.rev_act)}</b>
+            <span class="est">(${fmtRevenue(q.rev_est)})</span>${surprise(q.rev_act, q.rev_est)}</div>
+    </td>`;
+}
+
 function renderEarnings(earnings) {
 
     const list = (earnings || []).filter(e => e.d_day == null || e.d_day >= 0);
@@ -461,6 +510,10 @@ function renderEarnings(earnings) {
 
         const cls = e.d_day == null ? "none" : (e.d_day <= 7 ? "soon" : "");
 
+        // 최근 3분기를 오른쪽(직전 분기)에 맞춰 정렬
+        const qs = (e.quarters || []).slice(-3);
+        while (qs.length < 3) qs.unshift(null);
+
         return `
         <tr class="${cls}">
             <td>
@@ -469,15 +522,24 @@ function renderEarnings(earnings) {
             </td>
             <td>${mmdd(e.date)}</td>
             <td class="t-dday">${ddayLabel(e.d_day)}</td>
-            <td>${e.eps == null ? "-" : "$" + Number(e.eps).toFixed(2)}</td>
-            <td>${fmtRevenue(e.revenue)}</td>
+            <td class="t-est">${e.eps_est == null ? "-" : "$" + num(e.eps_est, 2)}</td>
+            <td class="t-est">${fmtRevenue(e.rev_est)}</td>
+            ${qs.map(quarterCell).join("")}
         </tr>`;
     }).join("");
 
     $("earnings").innerHTML = `
-    <table>
+    <table class="earn">
         <thead>
-            <tr><th>기업</th><th>날짜</th><th>D-Day</th><th>EPS</th><th>매출</th></tr>
+            <tr>
+                <th></th>
+                <th class="grp" colspan="4">다음 발표 (예상)</th>
+                <th class="grp" colspan="3">최근 3분기 · 실제 (예상)</th>
+            </tr>
+            <tr>
+                <th>기업</th><th>날짜</th><th>D-Day</th><th>EPS</th><th>매출</th>
+                <th class="qcol">3분기 전</th><th class="qcol">2분기 전</th><th class="qcol">직전 분기</th>
+            </tr>
         </thead>
         <tbody>${rows}</tbody>
     </table>`;
