@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-30 06:13 KST",
+ "updated_at": "2026-09-30 06:31 KST",
  "macro": {
   "유동성 / 환율": {
    "US M2": {
@@ -13,14 +13,14 @@
     "chips": "pct"
    },
    "USD/KRW": {
-    "value": 1352.35,
+    "value": 1352.33,
     "prev_month": 1366.62,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 157.285,
+    "value": 157.283,
     "prev_month": 159.747,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -680,7 +680,7 @@
    "Bitcoin": {
     "ticker": "BTC-USD",
     "currency": "USD",
-    "price": 83504.02,
+    "price": 83383.82,
     "prev_month": 78548.6328,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
