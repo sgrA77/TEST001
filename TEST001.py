@@ -1,701 +1,480 @@
-import requests, json, re, xml.etree.ElementTree as ET
-from datetime import datetime, timezone, timedelta, date
-from urllib.parse import quote_plus
+"""
+Market Dashboard 데이터 수집 (TEST001.py → data.json)
+
+수정하는 곳은 아래 [설정] 구역뿐입니다.
+  - MARKET  : 관심종목 (섹터 → 표시이름 → Yahoo 티커)
+  - MACRO   : 거시 지표
+  - EARNINGS: 실적 발표 추적 기업
+  - MANUAL_EVENTS / MANUAL_MACRO : 자동 수집이 안 될 때 직접 넣는 값
+"""
+
+import json
+import re
+import requests
+from datetime import datetime, timedelta, timezone, date
+from urllib.parse import quote
+
+KST = timezone(timedelta(hours=9))
+NOW = datetime.now(KST)
+TODAY = NOW.date()
+
+UA = {"User-Agent": "Mozilla/5.0"}
 
 # =========================================================
-# 종목/지표 설정
-#
-# 구조: 대분류(category) -> 테마(theme) -> 표시이름 -> 스펙
-# 스펙: "SPY" (일반) 또는 {"ticker": "SPXL", "leverage_of": "SPY"} (레버리지)
+# [설정] MARKET : 섹터 -> {표시이름: Yahoo 티커}
+# 같은 종목이 여러 섹터에 있어도 됨 (AMD). 요청은 한 번만 나감.
 # =========================================================
 
-STOCKS = {
-    "US Stocks": {
-        "Broad Market": {
-            "SPY": "SPY",
-            "SPXL": {"ticker": "SPXL", "leverage_of": "SPY"},
-            "QLD": {"ticker": "QLD", "leverage_of": "QQQ"},
-        },
-        "AI & Semiconductors": {
-            "NVDA": "NVDA",
-            "NVDL": {"ticker": "NVDL", "leverage_of": "NVDA"},
-            "AMD": "AMD",
-            "MU": "MU",
-            "MUU": {"ticker": "MUU", "leverage_of": "MU"},
-            "SNDK": "SNDK",
-            "SNXX": {"ticker": "SNXX", "leverage_of": "SNDK"},
-            "PLTR": "PLTR",
-        },
-        "Mega Cap / Cloud": {
-            "AMZN": "AMZN",
-            "GOOG": "GOOG",
-            "ORCL": "ORCL",
-        },
+MARKET = {
+    "지수": {"SPY": "SPY", "QQQ": "QQQ"},
+    "레버리지 지수": {"SPXL 3x": "SPXL", "QLD 2x": "QLD"},
+    "MAG7": {
+        "NVDA": "NVDA", "MSFT": "MSFT", "AAPL": "AAPL", "AMZN": "AMZN",
+        "GOOGL": "GOOGL", "META": "META", "TSLA": "TSLA",
     },
-    "KR Stocks": {
-        "Large Cap Tech": {
-            "Samsung": "005930.KS",
-            "SKHynix": "000660.KS",
-        },
-        "Broad Market (Leveraged)": {
-            "KORU": "KORU",
-        },
-    },
-    "Commodities & Crypto": {
-        "Commodities & Crypto": {
-            "Gold": "GC=F",
-            "Crude Oil": "CL=F",
-            "Bitcoin": "BTC-USD",
-        },
-    },
-
-}
-
-# QQQ / Nasdaq-100 구성종목 (자동 수집)
-QQQ_TOP_COUNT = 10
-
-INDICATORS = {
-    "Rates & FX": {
-        "US 10Y Yield": "^TNX",
-        "US 3M Yield": "^IRX",
-        "USD/JPY": "JPY=X",
-    },
-    "Volatility & Valuation": {
-        "VIX": "^VIX",
-        # S&P500 Forward Earnings Yield는 별도 API로 아래에서 추가됨
-    },
-}
-
-# 트렌딩(많이 검색되는 종목) 설정
-TRENDING_REGION = "US"
-TRENDING_COUNT = 10
-
-# =========================================================
-# AI 트렌드 키워드 (수동 큐레이션 - 설명/관련종목은 직접 수정)
-# 가격/시총/등락은 스크립트가 매번 자동으로 갱신함
-# =========================================================
-
-AI_TRENDS = {
-    "AI 데이터센터 / CapEx": {
-        "description": "빅테크(하이퍼스케일러)의 AI 데이터센터 투자가 계속 확대되는 흐름",
-        "tickers": ["NVDA", "MSFT", "AMZN", "GOOGL", "ORCL"],
-    },
-    "AI 전력 / 인프라": {
-        "description": "AI 데이터센터의 전력 수요 급증으로 전력·변압기·냉각 설비가 병목으로 부각",
-        "tickers": ["GEV", "ETN", "VRT", "CEG", "VST"],
-    },
-    "AI 추론 (Inference)": {
-        "description": "학습(training) 중심에서 실제 서비스 추론 수요로 투자 축이 이동",
-        "tickers": ["NVDA", "AVGO", "EQIX", "MSFT", "AMZN"],
-    },
-    "커스텀 AI 칩 / ASIC": {
-        "description": "하이퍼스케일러들이 자체 AI 칩을 개발하며 GPU 외 AI 반도체 수요 확대",
-        "tickers": ["AVGO", "NVDA", "AMD"],
-    },
-    "AI 네트워킹 / 인터커넥트": {
-        "description": "AI 서버간 데이터 이동 증가로 고속 네트워크/광통신 중요도 상승",
-        "tickers": ["AVGO", "ANET", "NVDA"],
-    },
-    "HBM / AI 메모리": {
-        "description": "AI 연산 증가에 따른 고대역폭 메모리(HBM) 수요 지속",
-        "tickers": ["MU"],
-    },
-    "엔터프라이즈 / 에이전틱 AI": {
-        "description": "기업 실무에 AI를 실제로 배치하는 단계로 이동",
-        "tickers": ["MSFT", "AMZN", "GOOGL", "META", "PLTR"],
-    },
-    "AI 인프라 파이낸싱": {
-        "description": "데이터센터 건설 자금조달(회사채·IPO 등) 자체가 시장 이슈로 부각",
-        "tickers": ["CRWV"],
+    "Memory": {"MU": "MU", "SK Hynix": "000660.KS", "Samsung": "005930.KS"},
+    "GPU / AI Chip": {"AMD": "AMD", "AVGO": "AVGO"},
+    "CPU": {"AMD": "AMD", "INTC": "INTC"},
+    "Storage": {"SNDK": "SNDK"},
+    "FAB": {"TSM": "TSM"},
+    "Semiconductor Equipment": {
+        "ASML": "ASML", "AMAT": "AMAT", "LRCX": "LRCX", "KLAC": "KLAC",
     },
 }
 
 # =========================================================
-# AI 주요 이벤트 (수동 관리 - 공식 자동 캘린더가 없어 직접 갱신 필요)
-# date가 없고 ongoing=True인 항목은 항상 노출됨
+# [설정] MACRO : 그룹 -> {지표명: 스펙}
+#   src    : yahoo(야후 티커) / fred(FRED 시리즈) / history(직접 누적)
+#   kind   : "pct" = 변화율(%) / "pp" = 변화량(%p)
+#   scale  : 값에 곱할 배수 (M2: 십억달러 → 조달러)
+#   prefix / suffix / digits : 화면 표시용
 # =========================================================
 
-AI_EVENTS = [
-    {
-        "name": "Accelevation IPO",
-        "date": "2026-09-28",
-        "note": "AI 데이터센터용 전력분배/냉각 인프라 기업, Nasdaq 상장 예정 (시기 유동적)",
-        "related": ["VRT", "ETN", "GEV"],
+MACRO = {
+    "유동성 / 환율": {
+        "US M2": {"src": "fred", "id": "M2SL", "kind": "pct",
+                  "prefix": "$", "suffix": "T", "scale": 0.001},
+        "USD/KRW": {"src": "yahoo", "id": "KRW=X", "kind": "pct"},
+        "USD/JPY": {"src": "yahoo", "id": "JPY=X", "kind": "pct"},
     },
-    {
-        "name": "Anthropic IPO (예상)",
-        "date": "2026-10-15",
-        "note": "AI 모델 기업 IPO 준비 중이라는 보도 - 확정 일정 아님",
-        "related": ["AMZN", "GOOGL", "MSFT"],
+    "기준금리": {
+        "Korea Policy Rate": {"src": "fred", "id": "IRSTCB01KRM156N", "kind": "pp", "suffix": "%"},
+        "US Policy Rate": {"src": "fred", "id": "DFEDTARU", "kind": "pp", "suffix": "%"},
+        "Japan Policy Rate": {"src": "fred", "id": "IRSTCB01JPM156N", "kind": "pp", "suffix": "%"},
     },
-    {
-        "name": "OpenAI IPO 보류",
-        "date": None,
-        "note": "2026년 중에는 IPO를 진행하지 않겠다고 발표",
-        "related": ["MSFT"],
-        "ongoing": True,
+    "시장금리": {
+        "US 3M": {"src": "yahoo", "id": "^IRX", "kind": "pp", "suffix": "%"},
+        "US 2Y": {"src": "fred", "id": "DGS2", "kind": "pp", "suffix": "%"},
+        "US 10Y": {"src": "yahoo", "id": "^TNX", "kind": "pp", "suffix": "%"},
+        "US 30Y": {"src": "yahoo", "id": "^TYX", "kind": "pp", "suffix": "%"},
     },
-    {
-        "name": "AI 데이터센터 CapEx 확대",
-        "date": None,
-        "note": "빅테크의 데이터센터/전력/네트워크 투자 확대가 계속 진행 중",
-        "related": ["NVDA", "AVGO", "VRT", "GEV", "ETN", "CEG"],
-        "ongoing": True,
+    "밸류에이션 / 변동성": {
+        # 과거값을 주는 무료 API가 없어서 data.json에 매일 1개씩 쌓아 1M/1Y를 계산함
+        # (1M 표시까지 약 한 달, 1Y 표시까지 약 1년 걸림)
+        "S&P 500 Fwd Earnings Yield": {"src": "history", "kind": "pp", "suffix": "%"},
+        "VIX": {"src": "yahoo", "id": "^VIX", "kind": "pct"},
     },
+}
+
+# 자동 수집이 계속 실패하는 지표는 여기에 직접 입력하면 그 값이 우선 사용됨
+MANUAL_MACRO = {
+    # "Korea Policy Rate": {"value": 2.50, "prev_month": 2.50, "prev_year": 3.00},
+}
+
+# =========================================================
+# [설정] EARNINGS : {티커: 표시이름}  (여기에 추가/삭제)
+# =========================================================
+
+EARNINGS = {
+    "NVDA": "NVIDIA", "MSFT": "Microsoft", "AAPL": "Apple", "AMZN": "Amazon",
+    "GOOGL": "Alphabet", "META": "Meta", "TSLA": "Tesla",
+    "AMD": "AMD", "AVGO": "Broadcom", "MU": "Micron", "TSM": "TSMC",
+    "ASML": "ASML", "AMAT": "Applied Materials", "LRCX": "Lam Research",
+    "KLAC": "KLA", "SNDK": "SanDisk", "INTC": "Intel",
+}
+
+# =========================================================
+# [설정] EVENTS : 자동 수집이 안 될 때 직접 추가하는 일정
+# name은 FOMC / CPI / NFP / PCE 중 하나, date는 미국 현지 날짜
+# =========================================================
+
+MANUAL_EVENTS = [
+    # {"name": "CPI", "date": "2026-10-14"},
 ]
 
 
 # =========================================================
-# 유틸
+# 공통 유틸
 # =========================================================
 
-def normalize_spec(spec):
-    """문자열 스펙과 dict 스펙을 (ticker, leverage_of)로 통일"""
-    if isinstance(spec, dict):
-        return spec["ticker"], spec.get("leverage_of")
-    return spec, None
+def rnd(x, n=4):
+    return None if x is None else round(x, n)
 
 
-def _fetch_stock_raw(ticker):
+def pick_base(series, days):
+    """series: 날짜 오름차순 [(date, value)].
+    최신 날짜 기준 `days`일 전(휴장이면 그 이전 가장 가까운 거래일) 값. 없으면 None."""
+    if not series:
+        return None
+    target = series[-1][0] - timedelta(days=days)
+    older = [v for d, v in series if d <= target]
+    return older[-1] if older else None
+
+
+def load_old():
+    try:
+        with open("data.json", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+OLD = load_old()
+
+
+# =========================================================
+# Yahoo Finance 시세 (기존 방식 유지: chart API, 2년 일봉)
+# =========================================================
+
+_YAHOO_CACHE = {}
+
+
+def fetch_yahoo(ticker):
+    if ticker in _YAHOO_CACHE:
+        return _YAHOO_CACHE[ticker]
 
     url = f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker}?range=2y&interval=1d"
 
-    data = requests.get(
-        url,
-        headers={"User-Agent": "Mozilla/5.0"}
-    ).json()["chart"]["result"][0]
-
-    prices = {
-        datetime.fromtimestamp(t, timezone.utc).date(): c
-        for t, c in zip(
-            data["timestamp"],
-            data["indicators"]["quote"][0]["close"]
-        )
-        if c is not None
-    }
-
-    today = max(prices)
-
-    first = today.replace(day=1)
-    last_month = first - timedelta(days=1)
-
-    last_friday = today - timedelta(days=today.weekday() + 3)
-
-    month_dates = [
-        d for d in prices
-        if d.year == last_month.year
-        and d.month == last_month.month
-    ]
-
-    year_dates = [
-        d for d in prices
-        if d.year == today.year - 1
-    ]
-
-    return {
-        "price": data["meta"]["regularMarketPrice"],
-        "previous_day": prices.get(today - timedelta(days=1)),
-        "previous_week": prices.get(last_friday),
-        "previous_month": prices[max(month_dates)] if month_dates else None,
-        "previous_year": prices[max(year_dates)] if year_dates else None,
-    }
-
-
-# 같은 티커가 여러 섹션(종목/트렌딩/AI 트렌드)에 중복 등장해도
-# API 요청은 한 번만 나가도록 캐싱
-_STOCK_CACHE = {}
-
-def fetch_stock(ticker):
-
-    if ticker in _STOCK_CACHE:
-        return dict(_STOCK_CACHE[ticker])
-
-    data = _fetch_stock_raw(ticker)
-    _STOCK_CACHE[ticker] = data
-    return dict(data)
-
-
-_MARKET_CAP_CACHE = {}
-
-def fetch_market_cap(ticker):
-    """시가총액."""
-
-    if ticker in _MARKET_CAP_CACHE:
-        return _MARKET_CAP_CACHE[ticker]
-
-    url = (
-        f"https://query1.finance.yahoo.com/v10/finance/quoteSummary/{ticker}"
-        f"?modules=price"
-    )
-
-    data = requests.get(
-        url,
-        headers={"User-Agent": "Mozilla/5.0"}
-    ).json()
-
-    price_module = data["quoteSummary"]["result"][0]["price"]
-    market_cap = price_module.get("marketCap", {}).get("raw")
-
-    _MARKET_CAP_CACHE[ticker] = market_cap
-    return market_cap
-
-
-def fetch_indicator(ticker):
-
-    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker}?range=5d&interval=1d"
-
-    data = requests.get(
-        url,
-        headers={"User-Agent": "Mozilla/5.0"}
-    ).json()["chart"]["result"][0]
-
-    prices = [
-        c
-        for c in data["indicators"]["quote"][0]["close"]
-        if c is not None
-    ]
-
-    return {"value": prices[-1] if prices else None}
-
-
-def fetch_trending_symbols(region, count):
-    """Yahoo Finance 비공식 트렌딩 엔드포인트 - 지금 많이 검색되는 티커 목록"""
-
-    url = f"https://query1.finance.yahoo.com/v1/finance/trending/{region}"
-
-    data = requests.get(
-        url,
-        headers={"User-Agent": "Mozilla/5.0"}
-    ).json()
-
-    quotes = data["finance"]["result"][0]["quotes"]
-
-    return [q["symbol"] for q in quotes[:count]]
-
-
-def fetch_qqq_symbols():
-    """Nasdaq-100 구성종목 자동 수집."""
-    url = "https://api.nasdaq.com/api/quote/list-type/nasdaq100"
-    r = requests.get(
-        url,
-        headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-            "Accept": "application/json, text/plain, */*",
-        },
-        timeout=15,
-    )
-    rows = r.json()["data"]["data"]["rows"]
-    return [x["symbol"] for x in rows if x.get("symbol")]
-
-
-def build_qqq_top10():
-    """QQQ 기준 상위 종목. 시총 데이터가 있으면 시총순, 실패하면 Nasdaq 구성 순서를 사용."""
-    try:
-        symbols = fetch_qqq_symbols()
-    except Exception as e:
-        print(f"[warn] QQQ 구성종목 수집 실패: {e}")
-        return {}
-
-    result = []
-    # 전체 100개에 시총 API를 호출하지 않고, 현재 대형주 후보만 먼저 확인
-    candidates = [
-        "NVDA", "AAPL", "MSFT", "AMZN", "META", "GOOGL", "GOOG",
-        "AVGO", "TSLA", "WMT", "COST", "NFLX", "AMD", "PLTR", "MU"
-    ]
-    candidates = [x for x in candidates if x in symbols]
-
-    for symbol in candidates:
+    last_err = None
+    for _ in range(2):  # 일시적 실패 대비 1회 재시도
         try:
-            cap = fetch_market_cap(symbol)
-            result.append((symbol, cap))
-        except Exception as e:
-            print(f"[warn] QQQ 시총 수집 실패 {symbol}: {e}")
-
-    result.sort(key=lambda x: x[1] or 0, reverse=True)
-    return {
-        symbol: {"ticker": symbol, "market_cap": cap, "rank": i + 1}
-        for i, (symbol, cap) in enumerate(result[:QQQ_TOP_COUNT])
-    }
-
-
-def fetch_news(query, days=7):
-    """Google News RSS 기반 최근 뉴스 건수."""
-    url = (
-        "https://news.google.com/rss/search?q="
-        + quote_plus(f"{query} when:{days}d")
-        + "&hl=en-US&gl=US&ceid=US:en"
-    )
-    r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
-    root = ET.fromstring(r.text)
-    return root.findall("./channel/item")
-
-
-
-# =========================================================
-# Stock Data (대분류 -> 테마 -> 종목)
-# =========================================================
-
-stock_result = {}
-
-for category, themes in STOCKS.items():
-
-    stock_result[category] = {}
-
-    for theme, tickers in themes.items():
-
-        stock_result[category][theme] = {}
-
-        for name, spec in tickers.items():
-
-            ticker, leverage_of = normalize_spec(spec)
-
-            try:
-                data = fetch_stock(ticker)
-                if leverage_of:
-                    data["leverage_of"] = leverage_of
-                stock_result[category][theme][name] = data
-
-            except Exception as e:
-                print(f"[warn] {name} 시세 수집 실패: {e}")
-
-
-# =========================================================
-# QQQ Top 10
-# =========================================================
-
-qqq_top10 = build_qqq_top10()
-
-if qqq_top10:
-    STOCKS["QQQ Top 10 (Market Cap)"] = {
-        "QQQ Top 10 (Market Cap)": {
-            symbol: symbol for symbol in qqq_top10
-        }
-    }
-
-    stock_result["QQQ Top 10 (Market Cap)"] = {}
-    stock_result["QQQ Top 10 (Market Cap)"]["QQQ Top 10 (Market Cap)"] = {}
-
-    for symbol, info in qqq_top10.items():
-        try:
-            data = fetch_stock(symbol)
-            data["market_cap"] = info["market_cap"]
-            data["market_cap_rank"] = info["rank"]
-            stock_result["QQQ Top 10 (Market Cap)"]["QQQ Top 10 (Market Cap)"][symbol] = data
-        except Exception as e:
-            print(f"[warn] QQQ Top10 {symbol} 수집 실패: {e}")
-
-
-# =========================================================
-# Trending Data (순위 유지를 위해 리스트로 저장)
-# =========================================================
-
-trending_result = []
-
-try:
-    symbols = fetch_trending_symbols(TRENDING_REGION, TRENDING_COUNT)
-
-    for rank, symbol in enumerate(symbols, start=1):
-        try:
-            data = fetch_stock(symbol)
-            data["rank"] = rank
-            data["symbol"] = symbol
-            trending_result.append(data)
-        except Exception as e:
-            print(f"[warn] trending {symbol} 수집 실패: {e}")
-
-except Exception as e:
-    print(f"[warn] 트렌딩 목록 수집 실패 (Yahoo 비공식 엔드포인트 변경 가능성): {e}")
-
-
-# =========================================================
-# AI Trends Data (키워드 -> 설명 + 관련 종목 시세/시총)
-# =========================================================
-
-ai_trends_result = {}
-
-for keyword, info in AI_TRENDS.items():
-
-    related_result = []
-
-    for ticker in info["tickers"]:
-        try:
-            data = fetch_stock(ticker)
-            data["symbol"] = ticker
-
-            try:
-                data["market_cap"] = fetch_market_cap(ticker)
-            except Exception as e:
-                data["market_cap"] = None
-                print(f"[warn] {ticker} 시가총액 수집 실패: {e}")
-
-            related_result.append(data)
-
-        except Exception as e:
-            print(f"[warn] AI 트렌드 관련종목 {ticker} 수집 실패: {e}")
-
-    try:
-        news_count = len(fetch_news(keyword, 7))
-    except Exception as e:
-        news_count = 0
-        print(f"[warn] AI 트렌드 뉴스 수집 실패 ({keyword}): {e}")
-
-    for item in related_result:
-        if item["symbol"] in qqq_top10:
-            item["market_cap_rank"] = qqq_top10[item["symbol"]]["rank"]
-
-    ai_trends_result[keyword] = {
-        "description": info["description"],
-        "news_count": news_count,
-        "tickers": related_result,
-    }
-
-
-# =========================================================
-# Indicator Data (카테고리별로 수집)
-# =========================================================
-
-indicator_result = {}
-
-for category, tickers in INDICATORS.items():
-
-    indicator_result[category] = {}
-
-    for name, ticker in tickers.items():
-        try:
-            indicator_result[category][name] = fetch_indicator(ticker)
-        except Exception as e:
-            print(f"[warn] {name} 지표 수집 실패: {e}")
-
-
-# S&P 500 Forward Earnings Yield -> "Volatility & Valuation" 카테고리에 추가
-
-try:
-    url = "https://historyofmarket.com/api/sp500/forward-pe.json"
-
-    forward_data = requests.get(
-        url,
-        headers={"User-Agent": "Mozilla/5.0"}
-    ).json()
-
-    forward_pe = forward_data["current"]["forward"]
-    forward_ey = 100 / forward_pe
-
-    indicator_result.setdefault("Volatility & Valuation", {})
-    indicator_result["Volatility & Valuation"]["S&P500 Forward Earnings Yield"] = {
-        "value": round(forward_ey, 2)
-    }
-
-except Exception as e:
-    print(f"[warn] S&P500 Forward Earnings Yield 수집 실패: {e}")
-
-
-# =========================================================
-# Macro Events (FOMC / BLS / PCE)
-# =========================================================
-
-events = []
-
-KST = timezone(timedelta(hours=9))
-now = datetime.now(KST)
-
-
-# ---- FOMC ----
-
-try:
-    fed_url = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
-
-    fed_html = requests.get(
-        fed_url,
-        headers={"User-Agent": "Mozilla/5.0"}
-    ).text
-
-    fed_text = re.sub(r"<[^>]+>", " ", fed_html)
-    fed_text = re.sub(r"\s+", " ", fed_text)
-
-    fomc_dates = re.findall(
-        r"(January|March|April|June|July|September|October|December)\s+(\d{1,2})-(\d{1,2})",
-        fed_text
-    )
-
-    month_map = {
-        "January": 1, "March": 3, "April": 4, "June": 6,
-        "July": 7, "September": 9, "October": 10, "December": 12,
-    }
-
-    for month, day1, day2 in fomc_dates:
-
-        meeting_date = datetime(
-            2026, month_map[month], int(day2), 14, 0,
-            tzinfo=timezone(timedelta(hours=-4))
-        )
-
-        meeting_kst = meeting_date.astimezone(KST)
-        press_kst = meeting_kst + timedelta(minutes=30)
-
-        if meeting_kst > now:
-            events.append({"name": "FOMC", "date": meeting_kst.strftime("%m/%d %H:%M")})
-            events.append({"name": "Fed Press", "date": press_kst.strftime("%m/%d %H:%M")})
+            result = requests.get(url, headers=UA, timeout=20).json()["chart"]["result"][0]
             break
+        except Exception as e:
+            last_err = e
+    else:
+        raise last_err
 
-except Exception as e:
-    print(f"[warn] FOMC 일정 수집 실패: {e}")
+    closes = result["indicators"]["quote"][0]["close"]
+    series = [
+        (datetime.fromtimestamp(t, timezone.utc).date(), c)
+        for t, c in zip(result["timestamp"], closes)
+        if c is not None
+    ]
+    meta = result["meta"]
 
-
-# ---- BLS - Jobs / CPI ----
-
-try:
-    bls_url = "https://www.bls.gov/schedule/news_release/bls.ics"
-
-    bls_text = requests.get(
-        bls_url,
-        headers={"User-Agent": "Mozilla/5.0"}
-    ).text
-
-    bls_events = re.findall(
-        r"DTSTART[^:]*:(\d{8}T\d{4}).*?"
-        r"SUMMARY:(.*?)\r?\n",
-        bls_text,
-        re.S
-    )
-
-    for event_name, keyword in [
-        ("Jobs", "Employment Situation"),
-        ("CPI", "Consumer Price Index"),
-    ]:
-
-        for date_text, name in bls_events:
-
-            if keyword not in name:
-                continue
-
-            dt = datetime.strptime(date_text, "%Y%m%dT%H%M").replace(
-                tzinfo=timezone(timedelta(hours=-4))
-            )
-
-            kst = dt.astimezone(KST)
-
-            if kst > now:
-                events.append({"name": event_name, "date": kst.strftime("%m/%d %H:%M")})
-                break
-
-except Exception as e:
-    print(f"[warn] BLS 일정 수집 실패: {e}")
-
-
-# ---- PCE ----
-
-try:
-    bea_url = "https://www.bea.gov/news/schedule"
-
-    bea_html = requests.get(
-        bea_url,
-        headers={"User-Agent": "Mozilla/5.0"}
-    ).text
-
-    bea_text = re.sub(r"<[^>]+>", " ", bea_html)
-    bea_text = re.sub(r"\s+", " ", bea_text)
-
-    pce_matches = re.findall(
-        r"([A-Z][a-z]+)\s+(\d{1,2}).{0,300}?Personal Income and Outlays",
-        bea_text,
-        re.S
-    )
-
-    month_map2 = {
-        "January": 1, "February": 2, "March": 3, "April": 4,
-        "May": 5, "June": 6, "July": 7, "August": 8,
-        "September": 9, "October": 10, "November": 11, "December": 12,
+    data = {
+        "price": meta.get("regularMarketPrice") or series[-1][1],
+        "currency": meta.get("currency", "USD"),
+        "series": series,
     }
+    _YAHOO_CACHE[ticker] = data
+    return data
 
-    for month, day in pce_matches:
 
-        if month not in month_map2:
+def fetch_fred(series_id):
+    """FRED 공개 CSV (API 키 불필요). 결측('.')은 건너뜀."""
+    since = (TODAY - timedelta(days=800)).isoformat()
+    url = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}&cosd={since}"
+    text = requests.get(url, headers=UA, timeout=20).text
+
+    rows = []
+    for line in text.strip().splitlines()[1:]:
+        parts = line.split(",")
+        try:
+            rows.append((datetime.strptime(parts[0], "%Y-%m-%d").date(), float(parts[1])))
+        except (ValueError, IndexError):
             continue
 
-        dt = datetime(
-            2026, month_map2[month], int(day), 8, 30,
-            tzinfo=timezone(timedelta(hours=-4))
-        )
-
-        kst = dt.astimezone(KST)
-
-        if kst > now:
-            events.append({"name": "PCE", "date": kst.strftime("%m/%d %H:%M")})
-            break
-
-except Exception as e:
-    print(f"[warn] PCE 일정 수집 실패: {e}")
+    if not rows:
+        raise ValueError(f"FRED {series_id}: 데이터 없음")
+    return rows
 
 
-def event_datetime(e):
-    return datetime.strptime(f"2026/{e['date']}", "%Y/%m/%d %H:%M")
-
-
-events.sort(key=event_datetime)
+def fetch_forward_earnings_yield():
+    data = requests.get(
+        "https://historyofmarket.com/api/sp500/forward-pe.json",
+        headers=UA, timeout=20,
+    ).json()
+    return 100 / data["current"]["forward"]
 
 
 # =========================================================
-# AI Events (수동 관리 리스트 - 지난 날짜/ongoing 여부로 필터링)
+# MARKET
 # =========================================================
 
-ai_events_result = []
-today = date.today()
+market = {}
 
-for e in AI_EVENTS:
-
-    if e.get("ongoing"):
-        ai_events_result.append(e)
-        continue
-
-    if e.get("date"):
+for sector, items in MARKET.items():
+    market[sector] = {}
+    for name, ticker in items.items():
         try:
-            event_date = datetime.strptime(e["date"], "%Y-%m-%d").date()
-            if event_date >= today:
-                ai_events_result.append(e)
-        except Exception as ex:
-            print(f"[warn] AI 이벤트 날짜 파싱 실패 ({e.get('name')}): {ex}")
+            y = fetch_yahoo(ticker)
+            market[sector][name] = {
+                "ticker": ticker,
+                "currency": y["currency"],
+                "price": rnd(y["price"]),
+                "prev_month": rnd(pick_base(y["series"], 30)),
+                "prev_year": rnd(pick_base(y["series"], 365)),
+            }
+        except Exception as e:
+            print(f"[warn] MARKET {name}({ticker}) 실패: {e}")
+            prev = OLD.get("market", {}).get(sector, {}).get(name)
+            if prev:  # 실패하면 직전 값 유지 → 화면이 비지 않게
+                market[sector][name] = prev
 
 
 # =========================================================
-# AI Events / News (자동 업데이트)
-# 기존 수동 이벤트 + 최근 AI 주요 뉴스
+# MACRO
 # =========================================================
+
+history = OLD.get("history", {})  # {지표명: {"YYYY-MM-DD": 값}}
+
+macro = {}
+
+for group, items in MACRO.items():
+    macro[group] = {}
+    for name, spec in items.items():
+
+        display = {k: spec[k] for k in ("kind", "prefix", "suffix", "digits") if k in spec}
+
+        try:
+            if name in MANUAL_MACRO:
+                m = MANUAL_MACRO[name]
+                item = {"value": m["value"], "prev_month": m.get("prev_month"),
+                        "prev_year": m.get("prev_year")}
+
+            else:
+                if spec["src"] == "yahoo":
+                    y = fetch_yahoo(spec["id"])
+                    series, value = y["series"], y["price"]
+
+                elif spec["src"] == "fred":
+                    series = fetch_fred(spec["id"])
+                    value = series[-1][1]
+
+                else:  # history
+                    h = history.setdefault(name, {})
+                    h[TODAY.isoformat()] = round(fetch_forward_earnings_yield(), 3)
+                    cutoff = (TODAY - timedelta(days=400)).isoformat()
+                    for k in [k for k in h if k < cutoff]:
+                        del h[k]
+                    series = sorted((date.fromisoformat(k), v) for k, v in h.items())
+                    value = series[-1][1]
+
+                s = spec.get("scale", 1)
+                item = {
+                    "value": value * s,
+                    "prev_month": None if pick_base(series, 30) is None else pick_base(series, 30) * s,
+                    "prev_year": None if pick_base(series, 365) is None else pick_base(series, 365) * s,
+                }
+
+            item = {k: rnd(v) for k, v in item.items()}
+            macro[group][name] = {**item, **display}
+
+        except Exception as e:
+            print(f"[warn] MACRO {name} 실패: {e}")
+            prev = OLD.get("macro", {}).get(group, {}).get(name)
+            if prev:
+                macro[group][name] = prev
+
+
+# =========================================================
+# EVENTS (FOMC / CPI / NFP / PCE) - 미국 현지 날짜 기준, 다음 예정 1건씩
+# =========================================================
+
+MONTH_RE = ("January|February|March|April|May|June|July|August|"
+            "September|October|November|December")
+MONTHS = {m: i for i, m in enumerate(MONTH_RE.split("|"), start=1)}
+
+
+def strip_html(html):
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html))
+
+
+def fomc_dates():
+    """Fed 캘린더: 회의 마지막 날(성명 발표일)."""
+    html = requests.get(
+        "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+        headers=UA, timeout=20,
+    ).text
+    text = strip_html(html)
+
+    # "2026 FOMC Meetings" 처럼 연도 헤더 기준으로 구간을 나눔
+    parts = re.split(r"(\d{4}) FOMC Meetings", text)
+    if len(parts) == 1:
+        parts = ["", str(TODAY.year), text]
+
+    dates = set()
+    for i in range(1, len(parts) - 1, 2):
+        year = int(parts[i])
+        for month, _d1, d2 in re.findall(
+            rf"({MONTH_RE})\s+(\d{{1,2}})\s*[-–]\s*(\d{{1,2}})", parts[i + 1]
+        ):
+            try:
+                dates.add(date(year, MONTHS[month], int(d2)))
+            except ValueError:
+                pass
+    return sorted(dates)
+
+
+def bls_dates():
+    """BLS 발표 일정(.ics): CPI, 고용보고서(NFP)."""
+    headers = {
+        "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"),
+        "Accept": "text/calendar,text/plain,*/*",
+        "Accept-Language": "en-US,en;q=0.9",
+    }
+    r = requests.get("https://www.bls.gov/schedule/news_release/bls.ics",
+                     headers=headers, timeout=20)
+    r.raise_for_status()
+
+    out = {"CPI": [], "NFP": []}
+    for block in r.text.split("BEGIN:VEVENT")[1:]:
+        d = re.search(r"DTSTART[^:\r\n]*:(\d{8})", block)
+        s = re.search(r"SUMMARY:(.*)", block)
+        if not d or not s:
+            continue
+        summary = s.group(1)
+        day = datetime.strptime(d.group(1), "%Y%m%d").date()
+        if "Consumer Price Index" in summary:
+            out["CPI"].append(day)
+        elif "Employment Situation" in summary:
+            out["NFP"].append(day)
+    return out
+
+
+def pce_dates():
+    """BEA 일정: Personal Income and Outlays(PCE 포함)."""
+    html = requests.get("https://www.bea.gov/news/schedule", headers=UA, timeout=20).text
+    text = strip_html(html)
+
+    dates = []
+    for month, day in re.findall(
+        r"([A-Z][a-z]+)\s+(\d{1,2}).{0,300}?Personal Income and Outlays", text, re.S
+    ):
+        if month in MONTHS:
+            try:
+                dates.append(date(TODAY.year, MONTHS[month], int(day)))
+            except ValueError:
+                pass
+    return dates
+
+
+found = {"FOMC": [], "CPI": [], "NFP": [], "PCE": []}
 
 try:
-    ai_news = fetch_news("AI artificial intelligence IPO data center semiconductor", 7)
-    for item in ai_news[:6]:
-        title = item.findtext("title") or ""
-        pub = item.findtext("pubDate") or ""
-        try:
-            dt = datetime.strptime(pub[:25], "%a, %d %b %Y %H:%M:%S")
-            date_label = dt.strftime("%m/%d")
-        except Exception:
-            date_label = ""
-
-        ai_events_result.append({
-            "name": title.split(" - ")[0][:90],
-            "date": date_label,
-            "note": "자동 수집 뉴스",
-            "ongoing": False,
-        })
+    found["FOMC"] += fomc_dates()
 except Exception as e:
-    print(f"[warn] AI 뉴스 수집 실패: {e}")
+    print(f"[warn] FOMC 일정 실패: {e}")
+
+try:
+    b = bls_dates()
+    found["CPI"] += b["CPI"]
+    found["NFP"] += b["NFP"]
+except Exception as e:
+    print(f"[warn] CPI/NFP 일정 실패 (MANUAL_EVENTS로 직접 입력 가능): {e}")
+
+try:
+    found["PCE"] += pce_dates()
+except Exception as e:
+    print(f"[warn] PCE 일정 실패: {e}")
+
+for e in MANUAL_EVENTS:
+    try:
+        found.setdefault(e["name"], []).append(date.fromisoformat(e["date"]))
+    except Exception as ex:
+        print(f"[warn] MANUAL_EVENTS 형식 오류 {e}: {ex}")
+
+events = []
+for name, days in found.items():
+    upcoming = sorted(d for d in days if d >= TODAY)
+    if upcoming:
+        events.append({
+            "name": name,
+            "date": upcoming[0].isoformat(),
+            "d_day": (upcoming[0] - TODAY).days,
+        })
+events.sort(key=lambda e: e["d_day"])
 
 
 # =========================================================
-# Save JSON
+# EARNINGS (Yahoo quoteSummary - 쿠키/crumb 필요)
+# =========================================================
+
+def yahoo_session():
+    s = requests.Session()
+    s.headers.update(UA)
+    s.get("https://fc.yahoo.com", timeout=15)  # 쿠키 발급용 (404가 와도 정상)
+    crumb = s.get("https://query1.finance.yahoo.com/v1/test/getcrumb", timeout=15).text.strip()
+    if not crumb or "<" in crumb or " " in crumb:
+        raise ValueError(f"crumb 발급 실패: {crumb[:60]}")
+    return s, crumb
+
+
+def fetch_earnings(session, crumb, ticker):
+    url = (f"https://query2.finance.yahoo.com/v10/finance/quoteSummary/{ticker}"
+           f"?modules=calendarEvents&crumb={quote(crumb)}")
+    ce = session.get(url, timeout=20).json()["quoteSummary"]["result"][0]["calendarEvents"]["earnings"]
+
+    dates = sorted(
+        d["fmt"] for d in ce.get("earningsDate", [])
+        if d.get("fmt") and d["fmt"] >= TODAY.isoformat()
+    )
+    return {
+        "date": dates[0] if dates else None,
+        "eps": (ce.get("earningsAverage") or {}).get("raw"),
+        "revenue": (ce.get("revenueAverage") or {}).get("raw"),
+    }
+
+
+earnings = []
+old_earn = {e["symbol"]: e for e in OLD.get("earnings", []) if "symbol" in e}
+
+try:
+    sess, crumb = yahoo_session()
+except Exception as e:
+    sess = crumb = None
+    print(f"[warn] EARNINGS 세션 실패: {e}")
+
+for symbol, company in EARNINGS.items():
+    row = {"symbol": symbol, "name": company, "date": None, "d_day": None,
+           "eps": None, "revenue": None}
+    try:
+        if sess is None:
+            raise RuntimeError("세션 없음")
+        row.update(fetch_earnings(sess, crumb, symbol))
+    except Exception as e:
+        print(f"[warn] EARNINGS {symbol} 실패: {e}")
+        prev = old_earn.get(symbol)
+        if prev and prev.get("date") and prev["date"] >= TODAY.isoformat():
+            row.update({k: prev.get(k) for k in ("date", "eps", "revenue")})
+
+    if row["date"]:
+        row["d_day"] = (date.fromisoformat(row["date"]) - TODAY).days
+    earnings.append(row)
+
+earnings.sort(key=lambda r: (r["d_day"] is None, r["d_day"] if r["d_day"] is not None else 0))
+
+
+# =========================================================
+# 저장
 # =========================================================
 
 output = {
-    "stocks": stock_result,
-    "indicators": indicator_result,
-    "trending": trending_result,
-    "ai_trends": ai_trends_result,
+    "updated_at": NOW.strftime("%Y-%m-%d %H:%M KST"),
+    "macro": macro,
     "events": events,
-    "ai_events": ai_events_result,
+    "earnings": earnings,
+    "market": market,
+    "history": history,  # 화면에는 안 쓰임. 지표 히스토리 누적용
 }
 
-with open("data.json", "w") as f:
-    json.dump(output, f)
+with open("data.json", "w", encoding="utf-8") as f:
+    json.dump(output, f, ensure_ascii=False, indent=1)
 
-print(json.dumps(output, indent=2, ensure_ascii=False))
+n_market = sum(len(v) for v in market.values())
+n_macro = sum(len(v) for v in macro.values())
+print(f"saved data.json | market {n_market} | macro {n_macro} | "
+      f"events {len(events)} | earnings {sum(1 for e in earnings if e['date'])}/{len(earnings)}")
