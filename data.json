@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-29 21:46 KST",
+ "updated_at": "2026-09-29 22:03 KST",
  "macro": {
   "유동성 / 환율": {
    "US M2": {
@@ -20,7 +20,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 157.295,
+    "value": 157.376,
     "prev_month": 159.747,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -71,7 +71,7 @@
     "suffix": "%"
    },
    "US 10Y": {
-    "value": 5.219,
+    "value": 5.226,
     "prev_month": 4.758,
     "prev_year": 4.163,
     "prev_2year": 4.573,
@@ -79,7 +79,7 @@
     "suffix": "%"
    },
    "US 30Y": {
-    "value": 5.548,
+    "value": 5.55,
     "prev_month": 5.249,
     "prev_year": 4.84,
     "prev_2year": 4.786,
@@ -97,7 +97,7 @@
     "suffix": "%"
    },
    "VIX": {
-    "value": 15.85,
+    "value": 15.88,
     "prev_month": 14.92,
     "prev_year": 14.95,
     "prev_2year": 17.35,
@@ -160,21 +160,21 @@
      "eps_est": 3.9641,
      "eps_act": 4.78,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 13643000000
     },
     {
      "label": "1Q2026",
      "eps_est": 9.1587,
      "eps_act": 12.2,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 23860000000
     },
     {
      "label": "2Q2026",
      "eps_est": 20.686,
      "eps_act": 25.11,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 41456000000
     }
    ]
   },
@@ -205,7 +205,7 @@
      "eps_est": 6.9481,
      "eps_act": 7.58,
      "rev_est": null,
-     "rev_act": 9326500000
+     "rev_act": null
     }
    ]
   },
@@ -484,7 +484,7 @@
      "eps_est": 1.8924,
      "eps_act": 2.02,
      "rev_est": null,
-     "rev_act": 109417000000
+     "rev_act": null
     }
    ]
   },
@@ -670,7 +670,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 29591000000
     }
    ]
   }
@@ -680,7 +680,7 @@
    "Bitcoin": {
     "ticker": "BTC-USD",
     "currency": "USD",
-    "price": 84244.14,
+    "price": 84297.61,
     "prev_month": 78548.6328,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -688,7 +688,7 @@
    "Gold": {
     "ticker": "GC=F",
     "currency": "USD",
-    "price": 4187.2,
+    "price": 4183.4,
     "prev_month": 4481.5,
     "prev_year": 4341.1001,
     "prev_2year": 2641.0
@@ -696,7 +696,7 @@
    "Silver": {
     "ticker": "SI=F",
     "currency": "USD",
-    "price": 61.12,
+    "price": 61.11,
     "prev_month": 66.221,
     "prev_year": 70.134,
     "prev_2year": 28.94
@@ -704,7 +704,7 @@
    "Copper": {
     "ticker": "HG=F",
     "currency": "USD",
-    "price": 6.614,
+    "price": 6.6135,
     "prev_month": 6.5935,
     "prev_year": 5.63,
     "prev_2year": 3.986
@@ -712,7 +712,7 @@
    "WTI Oil": {
     "ticker": "CL=F",
     "currency": "USD",
-    "price": 90.52,
+    "price": 90.59,
     "prev_month": 85.76,
     "prev_year": 57.42,
     "prev_2year": 71.72
@@ -720,7 +720,7 @@
    "Natural Gas": {
     "ticker": "NG=F",
     "currency": "USD",
-    "price": 3.102,
+    "price": 3.073,
     "prev_month": 2.935,
     "prev_year": 3.686,
     "prev_2year": 3.633
