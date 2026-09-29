@@ -236,8 +236,21 @@ def _parse_fred_txt(text):
     ]
 
 
+# FRED가 GitHub Actions 서버에서 막히거나 느릴 때를 위한 선택 사항:
+# https://fredaccount.stlouisfed.org/apikeys 에서 무료 API 키를 받아 아래에 넣으면
+# 웹 다운로드가 실패해도 공식 API(api.stlouisfed.org)로 한 번 더 시도함. 비워두면 사용 안 함.
+# (저장소가 공개라면 키가 노출되니 FRED 전용 무료 키만 사용)
+FRED_API_KEY = ""
+
+
+def _parse_fred_api(text):
+    return [(date.fromisoformat(o["date"]), float(o["value"]))
+            for o in json.loads(text)["observations"] if o["value"] not in (".", "")]
+
+
 def fetch_fred(series_ids):
-    """FRED 공개 데이터 (API 키 불필요). 시리즈 ID를 리스트로 주면 앞에서부터 시도."""
+    """FRED 공개 데이터. 시리즈 ID를 리스트로 주면 앞에서부터 시도.
+    시도 순서: 웹 CSV → 웹 TXT → (API 키가 있으면) 공식 API"""
     global _fred_net_fail
     ids = [series_ids] if isinstance(series_ids, str) else series_ids
     since = (TODAY - timedelta(days=1000)).isoformat()
@@ -245,28 +258,36 @@ def fetch_fred(series_ids):
 
     for sid in ids:
         sources = [
-            (f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}&cosd={since}", _parse_fred_csv),
-            (f"https://fred.stlouisfed.org/data/{sid}.txt", _parse_fred_txt),
+            (f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}&cosd={since}", _parse_fred_csv, True),
+            (f"https://fred.stlouisfed.org/data/{sid}.txt", _parse_fred_txt, True),
         ]
-        for url, parser in sources:
-            if _fred_net_fail >= 2:
-                raise RuntimeError("FRED 접속 불가 (이전 요청에서 연결 실패)")
+        if FRED_API_KEY:
+            sources.append((
+                "https://api.stlouisfed.org/fred/series/observations?series_id="
+                f"{sid}&api_key={FRED_API_KEY}&file_type=json&observation_start={since}",
+                _parse_fred_api, False))
+
+        for url, parser, is_web in sources:
+            if is_web and _fred_net_fail >= 3:
+                errors.append(f"{sid}: 웹 접속 생략(앞선 연결 실패)")
+                continue
             try:
-                r = requests.get(url, headers=BROWSER_UA, timeout=15)
+                r = requests.get(url, headers=BROWSER_UA, timeout=30)
                 r.raise_for_status()
-                rows = parser(r.text)
-                rows = [x for x in rows if x[0] >= TODAY - timedelta(days=1000)]
+                rows = [x for x in parser(r.text) if x[0] >= TODAY - timedelta(days=1000)]
                 if rows:
-                    _fred_net_fail = 0
+                    if is_web:
+                        _fred_net_fail = 0
                     return rows
-                errors.append(f"{sid}: 빈 데이터")
+                errors.append(f"{sid}: 응답에 데이터 없음 → {r.text[:80]!r}")
             except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as e:
-                _fred_net_fail += 1
+                if is_web:
+                    _fred_net_fail += 1
                 errors.append(f"{sid}: 연결 실패 {type(e).__name__}")
             except Exception as e:
-                errors.append(f"{sid}: {e}")
+                errors.append(f"{sid}: {str(e)[:100]}")
 
-    raise RuntimeError("FRED 실패 → " + " | ".join(errors[-3:]))
+    raise RuntimeError("FRED 실패 → " + " | ".join(errors[-4:]))
 
 
 def fetch_forward_earnings_yield():
