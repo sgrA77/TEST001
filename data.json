@@ -1,23 +1,24 @@
 {
- "updated_at": "2026-09-29 18:52 KST",
+ "updated_at": "2026-09-29 19:10 KST",
  "macro": {
   "유동성 / 환율": {
    "US M2": {
-    "value": null,
+    "value": 23.0,
     "prev_month": null,
     "prev_year": null,
+    "stale": true,
     "kind": "pct",
     "prefix": "$",
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1356.88,
+    "value": 1356.48,
     "prev_month": 1366.62,
     "prev_year": 1437.91,
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 157.524,
+    "value": 157.642,
     "prev_month": 159.747,
     "prev_year": 156.413,
     "kind": "pct"
@@ -25,23 +26,23 @@
   },
   "기준금리": {
    "Korea Policy Rate": {
-    "value": null,
-    "prev_month": null,
-    "prev_year": null,
+    "value": 3.0,
+    "prev_month": 3.0,
+    "prev_year": 2.5,
     "kind": "pp",
     "suffix": "%"
    },
    "US Policy Rate": {
-    "value": null,
-    "prev_month": null,
-    "prev_year": null,
+    "value": 3.875,
+    "prev_month": 3.625,
+    "prev_year": 3.625,
     "kind": "pp",
     "suffix": "%"
    },
    "Japan Policy Rate": {
-    "value": null,
-    "prev_month": null,
-    "prev_year": null,
+    "value": 1.25,
+    "prev_month": 1.0,
+    "prev_year": 0.75,
     "kind": "pp",
     "suffix": "%"
    }
@@ -55,9 +56,9 @@
     "suffix": "%"
    },
    "US 2Y": {
-    "value": null,
-    "prev_month": null,
-    "prev_year": null,
+    "value": 4.92,
+    "prev_month": 4.34,
+    "prev_year": 3.47,
     "kind": "pp",
     "suffix": "%"
    },
@@ -85,7 +86,7 @@
     "suffix": "%"
    },
    "VIX": {
-    "value": 16.13,
+    "value": 16.1,
     "prev_month": 14.92,
     "prev_year": 14.95,
     "kind": "pct"
@@ -94,14 +95,29 @@
  },
  "events": [
   {
+   "name": "PCE",
+   "date": "2026-09-30",
+   "d_day": 1
+  },
+  {
+   "name": "NFP",
+   "date": "2026-10-02",
+   "d_day": 3
+  },
+  {
+   "name": "CPI",
+   "date": "2026-10-14",
+   "d_day": 15
+  },
+  {
    "name": "FOMC",
    "date": "2026-10-28",
    "d_day": 29
   },
   {
-   "name": "PCE",
-   "date": "2026-12-18",
-   "d_day": 80
+   "name": "Fed Press",
+   "date": "2026-10-28",
+   "d_day": 29
   }
  ],
  "earnings": [
