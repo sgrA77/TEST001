@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-29 21:22 KST",
+ "updated_at": "2026-09-29 21:46 KST",
  "macro": {
   "유동성 / 환율": {
    "US M2": {
@@ -13,14 +13,14 @@
     "chips": "pct"
    },
    "USD/KRW": {
-    "value": 1353.38,
+    "value": 1353.88,
     "prev_month": 1366.62,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 157.165,
+    "value": 157.295,
     "prev_month": 159.747,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -55,7 +55,7 @@
   },
   "시장금리": {
    "US 3M": {
-    "value": 4.057,
+    "value": 4.09,
     "prev_month": 3.732,
     "prev_year": 3.547,
     "prev_2year": 4.208,
@@ -71,7 +71,7 @@
     "suffix": "%"
    },
    "US 10Y": {
-    "value": 5.24,
+    "value": 5.219,
     "prev_month": 4.758,
     "prev_year": 4.163,
     "prev_2year": 4.573,
@@ -79,7 +79,7 @@
     "suffix": "%"
    },
    "US 30Y": {
-    "value": 5.561,
+    "value": 5.548,
     "prev_month": 5.249,
     "prev_year": 4.84,
     "prev_2year": 4.786,
@@ -97,7 +97,7 @@
     "suffix": "%"
    },
    "VIX": {
-    "value": 15.76,
+    "value": 15.85,
     "prev_month": 14.92,
     "prev_year": 14.95,
     "prev_2year": 17.35,
@@ -680,7 +680,7 @@
    "Bitcoin": {
     "ticker": "BTC-USD",
     "currency": "USD",
-    "price": 84176.51,
+    "price": 84244.14,
     "prev_month": 78548.6328,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -688,7 +688,7 @@
    "Gold": {
     "ticker": "GC=F",
     "currency": "USD",
-    "price": 4184.0,
+    "price": 4187.2,
     "prev_month": 4481.5,
     "prev_year": 4341.1001,
     "prev_2year": 2641.0
@@ -696,7 +696,7 @@
    "Silver": {
     "ticker": "SI=F",
     "currency": "USD",
-    "price": 61.205,
+    "price": 61.12,
     "prev_month": 66.221,
     "prev_year": 70.134,
     "prev_2year": 28.94
@@ -704,7 +704,7 @@
    "Copper": {
     "ticker": "HG=F",
     "currency": "USD",
-    "price": 6.6225,
+    "price": 6.614,
     "prev_month": 6.5935,
     "prev_year": 5.63,
     "prev_2year": 3.986
@@ -712,7 +712,7 @@
    "WTI Oil": {
     "ticker": "CL=F",
     "currency": "USD",
-    "price": 91.14,
+    "price": 90.52,
     "prev_month": 85.76,
     "prev_year": 57.42,
     "prev_2year": 71.72
@@ -720,7 +720,7 @@
    "Natural Gas": {
     "ticker": "NG=F",
     "currency": "USD",
-    "price": 3.107,
+    "price": 3.102,
     "prev_month": 2.935,
     "prev_year": 3.686,
     "prev_2year": 3.633
