@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-30 05:57 KST",
+ "updated_at": "2026-09-30 06:13 KST",
  "macro": {
   "유동성 / 환율": {
    "US M2": {
@@ -13,14 +13,14 @@
     "chips": "pct"
    },
    "USD/KRW": {
-    "value": 1351.7,
+    "value": 1352.35,
     "prev_month": 1366.62,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 157.262,
+    "value": 157.285,
     "prev_month": 159.747,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -680,7 +680,7 @@
    "Bitcoin": {
     "ticker": "BTC-USD",
     "currency": "USD",
-    "price": 83600.64,
+    "price": 83504.02,
     "prev_month": 78548.6328,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -688,7 +688,7 @@
    "Gold": {
     "ticker": "GC=F",
     "currency": "USD",
-    "price": 4216.1,
+    "price": 4215.0,
     "prev_month": 4481.5,
     "prev_year": 4341.1001,
     "prev_2year": 2641.0
@@ -696,7 +696,7 @@
    "Silver": {
     "ticker": "SI=F",
     "currency": "USD",
-    "price": 61.865,
+    "price": 61.845,
     "prev_month": 66.221,
     "prev_year": 70.134,
     "prev_2year": 28.94
@@ -704,7 +704,7 @@
    "Copper": {
     "ticker": "HG=F",
     "currency": "USD",
-    "price": 6.6595,
+    "price": 6.6585,
     "prev_month": 6.5935,
     "prev_year": 5.63,
     "prev_2year": 3.986
@@ -712,7 +712,7 @@
    "WTI Oil": {
     "ticker": "CL=F",
     "currency": "USD",
-    "price": 88.88,
+    "price": 88.94,
     "prev_month": 85.76,
     "prev_year": 57.42,
     "prev_2year": 71.72
@@ -720,7 +720,7 @@
    "Natural Gas": {
     "ticker": "NG=F",
     "currency": "USD",
-    "price": 3.013,
+    "price": 3.014,
     "prev_month": 2.935,
     "prev_year": 3.686,
     "prev_2year": 3.633
