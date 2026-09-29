@@ -3,11 +3,13 @@ Market Dashboard 데이터 수집 (TEST001.py → data.json)
 
 수정하는 곳은 아래 [설정] 구역뿐입니다.
   - MARKET  : 관심종목 (섹터 → 표시이름 → Yahoo 티커)
-  - MACRO   : 거시 지표
+  - MACRO   : 거시 지표 (+ RATE_CHANGES: 기준금리 변경 즉시 반영)
   - EARNINGS: 실적 발표 추적 기업
   - MANUAL_EVENTS / MANUAL_MACRO : 자동 수집이 안 될 때 직접 넣는 값
 """
 
+import csv
+import io
 import json
 import re
 import requests
@@ -44,41 +46,56 @@ MARKET = {
 
 # =========================================================
 # [설정] MACRO : 그룹 -> {지표명: 스펙}
-#   src    : yahoo(야후 티커) / fred(FRED 시리즈) / history(직접 누적)
+#   src    : 데이터 출처 (앞에서부터 시도, 실패하면 다음 출처로 자동 전환)
+#            "fedh6:M2"      Fed H.6 (미국 M2, federalreserve.gov)
+#            "bis:KR"        BIS 중앙은행 정책금리 (KR / JP / US)
+#            "treasury:2 Yr" 미국 재무부 일일 수익률 (컬럼명)
+#            "fred:DGS2"     FRED 시리즈
+#            "yahoo:^VIX"    Yahoo 티커
+#            "history"       data.json에 매일 누적 (Fwd Earnings Yield)
 #   kind   : "pct" = 변화율(%) / "pp" = 변화량(%p)
 #   scale  : 값에 곱할 배수 (M2: 십억달러 → 조달러)
-#   prefix / suffix / digits : 화면 표시용
+#   static : 모든 출처가 실패했을 때 마지막으로 쓰는 값 ("캐시" 표시가 붙음)
+#   prefix / suffix : 화면 표시용
 # =========================================================
 
 MACRO = {
     "유동성 / 환율": {
-        "US M2": {"src": "fred", "id": ["M2SL", "WM2NS"], "kind": "pct",
-                  "prefix": "$", "suffix": "T", "scale": 0.001},
-        "USD/KRW": {"src": "yahoo", "id": "KRW=X", "kind": "pct"},
-        "USD/JPY": {"src": "yahoo", "id": "JPY=X", "kind": "pct"},
+        "US M2": {"src": ["fedh6:M2", "fred:M2SL"], "kind": "pct",
+                  "prefix": "$", "suffix": "T", "scale": 0.001, "static": 23.0},
+        "USD/KRW": {"src": ["yahoo:KRW=X"], "kind": "pct"},
+        "USD/JPY": {"src": ["yahoo:JPY=X"], "kind": "pct"},
     },
     "기준금리": {
-        "Korea Policy Rate": {"src": "fred", "id": "IRSTCB01KRM156N", "kind": "pp", "suffix": "%"},
-        "US Policy Rate": {"src": "fred", "id": "DFEDTARU", "kind": "pp", "suffix": "%"},
-        "Japan Policy Rate": {"src": "fred", "id": "IRSTCB01JPM156N", "kind": "pp", "suffix": "%"},
+        "Korea Policy Rate": {"src": ["bis:KR"], "kind": "pp", "suffix": "%", "static": 3.0},
+        "US Policy Rate": {"src": ["bis:US"], "kind": "pp", "suffix": "%", "static": 3.875},
+        "Japan Policy Rate": {"src": ["bis:JP"], "kind": "pp", "suffix": "%", "static": 1.25},
     },
     "시장금리": {
-        "US 3M": {"src": "yahoo", "id": "^IRX", "kind": "pp", "suffix": "%"},
-        "US 2Y": {"src": "fred", "id": "DGS2", "kind": "pp", "suffix": "%"},
-        "US 10Y": {"src": "yahoo", "id": "^TNX", "kind": "pp", "suffix": "%"},
-        "US 30Y": {"src": "yahoo", "id": "^TYX", "kind": "pp", "suffix": "%"},
+        "US 3M": {"src": ["yahoo:^IRX", "treasury:3 Mo"], "kind": "pp", "suffix": "%"},
+        "US 2Y": {"src": ["treasury:2 Yr", "fred:DGS2"], "kind": "pp", "suffix": "%"},
+        "US 10Y": {"src": ["yahoo:^TNX", "treasury:10 Yr"], "kind": "pp", "suffix": "%"},
+        "US 30Y": {"src": ["yahoo:^TYX", "treasury:30 Yr"], "kind": "pp", "suffix": "%"},
     },
     "밸류에이션 / 변동성": {
         # 과거값을 주는 무료 API가 없어서 data.json에 매일 1개씩 쌓아 1M/1Y를 계산함
         # (1M 표시까지 약 한 달, 1Y 표시까지 약 1년 걸림)
-        "S&P 500 Fwd Earnings Yield": {"src": "history", "kind": "pp", "suffix": "%"},
-        "VIX": {"src": "yahoo", "id": "^VIX", "kind": "pct"},
+        "S&P 500 Fwd Earnings Yield": {"src": ["history"], "kind": "pp", "suffix": "%"},
+        "VIX": {"src": ["yahoo:^VIX"], "kind": "pct"},
     },
+}
+
+# 기준금리는 BIS 데이터가 며칠~몇 주 늦게 반영됨. 금리가 바뀐 날 바로 반영하려면 여기에 추가.
+# 형식: "지표명": [("변경일", 새 금리), ...]   (BIS가 따라잡으면 자동으로 무시됨)
+RATE_CHANGES = {
+    "Japan Policy Rate": [("2026-09-18", 1.25)],   # BOJ 인상 1.00 → 1.25
+    # "Korea Policy Rate": [("2026-10-22", 3.25)],
+    # "US Policy Rate": [("2026-10-28", 3.625)],   # 미국은 목표범위 중간값(예: 3.75~4.00 → 3.875)
 }
 
 # 자동 수집이 계속 실패하는 지표는 여기에 직접 입력하면 그 값이 우선 사용됨
 MANUAL_MACRO = {
-    # "Korea Policy Rate": {"value": 2.50, "prev_month": 2.50, "prev_year": 3.00},
+    # "Korea Policy Rate": {"value": 3.00, "prev_month": 2.75, "prev_year": 2.50},
 }
 
 # =========================================================
@@ -95,7 +112,7 @@ EARNINGS = {
 
 # =========================================================
 # [설정] EVENTS : 자동 수집이 안 될 때 직접 추가하는 일정
-# name은 FOMC / CPI / NFP / PCE 중 하나, date는 미국 현지 날짜
+# name은 FOMC / Fed Press / CPI / NFP / PCE, date는 미국 현지 날짜 (내장·자동 일정에 추가됨)
 # =========================================================
 
 MANUAL_EVENTS = [
@@ -244,6 +261,110 @@ def fetch_forward_earnings_yield():
     return 100 / data["current"]["forward"]
 
 
+def _get(url, **kw):
+    r = requests.get(url, headers=BROWSER_UA, timeout=kw.pop("timeout", 20), **kw)
+    r.raise_for_status()
+    return r.text
+
+
+def fetch_fedh6(col):
+    """Fed H.6 (월간, 계절조정). col='M2' → 'M2; Seasonally adjusted' 열. 단위: 십억달러."""
+    url = ("https://www.federalreserve.gov/datadownload/Output.aspx?rel=H6"
+           "&series=798e2796917702a5f8423426ba7e6b42&lastobs=40&from=&to="
+           "&filetype=csv&label=include&layout=seriescolumn")
+    rows = list(csv.reader(io.StringIO(_get(url))))
+    idx = next((i for i, h in enumerate(rows[0]) if h.startswith(f"{col}; Seasonally adjusted")), None)
+    if idx is None:
+        raise RuntimeError(f"H.6에서 '{col}; Seasonally adjusted' 열을 찾지 못함")
+    out = []
+    for r in rows[1:]:
+        if len(r) > idx and re.fullmatch(r"\d{4}-\d{2}", r[0]) and r[idx].strip():
+            try:
+                out.append((datetime.strptime(r[0] + "-01", "%Y-%m-%d").date(), float(r[idx])))
+            except ValueError:
+                pass
+    if not out:
+        raise RuntimeError("H.6 데이터 없음")
+    return sorted(out)
+
+
+_BIS = {}
+
+
+def fetch_bis(area):
+    """BIS 정책금리 일별 데이터 (KR/JP/US). 한 번만 받아서 3개국 공유."""
+    if not _BIS:
+        since = (TODAY - timedelta(days=800)).isoformat()
+        url = ("https://stats.bis.org/api/v2/data/dataflow/BIS/WS_CBPOL/1.0/D.KR+JP+US"
+               f"?detail=dataonly&format=csv&startPeriod={since}")
+        for r in csv.DictReader(io.StringIO(_get(url, timeout=30))):
+            try:
+                _BIS.setdefault(r["REF_AREA"], []).append(
+                    (date.fromisoformat(r["TIME_PERIOD"]), float(r["OBS_VALUE"])))
+            except (KeyError, ValueError):
+                continue
+        if not _BIS:
+            raise RuntimeError("BIS 데이터 없음")
+    if area not in _BIS:
+        raise RuntimeError(f"BIS에 {area} 없음")
+    return sorted(_BIS[area])
+
+
+def fetch_treasury(col):
+    """미국 재무부 일일 par yield (올해+작년). col 예: '2 Yr', '3 Mo', '10 Yr'."""
+    out = []
+    for yr in (TODAY.year - 1, TODAY.year):
+        url = ("https://home.treasury.gov/resource-center/data-chart-center/interest-rates/"
+               f"daily-treasury-rates.csv/{yr}/all?field_tdr_date_value={yr}"
+               "&type=daily_treasury_yield_curve")
+        try:
+            for r in csv.DictReader(io.StringIO(_get(url))):
+                try:
+                    out.append((datetime.strptime(r["Date"], "%m/%d/%Y").date(), float(r[col])))
+                except (KeyError, ValueError, TypeError):
+                    continue
+        except Exception as e:
+            print(f"[warn] Treasury {yr}: {e}")
+    if not out:
+        raise RuntimeError("Treasury 데이터 없음")
+    return sorted(out)
+
+
+def with_rate_changes(name, series):
+    """정책금리: 수동 변경 내역을 합치고, 마지막 값을 오늘까지 이어붙임(금리는 계단식)."""
+    d = dict(series)
+    for day, v in RATE_CHANGES.get(name, []):
+        day = date.fromisoformat(day)
+        before = [x for k, x in sorted(d.items()) if k < day]
+        old = before[-1] if before else None
+        for k in [k for k in d if k >= day and d[k] == old]:
+            del d[k]                 # BIS가 아직 옛 금리로 채워둔 구간 제거
+        d[day] = v
+    s = sorted(d.items())
+    if s[-1][0] < TODAY:
+        s.append((TODAY, s[-1][1]))
+    return s
+
+
+def get_series(source):
+    """'종류:인자' 문자열 → (series, 현재값)"""
+    kind, _, arg = source.partition(":")
+    if kind == "yahoo":
+        y = fetch_yahoo(arg)
+        return y["series"], y["price"]
+    if kind == "fred":
+        s = fetch_fred(arg)
+    elif kind == "fedh6":
+        s = fetch_fedh6(arg)
+    elif kind == "bis":
+        s = fetch_bis(arg)
+    elif kind == "treasury":
+        s = fetch_treasury(arg)
+    else:
+        raise ValueError(f"알 수 없는 출처 {source}")
+    return s, s[-1][1]
+
+
 # =========================================================
 # MARKET
 # =========================================================
@@ -269,8 +390,9 @@ for sector, items in MARKET.items():
                 market[sector][name] = prev
 
 
+
 # =========================================================
-# MACRO
+# MACRO  (출처를 순서대로 시도 → 다 실패하면 직전 값 → static 값, 이때 "stale" 표시)
 # =========================================================
 
 history = OLD.get("history", {})  # {지표명: {"YYYY-MM-DD": 값}}
@@ -282,59 +404,76 @@ for group, items in MACRO.items():
     for name, spec in items.items():
 
         display = {k: spec[k] for k in ("kind", "prefix", "suffix", "digits") if k in spec}
+        item = None
 
-        try:
-            if name in MANUAL_MACRO:
-                m = MANUAL_MACRO[name]
-                item = {"value": m["value"], "prev_month": m.get("prev_month"),
-                        "prev_year": m.get("prev_year")}
+        if name in MANUAL_MACRO:
+            m = MANUAL_MACRO[name]
+            item = {"value": m["value"], "prev_month": m.get("prev_month"),
+                    "prev_year": m.get("prev_year")}
+            used = "manual"
+        else:
+            errors = []
+            for source in spec["src"]:
+                try:
+                    if source == "history":
+                        h = history.setdefault(name, {})
+                        h[TODAY.isoformat()] = round(fetch_forward_earnings_yield(), 3)
+                        cutoff = (TODAY - timedelta(days=400)).isoformat()
+                        for k in [k for k in h if k < cutoff]:
+                            del h[k]
+                        series = sorted((date.fromisoformat(k), v) for k, v in h.items())
+                        value = series[-1][1]
+                    else:
+                        series, value = get_series(source)
+                        if name in RATE_CHANGES or source.startswith("bis"):
+                            series = with_rate_changes(name, series)
+                            value = series[-1][1]
 
-            else:
-                if spec["src"] == "yahoo":
-                    y = fetch_yahoo(spec["id"])
-                    series, value = y["series"], y["price"]
+                    s = spec.get("scale", 1)
+                    pm, py = pick_base(series, "month"), pick_base(series, "year")
+                    item = {"value": value * s,
+                            "prev_month": None if pm is None else pm * s,
+                            "prev_year": None if py is None else py * s}
+                    used = source
+                    break
+                except Exception as e:
+                    errors.append(f"{source}: {e}")
+                    print(f"[warn] MACRO {name} ← {source} 실패: {e}")
 
-                elif spec["src"] == "fred":
-                    series = fetch_fred(spec["id"])
-                    value = series[-1][1]
-
-                else:  # history
-                    h = history.setdefault(name, {})
-                    h[TODAY.isoformat()] = round(fetch_forward_earnings_yield(), 3)
-                    cutoff = (TODAY - timedelta(days=400)).isoformat()
-                    for k in [k for k in h if k < cutoff]:
-                        del h[k]
-                    series = sorted((date.fromisoformat(k), v) for k, v in h.items())
-                    value = series[-1][1]
-
-                s = spec.get("scale", 1)
-                pm, py = pick_base(series, "month"), pick_base(series, "year")
-                item = {
-                    "value": value * s,
-                    "prev_month": None if pm is None else pm * s,
-                    "prev_year": None if py is None else py * s,
-                }
-
+        if item is not None:
             item = {k: rnd(v) for k, v in item.items()}
             macro[group][name] = {**item, **display}
+            print(f"[ok] MACRO {name} = {item['value']} ({used})")
+            continue
 
-        except Exception as e:
-            print(f"[warn] MACRO {name} 실패: {e}")
-            prev = OLD.get("macro", {}).get(group, {}).get(name)
-            if prev and prev.get("value") is not None:
-                macro[group][name] = prev
-            else:  # 값이 없어도 행은 표시 ("-") → 어떤 지표가 실패했는지 화면에서 보임
-                macro[group][name] = {"value": None, "prev_month": None,
-                                      "prev_year": None, **display}
+        prev = OLD.get("macro", {}).get(group, {}).get(name)
+        if prev and prev.get("value") is not None:      # 직전 값 유지
+            macro[group][name] = {**prev, "stale": True}
+        elif "static" in spec:                           # 마지막 수단
+            macro[group][name] = {"value": spec["static"], "prev_month": None,
+                                  "prev_year": None, "stale": True, **display}
+        else:
+            macro[group][name] = {"value": None, "prev_month": None,
+                                  "prev_year": None, **display}
+        print(f"[warn] MACRO {name} 전체 실패 → 캐시/static 사용")
 
 
 # =========================================================
-# EVENTS (FOMC / CPI / NFP / PCE) - 미국 현지 날짜 기준, 다음 예정 1건씩
+# EVENTS (FOMC / Fed Press / CPI / NFP / PCE) - 미국 현지 날짜, 다음 예정 1건씩
+#   1순위: 공식 사이트 자동 수집  2순위: BUILTIN(내장 일정)  + MANUAL_EVENTS(직접 입력)
 # =========================================================
 
 MONTH_RE = ("January|February|March|April|May|June|July|August|"
             "September|October|November|December")
 MONTHS = {m: i for i, m in enumerate(MONTH_RE.split("|"), start=1)}
+
+# 자동 수집이 실패했을 때만 쓰이는 내장 일정 (Fed / BLS / BEA 공식 발표 기준, 연 1회 갱신)
+BUILTIN_EVENTS = {
+    "FOMC": ["2026-10-28", "2026-12-09"],
+    "CPI": ["2026-10-14", "2026-11-10", "2026-12-10"],
+    "NFP": ["2026-10-02", "2026-11-06", "2026-12-04"],
+    "PCE": ["2026-09-30", "2026-10-29", "2026-11-25"],
+}
 
 
 def strip_html(html):
@@ -342,14 +481,9 @@ def strip_html(html):
 
 
 def fomc_dates():
-    """Fed 캘린더: 회의 마지막 날(성명 발표일)."""
-    html = requests.get(
-        "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-        headers=UA, timeout=20,
-    ).text
-    text = strip_html(html)
+    """Fed 캘린더: 회의 마지막 날(성명·기자회견일)."""
+    text = strip_html(_get("https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"))
 
-    # "2026 FOMC Meetings" 처럼 연도 헤더 기준으로 구간을 나눔
     parts = re.split(r"(\d{4}) FOMC Meetings", text)
     if len(parts) == 1:
         parts = ["", str(TODAY.year), text]
@@ -368,67 +502,70 @@ def fomc_dates():
 
 
 def bls_dates():
-    """BLS 발표 일정(.ics): CPI, 고용보고서(NFP)."""
-    headers = {
-        "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"),
-        "Accept": "text/calendar,text/plain,*/*",
-        "Accept-Language": "en-US,en;q=0.9",
-    }
-    r = requests.get("https://www.bls.gov/schedule/news_release/bls.ics",
-                     headers=headers, timeout=20)
-    r.raise_for_status()
+    """BLS 발표 일정(.ics): CPI, 고용보고서(NFP). 제목이 정확히 일치하는 것만 사용."""
+    text = _get("https://www.bls.gov/schedule/news_release/bls.ics")
+    text = re.sub(r"\r?\n[ \t]", "", text)  # ics 줄바꿈 접힘 해제
 
     out = {"CPI": [], "NFP": []}
-    for block in r.text.split("BEGIN:VEVENT")[1:]:
+    for block in text.split("BEGIN:VEVENT")[1:]:
         d = re.search(r"DTSTART[^:\r\n]*:(\d{8})", block)
         s = re.search(r"SUMMARY:(.*)", block)
         if not d or not s:
             continue
-        summary = s.group(1)
+        summary = s.group(1).strip()
         day = datetime.strptime(d.group(1), "%Y%m%d").date()
-        if "Consumer Price Index" in summary:
+        if re.fullmatch(r"Consumer Price Index( for .*)?", summary, re.I):
             out["CPI"].append(day)
-        elif "Employment Situation" in summary:
+        elif re.fullmatch(r"Employment Situation( for .*)?", summary, re.I):
             out["NFP"].append(day)
     return out
 
 
 def pce_dates():
-    """BEA 일정: Personal Income and Outlays(PCE 포함)."""
-    html = requests.get("https://www.bea.gov/news/schedule", headers=UA, timeout=20).text
-    text = strip_html(html)
+    """BEA 일정 행: 'September 30 8:30 AM | News | Personal Income and Outlays, August 2026'"""
+    text = strip_html(_get("https://www.bea.gov/news/schedule"))
 
     dates = []
-    for month, day in re.findall(
-        r"([A-Z][a-z]+)\s+(\d{1,2}).{0,300}?Personal Income and Outlays", text, re.S
+    for m_rel, d_rel, m_ref, y_ref in re.findall(
+        rf"({MONTH_RE})\s+(\d{{1,2}})(?:,?\s*\d{{4}})?\s+\d{{1,2}}:\d{{2}}\s*[AP]M[\s|]*"
+        rf"(?:News|Data|Release)?[\s|]*Personal Income and Outlays,?\s+({MONTH_RE})\s+(\d{{4}})",
+        text,
     ):
-        if month in MONTHS:
-            try:
-                dates.append(date(TODAY.year, MONTHS[month], int(day)))
-            except ValueError:
-                pass
+        yr = int(y_ref) + (1 if MONTHS[m_rel] < MONTHS[m_ref] else 0)  # 12월분은 다음 해 발표
+        try:
+            dates.append(date(yr, MONTHS[m_rel], int(d_rel)))
+        except ValueError:
+            pass
     return dates
 
 
-found = {"FOMC": [], "CPI": [], "NFP": [], "PCE": []}
+found = {"FOMC": [], "Fed Press": [], "CPI": [], "NFP": [], "PCE": []}
+
+
+def collect(name, fn):
+    """자동 수집 → 예정일이 하나도 없으면 내장 일정 사용"""
+    got = []
+    try:
+        got = fn()
+    except Exception as e:
+        print(f"[warn] {name} 일정 자동 수집 실패: {e}")
+    if not any(d >= TODAY for d in got):
+        print(f"[info] {name}: 내장 일정 사용")
+        got = list(got) + [date.fromisoformat(x) for x in BUILTIN_EVENTS.get(name, [])]
+    return got
+
+
+found["FOMC"] = collect("FOMC", fomc_dates)
+found["Fed Press"] = list(found["FOMC"])  # FOMC 성명 당일 오후 의장 기자회견
 
 try:
-    found["FOMC"] += fomc_dates()
+    _b = bls_dates()
 except Exception as e:
-    print(f"[warn] FOMC 일정 실패: {e}")
-
-try:
-    b = bls_dates()
-    found["CPI"] += b["CPI"]
-    found["NFP"] += b["NFP"]
-except Exception as e:
-    print(f"[warn] CPI/NFP 일정 실패 (MANUAL_EVENTS로 직접 입력 가능): {e}")
-
-try:
-    found["PCE"] += pce_dates()
-except Exception as e:
-    print(f"[warn] PCE 일정 실패: {e}")
+    _b = {"CPI": [], "NFP": []}
+    print(f"[warn] BLS 일정 수집 실패: {e}")
+found["CPI"] = collect("CPI", lambda: _b["CPI"])
+found["NFP"] = collect("NFP", lambda: _b["NFP"])
+found["PCE"] = collect("PCE", pce_dates)
 
 for e in MANUAL_EVENTS:
     try:
@@ -445,7 +582,7 @@ for name, days in found.items():
             "date": upcoming[0].isoformat(),
             "d_day": (upcoming[0] - TODAY).days,
         })
-events.sort(key=lambda e: e["d_day"])
+events.sort(key=lambda e: e["d_day"])  # 동률이면 FOMC → Fed Press 순서 유지
 
 
 # =========================================================
@@ -593,3 +730,4 @@ n_macro = sum(len(v) for v in macro.values())
 print(f"saved data.json | market {n_market} | macro {n_macro} | "
       f"events {len(events)} | earnings {sum(1 for e in earnings if e['date'])}/{len(earnings)} "
       f"(지난분기 있음 {sum(1 for e in earnings if e['quarters'])})")
+
