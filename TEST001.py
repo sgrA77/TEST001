@@ -28,6 +28,11 @@ UA = {"User-Agent": "Mozilla/5.0"}
 # =========================================================
 
 MARKET = {
+    # 선물은 연결(front-month) 시세라 월물 교체 시기에 1M/1Y가 실제 시장 표기와 조금 다를 수 있음
+    "에너지 / 원자재": {
+        "Bitcoin": "BTC-USD", "Gold": "GC=F", "Silver": "SI=F",
+        "Copper": "HG=F", "WTI Oil": "CL=F", "Natural Gas": "NG=F",
+    },
     "지수": {"SPY": "SPY", "QQQ": "QQQ"},
     "레버리지 지수": {"SPXL 3x": "SPXL", "QLD 2x": "QLD"},
     "MAG7": {
@@ -41,11 +46,6 @@ MARKET = {
     "FAB": {"TSM": "TSM"},
     "Semiconductor Equipment": {
         "ASML": "ASML", "AMAT": "AMAT", "LRCX": "LRCX", "KLAC": "KLAC",
-    },
-    # 선물은 연결(front-month) 시세라 월물 교체 시기에 1M/1Y가 실제 시장 표기와 조금 다를 수 있음
-    "에너지 / 원자재": {
-        "Bitcoin": "BTC-USD", "Gold": "GC=F", "Silver": "SI=F",
-        "Copper": "HG=F", "WTI Oil": "CL=F", "Natural Gas": "NG=F",
     },
 }
 
@@ -395,6 +395,7 @@ for sector, items in MARKET.items():
                 "price": rnd(y["price"]),
                 "prev_month": rnd(pick_base(y["series"], "month")),
                 "prev_year": rnd(pick_base(y["series"], "year")),
+                "prev_2year": rnd(pick_base(y["series"], "2year")),
             }
         except Exception as e:
             print(f"[warn] MARKET {name}({ticker}) 실패: {e}")
