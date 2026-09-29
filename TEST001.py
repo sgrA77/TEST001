@@ -89,6 +89,9 @@ MACRO = {
         # (1M 표시까지 약 한 달, 1Y 표시까지 약 1년 걸림)
         "S&P 500 Fwd Earnings Yield": {"src": ["history"], "kind": "pp", "suffix": "%"},
         "VIX": {"src": ["yahoo:^VIX"], "kind": "pct"},
+        # 신용 스프레드 (ICE BofA OAS, FRED). 단위 %, 변화는 %p. 하루 정도 늦게 갱신됨
+        "HY Spread": {"src": ["fred:BAMLH0A0HYM2"], "kind": "pp", "suffix": "%"},
+        "BBB Spread": {"src": ["fred:BAMLC0A4CBBB"], "kind": "pp", "suffix": "%"},
     },
 }
 
