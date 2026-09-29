@@ -132,11 +132,17 @@ def pick_base(series, period):
     """series: 날짜 오름차순 [(date, value)].
     period="month" → 지난달 마지막 거래일 종가 (1M 기준)
     period="year"  → 작년 마지막 거래일 종가  (1Y 기준)
+    period="2year" → 재작년 마지막 거래일 종가 (2Y 기준, MACRO만)
     기준일은 series의 최신 날짜. 해당 값이 없으면 None."""
     if not series:
         return None
     last = series[-1][0]
-    limit = last.replace(day=1) if period == "month" else date(last.year, 1, 1)
+    if period == "month":
+        limit = last.replace(day=1)
+    elif period == "year":
+        limit = date(last.year, 1, 1)
+    else:  # "2year" → 재작년 마지막 거래일 종가 (MACRO 전용)
+        limit = date(last.year - 1, 1, 1)
     older = [v for d, v in series if d < limit]
     return older[-1] if older else None
 
@@ -153,7 +159,7 @@ OLD = load_old()
 
 
 # =========================================================
-# Yahoo Finance 시세 (기존 방식 유지: chart API, 2년 일봉)
+# Yahoo Finance 시세 (기존 방식 유지: chart API, 3년 일봉)
 # =========================================================
 
 _YAHOO_CACHE = {}
@@ -163,7 +169,7 @@ def fetch_yahoo(ticker):
     if ticker in _YAHOO_CACHE:
         return _YAHOO_CACHE[ticker]
 
-    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker}?range=2y&interval=1d"
+    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker}?range=3y&interval=1d"
 
     last_err = None
     for _ in range(2):  # 일시적 실패 대비 1회 재시도
@@ -224,7 +230,7 @@ def fetch_fred(series_ids):
     """FRED 공개 데이터 (API 키 불필요). 시리즈 ID를 리스트로 주면 앞에서부터 시도."""
     global _fred_net_fail
     ids = [series_ids] if isinstance(series_ids, str) else series_ids
-    since = (TODAY - timedelta(days=800)).isoformat()
+    since = (TODAY - timedelta(days=1000)).isoformat()
     errors = []
 
     for sid in ids:
@@ -239,7 +245,7 @@ def fetch_fred(series_ids):
                 r = requests.get(url, headers=BROWSER_UA, timeout=15)
                 r.raise_for_status()
                 rows = parser(r.text)
-                rows = [x for x in rows if x[0] >= TODAY - timedelta(days=800)]
+                rows = [x for x in rows if x[0] >= TODAY - timedelta(days=1000)]
                 if rows:
                     _fred_net_fail = 0
                     return rows
@@ -294,7 +300,7 @@ _BIS = {}
 def fetch_bis(area):
     """BIS 정책금리 일별 데이터 (KR/JP/US). 한 번만 받아서 3개국 공유."""
     if not _BIS:
-        since = (TODAY - timedelta(days=800)).isoformat()
+        since = (TODAY - timedelta(days=1000)).isoformat()
         url = ("https://stats.bis.org/api/v2/data/dataflow/BIS/WS_CBPOL/1.0/D.KR+JP+US"
                f"?detail=dataonly&format=csv&startPeriod={since}")
         for r in csv.DictReader(io.StringIO(_get(url, timeout=30))):
@@ -313,7 +319,7 @@ def fetch_bis(area):
 def fetch_treasury(col):
     """미국 재무부 일일 par yield (올해+작년). col 예: '2 Yr', '3 Mo', '10 Yr'."""
     out = []
-    for yr in (TODAY.year - 1, TODAY.year):
+    for yr in (TODAY.year - 2, TODAY.year - 1, TODAY.year):
         url = ("https://home.treasury.gov/resource-center/data-chart-center/interest-rates/"
                f"daily-treasury-rates.csv/{yr}/all?field_tdr_date_value={yr}"
                "&type=daily_treasury_yield_curve")
@@ -409,7 +415,8 @@ for group, items in MACRO.items():
         if name in MANUAL_MACRO:
             m = MANUAL_MACRO[name]
             item = {"value": m["value"], "prev_month": m.get("prev_month"),
-                    "prev_year": m.get("prev_year")}
+                    "prev_year": m.get("prev_year"),
+                    "prev_2year": m.get("prev_2year")}
             used = "manual"
         else:
             errors = []
@@ -430,10 +437,12 @@ for group, items in MACRO.items():
                             value = series[-1][1]
 
                     s = spec.get("scale", 1)
-                    pm, py = pick_base(series, "month"), pick_base(series, "year")
+                    pm, py, p2 = (pick_base(series, "month"), pick_base(series, "year"),
+                                  pick_base(series, "2year"))
                     item = {"value": value * s,
                             "prev_month": None if pm is None else pm * s,
-                            "prev_year": None if py is None else py * s}
+                            "prev_year": None if py is None else py * s,
+                            "prev_2year": None if p2 is None else p2 * s}
                     used = source
                     break
                 except Exception as e:
