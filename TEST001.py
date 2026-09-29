@@ -52,7 +52,7 @@ MARKET = {
 
 MACRO = {
     "유동성 / 환율": {
-        "US M2": {"src": "fred", "id": "M2SL", "kind": "pct",
+        "US M2": {"src": "fred", "id": ["M2SL", "WM2NS"], "kind": "pct",
                   "prefix": "$", "suffix": "T", "scale": 0.001},
         "USD/KRW": {"src": "yahoo", "id": "KRW=X", "kind": "pct"},
         "USD/JPY": {"src": "yahoo", "id": "JPY=X", "kind": "pct"},
@@ -111,13 +111,16 @@ def rnd(x, n=4):
     return None if x is None else round(x, n)
 
 
-def pick_base(series, days):
+def pick_base(series, period):
     """series: 날짜 오름차순 [(date, value)].
-    최신 날짜 기준 `days`일 전(휴장이면 그 이전 가장 가까운 거래일) 값. 없으면 None."""
+    period="month" → 지난달 마지막 거래일 종가 (1M 기준)
+    period="year"  → 작년 마지막 거래일 종가  (1Y 기준)
+    기준일은 series의 최신 날짜. 해당 값이 없으면 None."""
     if not series:
         return None
-    target = series[-1][0] - timedelta(days=days)
-    older = [v for d, v in series if d <= target]
+    last = series[-1][0]
+    limit = last.replace(day=1) if period == "month" else date(last.year, 1, 1)
+    older = [v for d, v in series if d < limit]
     return older[-1] if older else None
 
 
@@ -172,23 +175,65 @@ def fetch_yahoo(ticker):
     return data
 
 
-def fetch_fred(series_id):
-    """FRED 공개 CSV (API 키 불필요). 결측('.')은 건너뜀."""
-    since = (TODAY - timedelta(days=800)).isoformat()
-    url = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}&cosd={since}"
-    text = requests.get(url, headers=UA, timeout=20).text
+BROWSER_UA = {
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"),
+    "Accept": "text/csv,text/plain,*/*",
+    "Accept-Language": "en-US,en;q=0.9",
+}
 
+_fred_net_fail = 0  # 접속 자체가 막힌 횟수 (연달아 막히면 나머지는 바로 포기 → 실행시간 절약)
+
+
+def _parse_fred_csv(text):
     rows = []
     for line in text.strip().splitlines()[1:]:
         parts = line.split(",")
         try:
             rows.append((datetime.strptime(parts[0], "%Y-%m-%d").date(), float(parts[1])))
         except (ValueError, IndexError):
-            continue
-
-    if not rows:
-        raise ValueError(f"FRED {series_id}: 데이터 없음")
+            continue  # 결측('.') 건너뜀
     return rows
+
+
+def _parse_fred_txt(text):
+    return [
+        (datetime.strptime(d, "%Y-%m-%d").date(), float(v))
+        for d, v in re.findall(r"^(\d{4}-\d{2}-\d{2})\s+(-?[\d.]+)\s*$", text, re.M)
+    ]
+
+
+def fetch_fred(series_ids):
+    """FRED 공개 데이터 (API 키 불필요). 시리즈 ID를 리스트로 주면 앞에서부터 시도."""
+    global _fred_net_fail
+    ids = [series_ids] if isinstance(series_ids, str) else series_ids
+    since = (TODAY - timedelta(days=800)).isoformat()
+    errors = []
+
+    for sid in ids:
+        sources = [
+            (f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}&cosd={since}", _parse_fred_csv),
+            (f"https://fred.stlouisfed.org/data/{sid}.txt", _parse_fred_txt),
+        ]
+        for url, parser in sources:
+            if _fred_net_fail >= 2:
+                raise RuntimeError("FRED 접속 불가 (이전 요청에서 연결 실패)")
+            try:
+                r = requests.get(url, headers=BROWSER_UA, timeout=15)
+                r.raise_for_status()
+                rows = parser(r.text)
+                rows = [x for x in rows if x[0] >= TODAY - timedelta(days=800)]
+                if rows:
+                    _fred_net_fail = 0
+                    return rows
+                errors.append(f"{sid}: 빈 데이터")
+            except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as e:
+                _fred_net_fail += 1
+                errors.append(f"{sid}: 연결 실패 {type(e).__name__}")
+            except Exception as e:
+                errors.append(f"{sid}: {e}")
+
+    raise RuntimeError("FRED 실패 → " + " | ".join(errors[-3:]))
 
 
 def fetch_forward_earnings_yield():
@@ -214,8 +259,8 @@ for sector, items in MARKET.items():
                 "ticker": ticker,
                 "currency": y["currency"],
                 "price": rnd(y["price"]),
-                "prev_month": rnd(pick_base(y["series"], 30)),
-                "prev_year": rnd(pick_base(y["series"], 365)),
+                "prev_month": rnd(pick_base(y["series"], "month")),
+                "prev_year": rnd(pick_base(y["series"], "year")),
             }
         except Exception as e:
             print(f"[warn] MARKET {name}({ticker}) 실패: {e}")
@@ -263,10 +308,11 @@ for group, items in MACRO.items():
                     value = series[-1][1]
 
                 s = spec.get("scale", 1)
+                pm, py = pick_base(series, "month"), pick_base(series, "year")
                 item = {
                     "value": value * s,
-                    "prev_month": None if pick_base(series, 30) is None else pick_base(series, 30) * s,
-                    "prev_year": None if pick_base(series, 365) is None else pick_base(series, 365) * s,
+                    "prev_month": None if pm is None else pm * s,
+                    "prev_year": None if py is None else py * s,
                 }
 
             item = {k: rnd(v) for k, v in item.items()}
@@ -275,8 +321,11 @@ for group, items in MACRO.items():
         except Exception as e:
             print(f"[warn] MACRO {name} 실패: {e}")
             prev = OLD.get("macro", {}).get(group, {}).get(name)
-            if prev:
+            if prev and prev.get("value") is not None:
                 macro[group][name] = prev
+            else:  # 값이 없어도 행은 표시 ("-") → 어떤 지표가 실패했는지 화면에서 보임
+                macro[group][name] = {"value": None, "prev_month": None,
+                                      "prev_year": None, **display}
 
 
 # =========================================================
@@ -401,6 +450,8 @@ events.sort(key=lambda e: e["d_day"])
 
 # =========================================================
 # EARNINGS (Yahoo quoteSummary - 쿠키/crumb 필요)
+#   다음 발표: 날짜 / EPS 예상 / 매출 예상
+#   최근 3분기: EPS 예상·실제, 매출 예상·실제 (트렌드 확인용)
 # =========================================================
 
 def yahoo_session():
@@ -413,24 +464,62 @@ def yahoo_session():
     return s, crumb
 
 
+def raw(x):
+    return x.get("raw") if isinstance(x, dict) else None
+
+
+def quarter_key(label):
+    """'2Q2025' → (2025, 2) : 분기 정렬용"""
+    try:
+        return (int(label[2:]), int(label[0]))
+    except Exception:
+        return (0, 0)
+
+
 def fetch_earnings(session, crumb, ticker):
     url = (f"https://query2.finance.yahoo.com/v10/finance/quoteSummary/{ticker}"
-           f"?modules=calendarEvents&crumb={quote(crumb)}")
-    ce = session.get(url, timeout=20).json()["quoteSummary"]["result"][0]["calendarEvents"]["earnings"]
+           f"?modules=calendarEvents,earnings&crumb={quote(crumb)}")
+    res = session.get(url, timeout=20).json()["quoteSummary"]["result"][0]
 
+    # --- 다음 발표 ---
+    ce = res["calendarEvents"]["earnings"]
     dates = sorted(
         d["fmt"] for d in ce.get("earningsDate", [])
         if d.get("fmt") and d["fmt"] >= TODAY.isoformat()
     )
+
+    # --- 지난 분기들 (EPS 예상/실제 + 매출 실제) ---
+    earn = res.get("earnings") or {}
+    chart = earn.get("earningsChart") or {}
+    fin = earn.get("financialsChart") or {}
+
+    rev_by_label = {q.get("date"): raw(q.get("revenue")) for q in fin.get("quarterly", [])}
+    past = [
+        {"label": q.get("date"), "eps_est": raw(q.get("estimate")),
+         "eps_act": raw(q.get("actual")), "rev_act": rev_by_label.get(q.get("date"))}
+        for q in chart.get("quarterly", []) if q.get("date")
+    ]
+    past.sort(key=lambda q: quarter_key(q["label"]))
+
+    # 지금 예상 중인 분기 이름 (예: 3Q2026) → 예상치 저장용 키
+    cq, cy = chart.get("currentQuarterEstimateDate"), chart.get("currentQuarterEstimateYear")
+    next_label = f"{cq}{cy}" if cq and cy else None
+
     return {
         "date": dates[0] if dates else None,
-        "eps": (ce.get("earningsAverage") or {}).get("raw"),
-        "revenue": (ce.get("revenueAverage") or {}).get("raw"),
+        "eps_est": raw(ce.get("earningsAverage")),
+        "rev_est": raw(ce.get("revenueAverage")),
+        "next_label": next_label,
+        "past": past,
     }
 
 
 earnings = []
 old_earn = {e["symbol"]: e for e in OLD.get("earnings", []) if "symbol" in e}
+
+# 매출 "예상치"는 Yahoo가 과거분을 안 줘서, 발표 전 예상치를 매번 저장해 두었다가
+# 실제값이 나오면 옆에 붙여 보여줌 (저장 시작 이후 분기부터 표시됨)
+est_hist = history.setdefault("earnings_est", {})  # {티커: {분기: {eps_est, rev_est}}}
 
 try:
     sess, crumb = yahoo_session()
@@ -440,16 +529,41 @@ except Exception as e:
 
 for symbol, company in EARNINGS.items():
     row = {"symbol": symbol, "name": company, "date": None, "d_day": None,
-           "eps": None, "revenue": None}
+           "eps_est": None, "rev_est": None, "quarters": []}
     try:
         if sess is None:
             raise RuntimeError("세션 없음")
-        row.update(fetch_earnings(sess, crumb, symbol))
+        got = fetch_earnings(sess, crumb, symbol)
+
+        saved = est_hist.setdefault(symbol, {})
+        if got["next_label"] and (got["eps_est"] is not None or got["rev_est"] is not None):
+            saved[got["next_label"]] = {"eps_est": got["eps_est"], "rev_est": got["rev_est"]}
+        for k in list(saved)[:-8]:  # 최근 8분기만 보관
+            del saved[k]
+
+        quarters = []
+        for q in got["past"]:
+            if q["eps_act"] is None and q["rev_act"] is None:
+                continue  # 아직 발표 전인 분기는 제외
+            mem = saved.get(q["label"], {})
+            quarters.append({
+                "label": q["label"],
+                "eps_est": rnd(q["eps_est"] if q["eps_est"] is not None else mem.get("eps_est")),
+                "eps_act": rnd(q["eps_act"]),
+                "rev_est": mem.get("rev_est"),
+                "rev_act": q["rev_act"],
+            })
+
+        row.update({"date": got["date"], "eps_est": rnd(got["eps_est"]),
+                    "rev_est": got["rev_est"], "quarters": quarters[-3:]})
     except Exception as e:
         print(f"[warn] EARNINGS {symbol} 실패: {e}")
         prev = old_earn.get(symbol)
-        if prev and prev.get("date") and prev["date"] >= TODAY.isoformat():
-            row.update({k: prev.get(k) for k in ("date", "eps", "revenue")})
+        if prev:  # 실패하면 직전 값 유지
+            row.update({k: prev.get(k) for k in ("eps_est", "rev_est")})
+            row["quarters"] = prev.get("quarters", [])
+            if prev.get("date") and prev["date"] >= TODAY.isoformat():
+                row["date"] = prev["date"]
 
     if row["date"]:
         row["d_day"] = (date.fromisoformat(row["date"]) - TODAY).days
@@ -477,4 +591,5 @@ with open("data.json", "w", encoding="utf-8") as f:
 n_market = sum(len(v) for v in market.values())
 n_macro = sum(len(v) for v in macro.values())
 print(f"saved data.json | market {n_market} | macro {n_macro} | "
-      f"events {len(events)} | earnings {sum(1 for e in earnings if e['date'])}/{len(earnings)}")
+      f"events {len(events)} | earnings {sum(1 for e in earnings if e['date'])}/{len(earnings)} "
+      f"(지난분기 있음 {sum(1 for e in earnings if e['quarters'])})")
