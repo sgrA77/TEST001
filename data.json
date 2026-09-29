@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-29 19:33 KST",
+ "updated_at": "2026-09-29 19:34 KST",
  "macro": {
   "유동성 / 환율": {
    "US M2": {
@@ -12,14 +12,14 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1355.28,
+    "value": 1355.58,
     "prev_month": 1366.62,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 157.472,
+    "value": 157.466,
     "prev_month": 159.747,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -96,7 +96,7 @@
     "suffix": "%"
    },
    "VIX": {
-    "value": 16.09,
+    "value": 16.08,
     "prev_month": 14.92,
     "prev_year": 14.95,
     "prev_2year": 17.35,
