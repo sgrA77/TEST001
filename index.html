@@ -130,17 +130,17 @@ body {
 .sector-avg { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--sub); }
 .sector-avg .chip { padding: 3px 8px; font-size: 12px; }
 
-.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(172px, 1fr)); gap: 10px; padding: 12px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; padding: 12px; }
 .card { border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: #fff; }
 .c-top { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
 .c-name { font-size: 16px; font-weight: 800; }
 .c-tick { font-size: 11px; color: var(--sub); }
 .c-price { font-size: 14px; color: #3a4250; margin: 2px 0 8px; }
 
-.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
 .tile { border-radius: 5px; padding: 6px 2px 7px; text-align: center; }
-.tile .lbl { font-size: 11px; font-weight: 600; opacity: 0.8; }
-.tile .val { font-size: 17px; font-weight: 800; }
+.tile .lbl { font-size: 10px; font-weight: 600; opacity: 0.8; }
+.tile .val { font-size: 15px; font-weight: 800; }
 
 /* ---------- MACRO ---------- */
 .macro { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 40px; }
@@ -233,7 +233,8 @@ body {
     .c-top { flex-wrap: wrap; }
 
     .market { grid-template-columns: minmax(0, 1fr); }
-    .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 8px; gap: 8px; }
+    .cards { grid-template-columns: minmax(0, 1fr); padding: 8px; gap: 8px; }
+    .tile { min-width: 0; }
     .card { padding: 8px; }
     .c-name { font-size: 15px; }
     .tile .val { font-size: 15px; }
@@ -270,7 +271,7 @@ body {
     <section class="panel gap">
         <div class="panel-head">
             <h2>MARKET</h2>
-            <span class="note">1M·1Y = 전월 말 · 전년 말 종가 대비 · 상승 빨강 · 하락 파랑</span>
+            <span class="note">1M·1Y·2Y = 전월 말 · 전년 말 · 재작년 말 종가 대비 · 상승 빨강 · 하락 파랑</span>
         </div>
         <div class="market" id="market"></div>
     </section>
@@ -291,7 +292,7 @@ body {
    설정: 색이 가장 진해지는 변화폭 (이 값 이상이면 최대 농도)
    ========================================================= */
 const CAP = {
-    market: { m: 15,  y: 50 },   // MARKET 종목: 1M 15%, 1Y 50%
+    market: { m: 15,  y: 50,  y2: 100 },   // MARKET 종목: 1M 15%, 1Y 50%
     pct:    { m: 5,   y: 15,  y2: 30 },   // MACRO (변화율 %)
     pp:     { m: 0.5, y: 1.5, y2: 3 },  // MACRO (변화량 %p)
     earn:   20,                  // EARNINGS 전분기 대비 증감 20%
@@ -410,13 +411,14 @@ function renderMarket(market) {
         const changes = entries.map(([, s]) => ({
             m: pctChange(s.price, s.prev_month),
             y: pctChange(s.price, s.prev_year),
+            y2: pctChange(s.price, s.prev_2year),
         }));
 
         const avg = key => {
             const xs = changes.map(c => c[key]).filter(v => v != null);
             return xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null;
         };
-        const avgM = avg("m"), avgY = avg("y");
+        const avgM = avg("m"), avgY = avg("y"), avgY2 = avg("y2");
 
         const cards = entries.map(([name, s], i) => {
             const showTicker = s.ticker && !name.startsWith(s.ticker);
@@ -430,6 +432,7 @@ function renderMarket(market) {
                 <div class="tiles">
                     ${tile("1M", changes[i].m, CAP.market.m)}
                     ${tile("1Y", changes[i].y, CAP.market.y)}
+                    ${tile("2Y", changes[i].y2, CAP.market.y2)}
                 </div>
             </div>`;
         }).join("");
@@ -441,6 +444,7 @@ function renderMarket(market) {
                 <span class="sector-avg">평균
                     <span class="chip">${signed(avgM, 1, "%")}</span>
                     <span class="chip">${signed(avgY, 1, "%")}</span>
+                    <span class="chip">${signed(avgY2, 1, "%")}</span>
                 </span>
             </div>
             <div class="cards">${cards}</div>
@@ -448,7 +452,7 @@ function renderMarket(market) {
 
         // 평균 칩 색상 (방금 추가한 섹터의 칩 2개)
         const chips = root.lastElementChild.querySelectorAll(".sector-avg .chip");
-        [[chips[0], avgM, CAP.market.m], [chips[1], avgY, CAP.market.y]].forEach(([el, v, cap]) => {
+        [[chips[0], avgM, CAP.market.m], [chips[1], avgY, CAP.market.y], [chips[2], avgY2, CAP.market.y2]].forEach(([el, v, cap]) => {
             const t = tint(v, cap);
             el.style.background = t.bg;
             el.style.color = t.fg;
