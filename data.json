@@ -1,40 +1,77 @@
 {
- "updated_at": "2026-09-29 18:11 KST",
+ "updated_at": "2026-09-29 18:36 KST",
  "macro": {
   "유동성 / 환율": {
+   "US M2": {
+    "value": null,
+    "prev_month": null,
+    "prev_year": null,
+    "kind": "pct",
+    "prefix": "$",
+    "suffix": "T"
+   },
    "USD/KRW": {
-    "value": 1356.43,
-    "prev_month": 1377.11,
-    "prev_year": 1399.33,
+    "value": 1356.83,
+    "prev_month": 1366.62,
+    "prev_year": 1437.91,
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 157.4,
-    "prev_month": 160.122,
-    "prev_year": 148.595,
+    "value": 157.432,
+    "prev_month": 159.747,
+    "prev_year": 156.413,
     "kind": "pct"
    }
   },
-  "기준금리": {},
+  "기준금리": {
+   "Korea Policy Rate": {
+    "value": null,
+    "prev_month": null,
+    "prev_year": null,
+    "kind": "pp",
+    "suffix": "%"
+   },
+   "US Policy Rate": {
+    "value": null,
+    "prev_month": null,
+    "prev_year": null,
+    "kind": "pp",
+    "suffix": "%"
+   },
+   "Japan Policy Rate": {
+    "value": null,
+    "prev_month": null,
+    "prev_year": null,
+    "kind": "pp",
+    "suffix": "%"
+   }
+  },
   "시장금리": {
    "US 3M": {
     "value": 4.057,
-    "prev_month": 3.73,
-    "prev_year": 3.86,
+    "prev_month": 3.732,
+    "prev_year": 3.547,
+    "kind": "pp",
+    "suffix": "%"
+   },
+   "US 2Y": {
+    "value": null,
+    "prev_month": null,
+    "prev_year": null,
     "kind": "pp",
     "suffix": "%"
    },
    "US 10Y": {
     "value": 5.24,
-    "prev_month": 4.72,
-    "prev_year": 4.187,
+    "prev_month": 4.758,
+    "prev_year": 4.163,
     "kind": "pp",
     "suffix": "%"
    },
    "US 30Y": {
     "value": 5.561,
-    "prev_month": 5.206,
-    "prev_year": 4.766,
+    "prev_month": 5.249,
+    "prev_year": 4.84,
     "kind": "pp",
     "suffix": "%"
    }
@@ -48,9 +85,9 @@
     "suffix": "%"
    },
    "VIX": {
-    "value": 16.1,
-    "prev_month": 14.43,
-    "prev_year": 16.12,
+    "value": 16.09,
+    "prev_month": 14.92,
+    "prev_year": 14.95,
     "kind": "pct"
    }
   }
@@ -73,136 +110,527 @@
    "name": "Micron",
    "date": "2026-09-30",
    "d_day": 1,
-   "eps": 31.7077,
-   "revenue": 51349925840
+   "eps_est": 31.7077,
+   "rev_est": 51349925840,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 3.9641,
+     "eps_act": 4.78,
+     "rev_est": null,
+     "rev_act": null
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 9.1587,
+     "eps_act": 12.2,
+     "rev_est": null,
+     "rev_act": null
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 20.686,
+     "eps_act": 25.11,
+     "rev_est": null,
+     "rev_act": null
+    }
+   ]
   },
   {
    "symbol": "ASML",
    "name": "ASML",
    "date": "2026-10-14",
    "d_day": 15,
-   "eps": 10.58262,
-   "revenue": 11659847070
+   "eps_est": 10.5826,
+   "rev_est": 11659847070,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 7.5452,
+     "eps_act": 7.34,
+     "rev_est": null,
+     "rev_act": 9718100000
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 6.621,
+     "eps_act": 7.15,
+     "rev_est": null,
+     "rev_act": 8767000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 6.9481,
+     "eps_act": 7.58,
+     "rev_est": null,
+     "rev_act": 9326500000
+    }
+   ]
   },
   {
    "symbol": "TSM",
    "name": "TSMC",
    "date": "2026-10-15",
    "d_day": 16,
-   "eps": 4.4614,
-   "revenue": 1455121155270
+   "eps_est": 4.4614,
+   "rev_est": 1455121155270,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 2.9756,
+     "eps_act": 3.14,
+     "rev_est": null,
+     "rev_act": 1046090000000
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 3.3339,
+     "eps_act": 3.49,
+     "rev_est": null,
+     "rev_act": 1134103000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 3.8866,
+     "eps_act": 4.31,
+     "rev_est": null,
+     "rev_act": 1270380000000
+    }
+   ]
   },
   {
    "symbol": "TSLA",
    "name": "Tesla",
    "date": "2026-10-21",
    "d_day": 22,
-   "eps": 0.43895,
-   "revenue": 27474474570
+   "eps_est": 0.439,
+   "rev_est": 27474474570,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 0.4506,
+     "eps_act": 0.5,
+     "rev_est": null,
+     "rev_act": 24901000000
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 0.35,
+     "eps_act": 0.41,
+     "rev_est": null,
+     "rev_act": 22387000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 0.5424,
+     "eps_act": 0.33,
+     "rev_est": null,
+     "rev_act": 28236000000
+    }
+   ]
   },
   {
    "symbol": "LRCX",
    "name": "Lam Research",
    "date": "2026-10-21",
    "d_day": 22,
-   "eps": 2.17786,
-   "revenue": 8133724960
+   "eps_est": 2.1779,
+   "rev_est": 8133724960,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 1.1684,
+     "eps_act": 1.27,
+     "rev_est": null,
+     "rev_act": 5344791000
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 1.3628,
+     "eps_act": 1.47,
+     "rev_est": null,
+     "rev_act": 5841488000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 1.6836,
+     "eps_act": 1.82,
+     "rev_est": null,
+     "rev_act": 6722238000
+    }
+   ]
   },
   {
    "symbol": "INTC",
    "name": "Intel",
    "date": "2026-10-22",
    "d_day": 23,
-   "eps": 0.39065,
-   "revenue": 16428276720
+   "eps_est": 0.3906,
+   "rev_est": 16428276720,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 0.0826,
+     "eps_act": 0.15,
+     "rev_est": null,
+     "rev_act": 13674000000
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 0.0131,
+     "eps_act": 0.29,
+     "rev_est": null,
+     "rev_act": 13577000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 0.2158,
+     "eps_act": 0.42,
+     "rev_est": null,
+     "rev_act": 16128000000
+    }
+   ]
   },
   {
    "symbol": "MSFT",
    "name": "Microsoft",
    "date": "2026-10-28",
    "d_day": 29,
-   "eps": 4.72455,
-   "revenue": 90659198830
+   "eps_est": 4.7245,
+   "rev_est": 90659198830,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 3.917,
+     "eps_act": 4.14,
+     "rev_est": null,
+     "rev_act": 81273000000
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 4.0706,
+     "eps_act": 4.27,
+     "rev_est": null,
+     "rev_act": 82886000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 4.2394,
+     "eps_act": 4.74,
+     "rev_est": null,
+     "rev_act": 90007000000
+    }
+   ]
   },
   {
    "symbol": "GOOGL",
    "name": "Alphabet",
    "date": "2026-10-28",
    "d_day": 29,
-   "eps": 3.03077,
-   "revenue": 127331145720
+   "eps_est": 3.0308,
+   "rev_est": 127331145720,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 2.6352,
+     "eps_act": 2.82,
+     "rev_est": null,
+     "rev_act": 113828000000
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 2.6671,
+     "eps_act": 5.11,
+     "rev_est": null,
+     "rev_act": 109896000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 2.8991,
+     "eps_act": 9.11,
+     "rev_est": null,
+     "rev_act": 119796000000
+    }
+   ]
   },
   {
    "symbol": "META",
    "name": "Meta",
    "date": "2026-10-28",
    "d_day": 29,
-   "eps": 6.73846,
-   "revenue": 63318607290
+   "eps_est": 6.7385,
+   "rev_est": 63318607290,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 8.2225,
+     "eps_act": 8.88,
+     "rev_est": null,
+     "rev_act": 59893000000
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 6.6587,
+     "eps_act": 10.44,
+     "rev_est": null,
+     "rev_act": 56311000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 7.2214,
+     "eps_act": 6.18,
+     "rev_est": null,
+     "rev_act": 60801000000
+    }
+   ]
   },
   {
    "symbol": "KLAC",
    "name": "KLA",
    "date": "2026-10-28",
    "d_day": 29,
-   "eps": 1.17852,
-   "revenue": 4040194880
+   "eps_est": 1.1785,
+   "rev_est": 4040194880,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 0.8798,
+     "eps_act": 0.885,
+     "rev_est": null,
+     "rev_act": 3297146000
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 0.917,
+     "eps_act": 0.94,
+     "rev_est": null,
+     "rev_act": 3415078000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 0.9987,
+     "eps_act": 1.05,
+     "rev_est": null,
+     "rev_act": 3657556000
+    }
+   ]
   },
   {
    "symbol": "AAPL",
    "name": "Apple",
    "date": "2026-10-29",
    "d_day": 30,
-   "eps": 1.98124,
-   "revenue": 113624521680
+   "eps_est": 1.9812,
+   "rev_est": 113624521680,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 2.6708,
+     "eps_act": 2.84,
+     "rev_est": null,
+     "rev_act": 143756000000
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 1.9427,
+     "eps_act": 2.01,
+     "rev_est": null,
+     "rev_act": 111184000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 1.8924,
+     "eps_act": 2.02,
+     "rev_est": null,
+     "rev_act": 109417000000
+    }
+   ]
   },
   {
    "symbol": "AMZN",
    "name": "Amazon",
    "date": "2026-10-29",
    "d_day": 30,
-   "eps": 1.976,
-   "revenue": 202056188580
+   "eps_est": 1.976,
+   "rev_est": 202056188580,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 1.9596,
+     "eps_act": 1.95,
+     "rev_est": null,
+     "rev_act": 213386000000
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 1.653,
+     "eps_act": 2.78,
+     "rev_est": null,
+     "rev_act": 181519000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 1.826,
+     "eps_act": 5.75,
+     "rev_est": null,
+     "rev_act": 200606000000
+    }
+   ]
   },
   {
    "symbol": "AMD",
    "name": "AMD",
    "date": "2026-11-03",
    "d_day": 35,
-   "eps": 1.92579,
-   "revenue": 12997546930
+   "eps_est": 1.9258,
+   "rev_est": 12997546930,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 1.3192,
+     "eps_act": 1.53,
+     "rev_est": null,
+     "rev_act": 10270000000
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 1.2947,
+     "eps_act": 1.37,
+     "rev_est": null,
+     "rev_act": 10253000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 1.6084,
+     "eps_act": 1.66,
+     "rev_est": null,
+     "rev_act": 11536000000
+    }
+   ]
   },
   {
    "symbol": "SNDK",
    "name": "SanDisk",
    "date": "2026-11-06",
    "d_day": 38,
-   "eps": 46.18405,
-   "revenue": 10680448060
+   "eps_est": 46.184,
+   "rev_est": 10680448060,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 3.5434,
+     "eps_act": 6.2,
+     "rev_est": null,
+     "rev_act": 3025000000
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 14.6611,
+     "eps_act": 23.41,
+     "rev_est": null,
+     "rev_act": 5950000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 34.515,
+     "eps_act": 39.25,
+     "rev_est": null,
+     "rev_act": 8965000000
+    }
+   ]
   },
   {
    "symbol": "AMAT",
    "name": "Applied Materials",
    "date": "2026-11-12",
    "d_day": 44,
-   "eps": 4.06032,
-   "revenue": 10307645750
+   "eps_est": 4.0603,
+   "rev_est": 10307645750,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 2.206,
+     "eps_act": 2.38,
+     "rev_est": null,
+     "rev_act": 7012000000
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 2.6854,
+     "eps_act": 2.86,
+     "rev_est": null,
+     "rev_act": 7910000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 3.3944,
+     "eps_act": 3.5,
+     "rev_est": null,
+     "rev_act": 9115000000
+    }
+   ]
   },
   {
    "symbol": "NVDA",
    "name": "NVIDIA",
    "date": "2026-11-17",
    "d_day": 49,
-   "eps": 2.47356,
-   "revenue": 109010834070
+   "eps_est": 2.4736,
+   "rev_est": 109010834070,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 1.5381,
+     "eps_act": 1.62,
+     "rev_est": null,
+     "rev_act": 68127000000
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 1.7719,
+     "eps_act": 1.87,
+     "rev_est": null,
+     "rev_act": 81615000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 2.0911,
+     "eps_act": 2.22,
+     "rev_est": null,
+     "rev_act": 96221000000
+    }
+   ]
   },
   {
    "symbol": "AVGO",
    "name": "Broadcom",
    "date": "2026-12-09",
    "d_day": 71,
-   "eps": 3.82526,
-   "revenue": 34883319430
+   "eps_est": 3.8253,
+   "rev_est": 34883319430,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 2.0233,
+     "eps_act": 2.05,
+     "rev_est": null,
+     "rev_act": 19311000000
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 2.3984,
+     "eps_act": 2.44,
+     "rev_est": null,
+     "rev_act": 22187000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 3.238,
+     "eps_act": 3.32,
+     "rev_est": null,
+     "rev_act": null
+    }
+   ]
   }
  ],
  "market": {
@@ -211,15 +639,15 @@
     "ticker": "SPY",
     "currency": "USD",
     "price": 765.61,
-    "prev_month": 769.35,
-    "prev_year": 661.82
+    "prev_month": 767.05,
+    "prev_year": 681.92
    },
    "QQQ": {
     "ticker": "QQQ",
     "currency": "USD",
     "price": 736.53,
-    "prev_month": 716.43,
-    "prev_year": 595.97
+    "prev_month": 716.76,
+    "prev_year": 614.31
    }
   },
   "레버리지 지수": {
@@ -227,15 +655,15 @@
     "ticker": "SPXL",
     "currency": "USD",
     "price": 284.66,
-    "prev_month": 290.14,
-    "prev_year": 207.99
+    "prev_month": 287.33,
+    "prev_year": 220.61
    },
    "QLD 2x": {
     "ticker": "QLD",
     "currency": "USD",
     "price": 94.87,
-    "prev_month": 90.17,
-    "prev_year": 67.655
+    "prev_month": 90.24,
+    "prev_year": 70.41
    }
   },
   "MAG7": {
@@ -243,50 +671,50 @@
     "ticker": "NVDA",
     "currency": "USD",
     "price": 228.86,
-    "prev_month": 217.55,
-    "prev_year": 178.19
+    "prev_month": 220.78,
+    "prev_year": 186.5
    },
    "MSFT": {
     "ticker": "MSFT",
     "currency": "USD",
     "price": 509.22,
-    "prev_month": 513.53,
-    "prev_year": 511.46
+    "prev_month": 507.29,
+    "prev_year": 483.62
    },
    "AAPL": {
     "ticker": "AAPL",
     "currency": "USD",
     "price": 338.4,
-    "prev_month": 319.7,
-    "prev_year": 255.46
+    "prev_month": 316.85,
+    "prev_year": 271.86
    },
    "AMZN": {
     "ticker": "AMZN",
     "currency": "USD",
     "price": 246.15,
-    "prev_month": 266.43,
-    "prev_year": 219.78
+    "prev_month": 259.77,
+    "prev_year": 230.82
    },
    "GOOGL": {
     "ticker": "GOOGL",
     "currency": "USD",
     "price": 342.75,
-    "prev_month": 346.59,
-    "prev_year": 246.54
+    "prev_month": 339.35,
+    "prev_year": 313.0
    },
    "META": {
     "ticker": "META",
     "currency": "USD",
     "price": 715.62,
-    "prev_month": 578.02,
-    "prev_year": 743.75
+    "prev_month": 572.34,
+    "prev_year": 660.09
    },
    "TSLA": {
     "ticker": "TSLA",
     "currency": "USD",
     "price": 357.45,
-    "prev_month": 348.75,
-    "prev_year": 440.4
+    "prev_month": 367.95,
+    "prev_year": 449.72
    }
   },
   "Memory": {
@@ -294,22 +722,22 @@
     "ticker": "MU",
     "currency": "USD",
     "price": 1053.98,
-    "prev_month": 932.86,
-    "prev_year": 157.27
+    "prev_month": 958.73,
+    "prev_year": 285.41
    },
    "SK Hynix": {
     "ticker": "000660.KS",
     "currency": "KRW",
     "price": 1765000.0,
-    "prev_month": 1653000.0,
-    "prev_year": 349000.0
+    "prev_month": 1674000.0,
+    "prev_year": 651000.0
    },
    "Samsung": {
     "ticker": "005930.KS",
     "currency": "KRW",
     "price": 272500.0,
-    "prev_month": 257000.0,
-    "prev_year": 84200.0
+    "prev_month": 260000.0,
+    "prev_year": 119900.0
    }
   },
   "GPU / AI Chip": {
@@ -317,15 +745,15 @@
     "ticker": "AMD",
     "currency": "USD",
     "price": 607.87,
-    "prev_month": 465.58,
-    "prev_year": 159.46
+    "prev_month": 470.72,
+    "prev_year": 214.16
    },
    "AVGO": {
     "ticker": "AVGO",
     "currency": "USD",
     "price": 349.57,
-    "prev_month": 368.79,
-    "prev_year": 334.53
+    "prev_month": 370.34,
+    "prev_year": 346.1
    }
   },
   "CPU": {
@@ -333,15 +761,15 @@
     "ticker": "AMD",
     "currency": "USD",
     "price": 607.87,
-    "prev_month": 465.58,
-    "prev_year": 159.46
+    "prev_month": 470.72,
+    "prev_year": 214.16
    },
    "INTC": {
     "ticker": "INTC",
     "currency": "USD",
     "price": 116.03,
-    "prev_month": 89.47,
-    "prev_year": 35.5
+    "prev_month": 89.51,
+    "prev_year": 36.9
    }
   },
   "Storage": {
@@ -349,8 +777,8 @@
     "ticker": "SNDK",
     "currency": "USD",
     "price": 1712.89,
-    "prev_month": 1484.98,
-    "prev_year": 97.12
+    "prev_month": 1566.7,
+    "prev_year": 237.38
    }
   },
   "FAB": {
@@ -358,8 +786,8 @@
     "ticker": "TSM",
     "currency": "USD",
     "price": 452.88,
-    "prev_month": 417.52,
-    "prev_year": 273.36
+    "prev_month": 415.32,
+    "prev_year": 303.89
    }
   },
   "Semiconductor Equipment": {
@@ -367,35 +795,139 @@
     "ticker": "ASML",
     "currency": "USD",
     "price": 1771.41,
-    "prev_month": 1696.16,
-    "prev_year": 951.52
+    "prev_month": 1696.01,
+    "prev_year": 1069.86
    },
    "AMAT": {
     "ticker": "AMAT",
     "currency": "USD",
     "price": 486.76,
-    "prev_month": 461.67,
-    "prev_year": 203.92
+    "prev_month": 458.39,
+    "prev_year": 256.99
    },
    "LRCX": {
     "ticker": "LRCX",
     "currency": "USD",
     "price": 314.47,
-    "prev_month": 301.9,
-    "prev_year": 128.33
+    "prev_month": 301.49,
+    "prev_year": 171.18
    },
    "KLAC": {
     "ticker": "KLAC",
     "currency": "USD",
     "price": 189.17,
-    "prev_month": 175.54,
-    "prev_year": 106.429
+    "prev_month": 175.45,
+    "prev_year": 121.508
    }
   }
  },
  "history": {
   "S&P 500 Fwd Earnings Yield": {
    "2026-09-29": 4.97
+  },
+  "earnings_est": {
+   "NVDA": {
+    "3Q2026": {
+     "eps_est": 2.47356,
+     "rev_est": 109010834070
+    }
+   },
+   "MSFT": {
+    "3Q2026": {
+     "eps_est": 4.72455,
+     "rev_est": 90659198830
+    }
+   },
+   "AAPL": {
+    "3Q2026": {
+     "eps_est": 1.98124,
+     "rev_est": 113624521680
+    }
+   },
+   "AMZN": {
+    "3Q2026": {
+     "eps_est": 1.976,
+     "rev_est": 202056188580
+    }
+   },
+   "GOOGL": {
+    "3Q2026": {
+     "eps_est": 3.03077,
+     "rev_est": 127331145720
+    }
+   },
+   "META": {
+    "3Q2026": {
+     "eps_est": 6.73846,
+     "rev_est": 63318607290
+    }
+   },
+   "TSLA": {
+    "3Q2026": {
+     "eps_est": 0.43895,
+     "rev_est": 27474474570
+    }
+   },
+   "AMD": {
+    "3Q2026": {
+     "eps_est": 1.92579,
+     "rev_est": 12997546930
+    }
+   },
+   "AVGO": {
+    "3Q2026": {
+     "eps_est": 3.82526,
+     "rev_est": 34883319430
+    }
+   },
+   "MU": {
+    "3Q2026": {
+     "eps_est": 31.7077,
+     "rev_est": 51349925840
+    }
+   },
+   "TSM": {
+    "3Q2026": {
+     "eps_est": 4.4614,
+     "rev_est": 1455121155270
+    }
+   },
+   "ASML": {
+    "3Q2026": {
+     "eps_est": 10.58262,
+     "rev_est": 11659847070
+    }
+   },
+   "AMAT": {
+    "3Q2026": {
+     "eps_est": 4.06032,
+     "rev_est": 10307645750
+    }
+   },
+   "LRCX": {
+    "3Q2026": {
+     "eps_est": 2.17786,
+     "rev_est": 8133724960
+    }
+   },
+   "KLAC": {
+    "3Q2026": {
+     "eps_est": 1.17852,
+     "rev_est": 4040194880
+    }
+   },
+   "SNDK": {
+    "3Q2026": {
+     "eps_est": 46.18405,
+     "rev_est": 10680448060
+    }
+   },
+   "INTC": {
+    "3Q2026": {
+     "eps_est": 0.39065,
+     "rev_est": 16428276720
+    }
+   }
   }
  }
 }
