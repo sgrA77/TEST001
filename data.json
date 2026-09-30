@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-30 16:50 KST",
+ "updated_at": "2026-09-30 16:53 KST",
  "macro": {
   "유동성 / 환율": {
    "US M2": {
@@ -14,7 +14,7 @@
     "chips": "pct"
    },
    "USD/KRW": {
-    "value": 1351.18,
+    "value": 1351.32,
     "prev_month": 1366.62,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -22,7 +22,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 156.885,
+    "value": 156.883,
     "prev_month": 159.747,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -693,9 +693,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 83397.53,
+    "price": 83401.79,
     "prev_day": 83622.4297,
-    "turnover": 26189522944,
+    "turnover": 26150971392,
     "prev_month": 78548.6328,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -704,7 +704,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4228.8,
+    "price": 4224.5,
     "prev_day": 4179.7002,
     "turnover": null,
     "prev_month": 4481.5,
@@ -715,7 +715,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 61.69,
+    "price": 61.605,
     "prev_day": 60.668,
     "turnover": null,
     "prev_month": 66.221,
@@ -726,7 +726,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.66,
+    "price": 6.653,
     "prev_day": 6.5435,
     "turnover": null,
     "prev_month": 6.5935,
@@ -737,7 +737,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 89.07,
+    "price": 89.25,
     "prev_day": 89.38,
     "turnover": null,
     "prev_month": 85.76,
@@ -748,7 +748,7 @@
     "ticker": "NG=F",
     "theme": "천연가스",
     "currency": "USD",
-    "price": 3.018,
+    "price": 3.017,
     "prev_day": 3.011,
     "turnover": null,
     "prev_month": 2.935,
