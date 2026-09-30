@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-30 21:13 KST",
+ "updated_at": "2026-09-30 21:43 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: HTTPError 404 Client Error: NOT FOUND for url: https://api.db.nomics.world/v22/series/FR",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -21,7 +21,7 @@
     "chips": "pct"
    },
    "USD/KRW": {
-    "value": 1354.81,
+    "value": 1352.04,
     "prev_month": 1366.62,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -29,7 +29,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 157.012,
+    "value": 156.681,
     "prev_month": 159.747,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -68,11 +68,11 @@
   },
   "시장금리": {
    "US 3M": {
-    "value": 4.065,
+    "value": 4.037,
     "prev_month": 3.732,
     "prev_year": 3.547,
     "prev_2year": 4.208,
-    "prev_day": 4.057,
+    "prev_day": 4.065,
     "kind": "pp",
     "suffix": "%"
    },
@@ -86,20 +86,20 @@
     "suffix": "%"
    },
    "US 10Y": {
-    "value": 5.255,
+    "value": 5.234,
     "prev_month": 4.758,
     "prev_year": 4.163,
     "prev_2year": 4.573,
-    "prev_day": 5.24,
+    "prev_day": 5.255,
     "kind": "pp",
     "suffix": "%"
    },
    "US 30Y": {
-    "value": 5.594,
+    "value": 5.572,
     "prev_month": 5.249,
     "prev_year": 4.84,
     "prev_2year": 4.786,
-    "prev_day": 5.561,
+    "prev_day": 5.594,
     "kind": "pp",
     "suffix": "%"
    }
@@ -115,7 +115,7 @@
     "suffix": "%"
    },
    "VIX": {
-    "value": 16.15,
+    "value": 16.05,
     "prev_month": 14.92,
     "prev_year": 14.95,
     "prev_2year": 17.35,
@@ -140,12 +140,6 @@
  },
  "events": [
   {
-   "name": "PCE",
-   "date": "2026-09-30",
-   "ts": 1790771400,
-   "d_day": 0
-  },
-  {
    "name": "NFP",
    "date": "2026-10-02",
    "ts": 1790944200,
@@ -168,6 +162,12 @@
    "date": "2026-10-28",
    "ts": 1793212200,
    "d_day": 28
+  },
+  {
+   "name": "PCE",
+   "date": "2026-10-29",
+   "ts": 1793277000,
+   "d_day": 29
   }
  ],
  "earnings": [
@@ -185,21 +185,21 @@
      "eps_est": 3.9641,
      "eps_act": 4.78,
      "rev_est": null,
-     "rev_act": 13643000000
+     "rev_act": null
     },
     {
      "label": "1Q2026",
      "eps_est": 9.1587,
      "eps_act": 12.2,
      "rev_est": null,
-     "rev_act": 23860000000
+     "rev_act": null
     },
     {
      "label": "2Q2026",
      "eps_est": 20.686,
      "eps_act": 25.11,
      "rev_est": null,
-     "rev_act": 41456000000
+     "rev_act": null
     }
    ]
   },
@@ -209,8 +209,8 @@
    "date": "2026-10-14",
    "ts": 1791981000,
    "d_day": 14,
-   "eps_est": 10.5826,
-   "rev_est": 11659847070,
+   "eps_est": 10.6485,
+   "rev_est": 11677126330,
    "quarters": [
     {
      "label": "4Q2025",
@@ -231,7 +231,7 @@
      "eps_est": 6.9481,
      "eps_act": 7.58,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 9326500000
     }
    ]
   },
@@ -433,7 +433,7 @@
    "date": "2026-10-28",
    "ts": 1793217600,
    "d_day": 28,
-   "eps_est": 6.7385,
+   "eps_est": 6.7358,
    "rev_est": 63318607290,
    "quarters": [
     {
@@ -519,7 +519,7 @@
      "eps_est": 1.8924,
      "eps_act": 2.02,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 109417000000
     }
    ]
   },
@@ -529,8 +529,8 @@
    "date": "2026-10-29",
    "ts": 1793304000,
    "d_day": 29,
-   "eps_est": 1.976,
-   "rev_est": 202067597520,
+   "eps_est": 1.9767,
+   "rev_est": 201980771440,
    "quarters": [
     {
      "label": "4Q2025",
@@ -711,7 +711,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": 29591000000
+     "rev_act": null
     }
    ]
   }
@@ -722,9 +722,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 83829.33,
+    "price": 84859.53,
     "prev_day": 83622.4297,
-    "turnover": 26486312960,
+    "turnover": 26888226816,
     "prev_month": 78548.6328,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -733,7 +733,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4220.3,
+    "price": 4246.5,
     "prev_day": 4179.7002,
     "turnover": null,
     "prev_month": 4481.5,
@@ -744,7 +744,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 61.005,
+    "price": 61.66,
     "prev_day": 60.668,
     "turnover": null,
     "prev_month": 66.221,
@@ -755,7 +755,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.6195,
+    "price": 6.6375,
     "prev_day": 6.5435,
     "turnover": null,
     "prev_month": 6.5935,
@@ -766,7 +766,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 90.65,
+    "price": 90.35,
     "prev_day": 89.38,
     "turnover": null,
     "prev_month": 85.76,
@@ -777,7 +777,7 @@
     "ticker": "NG=F",
     "theme": "천연가스",
     "currency": "USD",
-    "price": 3.018,
+    "price": 3.017,
     "prev_day": 3.011,
     "turnover": null,
     "prev_month": 2.935,
@@ -1118,8 +1118,8 @@
    },
    "AMZN": {
     "3Q2026": {
-     "eps_est": 1.976,
-     "rev_est": 202067597520
+     "eps_est": 1.97667,
+     "rev_est": 201980771440
     }
    },
    "GOOGL": {
@@ -1130,7 +1130,7 @@
    },
    "META": {
     "3Q2026": {
-     "eps_est": 6.73846,
+     "eps_est": 6.73583,
      "rev_est": 63318607290
     }
    },
@@ -1166,8 +1166,8 @@
    },
    "ASML": {
     "3Q2026": {
-     "eps_est": 10.58262,
-     "rev_est": 11659847070
+     "eps_est": 10.64854,
+     "rev_est": 11677126330
     }
    },
    "AMAT": {
