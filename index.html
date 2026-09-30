@@ -7,7 +7,7 @@
 <style>
 /* =========================================================
    Binance 다크 스타일 (배경 #0B0E11 / 패널 #181A20 / 카드 #1E2329 / 포인트 노랑)
-   등락 색: 상승 = 빨강, 하락 = 파랑 (강도는 변동폭에 비례)
+   등락 색: 상승 = 초록, 하락 = 빨강 (강도는 변동폭에 비례)
    ========================================================= */
 :root {
     --bg: #0b0e11;
@@ -18,10 +18,10 @@
     --sub: #848e9c;
     --dim: #5e6673;
     --yellow: #f0b90b;
-    --up: 246, 70, 93;       /* 상승 = 빨강 */
-    --down: 59, 130, 246;    /* 하락 = 파랑 */
-    --up-t: #ff6b7f;         /* 어두운 배경 위 글자색 */
-    --down-t: #6cb0ff;
+    --up: 14, 203, 129;      /* 상승 = 초록 (Binance) */
+    --down: 246, 70, 93;     /* 하락 = 빨강 (Binance) */
+    --up-t: #2ebd85;         /* 어두운 배경 위 글자색 */
+    --down-t: #ff6b7f;
 }
 
 * { box-sizing: border-box; }
@@ -106,8 +106,16 @@ body {
 }
 .event.soon { border-left-color: var(--yellow); background: #221f14; }
 .event .e-name { font-size: 16px; font-weight: 800; }
-.event .e-date { font-size: 12px; color: var(--sub); }
-.event .e-dday { font-size: 22px; font-weight: 800; }
+.event .e-when { font-size: 11.5px; color: var(--sub); margin-top: 1px; }
+.event .e-right { text-align: right; }
+.event .e-dday { font-size: 22px; font-weight: 800; line-height: 1.1; }
+.event .e-left { font-size: 11.5px; font-weight: 700; color: var(--sub); }
+.event.soon .e-left { color: var(--yellow); }
+.t-left { font-size: 11px; font-weight: 600; color: var(--sub); }
+.earn tr.soon .t-left { color: var(--yellow); }
+.warns { margin-top: 18px; color: var(--sub); font-size: 12px; }
+.warns summary { cursor: pointer; }
+.warns ul { margin: 6px 0 0; padding-left: 18px; line-height: 1.6; }
 .event.soon .e-dday { color: var(--yellow); }
 
 /* ---------- 섹터 / 그룹 블록 ---------- */
@@ -126,15 +134,16 @@ body {
 .block.s3 .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 .block-head {
-    display: flex; justify-content: space-between; align-items: center; gap: 10px;
+    display: flex; justify-content: flex-start; align-items: center; gap: 12px; flex-wrap: wrap;
     padding: 0 2px 8px;
     border-bottom: 1px solid var(--line);
     margin-bottom: 10px;
 }
-.block-name { font-size: 15px; font-weight: 800; }
+.block-name { font-size: 16px; font-weight: 800; }
 .block-avg { display: flex; align-items: center; gap: 4px; }
 .block-avg .lbl { font-size: 11px; color: var(--sub); margin-right: 2px; }
-.block-avg .chip { padding: 3px 7px; font-size: 11.5px; }
+.block-avg { padding-left: 12px; border-left: 1px solid var(--line); }
+.block-avg .chip { padding: 3px 8px; font-size: 12px; }
 .block-avg .chip i { font-style: normal; font-weight: 600; opacity: .8; margin-right: 4px; font-size: 10px; }
 
 .cards { display: grid; gap: 10px; }
@@ -237,6 +246,7 @@ body {
     .event { padding: 7px 10px; }
     .event .e-name { font-size: 15px; white-space: nowrap; }
     .event .e-dday { font-size: 19px; white-space: nowrap; }
+    .event .e-when { font-size: 10.5px; }
 }
 </style>
 </head>
@@ -253,7 +263,7 @@ body {
     <section class="panel">
         <div class="panel-head">
             <h2>MACRO</h2>
-            <span class="note">1M · 1Y · 2Y = 전월 말 · 전년 말 · 재작년 말 값 · 색 = 현재 대비 변동 (상승 빨강 · 하락 파랑)</span>
+            <span class="note">1M · 1Y · 2Y = 전월 말 · 전년 말 · 재작년 말 값 · 색 = 현재 대비 변동 (상승 초록 · 하락 빨강)</span>
         </div>
         <div class="blocks" id="macro"></div>
     </section>
@@ -261,7 +271,7 @@ body {
     <section class="panel gap">
         <div class="panel-head">
             <h2>EVENTS</h2>
-            <span class="note">미국 현지 날짜 기준</span>
+            <span class="note">한국시간(KST) 기준 · 발표 시각까지 남은 시간</span>
         </div>
         <div class="events" id="events"></div>
     </section>
@@ -277,10 +287,12 @@ body {
     <section class="panel gap">
         <div class="panel-head">
             <h2>EARNINGS</h2>
-            <span class="note">지난 분기: 실제 (예상) · ▲▼ = 예상 대비 · 매출 예상은 저장 시작 이후 분기부터 표시</span>
+            <span class="note">발표일 = 한국시간(예정) · 지난 분기: 실제 (예상) · ▲▼ = 예상 대비 · 매출 예상은 저장 시작 이후 분기부터 표시</span>
         </div>
         <div class="earn-wrap" id="earnings"></div>
     </section>
+
+    <details class="warns" id="warns" hidden></details>
 
 </div>
 
@@ -383,6 +395,40 @@ function mmdd(iso) {
     return iso ? iso.slice(5).replace("-", "/") : "-";
 }
 
+/* ---------- 남은 시간 (한국시간 기준) ---------- */
+
+const KST_MS = 9 * 3600 * 1000;
+const DOW = ["일", "월", "화", "수", "목", "금", "토"];
+
+function kstParts(ts) {
+    const d = new Date(ts * 1000 + KST_MS);       // UTC getter로 읽으면 한국시간
+    return { y: d.getUTCFullYear(), mo: d.getUTCMonth() + 1, d: d.getUTCDate(),
+             h: d.getUTCHours(), mi: d.getUTCMinutes(), dow: d.getUTCDay(),
+             day: Math.floor((ts * 1000 + KST_MS) / 86400000) };
+}
+
+function nowSec() { return Date.now() / 1000; }
+
+function fmtWhen(ts) {                             // "10/02(금) 21:30 KST"
+    const p = kstParts(ts), z = n => String(n).padStart(2, "0");
+    return `${z(p.mo)}/${z(p.d)}(${DOW[p.dow]}) ${z(p.h)}:${z(p.mi)} KST`;
+}
+
+function ddayFromTs(ts) {                          // 한국 달력 기준 D-Day
+    return kstParts(ts).day - kstParts(nowSec()).day;
+}
+
+function leftLabel(ts) {                           // "2일 4시간 남음"
+    const diff = ts - nowSec();
+    if (diff <= 0) return "";
+    const days = Math.floor(diff / 86400);
+    const hours = Math.floor((diff % 86400) / 3600);
+    const mins = Math.floor((diff % 3600) / 60);
+    if (days > 0) return `${days}일 ${hours}시간 남음`;
+    if (hours > 0) return `${hours}시간 ${mins}분 남음`;
+    return `${Math.max(mins, 1)}분 남음`;
+}
+
 function ddayLabel(d) {
     if (d == null) return "-";
     return d === 0 ? "D-Day" : "D-" + d;
@@ -397,7 +443,7 @@ function tint(v, cap) {
 
     const a = 0.16 + Math.min(Math.abs(v) / cap, 1) * 0.79;
     const rgb = v > 0 ? "var(--up)" : "var(--down)";
-    const fg = a > 0.55 ? "#fff" : (v > 0 ? "var(--up-t)" : "var(--down-t)");
+    const fg = a > 0.55 ? (v > 0 ? "#04140d" : "#fff") : (v > 0 ? "var(--up-t)" : "var(--down-t)");
 
     return { bg: `rgba(${rgb}, ${a.toFixed(2)})`, fg };
 }
@@ -494,21 +540,30 @@ function avgChips(list) {
 
 function renderEvents(events) {
 
-    const list = (events || []).filter(e => e.d_day != null && e.d_day >= 0);
+    // 발표 시각(ts)이 있으면 지난 것은 제외, 없으면 날짜 기준
+    const list = (events || []).filter(e => e.ts ? e.ts > nowSec() : (e.d_day != null && e.d_day >= 0));
 
     if (!list.length) {
         $("events").innerHTML = `<div class="empty">예정된 이벤트 없음</div>`;
         return;
     }
 
-    $("events").innerHTML = list.map(e => `
-        <div class="event ${e.d_day <= 7 ? "soon" : ""}">
+    $("events").innerHTML = list.map(e => {
+        const d = e.ts ? ddayFromTs(e.ts) : e.d_day;
+        const when = e.ts ? fmtWhen(e.ts) : mmdd(e.date) + " (미국 현지)";
+        const left = e.ts ? leftLabel(e.ts) : "";
+        return `
+        <div class="event ${d <= 7 ? "soon" : ""}">
             <div>
                 <div class="e-name">${e.name}</div>
-                <div class="e-date">${mmdd(e.date)}</div>
+                <div class="e-when">${when}</div>
             </div>
-            <div class="e-dday">${ddayLabel(e.d_day)}</div>
-        </div>`).join("");
+            <div class="e-right">
+                <div class="e-dday">${ddayLabel(d)}</div>
+                <div class="e-left">${left}</div>
+            </div>
+        </div>`;
+    }).join("");
 }
 
 
@@ -687,7 +742,7 @@ function trendCells(e, key, fmt) {
 
 function renderEarnings(earnings) {
 
-    const list = (earnings || []).filter(e => e.d_day == null || e.d_day >= 0);
+    const list = (earnings || []).filter(e => e.ts ? e.ts > nowSec() - 86400 : (e.d_day == null || e.d_day >= 0));
 
     if (!list.length) {
         $("earnings").innerHTML = `<div class="empty">데이터 없음</div>`;
@@ -698,7 +753,8 @@ function renderEarnings(earnings) {
 
     const rows = list.map(e => {
 
-        const cls = e.d_day == null ? "none" : (e.d_day <= 7 ? "soon" : "");
+        const d = e.ts ? ddayFromTs(e.ts) : e.d_day;
+        const cls = d == null ? "none" : (d <= 7 ? "soon" : "");
 
         return `
         <tr class="${cls}">
@@ -706,8 +762,8 @@ function renderEarnings(earnings) {
                 <div class="t-sym">${e.symbol}</div>
                 <div class="t-co">${e.name || ""}</div>
             </td>
-            <td>${mmdd(e.date)}</td>
-            <td class="t-dday">${ddayLabel(e.d_day)}</td>
+            <td>${e.ts ? fmtWhen(e.ts).replace(" KST", "") : mmdd(e.date)}</td>
+            <td><div class="t-dday">${ddayLabel(d)}</div>${e.ts ? `<div class="t-left">${leftLabel(e.ts)}</div>` : ""}</td>
             ${trendCells(e, "eps", fmtEps)}
             ${trendCells(e, "rev", fmtRevenue)}
         </tr>`;
@@ -733,6 +789,18 @@ function renderEarnings(earnings) {
 }
 
 
+/* ---------- 수집 경고 (Python이 기록한 실패 사유) ---------- */
+
+function renderWarnings(warnings) {
+    const el = $("warns");
+    if (!warnings || !warnings.length) { el.hidden = true; return; }
+    const esc = t => String(t).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+    el.innerHTML = `<summary>데이터 수집 경고 ${warnings.length}건 (눌러서 보기)</summary>
+        <ul>${warnings.map(w => `<li>${esc(w)}</li>`).join("")}</ul>`;
+    el.hidden = false;
+}
+
+
 /* ---------- 로드 ---------- */
 
 fetch("data.json?t=" + Date.now())
@@ -747,6 +815,13 @@ fetch("data.json?t=" + Date.now())
         safe(() => renderMarket(data.market));
         safe(() => renderMacro(data.macro));
         safe(() => renderEarnings(data.earnings));
+        safe(() => renderWarnings(data.warnings));
+
+        // 남은 시간은 1분마다 갱신
+        setInterval(() => {
+            safe(() => renderEvents(data.events));
+            safe(() => renderEarnings(data.earnings));
+        }, 60000);
     })
     .catch(err => {
         document.body.insertAdjacentHTML(
