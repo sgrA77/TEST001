@@ -174,6 +174,14 @@ def load_old():
 
 OLD = load_old()
 
+WARNINGS = []   # 수집 실패 사유 → data.json에 저장되어 화면 맨 아래 "수집 경고"에 표시됨
+
+
+def warn(msg):
+    print("[warn] " + msg)
+    if len(WARNINGS) < 40:
+        WARNINGS.append(msg[:220])
+
 
 # =========================================================
 # Yahoo Finance 시세 (기존 방식 유지: chart API, 3년 일봉)
@@ -271,9 +279,24 @@ def _parse_fred_api(text):
             for o in json.loads(text)["observations"] if o["value"] not in (".", "")]
 
 
+def fetch_dbnomics_fred(sid):
+    """FRED 미러(DBnomics). FRED 사이트가 막혀도 다른 서버라 받아질 수 있음 (마지막 예비 수단)."""
+    url = f"https://api.db.nomics.world/v22/series/FRED/{sid}?observations=1&format=json"
+    r = requests.get(url, headers=BROWSER_UA, timeout=30)
+    r.raise_for_status()
+    doc = r.json()["series"]["docs"][0]
+    rows = []
+    for p, v in zip(doc["period"], doc["value"]):
+        try:
+            rows.append((date.fromisoformat(p[:10]), float(v)))
+        except (ValueError, TypeError):
+            continue  # "NA" 건너뜀
+    return rows
+
+
 def fetch_fred(series_ids):
     """FRED 공개 데이터. 시리즈 ID를 리스트로 주면 앞에서부터 시도.
-    시도 순서: 웹 CSV → 웹 TXT → (API 키가 있으면) 공식 API"""
+    시도 순서: 웹 CSV → 웹 TXT → (API 키가 있으면) 공식 API → DBnomics 미러"""
     global _fred_net_fail
     ids = [series_ids] if isinstance(series_ids, str) else series_ids
     since = (TODAY - timedelta(days=1000)).isoformat()
@@ -290,27 +313,33 @@ def fetch_fred(series_ids):
                 f"{sid}&api_key={FRED_API_KEY}&file_type=json&observation_start={since}",
                 _parse_fred_api, False))
 
+        sources.append((f"dbnomics:{sid}", None, False))
+
         for url, parser, is_web in sources:
             if is_web and _fred_net_fail >= 3:
                 errors.append(f"{sid}: 웹 접속 생략(앞선 연결 실패)")
                 continue
             try:
-                r = requests.get(url, headers=BROWSER_UA, timeout=30)
-                r.raise_for_status()
-                rows = [x for x in parser(r.text) if x[0] >= TODAY - timedelta(days=1000)]
+                if url.startswith("dbnomics:"):
+                    rows = fetch_dbnomics_fred(sid)
+                else:
+                    r = requests.get(url, headers=BROWSER_UA, timeout=30)
+                    r.raise_for_status()
+                    rows = parser(r.text)
+                rows = [x for x in rows if x[0] >= TODAY - timedelta(days=1000)]
                 if rows:
                     if is_web:
                         _fred_net_fail = 0
                     return rows
-                errors.append(f"{sid}: 응답에 데이터 없음 → {r.text[:80]!r}")
+                errors.append(f"{sid}: 응답에 데이터 없음")
             except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as e:
                 if is_web:
                     _fred_net_fail += 1
                 errors.append(f"{sid}: 연결 실패 {type(e).__name__}")
             except Exception as e:
-                errors.append(f"{sid}: {str(e)[:100]}")
+                errors.append(f"{sid}: {type(e).__name__} {str(e)[:100]}")
 
-    raise RuntimeError("FRED 실패 → " + " | ".join(errors[-4:]))
+    raise RuntimeError("FRED 실패 → " + " | ".join(errors[-5:]))
 
 
 def fetch_forward_earnings_yield():
@@ -384,7 +413,7 @@ def fetch_treasury(col):
                 except (KeyError, ValueError, TypeError):
                     continue
         except Exception as e:
-            print(f"[warn] Treasury {yr}: {e}")
+            warn(f"Treasury {yr}: {e}")
     if not out:
         raise RuntimeError("Treasury 데이터 없음")
     return sorted(out)
@@ -449,7 +478,7 @@ for sector, items in MARKET.items():
                 "prev_2year": rnd(pick_base(y["series"], "2year")),
             }
         except Exception as e:
-            print(f"[warn] MARKET {name}({ticker}) 실패: {e}")
+            warn(f"MARKET {name}({ticker}) 실패: {e}")
             prev = OLD.get("market", {}).get(sector, {}).get(name)
             if prev:  # 실패하면 직전 값 유지 → 화면이 비지 않게
                 market[sector][name] = prev
@@ -510,7 +539,7 @@ for group, items in MACRO.items():
                     break
                 except Exception as e:
                     errors.append(f"{source}: {e}")
-                    print(f"[warn] MACRO {name} ← {source} 실패: {e}")
+                    warn(f"MACRO {name} ← {source} 실패: {e}")
 
         if item is not None:
             item = {k: rnd(v) for k, v in item.items()}
@@ -527,7 +556,7 @@ for group, items in MACRO.items():
         else:
             macro[group][name] = {"value": None, "prev_month": None,
                                   "prev_year": None, **display}
-        print(f"[warn] MACRO {name} 전체 실패 → 캐시/static 사용")
+        warn(f"MACRO {name} 전체 실패 → 캐시/static 사용")
 
 
 # =========================================================
@@ -620,7 +649,7 @@ def collect(name, fn):
     try:
         got = fn()
     except Exception as e:
-        print(f"[warn] {name} 일정 자동 수집 실패: {e}")
+        warn(f"{name} 일정 자동 수집 실패: {e}")
     if not any(d >= TODAY for d in got):
         print(f"[info] {name}: 내장 일정 사용")
         got = list(got) + [date.fromisoformat(x) for x in BUILTIN_EVENTS.get(name, [])]
@@ -634,7 +663,7 @@ try:
     _b = bls_dates()
 except Exception as e:
     _b = {"CPI": [], "NFP": []}
-    print(f"[warn] BLS 일정 수집 실패: {e}")
+    warn(f"BLS 일정 수집 실패: {e}")
 found["CPI"] = collect("CPI", lambda: _b["CPI"])
 found["NFP"] = collect("NFP", lambda: _b["NFP"])
 found["PCE"] = collect("PCE", pce_dates)
@@ -643,18 +672,41 @@ for e in MANUAL_EVENTS:
     try:
         found.setdefault(e["name"], []).append(date.fromisoformat(e["date"]))
     except Exception as ex:
-        print(f"[warn] MANUAL_EVENTS 형식 오류 {e}: {ex}")
+        warn(f"MANUAL_EVENTS 형식 오류 {e}: {ex}")
+
+# 발표 시각 (미국 동부시간, 시:분) → 화면에서 한국시간·남은 시간으로 변환됨
+EVENT_TIMES = {"FOMC": (14, 0), "Fed Press": (14, 30), "CPI": (8, 30), "NFP": (8, 30), "PCE": (8, 30)}
+
+try:
+    from zoneinfo import ZoneInfo
+    NY = ZoneInfo("America/New_York")
+except Exception:
+    NY = None
+
+
+def event_ts(name, d):
+    t = EVENT_TIMES.get(name)
+    if not t or NY is None:
+        return None
+    return int(datetime(d.year, d.month, d.day, t[0], t[1], tzinfo=NY).timestamp())
+
+
+def is_upcoming(name, d):
+    ts = event_ts(name, d)
+    return ts > NOW.timestamp() if ts else d >= TODAY
+
 
 events = []
 for name, days in found.items():
-    upcoming = sorted(d for d in days if d >= TODAY)
+    upcoming = sorted(d for d in days if is_upcoming(name, d))
     if upcoming:
         events.append({
             "name": name,
             "date": upcoming[0].isoformat(),
+            "ts": event_ts(name, upcoming[0]),
             "d_day": (upcoming[0] - TODAY).days,
         })
-events.sort(key=lambda e: e["d_day"])  # 동률이면 FOMC → Fed Press 순서 유지
+events.sort(key=lambda e: (e["ts"] or 0) if e["ts"] else e["d_day"] * 86400 + NOW.timestamp())
 
 
 # =========================================================
@@ -692,10 +744,11 @@ def fetch_earnings(session, crumb, ticker):
 
     # --- 다음 발표 ---
     ce = res["calendarEvents"]["earnings"]
-    dates = sorted(
-        d["fmt"] for d in ce.get("earningsDate", [])
+    cands = sorted(
+        (d["fmt"], d.get("raw")) for d in ce.get("earningsDate", [])
         if d.get("fmt") and d["fmt"] >= TODAY.isoformat()
     )
+    dates = [c[0] for c in cands]
 
     # --- 지난 분기들 (EPS 예상/실제 + 매출 실제) ---
     earn = res.get("earnings") or {}
@@ -716,6 +769,7 @@ def fetch_earnings(session, crumb, ticker):
 
     return {
         "date": dates[0] if dates else None,
+        "ts": cands[0][1] if cands else None,   # 발표 예정 시각(UTC 초) → 남은 시간 계산용
         "eps_est": raw(ce.get("earningsAverage")),
         "rev_est": raw(ce.get("revenueAverage")),
         "next_label": next_label,
@@ -734,10 +788,10 @@ try:
     sess, crumb = yahoo_session()
 except Exception as e:
     sess = crumb = None
-    print(f"[warn] EARNINGS 세션 실패: {e}")
+    warn(f"EARNINGS 세션 실패: {e}")
 
 for symbol, company in EARNINGS.items():
-    row = {"symbol": symbol, "name": company, "date": None, "d_day": None,
+    row = {"symbol": symbol, "name": company, "date": None, "ts": None, "d_day": None,
            "eps_est": None, "rev_est": None, "quarters": []}
     try:
         if sess is None:
@@ -763,16 +817,17 @@ for symbol, company in EARNINGS.items():
                 "rev_act": q["rev_act"],
             })
 
-        row.update({"date": got["date"], "eps_est": rnd(got["eps_est"]),
+        row.update({"date": got["date"], "ts": got["ts"], "eps_est": rnd(got["eps_est"]),
                     "rev_est": got["rev_est"], "quarters": quarters[-3:]})
     except Exception as e:
-        print(f"[warn] EARNINGS {symbol} 실패: {e}")
+        warn(f"EARNINGS {symbol} 실패: {e}")
         prev = old_earn.get(symbol)
         if prev:  # 실패하면 직전 값 유지
             row.update({k: prev.get(k) for k in ("eps_est", "rev_est")})
             row["quarters"] = prev.get("quarters", [])
             if prev.get("date") and prev["date"] >= TODAY.isoformat():
                 row["date"] = prev["date"]
+                row["ts"] = prev.get("ts")
 
     if row["date"]:
         row["d_day"] = (date.fromisoformat(row["date"]) - TODAY).days
@@ -787,6 +842,7 @@ earnings.sort(key=lambda r: (r["d_day"] is None, r["d_day"] if r["d_day"] is not
 
 output = {
     "updated_at": NOW.strftime("%Y-%m-%d %H:%M KST"),
+    "warnings": WARNINGS,
     "macro": macro,
     "events": events,
     "earnings": earnings,
