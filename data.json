@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-30 21:43 KST",
+ "updated_at": "2026-09-30 22:03 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: HTTPError 404 Client Error: NOT FOUND for url: https://api.db.nomics.world/v22/series/FR",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -21,7 +21,7 @@
     "chips": "pct"
    },
    "USD/KRW": {
-    "value": 1352.04,
+    "value": 1352.21,
     "prev_month": 1366.62,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -29,7 +29,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 156.681,
+    "value": 156.794,
     "prev_month": 159.747,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -86,7 +86,7 @@
     "suffix": "%"
    },
    "US 10Y": {
-    "value": 5.234,
+    "value": 5.236,
     "prev_month": 4.758,
     "prev_year": 4.163,
     "prev_2year": 4.573,
@@ -95,7 +95,7 @@
     "suffix": "%"
    },
    "US 30Y": {
-    "value": 5.572,
+    "value": 5.587,
     "prev_month": 5.249,
     "prev_year": 4.84,
     "prev_2year": 4.786,
@@ -115,7 +115,7 @@
     "suffix": "%"
    },
    "VIX": {
-    "value": 16.05,
+    "value": 15.86,
     "prev_month": 14.92,
     "prev_year": 14.95,
     "prev_2year": 17.35,
@@ -722,9 +722,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 84859.53,
+    "price": 85189.82,
     "prev_day": 83622.4297,
-    "turnover": 26888226816,
+    "turnover": 29501618176,
     "prev_month": 78548.6328,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -733,7 +733,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4246.5,
+    "price": 4239.9,
     "prev_day": 4179.7002,
     "turnover": null,
     "prev_month": 4481.5,
@@ -744,7 +744,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 61.66,
+    "price": 61.52,
     "prev_day": 60.668,
     "turnover": null,
     "prev_month": 66.221,
@@ -755,7 +755,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.6375,
+    "price": 6.634,
     "prev_day": 6.5435,
     "turnover": null,
     "prev_month": 6.5935,
@@ -766,7 +766,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 90.35,
+    "price": 90.43,
     "prev_day": 89.38,
     "turnover": null,
     "prev_month": 85.76,
@@ -777,7 +777,7 @@
     "ticker": "NG=F",
     "theme": "천연가스",
     "currency": "USD",
-    "price": 3.017,
+    "price": 2.999,
     "prev_day": 3.011,
     "turnover": null,
     "prev_month": 2.935,
@@ -954,7 +954,7 @@
     "currency": "KRW",
     "price": 1776000.0,
     "prev_day": 1765000.0,
-    "turnover": 6592982640000.0,
+    "turnover": 5826095184000.0,
     "prev_month": 1674000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -965,7 +965,7 @@
     "currency": "KRW",
     "price": 268500.0,
     "prev_day": 272500.0,
-    "turnover": 5192818192500.0,
+    "turnover": 4424230230000.0,
     "prev_month": 260000.0,
     "prev_year": 119900.0,
     "prev_2year": 53200.0
