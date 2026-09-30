@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-09-30 14:32 KST",
+ "updated_at": "2026-09-30 14:50 KST",
  "macro": {
   "유동성 / 환율": {
    "US M2": {
@@ -13,14 +13,14 @@
     "chips": "pct"
    },
    "USD/KRW": {
-    "value": 1353.98,
+    "value": 1354.65,
     "prev_month": 1366.62,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 156.929,
+    "value": 156.961,
     "prev_month": 159.747,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -160,21 +160,21 @@
      "eps_est": 3.9641,
      "eps_act": 4.78,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 13643000000
     },
     {
      "label": "1Q2026",
      "eps_est": 9.1587,
      "eps_act": 12.2,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 23860000000
     },
     {
      "label": "2Q2026",
      "eps_est": 20.686,
      "eps_act": 25.11,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 41456000000
     }
    ]
   },
@@ -205,7 +205,7 @@
      "eps_est": 6.9481,
      "eps_act": 7.58,
      "rev_est": null,
-     "rev_act": 9326500000
+     "rev_act": null
     }
    ]
   },
@@ -484,7 +484,7 @@
      "eps_est": 1.8924,
      "eps_act": 2.02,
      "rev_est": null,
-     "rev_act": 109417000000
+     "rev_act": null
     }
    ]
   },
@@ -670,7 +670,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 29591000000
     }
    ]
   }
@@ -680,7 +680,7 @@
    "Bitcoin": {
     "ticker": "BTC-USD",
     "currency": "USD",
-    "price": 83395.14,
+    "price": 83392.22,
     "prev_month": 78548.6328,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -688,7 +688,7 @@
    "Gold": {
     "ticker": "GC=F",
     "currency": "USD",
-    "price": 4202.5,
+    "price": 4206.7,
     "prev_month": 4481.5,
     "prev_year": 4341.1001,
     "prev_2year": 2641.0
@@ -696,7 +696,7 @@
    "Silver": {
     "ticker": "SI=F",
     "currency": "USD",
-    "price": 61.32,
+    "price": 61.43,
     "prev_month": 66.221,
     "prev_year": 70.134,
     "prev_2year": 28.94
@@ -704,7 +704,7 @@
    "Copper": {
     "ticker": "HG=F",
     "currency": "USD",
-    "price": 6.623,
+    "price": 6.6245,
     "prev_month": 6.5935,
     "prev_year": 5.63,
     "prev_2year": 3.986
@@ -712,7 +712,7 @@
    "WTI Oil": {
     "ticker": "CL=F",
     "currency": "USD",
-    "price": 89.68,
+    "price": 89.52,
     "prev_month": 85.76,
     "prev_year": 57.42,
     "prev_2year": 71.72
@@ -720,7 +720,7 @@
    "Natural Gas": {
     "ticker": "NG=F",
     "currency": "USD",
-    "price": 3.029,
+    "price": 3.026,
     "prev_month": 2.935,
     "prev_year": 3.686,
     "prev_2year": 3.633
@@ -832,7 +832,7 @@
    "SK Hynix": {
     "ticker": "000660.KS",
     "currency": "KRW",
-    "price": 1781000.0,
+    "price": 1779000.0,
     "prev_month": 1674000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
