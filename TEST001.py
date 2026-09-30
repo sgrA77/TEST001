@@ -28,24 +28,31 @@ UA = {"User-Agent": "Mozilla/5.0"}
 # =========================================================
 
 MARKET = {
+    # "표시이름": "티커"  또는  "표시이름": ("티커", "테마 라벨")   ← 테마 라벨은 카드에 작게 표시됨
     # 선물은 연결(front-month) 시세라 월물 교체 시기에 1M/1Y가 실제 시장 표기와 조금 다를 수 있음
     "에너지 / 원자재": {
-        "Bitcoin": "BTC-USD", "Gold": "GC=F", "Silver": "SI=F",
-        "Copper": "HG=F", "WTI Oil": "CL=F", "Natural Gas": "NG=F",
+        "Bitcoin": ("BTC-USD", "Crypto"), "Gold": ("GC=F", "귀금속"), "Silver": ("SI=F", "귀금속"),
+        "Copper": ("HG=F", "산업금속"), "WTI Oil": ("CL=F", "원유"), "Natural Gas": ("NG=F", "천연가스"),
     },
-    "지수": {"SPY": "SPY", "QQQ": "QQQ"},
-    "레버리지 지수": {"SPXL 3x": "SPXL", "QLD 2x": "QLD"},
+    "지수": {"SPY": ("SPY", "S&P 500"), "QQQ": ("QQQ", "Nasdaq 100")},
+    "레버리지 지수": {"SPXL 3x": ("SPXL", "S&P 500 3x"), "QLD 2x": ("QLD", "Nasdaq 100 2x")},
     "MAG7": {
-        "NVDA": "NVDA", "MSFT": "MSFT", "AAPL": "AAPL", "AMZN": "AMZN",
-        "GOOGL": "GOOGL", "META": "META", "TSLA": "TSLA",
+        "NVDA": ("NVDA", "AI · GPU"), "MSFT": ("MSFT", "Cloud · AI"), "AAPL": ("AAPL", "Device"),
+        "AMZN": ("AMZN", "Cloud · 커머스"), "GOOGL": ("GOOGL", "검색 · AI"),
+        "META": ("META", "SNS · AI"), "TSLA": ("TSLA", "EV · 로보틱스"),
     },
-    "Memory": {"MU": "MU", "SK Hynix": "000660.KS", "Samsung": "005930.KS"},
-    "GPU / AI Chip": {"AMD": "AMD", "AVGO": "AVGO"},
-    "CPU": {"AMD": "AMD", "INTC": "INTC"},
-    "Storage": {"SNDK": "SNDK"},
-    "FAB": {"TSM": "TSM"},
+    "AI 소프트웨어": {"ORCL": ("ORCL", "Cloud · DB"), "PLTR": ("PLTR", "AI 데이터 분석")},
+    "Memory": {
+        "MU": ("MU", "DRAM · HBM"), "SK Hynix": ("000660.KS", "DRAM · HBM"),
+        "Samsung": ("005930.KS", "메모리 · 파운드리"),
+    },
+    "GPU / AI Chip": {"AMD": ("AMD", "GPU"), "AVGO": ("AVGO", "커스텀 AI칩")},
+    "CPU": {"AMD": ("AMD", "CPU"), "INTC": ("INTC", "CPU · 파운드리")},
+    "Storage": {"SNDK": ("SNDK", "NAND")},
+    "FAB": {"TSM": ("TSM", "파운드리")},
     "Semiconductor Equipment": {
-        "ASML": "ASML", "AMAT": "AMAT", "LRCX": "LRCX", "KLAC": "KLAC",
+        "ASML": ("ASML", "EUV 노광"), "AMAT": ("AMAT", "증착 · 식각"),
+        "LRCX": ("LRCX", "식각"), "KLAC": ("KLAC", "검사 · 계측"),
     },
 }
 
@@ -69,7 +76,7 @@ MACRO = {
     "유동성 / 환율": {
         "US M2": {"src": ["fedh6:M2", "fred:M2SL"], "kind": "pct",
                   "prefix": "$", "suffix": "T", "scale": 0.001, "static": 23.0,
-                  "chips": "pct"},  # chips="pct": 1M/1Y/2Y 칸을 실제값 대신 변동률(%)로 표시
+                  "chips": "pct", "day": False},  # chips=pct: 변동률(%)로 표시 / day=False: 월간 데이터라 당일 변동률 없음
         "USD/KRW": {"src": ["yahoo:KRW=X"], "kind": "pct"},
         "USD/JPY": {"src": ["yahoo:JPY=X"], "kind": "pct"},
     },
@@ -198,11 +205,27 @@ def fetch_yahoo(ticker):
         if c is not None
     ]
     meta = result["meta"]
+    price = meta.get("regularMarketPrice") or series[-1][1]
+
+    # 거래대금 = 거래량 × 가격 (주식/ETF). 코인은 거래량이 이미 달러 기준. 선물·환율·지수는 제외
+    vols = result["indicators"]["quote"][0].get("volume") or []
+    volume = meta.get("regularMarketVolume") or next((v for v in reversed(vols) if v), None)
+    itype = meta.get("instrumentType")
+    if not volume:
+        turnover = None
+    elif itype == "CRYPTOCURRENCY":
+        turnover = volume
+    elif itype in ("EQUITY", "ETF"):
+        turnover = volume * price
+    else:
+        turnover = None
 
     data = {
-        "price": meta.get("regularMarketPrice") or series[-1][1],
+        "price": price,
         "currency": meta.get("currency", "USD"),
         "series": series,
+        "prev_day": series[-2][1] if len(series) >= 2 else None,  # 직전 거래일 종가 → 당일 변동률
+        "turnover": turnover,
     }
     _YAHOO_CACHE[ticker] = data
     return data
@@ -410,13 +433,17 @@ market = {}
 
 for sector, items in MARKET.items():
     market[sector] = {}
-    for name, ticker in items.items():
+    for name, spec in items.items():
+        ticker, theme = spec if isinstance(spec, tuple) else (spec, "")
         try:
             y = fetch_yahoo(ticker)
             market[sector][name] = {
                 "ticker": ticker,
+                "theme": theme,
                 "currency": y["currency"],
                 "price": rnd(y["price"]),
+                "prev_day": rnd(y["prev_day"]),
+                "turnover": rnd(y["turnover"], 0),
                 "prev_month": rnd(pick_base(y["series"], "month")),
                 "prev_year": rnd(pick_base(y["series"], "year")),
                 "prev_2year": rnd(pick_base(y["series"], "2year")),
@@ -448,7 +475,7 @@ for group, items in MACRO.items():
             m = MANUAL_MACRO[name]
             item = {"value": m["value"], "prev_month": m.get("prev_month"),
                     "prev_year": m.get("prev_year"),
-                    "prev_2year": m.get("prev_2year")}
+                    "prev_2year": m.get("prev_2year"), "prev_day": m.get("prev_day")}
             used = "manual"
         else:
             errors = []
@@ -469,12 +496,16 @@ for group, items in MACRO.items():
                             value = series[-1][1]
 
                     s = spec.get("scale", 1)
+                    # 당일 변동률은 일별 시세 출처(yahoo/treasury/fred)만. 정책금리·월간 M2·누적 지표는 제외
+                    daily = source.split(":")[0] in ("yahoo", "treasury", "fred") and spec.get("day", True)
+                    pd_ = series[-2][1] if daily and len(series) >= 2 else None
                     pm, py, p2 = (pick_base(series, "month"), pick_base(series, "year"),
                                   pick_base(series, "2year"))
                     item = {"value": value * s,
                             "prev_month": None if pm is None else pm * s,
                             "prev_year": None if py is None else py * s,
-                            "prev_2year": None if p2 is None else p2 * s}
+                            "prev_2year": None if p2 is None else p2 * s,
+                            "prev_day": None if pd_ is None else pd_ * s}
                     used = source
                     break
                 except Exception as e:
