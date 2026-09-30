@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-01 08:23 KST",
+ "updated_at": "2026-10-01 08:39 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: HTTPError 404 Client Error: NOT FOUND for url: https://api.db.nomics.world/v22/series/FR",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -21,7 +21,7 @@
     "chips": "pct"
    },
    "USD/KRW": {
-    "value": 1358.42,
+    "value": 1357.38,
     "prev_month": 1366.62,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -29,7 +29,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 157.403,
+    "value": 157.409,
     "prev_month": 159.747,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -722,9 +722,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 83694.36,
+    "price": 83584.0,
     "prev_day": 83622.4297,
-    "turnover": 36104568832,
+    "turnover": 36030509056,
     "prev_month": 78548.6328,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -733,7 +733,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4182.3,
+    "price": 4184.5,
     "prev_day": 4179.7002,
     "turnover": null,
     "prev_month": 4481.5,
@@ -744,7 +744,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 60.625,
+    "price": 60.66,
     "prev_day": 60.668,
     "turnover": null,
     "prev_month": 66.221,
@@ -755,7 +755,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.6265,
+    "price": 6.626,
     "prev_day": 6.5435,
     "turnover": null,
     "prev_month": 6.5935,
@@ -766,7 +766,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 90.2,
+    "price": 90.09,
     "prev_day": 89.38,
     "turnover": null,
     "prev_month": 85.76,
@@ -777,7 +777,7 @@
     "ticker": "NG=F",
     "theme": "천연가스",
     "currency": "USD",
-    "price": 3.008,
+    "price": 3.006,
     "prev_day": 3.011,
     "turnover": null,
     "prev_month": 2.935,
