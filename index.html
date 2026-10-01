@@ -246,7 +246,10 @@ body {
 
     /* 카드: 위 = 종목 정보, 아래 = 1M·1Y·2Y 를 전체 폭으로 */
     .card { flex-direction: column; align-items: stretch; gap: 8px; padding: 10px; }
-    .c-right { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    /* 1M·1Y·2Y 박스: 전체 폭이 아니라 내용 폭만큼, 종목명 글자 시작 위치(아이콘 오른쪽)에 맞춰 정렬 */
+    .c-right { grid-template-columns: repeat(3, var(--cw)); gap: 4px; justify-content: start; margin-left: 40px; }
+    .card { --cw: 62px; }
+    .card.macro { --cw: 72px; }
 
     .events { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .event { padding: 7px 10px; }
