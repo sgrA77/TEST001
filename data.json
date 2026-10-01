@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-02 08:15 KST",
+ "updated_at": "2026-10-02 08:30 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -19,7 +19,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1359.49,
+    "value": 1359.77,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -27,7 +27,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 157.965,
+    "value": 157.926,
     "prev_month": 157.558,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -720,9 +720,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 84616.87,
+    "price": 84712.41,
     "prev_day": 83553.8516,
-    "turnover": 33347528704,
+    "turnover": 33165092864,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -731,7 +731,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4208.0,
+    "price": 4211.8,
     "prev_day": 4186.7002,
     "turnover": null,
     "prev_month": 4186.7002,
@@ -742,7 +742,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 61.365,
+    "price": 61.445,
     "prev_day": 60.098,
     "turnover": null,
     "prev_month": 60.098,
@@ -753,7 +753,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.575,
+    "price": 6.579,
     "prev_day": 6.559,
     "turnover": null,
     "prev_month": 6.559,
@@ -764,7 +764,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 93.06,
+    "price": 93.02,
     "prev_day": 90.42,
     "turnover": null,
     "prev_month": 90.42,
