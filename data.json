@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-02 08:30 KST",
+ "updated_at": "2026-10-02 08:45 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -19,7 +19,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1359.77,
+    "value": 1360.06,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -27,7 +27,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 157.926,
+    "value": 157.875,
     "prev_month": 157.558,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -559,8 +559,8 @@
    "date": "2026-11-03",
    "ts": 1793736000,
    "d_day": 32,
-   "eps_est": 1.9258,
-   "rev_est": 12997546930,
+   "eps_est": 1.9294,
+   "rev_est": 13060086750,
    "quarters": [
     {
      "label": "4Q2025",
@@ -623,8 +623,8 @@
    "date": "2026-11-17",
    "ts": 1794945600,
    "d_day": 46,
-   "eps_est": 2.4736,
-   "rev_est": 109010834070,
+   "eps_est": 2.4733,
+   "rev_est": 108995424980,
    "quarters": [
     {
      "label": "4Q2025",
@@ -687,8 +687,8 @@
    "date": "2026-12-23",
    "ts": 1798056000,
    "d_day": 82,
-   "eps_est": 38.0203,
-   "rev_est": 61315076040,
+   "eps_est": 38.2289,
+   "rev_est": 61669197360,
    "quarters": [
     {
      "label": "1Q2026",
@@ -720,9 +720,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 84712.41,
+    "price": 84791.22,
     "prev_day": 83553.8516,
-    "turnover": 33165092864,
+    "turnover": 33048670208,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -731,7 +731,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4211.8,
+    "price": 4212.0,
     "prev_day": 4186.7002,
     "turnover": null,
     "prev_month": 4186.7002,
@@ -742,7 +742,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 61.445,
+    "price": 61.465,
     "prev_day": 60.098,
     "turnover": null,
     "prev_month": 60.098,
@@ -753,7 +753,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.579,
+    "price": 6.58,
     "prev_day": 6.559,
     "turnover": null,
     "prev_month": 6.559,
@@ -764,7 +764,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 93.02,
+    "price": 93.0,
     "prev_day": 90.42,
     "turnover": null,
     "prev_month": 90.42,
@@ -1100,8 +1100,8 @@
   "earnings_est": {
    "NVDA": {
     "3Q2026": {
-     "eps_est": 2.47356,
-     "rev_est": 109010834070
+     "eps_est": 2.47332,
+     "rev_est": 108995424980
     }
    },
    "MSFT": {
@@ -1142,8 +1142,8 @@
    },
    "AMD": {
     "3Q2026": {
-     "eps_est": 1.92579,
-     "rev_est": 12997546930
+     "eps_est": 1.92938,
+     "rev_est": 13060086750
     }
    },
    "AVGO": {
@@ -1158,8 +1158,8 @@
      "rev_est": 51511982990
     },
     "4Q2026": {
-     "eps_est": 38.02027,
-     "rev_est": 61315076040
+     "eps_est": 38.22891,
+     "rev_est": 61669197360
     }
    },
    "TSM": {
