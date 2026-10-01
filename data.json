@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-01 19:00 KST",
+ "updated_at": "2026-10-01 19:26 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -19,7 +19,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1366.39,
+    "value": 1363.09,
     "prev_month": 1350.5,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -27,7 +27,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 158.37,
+    "value": 158.2,
     "prev_month": 157.404,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -113,7 +113,7 @@
     "suffix": "%"
    },
    "VIX": {
-    "value": 16.58,
+    "value": 16.67,
     "prev_month": 16.34,
     "prev_year": 14.95,
     "prev_2year": 17.35,
@@ -720,9 +720,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 83735.12,
+    "price": 83630.01,
     "prev_day": 83553.8516,
-    "turnover": 39264854016,
+    "turnover": 39242477568,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -731,7 +731,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4190.2,
+    "price": 4189.4,
     "prev_day": 4186.7002,
     "turnover": null,
     "prev_month": 4186.7002,
@@ -742,7 +742,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 60.85,
+    "price": 60.9,
     "prev_day": 60.098,
     "turnover": null,
     "prev_month": 60.098,
@@ -753,7 +753,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.5395,
+    "price": 6.5425,
     "prev_day": 6.559,
     "turnover": null,
     "prev_month": 6.559,
@@ -764,7 +764,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 92.34,
+    "price": 91.91,
     "prev_day": 90.42,
     "turnover": null,
     "prev_month": 90.42,
@@ -775,7 +775,7 @@
     "ticker": "NG=F",
     "theme": "천연가스",
     "currency": "USD",
-    "price": 2.954,
+    "price": 2.948,
     "prev_day": 3.026,
     "turnover": null,
     "prev_month": 3.026,
@@ -952,7 +952,7 @@
     "currency": "KRW",
     "price": 1833000.0,
     "prev_day": 1776000.0,
-    "turnover": 4284921615000.0,
+    "turnover": 4294643847000.0,
     "prev_month": 1776000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -963,7 +963,7 @@
     "currency": "KRW",
     "price": 276000.0,
     "prev_day": 268500.0,
-    "turnover": 3999743424000.0,
+    "turnover": 4004684100000.0,
     "prev_month": 268500.0,
     "prev_year": 119900.0,
     "prev_2year": 53200.0
