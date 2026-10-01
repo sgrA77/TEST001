@@ -12,7 +12,7 @@
 :root {
     --bg: #0b0e11;
     --panel: #181a20;
-    --card: #1e2329;ㅁ
+    --card: #1e2329;
     --line: #2b3139;
     --text: #eaecef;
     --sub: #848e9c;
@@ -152,16 +152,16 @@ body {
 /* ---------- 종목/지표 카드 ----------
    왼쪽: 아이콘 · 이름 · 가격(당일%) / 테마 | 거래대금      오른쪽: 1M · 1Y · 2Y */
 .card {
-    --cw: 56px;
+    --cw: 54px;
     display: flex; justify-content: space-between; align-items: center; gap: 10px;
-    padding: 10px 12px;
+    padding: 8px 10px;
     background: var(--card);
     border: 1px solid var(--line);
     border-radius: 8px;
     transition: border-color .15s;
 }
 .card:hover { border-color: rgba(240, 185, 11, .55); }
-.card.macro { --cw: 66px; }
+.card.macro { --cw: 64px; }
 
 .c-left { display: flex; align-items: center; gap: 10px; min-width: 0; }
 .c-id { min-width: 0; }
@@ -172,23 +172,13 @@ body {
 .c-l2 { font-size: 11px; color: var(--sub); margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .c-l2 .sep { color: var(--dim); margin: 0 5px; }
 
-.c-right { display: grid; grid-template-columns: repeat(3, var(--cw)); gap: 4px; flex: none; }
+.c-right { display: grid; grid-template-columns: repeat(3, var(--cw)); gap: 3px; flex: none; }
 /* 기간 라벨(1M/1Y/2Y)은 박스 안 좌측 상단, 값은 아래 */
-.c-right .chip { padding: 13px 2px 4px; }
+.c-right .chip { padding: 10px 1px 2px; font-size: 12px; border-radius: 3px; }
 .c-right .chip .cl {
-    position: absolute; top: 2px; left: 5px;
-    font-size: 9px; font-weight: 700; line-height: 1; letter-spacing: 0; opacity: .72;
+    position: absolute; top: 1px; left: 3px;
+    font-size: 8.5px; font-weight: 700; line-height: 1; letter-spacing: 0; opacity: .72;
 }
-
-/* ---------- 참고용 패널 (MACRO · EVENTS · EARNINGS): MARKET 과 구분되는 회색 톤 ---------- */
-.panel.ref { background: #2a2f37; border-color: #3a414b; }
-.panel.ref .panel-head h2 { border-left-color: #8a94a3; color: #cfd4dc; }
-.panel.ref .card, .panel.ref .event { background: #343a44; border-color: #434b57; }
-.panel.ref .event.soon { background: #3d3a2c; }
-.panel.ref .block-head { border-bottom-color: #434b57; }
-.panel.ref .q-next { background: #3a414b; border-color: #4a5260; }
-.panel.ref .earn td, .panel.ref .earn th.grp { border-color: #3f4651; }
-.panel.ref .earn .gcol { border-left-color: #3f4651; }
 
 /* 아이콘 */
 .ico {
@@ -276,7 +266,7 @@ body {
 
 <div class="wrap">
 
-    <section class="panel ref">
+    <section class="panel">
         <div class="panel-head">
             <h2>MACRO</h2>
             <span class="note">1M · 1Y · 2Y = 전월 말 · 전년 말 · 재작년 말 값 · 색 = 현재 대비 변동 · (괄호) = 전일 대비 증감</span>
@@ -284,7 +274,7 @@ body {
         <div class="blocks" id="macro"></div>
     </section>
 
-    <section class="panel ref gap">
+    <section class="panel gap">
         <div class="panel-head">
             <h2>EVENTS</h2>
             <span class="note">한국시간(KST) 기준 · 발표 시각까지 남은 시간</span>
@@ -300,7 +290,7 @@ body {
         <div class="blocks" id="market"></div>
     </section>
 
-    <section class="panel ref gap">
+    <section class="panel gap">
         <div class="panel-head">
             <h2>EARNINGS</h2>
             <span class="note">발표일 = 한국시간(예정) · 지난 분기: 실제 (예상) · ▲▼ = 예상 대비 · 매출 예상은 저장 시작 이후 분기부터 표시</span>
