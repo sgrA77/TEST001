@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-02 06:27 KST",
+ "updated_at": "2026-10-02 06:44 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -19,7 +19,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1358.46,
+    "value": 1359.87,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -27,7 +27,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 158.056,
+    "value": 158.046,
     "prev_month": 157.558,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -720,9 +720,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 84587.18,
+    "price": 84480.25,
     "prev_day": 83553.8516,
-    "turnover": 33059747840,
+    "turnover": 33103882240,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
