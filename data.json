@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-02 07:59 KST",
+ "updated_at": "2026-10-02 08:15 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -19,7 +19,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1359.4,
+    "value": 1359.49,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -27,7 +27,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 158.032,
+    "value": 157.965,
     "prev_month": 157.558,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -240,7 +240,7 @@
    "ts": 1792612800,
    "d_day": 19,
    "eps_est": 0.439,
-   "rev_est": 27474474570,
+   "rev_est": 27547358050,
    "quarters": [
     {
      "label": "4Q2025",
@@ -720,9 +720,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 84728.82,
+    "price": 84616.87,
     "prev_day": 83553.8516,
-    "turnover": 33346269184,
+    "turnover": 33347528704,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -731,7 +731,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4205.8,
+    "price": 4208.0,
     "prev_day": 4186.7002,
     "turnover": null,
     "prev_month": 4186.7002,
@@ -742,7 +742,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 61.325,
+    "price": 61.365,
     "prev_day": 60.098,
     "turnover": null,
     "prev_month": 60.098,
@@ -753,7 +753,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.569,
+    "price": 6.575,
     "prev_day": 6.559,
     "turnover": null,
     "prev_month": 6.559,
@@ -764,7 +764,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 93.02,
+    "price": 93.06,
     "prev_day": 90.42,
     "turnover": null,
     "prev_month": 90.42,
@@ -775,7 +775,7 @@
     "ticker": "NG=F",
     "theme": "천연가스",
     "currency": "USD",
-    "price": 2.947,
+    "price": 2.948,
     "prev_day": 3.026,
     "turnover": null,
     "prev_month": 3.026,
@@ -1137,7 +1137,7 @@
    "TSLA": {
     "3Q2026": {
      "eps_est": 0.43895,
-     "rev_est": 27474474570
+     "rev_est": 27547358050
     }
    },
    "AMD": {
