@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-01 13:25 KST",
+ "updated_at": "2026-10-01 13:43 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: HTTPError 404 Client Error: NOT FOUND for url: https://api.db.nomics.world/v22/series/FR",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -21,7 +21,7 @@
     "chips": "pct"
    },
    "USD/KRW": {
-    "value": 1358.9,
+    "value": 1358.5,
     "prev_month": 1350.5,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -29,7 +29,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 158.266,
+    "value": 158.196,
     "prev_month": 157.404,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -722,9 +722,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 83731.02,
+    "price": 83864.69,
     "prev_day": 83622.4297,
-    "turnover": 36776931328,
+    "turnover": 36952911872,
     "prev_month": 83622.4297,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -733,7 +733,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4204.9,
+    "price": 4205.0,
     "prev_day": 4186.7002,
     "turnover": null,
     "prev_month": 4186.7002,
@@ -744,7 +744,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 61.43,
+    "price": 61.45,
     "prev_day": 60.098,
     "turnover": null,
     "prev_month": 60.098,
@@ -755,7 +755,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.601,
+    "price": 6.6025,
     "prev_day": 6.559,
     "turnover": null,
     "prev_month": 6.559,
@@ -766,7 +766,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 89.15,
+    "price": 89.14,
     "prev_day": 90.42,
     "turnover": null,
     "prev_month": 90.42,
@@ -952,9 +952,9 @@
     "ticker": "000660.KS",
     "theme": "DRAM · HBM",
     "currency": "KRW",
-    "price": 1813000.0,
+    "price": 1809000.0,
     "prev_day": 1776000.0,
-    "turnover": 2257016391000.0,
+    "turnover": 2393039268000.0,
     "prev_month": 1776000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -963,9 +963,9 @@
     "ticker": "005930.KS",
     "theme": "메모리 · 파운드리",
     "currency": "KRW",
-    "price": 274250.0,
+    "price": 273000.0,
     "prev_day": 268500.0,
-    "turnover": 2126780228000.0,
+    "turnover": 2280038943000.0,
     "prev_month": 268500.0,
     "prev_year": 119900.0,
     "prev_2year": 53200.0
