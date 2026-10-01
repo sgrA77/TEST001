@@ -76,7 +76,7 @@ MACRO = {
     "유동성 / 환율": {
         "US M2": {"src": ["fedh6:M2", "fred:M2SL"], "kind": "pct",
                   "prefix": "$", "suffix": "T", "scale": 0.001, "static": 23.0,
-                  "chips": "pct", "day": False},  # chips=pct: 변동률(%)로 표시 / day=False: 월간 데이터라 당일 변동률 없음
+                  "day": False},  # day=False: 월간 데이터라 당일 변동률 없음
         "USD/KRW": {"src": ["yahoo:KRW=X"], "kind": "pct"},
         "USD/JPY": {"src": ["yahoo:JPY=X"], "kind": "pct"},
     },
@@ -279,54 +279,35 @@ def _parse_fred_api(text):
             for o in json.loads(text)["observations"] if o["value"] not in (".", "")]
 
 
-def fetch_dbnomics_fred(sid):
-    """FRED 미러(DBnomics). FRED 사이트가 막혀도 다른 서버라 받아질 수 있음 (마지막 예비 수단)."""
-    url = f"https://api.db.nomics.world/v22/series/FRED/{sid}?observations=1&format=json"
-    r = requests.get(url, headers=BROWSER_UA, timeout=30)
-    r.raise_for_status()
-    doc = r.json()["series"]["docs"][0]
-    rows = []
-    for p, v in zip(doc["period"], doc["value"]):
-        try:
-            rows.append((date.fromisoformat(p[:10]), float(v)))
-        except (ValueError, TypeError):
-            continue  # "NA" 건너뜀
-    return rows
-
-
 def fetch_fred(series_ids):
     """FRED 공개 데이터. 시리즈 ID를 리스트로 주면 앞에서부터 시도.
-    시도 순서: 웹 CSV → 웹 TXT → (API 키가 있으면) 공식 API → DBnomics 미러"""
+    시도 순서: 공식 API(키가 있을 때) → FRED 웹 CSV → ALFRED(FRED 자매 사이트) CSV
+    (GitHub Actions에서 FRED 웹이 ReadTimeout 나는 경우가 있어 API 키 사용을 권장)"""
     global _fred_net_fail
     ids = [series_ids] if isinstance(series_ids, str) else series_ids
     since = (TODAY - timedelta(days=1000)).isoformat()
     errors = []
 
     for sid in ids:
-        sources = [
-            (f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}&cosd={since}", _parse_fred_csv, True),
-            (f"https://fred.stlouisfed.org/data/{sid}.txt", _parse_fred_txt, True),
-        ]
+        sources = []
         if FRED_API_KEY:
             sources.append((
                 "https://api.stlouisfed.org/fred/series/observations?series_id="
                 f"{sid}&api_key={FRED_API_KEY}&file_type=json&observation_start={since}",
                 _parse_fred_api, False))
-
-        sources.append((f"dbnomics:{sid}", None, False))
+        sources += [
+            (f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}&cosd={since}", _parse_fred_csv, True),
+            (f"https://alfred.stlouisfed.org/graph/fredgraph.csv?id={sid}&cosd={since}", _parse_fred_csv, True),
+        ]
 
         for url, parser, is_web in sources:
-            if is_web and _fred_net_fail >= 3:
+            if is_web and _fred_net_fail >= 4:
                 errors.append(f"{sid}: 웹 접속 생략(앞선 연결 실패)")
                 continue
             try:
-                if url.startswith("dbnomics:"):
-                    rows = fetch_dbnomics_fred(sid)
-                else:
-                    r = requests.get(url, headers=BROWSER_UA, timeout=30)
-                    r.raise_for_status()
-                    rows = parser(r.text)
-                rows = [x for x in rows if x[0] >= TODAY - timedelta(days=1000)]
+                r = requests.get(url, headers=BROWSER_UA, timeout=(10, 40))  # (연결, 응답대기) 초
+                r.raise_for_status()
+                rows = [x for x in parser(r.text) if x[0] >= TODAY - timedelta(days=1000)]
                 if rows:
                     if is_web:
                         _fred_net_fail = 0
@@ -339,7 +320,8 @@ def fetch_fred(series_ids):
             except Exception as e:
                 errors.append(f"{sid}: {type(e).__name__} {str(e)[:100]}")
 
-    raise RuntimeError("FRED 실패 → " + " | ".join(errors[-5:]))
+    hint = "" if FRED_API_KEY else " (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)"
+    raise RuntimeError("FRED 실패 → " + " | ".join(errors[-5:]) + hint)
 
 
 def fetch_forward_earnings_yield():
@@ -663,7 +645,7 @@ try:
     _b = bls_dates()
 except Exception as e:
     _b = {"CPI": [], "NFP": []}
-    warn(f"BLS 일정 수집 실패: {e}")
+    print(f"[info] BLS 일정 접속 불가({str(e)[:60]}) → 내장 일정 사용")  # BLS는 GitHub 서버를 차단하는 경우가 많아 경고 대신 안내만
 found["CPI"] = collect("CPI", lambda: _b["CPI"])
 found["NFP"] = collect("NFP", lambda: _b["NFP"])
 found["PCE"] = collect("PCE", pce_dates)
