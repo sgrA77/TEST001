@@ -284,11 +284,12 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     #market .ico img { padding: 2px; }
     /* 1줄: 이름 · 가격 · 변동률 / 2줄: 테마 · 거래대금 / 3줄: 1M·1Y·2Y */
     #market .c-left { gap: 4px; align-items: center; }
+    #market .c-id { flex: 1; min-width: 0; }
     #market .c-l1 { display: flex; flex-wrap: nowrap; align-items: baseline; gap: 0 3px; white-space: nowrap; letter-spacing: -0.05em; }
     #market .c-l1 > * { flex: none; }
-    #market .c-name { font-size: clamp(11.5px, 3.3vw, 14px); }   /* 화면 폭에 비례 */
-    #market .c-price { font-size: clamp(11.5px, 3.2vw, 14px); margin-left: 4px; }   /* 이름과 가격 사이 간격 */
-    #market .c-day { font-size: clamp(9px, 2.4vw, 10.5px); }
+    #market .c-name { font-size: clamp(12px, 3.25vw, 15px); }   /* 화면 폭에 비례 */
+    #market .c-price { font-size: clamp(12px, 3.25vw, 15px); margin-left: auto; padding-left: 4px; }   /* 남는 폭은 이름↔가격 사이로 */   /* 이름과 가격 사이 간격 */
+    #market .c-day { font-size: clamp(9.5px, 2.6vw, 11px); margin-left: 3px; }
     #market .c-day .pp { display: none; }
     #market .c-l2 { font-size: 10.5px; margin-top: 0; }
     #market .c-right { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-left: 0; gap: 2px; }
