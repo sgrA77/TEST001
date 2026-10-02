@@ -138,6 +138,7 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 .card.growth .c-right { grid-template-columns: repeat(5, var(--cw)); }
 .card.growth .c-name { font-size: 14.5px; }
 .card.growth .c-l2 { display: none; }
+.card.gpu .c-l2 { display: block; }
 .c-price .pt { font-size: 10px; font-weight: 600; color: var(--sub); margin-left: 2px; }
 .event .ls { display: none; }
 .panel-head .unit { font-size: 11px; font-weight: 500; color: var(--sub); margin-left: 8px; }
@@ -344,6 +345,13 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
             <h2>지수 연평균 성장률 (CAGR)</h2>
         </div>
         <div class="cards gro" id="growth"></div>
+    </section>
+
+    <section class="panel slim gap">
+        <div class="panel-head">
+            <h2>GPU 대여 가격</h2>
+        </div>
+        <div class="cards gro" id="gpu"></div>
     </section>
 
     <section class="panel gap">
@@ -694,6 +702,28 @@ function renderGrowth(growth) {
     })).join("") : `<div class="empty">데이터 없음</div>`;
 }
 
+const GPU_CAP = { w1: 5, m1: 10, m3: 20, m6: 30, y1: 50 };   // 칩 색이 가장 진해지는 변동률(%)
+
+function renderGpu(gpu) {
+    const rows = Object.entries(gpu || {});
+    $("gpu").innerHTML = rows.length ? rows.map(([name, g]) => {
+        const ch = base => pctChange(g.price, base);
+        const day = ch(g.prev_day);
+        return cardHTML({
+            cls: "growth gpu",
+            icon: `<span class="ico" style="background:#e8f3d8;color:#3b6d11">${name.slice(0, 2)}</span>`,
+            name,
+            price: `$${num(g.price, 2)}<span class="pt">/hr</span>`,
+            dayText: signed(day, 2, "%"), dayV: day,
+            sub: g.spec || "&nbsp;",
+            cells: [["1W", "w1"], ["1M", "m1"], ["3M", "m3"], ["6M", "m6"], ["1Y", "y1"]].map(([l, k]) => {
+                const v = g[k] == null ? null : ch(g[k]);
+                return { l, v, cap: GPU_CAP[k], text: signed(v, 1, "%") };
+            }),
+        });
+    }).join("") : `<div class="empty">데이터 없음</div>`;
+}
+
 function renderMarket(market) {
 
     const root = $("market");
@@ -904,6 +934,7 @@ fetch("data.json?t=" + Date.now())
         safe(() => renderTop(data.macro));
         safe(() => renderEvents(data.events, data.earnings));
         safe(() => renderGrowth(data.growth));
+        safe(() => renderGpu(data.gpu_rental));
         safe(() => renderMarket(data.market));
         safe(() => renderMacro(data.macro));
         safe(() => renderEarnings(data.earnings));
