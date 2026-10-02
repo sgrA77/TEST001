@@ -60,6 +60,7 @@ body {
 }
 .panel.gap { margin-top: 18px; }
 .panel.slim { padding: 8px 12px 10px; }
+@media (max-width: 760px) { .panel.slim { padding: 6px 8px 7px; } }
 .panel.slim .panel-head { margin-bottom: 6px; }
 .panel.slim .panel-head h2 { font-size: 13px; }
 
@@ -153,7 +154,11 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     border-bottom: 1px solid var(--line);
     margin-bottom: 10px;
 }
-.block-name { font-size: 16px; font-weight: 800; }
+.block-name { font-size: 15px; font-weight: 800; display: inline-flex; align-items: center; }
+.block-name::before {                                  /* 섹터 구분용 ● 표식 */
+    content: ""; flex: none; width: 9px; height: 9px; margin-right: 8px;
+    border-radius: 50%; background: var(--yellow); box-shadow: 0 0 0 3px rgba(240, 185, 11, .22);
+}
 .block-avg { display: flex; align-items: center; gap: 4px; }
 .block-avg .lbl { font-size: 11px; color: var(--sub); margin-right: 2px; }
 .block-avg { padding-left: 12px; border-left: 1px solid var(--line); }
@@ -280,11 +285,13 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     #market .c-right .chip { font-size: 10.5px; padding: 9px 0 2px; letter-spacing: -0.04em; }
     #market .c-right .chip .cl { font-size: 7.5px; left: 2px; top: 1px; }
 
-    .events { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; }
-    .event { padding: 3px 7px; gap: 4px; }
-    .event .e-name { font-size: 12.5px; }
-    .event .e-dday { font-size: 13px; }
-    .event .e-sub { font-size: 9.5px; }
+    .events { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3px; }
+    .event { padding: 2px 5px 3px; border-left-width: 2px; }
+    .event .e-name { font-size: 11.5px; overflow: hidden; text-overflow: ellipsis; }
+    .event .e-name small { display: none; }
+    .event .e-dday { font-size: 11.5px; }
+    .event .e-sub { font-size: 9px; }
+    .event .hm { display: none; }
 }
 </style>
 </head>
@@ -301,7 +308,6 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     <section class="panel slim">
         <div class="panel-head">
             <h2>EVENTS</h2>
-            <span class="note">KST · 3일 이내 실적 발표 포함</span>
         </div>
         <div class="events" id="events"></div>
     </section>
@@ -309,7 +315,6 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     <section class="panel gap">
         <div class="panel-head">
             <h2>MARKET</h2>
-            <span class="note">가격(당일 %) · 테마 | 거래대금 &nbsp;/&nbsp; 1M · 1Y · 2Y = 전월 말 · 전년 말 · 재작년 말 종가 대비</span>
         </div>
         <div class="blocks" id="market"></div>
     </section>
@@ -317,7 +322,6 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     <details class="panel gap fold">
         <summary class="panel-head">
             <h2>MACRO</h2>
-            <span class="note">1M · 1Y · 2Y = 전월 말 · 전년 말 · 재작년 말 값 · 색 = 현재 대비 변동 · (괄호) = 전일 대비 증감</span>
         </summary>
         <div class="blocks" id="macro"></div>
     </details>
@@ -325,7 +329,6 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     <details class="panel gap fold">
         <summary class="panel-head">
             <h2>EARNINGS</h2>
-            <span class="note">발표일 = 한국시간(예정) · 지난 분기: 실제 (예상) · ▲▼ = 예상 대비 · 매출 예상은 저장 시작 이후 분기부터 표시</span>
         </summary>
         <div class="earn-wrap" id="earnings"></div>
     </details>
@@ -588,11 +591,19 @@ function renderTop(macro) {
     }).join("");
 }
 
+// "10/03(토) 14:10 KST" → "10/03<요일 14:10>" : 모바일에서는 요일·남은시간을 숨겨 폭을 줄임
+function compactWhen(when) {
+    const m = when.replace(" KST", "").match(/^(\d{2}\/\d{2})(\([^)]*\))?\s*(.*)$/);
+    return m ? `${m[1]}<span class="hm">${m[2] || ""}</span> ${m[3]}`.trim() : when;
+}
+
 function renderEvents(events, earnings) {
 
     // 경제 이벤트: 발표 시각(ts)이 있으면 지난 것은 제외, 없으면 날짜 기준
     const list = (events || []).filter(e => e.ts ? e.ts > nowSec() : (e.d_day != null && e.d_day >= 0))
-        .map(e => ({ ...e, label: e.name, kind: "event" }));
+        .map(e => /^IPO\s*·/.test(e.name)
+            ? { ...e, label: `<small>IPO</small>${e.name.replace(/^IPO\s*·\s*/, "")}`, kind: "earn" }   // 미국 상장 AI IPO
+            : { ...e, label: e.name, kind: "event" });
 
     // 실적 발표: EARN_SOON_DAYS 일 이내만
     (earnings || []).forEach(e => {
@@ -616,7 +627,7 @@ function renderEvents(events, earnings) {
         return `
         <div class="event ${e.kind === "earn" ? "ev-earn" : ""} ${d <= 7 ? "soon" : ""}">
             <div class="e-top"><span class="e-name">${e.label}</span><span class="e-dday">${ddayLabel(d)}</span></div>
-            <div class="e-sub">${when.replace(" KST", "")}${left ? " · " + left.replace(" 남음", "") : ""}</div>
+            <div class="e-sub">${compactWhen(when)}${left ? `<span class="hm"> · ${left.replace(" 남음", "")}</span>` : ""}</div>
         </div>`;
     }).join("");
 }
