@@ -35,7 +35,17 @@ MARKET = {
         "Copper": ("HG=F", "산업금속"), "WTI Oil": ("CL=F", "원유"), "Natural Gas": ("NG=F", "천연가스"),
     },
     "지수": {"SPY": ("SPY", "S&P 500"), "QQQ": ("QQQ", "Nasdaq 100")},
-    "레버리지 지수": {"SPXL 3x": ("SPXL", "S&P 500 3x"), "QLD 2x": ("QLD", "Nasdaq 100 2x")},
+    "레버리지 지수": {"SPXL 3x": ("SPXL", "S&P 500 3x"), "QLD 2x": ("QLD", "Nasdaq 100 2x"),
+                "TQQQ 3x": ("TQQQ", "Nasdaq 100 3x")},
+    # --- 거래량·관심도 최상위 반도체/AI ETF (개인 투자자 인기 레버리지 포함) ---
+    "반도체 ETF": {
+        "SMH": ("SMH", "반도체 지수 (시총가중)"), "SOXX": ("SOXX", "필라델피아 반도체"),
+        "SOXL 3x": ("SOXL", "반도체 3x"), "NVDL 2x": ("NVDL", "NVDA 2x"),
+    },
+    "AI ETF": {
+        "AIQ": ("AIQ", "AI · 빅데이터"), "BOTZ": ("BOTZ", "AI · 로보틱스"),
+        "IGV": ("IGV", "소프트웨어"),
+    },
     "MAG7": {
         "NVDA": ("NVDA", "AI · GPU"), "MSFT": ("MSFT", "Cloud · AI"), "AAPL": ("AAPL", "Device"),
         "AMZN": ("AMZN", "Cloud · 커머스"), "GOOGL": ("GOOGL", "검색 · AI"),
@@ -70,6 +80,14 @@ MARKET = {
     },
     "AI 서버": {"DELL": ("DELL", "AI 서버"), "SMCI": ("SMCI", "AI 서버 · 액침냉각")},
 }
+
+# =========================================================
+# [설정] Market Growth : 현재가 기준 단순 연평균 성장률 = (현재가 / N년 전 가격 - 1) × 100 ÷ N
+#   가격지수 기준(배당 미포함). 지수 ETF가 아니라 지수 자체를 써야 20년 데이터가 있음
+# =========================================================
+
+GROWTH = {"S&P 500": "^GSPC", "QQQ (Nasdaq 100)": "^NDX", "KOSPI": "^KS11", "KOSDAQ": "^KQ11"}
+GROWTH_YEARS = [3, 5, 10, 15, 20]
 
 # =========================================================
 # [설정] MACRO : 그룹 -> {지표명: 스펙}
@@ -908,6 +926,45 @@ earnings.sort(key=lambda r: (r["d_day"] is None, r["d_day"] if r["d_day"] is not
 
 
 # =========================================================
+# Market Growth (Yahoo 25년 주봉)
+# =========================================================
+
+def fetch_long(ticker):
+    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker}?range=25y&interval=1wk"
+    last_err = None
+    for _ in range(2):
+        try:
+            res = requests.get(url, headers=UA, timeout=25).json()["chart"]["result"][0]
+            break
+        except Exception as e:
+            last_err = e
+    else:
+        raise last_err
+    series = [(datetime.fromtimestamp(t, timezone.utc).date(), c)
+              for t, c in zip(res["timestamp"], res["indicators"]["quote"][0]["close"]) if c]
+    return series, res["meta"].get("regularMarketPrice") or series[-1][1]
+
+
+growth = {}
+for gname, gtk in GROWTH.items():
+    try:
+        series, price = fetch_long(gtk)
+        row = {"ticker": gtk, "price": price}
+        for n in GROWTH_YEARS:
+            target = date(TODAY.year - n, TODAY.month, min(TODAY.day, 28))
+            older = [v for d, v in series if d <= target]
+            # 데이터가 부족하면(상장 전 등) 값 없음. 시작일이 목표일보다 2주 넘게 늦으면 부족한 것으로 봄
+            ok = older and (target - [d for d, v in series if d <= target][-1]).days <= 14
+            row[f"{n}Y"] = rnd((price / older[-1] - 1) * 100 / n, 2) if ok else None
+        growth[gname] = row
+        print(f"[ok] GROWTH {gname}: " + ", ".join(f"{n}Y {row[f'{n}Y']}" for n in GROWTH_YEARS))
+    except Exception as e:
+        warn(f"Market Growth {gname}({gtk}) 수집 실패: {str(e)[:100]}")
+        if OLD.get("growth", {}).get(gname):
+            growth[gname] = OLD["growth"][gname]
+
+
+# =========================================================
 # 저장
 # =========================================================
 
@@ -918,6 +975,7 @@ output = {
     "events": events,
     "earnings": earnings,
     "market": market,
+    "growth": growth,
     "history": history,  # 화면에는 안 쓰임. 지표 히스토리 누적용
 }
 
