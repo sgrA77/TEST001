@@ -965,6 +965,73 @@ for gname, gtk in GROWTH.items():
 
 
 # =========================================================
+# GPU 대여 가격 (Ornn OCPI - 온디맨드 시간당 $/GPU, 키 없이 공개된 무료 구간)
+#   공개 API는 "최근 3개월" 일별 값만 줌 → 1W/1M/3M 은 바로 계산,
+#   6M/1Y 는 data.json 의 history 에 매일 누적해서 쌓이는 만큼 표시 (처음엔 "-")
+# =========================================================
+
+GPU_RENTAL = {   # 표시이름: 사양 라벨 (Ornn 무료 제공 4종)
+    "H100 SXM": "Hopper · 80GB HBM3",
+    "H200": "Hopper · 141GB HBM3e",
+    "B200": "Blackwell · 180GB HBM3e",
+    "A100 SXM4": "Ampere · 80GB HBM2e",
+}
+
+
+def fetch_ornn_series(gpu):
+    """[(date, 시간당 가격)] 일별 (같은 날 여러 값이면 마지막 값)"""
+    last_err = None
+    for days in (92, 88, 80, 60):          # 무료 구간(최근 3개월) 경계에 걸리면 조금씩 줄여서 재시도
+        try:
+            r = requests.get(
+                f"https://api.ornnai.com/api/gpu/{requests.utils.quote(gpu)}/index-history",
+                params={"startDate": (TODAY - timedelta(days=days)).isoformat(), "endDate": TODAY.isoformat()},
+                headers={**UA, "Accept": "application/json"}, timeout=25)
+            r.raise_for_status()
+            rows = r.json()["data"]
+            by_day = {}
+            for p in sorted(rows, key=lambda p: p["timestamp"]):
+                by_day[date.fromisoformat(p["timestamp"][:10])] = float(p["index_value"])
+            if by_day:
+                return sorted(by_day.items())
+        except Exception as e:
+            last_err = e
+    raise last_err or ValueError("데이터 없음")
+
+
+def value_before(series, target, max_gap=10):
+    """target 이전(포함) 가장 가까운 값. 그 값이 target 보다 max_gap일 넘게 오래됐으면 없음(None)"""
+    older = [(d, v) for d, v in series if d <= target]
+    return older[-1][1] if older and (target - older[-1][0]).days <= max_gap else None
+
+
+gpu_rental = {}
+for gname, gspec in GPU_RENTAL.items():
+    try:
+        series = fetch_ornn_series(gname)
+        hkey = "GPU " + gname
+        hist = history.setdefault(hkey, {})
+        for d, v in series:                       # 누적 (6M/1Y 용)
+            hist[d.isoformat()] = v
+        merged = sorted((date.fromisoformat(k), v) for k, v in hist.items())
+        for k in [k for k in hist if (TODAY - date.fromisoformat(k)).days > 400]:
+            del hist[k]
+        last_d, price = merged[-1]
+        prev_day = next((v for d, v in reversed(merged) if d < last_d), None)
+        gpu_rental[gname] = {
+            "spec": gspec, "price": rnd(price, 3), "date": last_d.isoformat(),
+            "prev_day": rnd(prev_day, 3) if prev_day else None,
+            **{key: (lambda v: rnd(v, 3) if v else None)(value_before(merged, last_d - timedelta(days=n)))
+               for key, n in (("w1", 7), ("m1", 30), ("m3", 90), ("m6", 182), ("y1", 365))},
+        }
+        print(f"[ok] GPU {gname} = {price} (일별 {len(series)}개, 누적 {len(merged)}개)")
+    except Exception as e:
+        warn(f"GPU 대여가격 {gname} 수집 실패: {str(e)[:100]}")
+        if OLD.get("gpu_rental", {}).get(gname):
+            gpu_rental[gname] = OLD["gpu_rental"][gname]
+
+
+# =========================================================
 # 저장
 # =========================================================
 
@@ -976,6 +1043,7 @@ output = {
     "earnings": earnings,
     "market": market,
     "growth": growth,
+    "gpu_rental": gpu_rental,
     "history": history,  # 화면에는 안 쓰임. 지표 히스토리 누적용
 }
 
