@@ -259,8 +259,8 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     .top-vals { gap: 2px 12px; }
     .top-vals .tv-v { font-size: 15px; }
     .topbar .updated { font-size: 9px; }
-    .wrap { padding: 12px 10px 28px; }
-    .panel { padding: 12px 10px 14px; }
+    .wrap { padding: 12px 6px 28px; }
+    .panel { padding: 12px 6px 14px; }
     .panel-head { flex-direction: column; gap: 3px; }
     .panel-head .note { text-align: left; }
 
@@ -278,16 +278,16 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     .card.macro { --cw: 72px; }
 
     /* MARKET 2열 카드: 아이콘·이름·가격 위, 1M/1Y/2Y 아래 (카드 폭에 맞춰 3등분) */
-    #market .card { padding: 5px 4px; gap: 4px; }
+    #market .card { padding: 6px 4px; gap: 5px; }
     
     #market .ico { width: 20px; height: 20px; font-size: 7.5px; }
     #market .ico img { padding: 2px; }
     /* 1줄: 이름 · 가격 · 변동률 / 2줄: 테마 · 거래대금 / 3줄: 1M·1Y·2Y */
     #market .c-left { gap: 4px; align-items: center; }
-    #market .c-l1 { display: flex; flex-wrap: nowrap; align-items: baseline; gap: 0 2px; white-space: nowrap; letter-spacing: -0.05em; }
+    #market .c-l1 { display: flex; flex-wrap: nowrap; align-items: baseline; gap: 0 4px; white-space: nowrap; letter-spacing: -0.05em; }
     #market .c-l1 > * { flex: none; }
-    #market .c-name { font-size: 12.5px; }
-    #market .c-price { font-size: 12px; }
+    #market .c-name { font-size: 13.5px; }
+    #market .c-price { font-size: 12.5px; }
     #market .c-day { font-size: 10px; }
     #market .c-day .pp { display: none; }
     #market .c-l2 { font-size: 10.5px; margin-top: 0; }
@@ -309,17 +309,17 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 
     /* 모바일 EVENTS: 한 줄 4칸. 1줄 = 이름, 2줄 = D-n + 날짜 */
     .events { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 3px; }
-    .event { display: grid; grid-template-columns: auto 1fr; column-gap: 4px; padding: 2px 4px 3px; border-left-width: 2px; }
+    .event { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 4px; padding: 2px 4px 3px; border-left-width: 2px; }
     .event .e-top { display: contents; }
-    .event .e-name { grid-column: 1 / -1; font-size: 11px; overflow: hidden; text-overflow: ellipsis; }
+    .event .e-name { grid-column: 1; font-size: 11.5px; overflow: hidden; text-overflow: ellipsis; }
     .event .e-name small { display: none; }
-    .event .e-dday { font-size: 11px; }
-    .event .e-sub { font-size: 9px; text-align: right; align-self: center; margin-left: 0; }
+    .event .e-dday { grid-column: 2; justify-self: end; font-size: 11px; }
+    .event .e-sub { grid-column: 1 / -1; font-size: 9.5px; text-align: left; margin-left: 0; }
     .event .e-top { display: contents; }
     .event .hm { display: none; }
     .event .lg { display: none; }
     .event .ls { display: inline; }
-    .event.has-left .dt, .event .sp { display: none; }   /* 모바일: 시각이 있는 일정은 날짜 대신 남은 시간 */
+    /* 모바일: 2줄째 = 날짜(MM/DD) · 남은 시간 */
 }
 </style>
 </head>
