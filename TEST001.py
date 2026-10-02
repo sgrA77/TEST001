@@ -46,21 +46,21 @@ MARKET = {
         "AIQ": ("AIQ", "AI · 빅데이터"), "BOTZ": ("BOTZ", "AI · 로보틱스"),
         "IGV": ("IGV", "소프트웨어"),
     },
-    "MAG7": {
+    "빅테크 7": {
         "NVDA": ("NVDA", "AI · GPU"), "MSFT": ("MSFT", "Cloud · AI"), "AAPL": ("AAPL", "Device"),
         "AMZN": ("AMZN", "Cloud · 커머스"), "GOOGL": ("GOOGL", "검색 · AI"),
         "META": ("META", "SNS · AI"), "TSLA": ("TSLA", "EV · 로보틱스"),
     },
     "AI 소프트웨어": {"ORCL": ("ORCL", "Cloud · DB"), "PLTR": ("PLTR", "AI 데이터 분석")},
-    "Memory": {
+    "메모리": {
         "MU": ("MU", "DRAM · HBM"), "SK Hynix": ("000660.KS", "DRAM · HBM"),
         "Samsung": ("005930.KS", "메모리 · 파운드리"),
     },
-    "GPU / AI Chip": {"AMD": ("AMD", "GPU"), "AVGO": ("AVGO", "커스텀 AI칩"), "CBRS": ("CBRS", "웨이퍼 AI칩")},
+    "GPU / AI 칩": {"AMD": ("AMD", "GPU"), "AVGO": ("AVGO", "커스텀 AI칩"), "CBRS": ("CBRS", "웨이퍼 AI칩")},
     "CPU": {"AMD": ("AMD", "CPU"), "INTC": ("INTC", "CPU · 파운드리")},
-    "Storage": {"SNDK": ("SNDK", "NAND")},
-    "FAB": {"TSM": ("TSM", "파운드리")},
-    "Semiconductor Equipment": {
+    "저장장치": {"SNDK": ("SNDK", "NAND")},
+    "파운드리": {"TSM": ("TSM", "파운드리")},
+    "반도체 장비": {
         "ASML": ("ASML", "EUV 노광"), "AMAT": ("AMAT", "증착 · 식각"),
         "LRCX": ("LRCX", "식각"), "KLAC": ("KLAC", "검사 · 계측"),
     },
@@ -82,7 +82,7 @@ MARKET = {
 }
 
 # =========================================================
-# [설정] Market Growth : 현재가 기준 단순 연평균 성장률 = (현재가 / N년 전 가격 - 1) × 100 ÷ N
+# [설정] 지수 연평균 성장률 : 현재가 기준 CAGR = ((현재가 / N년 전 가격) ^ (1/N) - 1) × 100
 #   가격지수 기준(배당 미포함). 지수 ETF가 아니라 지수 자체를 써야 20년 데이터가 있음
 # =========================================================
 
@@ -955,7 +955,7 @@ for gname, gtk in GROWTH.items():
             older = [v for d, v in series if d <= target]
             # 데이터가 부족하면(상장 전 등) 값 없음. 시작일이 목표일보다 2주 넘게 늦으면 부족한 것으로 봄
             ok = older and (target - [d for d, v in series if d <= target][-1]).days <= 14
-            row[f"{n}Y"] = rnd((price / older[-1] - 1) * 100 / n, 2) if ok else None
+            row[f"{n}Y"] = rnd(((price / older[-1]) ** (1 / n) - 1) * 100, 2) if ok else None   # CAGR
         growth[gname] = row
         print(f"[ok] GROWTH {gname}: " + ", ".join(f"{n}Y {row[f'{n}Y']}" for n in GROWTH_YEARS))
     except Exception as e:
