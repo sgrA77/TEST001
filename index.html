@@ -109,10 +109,10 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 .down { color: var(--down-t); }
 
 /* ---------- EVENTS ---------- */
-.events { display: grid; grid-template-columns: repeat(auto-fill, minmax(185px, 1fr)); gap: 5px; }
+.events { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 4px; }
 .event {
-    display: block; min-width: 0;
-    padding: 3px 9px 4px;
+    display: flex; align-items: baseline; gap: 8px; min-width: 0;
+    padding: 2px 9px;
     background: var(--card);
     border: 1px solid var(--line);
     border-left: 3px solid var(--dim);
@@ -122,14 +122,23 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 .event.ev-earn { border-left-color: #8b5cf6; }
 .event .e-name { font-size: 13px; font-weight: 800; white-space: nowrap; }
 .event .e-name small { font-size: 9.5px; font-weight: 700; color: #7c3aed; margin-right: 3px; }
-.event .e-top { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
-.event .e-sub { font-size: 10px; color: var(--sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.event .e-dday { font-size: 14px; font-weight: 800; white-space: nowrap; }
+.event .e-top { display: contents; }
+.event .e-sub { margin-left: auto; font-size: 10px; color: var(--sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.event .e-dday { font-size: 13px; font-weight: 800; white-space: nowrap; }
 .event.soon .e-dday { color: var(--amber); }
 .warns { margin-top: 18px; color: var(--sub); font-size: 12px; }
 .warns summary { cursor: pointer; }
 .warns ul { margin: 6px 0 0; padding-left: 18px; line-height: 1.6; }
 .event.soon .e-dday { color: var(--amber); }
+
+/* ---------- Market Growth ---------- */
+.cards.gro { grid-template-columns: minmax(0, 1fr); gap: 5px; }
+.card.growth { --cw: 64px; }
+.card.growth .c-right { grid-template-columns: repeat(5, var(--cw)); }
+.card.growth .c-name { font-size: 14.5px; }
+.card.growth .c-l2 { display: none; }
+.event .ls { display: none; }
+.panel-head .unit { font-size: 11px; font-weight: 500; color: var(--sub); margin-left: 8px; }
 
 /* ---------- 섹터 / 그룹 블록 ---------- */
 .blocks {
@@ -168,16 +177,16 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 /* ---------- 종목/지표 카드 ----------
    왼쪽: 아이콘 · 이름 · 가격(당일%) / 테마 | 거래대금      오른쪽: 1M · 1Y · 2Y */
 .card {
-    --cw: 54px;
+    --cw: 66px;
     display: flex; justify-content: space-between; align-items: center; gap: 10px;
-    padding: 8px 10px;
+    padding: 6px 10px;
     background: var(--card);
     border: 1px solid var(--line);
     border-radius: 8px;
     transition: border-color .15s;
 }
 .card:hover { border-color: rgba(240, 185, 11, .9); }
-.card.macro { --cw: 64px; }
+.card.macro { --cw: 70px; }
 
 .c-left { display: flex; align-items: center; gap: 10px; min-width: 0; }
 .c-id { min-width: 0; }
@@ -185,16 +194,14 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 .c-name { font-size: 15.5px; font-weight: 800; color: var(--text); }
 .c-price { font-size: 15px; font-weight: 700; }
 .c-day { font-size: 12px; font-weight: 700; }
-.c-l2 { font-size: 11px; color: var(--sub); margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.c-l2 { font-size: 11px; color: var(--sub); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .c-l2 .sep { color: var(--dim); margin: 0 5px; }
 
 .c-right { display: grid; grid-template-columns: repeat(3, var(--cw)); gap: 3px; flex: none; }
 /* 기간 라벨(1M/1Y/2Y)은 박스 안 좌측 상단, 값은 아래 */
-.c-right .chip { padding: 10px 1px 2px; font-size: 12px; border-radius: 3px; }
-.c-right .chip .cl {
-    position: absolute; top: 1px; left: 3px;
-    font-size: 8.5px; font-weight: 700; line-height: 1; letter-spacing: 0; opacity: .72;
-}
+.c-right .chip { display: flex; justify-content: space-between; align-items: baseline; gap: 3px;
+                 padding: 2px 4px; font-size: 12px; line-height: 1.25; border-radius: 3px; }
+.c-right .chip .cl { font-size: 8.5px; font-weight: 700; line-height: 1; letter-spacing: 0; opacity: .72; }
 
 /* 아이콘 */
 .ico {
@@ -263,24 +270,29 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     .block-head { flex-wrap: wrap; }
 
     /* 카드: 위 = 종목 정보, 아래 = 1M·1Y·2Y 를 전체 폭으로 */
-    .card { flex-direction: column; align-items: stretch; gap: 8px; padding: 10px; }
+    .card { flex-direction: column; align-items: stretch; gap: 5px; padding: 7px 8px; }
     /* 1M·1Y·2Y 박스: 전체 폭이 아니라 내용 폭만큼, 종목명 글자 시작 위치(아이콘 오른쪽)에 맞춰 정렬 */
     .c-right { grid-template-columns: repeat(3, var(--cw)); gap: 4px; justify-content: start; margin-left: 40px; }
     .card { --cw: 62px; }
     .card.macro { --cw: 72px; }
 
     /* MARKET 2열 카드: 아이콘·이름·가격 위, 1M/1Y/2Y 아래 (카드 폭에 맞춰 3등분) */
-    #market .card { padding: 7px 6px; gap: 6px; }
+    #market .card { padding: 5px 6px; gap: 4px; }
     #market .c-left { gap: 6px; align-items: flex-start; }
     #market .ico { width: 24px; height: 24px; font-size: 9px; }
     #market .c-name { font-size: 13.5px; }
     #market .c-price { font-size: 13px; }
     #market .c-day { font-size: 11px; }
     #market .c-l1 { gap: 0 5px; }
-    #market .c-l2 { font-size: 10px; margin-top: 2px; }
+    #market .c-l2 { font-size: 10px; margin-top: 0; }
     #market .c-right { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-left: 0; gap: 2px; }
-    #market .c-right .chip { font-size: 10.5px; padding: 9px 0 2px; letter-spacing: -0.04em; }
-    #market .c-right .chip .cl { font-size: 7.5px; left: 2px; top: 1px; }
+    #market .c-right .chip { font-size: 10px; padding: 1px 2px; gap: 1px; letter-spacing: -0.05em; }
+    #market .c-right .chip .cl { font-size: 6.5px; }
+
+    .cards.gro { grid-template-columns: minmax(0, 1fr); gap: 5px; }
+    .card.growth .c-right { grid-template-columns: repeat(5, minmax(0, 1fr)); margin-left: 0; gap: 2px; }
+    .card.growth .c-right .chip { font-size: 10px; padding: 1px 2px; gap: 1px; letter-spacing: -0.05em; }
+    .card.growth .c-right .chip .cl { font-size: 6.5px; }
 
     /* 모바일 EVENTS: 한 줄 4칸. 1줄 = 이름, 2줄 = D-n + 날짜 */
     .events { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 3px; }
@@ -289,8 +301,12 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     .event .e-name { grid-column: 1 / -1; font-size: 11px; overflow: hidden; text-overflow: ellipsis; }
     .event .e-name small { display: none; }
     .event .e-dday { font-size: 11px; }
-    .event .e-sub { font-size: 9px; text-align: right; align-self: center; }
+    .event .e-sub { font-size: 9px; text-align: right; align-self: center; margin-left: 0; }
+    .event .e-top { display: contents; }
     .event .hm { display: none; }
+    .event .lg { display: none; }
+    .event .ls { display: inline; }
+    .event.has-left .dt, .event .sp { display: none; }   /* 모바일: 시각이 있는 일정은 날짜 대신 남은 시간 */
 }
 </style>
 </head>
@@ -309,6 +325,13 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
             <h2>EVENTS</h2>
         </div>
         <div class="events" id="events"></div>
+    </section>
+
+    <section class="panel slim gap">
+        <div class="panel-head">
+            <h2>MARKET GROWTH<span class="unit">단순 연평균 %/년 · 가격지수</span></h2>
+        </div>
+        <div class="cards gro" id="growth"></div>
     </section>
 
     <section class="panel gap">
@@ -628,11 +651,11 @@ function renderEvents(events, earnings) {
         </div>`;
         const d = e.ts ? ddayFromTs(e.ts) : e.d_day;
         const when = e.ts ? fmtWhen(e.ts) : mmdd(e.date);
-        const left = e.ts ? leftLabel(e.ts) : "미국 현지 날짜";
+        const left = e.ts ? leftLabel(e.ts) : "";
         return `
-        <div class="event ${e.kind === "earn" ? "ev-earn" : ""} ${d <= 7 ? "soon" : ""}">
+        <div class="event ${e.kind === "earn" ? "ev-earn" : ""} ${d <= 7 ? "soon" : ""} ${left ? "has-left" : ""}">
             <div class="e-top"><span class="e-name">${e.label}</span><span class="e-dday">${ddayLabel(d)}</span></div>
-            <div class="e-sub">${compactWhen(when)}${left ? `<span class="hm"> · ${left.replace(" 남음", "")}</span>` : ""}</div>
+            <div class="e-sub"><span class="dt">${compactWhen(when)}</span>${left ? `<span class="lf"><span class="sp"> · </span><span class="lg">${left.replace(" 남음", "").replace(/ /g, "")}</span><span class="ls">${left.replace(" 남음", "").replace(/ /g, "").replace("일", "d").replace("시간", "h").replace("분", "m")}</span></span>` : ""}</div>
         </div>`;
     }).join("");
 }
@@ -641,6 +664,16 @@ function renderEvents(events, earnings) {
 /* ---------- MARKET ---------- */
 
 const COLLAPSED_SECTORS = ["에너지 / 원자재"];   // MARKET 에서 기본 접어둘 섹터 (이름은 TEST001.py 와 동일하게)
+
+function renderGrowth(growth) {
+    const rows = Object.entries(growth || {});
+    $("growth").innerHTML = rows.length ? rows.map(([name, g]) => cardHTML({
+        cls: "growth",
+        icon: `<span class="ico" style="background:#eef1f6;color:#4a5568">${name.slice(0, 2).toUpperCase()}</span>`,
+        name, price: g.price != null ? num(g.price, 0) : "", dayText: "", dayV: null, sub: "&nbsp;",
+        cells: [3, 5, 10, 15, 20].map(n => ({ l: n + "Y", v: g[n + "Y"], cap: 20, text: signed(g[n + "Y"], 1, "%") })),
+    })).join("") : `<div class="empty">데이터 없음</div>`;
+}
 
 function renderMarket(market) {
 
@@ -673,8 +706,8 @@ function renderMarket(market) {
                 dayText: signed(day, 2, "%"), dayV: day,
                 sub,
                 cells: [
-                    { l: "1M", v: m,  cap: CAP.market.m,  text: signed(m, 1, "%") },
-                    { l: "1Y", v: y,  cap: CAP.market.y,  text: signed(y, 1, "%") },
+                    { l: "1M", v: m,  cap: CAP.market.m,  text: signed(m, Math.abs(m) >= 10 ? 0 : 1, "%") },
+                    { l: "1Y", v: y,  cap: CAP.market.y,  text: signed(y, Math.abs(y) >= 10 ? 0 : 1, "%") },
                     { l: "2Y", v: y2, cap: CAP.market.y2, text: signed(y2, 0, "%") },
                 ],
             });
@@ -851,6 +884,7 @@ fetch("data.json?t=" + Date.now())
 
         safe(() => renderTop(data.macro));
         safe(() => renderEvents(data.events, data.earnings));
+        safe(() => renderGrowth(data.growth));
         safe(() => renderMarket(data.market));
         safe(() => renderMacro(data.macro));
         safe(() => renderEarnings(data.earnings));
