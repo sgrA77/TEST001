@@ -195,9 +195,16 @@ def pick_base(series, period):
 def load_old():
     try:
         with open("data.json", encoding="utf-8") as f:
-            return json.load(f)
+            old = json.load(f)
     except Exception:
         return {}
+    # 예전 형식(리스트 등)의 data.json 이 남아 있어도 에러 안 나게 형식 검사
+    if not isinstance(old, dict):
+        return {}
+    for k, t in (("macro", dict), ("market", dict), ("history", dict), ("earnings", list)):
+        if not isinstance(old.get(k), t):
+            old[k] = t()
+    return old
 
 
 OLD = load_old()
