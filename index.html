@@ -6,22 +6,23 @@
 <title>Market Dashboard</title>
 <style>
 /* =========================================================
-   Binance 다크 스타일 (배경 #0B0E11 / 패널 #181A20 / 카드 #1E2329 / 포인트 노랑)
-   등락 색: 상승 = 초록, 하락 = 빨강 (강도는 변동폭에 비례)
+   라이트 테마 (흰 배경)
+   등락 색: 상승 = 빨강, 하락 = 파랑 (강도는 변동폭에 비례)
    ========================================================= */
 :root {
-    --bg: #0b0e11;
-    --panel: #181a20;
-    --card: #1e2329;
-    --line: #2b3139;
-    --text: #eaecef;
-    --sub: #848e9c;
-    --dim: #5e6673;
-    --yellow: #f0b90b;
-    --up: 14, 203, 129;      /* 상승 = 초록 (Binance) */
-    --down: 246, 70, 93;     /* 하락 = 빨강 (Binance) */
-    --up-t: #2ebd85;         /* 어두운 배경 위 글자색 */
-    --down-t: #ff6b7f;
+    --bg: #f3f5f8;
+    --panel: #ffffff;
+    --card: #f8f9fb;
+    --line: #e2e6ec;
+    --text: #1a1f29;
+    --sub: #657080;
+    --dim: #9aa3b0;
+    --yellow: #f0b90b;       /* 포인트(막대·테두리) */
+    --amber: #a86e00;        /* 흰 배경 위 강조 글자 */
+    --up: 226, 48, 48;       /* 상승 = 빨강 */
+    --down: 30, 99, 224;     /* 하락 = 파랑 */
+    --up-t: #cf2525;         /* 흰 배경 위 글자색 */
+    --down-t: #1d56c9;
 }
 
 * { box-sizing: border-box; }
@@ -41,7 +42,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 12px 28px;
-    background: var(--bg);
+    background: #fff;
     border-bottom: 1px solid var(--line);
 }
 .topbar .title { white-space: nowrap; font-size: 17px; font-weight: 800; letter-spacing: 0.01em; }
@@ -58,6 +59,7 @@ body {
     border: 1px solid var(--line);
     border-radius: 10px;
     padding: 16px 18px 18px;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, .05);
 }
 .panel.gap { margin-top: 18px; }
 
@@ -74,10 +76,20 @@ body {
 }
 .panel-head .note { font-size: 12px; color: var(--sub); text-align: right; }
 
+/* 접기/펼치기 (details): 기본은 접힘, 제목을 누르면 펼쳐짐 */
+summary { list-style: none; cursor: pointer; }
+summary::-webkit-details-marker { display: none; }
+.fold > summary h2::after, details.block > summary .block-name::after {
+    content: "▸ 펼치기"; margin-left: 10px; font-size: 11px; font-weight: 600; color: var(--sub); letter-spacing: 0;
+}
+.fold[open] > summary h2::after, details.block[open] > summary .block-name::after { content: "▾ 접기"; }
+.fold:not([open]) > summary.panel-head { margin-bottom: 0; }
+details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom: 0; }
+
 .empty { color: var(--sub); padding: 8px 0; }
 .error {
     margin: 16px 28px 0; padding: 12px 14px;
-    background: #2a1519; border: 1px solid #5a2029; color: #ff8a98; border-radius: 6px;
+    background: #fdecee; border: 1px solid #f1b8c0; color: #b4232f; border-radius: 6px;
 }
 
 /* ---------- 색 강도 칩 (공통) ---------- */
@@ -105,19 +117,19 @@ body {
     border-left: 3px solid var(--dim);
     border-radius: 8px;
 }
-.event.soon { border-left-color: var(--yellow); background: #221f14; }
+.event.soon { border-left-color: var(--yellow); background: #fff7df; }
 .event .e-name { font-size: 16px; font-weight: 800; }
 .event .e-when { font-size: 11.5px; color: var(--sub); margin-top: 1px; }
 .event .e-right { text-align: right; }
 .event .e-dday { font-size: 22px; font-weight: 800; line-height: 1.1; }
 .event .e-left { font-size: 11.5px; font-weight: 700; color: var(--sub); }
-.event.soon .e-left { color: var(--yellow); }
+.event.soon .e-left { color: var(--amber); }
 .t-left { font-size: 11px; font-weight: 600; color: var(--sub); }
-.earn tr.soon .t-left { color: var(--yellow); }
+.earn tr.soon .t-left { color: var(--amber); }
 .warns { margin-top: 18px; color: var(--sub); font-size: 12px; }
 .warns summary { cursor: pointer; }
 .warns ul { margin: 6px 0 0; padding-left: 18px; line-height: 1.6; }
-.event.soon .e-dday { color: var(--yellow); }
+.event.soon .e-dday { color: var(--amber); }
 
 /* ---------- 섹터 / 그룹 블록 ---------- */
 .blocks {
@@ -160,7 +172,7 @@ body {
     border-radius: 8px;
     transition: border-color .15s;
 }
-.card:hover { border-color: rgba(240, 185, 11, .55); }
+.card:hover { border-color: rgba(240, 185, 11, .9); }
 .card.macro { --cw: 64px; }
 
 .c-left { display: flex; align-items: center; gap: 10px; min-width: 0; }
@@ -183,7 +195,7 @@ body {
 /* 아이콘 */
 .ico {
     position: relative; flex: none; overflow: hidden;
-    width: 30px; height: 30px; border-radius: 50%;
+    width: 30px; height: 30px; border-radius: 50%; box-shadow: 0 0 0 1px var(--line);
     display: flex; align-items: center; justify-content: center;
     font-size: 11px; font-weight: 800;
 }
@@ -193,7 +205,7 @@ body {
     opacity: 0;                    /* 로드에 성공했을 때만 보임 */
 }
 .ico img.ok { opacity: 1; }
-.tag-stale { font-size: 10px; font-weight: 600; color: #1e2329; background: var(--yellow);
+.tag-stale { font-size: 10px; font-weight: 600; color: #3a2c00; background: var(--yellow);
              border-radius: 3px; padding: 0 4px; margin-left: 6px; vertical-align: middle; }
 
 /* ---------- EARNINGS ---------- */
@@ -205,20 +217,20 @@ body {
 .earn td { padding: 9px 10px; border-top: 1px solid var(--line); vertical-align: middle; font-size: 14px; }
 .earn td.tc { text-align: center; padding: 6px 4px; }
 .earn .gcol { border-left: 1px solid var(--line); }
-.earn tr.soon td { background: rgba(240, 185, 11, .07); }
+.earn tr.soon td { background: rgba(240, 185, 11, .12); }
 .earn tr.none td { color: var(--dim); }
 
 .t-sym { font-weight: 800; font-size: 15px; }
 .t-co { font-size: 11px; color: var(--sub); }
 .t-dday { font-weight: 800; font-size: 15px; }
-.earn tr.soon .t-dday { color: var(--yellow); }
+.earn tr.soon .t-dday { color: var(--amber); }
 
 .q-lbl { font-size: 11px; font-weight: 700; color: var(--sub); }
 .q-val { font-size: 15px; font-weight: 800; line-height: 1.25; }
 .q-est { font-size: 11px; color: var(--sub); white-space: nowrap; }
 .q-est .sur { font-size: 11px; font-weight: 700; margin-left: 3px; }
 .qoq { display: inline-block; margin-top: 2px; padding: 1px 6px; border-radius: 4px; font-size: 12px; font-weight: 700; }
-.q-next { background: #222831; border: 1px dashed var(--line); border-radius: 6px; padding: 2px 0; }
+.q-next { background: #f1f3f6; border: 1px dashed var(--line); border-radius: 6px; padding: 2px 0; }
 .q-next .q-val { font-weight: 700; }
 
 #macro { grid-template-columns: repeat(2, minmax(0, 1fr)); }   /* 지표 그룹은 2×2 */
@@ -242,6 +254,7 @@ body {
     .blocks, #macro { grid-template-columns: minmax(0, 1fr); }
     .block.s1, .block.s2, .block.s3 { grid-column: auto; }
     .block .cards, .block.s2 .cards, .block.s3 .cards { grid-template-columns: minmax(0, 1fr); }
+    #market .block .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }   /* 시장 종목은 한 줄에 2개 */
     .block-head { flex-wrap: wrap; }
 
     /* 카드: 위 = 종목 정보, 아래 = 1M·1Y·2Y 를 전체 폭으로 */
@@ -250,6 +263,19 @@ body {
     .c-right { grid-template-columns: repeat(3, var(--cw)); gap: 4px; justify-content: start; margin-left: 40px; }
     .card { --cw: 62px; }
     .card.macro { --cw: 72px; }
+
+    /* MARKET 2열 카드: 아이콘·이름·가격 위, 1M/1Y/2Y 아래 (카드 폭에 맞춰 3등분) */
+    #market .card { padding: 7px 6px; gap: 6px; }
+    #market .c-left { gap: 6px; align-items: flex-start; }
+    #market .ico { width: 24px; height: 24px; font-size: 9px; }
+    #market .c-name { font-size: 13.5px; }
+    #market .c-price { font-size: 13px; }
+    #market .c-day { font-size: 11px; }
+    #market .c-l1 { gap: 0 5px; }
+    #market .c-l2 { font-size: 10px; margin-top: 2px; }
+    #market .c-right { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-left: 0; gap: 2px; }
+    #market .c-right .chip { font-size: 10.5px; padding: 9px 0 2px; letter-spacing: -0.04em; }
+    #market .c-right .chip .cl { font-size: 7.5px; left: 2px; top: 1px; }
 
     .events { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .event { padding: 7px 10px; }
@@ -271,14 +297,6 @@ body {
 
     <section class="panel">
         <div class="panel-head">
-            <h2>MACRO</h2>
-            <span class="note">1M · 1Y · 2Y = 전월 말 · 전년 말 · 재작년 말 값 · 색 = 현재 대비 변동 · (괄호) = 전일 대비 증감</span>
-        </div>
-        <div class="blocks" id="macro"></div>
-    </section>
-
-    <section class="panel gap">
-        <div class="panel-head">
             <h2>EVENTS</h2>
             <span class="note">한국시간(KST) 기준 · 발표 시각까지 남은 시간</span>
         </div>
@@ -293,13 +311,21 @@ body {
         <div class="blocks" id="market"></div>
     </section>
 
-    <section class="panel gap">
-        <div class="panel-head">
+    <details class="panel gap fold">
+        <summary class="panel-head">
+            <h2>MACRO</h2>
+            <span class="note">1M · 1Y · 2Y = 전월 말 · 전년 말 · 재작년 말 값 · 색 = 현재 대비 변동 · (괄호) = 전일 대비 증감</span>
+        </summary>
+        <div class="blocks" id="macro"></div>
+    </details>
+
+    <details class="panel gap fold">
+        <summary class="panel-head">
             <h2>EARNINGS</h2>
             <span class="note">발표일 = 한국시간(예정) · 지난 분기: 실제 (예상) · ▲▼ = 예상 대비 · 매출 예상은 저장 시작 이후 분기부터 표시</span>
-        </div>
+        </summary>
         <div class="earn-wrap" id="earnings"></div>
-    </section>
+    </details>
 
     <details class="warns" id="warns" hidden></details>
 
@@ -329,7 +355,7 @@ const SPECIAL_ICONS = {
     "GC=F":    { t: "Au",  bg: "#d4af37", fg: "#3a2e00" },
     "SI=F":    { t: "Ag",  bg: "#b8c0cc", fg: "#232830" },
     "HG=F":    { t: "Cu",  bg: "#b87333", fg: "#fff" },
-    "CL=F":    { t: "Oil", bg: "#3a3f47", fg: "#eaecef" },
+    "CL=F":    { t: "Oil", bg: "#3a3f47", fg: "#ffffff" },
     "NG=F":    { t: "Gas", bg: "#2a6f97", fg: "#fff" },
 };
 
@@ -447,12 +473,12 @@ function ddayLabel(d) {
 /* ---------- 색 강도 (어두운 배경용) ---------- */
 
 function tint(v, cap) {
-    if (v == null || !isFinite(v)) return { bg: "#2b3139", fg: "#5e6673" };
-    if (v === 0) return { bg: "#2b3139", fg: "#b7bdc6" };
+    if (v == null || !isFinite(v)) return { bg: "#e8ebf0", fg: "#9aa3b0" };
+    if (v === 0) return { bg: "#e8ebf0", fg: "#4b5563" };
 
-    const a = 0.16 + Math.min(Math.abs(v) / cap, 1) * 0.79;
+    const a = 0.14 + Math.min(Math.abs(v) / cap, 1) * 0.80;
     const rgb = v > 0 ? "var(--up)" : "var(--down)";
-    const fg = a > 0.55 ? (v > 0 ? "#04140d" : "#fff") : (v > 0 ? "var(--up-t)" : "var(--down-t)");
+    const fg = a > 0.6 ? "#fff" : (v > 0 ? "var(--up-t)" : "var(--down-t)");
 
     return { bg: `rgba(${rgb}, ${a.toFixed(2)})`, fg };
 }
@@ -494,13 +520,13 @@ function tickerIcon(ticker, label) {
     const img = isKR ? "" :
         `<img alt="" loading="lazy" data-t="${ticker}" data-i="0" src="${LOGO_URLS(ticker)[0]}" onload="this.classList.add('ok')" onerror="logoErr(this)">`;
 
-    return `<span class="ico" style="background:hsl(${h} 35% 26%);color:hsl(${h} 75% 84%)">${letters}${img}</span>`;
+    return `<span class="ico" style="background:hsl(${h} 55% 90%);color:hsl(${h} 60% 28%)">${letters}${img}</span>`;
 }
 
 function glyphIcon(name) {
     const g = MACRO_GLYPH[name] || (/Rate/.test(name) ? "%" : (/^US \d/.test(name) ? "%" : name.slice(0, 2).toUpperCase()));
     const h = hueOf(name);
-    return `<span class="ico" style="background:hsl(${h} 30% 24%);color:hsl(${h} 70% 82%)">${g}</span>`;
+    return `<span class="ico" style="background:hsl(${h} 50% 90%);color:hsl(${h} 55% 28%)">${g}</span>`;
 }
 
 
@@ -578,6 +604,8 @@ function renderEvents(events) {
 
 /* ---------- MARKET ---------- */
 
+const COLLAPSED_SECTORS = ["에너지 / 원자재"];   // MARKET 에서 기본 접어둘 섹터 (이름은 TEST001.py 와 동일하게)
+
 function renderMarket(market) {
 
     const root = $("market");
@@ -616,14 +644,17 @@ function renderMarket(market) {
             });
         }).join("");
 
+        const fold = COLLAPSED_SECTORS.includes(sector);
+        const tagOpen = fold ? "details" : "div", tagHead = fold ? "summary" : "div";
+
         root.insertAdjacentHTML("beforeend", `
-        <div class="block ${spanClass(entries.length)}">
-            <div class="block-head">
+        <${tagOpen} class="block ${spanClass(entries.length)}">
+            <${tagHead} class="block-head">
                 <span class="block-name">${sector}</span>
                 <span class="block-avg">${avgChips(changes)}</span>
-            </div>
+            </${tagHead}>
             <div class="cards">${cards}</div>
-        </div>`);
+        </${tagOpen}>`);
     }
 
     if (!root.children.length) {
