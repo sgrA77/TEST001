@@ -1,11 +1,11 @@
 {
- "updated_at": "2026-10-02 21:12 KST",
+ "updated_at": "2026-10-02 21:39 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
   "MACRO BBB Spread ← fred:BAMLC0A4CBBB 실패: FRED 실패 → BAMLC0A4CBBB: 연결 실패 ReadTimeout | BAMLC0A4CBBB: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO BBB Spread 전체 실패 → 캐시/static 사용",
-  "IPO 캘린더 1건 중 AI 관련 0건 (정상일 수 있음. 키워드는 IPO_AI_KEYWORDS)"
+  "IPO 캘린더 3건 중 AI 관련 0건 (정상일 수 있음. 키워드는 IPO_AI_KEYWORDS)"
  ],
  "macro": {
   "유동성 / 환율": {
@@ -20,7 +20,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1348.67,
+    "value": 1345.58,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -28,7 +28,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 157.691,
+    "value": 157.007,
     "prev_month": 157.558,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -67,11 +67,11 @@
   },
   "시장금리": {
    "US 3M": {
-    "value": 3.982,
+    "value": 3.993,
     "prev_month": 4.03,
     "prev_year": 3.547,
     "prev_2year": 4.208,
-    "prev_day": 4.03,
+    "prev_day": 3.982,
     "kind": "pp",
     "suffix": "%"
    },
@@ -85,20 +85,20 @@
     "suffix": "%"
    },
    "US 10Y": {
-    "value": 5.237,
+    "value": 5.22,
     "prev_month": 5.293,
     "prev_year": 4.163,
     "prev_2year": 4.573,
-    "prev_day": 5.293,
+    "prev_day": 5.237,
     "kind": "pp",
     "suffix": "%"
    },
    "US 30Y": {
-    "value": 5.603,
+    "value": 5.592,
     "prev_month": 5.638,
     "prev_year": 4.84,
     "prev_2year": 4.786,
-    "prev_day": 5.638,
+    "prev_day": 5.603,
     "kind": "pp",
     "suffix": "%"
    }
@@ -114,7 +114,7 @@
     "suffix": "%"
    },
    "VIX": {
-    "value": 16.03,
+    "value": 16.06,
     "prev_month": 16.34,
     "prev_year": 14.95,
     "prev_2year": 17.35,
@@ -139,12 +139,6 @@
  },
  "events": [
   {
-   "name": "NFP",
-   "date": "2026-10-02",
-   "ts": 1790944200,
-   "d_day": 0
-  },
-  {
    "name": "CPI",
    "date": "2026-10-14",
    "ts": 1791981000,
@@ -167,6 +161,12 @@
    "date": "2026-10-29",
    "ts": 1793277000,
    "d_day": 27
+  },
+  {
+   "name": "NFP",
+   "date": "2026-11-06",
+   "ts": 1793971800,
+   "d_day": 35
   },
   {
    "name": "IPO · Anthropic",
@@ -728,9 +728,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 86416.48,
+    "price": 86791.92,
     "prev_day": 84853.1016,
-    "turnover": 38349725696,
+    "turnover": 39829340160,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -739,7 +739,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4210.4,
+    "price": 4215.3,
     "prev_day": 4202.2998,
     "turnover": null,
     "prev_month": 4186.7002,
@@ -750,7 +750,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 61.335,
+    "price": 61.515,
     "prev_day": 60.725,
     "turnover": null,
     "prev_month": 60.098,
@@ -761,7 +761,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.556,
+    "price": 6.567,
     "prev_day": 6.482,
     "turnover": null,
     "prev_month": 6.559,
@@ -772,7 +772,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 89.57,
+    "price": 89.8,
     "prev_day": 92.87,
     "turnover": null,
     "prev_month": 90.42,
