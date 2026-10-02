@@ -278,16 +278,17 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     .card.macro { --cw: 72px; }
 
     /* MARKET 2열 카드: 아이콘·이름·가격 위, 1M/1Y/2Y 아래 (카드 폭에 맞춰 3등분) */
-    #market .card { padding: 5px 6px; gap: 4px; }
+    #market .card { padding: 5px 4px; gap: 4px; }
     
-    #market .ico { width: 26px; height: 26px; font-size: 9px; }
-    #market .ico img { padding: 3px; }
-    /* 1줄: 이름 / 2줄: 가격 + 변동률 / 3줄: 테마·거래대금  (한 줄에 다 넣으면 줄바꿈되므로 3단) */
-    #market .c-left { gap: 7px; align-items: center; }
-    #market .c-l1 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 4px; letter-spacing: -0.03em; }
-    #market .c-name { flex: 0 0 100%; font-size: 14px; line-height: 1.25; }
-    #market .c-price { font-size: 13px; }
-    #market .c-day { font-size: 11px; }
+    #market .ico { width: 20px; height: 20px; font-size: 7.5px; }
+    #market .ico img { padding: 2px; }
+    /* 1줄: 이름 · 가격 · 변동률 / 2줄: 테마 · 거래대금 / 3줄: 1M·1Y·2Y */
+    #market .c-left { gap: 4px; align-items: center; }
+    #market .c-l1 { display: flex; flex-wrap: nowrap; align-items: baseline; gap: 0 2px; white-space: nowrap; letter-spacing: -0.05em; }
+    #market .c-l1 > * { flex: none; }
+    #market .c-name { font-size: 12.5px; }
+    #market .c-price { font-size: 12px; }
+    #market .c-day { font-size: 10px; }
     #market .c-day .pp { display: none; }
     #market .c-l2 { font-size: 10.5px; margin-top: 0; }
     #market .c-right { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-left: 0; gap: 2px; }
@@ -300,9 +301,10 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     .card.growth .c-right .chip .cl { font-size: 7.5px; }
 
     @media (max-width: 380px) {
-        #market .ico { width: 22px; height: 22px; }
-        #market .c-price { font-size: 12.5px; }
-        #market .c-day { font-size: 10.5px; }
+        #market .ico { width: 17px; height: 17px; font-size: 7px; }
+        #market .c-name { font-size: 11.5px; }
+        #market .c-price { font-size: 11px; }
+        #market .c-day { font-size: 9.5px; }
     }
 
     /* 모바일 EVENTS: 한 줄 4칸. 1줄 = 이름, 2줄 = D-n + 날짜 */
