@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-02 18:36 KST",
+ "updated_at": "2026-10-02 18:56 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -20,7 +20,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1348.83,
+    "value": 1347.48,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -28,7 +28,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 157.616,
+    "value": 157.575,
     "prev_month": 157.558,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -114,7 +114,7 @@
     "suffix": "%"
    },
    "VIX": {
-    "value": 15.96,
+    "value": 15.92,
     "prev_month": 16.34,
     "prev_year": 14.95,
     "prev_2year": 17.35,
@@ -205,7 +205,7 @@
      "eps_est": 6.9481,
      "eps_act": 7.58,
      "rev_est": null,
-     "rev_act": 9326500000
+     "rev_act": null
     }
    ]
   },
@@ -493,7 +493,7 @@
      "eps_est": 1.8924,
      "eps_act": 2.02,
      "rev_est": null,
-     "rev_act": 109417000000
+     "rev_act": null
     }
    ]
   },
@@ -685,7 +685,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 29591000000
     }
    ]
   },
@@ -728,9 +728,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 86300.0,
+    "price": 86422.05,
     "prev_day": 84853.1016,
-    "turnover": 38392311808,
+    "turnover": 38290501632,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -739,7 +739,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4216.7,
+    "price": 4211.9,
     "prev_day": 4202.2998,
     "turnover": null,
     "prev_month": 4186.7002,
@@ -750,7 +750,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 61.52,
+    "price": 61.505,
     "prev_day": 60.725,
     "turnover": null,
     "prev_month": 60.098,
@@ -761,7 +761,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.563,
+    "price": 6.554,
     "prev_day": 6.482,
     "turnover": null,
     "prev_month": 6.559,
@@ -772,7 +772,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 88.95,
+    "price": 89.3,
     "prev_day": 92.87,
     "turnover": null,
     "prev_month": 90.42,
@@ -931,7 +931,7 @@
     "prev_2year": 100.12
    }
   },
-  "MAG7": {
+  "빅테크 7": {
    "NVDA": {
     "ticker": "NVDA",
     "theme": "AI · GPU",
@@ -1034,7 +1034,7 @@
     "prev_2year": 75.63
    }
   },
-  "Memory": {
+  "메모리": {
    "MU": {
     "ticker": "MU",
     "theme": "DRAM · HBM",
@@ -1052,7 +1052,7 @@
     "currency": "KRW",
     "price": 1841000.0,
     "prev_day": 1833000.0,
-    "turnover": 3898786955000.0,
+    "turnover": 3914242150000.0,
     "prev_month": 1776000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -1063,13 +1063,13 @@
     "currency": "KRW",
     "price": 276000.0,
     "prev_day": 276000.0,
-    "turnover": 3355953828000.0,
+    "turnover": 3359436396000.0,
     "prev_month": 268500.0,
     "prev_year": 119900.0,
     "prev_2year": 53200.0
    }
   },
-  "GPU / AI Chip": {
+  "GPU / AI 칩": {
    "AMD": {
     "ticker": "AMD",
     "theme": "GPU",
@@ -1128,7 +1128,7 @@
     "prev_2year": 20.05
    }
   },
-  "Storage": {
+  "저장장치": {
    "SNDK": {
     "ticker": "SNDK",
     "theme": "NAND",
@@ -1141,7 +1141,7 @@
     "prev_2year": null
    }
   },
-  "FAB": {
+  "파운드리": {
    "TSM": {
     "ticker": "TSM",
     "theme": "파운드리",
@@ -1154,7 +1154,7 @@
     "prev_2year": 197.49
    }
   },
-  "Semiconductor Equipment": {
+  "반도체 장비": {
    "ASML": {
     "ticker": "ASML",
     "theme": "EUV 노광",
@@ -1367,38 +1367,38 @@
   "S&P 500": {
    "ticker": "^GSPC",
    "price": 7666.45,
-   "3Y": 25.98,
-   "5Y": 15.19,
-   "10Y": 25.36,
-   "15Y": 38.51,
-   "20Y": 23.4
+   "3Y": 21.18,
+   "5Y": 11.96,
+   "10Y": 13.46,
+   "15Y": 13.61,
+   "20Y": 9.07
   },
   "QQQ (Nasdaq 100)": {
    "ticker": "^NDX",
    "price": 30501.56,
-   "3Y": 34.57,
-   "5Y": 21.24,
-   "10Y": 52.56,
-   "15Y": 88.39,
-   "20Y": 85.52
+   "3Y": 26.77,
+   "5Y": 15.57,
+   "10Y": 20.12,
+   "15Y": 19.38,
+   "20Y": 15.58
   },
   "KOSPI": {
    "ticker": "^KS11",
    "price": 7003.74,
-   "3Y": 63.59,
-   "5Y": 26.39,
-   "10Y": 24.1,
-   "15Y": 19.87,
-   "20Y": 20.9
+   "3Y": 42.73,
+   "5Y": 18.33,
+   "10Y": 13.05,
+   "15Y": 9.65,
+   "20Y": 8.57
   },
   "KOSDAQ": {
    "ticker": "^KQ11",
    "price": 893.29,
-   "3Y": 3.14,
-   "5Y": -1.83,
-   "10Y": 3.22,
-   "15Y": 6.79,
-   "20Y": 2.6
+   "3Y": 3.05,
+   "5Y": -1.9,
+   "10Y": 2.83,
+   "15Y": 4.79,
+   "20Y": 2.12
   }
  },
  "history": {
