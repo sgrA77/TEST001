@@ -46,7 +46,7 @@ MARKET = {
         "MU": ("MU", "DRAM · HBM"), "SK Hynix": ("000660.KS", "DRAM · HBM"),
         "Samsung": ("005930.KS", "메모리 · 파운드리"),
     },
-    "GPU / AI Chip": {"AMD": ("AMD", "GPU"), "AVGO": ("AVGO", "커스텀 AI칩")},
+    "GPU / AI Chip": {"AMD": ("AMD", "GPU"), "AVGO": ("AVGO", "커스텀 AI칩"), "CBRS": ("CBRS", "웨이퍼 AI칩")},
     "CPU": {"AMD": ("AMD", "CPU"), "INTC": ("INTC", "CPU · 파운드리")},
     "Storage": {"SNDK": ("SNDK", "NAND")},
     "FAB": {"TSM": ("TSM", "파운드리")},
@@ -54,6 +54,21 @@ MARKET = {
         "ASML": ("ASML", "EUV 노광"), "AMAT": ("AMAT", "증착 · 식각"),
         "LRCX": ("LRCX", "식각"), "KLAC": ("KLAC", "검사 · 계측"),
     },
+
+    # --- AI 트렌드 (증권사 AI 밸류체인 분석에서 공통으로 꼽는 단계별 대장주, 시총 큰 종목 위주) ---
+    "AI 네트워크 / 광통신": {      # GPU 클러스터 연결: 스위치·광모듈·DSP
+        "ANET": ("ANET", "AI 데이터센터 스위치"), "MRVL": ("MRVL", "커스텀칩 · 광 DSP"),
+        "CIEN": ("CIEN", "광전송"), "COHR": ("COHR", "광모듈 · 레이저"),
+    },
+    "AI 전력 / 냉각": {            # 데이터센터 병목 = 전력: 발전·전기설비·냉각
+        "VRT": ("VRT", "전력 · 냉각 설비"), "GEV": ("GEV", "가스터빈 · 전력망"),
+        "ETN": ("ETN", "전기설비"), "CEG": ("CEG", "원전 전력"), "VST": ("VST", "발전 · PPA"),
+    },
+    "데이터센터 / AI 클라우드": {  # AI 연산 임대·부지
+        "CRWV": ("CRWV", "GPU 클라우드"), "EQIX": ("EQIX", "데이터센터 리츠"),
+        "DLR": ("DLR", "데이터센터 리츠"),
+    },
+    "AI 서버": {"DELL": ("DELL", "AI 서버"), "SMCI": ("SMCI", "AI 서버 · 액침냉각")},
 }
 
 # =========================================================
@@ -134,7 +149,18 @@ EARNINGS = {
 
 MANUAL_EVENTS = [
     # {"name": "CPI", "date": "2026-10-14"},
+    # IPO 는 이름을 "IPO · 회사명" 으로 쓰면 됨 (미국 현지 날짜). 아직 날짜가 안 정해진 건 정해지면 추가:
+    # {"name": "IPO · Anthropic", "date": "2026-11-12"},
 ]
+
+# 미국 상장(Nasdaq IPO 캘린더) 중 AI 관련만 EVENTS 에 자동 표시.
+# 회사 이름에 아래 단어가 들어 있으면 AI 관련으로 봄 (대소문자 무시). 필요하면 추가/삭제.
+IPO_AI_KEYWORDS = [
+    "anthropic", "openai", "databricks", "xai", "spacex", "cerebras", "coreweave", "lambda", "crusoe",
+    "scale ai", "perplexity", "mistral", "groq", "sambanova", "nscale", "nebius",
+    "artificial intelligence", "robotics", "machine learning", "generative",
+]
+IPO_AI_REGEX = r"(?<![A-Za-z])AI(?![A-Za-z])"   # 'AI' 단어 단독 (예: "Foo AI Inc")
 
 
 # =========================================================
@@ -649,6 +675,41 @@ except Exception as e:
 found["CPI"] = collect("CPI", lambda: _b["CPI"])
 found["NFP"] = collect("NFP", lambda: _b["NFP"])
 found["PCE"] = collect("PCE", pce_dates)
+
+def ipo_dates():
+    """Nasdaq IPO 캘린더(이번 달~2개월 뒤)에서 AI 관련 상장 예정일. 반환: [(이름, 날짜)]"""
+    out = []
+    for k in range(3):
+        m0 = TODAY.replace(day=1)
+        y, mth = m0.year + (m0.month - 1 + k) // 12, (m0.month - 1 + k) % 12 + 1
+        r = requests.get(
+            f"https://api.nasdaq.com/api/ipo/calendar?date={y}-{mth:02d}",
+            headers={**BROWSER_UA, "Accept": "application/json, text/plain, */*",
+                     "Origin": "https://www.nasdaq.com", "Referer": "https://www.nasdaq.com/"},
+            timeout=20)
+        r.raise_for_status()
+        data = (r.json().get("data") or {})
+        for key in ("upcoming", "priced"):
+            rows = (((data.get(key) or {}).get(key + "Table") or {}).get("rows")) or []
+            if key == "upcoming":
+                rows = rows or (((data.get(key) or {}).get("upcomingTable") or {}).get("rows")) or []
+            for row in rows:
+                name = (row.get("companyName") or "").strip()
+                d = row.get("expectedPriceDate") or row.get("pricedDate") or ""
+                if not name or not re.fullmatch(r"\d{1,2}/\d{1,2}/\d{4}", d):
+                    continue
+                low = name.lower()
+                if any(w in low for w in IPO_AI_KEYWORDS) or re.search(IPO_AI_REGEX, name):
+                    out.append((name, datetime.strptime(d, "%m/%d/%Y").date()))
+    return out
+
+
+try:
+    for _n, _d in ipo_dates():
+        _short = re.sub(r",?\s+(Inc\.?|Corp\.?|Corporation|Ltd\.?|Limited|Holdings?|Co\.?|PLC|N\.V\.)$", "", _n, flags=re.I)
+        found.setdefault("IPO · " + _short, []).append(_d)
+except Exception as _e:
+    warn(f"IPO 일정 자동 수집 실패 (MANUAL_EVENTS 로 직접 추가 가능): {str(_e)[:120]}")
 
 for e in MANUAL_EVENTS:
     try:
