@@ -192,8 +192,8 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 .c-left { display: flex; align-items: center; gap: 10px; min-width: 0; }
 .c-id { min-width: 0; }
 .c-l1 { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 7px; }
-.c-name { font-size: 15.5px; font-weight: 800; color: var(--text); }
-.c-price { font-size: 15px; font-weight: 700; }
+.c-name { font-size: 15.5px; font-weight: 600; color: var(--text); }
+.c-price { font-size: 15.5px; font-weight: 800; }
 .c-day { font-size: 12px; font-weight: 700; }
 .c-l2 { font-size: 11px; color: var(--sub); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .c-l2 .sep { color: var(--dim); margin: 0 5px; }
@@ -280,15 +280,15 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     /* MARKET 2열 카드: 아이콘·이름·가격 위, 1M/1Y/2Y 아래 (카드 폭에 맞춰 3등분) */
     #market .card { padding: 6px 4px; gap: 5px; }
     
-    #market .ico { width: 20px; height: 20px; font-size: 7.5px; }
+    #market .ico { width: 19px; height: 19px; font-size: 7px; }
     #market .ico img { padding: 2px; }
     /* 1줄: 이름 · 가격 · 변동률 / 2줄: 테마 · 거래대금 / 3줄: 1M·1Y·2Y */
     #market .c-left { gap: 4px; align-items: center; }
-    #market .c-l1 { display: flex; flex-wrap: nowrap; align-items: baseline; gap: 0 4px; white-space: nowrap; letter-spacing: -0.05em; }
+    #market .c-l1 { display: flex; flex-wrap: nowrap; align-items: baseline; gap: 0 3px; white-space: nowrap; letter-spacing: -0.05em; }
     #market .c-l1 > * { flex: none; }
-    #market .c-name { font-size: 13.5px; }
-    #market .c-price { font-size: 12.5px; }
-    #market .c-day { font-size: 10px; }
+    #market .c-name { font-size: clamp(11.5px, 3.3vw, 14px); }   /* 화면 폭에 비례 */
+    #market .c-price { font-size: clamp(11.5px, 3.2vw, 14px); margin-left: 4px; }   /* 이름과 가격 사이 간격 */
+    #market .c-day { font-size: clamp(9px, 2.4vw, 10.5px); }
     #market .c-day .pp { display: none; }
     #market .c-l2 { font-size: 10.5px; margin-top: 0; }
     #market .c-right { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-left: 0; gap: 2px; }
@@ -301,10 +301,7 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     .card.growth .c-right .chip .cl { font-size: 7.5px; }
 
     @media (max-width: 380px) {
-        #market .ico { width: 17px; height: 17px; font-size: 7px; }
-        #market .c-name { font-size: 11.5px; }
-        #market .c-price { font-size: 11px; }
-        #market .c-day { font-size: 9.5px; }
+        #market .ico { width: 17px; height: 17px; }
     }
 
     /* 모바일 EVENTS: 한 줄 4칸. 1줄 = 이름, 2줄 = D-n + 날짜 */
