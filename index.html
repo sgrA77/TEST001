@@ -599,7 +599,7 @@ function compactWhen(when) {
 function renderEvents(events, earnings) {
 
     // 경제 이벤트: 발표 시각(ts)이 있으면 지난 것은 제외, 없으면 날짜 기준
-    const list = (events || []).filter(e => e.ts ? e.ts > nowSec() : (e.d_day != null && e.d_day >= 0))
+    const list = (events || []).filter(e => e.note || (e.ts ? e.ts > nowSec() : (e.d_day != null && e.d_day >= 0)))
         .map(e => /^IPO\s*·/.test(e.name)
             ? { ...e, label: `<small>IPO</small>${e.name.replace(/^IPO\s*·\s*/, "")}`, kind: "earn" }   // 미국 상장 AI IPO
             : { ...e, label: e.name, kind: "event" });
@@ -612,7 +612,8 @@ function renderEvents(events, earnings) {
             list.push({ ts: e.ts, date: e.date, d_day: e.d_day, label: `<small>실적</small>${e.symbol}`, kind: "earn" });
     });
 
-    list.sort((a, b) => (a.ts || (nowSec() + (a.d_day || 0) * 86400)) - (b.ts || (nowSec() + (b.d_day || 0) * 86400)));
+    const sortKey = x => x.note ? 1e15 : (x.ts || (nowSec() + (x.d_day || 0) * 86400));   // 날짜 미정은 맨 뒤
+    list.sort((a, b) => sortKey(a) - sortKey(b));
 
     if (!list.length) {
         $("events").innerHTML = `<div class="empty">예정된 이벤트 없음</div>`;
@@ -620,6 +621,11 @@ function renderEvents(events, earnings) {
     }
 
     $("events").innerHTML = list.map(e => {
+        if (e.note) return `
+        <div class="event ev-earn">
+            <div class="e-top"><span class="e-name">${e.label}</span><span class="e-dday">예정</span></div>
+            <div class="e-sub">${e.note}</div>
+        </div>`;
         const d = e.ts ? ddayFromTs(e.ts) : e.d_day;
         const when = e.ts ? fmtWhen(e.ts) : mmdd(e.date);
         const left = e.ts ? leftLabel(e.ts) : "미국 현지 날짜";
