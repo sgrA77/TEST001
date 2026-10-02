@@ -47,6 +47,7 @@ body {
 .top-vals .tv { white-space: nowrap; }
 .top-vals .tv-n { font-size: 11px; font-weight: 700; color: var(--sub); margin-right: 5px; }
 .top-vals .tv-v { font-size: 16px; font-weight: 800; }
+.top-vals .tv-d { font-size: 11.5px; font-weight: 700; margin-left: 4px; }
 .topbar .updated { font-size: 10px; color: var(--dim); text-align: right; line-height: 1.2; white-space: nowrap; flex: none; }
 
 .wrap { max-width: 1760px; margin: 0 auto; padding: 20px 28px 40px; }
@@ -333,35 +334,35 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 
     <section class="panel slim">
         <div class="panel-head">
-            <h2>EVENTS</h2>
+            <h2>이벤트</h2>
         </div>
         <div class="events" id="events"></div>
     </section>
 
     <section class="panel slim gap">
         <div class="panel-head">
-            <h2>MARKET ANNUAL AVERAGE GROWTH</h2>
+            <h2>지수 연평균 성장률 (CAGR)</h2>
         </div>
         <div class="cards gro" id="growth"></div>
     </section>
 
     <section class="panel gap">
         <div class="panel-head">
-            <h2>MARKET</h2>
+            <h2>시장</h2>
         </div>
         <div class="blocks" id="market"></div>
     </section>
 
     <details class="panel gap fold">
         <summary class="panel-head">
-            <h2>MACRO</h2>
+            <h2>거시경제</h2>
         </summary>
         <div class="blocks" id="macro"></div>
     </details>
 
     <details class="panel gap fold">
         <summary class="panel-head">
-            <h2>EARNINGS</h2>
+            <h2>실적</h2>
         </summary>
         <div class="earns" id="earnings"></div>
     </details>
@@ -612,7 +613,8 @@ function avgChips(list) {
 
 /* ---------- EVENTS ---------- */
 
-const TOP_ITEMS = ["VIX", "USD/KRW", "US 10Y"];   // 최상단에 현재값만 보여줄 MACRO 지표 이름
+const TOP_ITEMS = ["VIX", "USD/KRW", "US 10Y"];
+const TOP_DAY = ["USD/KRW", "US 10Y"];   // 값 옆에 일간 변동을 괄호로 같이 표시할 항목   // 최상단에 현재값만 보여줄 MACRO 지표 이름
 const EARN_SOON_DAYS = 3;                         // 실적 발표가 이 일수 이내면 EVENTS 에 함께 표시
 
 function renderTop(macro) {
@@ -620,7 +622,13 @@ function renderTop(macro) {
     Object.values(macro || {}).forEach(g => Object.entries(g).forEach(([n, s]) => { all[n] = s; }));
     $("topvals").innerHTML = TOP_ITEMS.filter(n => all[n] && all[n].value != null).map(n => {
         const s = all[n], digits = s.digits != null ? s.digits : 2;
-        return `<span class="tv"><span class="tv-n">${n}</span><span class="tv-v">${(s.prefix || "") + num(s.value, digits) + (s.suffix || "")}</span></span>`;
+        // 일간 변동 (MACRO 카드와 동일: 값 자체의 증감) - USD/KRW, US 10Y 만
+        let day = "";
+        if (TOP_DAY.includes(n) && s.prev_day != null) {
+            const dv = s.value - s.prev_day;
+            day = `<span class="tv-d ${dv > 0 ? "up" : (dv < 0 ? "down" : "")}">(${signed(dv, digits, s.suffix || "")})</span>`;
+        }
+        return `<span class="tv"><span class="tv-n">${n}</span><span class="tv-v">${(s.prefix || "") + num(s.value, digits) + (s.suffix || "")}</span>${day}</span>`;
     }).join("");
 }
 
