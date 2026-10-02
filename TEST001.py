@@ -151,6 +151,8 @@ MANUAL_EVENTS = [
     # {"name": "CPI", "date": "2026-10-14"},
     # IPO 는 이름을 "IPO · 회사명" 으로 쓰면 됨 (미국 현지 날짜). 아직 날짜가 안 정해진 건 정해지면 추가:
     # {"name": "IPO · Anthropic", "date": "2026-11-12"},
+    # 날짜 미정이면 date 대신 note: (언론 보도 기준, 확정 아님)
+    {"name": "IPO · Anthropic", "note": "11월 예상(보도)"},
 ]
 
 # 미국 상장(Nasdaq IPO 캘린더) 중 AI 관련만 EVENTS 에 자동 표시.
@@ -158,7 +160,7 @@ MANUAL_EVENTS = [
 IPO_AI_KEYWORDS = [
     "anthropic", "openai", "databricks", "xai", "spacex", "cerebras", "coreweave", "lambda", "crusoe",
     "scale ai", "perplexity", "mistral", "groq", "sambanova", "nscale", "nebius",
-    "artificial intelligence", "robotics", "machine learning", "generative",
+    "artificial intelligence", "robotics", "machine learning", "generative", "intelligen", "neural", "compute",
 ]
 IPO_AI_REGEX = r"(?<![A-Za-z])AI(?![A-Za-z])"   # 'AI' 단어 단독 (예: "Foo AI Inc")
 
@@ -676,6 +678,9 @@ found["CPI"] = collect("CPI", lambda: _b["CPI"])
 found["NFP"] = collect("NFP", lambda: _b["NFP"])
 found["PCE"] = collect("PCE", pce_dates)
 
+IPO_STATS = {"rows": 0, "ai": 0}
+
+
 def ipo_dates():
     """Nasdaq IPO 캘린더(이번 달~2개월 뒤)에서 AI 관련 상장 예정일. 반환: [(이름, 날짜)]"""
     out = []
@@ -689,17 +694,20 @@ def ipo_dates():
             timeout=20)
         r.raise_for_status()
         data = (r.json().get("data") or {})
-        for key in ("upcoming", "priced"):
-            rows = (((data.get(key) or {}).get(key + "Table") or {}).get("rows")) or []
-            if key == "upcoming":
-                rows = rows or (((data.get(key) or {}).get("upcomingTable") or {}).get("rows")) or []
-            for row in rows:
+        # 구조: data.upcoming.upcomingTable.rows / data.priced.rows
+        groups = [((data.get("upcoming") or {}).get("upcomingTable") or {}).get("rows"),
+                  (data.get("upcoming") or {}).get("rows"),
+                  (data.get("priced") or {}).get("rows")]
+        for rows in groups:
+            for row in rows or []:
+                IPO_STATS["rows"] += 1
                 name = (row.get("companyName") or "").strip()
                 d = row.get("expectedPriceDate") or row.get("pricedDate") or ""
                 if not name or not re.fullmatch(r"\d{1,2}/\d{1,2}/\d{4}", d):
                     continue
                 low = name.lower()
                 if any(w in low for w in IPO_AI_KEYWORDS) or re.search(IPO_AI_REGEX, name):
+                    IPO_STATS["ai"] += 1
                     out.append((name, datetime.strptime(d, "%m/%d/%Y").date()))
     return out
 
@@ -708,11 +716,21 @@ try:
     for _n, _d in ipo_dates():
         _short = re.sub(r",?\s+(Inc\.?|Corp\.?|Corporation|Ltd\.?|Limited|Holdings?|Co\.?|PLC|N\.V\.)$", "", _n, flags=re.I)
         found.setdefault("IPO · " + _short, []).append(_d)
+    if IPO_STATS["rows"] == 0:
+        warn("IPO 캘린더 응답에 종목이 0개 (Nasdaq 차단/구조 변경 가능성) - MANUAL_EVENTS 로 추가 가능")
+    elif IPO_STATS["ai"] == 0:
+        warn(f"IPO 캘린더 {IPO_STATS['rows']}건 중 AI 관련 0건 (정상일 수 있음. 키워드는 IPO_AI_KEYWORDS)")
 except Exception as _e:
     warn(f"IPO 일정 자동 수집 실패 (MANUAL_EVENTS 로 직접 추가 가능): {str(_e)[:120]}")
 
+# 날짜 미정 일정 (MANUAL_EVENTS 에 date 없이 note 만 쓴 것) - EVENTS 맨 뒤에 '예정'으로 표시
+tentative = []
+
 for e in MANUAL_EVENTS:
     try:
+        if not e.get("date"):
+            tentative.append({"name": e["name"], "date": None, "ts": None, "d_day": None, "note": e.get("note", "미정")})
+            continue
         found.setdefault(e["name"], []).append(date.fromisoformat(e["date"]))
     except Exception as ex:
         warn(f"MANUAL_EVENTS 형식 오류 {e}: {ex}")
@@ -750,6 +768,9 @@ for name, days in found.items():
             "d_day": (upcoming[0] - TODAY).days,
         })
 events.sort(key=lambda e: (e["ts"] or 0) if e["ts"] else e["d_day"] * 86400 + NOW.timestamp())
+# 같은 회사의 날짜 확정 일정이 이미 있으면 미정 항목은 생략
+_have = {e["name"].lower() for e in events}
+events += [t for t in tentative if not any(h.startswith(t["name"].lower()) for h in _have)]
 
 
 # =========================================================
