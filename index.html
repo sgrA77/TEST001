@@ -38,19 +38,16 @@ body {
 }
 
 .topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 28px;
+    display: flex; justify-content: space-between; align-items: center; gap: 10px;
+    padding: 8px 20px;
     background: #fff;
     border-bottom: 1px solid var(--line);
 }
-.topbar .title { white-space: nowrap; font-size: 17px; font-weight: 800; letter-spacing: 0.01em; }
-.topbar .title::before {
-    content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 9px;
-    background: var(--yellow); border-radius: 2px; transform: rotate(45deg);
-}
-.topbar .updated { font-size: 12px; color: var(--sub); }
+.top-vals { display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: baseline; }
+.top-vals .tv { white-space: nowrap; }
+.top-vals .tv-n { font-size: 11px; font-weight: 700; color: var(--sub); margin-right: 5px; }
+.top-vals .tv-v { font-size: 16px; font-weight: 800; }
+.topbar .updated { font-size: 10px; color: var(--dim); text-align: right; line-height: 1.2; }
 
 .wrap { max-width: 1760px; margin: 0 auto; padding: 20px 28px 40px; }
 
@@ -62,6 +59,9 @@ body {
     box-shadow: 0 1px 2px rgba(16, 24, 40, .05);
 }
 .panel.gap { margin-top: 18px; }
+.panel.slim { padding: 8px 12px 10px; }
+.panel.slim .panel-head { margin-bottom: 6px; }
+.panel.slim .panel-head h2 { font-size: 13px; }
 
 .panel-head {
     display: flex;
@@ -108,22 +108,23 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 .down { color: var(--down-t); }
 
 /* ---------- EVENTS ---------- */
-.events { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+.events { display: grid; grid-template-columns: repeat(auto-fill, minmax(185px, 1fr)); gap: 5px; }
 .event {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 9px 14px;
+    display: block; min-width: 0;
+    padding: 3px 9px 4px;
     background: var(--card);
     border: 1px solid var(--line);
     border-left: 3px solid var(--dim);
-    border-radius: 8px;
+    border-radius: 6px;
 }
 .event.soon { border-left-color: var(--yellow); background: #fff7df; }
-.event .e-name { font-size: 16px; font-weight: 800; }
-.event .e-when { font-size: 11.5px; color: var(--sub); margin-top: 1px; }
-.event .e-right { text-align: right; }
-.event .e-dday { font-size: 22px; font-weight: 800; line-height: 1.1; }
-.event .e-left { font-size: 11.5px; font-weight: 700; color: var(--sub); }
-.event.soon .e-left { color: var(--amber); }
+.event.ev-earn { border-left-color: #8b5cf6; }
+.event .e-name { font-size: 13px; font-weight: 800; white-space: nowrap; }
+.event .e-name small { font-size: 9.5px; font-weight: 700; color: #7c3aed; margin-right: 3px; }
+.event .e-top { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
+.event .e-sub { font-size: 10px; color: var(--sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.event .e-dday { font-size: 14px; font-weight: 800; white-space: nowrap; }
+.event.soon .e-dday { color: var(--amber); }
 .t-left { font-size: 11px; font-weight: 600; color: var(--sub); }
 .earn tr.soon .t-left { color: var(--amber); }
 .warns { margin-top: 18px; color: var(--sub); font-size: 12px; }
@@ -244,8 +245,10 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 
 /* ---------- 모바일 ---------- */
 @media (max-width: 760px) {
-    .topbar { padding: 11px 14px; }
-    .topbar .updated { font-size: 11px; text-align: right; }
+    .topbar { padding: 7px 12px; }
+    .top-vals { gap: 2px 12px; }
+    .top-vals .tv-v { font-size: 15px; }
+    .topbar .updated { font-size: 9px; }
     .wrap { padding: 12px 10px 28px; }
     .panel { padding: 12px 10px 14px; }
     .panel-head { flex-direction: column; gap: 3px; }
@@ -277,11 +280,11 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     #market .c-right .chip { font-size: 10.5px; padding: 9px 0 2px; letter-spacing: -0.04em; }
     #market .c-right .chip .cl { font-size: 7.5px; left: 2px; top: 1px; }
 
-    .events { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .event { padding: 7px 10px; }
-    .event .e-name { font-size: 15px; white-space: nowrap; }
-    .event .e-dday { font-size: 19px; white-space: nowrap; }
-    .event .e-when { font-size: 10.5px; }
+    .events { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; }
+    .event { padding: 3px 7px; gap: 4px; }
+    .event .e-name { font-size: 12.5px; }
+    .event .e-dday { font-size: 13px; }
+    .event .e-sub { font-size: 9.5px; }
 }
 </style>
 </head>
@@ -289,16 +292,16 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 <body>
 
 <div class="topbar">
-    <div class="title">Market Dashboard</div>
+    <div class="top-vals" id="topvals"></div>
     <div class="updated" id="updated"></div>
 </div>
 
 <div class="wrap">
 
-    <section class="panel">
+    <section class="panel slim">
         <div class="panel-head">
             <h2>EVENTS</h2>
-            <span class="note">한국시간(KST) 기준 · 발표 시각까지 남은 시간</span>
+            <span class="note">KST · 3일 이내 실적 발표 포함</span>
         </div>
         <div class="events" id="events"></div>
     </section>
@@ -573,10 +576,33 @@ function avgChips(list) {
 
 /* ---------- EVENTS ---------- */
 
-function renderEvents(events) {
+const TOP_ITEMS = ["VIX", "USD/KRW", "US 10Y"];   // 최상단에 현재값만 보여줄 MACRO 지표 이름
+const EARN_SOON_DAYS = 3;                         // 실적 발표가 이 일수 이내면 EVENTS 에 함께 표시
 
-    // 발표 시각(ts)이 있으면 지난 것은 제외, 없으면 날짜 기준
-    const list = (events || []).filter(e => e.ts ? e.ts > nowSec() : (e.d_day != null && e.d_day >= 0));
+function renderTop(macro) {
+    const all = {};
+    Object.values(macro || {}).forEach(g => Object.entries(g).forEach(([n, s]) => { all[n] = s; }));
+    $("topvals").innerHTML = TOP_ITEMS.filter(n => all[n] && all[n].value != null).map(n => {
+        const s = all[n], digits = s.digits != null ? s.digits : 2;
+        return `<span class="tv"><span class="tv-n">${n}</span><span class="tv-v">${(s.prefix || "") + num(s.value, digits) + (s.suffix || "")}</span></span>`;
+    }).join("");
+}
+
+function renderEvents(events, earnings) {
+
+    // 경제 이벤트: 발표 시각(ts)이 있으면 지난 것은 제외, 없으면 날짜 기준
+    const list = (events || []).filter(e => e.ts ? e.ts > nowSec() : (e.d_day != null && e.d_day >= 0))
+        .map(e => ({ ...e, label: e.name, kind: "event" }));
+
+    // 실적 발표: EARN_SOON_DAYS 일 이내만
+    (earnings || []).forEach(e => {
+        const d = e.ts ? ddayFromTs(e.ts) : e.d_day;
+        const upcoming = e.ts ? e.ts > nowSec() : (e.d_day != null && e.d_day >= 0);
+        if (upcoming && d != null && d <= EARN_SOON_DAYS)
+            list.push({ ts: e.ts, date: e.date, d_day: e.d_day, label: `<small>실적</small>${e.symbol}`, kind: "earn" });
+    });
+
+    list.sort((a, b) => (a.ts || (nowSec() + (a.d_day || 0) * 86400)) - (b.ts || (nowSec() + (b.d_day || 0) * 86400)));
 
     if (!list.length) {
         $("events").innerHTML = `<div class="empty">예정된 이벤트 없음</div>`;
@@ -588,15 +614,9 @@ function renderEvents(events) {
         const when = e.ts ? fmtWhen(e.ts) : mmdd(e.date) + " (미국 현지)";
         const left = e.ts ? leftLabel(e.ts) : "";
         return `
-        <div class="event ${d <= 7 ? "soon" : ""}">
-            <div>
-                <div class="e-name">${e.name}</div>
-                <div class="e-when">${when}</div>
-            </div>
-            <div class="e-right">
-                <div class="e-dday">${ddayLabel(d)}</div>
-                <div class="e-left">${left}</div>
-            </div>
+        <div class="event ${e.kind === "earn" ? "ev-earn" : ""} ${d <= 7 ? "soon" : ""}">
+            <div class="e-top"><span class="e-name">${e.label}</span><span class="e-dday">${ddayLabel(d)}</span></div>
+            <div class="e-sub">${when.replace(" KST", "")}${left ? " · " + left.replace(" 남음", "") : ""}</div>
         </div>`;
     }).join("");
 }
@@ -651,7 +671,6 @@ function renderMarket(market) {
         <${tagOpen} class="block ${spanClass(entries.length)}">
             <${tagHead} class="block-head">
                 <span class="block-name">${sector}</span>
-                <span class="block-avg">${avgChips(changes)}</span>
             </${tagHead}>
             <div class="cards">${cards}</div>
         </${tagOpen}>`);
@@ -849,9 +868,10 @@ fetch("data.json?t=" + Date.now())
         return r.json();
     })
     .then(data => {
-        $("updated").textContent = "Updated " + (data.updated_at || "-");
+        $("updated").textContent = (data.updated_at || "-").replace(/^\d{4}-/, "");   // 예: 10-02 13:05
 
-        safe(() => renderEvents(data.events));
+        safe(() => renderTop(data.macro));
+        safe(() => renderEvents(data.events, data.earnings));
         safe(() => renderMarket(data.market));
         safe(() => renderMacro(data.macro));
         safe(() => renderEarnings(data.earnings));
@@ -859,7 +879,7 @@ fetch("data.json?t=" + Date.now())
 
         // 남은 시간은 1분마다 갱신
         setInterval(() => {
-            safe(() => renderEvents(data.events));
+            safe(() => renderEvents(data.events, data.earnings));
             safe(() => renderEarnings(data.earnings));
         }, 60000);
     })
