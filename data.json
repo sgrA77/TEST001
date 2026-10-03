@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-03 14:52 KST",
+ "updated_at": "2026-10-03 15:17 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -247,8 +247,8 @@
    "date": "2026-10-21",
    "ts": 1792612800,
    "d_day": 18,
-   "eps_est": 0.439,
-   "rev_est": 27547358050,
+   "eps_est": 0.44,
+   "rev_est": 27570865740,
    "quarters": [
     {
      "label": "4Q2025",
@@ -728,9 +728,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 84640.63,
+    "price": 84624.53,
     "prev_day": 84853.1016,
-    "turnover": 39013666816,
+    "turnover": 38588645376,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -1487,8 +1487,8 @@
    },
    "TSLA": {
     "3Q2026": {
-     "eps_est": 0.43895,
-     "rev_est": 27547358050
+     "eps_est": 0.44001,
+     "rev_est": 27570865740
     }
    },
    "AMD": {
