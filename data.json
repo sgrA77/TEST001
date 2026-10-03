@@ -1,9 +1,12 @@
 {
- "updated_at": "2026-10-03 17:54 KST",
+ "updated_at": "2026-10-03 18:10 KST",
  "warnings": [
+  "MACRO US M2 ← fedh6:M2 실패: H.6에서 'M2; Seasonally adjusted' 열을 찾지 못함",
+  "MACRO US M2 ← fred:M2SL 실패: FRED 실패 → M2SL: 연결 실패 ReadTimeout | M2SL: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
+  "MACRO US M2 전체 실패 → 캐시/static 사용",
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
-  "MACRO BBB Spread ← fred:BAMLC0A4CBBB 실패: FRED 실패 → BAMLC0A4CBBB: 연결 실패 ReadTimeout | BAMLC0A4CBBB: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
+  "MACRO BBB Spread ← fred:BAMLC0A4CBBB 실패: FRED 실패 → BAMLC0A4CBBB: 웹 접속 생략(앞선 연결 실패) | BAMLC0A4CBBB: 웹 접속 생략(앞선 연결 실패) (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO BBB Spread 전체 실패 → 캐시/static 사용",
   "IPO 캘린더 3건 중 AI 관련 0건 (정상일 수 있음. 키워드는 IPO_AI_KEYWORDS)"
  ],
@@ -17,7 +20,8 @@
     "prev_day": null,
     "kind": "pct",
     "prefix": "$",
-    "suffix": "T"
+    "suffix": "T",
+    "stale": true
    },
    "USD/KRW": {
     "value": 1342.51,
@@ -728,9 +732,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 84627.89,
+    "price": 84628.41,
     "prev_day": 84497.2109,
-    "turnover": 35152666624,
+    "turnover": 35065417728,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
