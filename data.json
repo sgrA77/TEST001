@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-03 18:10 KST",
+ "updated_at": "2026-10-03 18:32 KST",
  "warnings": [
   "MACRO US M2 ← fedh6:M2 실패: H.6에서 'M2; Seasonally adjusted' 열을 찾지 못함",
   "MACRO US M2 ← fred:M2SL 실패: FRED 실패 → M2SL: 연결 실패 ReadTimeout | M2SL: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
@@ -732,9 +732,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 84628.41,
+    "price": 84570.14,
     "prev_day": 84497.2109,
-    "turnover": 35065417728,
+    "turnover": 34088437760,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
