@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-03 13:36 KST",
+ "updated_at": "2026-10-03 13:51 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -728,9 +728,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 84518.01,
+    "price": 84570.0,
     "prev_day": 84853.1016,
-    "turnover": 41339326464,
+    "turnover": 40720629760,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
