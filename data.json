@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-04 16:04 KST",
+ "updated_at": "2026-10-05 00:02 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -142,31 +142,31 @@
    "name": "CPI",
    "date": "2026-10-14",
    "ts": 1791981000,
-   "d_day": 10
+   "d_day": 9
   },
   {
    "name": "FOMC",
    "date": "2026-10-28",
    "ts": 1793210400,
-   "d_day": 24
+   "d_day": 23
   },
   {
    "name": "Fed Press",
    "date": "2026-10-28",
    "ts": 1793212200,
-   "d_day": 24
+   "d_day": 23
   },
   {
    "name": "PCE",
    "date": "2026-10-29",
    "ts": 1793277000,
-   "d_day": 25
+   "d_day": 24
   },
   {
    "name": "NFP",
    "date": "2026-11-06",
    "ts": 1793971800,
-   "d_day": 33
+   "d_day": 32
   },
   {
    "name": "IPO · Anthropic",
@@ -182,7 +182,7 @@
    "name": "ASML",
    "date": "2026-10-14",
    "ts": 1791981000,
-   "d_day": 10,
+   "d_day": 9,
    "eps_est": 10.6485,
    "rev_est": 11677126330,
    "quarters": [
@@ -214,7 +214,7 @@
    "name": "TSMC",
    "date": "2026-10-15",
    "ts": 1792067400,
-   "d_day": 11,
+   "d_day": 10,
    "eps_est": 4.4614,
    "rev_est": 1454973309110,
    "quarters": [
@@ -246,7 +246,7 @@
    "name": "Tesla",
    "date": "2026-10-21",
    "ts": 1792612800,
-   "d_day": 17,
+   "d_day": 16,
    "eps_est": 0.4413,
    "rev_est": 27631188090,
    "quarters": [
@@ -278,7 +278,7 @@
    "name": "Lam Research",
    "date": "2026-10-21",
    "ts": 1792612800,
-   "d_day": 17,
+   "d_day": 16,
    "eps_est": 2.1779,
    "rev_est": 8133724960,
    "quarters": [
@@ -310,7 +310,7 @@
    "name": "Intel",
    "date": "2026-10-22",
    "ts": 1792699200,
-   "d_day": 18,
+   "d_day": 17,
    "eps_est": 0.3906,
    "rev_est": 16428276720,
    "quarters": [
@@ -342,7 +342,7 @@
    "name": "Microsoft",
    "date": "2026-10-28",
    "ts": 1793217600,
-   "d_day": 24,
+   "d_day": 23,
    "eps_est": 4.7216,
    "rev_est": 90655130410,
    "quarters": [
@@ -374,7 +374,7 @@
    "name": "Alphabet",
    "date": "2026-10-28",
    "ts": 1793217600,
-   "d_day": 24,
+   "d_day": 23,
    "eps_est": 3.0308,
    "rev_est": 127461717080,
    "quarters": [
@@ -406,7 +406,7 @@
    "name": "Meta",
    "date": "2026-10-28",
    "ts": 1793217600,
-   "d_day": 24,
+   "d_day": 23,
    "eps_est": 6.7358,
    "rev_est": 63329245590,
    "quarters": [
@@ -438,7 +438,7 @@
    "name": "KLA",
    "date": "2026-10-28",
    "ts": 1793217600,
-   "d_day": 24,
+   "d_day": 23,
    "eps_est": 1.1785,
    "rev_est": 4040194880,
    "quarters": [
@@ -470,7 +470,7 @@
    "name": "Apple",
    "date": "2026-10-29",
    "ts": 1793304000,
-   "d_day": 25,
+   "d_day": 24,
    "eps_est": 1.9824,
    "rev_est": 113624521680,
    "quarters": [
@@ -502,7 +502,7 @@
    "name": "Amazon",
    "date": "2026-10-29",
    "ts": 1793304000,
-   "d_day": 25,
+   "d_day": 24,
    "eps_est": 1.9767,
    "rev_est": 201980771440,
    "quarters": [
@@ -534,7 +534,7 @@
    "name": "SanDisk",
    "date": "2026-10-29",
    "ts": 1793304000,
-   "d_day": 25,
+   "d_day": 24,
    "eps_est": 46.184,
    "rev_est": 10680448060,
    "quarters": [
@@ -566,7 +566,7 @@
    "name": "AMD",
    "date": "2026-11-03",
    "ts": 1793736000,
-   "d_day": 30,
+   "d_day": 29,
    "eps_est": 1.9294,
    "rev_est": 13060086750,
    "quarters": [
@@ -598,7 +598,7 @@
    "name": "Applied Materials",
    "date": "2026-11-12",
    "ts": 1794513600,
-   "d_day": 39,
+   "d_day": 38,
    "eps_est": 4.0603,
    "rev_est": 10307645750,
    "quarters": [
@@ -630,7 +630,7 @@
    "name": "NVIDIA",
    "date": "2026-11-17",
    "ts": 1794945600,
-   "d_day": 44,
+   "d_day": 43,
    "eps_est": 2.4733,
    "rev_est": 108995424980,
    "quarters": [
@@ -662,7 +662,7 @@
    "name": "Broadcom",
    "date": "2026-12-09",
    "ts": 1796846400,
-   "d_day": 66,
+   "d_day": 65,
    "eps_est": 3.8276,
    "rev_est": 34888468920,
    "quarters": [
@@ -694,7 +694,7 @@
    "name": "Micron",
    "date": "2026-12-23",
    "ts": 1798056000,
-   "d_day": 80,
+   "d_day": 79,
    "eps_est": 38.2106,
    "rev_est": 61670130780,
    "quarters": [
@@ -728,9 +728,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 85004.1,
-    "prev_day": 84497.2109,
-    "turnover": 12462744576,
+    "price": 85283.45,
+    "prev_day": 84763.5781,
+    "turnover": 12536498176,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -1565,7 +1565,8 @@
   "S&P 500 Fwd Earnings Yield": {
    "2026-10-02": 4.97,
    "2026-10-03": 4.97,
-   "2026-10-04": 4.97
+   "2026-10-04": 4.97,
+   "2026-10-05": 4.97
   },
   "GPU H100 SXM": {
    "2026-07-02": 2.57,
