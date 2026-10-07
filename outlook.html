@@ -170,6 +170,11 @@ function renderDaily(D){
     +'<p>'+esc(mv.summary)+sup(mv.src)+'</p>'
     +(mv.ai_line?'<p class="ai">'+esc(mv.ai_line)+'</p>':'')+'</section>';
 
+  h+='<div class="cols"><section class="panel"><h2>Emerging Issues <small>새로 부각</small></h2>'
+    +(D.emerging||[]).map(function(e){return '<div class="item"><div class="t">'+esc(e.title)+imp(e.importance)+sup(e.src)+'</div><div class="d">'+esc(e.detail)+'</div></div>'}).join('')+'</section>'
+    +'<section class="panel"><h2>Key Risks <small>주요 위험요인</small></h2>'
+    +(D.risks||[]).map(function(e){return '<div class="item"><div class="t">'+esc(e.title)+imp(e.importance)+sup(e.src)+'</div><div class="d">'+esc(e.detail)+'</div></div>'}).join('')+'</section></div>';
+
   h+='<section class="panel"><h2>Today’s Key Changes <small>가장 중요한 변화</small></h2><ol class="kc">'
     +(D.key_changes||[]).map(function(k,i){return '<li><span class="n">'+(i+1)+'</span><div><div class="t">'+esc(k.title)+imp(k.importance)+sup(k.src)+'</div><div class="d">'+esc(k.detail)+'</div></div></li>'}).join('')+'</ol></section>';
 
@@ -191,8 +196,9 @@ function renderDaily(D){
 
   function ul(a){return (a&&a.length)?'<ul>'+a.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>':''}
   var CS=D.core_stocks||[];
-  if(CS.length) h+='<section class="panel"><h2>AI 핵심 4종목 <small>NVDA · MU · AMD · AVGO</small></h2><div class="cs">'
+  if(CS.length) h+='<section class="panel"><h2>핵심 종목 <small>NVDA · MU · AMD · AVGO 고정 + 시장 영향/관심 종목</small></h2><div class="cs">'
     +CS.map(function(c){return '<div><div class="h"><b>'+esc(c.ticker)+' <span class="note">'+esc(c.name||'')+'</span></b><span>'+stance(c.stance)+'</span></div>'
+      +(c.why?'<div class="lb" style="color:var(--amber)">추가 이유 · '+esc(c.why)+'</div>':'')
       +(c.price||c.move?'<div class="mv2">'+esc([c.price,c.move].filter(Boolean).join(' · '))+'</div>':'')
       +'<div class="sm">'+esc(c.summary)+sup(c.src)+'</div>'
       +(c.catalysts&&c.catalysts.length?'<div class="lb">촉매</div>'+ul(c.catalysts):'')
@@ -205,8 +211,8 @@ function renderDaily(D){
     +(SX.catalysts&&SX.catalysts.length?'<div class="lb">촉매</div>'+ul(SX.catalysts):'')
     +(SX.risks&&SX.risks.length?'<div class="lb">리스크</div>'+ul(SX.risks):'')+'</div></div></section>';
   var GA=D.genai||[];
-  if(GA.length) h+='<section class="panel"><h2>Generative AI 기업 <small>Anthropic · OpenAI 등 시장 파급력</small></h2><div class="cs">'
-    +GA.map(function(g){return '<div><div class="h"><b>'+esc(g.name)+'</b></div><div class="sm"><b>'+esc(g.headline)+'</b>'+sup(g.src)+'</div>'
+  if(GA.length) h+='<section class="panel"><h2>Generative AI 생태계 <small>Anthropic · OpenAI + 시장에 영향을 줄 수 있는 기업·이슈</small></h2><div class="cs">'
+    +GA.map(function(g){return '<div><div class="h"><b>'+esc(g.name)+'</b>'+(g.kind?'<span class="note">'+esc(g.kind)+'</span>':'')+'</div><div class="sm"><b>'+esc(g.headline)+'</b>'+sup(g.src)+'</div>'
       +(g.detail?'<div class="sm">'+esc(g.detail)+'</div>':'')
       +(g.funding?'<div class="lb">투자·기업가치·매출</div><div class="sm">'+esc(g.funding)+'</div>':'')
       +(g.market_impact?'<div class="lb">증시 파급</div><div class="sm">'+esc(g.market_impact)+'</div>':'')+'</div>'}).join('')+'</div></section>';
@@ -219,11 +225,6 @@ function renderDaily(D){
       +'<div class="iv"><span>Market '+stance(st.market)+'</span><span>AI '+stance(st.ai)+'</span>'+(i.change?'<span>변화 <b>'+esc(i.change)+'</b>'+(i.prev?' <span class="note">(이전 '+esc(i.prev)+')</span>':'')+'</span>':'')+'</div>'
       +'<div class="in">'+esc(i.note)+sup(i.src)+'</div></div>'}).join('')+'</div>'
     +'<div class="note" style="margin-top:6px">* 목표가 등에서 해석한 값. “–”는 근거 자료가 없어 View를 부여하지 않음. 변화(↑→↓)는 이전 회차가 쌓이면 자동 계산됩니다.</div></section>';
-
-  h+='<div class="cols"><section class="panel"><h2>Emerging Issues <small>새로 부각</small></h2>'
-    +(D.emerging||[]).map(function(e){return '<div class="item"><div class="t">'+esc(e.title)+imp(e.importance)+sup(e.src)+'</div><div class="d">'+esc(e.detail)+'</div></div>'}).join('')+'</section>'
-    +'<section class="panel"><h2>Key Risks <small>주요 위험요인</small></h2>'
-    +(D.risks||[]).map(function(e){return '<div class="item"><div class="t">'+esc(e.title)+imp(e.importance)+sup(e.src)+'</div><div class="d">'+esc(e.detail)+'</div></div>'}).join('')+'</section></div>';
 
   var S=D.scenarios||{};
   function sc(k,name){var x=S[k]||{};return '<div class="'+(S.lean&&S.lean.toLowerCase()===k?'on':'')+'"><h3>'+name+(S.lean&&S.lean.toLowerCase()===k?' <span class="badge" style="color:var(--amber)">현재 가장 가까움</span>':'')+'</h3><p>'+esc(x.summary)+'</p><ul>'+(x.conditions||[]).map(function(c){return '<li>'+esc(c)+'</li>'}).join('')+'</ul></div>'}
