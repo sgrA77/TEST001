@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-07 08:49 KST",
+ "updated_at": "2026-10-07 08:59 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -20,7 +20,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1339.27,
+    "value": 1339.92,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -28,7 +28,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 158.264,
+    "value": 158.315,
     "prev_month": 157.558,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -205,7 +205,7 @@
      "eps_est": 6.9481,
      "eps_act": 7.58,
      "rev_est": null,
-     "rev_act": 9326500000
+     "rev_act": null
     }
    ]
   },
@@ -216,7 +216,7 @@
    "ts": 1792067400,
    "d_day": 8,
    "eps_est": 4.4792,
-   "rev_est": 1455552055340,
+   "rev_est": 1455545551960,
    "quarters": [
     {
      "label": "4Q2025",
@@ -311,8 +311,8 @@
    "date": "2026-10-28",
    "ts": 1793217600,
    "d_day": 21,
-   "eps_est": 4.7234,
-   "rev_est": 90672793730,
+   "eps_est": 4.7219,
+   "rev_est": 90659340940,
    "quarters": [
     {
      "label": "4Q2025",
@@ -343,8 +343,8 @@
    "date": "2026-10-28",
    "ts": 1793217600,
    "d_day": 21,
-   "eps_est": 3.0589,
-   "rev_est": 127299607260,
+   "eps_est": 3.0308,
+   "rev_est": 127461717080,
    "quarters": [
     {
      "label": "4Q2025",
@@ -461,7 +461,7 @@
      "eps_est": 1.8924,
      "eps_act": 2.02,
      "rev_est": null,
-     "rev_act": 109417000000
+     "rev_act": null
     }
    ]
   },
@@ -472,7 +472,7 @@
    "ts": 1793304000,
    "d_day": 22,
    "eps_est": 1.9767,
-   "rev_est": 202027031620,
+   "rev_est": 201980771440,
    "quarters": [
     {
      "label": "4Q2025",
@@ -685,7 +685,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 29591000000
     }
    ]
   },
@@ -728,9 +728,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 85566.84,
+    "price": 85547.77,
     "prev_day": 85786.5938,
-    "turnover": 25315883008,
+    "turnover": 25171994624,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -739,7 +739,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4195.4,
+    "price": 4193.9,
     "prev_day": 4156.7998,
     "turnover": null,
     "prev_month": 4186.7002,
@@ -750,7 +750,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 61.755,
+    "price": 61.705,
     "prev_day": 60.869,
     "turnover": null,
     "prev_month": 60.098,
@@ -761,7 +761,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.66,
+    "price": 6.6575,
     "prev_day": 6.5855,
     "turnover": null,
     "prev_month": 6.559,
@@ -772,7 +772,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 89.96,
+    "price": 90.0,
     "prev_day": 89.43,
     "turnover": null,
     "prev_month": 90.42,
@@ -783,7 +783,7 @@
     "ticker": "NG=F",
     "theme": "천연가스",
     "currency": "USD",
-    "price": 3.122,
+    "price": 3.123,
     "prev_day": 3.066,
     "turnover": null,
     "prev_month": 3.026,
@@ -1217,7 +1217,7 @@
     "theme": "커스텀칩 · 광 DSP",
     "currency": "USD",
     "price": 287.01,
-    "prev_day": 271.25,
+    "prev_day": 272.29,
     "turnover": 14697225588.0,
     "prev_month": 264.21,
     "prev_year": 84.98,
@@ -1228,7 +1228,7 @@
     "theme": "광전송",
     "currency": "USD",
     "price": 443.65,
-    "prev_day": 389.69,
+    "prev_day": 391.34,
     "turnover": 2832306852.0,
     "prev_month": 351.82,
     "prev_year": 233.87,
@@ -1239,7 +1239,7 @@
     "theme": "광모듈 · 레이저",
     "currency": "USD",
     "price": 338.36,
-    "prev_day": 333.64,
+    "prev_day": 337.04,
     "turnover": 2170767190.0,
     "prev_month": 287.81,
     "prev_year": 184.57,
@@ -1252,7 +1252,7 @@
     "theme": "전력 · 냉각 설비",
     "currency": "USD",
     "price": 253.14,
-    "prev_day": 253.62,
+    "prev_day": 252.18,
     "turnover": 1073096912.0,
     "prev_month": 241.31,
     "prev_year": 162.01,
@@ -1263,7 +1263,7 @@
     "theme": "가스터빈 · 전력망",
     "currency": "USD",
     "price": 1029.21,
-    "prev_day": 990.0,
+    "prev_day": 988.7,
     "turnover": 2601966385.0,
     "prev_month": 950.49,
     "prev_year": 653.57,
@@ -1274,7 +1274,7 @@
     "theme": "전기설비",
     "currency": "USD",
     "price": 445.09,
-    "prev_day": 432.6,
+    "prev_day": 436.11,
     "turnover": 708990537.0,
     "prev_month": 429.71,
     "prev_year": 318.51,
@@ -1285,7 +1285,7 @@
     "theme": "원전 전력",
     "currency": "USD",
     "price": 300.4,
-    "prev_day": 267.62,
+    "prev_day": 257.49,
     "turnover": 4048377850.0,
     "prev_month": 254.02,
     "prev_year": 353.27,
@@ -1296,7 +1296,7 @@
     "theme": "발전 · PPA",
     "currency": "USD",
     "price": 160.5,
-    "prev_day": 144.89,
+    "prev_day": 140.02,
     "turnover": 2902898016.0,
     "prev_month": 138.35,
     "prev_year": 161.33,
@@ -1309,7 +1309,7 @@
     "theme": "GPU 클라우드",
     "currency": "USD",
     "price": 91.72,
-    "prev_day": 87.39,
+    "prev_day": 89.62,
     "turnover": 2936496147.0,
     "prev_month": 87.12,
     "prev_year": 71.61,
@@ -1320,7 +1320,7 @@
     "theme": "데이터센터 리츠",
     "currency": "USD",
     "price": 1047.36,
-    "prev_day": 1023.44,
+    "prev_day": 1025.72,
     "turnover": 413214941.0,
     "prev_month": 1011.58,
     "prev_year": 766.16,
@@ -1331,7 +1331,7 @@
     "theme": "데이터센터 리츠",
     "currency": "USD",
     "price": 184.65,
-    "prev_day": 179.87,
+    "prev_day": 178.55,
     "turnover": 340418155.0,
     "prev_month": 175.53,
     "prev_year": 154.71,
@@ -1344,7 +1344,7 @@
     "theme": "AI 서버",
     "currency": "USD",
     "price": 574.0,
-    "prev_day": 552.29,
+    "prev_day": 562.52,
     "turnover": 3093762994.0,
     "prev_month": 537.95,
     "prev_year": 125.88,
@@ -1355,7 +1355,7 @@
     "theme": "AI 서버 · 액침냉각",
     "currency": "USD",
     "price": 43.46,
-    "prev_day": 43.19,
+    "prev_day": 43.69,
     "turnover": 1207150523.0,
     "prev_month": 41.07,
     "prev_year": 29.27,
@@ -1457,8 +1457,8 @@
    },
    "MSFT": {
     "3Q2026": {
-     "eps_est": 4.72336,
-     "rev_est": 90672793730
+     "eps_est": 4.72195,
+     "rev_est": 90659340940
     }
    },
    "AAPL": {
@@ -1470,13 +1470,13 @@
    "AMZN": {
     "3Q2026": {
      "eps_est": 1.97667,
-     "rev_est": 202027031620
+     "rev_est": 201980771440
     }
    },
    "GOOGL": {
     "3Q2026": {
-     "eps_est": 3.05895,
-     "rev_est": 127299607260
+     "eps_est": 3.03077,
+     "rev_est": 127461717080
     }
    },
    "META": {
@@ -1516,7 +1516,7 @@
    "TSM": {
     "3Q2026": {
      "eps_est": 4.47918,
-     "rev_est": 1455552055340
+     "rev_est": 1455545551960
     }
    },
    "ASML": {
