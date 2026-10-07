@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-07 13:39 KST",
+ "updated_at": "2026-10-07 14:11 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -20,7 +20,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1338.45,
+    "value": 1338.17,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -28,7 +28,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 158.418,
+    "value": 158.425,
     "prev_month": 157.558,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -434,38 +434,6 @@
    ]
   },
   {
-   "symbol": "AAPL",
-   "name": "Apple",
-   "date": "2026-10-29",
-   "ts": 1793304000,
-   "d_day": 22,
-   "eps_est": 1.9824,
-   "rev_est": 113624521680,
-   "quarters": [
-    {
-     "label": "4Q2025",
-     "eps_est": 2.6708,
-     "eps_act": 2.84,
-     "rev_est": null,
-     "rev_act": 143756000000
-    },
-    {
-     "label": "1Q2026",
-     "eps_est": 1.9427,
-     "eps_act": 2.01,
-     "rev_est": null,
-     "rev_act": 111184000000
-    },
-    {
-     "label": "2Q2026",
-     "eps_est": 1.8924,
-     "eps_act": 2.02,
-     "rev_est": null,
-     "rev_act": 109417000000
-    }
-   ]
-  },
-  {
    "symbol": "AMZN",
    "name": "Amazon",
    "date": "2026-10-29",
@@ -558,6 +526,38 @@
      "eps_act": 0.42,
      "rev_est": null,
      "rev_act": 16128000000
+    }
+   ]
+  },
+  {
+   "symbol": "AAPL",
+   "name": "Apple",
+   "date": "2026-11-02",
+   "ts": 1793649600,
+   "d_day": 26,
+   "eps_est": 1.9824,
+   "rev_est": 113624521680,
+   "quarters": [
+    {
+     "label": "4Q2025",
+     "eps_est": 2.6708,
+     "eps_act": 2.84,
+     "rev_est": null,
+     "rev_act": 143756000000
+    },
+    {
+     "label": "1Q2026",
+     "eps_est": 1.9427,
+     "eps_act": 2.01,
+     "rev_est": null,
+     "rev_act": 111184000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 1.8924,
+     "eps_act": 2.02,
+     "rev_est": null,
+     "rev_act": 109417000000
     }
    ]
   },
@@ -728,9 +728,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 84093.83,
+    "price": 84169.37,
     "prev_day": 85786.5938,
-    "turnover": 31092967424,
+    "turnover": 31502948352,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -739,7 +739,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4168.4,
+    "price": 4161.1,
     "prev_day": 4187.1001,
     "turnover": null,
     "prev_month": 4186.7002,
@@ -750,7 +750,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 61.145,
+    "price": 61.01,
     "prev_day": 61.168,
     "turnover": null,
     "prev_month": 60.098,
@@ -761,7 +761,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.635,
+    "price": 6.6245,
     "prev_day": 6.5945,
     "turnover": null,
     "prev_month": 6.559,
@@ -772,7 +772,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 90.18,
+    "price": 90.06,
     "prev_day": 89.44,
     "turnover": null,
     "prev_month": 90.42,
@@ -783,7 +783,7 @@
     "ticker": "NG=F",
     "theme": "천연가스",
     "currency": "USD",
-    "price": 3.132,
+    "price": 3.136,
     "prev_day": 3.114,
     "turnover": null,
     "prev_month": 3.026,
@@ -1050,9 +1050,9 @@
     "ticker": "000660.KS",
     "theme": "DRAM · HBM",
     "currency": "KRW",
-    "price": 1742000.0,
+    "price": 1739000.0,
     "prev_day": 1773000.0,
-    "turnover": 2768722606000.0,
+    "turnover": 2973413499000.0,
     "prev_month": 1776000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -1061,9 +1061,9 @@
     "ticker": "005930.KS",
     "theme": "메모리 · 파운드리",
     "currency": "KRW",
-    "price": 271750.0,
+    "price": 271500.0,
     "prev_day": 272000.0,
-    "turnover": 2725425045250.0,
+    "turnover": 2923040676000.0,
     "prev_month": 268500.0,
     "prev_year": 119900.0,
     "prev_2year": 53200.0
@@ -1384,21 +1384,21 @@
   },
   "KOSPI": {
    "ticker": "^KS11",
-   "price": 6873.61,
-   "3Y": 41.84,
-   "5Y": 18.38,
-   "10Y": 12.84,
-   "15Y": 9.51,
-   "20Y": 8.47
+   "price": 6851.65,
+   "3Y": 41.69,
+   "5Y": 18.31,
+   "10Y": 12.8,
+   "15Y": 9.49,
+   "20Y": 8.45
   },
   "KOSDAQ": {
    "ticker": "^KQ11",
-   "price": 904.68,
-   "3Y": 3.48,
-   "5Y": -1.04,
-   "10Y": 2.96,
-   "15Y": 4.88,
-   "20Y": 2.18
+   "price": 905.8,
+   "3Y": 3.52,
+   "5Y": -1.01,
+   "10Y": 2.97,
+   "15Y": 4.89,
+   "20Y": 2.19
   }
  },
  "gpu_rental": {
