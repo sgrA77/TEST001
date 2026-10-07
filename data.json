@@ -1,11 +1,13 @@
 {
- "updated_at": "2026-10-08 07:21 KST",
+ "updated_at": "2026-10-08 07:42 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
   "MACRO BBB Spread ← fred:BAMLC0A4CBBB 실패: FRED 실패 → BAMLC0A4CBBB: 연결 실패 ReadTimeout | BAMLC0A4CBBB: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO BBB Spread 전체 실패 → 캐시/static 사용",
-  "IPO 캘린더 5건 중 AI 관련 0건 (정상일 수 있음. 키워드는 IPO_AI_KEYWORDS)"
+  "IPO 캘린더 5건 중 AI 관련 0건 (정상일 수 있음. 키워드는 IPO_AI_KEYWORDS)",
+  "EARNINGS AMAT 실패: Expecting value: line 1 column 1 (char 0)",
+  "EARNINGS LRCX 실패: Expecting value: line 1 column 1 (char 0)"
  ],
  "macro": {
   "유동성 / 환율": {
@@ -20,7 +22,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1339.41,
+    "value": 1339.48,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -28,7 +30,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 157.997,
+    "value": 158.007,
     "prev_month": 157.558,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -728,9 +730,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 83234.23,
+    "price": 83200.08,
     "prev_day": 85557.5625,
-    "turnover": 38594478080,
+    "turnover": 38529441792,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -739,7 +741,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4135.7,
+    "price": 4130.9,
     "prev_day": 4187.1001,
     "turnover": null,
     "prev_month": 4186.7002,
@@ -750,7 +752,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 60.075,
+    "price": 60.015,
     "prev_day": 61.168,
     "turnover": null,
     "prev_month": 60.098,
@@ -772,7 +774,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 88.96,
+    "price": 88.99,
     "prev_day": 89.44,
     "turnover": null,
     "prev_month": 90.42,
