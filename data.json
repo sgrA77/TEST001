@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-07 21:43 KST",
+ "updated_at": "2026-10-07 22:05 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -20,7 +20,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1339.3,
+    "value": 1338.82,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -28,7 +28,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 158.21,
+    "value": 158.262,
     "prev_month": 157.558,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -85,7 +85,7 @@
     "suffix": "%"
    },
    "US 10Y": {
-    "value": 5.348,
+    "value": 5.341,
     "prev_month": 5.293,
     "prev_year": 4.163,
     "prev_2year": 4.573,
@@ -94,7 +94,7 @@
     "suffix": "%"
    },
    "US 30Y": {
-    "value": 5.725,
+    "value": 5.715,
     "prev_month": 5.638,
     "prev_year": 4.84,
     "prev_2year": 4.786,
@@ -114,7 +114,7 @@
     "suffix": "%"
    },
    "VIX": {
-    "value": 15.88,
+    "value": 15.74,
     "prev_month": 16.34,
     "prev_year": 14.95,
     "prev_2year": 17.35,
@@ -205,7 +205,7 @@
      "eps_est": 6.9481,
      "eps_act": 7.58,
      "rev_est": null,
-     "rev_act": 9326500000
+     "rev_act": null
     }
    ]
   },
@@ -247,8 +247,8 @@
    "date": "2026-10-21",
    "ts": 1792612800,
    "d_day": 14,
-   "eps_est": 0.4507,
-   "rev_est": 28013915020,
+   "eps_est": 0.4474,
+   "rev_est": 27905391170,
    "quarters": [
     {
      "label": "4Q2025",
@@ -312,7 +312,7 @@
    "ts": 1793217600,
    "d_day": 21,
    "eps_est": 4.7234,
-   "rev_est": 90685460400,
+   "rev_est": 90672793730,
    "quarters": [
     {
      "label": "4Q2025",
@@ -557,7 +557,7 @@
      "eps_est": 1.8924,
      "eps_act": 2.02,
      "rev_est": null,
-     "rev_act": 109417000000
+     "rev_act": null
     }
    ]
   },
@@ -685,7 +685,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 29591000000
     }
    ]
   },
@@ -728,9 +728,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 83493.16,
+    "price": 83405.48,
     "prev_day": 85557.5625,
-    "turnover": 34854432768,
+    "turnover": 36177350656,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -739,7 +739,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4108.8,
+    "price": 4109.3,
     "prev_day": 4187.1001,
     "turnover": null,
     "prev_month": 4186.7002,
@@ -750,7 +750,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 59.38,
+    "price": 59.87,
     "prev_day": 61.168,
     "turnover": null,
     "prev_month": 60.098,
@@ -761,7 +761,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.637,
+    "price": 6.638,
     "prev_day": 6.5945,
     "turnover": null,
     "prev_month": 6.559,
@@ -772,7 +772,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 90.3,
+    "price": 89.88,
     "prev_day": 89.44,
     "turnover": null,
     "prev_month": 90.42,
@@ -783,7 +783,7 @@
     "ticker": "NG=F",
     "theme": "천연가스",
     "currency": "USD",
-    "price": 3.203,
+    "price": 3.184,
     "prev_day": 3.114,
     "turnover": null,
     "prev_month": 3.026,
@@ -1076,7 +1076,7 @@
     "currency": "USD",
     "price": 649.42,
     "prev_day": 631.75,
-    "turnover": 15681677871.0,
+    "turnover": 15731996232.0,
     "prev_month": 611.76,
     "prev_year": 214.16,
     "prev_2year": 120.79
@@ -1111,7 +1111,7 @@
     "currency": "USD",
     "price": 649.42,
     "prev_day": 631.75,
-    "turnover": 15681677871.0,
+    "turnover": 15731996232.0,
     "prev_month": 611.76,
     "prev_year": 214.16,
     "prev_2year": 120.79
@@ -1458,7 +1458,7 @@
    "MSFT": {
     "3Q2026": {
      "eps_est": 4.72336,
-     "rev_est": 90685460400
+     "rev_est": 90672793730
     }
    },
    "AAPL": {
@@ -1487,8 +1487,8 @@
    },
    "TSLA": {
     "3Q2026": {
-     "eps_est": 0.45074,
-     "rev_est": 28013915020
+     "eps_est": 0.44738,
+     "rev_est": 27905391170
     }
    },
    "AMD": {
