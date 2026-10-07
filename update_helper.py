@@ -44,6 +44,11 @@ def clean_daily(d, now):
     for k in ("key_changes", "issues", "emerging", "risks"):
         for x in d[k]:
             if x.get("importance") not in ("HIGH", "MEDIUM", "LOW"): x["importance"] = "MEDIUM"
+    for k in ("core_stocks", "genai"):
+        if not isinstance(d.get(k), list): d[k] = []
+    if not isinstance(d.get("spacex"), dict): d["spacex"] = {}
+    for c in d["core_stocks"]:
+        if str(c.get("stance")) not in ("Bullish", "Neutral", "Bearish"): c["stance"] = None
     d.setdefault("ai_semi", {}).setdefault("chain", [])
     d.setdefault("scenarios", {})
     if not d["key_changes"] or not mv.get("summary"):
@@ -72,6 +77,9 @@ def compact(d):
         "issues": [(i.get("title"), i.get("importance")) for i in d.get("issues", [])],
         "ai_chain": {c.get("step"): c.get("status") for c in d.get("ai_semi", {}).get("chain", [])},
         "institutions": {i.get("name"): i.get("stance") for i in d.get("institutions", [])},
+        "core_stocks": {c.get("ticker"): c.get("stance") for c in d.get("core_stocks", [])},
+        "spacex": (d.get("spacex") or {}).get("summary"),
+        "genai": [g.get("headline") for g in d.get("genai", [])],
         "scenario_lean": d.get("scenarios", {}).get("lean"),
     }
 

@@ -22,6 +22,14 @@ a{color:inherit}
 .topbar .upd{font-size:10px;color:var(--dim);text-align:right;line-height:1.25}
 .wrap{max-width:1100px;margin:0 auto;padding:16px 20px 48px}
 .tabs{display:flex;gap:6px;margin:0 0 12px}
+.cs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media(max-width:700px){.cs{grid-template-columns:1fr}}
+.cs>div{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 11px;min-width:0}
+.cs .h{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.cs .h b{font-size:14px}.cs .mv2{font-size:12px;font-weight:700}
+.cs .sm{font-size:12.5px;color:var(--sub);margin:4px 0}
+.cs ul{margin:4px 0 0;padding-left:16px;font-size:12px;color:var(--sub)}
+.cs .lb{font-size:10.5px;font-weight:800;color:var(--dim);margin-top:6px}
 .tabs button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:5px 14px;font:inherit;font-size:12.5px;font-weight:700;color:var(--sub);cursor:pointer}
 .tabs button.on{background:var(--text);border-color:var(--text);color:#fff}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px 16px;box-shadow:0 1px 2px rgba(16,24,40,.05);margin-bottom:14px;min-width:0}
@@ -180,6 +188,29 @@ function renderDaily(D){
     +(A.gpu_rental?'<div class="gpu"><b>GPU 임대가격</b> · '+esc(A.gpu_rental.status)+' — '+esc(A.gpu_rental.note)+'</div>':'')
     +'<div class="co">'+(A.companies||[]).map(function(c){return '<div><b>'+esc(c.name)+'</b> '+esc(c.note)+sup(c.src)+'</div>'}).join('')+'</div></section>';
 
+
+  function ul(a){return (a&&a.length)?'<ul>'+a.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>':''}
+  var CS=D.core_stocks||[];
+  if(CS.length) h+='<section class="panel"><h2>AI 핵심 4종목 <small>NVDA · MU · AMD · AVGO</small></h2><div class="cs">'
+    +CS.map(function(c){return '<div><div class="h"><b>'+esc(c.ticker)+' <span class="note">'+esc(c.name||'')+'</span></b><span>'+stance(c.stance)+'</span></div>'
+      +(c.price||c.move?'<div class="mv2">'+esc([c.price,c.move].filter(Boolean).join(' · '))+'</div>':'')
+      +'<div class="sm">'+esc(c.summary)+sup(c.src)+'</div>'
+      +(c.catalysts&&c.catalysts.length?'<div class="lb">촉매</div>'+ul(c.catalysts):'')
+      +(c.risks&&c.risks.length?'<div class="lb">리스크</div>'+ul(c.risks):'')+'</div>'}).join('')+'</div></section>';
+  var SX=D.spacex;
+  if(SX&&SX.summary) h+='<section class="panel"><h2>SpaceX <small>관심종목 · 별도 전망</small></h2><div class="cs" style="grid-template-columns:1fr"><div>'
+    +'<div class="h"><b>'+esc(SX.ticker||'SpaceX')+' <span class="note">'+esc(SX.status||'')+'</span></b>'+(SX.outlook?'<span class="badge">'+esc(SX.outlook)+'</span>':'')+'</div>'
+    +(SX.price||SX.valuation?'<div class="mv2">'+esc([SX.price,SX.valuation].filter(Boolean).join(' · '))+'</div>':'')
+    +'<div class="sm">'+esc(SX.summary)+sup(SX.src)+'</div>'
+    +(SX.catalysts&&SX.catalysts.length?'<div class="lb">촉매</div>'+ul(SX.catalysts):'')
+    +(SX.risks&&SX.risks.length?'<div class="lb">리스크</div>'+ul(SX.risks):'')+'</div></div></section>';
+  var GA=D.genai||[];
+  if(GA.length) h+='<section class="panel"><h2>Generative AI 기업 <small>Anthropic · OpenAI 등 시장 파급력</small></h2><div class="cs">'
+    +GA.map(function(g){return '<div><div class="h"><b>'+esc(g.name)+'</b></div><div class="sm"><b>'+esc(g.headline)+'</b>'+sup(g.src)+'</div>'
+      +(g.detail?'<div class="sm">'+esc(g.detail)+'</div>':'')
+      +(g.funding?'<div class="lb">투자·기업가치·매출</div><div class="sm">'+esc(g.funding)+'</div>':'')
+      +(g.market_impact?'<div class="lb">증시 파급</div><div class="sm">'+esc(g.market_impact)+'</div>':'')+'</div>'}).join('')+'</div></section>';
+
   h+='<section class="panel"><h2>Macro</h2><div class="mac">'
     +(D.macro||[]).map(function(m){return '<div><div class="k">'+esc(m.name)+'</div><div class="v">'+esc(m.value)+'</div><div class="x">'+esc(m.detail)+sup(m.src)+'</div></div>'}).join('')+'</div></section>';
 
@@ -210,7 +241,7 @@ function renderWeekly(W){
   SRC={}; (W.sources||[]).forEach(function(s){SRC[s.id]=s});
   document.getElementById('upd').innerHTML=esc(W.week||'')+'<br>'+esc(W.period||'');
   function list(a){return (a||[]).map(function(x){return typeof x==='string'?'<div class="item"><div class="d" style="color:var(--text)">'+esc(x)+'</div></div>':'<div class="item"><div class="t">'+esc(x.title||x.item)+imp(x.importance)+sup(x.src)+'</div><div class="d">'+esc(x.detail||x.reason||x.summary||'')+'</div></div>'}).join('')}
-  var P=[['① 이번 주 가장 중요한 변화','biggest_changes'],['② 새롭게 부각된 이슈','new_issues'],['③ 중요도가 감소한 이슈','faded_issues'],['④ AI / 반도체 업황 변화','ai_semi'],['⑤ 주요 기관 전망 변화','institution_changes'],['⑥ Macro 변화','macro'],['⑦ 다음 주 핵심 이벤트','next_week'],['⑧ Bull / Base / Bear 변화','scenario_change']];
+  var P=[['① 이번 주 가장 중요한 변화','biggest_changes'],['② 새롭게 부각된 이슈','new_issues'],['③ 중요도가 감소한 이슈','faded_issues'],['④ AI / 반도체 업황 변화','ai_semi'],['④-1 NVDA·MU·AMD·AVGO','core_stocks'],['④-2 SpaceX','spacex'],['④-3 생성형 AI 기업','genai'],['⑤ 주요 기관 전망 변화','institution_changes'],['⑥ Macro 변화','macro'],['⑦ 다음 주 핵심 이벤트','next_week'],['⑧ Bull / Base / Bear 변화','scenario_change']];
   v.innerHTML='<section class="panel mv"><h2>Weekly Market Outlook</h2><p>'+esc(W.summary||'')+'</p></section>'
     +P.map(function(p){return '<section class="panel"><h2>'+p[0]+'</h2>'+(Array.isArray(W[p[1]])?list(W[p[1]]):'<div class="d">'+esc(W[p[1]]||'')+'</div>')+'</section>'}).join('');
 }
