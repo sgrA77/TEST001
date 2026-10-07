@@ -1,0 +1,629 @@
+{
+ "version": 1,
+ "date": "2026-10-07",
+ "mode": "daily",
+ "generated_at": "2026-10-07T12:00:00+09:00",
+ "data_as_of": "2026-10-06 미국 장 마감",
+ "note": "첫 회차(수동 작성) — 이후 회차부터 OUTLOOK.py가 자동 생성하고 전일과 비교합니다.",
+ "market_view": {
+  "label": "Neutral",
+  "summary": "미국 증시는 기업이익(2026 EPS +24~33% 전망)과 AI 투자가 받치며 S&P 500·나스닥이 사상 최고 부근입니다. 반면 Fed가 9월에 금리를 올렸고 10년물이 5.3% 안팎(24년래 고점권), 유가는 이란 전쟁으로 브렌트 $100 안팎이라 밸류에이션 부담이 커졌습니다. 고용은 9월 +29K로 둔화돼 ‘물가는 높고 고용은 약한’ 조합이 새 변수입니다.",
+  "ai_line": "AI·메모리 사이클은 확장 국면 유지(마이크론 다음 분기 가이던스 $61.5B). 다만 금리 상승 구간에서 고밸류 종목의 민감도가 높고, 전력 공급이 새 제약으로 부각 중입니다.",
+  "src": [
+   "s6",
+   "s2",
+   "s9"
+  ]
+ },
+ "key_changes": [
+  {
+   "title": "9월 고용 +29K 쇼크 → 10월 Fed 인상 확률 급락",
+   "detail": "인상 확률이 약 70%에서 약 22%로 낮아졌지만 12월 인상 가능성은 사실상 유지(FedWatch 기준 100%). ‘인상 경로가 짧아졌다’는 변화.",
+   "importance": "HIGH",
+   "src": [
+    "s4"
+   ]
+  },
+  {
+   "title": "장기금리 급등 속에서도 지수는 사상 최고",
+   "detail": "10년물 5.27%(10/5 5.31%), 30년물 5.64%. S&P 500 7,818.93, 나스닥 27,599.79로 최고치 경신. 금리와 주가가 동시에 높은 구간.",
+   "importance": "HIGH",
+   "src": [
+    "s2",
+    "s6",
+    "s7"
+   ]
+  },
+  {
+   "title": "마이크론 FY26 4Q 매출 $54.2B, 다음 분기 가이던스 $61.5B",
+   "detail": "매출총이익률 86.8%. 메모리 가격 상승이 실적에 그대로 반영되는 중이나 주가 반응은 제한적(‘기대치가 높다’).",
+   "importance": "HIGH",
+   "src": [
+    "s9"
+   ]
+  },
+  {
+   "title": "AI 전력 확보 경쟁 — 콘스텔레이션·구글 장기 전력 계약",
+   "detail": "10/6 콘스텔레이션 에너지가 구글과 장기 전력 계약으로 상승 주도. 데이터센터 전력이 AI 투자의 병목으로 부상.",
+   "importance": "MEDIUM",
+   "src": [
+    "s6",
+    "s17"
+   ]
+  },
+  {
+   "title": "유가 브렌트 $100 안팎 유지(이란 전쟁)",
+   "detail": "9/11 $107까지 급등 후 9/29 $96, 10/5 $100~103. 8월 CPI에서 에너지 +16.3%(연), 휘발유 +27.4%.",
+   "importance": "MEDIUM",
+   "src": [
+    "s3",
+    "s7",
+    "s19"
+   ]
+  }
+ ],
+ "issues": [
+  {
+   "title": "Fed 긴축 재개와 장기금리 상승",
+   "summary": "9/16 FOMC가 만장일치로 25bp 인상(3.75~4.00%). 모건스탠리는 9월·12월 인상 전망, UBS는 12월 1회 추가 뒤 중단 예상으로 시각이 갈림.",
+   "importance": "HIGH",
+   "trend": "steady",
+   "src": [
+    "s1",
+    "s13",
+    "s14"
+   ]
+  },
+  {
+   "title": "이란 전쟁발 에너지 인플레이션",
+   "summary": "8월 CPI 헤드라인 3.4%(전년 대비), 근원 2.4%. 에너지가 물가를 끌어올리고 휘발유 $4.35, 디젤 $6.20(EIA 10/5).",
+   "importance": "HIGH",
+   "trend": "steady",
+   "src": [
+    "s3",
+    "s20"
+   ]
+  },
+  {
+   "title": "AI 인프라 투자 지속",
+   "summary": "하이퍼스케일러 2026 CAPEX 합계 약 $700B(5/1 기준), 엔비디아 FY27 2Q 매출 $96.2B(+106%). 모건스탠리는 2027년 1조 달러 근접 전망으로 인용됨.",
+   "importance": "HIGH",
+   "trend": "steady",
+   "src": [
+    "s11",
+    "s12",
+    "s17"
+   ]
+  },
+  {
+   "title": "메모리 슈퍼사이클",
+   "summary": "TrendForce는 3Q DRAM 계약가 +13~18%, NAND +10~15% 전망. HBM4는 HBM3e의 약 2배 단가.",
+   "importance": "HIGH",
+   "trend": "up",
+   "src": [
+    "s10",
+    "s9"
+   ]
+  },
+  {
+   "title": "이익 집중도",
+   "summary": "BofA: 엔비디아·알파벳·마이크론·MS·애플 5개 종목이 S&P 500 이익의 27%로 사상 최대. 소형주(러셀 2000)는 10/6 약세(−0.6%).",
+   "importance": "MEDIUM",
+   "trend": "up",
+   "src": [
+    "s15",
+    "s6"
+   ]
+  }
+ ],
+ "ai_semi": {
+  "summary": "수요(AI 투자) → 공급(GPU·HBM) → 가격(메모리) → 이익(반도체) 연결은 모두 ‘확장’ 방향입니다. 병목은 수요보다 전력·공급 쪽에서 나타나는 중입니다.",
+  "direction": "확장 지속",
+  "chain": [
+   {
+    "step": "AI CAPEX",
+    "status": "상향·유지",
+    "detail": "2026 합계 약 $700B(5/1). 메타 가이던스 $125~145B로 상향. 모건스탠리는 2027년 1조 달러 근접 전망(2차 인용).",
+    "src": [
+     "s11",
+     "s17"
+    ]
+   },
+   {
+    "step": "데이터센터",
+    "status": "확장·전력 병목",
+    "detail": "변압기 생산능력이 2027년 3분기까지 예약 완료, 리드타임 최대 36개월. 미국 전력 부족 38GW(2028년까지, MS).",
+    "src": [
+     "s18",
+     "s17"
+    ]
+   },
+   {
+    "step": "GPU / ASIC",
+    "status": "강세",
+    "detail": "엔비디아 FY27 2Q 매출 $96.22B(+106%), 데이터센터 $89.0B(+117%). 공급·용량 약정 $105B.",
+    "src": [
+     "s12"
+    ]
+   },
+   {
+    "step": "HBM",
+    "status": "가격 상승",
+    "detail": "HBM4 약 $31~32/GB vs HBM3e $17~18/GB. 삼성 HBM4 수율 약 80%, SK hynix도 출하 확대.",
+    "src": [
+     "s10"
+    ]
+   },
+   {
+    "step": "메모리 가격",
+    "status": "상승",
+    "detail": "3Q 일반 DRAM 계약가 +13~18%, NAND +10~15%(TrendForce 전망).",
+    "src": [
+     "s10"
+    ]
+   },
+   {
+    "step": "반도체 실적",
+    "status": "급증",
+    "detail": "마이크론 FY26 4Q 매출 $54.23B(전분기 $41.46B), 다음 분기 $61.5B±1.5B, EPS 가이던스 $37.84±1.00. FY26 순 CAPEX $27.37B.",
+    "src": [
+     "s9"
+    ]
+   }
+  ],
+  "gpu_rental": {
+   "status": "데이터 없음",
+   "note": "이번 회차에는 신뢰할 수 있는 GPU 임대가격 자료를 확인하지 못했습니다(추정하지 않음). 기존 Dashboard의 GPU 대여 가격 섹션과 연동할 수 있습니다."
+  },
+  "companies": [
+   {
+    "name": "NVIDIA",
+    "note": "FY27 2Q 매출 $96.2B, 데이터센터 비중 92.5%. 시총 약 5.77조 달러.",
+    "src": [
+     "s12",
+     "s21"
+    ]
+   },
+   {
+    "name": "Micron",
+    "note": "매출·마진 모두 기록적. 후행 PER 14배, 선행 약 6배로 ‘사이클 정점 우려’가 주가의 변수.",
+    "src": [
+     "s9"
+    ]
+   },
+   {
+    "name": "SK hynix / Samsung",
+    "note": "HBM4 경쟁 본격화. HBM3e 장기계약 가격이 SK hynix 실적의 변수라는 관측(회사는 부인).",
+    "src": [
+     "s10"
+    ]
+   },
+   {
+    "name": "Hyperscaler",
+    "note": "알파벳 클라우드 수주잔고 $460B+, MS 상업 RPO $627B, 아마존 AWS 성장률 28%(1Q).",
+    "src": [
+     "s11"
+    ]
+   }
+  ]
+ },
+ "macro": [
+  {
+   "name": "Fed",
+   "value": "3.75~4.00%",
+   "detail": "9/16 만장일치 25bp 인상. 12월 추가 인상 가격 반영 약 100%, 10월은 약 22%.",
+   "src": [
+    "s1",
+    "s4"
+   ]
+  },
+  {
+   "name": "미 국채 10Y / 2Y / 30Y",
+   "value": "5.27% / 4.79% / 5.64%",
+   "detail": "10/6 기준. 9/29 10년물이 24년래 고점 5.25% 언급, 10/5 5.31%.",
+   "src": [
+    "s2",
+    "s8"
+   ]
+  },
+  {
+   "name": "인플레이션",
+   "value": "CPI 3.4% / 근원 2.4%",
+   "detail": "8월(전년 대비). 에너지 +16.3%, 휘발유 +27.4%. 다음 CPI는 10월 중순 발표 예정(확인 필요).",
+   "src": [
+    "s3"
+   ]
+  },
+  {
+   "name": "고용",
+   "value": "9월 +29K, 실업률 4.2%",
+   "detail": "8월 +162K(4.1%)에서 급둔화. 신규 노동공급이 줄어 소폭 증가로도 실업률이 유지되는 구조라는 해석.",
+   "src": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "name": "유가",
+   "value": "브렌트 약 $100",
+   "detail": "이란 전쟁·호르무즈 차질. 9/11 $107 → 9/29 $96 → 10/5 $100~103.",
+   "src": [
+    "s7",
+    "s19"
+   ]
+  },
+  {
+   "name": "지수",
+   "value": "S&P 7,818.93 / Nasdaq 27,599.79",
+   "detail": "10/6 종가, 사상 최고. 올해 +14.2% / +18.7%. 다우 +7.2%, 러셀 2000 +14.0%.",
+   "src": [
+    "s6"
+   ]
+  }
+ ],
+ "institutions": [
+  {
+   "name": "Goldman Sachs",
+   "stance": {
+    "market": "Bullish",
+    "ai": "Bullish"
+   },
+   "prev": null,
+   "change": "→",
+   "note": "2026 말 S&P 8,000(기존 7,600에서 상향), EPS $340→2027 $385. ‘버블 말기 조건은 대부분 부재’. AI 인프라 수혜가 올해 EPS 증가의 약 절반.",
+   "src": [
+    "s16"
+   ],
+   "asof": "5월경"
+  },
+  {
+   "name": "UBS",
+   "stance": {
+    "market": "Bullish",
+    "ai": "Bullish"
+   },
+   "prev": null,
+   "change": "→",
+   "note": "연말 8,100, 2027.6 8,400. Fed는 12월 1회 추가 후 중단 예상, ‘시장이 긴축을 과대 반영’. AI 투자 증가는 최소 2027년까지.",
+   "src": [
+    "s13",
+    "s15"
+   ],
+   "asof": "9/15~9/24"
+  },
+  {
+   "name": "Morgan Stanley",
+   "stance": {
+    "market": null,
+    "ai": null
+   },
+   "prev": null,
+   "change": "",
+   "note": "Fed 9월·12월 인상 전망, 긴축이 길어지면 고성장주 밸류에이션 방어가 어렵다고 경고. AI 전력 부족 38GW 추정.",
+   "src": [
+    "s14",
+    "s17"
+   ],
+   "asof": "8/26~9/15"
+  },
+  {
+   "name": "Bank of America",
+   "stance": {
+    "market": "Neutral*",
+    "ai": null
+   },
+   "prev": null,
+   "change": "",
+   "note": "연말 7,400·12개월 7,800(현재 지수 7,819 아래, *목표가 기반 해석). 5개 대형주가 S&P 이익의 27%로 집중 위험 지적.",
+   "src": [
+    "s15"
+   ],
+   "asof": "9/15"
+  },
+  {
+   "name": "JPMorgan · Citi · BlackRock · Vanguard",
+   "stance": {
+    "market": null,
+    "ai": null
+   },
+   "prev": null,
+   "change": "",
+   "note": "이번 회차에서 최근 근거 자료를 확인하지 못해 View를 부여하지 않았습니다.",
+   "src": [],
+   "asof": ""
+  }
+ ],
+ "view_changed": [
+  {
+   "item": "Fed 10월 인상",
+   "frm": "확률 약 70%",
+   "to": "약 22%",
+   "reason": "9월 고용 +29K, 실업률 4.2%로 상승(10/2)",
+   "src": [
+    "s4"
+   ]
+  },
+  {
+   "item": "미 10Y 금리",
+   "frm": "5.25%(9/29, 24년래 고점)",
+   "to": "5.27%(10/6)",
+   "reason": "고점권 유지, 10/6은 전일(5.31%)보다 하락해 주식 지지",
+   "src": [
+    "s2",
+    "s8",
+    "s6"
+   ]
+  },
+  {
+   "item": "S&P 500 YTD",
+   "frm": "+12.1%(9/29)",
+   "to": "+14.2%(10/6)",
+   "reason": "인수 소식, 금리 하락, 전력·AI 관련 호재",
+   "src": [
+    "s8",
+    "s6"
+   ]
+  }
+ ],
+ "emerging": [
+  {
+   "title": "AI 데이터센터 전력 부족이 CAPEX 확대의 제약으로",
+   "detail": "모건스탠리는 2028년까지 38GW 부족을 추정하고, 변압기는 2027년 3Q까지 예약 완료. 구글–콘스텔레이션 장기 전력 계약(10/6)처럼 전력 확보가 투자 일정을 좌우하는 단계.",
+   "importance": "MEDIUM",
+   "src": [
+    "s17",
+    "s18",
+    "s6"
+   ]
+  },
+  {
+   "title": "5개 대형주로의 이익 집중",
+   "detail": "엔비디아·알파벳·마이크론·MS·애플이 S&P 500 이익의 27%(BofA). 지수 상승이 소수 종목에 의존.",
+   "importance": "MEDIUM",
+   "src": [
+    "s15"
+   ]
+  },
+  {
+   "title": "초대형 신규 상장(SpaceX) 시총 2.32조 달러",
+   "detail": "시총 순위 6위로 집계됨. 지수 편입·자금 유입 영향은 아직 근거 자료가 부족해 추적 대상으로만 표시.",
+   "importance": "LOW",
+   "src": [
+    "s21"
+   ]
+  }
+ ],
+ "risks": [
+  {
+   "title": "추가 금리 인상과 10년물 5%대 지속",
+   "detail": "MS는 9·12월 인상을 예상하고, 채권시장은 향후 1년간 최대 4회 인상을 반영했다는 보도도 있음. 밸류에이션 할인율 부담.",
+   "importance": "HIGH",
+   "src": [
+    "s14",
+    "s15"
+   ]
+  },
+  {
+   "title": "유가·호르무즈 차질로 인한 물가 재가속",
+   "detail": "에너지가 헤드라인 CPI의 핵심. 휘발유 연 +27.4%.",
+   "importance": "HIGH",
+   "src": [
+    "s3",
+    "s19"
+   ]
+  },
+  {
+   "title": "고용 둔화와 높은 물가가 동시에",
+   "detail": "9월 +29K, 실업률 4.2%. Fed 의장은 인상이 고용이 아닌 물가 때문이라고 설명(FXStreet 인용).",
+   "importance": "MEDIUM",
+   "src": [
+    "s4"
+   ]
+  },
+  {
+   "title": "메모리 사이클 정점 논란",
+   "detail": "마이크론 선행 PER 6배는 ‘이익이 정점일 때 싸 보이는’ 패턴. 가격 상승이 꺾이는 신호 확인 필요.",
+   "importance": "MEDIUM",
+   "src": [
+    "s9"
+   ]
+  }
+ ],
+ "scenarios": {
+  "lean": "Base",
+  "bull": {
+   "summary": "인상이 12월에 끝나고 유가가 안정되며 EPS 증가가 이어짐",
+   "conditions": [
+    "유가 하락·호르무즈 정상화로 CPI 둔화",
+    "12월 이후 Fed 인상 중단(UBS 시나리오)",
+    "AI CAPEX 상향 + 마이크론 등 메모리 가이던스 상회"
+   ]
+  },
+  "base": {
+   "summary": "1회 추가 인상 후 정체, 10년물 5% 안팎, 지수는 이익이 받치는 완만한 상승",
+   "conditions": [
+    "12월 1회 인상 후 관망",
+    "AI 투자 지속, 전력 병목은 일정 지연 수준",
+    "고용 둔화가 실업률 4.4% 미만에서 안정"
+   ]
+  },
+  "bear": {
+   "summary": "물가 고착으로 인상이 이어지고 금리 상승이 고밸류 주식을 누름",
+   "conditions": [
+    "유가 재급등으로 CPI 재가속(MS 시나리오)",
+    "10년물 추가 상승, 실업률 4.4%↑ 동반",
+    "AI 밸류 부담·메모리 가격 모멘텀 둔화"
+   ]
+  }
+ },
+ "sources": [
+  {
+   "id": "s1",
+   "title": "FOMC Statement (2026-09-16)",
+   "publisher": "Federal Reserve",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+   "date": "2026-09-16",
+   "tier": "공식"
+  },
+  {
+   "id": "s2",
+   "title": "Daily Treasury Par Yield Curve Rates (Oct 2026)",
+   "publisher": "U.S. Treasury",
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value_month=202610",
+   "date": "2026-10-06",
+   "tier": "공식"
+  },
+  {
+   "id": "s3",
+   "title": "August 2026 CPI",
+   "publisher": "Fox Business",
+   "url": "https://www.foxbusiness.com/economy/cpi-inflation-august-2026.amp",
+   "date": "2026-09-11",
+   "tier": "언론"
+  },
+  {
+   "id": "s4",
+   "title": "The October Fed hike just died (Sept jobs +29K)",
+   "publisher": "FXStreet",
+   "url": "https://www.fxstreet.com/analysis/the-october-fed-hike-just-died-heres-what-the-29k-jobs-report-really-means-for-rates-202610021806",
+   "date": "2026-10-02",
+   "tier": "언론"
+  },
+  {
+   "id": "s5",
+   "title": "Nonfarm Payrolls increased 162,000 in August",
+   "publisher": "First Trust",
+   "url": "https://www.ftportfolios.com/Commentary/EconomicResearch/2026/9/4/nonfarm-payrolls-increased-162,000-in-august",
+   "date": "2026-09-04",
+   "tier": "리서치"
+  },
+  {
+   "id": "s6",
+   "title": "How major US stock indexes fared Tuesday 10/6/2026",
+   "publisher": "AP (La Nación)",
+   "url": "https://www.lanacion.com.ar/usa/how-major-us-stock-indexes-fared-tuesday-1062026-nid06102026/",
+   "date": "2026-10-06",
+   "tier": "언론"
+  },
+  {
+   "id": "s7",
+   "title": "How major US stock indexes fared Monday 10/5/2026",
+   "publisher": "AP (La Nación)",
+   "url": "https://www.lanacion.com.ar/usa/how-major-us-stock-indexes-fared-monday-1052026-nid05102026/",
+   "date": "2026-10-05",
+   "tier": "언론"
+  },
+  {
+   "id": "s8",
+   "title": "How major US stock indexes fared Tuesday 9/29/2026",
+   "publisher": "AP (La Nación)",
+   "url": "https://www.lanacion.com.ar/usa/how-major-us-stock-indexes-fared-tuesday-9292026-nid29092026/",
+   "date": "2026-09-29",
+   "tier": "언론"
+  },
+  {
+   "id": "s9",
+   "title": "Micron Reports Results for Q4 and FY2026 (8-K)",
+   "publisher": "SEC / Micron",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000723125/000072312526000018/a2026q4ex991-pressrelease.htm",
+   "date": "2026-09-30",
+   "tier": "공식"
+  },
+  {
+   "id": "s10",
+   "title": "Samsung, SK hynix HBM4 push puts HBM and general memory pricing in the spotlight",
+   "publisher": "TrendForce",
+   "url": "https://www.trendforce.com/news/2026/08/13/news-samsung-sk-hynixs-hbm4-push-puts-hbm-general-memory-pricing-in-the-spotlight-for-2h-earnings/",
+   "date": "2026-08-13",
+   "tier": "리서치"
+  },
+  {
+   "id": "s11",
+   "title": "Hyperscalers Hit $700 Billion in 2026 AI Spending Plans",
+   "publisher": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/sectors/technology/articles/hyperscalers-hit-700-billion-2026-111243744.html",
+   "date": "2026-05-01",
+   "tier": "언론"
+  },
+  {
+   "id": "s12",
+   "title": "NVIDIA Q2 revenue hits $96.2B, data center +117%",
+   "publisher": "The Energy Mag",
+   "url": "https://theenergymag.com/news/market-news/nvidia-q2-revenue-hits-96-2-b-as-data-center-surges-117-and-vera-rubin-ramps",
+   "date": "2026-08-26",
+   "tier": "언론"
+  },
+  {
+   "id": "s13",
+   "title": "UBS says Fed hike fears overdone as 10-year yield breaks above 5.1%",
+   "publisher": "InvestingLive",
+   "url": "https://investinglive.com/stock-market-update/ubs-says-fed-hike-fears-overdone-as-10-year-treasury-yield-breaks-above-5-1/",
+   "date": "2026-09-24",
+   "tier": "언론"
+  },
+  {
+   "id": "s14",
+   "title": "Markets are braced for one Fed hike: Morgan Stanley is looking much further ahead",
+   "publisher": "Invezz",
+   "url": "https://invezz.com/news/2026/09/15/markets-are-braced-for-one-fed-hike-morgan-stanley-is-looking-much-further-ahead/",
+   "date": "2026-09-15",
+   "tier": "언론"
+  },
+  {
+   "id": "s15",
+   "title": "New targets for S&P 500, earnings forecasts, rate hikes and AI (UBS, BofA)",
+   "publisher": "interactive investor",
+   "url": "https://www.ii.co.uk/analysis-commentary/new-targets-sp-500-earnings-forecasts-rate-hikes-and-ai-ii540287",
+   "date": "2026-09-15",
+   "tier": "언론"
+  },
+  {
+   "id": "s16",
+   "title": "Goldman Sachs hikes its S&P 500 target and rejects bubble-era comparisons",
+   "publisher": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/goldman-sachs-hikes-p-500-084300964.html",
+   "date": "2026-05 (추정)",
+   "tier": "언론"
+  },
+  {
+   "id": "s17",
+   "title": "Morgan Stanley: AI data centers face a 38 GW power shortfall through 2028",
+   "publisher": "Crypto Briefing",
+   "url": "https://cryptobriefing.com/morgan-stanley-ai-data-centers-38-gigawatt-power-gap/",
+   "date": "2026-08-26",
+   "tier": "언론(2차)"
+  },
+  {
+   "id": "s18",
+   "title": "Hyperscaler capex surge pushes global data centre capacity to 50 GW",
+   "publisher": "Datacentres.com",
+   "url": "https://www.datacentres.com/news/hyperscaler-capex-surge-pushes-global-data-centre-capacity-to-50-gw-as-power-con-slot1-2026-07-13",
+   "date": "2026-07-13",
+   "tier": "리서치"
+  },
+  {
+   "id": "s19",
+   "title": "Wall Street falls as Iran war sends oil above US$107",
+   "publisher": "The Nightly",
+   "url": "https://thenightly.com.au/business/wall-street-falls-as-iran-war-sends-oil-above-us107-and-federal-reserve-rate-hike-fears-hammer-us-stocks-c-22853518",
+   "date": "2026-09-11",
+   "tier": "언론"
+  },
+  {
+   "id": "s20",
+   "title": "Economic calendar Oct 6, 2026 (trade balance, EIA fuel prices)",
+   "publisher": "TheTrading.tools",
+   "url": "https://www.thetrading.tools/daily-brief/2026-10-06",
+   "date": "2026-10-06",
+   "tier": "집계"
+  },
+  {
+   "id": "s21",
+   "title": "Biggest companies by market cap",
+   "publisher": "stockanalysis.com",
+   "url": "https://stockanalysis.com/list/biggest-companies/",
+   "date": "2026-10-06",
+   "tier": "집계"
+  }
+ ]
+}

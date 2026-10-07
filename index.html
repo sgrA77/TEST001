@@ -321,6 +321,12 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     .event .ls { display: inline; }
     /* 모바일: 2줄째 = 날짜(MM/DD) · 남은 시간 */
 }
+
+/* Market Outlook 바로가기 (기존 스타일은 건드리지 않고 추가만) */
+.ol-link{display:flex;align-items:center;justify-content:space-between;gap:10px;text-decoration:none;color:inherit;margin-bottom:12px;border-left:4px solid var(--yellow)}
+.ol-link .ol-t{font-size:13px;font-weight:800;white-space:nowrap}
+.ol-link .ol-s{font-size:12px;color:var(--sub);text-align:right;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ol-link .ol-v{font-weight:800}
 </style>
 </head>
 
@@ -332,6 +338,8 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 </div>
 
 <div class="wrap">
+
+    <a class="panel slim ol-link" href="outlook.html" id="olink"><span class="ol-t">Market Outlook</span><span class="ol-s" id="ol-sub">시황·전망 · AI/반도체 →</span></a>
 
     <section class="panel slim">
         <div class="panel-head">
@@ -955,5 +963,17 @@ fetch("data.json?t=" + Date.now())
 
 </script>
 
+
+<script>
+/* Market Outlook 요약 한 줄 (실패해도 대시보드에 영향 없음) */
+(function(){
+  fetch('outlook.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
+    if(!d||!d.market_view) return;
+    var t=(d.key_changes&&d.key_changes[0]&&d.key_changes[0].title)||'';
+    var el=document.getElementById('ol-sub'); if(!el) return;
+    el.innerHTML='<span class="ol-v">'+d.market_view.label+'</span> · '+d.date.slice(5)+' · '+t.replace(/[<>&]/g,'')+' →';
+  }).catch(function(){});
+})();
+</script>
 </body>
 </html>
