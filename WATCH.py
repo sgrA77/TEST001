@@ -160,7 +160,24 @@ def save(d):
     idx.sort(key=lambda x: x["week_end"])
     json.dump(idx, open(ip, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
+def probe():
+    urls = [
+     "https://m.stock.naver.com/api/stocks/marketValue/KOSPI?page=1&pageSize=3",
+     "https://m.stock.naver.com/api/stocks/marketValue/KOSDAQ?page=1&pageSize=3",
+     "https://m.stock.naver.com/api/stock/005930/price?pageSize=3&page=1",
+     "https://api.stock.naver.com/chart/domestic/item/005930/day?startDateTime=20260925&endDateTime=20261005",
+     "https://fchart.stock.naver.com/sise.nhn?symbol=005930&timeframe=day&count=3&requestType=0",
+     "https://query1.finance.yahoo.com/v8/finance/chart/005930.KS?range=5d&interval=1d",
+    ]
+    for u in urls:
+        try:
+            t = http(u, tries=1)
+            log("::warning title=probe OK::%s len=%d %r" % (u[:80], len(t), t[:260].replace("\n", " ")))
+        except Exception as e:
+            log("::warning title=probe FAIL::%s %r" % (u[:80], e))
+
 def main():
+    if "--probe" in sys.argv: return probe()
     now = dt.datetime.now(KST)
     friday = sys.argv[sys.argv.index("--week") + 1] if "--week" in sys.argv else None
     mon, fri = target_week(now.date(), friday)

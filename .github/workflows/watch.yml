@@ -27,7 +27,9 @@ jobs:
           python-version: "3.11"
       - name: Run WATCH.py
         run: |
-          if [ -n "${{ github.event.inputs.week_friday }}" ]; then
+          if [ "${{ github.event.inputs.week_friday }}" = "probe" ]; then
+            python WATCH.py --probe
+          elif [ -n "${{ github.event.inputs.week_friday }}" ]; then
             python WATCH.py --week "${{ github.event.inputs.week_friday }}"
           else
             python WATCH.py
