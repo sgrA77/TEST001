@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-08 06:48 KST",
+ "updated_at": "2026-10-08 07:00 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -20,7 +20,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1339.34,
+    "value": 1339.38,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -205,7 +205,7 @@
      "eps_est": 6.9481,
      "eps_act": 7.58,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 9326500000
     }
    ]
   },
@@ -247,8 +247,8 @@
    "date": "2026-10-21",
    "ts": 1792612800,
    "d_day": 13,
-   "eps_est": 0.4474,
-   "rev_est": 27905391170,
+   "eps_est": 0.4507,
+   "rev_est": 28013915020,
    "quarters": [
     {
      "label": "4Q2025",
@@ -312,7 +312,7 @@
    "ts": 1793217600,
    "d_day": 20,
    "eps_est": 4.7234,
-   "rev_est": 90672793730,
+   "rev_est": 90685460400,
    "quarters": [
     {
      "label": "4Q2025",
@@ -557,7 +557,7 @@
      "eps_est": 1.8924,
      "eps_act": 2.02,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 109417000000
     }
    ]
   },
@@ -685,7 +685,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": 29591000000
+     "rev_act": null
     }
    ]
   },
@@ -728,9 +728,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 83153.66,
+    "price": 83088.31,
     "prev_day": 85557.5625,
-    "turnover": 38138675200,
+    "turnover": 38365581312,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -1458,7 +1458,7 @@
    "MSFT": {
     "3Q2026": {
      "eps_est": 4.72336,
-     "rev_est": 90672793730
+     "rev_est": 90685460400
     }
    },
    "AAPL": {
@@ -1487,8 +1487,8 @@
    },
    "TSLA": {
     "3Q2026": {
-     "eps_est": 0.44738,
-     "rev_est": 27905391170
+     "eps_est": 0.45074,
+     "rev_est": 28013915020
     }
    },
    "AMD": {
