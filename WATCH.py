@@ -169,7 +169,11 @@ def main():
     except Exception as e: raise RuntimeError("종목 목록 요청 실패: %r" % e)
     log("[info] 종목 수: %d (코스피 %d / 코스닥 %d)" % (len(stocks), sum(1 for s in stocks.values() if s["market"] == "KOSPI"),
                                                   sum(1 for s in stocks.values() if s["market"] == "KOSDAQ")))
-    if len(stocks) < 1500: raise RuntimeError("종목 목록 수집 실패(%d개) - 사이트 구조 변경 가능성" % len(stocks))
+    if len(stocks) < 1500:
+        h = http("https://finance.naver.com/sise/sise_market_sum.naver?sosok=0&page=1", enc="euc-kr")
+        i = h.find("code=")
+        raise RuntimeError("종목 목록 수집 실패(%d개) len=%d title=%r pgRR=%s ctx=%r" % (len(stocks), len(h),
+                           re.findall(r"<title>(.*?)</title>", h, re.S)[:1], "pgRR" in h, h[max(0, i - 120):i + 200] if i >= 0 else h[:300]))
     rows, ok, fail = run(stocks, fetch_candles, mon, fri)
     log("[info] 수집 성공 %d / 실패 %d" % (ok, fail))
     if ok / max(1, ok + fail) < MIN_OK_RATIO: raise RuntimeError("수집 성공률 부족 (%d/%d)" % (ok, ok + fail))
