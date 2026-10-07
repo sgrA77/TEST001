@@ -165,7 +165,8 @@ def main():
     friday = sys.argv[sys.argv.index("--week") + 1] if "--week" in sys.argv else None
     mon, fri = target_week(now.date(), friday)
     log("[info] 대상 주: %s ~ %s" % (mon, fri))
-    stocks = list_stocks()
+    try: stocks = list_stocks()
+    except Exception as e: raise RuntimeError("종목 목록 요청 실패: %r" % e)
     log("[info] 종목 수: %d (코스피 %d / 코스닥 %d)" % (len(stocks), sum(1 for s in stocks.values() if s["market"] == "KOSPI"),
                                                   sum(1 for s in stocks.values() if s["market"] == "KOSDAQ")))
     if len(stocks) < 1500: raise RuntimeError("종목 목록 수집 실패(%d개) - 사이트 구조 변경 가능성" % len(stocks))
@@ -178,4 +179,6 @@ def main():
 if __name__ == "__main__":
     try: main()
     except Exception as e:
-        log("[error] %s" % e); sys.exit(1)
+        log("[error] %s" % e)
+        log("::error title=WATCH.py::%s" % str(e).replace("\n", " ")[:900])   # Actions 화면/API 주석으로 노출
+        sys.exit(1)
