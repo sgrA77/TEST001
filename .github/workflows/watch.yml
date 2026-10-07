@@ -1,0 +1,46 @@
+name: Weekly Surge Watch
+
+on:
+  schedule:
+    - cron: "30 1 * * 6"     # 매주 토요일 10:30 KST (그 주 금요일 종가 기준 확정 후)
+  workflow_dispatch:
+    inputs:
+      week_friday:
+        description: "대상 주의 금요일 날짜 (예: 2026-10-02). 비우면 자동"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: watch-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run WATCH.py
+        run: |
+          if [ -n "${{ github.event.inputs.week_friday }}" ]; then
+            python WATCH.py --week "${{ github.event.inputs.week_friday }}"
+          else
+            python WATCH.py
+          fi
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add watch.json watch/
+          if git diff --cached --quiet; then echo "no changes"; exit 0; fi
+          git commit -m "watch: weekly surge update"
+          for i in 1 2 3; do
+            git pull --rebase --autostash origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && exit 0
+            sleep 5
+          done
+          exit 1
