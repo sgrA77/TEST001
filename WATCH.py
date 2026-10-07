@@ -66,25 +66,21 @@ def weekly_change(candles, mon, fri):
 
 # --------------------------- 데이터 수집 ---------------------------
 def list_stocks():
-    """네이버 금융 시가총액 페이지에서 코스피/코스닥 종목 목록(코드, 이름, 시총)."""
+    """네이버 증권 모바일 API(시가총액 순)에서 코스피/코스닥 보통주 목록(코드, 이름, 시총 억원)."""
     out = {}
-    for sosok, market in ((0, "KOSPI"), (1, "KOSDAQ")):
-        last = 1
+    for market in ("KOSPI", "KOSDAQ"):
         page = 1
-        while page <= last:
-            html = http("https://finance.naver.com/sise/sise_market_sum.naver?sosok=%d&page=%d" % (sosok, page), enc="euc-kr")
-            if page == 1:
-                m = re.search(r'class="pgRR".*?page=(\d+)', html, re.S)
-                last = int(m.group(1)) if m else 1
-            for row in re.findall(r"<tr[^>]*>(.*?)</tr>", html, re.S):
-                m = re.search(r'/item/main\.naver\?code=(\d{6})"[^>]*>([^<]+)</a>', row)
-                if not m: continue
-                nums = [re.sub(r"[^\d.\-]", "", x) for x in re.findall(r'<td class="number"[^>]*>\s*([^<]*?)\s*</td>', row)]
-                cap = None
-                if len(nums) >= 5 and nums[4]:           # 현재가, 전일비, 등락률, 액면가, 시가총액
-                    try: cap = int(float(nums[4]))        # 억원
-                    except ValueError: cap = None
-                out[m.group(1)] = {"code": m.group(1), "name": m.group(2).strip(), "market": market, "cap": cap}
+        while page <= 80:
+            j = json.loads(http("https://m.stock.naver.com/api/stocks/marketValue/%s?page=%d&pageSize=100" % (market, page)))
+            items = j.get("stocks") or []
+            for it in items:
+                if it.get("stockEndType", "stock") != "stock": continue      # ETF/ETN 등 제외
+                code = str(it.get("itemCode", ""))
+                if not re.fullmatch(r"\d{6}", code): continue
+                try: cap = int(float(str(it.get("marketValue", "")).replace(",", "")))
+                except ValueError: cap = None
+                out[code] = {"code": code, "name": it.get("stockName", code), "market": market, "cap": cap}
+            if len(items) < 100: break
             page += 1
             time.sleep(0.15)
     return out
@@ -187,7 +183,7 @@ def main():
     log("[info] 종목 수: %d (코스피 %d / 코스닥 %d)" % (len(stocks), sum(1 for s in stocks.values() if s["market"] == "KOSPI"),
                                                   sum(1 for s in stocks.values() if s["market"] == "KOSDAQ")))
     if len(stocks) < 1500:
-        h = http("https://finance.naver.com/sise/sise_market_sum.naver?sosok=0&page=1", enc="euc-kr")
+        h = http("https://m.stock.naver.com/api/stocks/marketValue/KOSPI?page=1&pageSize=3")
         i = h.find("code=")
         raise RuntimeError("종목 목록 수집 실패(%d개) len=%d title=%r pgRR=%s ctx=%r" % (len(stocks), len(h),
                            re.findall(r"<title>(.*?)</title>", h, re.S)[:1], "pgRR" in h, h[max(0, i - 120):i + 200] if i >= 0 else h[:300]))
