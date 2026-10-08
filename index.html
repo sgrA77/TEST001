@@ -340,7 +340,7 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 <div class="wrap">
 
     <a class="panel slim ol-link" href="outlook.html" id="olink"><span class="ol-t">Market Outlook</span><span class="ol-s" id="ol-sub">시황·전망 · AI/반도체 →</span></a>
-    <a class="panel slim ol-link" href="watch.html" id="wlink"><span class="ol-t">급등 종목 모니터링</span><span class="ol-s" id="wl-sub">코스피 +20% · 코스닥 +30% 주간 →</span></a>
+    <a class="panel slim ol-link" href="watch.html" id="wlink"><span class="ol-t">급등·매집 모니터링</span><span class="ol-s" id="wl-sub">주간 급등 · 매집 의심 →</span></a>
 
     <section class="panel slim">
         <div class="panel-head">
@@ -978,7 +978,7 @@ fetch("data.json?t=" + Date.now())
 (function(){
   fetch('watch.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
     var el=document.getElementById('wl-sub'); if(!d||!el) return;
-    el.innerHTML='<span class="ol-v">'+d.label+'</span> · 코스피 '+d.kospi.length+' · 코스닥 '+d.kosdaq.length+' →';
+    el.innerHTML='<span class="ol-v">'+d.label+'</span> · 급등 '+(d.kospi.length+d.kosdaq.length)+(d.accum?' · 매집 '+d.accum.length:'')+' →';
   }).catch(function(){});
 })();
 </script>
