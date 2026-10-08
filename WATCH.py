@@ -158,17 +158,17 @@ def save(d):
 
 def probe():
     urls = [
-     "https://m.stock.naver.com/api/stocks/marketValue/KOSPI?page=1&pageSize=3",
-     "https://m.stock.naver.com/api/stocks/marketValue/KOSDAQ?page=1&pageSize=3",
-     "https://m.stock.naver.com/api/stock/005930/price?pageSize=3&page=1",
-     "https://api.stock.naver.com/chart/domestic/item/005930/day?startDateTime=20260925&endDateTime=20261005",
-     "https://fchart.stock.naver.com/sise.nhn?symbol=005930&timeframe=day&count=3&requestType=0",
-     "https://query1.finance.yahoo.com/v8/finance/chart/005930.KS?range=5d&interval=1d",
+     "https://m.stock.naver.com/api/stock/005930/integration",
+     "https://m.stock.naver.com/api/stock/005930/basic",
+     "https://m.stock.naver.com/api/stocks/industry?page=1&pageSize=5",
+     "https://m.stock.naver.com/api/stocks/industry/278?page=1&pageSize=3",
+     "https://m.stock.naver.com/api/stock/196170/integration",
     ]
     for u in urls:
         try:
             t = http(u, tries=1)
-            log("::warning title=probe OK::%s len=%d %r" % (u[:80], len(t), t[:260].replace("\n", " ")))
+            ctx = [t[max(0, m.start() - 60):m.start() + 160].replace("\n", " ") for m in re.finditer(r"ndustry|upjong|ector", t)][:3]
+            log("::warning title=probe OK::%s len=%d head=%r ctx=%r" % (u[26:90], len(t), t[:150], ctx))
         except Exception as e:
             log("::warning title=probe FAIL::%s %r" % (u[:80], e))
 
