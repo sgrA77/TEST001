@@ -130,6 +130,7 @@ th{font-size:11px;color:var(--dim);font-weight:700;white-space:nowrap}
 .wk .chg{font-weight:800;color:var(--up-t)}
 .fl{display:inline-block;white-space:nowrap;font-size:10.5px;font-weight:700;border:1px solid var(--line);border-radius:99px;padding:0 6px;margin-left:4px;color:var(--mid)}
 .wrap{overflow-x:auto}
+.gh.tg td{cursor:pointer}.gh.tg td:before{content:'▸ '}.gh.tg.open td:before{content:'▾ '}.hid{display:none}
 .gh td{background:var(--card);font-weight:800;font-size:12px;color:var(--amber);text-align:left!important;border-top:1px solid var(--line)}
 .sec{font-size:11px;color:var(--amber);font-weight:700;margin-top:1px}
 .acc{border-left:4px solid var(--down-t)}
@@ -164,9 +165,10 @@ function tbl(rows,th){
 function atbl(rows){
   if(!rows||!rows.length)return '<div class="empty" style="padding:10px;color:var(--dim)">조건을 충족한 종목이 없습니다</div>';
   return '<div class="wrap"><table class="wk"><thead><tr><th>종목</th><th>종가</th><th>시작가 대비</th><th>주중 최고(시작가比)</th><th>시총</th><th>거래량 배수</th></tr></thead><tbody>'
-   +grp(rows).map(function(G){return gh(G.name,G.rows.length,6)+G.rows.map(function(r){var c=r.open_chg;return '<tr><td class="nm"><b>'+esc(r.name)+'</b><small>'+esc(r.code)+' · '+(r.market==='KOSPI'?'코스피':'코스닥')+'</small>'+(r.flags||[]).map(function(f){return '<span class="fl">'+esc(f)+'</span>'}).join('')+'</td>'
+   +grp(rows).map(function(G,gi){return '<tr class="gh tg" data-g="'+gi+'"><td colspan="6">'+esc(G.name)+' <span class="note">'+G.rows.length+'개 · 눌러서 펼치기</span></td></tr>'+G.rows.map(function(r){var c=r.open_chg;return '<tr class="hid g'+gi+'"><td class="nm"><b>'+esc(r.name)+'</b><small>'+esc(r.code)+' · '+(r.market==='KOSPI'?'코스피':'코스닥')+'</small>'+(r.flags||[]).map(function(f){return '<span class="fl">'+esc(f)+'</span>'}).join('')+'</td>'
      +'<td>'+won(r.price)+'원<br><small class="note">주 시작가 '+won(r.open_price)+'</small></td><td style="font-weight:800">'+(c>0?'+':'')+c.toFixed(2)+'%</td><td>'+(r.max_up!=null?'+'+r.max_up+'%':'–')+'</td><td>'+cap(r.cap_eok)+'</td><td>'+(r.vol_ratio?r.vol_ratio+'배':'–')+'</td></tr>'}).join('')}).join('')+'</tbody></table></div>';
 }
+function bindTg(){[].forEach.call(document.querySelectorAll('tr.tg'),function(t){t.onclick=function(){var g=t.getAttribute('data-g'),open=t.className.indexOf('open')<0;t.className='gh tg'+(open?' open':'');[].forEach.call(document.querySelectorAll('tr.g'+g),function(r){r.className=(open?'':'hid ')+'g'+g})}})}
 function render(D){
   document.getElementById('upd').innerHTML=esc(D.label)+'<br>갱신 '+esc((D.generated_at||'').slice(0,16).replace('T',' '));
   var T=D.thresholds||{};
@@ -178,6 +180,7 @@ function render(D){
    +'<section class="panel acc"><h2>매집 의심 모니터링 <small>주봉 시작가 대비 종가 ±'+(T.ACCUM_BAND||2.5)+'% 이내 · 주중 최고 +'+(T.ACCUM_MAX_UP||10)+'% 이하 · 업종별 시총순</small></h2>'+(D.accum?atbl(D.accum):'<div class="empty" style="padding:10px;color:var(--dim)">이 주 기록에는 매집 항목이 없습니다(기능 추가 이전 데이터)</div>')
    +'<div class="note" style="margin-top:6px">가격이 주 시작가 근처에서 크게 오르지 않고 머문 종목입니다. 거래량 조건은 쓰지 않으므로 거래량 배수는 참고용입니다. 급등 목록에 있는 종목은 제외됩니다.</div></section>'
    +'<section class="panel warn">이 페이지는 <b>급등 사실을 모아 보여주는 모니터링 도구</b>입니다. 급등 자체가 시세조종·작전을 뜻하지는 않습니다. 표시(소형주, 거래량 급증, 스팩)와 “매집 의심”은 수치 조건에 맞는 종목을 모은 것일 뿐 매집·시세조종 여부의 판단이 아닙니다. 투자 권유가 아니며, 거래량 배수는 해당 주 일평균 거래량÷직전 약 4주 일평균입니다. 가격은 네이버 금융/Yahoo Finance 일봉 기준이라 실제와 차이가 있을 수 있습니다.</section>';
+  bindTg();
 }
 function hist(){
   fj('watch/index.json').then(function(a){
