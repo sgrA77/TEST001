@@ -1,505 +1,884 @@
 {
- "version": 1,
+ "version": 2,
  "week_start": "2026-09-28",
  "week_end": "2026-10-02",
  "label": "2026.09.28 ~ 10.02",
- "generated_at": "2026-10-07T17:27:24+09:00",
+ "generated_at": "2026-10-08T10:39:46+09:00",
  "thresholds": {
   "KOSPI": 20.0,
-  "KOSDAQ": 30.0
+  "KOSDAQ": 30.0,
+  "ACCUM_BAND": 2.0,
+  "ACCUM_VOL": 3.0
  },
- "scanned": 2675,
+ "scanned": 2673,
  "failed": 3,
+ "accum_total_without_volume_filter": 1001,
  "kospi": [
   {
-   "code": "248070",
-   "name": "솔루엠",
+   "code": "009830",
+   "name": "한화솔루션",
    "market": "KOSPI",
-   "price": 16710,
-   "prev_price": 12890,
-   "chg": 29.64,
-   "cap_eok": 8430,
-   "vol_ratio": 6.1,
+   "price": 36100,
+   "cap_eok": 82423,
+   "vol_ratio": 3.6,
+   "last_day": "2026-10-02",
+   "prev_price": 29400,
+   "chg": 22.79,
    "flags": [
     "거래량 급증"
    ],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "217590",
-   "name": "티엠씨",
-   "market": "KOSPI",
-   "price": 18440,
-   "prev_price": 14310,
-   "chg": 28.86,
-   "cap_eok": 4527,
-   "vol_ratio": 0.9,
-   "flags": [],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "025560",
-   "name": "미래산업",
-   "market": "KOSPI",
-   "price": 8350,
-   "prev_price": 6520,
-   "chg": 28.07,
-   "cap_eok": 2231,
-   "vol_ratio": 2.8,
-   "flags": [],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "457190",
-   "name": "이수스페셜티케미컬",
-   "market": "KOSPI",
-   "price": 81900,
-   "prev_price": 64200,
-   "chg": 27.57,
-   "cap_eok": 24084,
-   "vol_ratio": 4.0,
-   "flags": [
-    "거래량 급증"
-   ],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "020150",
-   "name": "롯데에너지머티리얼즈",
-   "market": "KOSPI",
-   "price": 51100,
-   "prev_price": 40100,
-   "chg": 27.43,
-   "cap_eok": 28225,
-   "vol_ratio": 1.4,
-   "flags": [],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "002360",
-   "name": "SH에너지화학",
-   "market": "KOSPI",
-   "price": 3325,
-   "prev_price": 2610,
-   "chg": 27.39,
-   "cap_eok": 378,
-   "vol_ratio": 3.3,
-   "flags": [
-    "소형주",
-    "거래량 급증"
-   ],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "007810",
-   "name": "코리아써키트",
-   "market": "KOSPI",
-   "price": 82900,
-   "prev_price": 65100,
-   "chg": 27.34,
-   "cap_eok": 21249,
-   "vol_ratio": 2.7,
-   "flags": [],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "480370",
-   "name": "씨케이솔루션",
-   "market": "KOSPI",
-   "price": 2250,
-   "prev_price": 1772,
-   "chg": 26.98,
-   "cap_eok": 690,
-   "vol_ratio": 0.6,
-   "flags": [
-    "소형주"
-   ],
-   "last_day": "2026-10-02"
+   "sector": "에너지장비및서비스"
   },
   {
    "code": "353200",
    "name": "대덕전자",
    "market": "KOSPI",
    "price": 149200,
+   "cap_eok": 78425,
+   "vol_ratio": 1.5,
+   "last_day": "2026-10-02",
    "prev_price": 119200,
    "chg": 25.17,
-   "cap_eok": 74867,
-   "vol_ratio": 1.5,
    "flags": [],
-   "last_day": "2026-10-02"
+   "sector": "전자장비와기기"
+  },
+  {
+   "code": "020150",
+   "name": "롯데에너지머티리얼즈",
+   "market": "KOSPI",
+   "price": 51100,
+   "cap_eok": 29272,
+   "vol_ratio": 1.4,
+   "last_day": "2026-10-02",
+   "prev_price": 40100,
+   "chg": 27.43,
+   "flags": [],
+   "sector": "전자장비와기기"
+  },
+  {
+   "code": "457190",
+   "name": "이수스페셜티케미컬",
+   "market": "KOSPI",
+   "price": 81900,
+   "cap_eok": 24326,
+   "vol_ratio": 4.0,
+   "last_day": "2026-10-02",
+   "prev_price": 64200,
+   "chg": 27.57,
+   "flags": [
+    "거래량 급증"
+   ],
+   "sector": "화학"
+  },
+  {
+   "code": "007810",
+   "name": "코리아써키트",
+   "market": "KOSPI",
+   "price": 82900,
+   "cap_eok": 21153,
+   "vol_ratio": 2.7,
+   "last_day": "2026-10-02",
+   "prev_price": 65100,
+   "chg": 27.34,
+   "flags": [],
+   "sector": "전자장비와기기"
   },
   {
    "code": "003570",
    "name": "SNT다이내믹스",
    "market": "KOSPI",
    "price": 32850,
+   "cap_eok": 9643,
+   "vol_ratio": 7.6,
+   "last_day": "2026-10-02",
    "prev_price": 26350,
    "chg": 24.67,
-   "cap_eok": 10092,
-   "vol_ratio": 7.6,
    "flags": [
     "거래량 급증"
    ],
-   "last_day": "2026-10-02"
+   "sector": "자동차부품"
   },
   {
-   "code": "009830",
-   "name": "한화솔루션",
+   "code": "248070",
+   "name": "솔루엠",
    "market": "KOSPI",
-   "price": 36100,
-   "prev_price": 29400,
-   "chg": 22.79,
-   "cap_eok": 81411,
-   "vol_ratio": 3.6,
+   "price": 16710,
+   "cap_eok": 8167,
+   "vol_ratio": 6.1,
+   "last_day": "2026-10-02",
+   "prev_price": 12890,
+   "chg": 29.64,
    "flags": [
     "거래량 급증"
    ],
-   "last_day": "2026-10-02"
+   "sector": "전자장비와기기"
   },
   {
    "code": "004710",
    "name": "한솔테크닉스",
    "market": "KOSPI",
    "price": 12070,
+   "cap_eok": 6323,
+   "vol_ratio": 1.7,
+   "last_day": "2026-10-02",
    "prev_price": 9930,
    "chg": 21.55,
-   "cap_eok": 6222,
-   "vol_ratio": 1.7,
    "flags": [],
-   "last_day": "2026-10-02"
+   "sector": "전자장비와기기"
+  },
+  {
+   "code": "217590",
+   "name": "티엠씨",
+   "market": "KOSPI",
+   "price": 18440,
+   "cap_eok": 4368,
+   "vol_ratio": 0.9,
+   "last_day": "2026-10-02",
+   "prev_price": 14310,
+   "chg": 28.86,
+   "flags": [],
+   "sector": "조선"
   },
   {
    "code": "002710",
    "name": "TCC스틸",
    "market": "KOSPI",
    "price": 13590,
+   "cap_eok": 3806,
+   "vol_ratio": 4.5,
+   "last_day": "2026-10-02",
    "prev_price": 11300,
    "chg": 20.27,
-   "cap_eok": 3759,
-   "vol_ratio": 4.5,
    "flags": [
     "거래량 급증"
    ],
-   "last_day": "2026-10-02"
-  }
- ],
- "kosdaq": [
-  {
-   "code": "097800",
-   "name": "윈팩",
-   "market": "KOSDAQ",
-   "price": 4025,
-   "prev_price": 2465,
-   "chg": 63.29,
-   "cap_eok": 984,
-   "vol_ratio": 44.2,
-   "flags": [
-    "소형주",
-    "거래량 급증"
-   ],
-   "last_day": "2026-10-02"
+   "sector": "철강"
   },
   {
-   "code": "360350",
-   "name": "코셈",
-   "market": "KOSDAQ",
-   "price": 11000,
-   "prev_price": 7150,
-   "chg": 53.85,
-   "cap_eok": 658,
-   "vol_ratio": 8.3,
-   "flags": [
-    "소형주",
-    "거래량 급증"
-   ],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "136150",
-   "name": "원일티엔아이",
-   "market": "KOSDAQ",
-   "price": 12850,
-   "prev_price": 8400,
-   "chg": 52.98,
-   "cap_eok": 1081,
-   "vol_ratio": 44.9,
-   "flags": [
-    "거래량 급증"
-   ],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "109670",
-   "name": "씨싸이트",
-   "market": "KOSDAQ",
-   "price": 17350,
-   "prev_price": 11400,
-   "chg": 52.19,
-   "cap_eok": 937,
-   "vol_ratio": 3.5,
-   "flags": [
-    "소형주",
-    "거래량 급증"
-   ],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "263600",
-   "name": "덕우전자",
-   "market": "KOSDAQ",
-   "price": 5200,
-   "prev_price": 3430,
-   "chg": 51.6,
-   "cap_eok": 800,
-   "vol_ratio": 78.8,
-   "flags": [
-    "소형주",
-    "거래량 급증"
-   ],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "338220",
-   "name": "뷰노",
-   "market": "KOSDAQ",
-   "price": 8390,
-   "prev_price": 5610,
-   "chg": 49.55,
-   "cap_eok": 1150,
-   "vol_ratio": 9.0,
-   "flags": [
-    "거래량 급증"
-   ],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "105740",
-   "name": "디케이락",
-   "market": "KOSDAQ",
-   "price": 11680,
-   "prev_price": 8000,
-   "chg": 46.0,
-   "cap_eok": 1179,
-   "vol_ratio": 15.2,
-   "flags": [
-    "거래량 급증"
-   ],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "174900",
-   "name": "앱클론",
-   "market": "KOSDAQ",
-   "price": 28250,
-   "prev_price": 19710,
-   "chg": 43.33,
-   "cap_eok": 5317,
-   "vol_ratio": 2.5,
+   "code": "025560",
+   "name": "미래산업",
+   "market": "KOSPI",
+   "price": 8350,
+   "cap_eok": 2203,
+   "vol_ratio": 2.8,
+   "last_day": "2026-10-02",
+   "prev_price": 6520,
+   "chg": 28.07,
    "flags": [],
-   "last_day": "2026-10-02"
+   "sector": "반도체와반도체장비"
   },
   {
-   "code": "054780",
-   "name": "키이스트",
-   "market": "KOSDAQ",
-   "price": 2225,
-   "prev_price": 1566,
-   "chg": 42.08,
-   "cap_eok": 434,
-   "vol_ratio": 3.6,
-   "flags": [
-    "소형주",
-    "거래량 급증"
-   ],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "073570",
-   "name": "리튬포어스",
-   "market": "KOSDAQ",
-   "price": 3020,
-   "prev_price": 2155,
-   "chg": 40.14,
-   "cap_eok": 324,
-   "vol_ratio": 5.1,
-   "flags": [
-    "소형주",
-    "거래량 급증"
-   ],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "291650",
-   "name": "츌립앤사이언스",
-   "market": "KOSDAQ",
-   "price": 2635,
-   "prev_price": 1885,
-   "chg": 39.79,
-   "cap_eok": 847,
-   "vol_ratio": 4.2,
-   "flags": [
-    "소형주",
-    "거래량 급증"
-   ],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "067630",
-   "name": "HLB생명과학",
-   "market": "KOSDAQ",
-   "price": 3575,
-   "prev_price": 2620,
-   "chg": 36.45,
-   "cap_eok": 5102,
-   "vol_ratio": 13.8,
-   "flags": [
-    "거래량 급증"
-   ],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "456160",
-   "name": "지투지바이오",
-   "market": "KOSDAQ",
-   "price": 43850,
-   "prev_price": 32200,
-   "chg": 36.18,
-   "cap_eok": 7309,
-   "vol_ratio": 1.9,
-   "flags": [],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "412350",
-   "name": "레이저쎌",
-   "market": "KOSDAQ",
-   "price": 7430,
-   "prev_price": 5470,
-   "chg": 35.83,
-   "cap_eok": 964,
-   "vol_ratio": 2.4,
+   "code": "480370",
+   "name": "씨케이솔루션",
+   "market": "KOSPI",
+   "price": 2250,
+   "cap_eok": 752,
+   "vol_ratio": 0.6,
+   "last_day": "2026-10-02",
+   "prev_price": 1772,
+   "chg": 26.98,
    "flags": [
     "소형주"
    ],
-   "last_day": "2026-10-02"
+   "sector": "기계"
   },
   {
-   "code": "033790",
-   "name": "피노",
-   "market": "KOSDAQ",
-   "price": 10090,
-   "prev_price": 7600,
-   "chg": 32.76,
-   "cap_eok": 8524,
-   "vol_ratio": 0.8,
-   "flags": [],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "047920",
-   "name": "HLB제약",
-   "market": "KOSDAQ",
-   "price": 10040,
-   "prev_price": 7620,
-   "chg": 31.76,
-   "cap_eok": 5458,
-   "vol_ratio": 6.7,
+   "code": "002360",
+   "name": "SH에너지화학",
+   "market": "KOSPI",
+   "price": 3325,
+   "cap_eok": 381,
+   "vol_ratio": 3.3,
+   "last_day": "2026-10-02",
+   "prev_price": 2610,
+   "chg": 27.39,
    "flags": [
+    "소형주",
     "거래량 급증"
    ],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "351320",
-   "name": "넥사다이내믹스",
-   "market": "KOSDAQ",
-   "price": 4805,
-   "prev_price": 3665,
-   "chg": 31.11,
-   "cap_eok": 1343,
-   "vol_ratio": 0.4,
-   "flags": [],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "452190",
-   "name": "한빛레이저",
-   "market": "KOSDAQ",
-   "price": 6160,
-   "prev_price": 4700,
-   "chg": 31.06,
-   "cap_eok": 1445,
-   "vol_ratio": 3.1,
-   "flags": [
-    "거래량 급증"
-   ],
-   "last_day": "2026-10-02"
-  },
+   "sector": "화학"
+  }
+ ],
+ "kosdaq": [
   {
    "code": "028300",
    "name": "HLB",
    "market": "KOSDAQ",
    "price": 40650,
+   "cap_eok": 60805,
+   "vol_ratio": 1.6,
+   "last_day": "2026-10-02",
    "prev_price": 31050,
    "chg": 30.92,
-   "cap_eok": 61138,
-   "vol_ratio": 1.6,
    "flags": [],
-   "last_day": "2026-10-02"
-  },
-  {
-   "code": "462510",
-   "name": "라메디텍",
-   "market": "KOSDAQ",
-   "price": 3560,
-   "prev_price": 2725,
-   "chg": 30.64,
-   "cap_eok": 303,
-   "vol_ratio": 17.6,
-   "flags": [
-    "소형주",
-    "거래량 급증"
-   ],
-   "last_day": "2026-10-02"
+   "sector": "건강관리장비와용품"
   },
   {
    "code": "178320",
    "name": "서진시스템",
    "market": "KOSDAQ",
    "price": 41850,
+   "cap_eok": 26445,
+   "vol_ratio": 2.2,
+   "last_day": "2026-10-02",
    "prev_price": 32050,
    "chg": 30.58,
-   "cap_eok": 26254,
-   "vol_ratio": 2.2,
    "flags": [],
-   "last_day": "2026-10-02"
+   "sector": "전기장비"
+  },
+  {
+   "code": "033790",
+   "name": "피노",
+   "market": "KOSDAQ",
+   "price": 10090,
+   "cap_eok": 9762,
+   "vol_ratio": 0.8,
+   "last_day": "2026-10-02",
+   "prev_price": 7600,
+   "chg": 32.76,
+   "flags": [],
+   "sector": "전기제품"
+  },
+  {
+   "code": "456160",
+   "name": "지투지바이오",
+   "market": "KOSDAQ",
+   "price": 43850,
+   "cap_eok": 7350,
+   "vol_ratio": 1.9,
+   "last_day": "2026-10-02",
+   "prev_price": 32200,
+   "chg": 36.18,
+   "flags": [],
+   "sector": "제약"
   },
   {
    "code": "078350",
    "name": "한양디지텍",
    "market": "KOSDAQ",
    "price": 36000,
+   "cap_eok": 5945,
+   "vol_ratio": 1.3,
+   "last_day": "2026-10-02",
    "prev_price": 27650,
    "chg": 30.2,
-   "cap_eok": 5549,
-   "vol_ratio": 1.3,
    "flags": [],
-   "last_day": "2026-10-02"
+   "sector": "반도체와반도체장비"
+  },
+  {
+   "code": "047920",
+   "name": "HLB제약",
+   "market": "KOSDAQ",
+   "price": 10040,
+   "cap_eok": 5680,
+   "vol_ratio": 6.7,
+   "last_day": "2026-10-02",
+   "prev_price": 7620,
+   "chg": 31.76,
+   "flags": [
+    "거래량 급증"
+   ],
+   "sector": "제약"
+  },
+  {
+   "code": "067630",
+   "name": "HLB생명과학",
+   "market": "KOSDAQ",
+   "price": 3575,
+   "cap_eok": 5383,
+   "vol_ratio": 13.8,
+   "last_day": "2026-10-02",
+   "prev_price": 2620,
+   "chg": 36.45,
+   "flags": [
+    "거래량 급증"
+   ],
+   "sector": "건강관리장비와용품"
+  },
+  {
+   "code": "174900",
+   "name": "앱클론",
+   "market": "KOSDAQ",
+   "price": 28250,
+   "cap_eok": 5232,
+   "vol_ratio": 2.5,
+   "last_day": "2026-10-02",
+   "prev_price": 19710,
+   "chg": 43.33,
+   "flags": [],
+   "sector": "생물공학"
+  },
+  {
+   "code": "351320",
+   "name": "넥사다이내믹스",
+   "market": "KOSDAQ",
+   "price": 4805,
+   "cap_eok": 1881,
+   "vol_ratio": 0.4,
+   "last_day": "2026-10-02",
+   "prev_price": 3665,
+   "chg": 31.11,
+   "flags": [],
+   "sector": "디스플레이장비및부품"
+  },
+  {
+   "code": "452190",
+   "name": "한빛레이저",
+   "market": "KOSDAQ",
+   "price": 6160,
+   "cap_eok": 1603,
+   "vol_ratio": 3.1,
+   "last_day": "2026-10-02",
+   "prev_price": 4700,
+   "chg": 31.06,
+   "flags": [
+    "거래량 급증"
+   ],
+   "sector": "전기제품"
+  },
+  {
+   "code": "105740",
+   "name": "디케이락",
+   "market": "KOSDAQ",
+   "price": 11680,
+   "cap_eok": 1164,
+   "vol_ratio": 15.2,
+   "last_day": "2026-10-02",
+   "prev_price": 8000,
+   "chg": 46.0,
+   "flags": [
+    "거래량 급증"
+   ],
+   "sector": "기계"
+  },
+  {
+   "code": "338220",
+   "name": "뷰노",
+   "market": "KOSDAQ",
+   "price": 8390,
+   "cap_eok": 1141,
+   "vol_ratio": 9.0,
+   "last_day": "2026-10-02",
+   "prev_price": 5610,
+   "chg": 49.55,
+   "flags": [
+    "거래량 급증"
+   ],
+   "sector": "건강관리기술"
+  },
+  {
+   "code": "136150",
+   "name": "원일티엔아이",
+   "market": "KOSDAQ",
+   "price": 12850,
+   "cap_eok": 1034,
+   "vol_ratio": 44.9,
+   "last_day": "2026-10-02",
+   "prev_price": 8400,
+   "chg": 52.98,
+   "flags": [
+    "거래량 급증"
+   ],
+   "sector": "에너지장비및서비스"
+  },
+  {
+   "code": "097800",
+   "name": "윈팩",
+   "market": "KOSDAQ",
+   "price": 4025,
+   "cap_eok": 1026,
+   "vol_ratio": 44.2,
+   "last_day": "2026-10-02",
+   "prev_price": 2465,
+   "chg": 63.29,
+   "flags": [
+    "거래량 급증"
+   ],
+   "sector": "반도체와반도체장비"
+  },
+  {
+   "code": "109670",
+   "name": "씨싸이트",
+   "market": "KOSDAQ",
+   "price": 17350,
+   "cap_eok": 1014,
+   "vol_ratio": 3.5,
+   "last_day": "2026-10-02",
+   "prev_price": 11400,
+   "chg": 52.19,
+   "flags": [
+    "거래량 급증"
+   ],
+   "sector": "섬유,의류,신발,호화품"
+  },
+  {
+   "code": "412350",
+   "name": "레이저쎌",
+   "market": "KOSDAQ",
+   "price": 7430,
+   "cap_eok": 992,
+   "vol_ratio": 2.4,
+   "last_day": "2026-10-02",
+   "prev_price": 5470,
+   "chg": 35.83,
+   "flags": [
+    "소형주"
+   ],
+   "sector": "반도체와반도체장비"
+  },
+  {
+   "code": "291650",
+   "name": "츌립앤사이언스",
+   "market": "KOSDAQ",
+   "price": 2635,
+   "cap_eok": 868,
+   "vol_ratio": 4.2,
+   "last_day": "2026-10-02",
+   "prev_price": 1885,
+   "chg": 39.79,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "생명과학도구및서비스"
+  },
+  {
+   "code": "263600",
+   "name": "덕우전자",
+   "market": "KOSDAQ",
+   "price": 5200,
+   "cap_eok": 814,
+   "vol_ratio": 78.8,
+   "last_day": "2026-10-02",
+   "prev_price": 3430,
+   "chg": 51.6,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "핸드셋"
   },
   {
    "code": "104540",
    "name": "코렌텍",
    "market": "KOSDAQ",
    "price": 5220,
+   "cap_eok": 792,
+   "vol_ratio": 77.5,
+   "last_day": "2026-10-02",
    "prev_price": 4015,
    "chg": 30.01,
-   "cap_eok": 784,
-   "vol_ratio": 77.5,
    "flags": [
     "소형주",
     "거래량 급증"
    ],
-   "last_day": "2026-10-02"
+   "sector": "건강관리장비와용품"
+  },
+  {
+   "code": "360350",
+   "name": "코셈",
+   "market": "KOSDAQ",
+   "price": 11000,
+   "cap_eok": 645,
+   "vol_ratio": 8.3,
+   "last_day": "2026-10-02",
+   "prev_price": 7150,
+   "chg": 53.85,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "전자장비와기기"
+  },
+  {
+   "code": "054780",
+   "name": "키이스트",
+   "market": "KOSDAQ",
+   "price": 2225,
+   "cap_eok": 418,
+   "vol_ratio": 3.6,
+   "last_day": "2026-10-02",
+   "prev_price": 1566,
+   "chg": 42.08,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "방송과엔터테인먼트"
+  },
+  {
+   "code": "073570",
+   "name": "리튬포어스",
+   "market": "KOSDAQ",
+   "price": 3020,
+   "cap_eok": 341,
+   "vol_ratio": 5.1,
+   "last_day": "2026-10-02",
+   "prev_price": 2155,
+   "chg": 40.14,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "핸드셋"
+  },
+  {
+   "code": "462510",
+   "name": "라메디텍",
+   "market": "KOSDAQ",
+   "price": 3560,
+   "cap_eok": 304,
+   "vol_ratio": 17.6,
+   "last_day": "2026-10-02",
+   "prev_price": 2725,
+   "chg": 30.64,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "건강관리장비와용품"
+  }
+ ],
+ "accum": [
+  {
+   "code": "101930",
+   "name": "인화정공",
+   "market": "KOSDAQ",
+   "price": 6410,
+   "cap_eok": 2733,
+   "vol_ratio": 3.8,
+   "last_day": "2026-10-02",
+   "open_price": 6340,
+   "open_chg": 1.1,
+   "range": 15.5,
+   "flags": [
+    "거래량 급증"
+   ],
+   "sector": "조선"
+  },
+  {
+   "code": "267980",
+   "name": "매일유업",
+   "market": "KOSDAQ",
+   "price": 33900,
+   "cap_eok": 2671,
+   "vol_ratio": 3.1,
+   "last_day": "2026-10-02",
+   "open_price": 33750,
+   "open_chg": 0.44,
+   "range": 5.3,
+   "flags": [
+    "거래량 급증"
+   ],
+   "sector": "식품"
+  },
+  {
+   "code": "308430",
+   "name": "셀비온",
+   "market": "KOSDAQ",
+   "price": 14600,
+   "cap_eok": 1781,
+   "vol_ratio": 4.9,
+   "last_day": "2026-10-02",
+   "open_price": 14800,
+   "open_chg": -1.35,
+   "range": 22.7,
+   "flags": [
+    "거래량 급증"
+   ],
+   "sector": "제약"
+  },
+  {
+   "code": "323350",
+   "name": "다원넥스뷰",
+   "market": "KOSDAQ",
+   "price": 10120,
+   "cap_eok": 888,
+   "vol_ratio": 3.5,
+   "last_day": "2026-10-02",
+   "open_price": 10050,
+   "open_chg": 0.7,
+   "range": 25.8,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "반도체와반도체장비"
+  },
+  {
+   "code": "303810",
+   "name": "동국생명과학",
+   "market": "KOSDAQ",
+   "price": 2780,
+   "cap_eok": 873,
+   "vol_ratio": 6.6,
+   "last_day": "2026-10-02",
+   "open_price": 2830,
+   "open_chg": -1.77,
+   "range": 30.4,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "건강관리장비와용품"
+  },
+  {
+   "code": "110790",
+   "name": "크리스에프앤씨",
+   "market": "KOSDAQ",
+   "price": 2970,
+   "cap_eok": 696,
+   "vol_ratio": 3.1,
+   "last_day": "2026-10-02",
+   "open_price": 3020,
+   "open_chg": -1.66,
+   "range": 13.9,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "섬유,의류,신발,호화품"
+  },
+  {
+   "code": "153710",
+   "name": "옵티팜",
+   "market": "KOSDAQ",
+   "price": 4530,
+   "cap_eok": 660,
+   "vol_ratio": 3.6,
+   "last_day": "2026-10-02",
+   "open_price": 4575,
+   "open_chg": -0.98,
+   "range": 9.2,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "제약"
+  },
+  {
+   "code": "460470",
+   "name": "아이빔테크놀로지",
+   "market": "KOSDAQ",
+   "price": 3040,
+   "cap_eok": 470,
+   "vol_ratio": 3.4,
+   "last_day": "2026-10-02",
+   "open_price": 3040,
+   "open_chg": 0.0,
+   "range": 13.8,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "생명과학도구및서비스"
+  },
+  {
+   "code": "277070",
+   "name": "린드먼아시아",
+   "market": "KOSDAQ",
+   "price": 3435,
+   "cap_eok": 470,
+   "vol_ratio": 4.3,
+   "last_day": "2026-10-02",
+   "open_price": 3455,
+   "open_chg": -0.58,
+   "range": 8.4,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "창업투자"
+  },
+  {
+   "code": "290120",
+   "name": "DH오토리드",
+   "market": "KOSDAQ",
+   "price": 2160,
+   "cap_eok": 342,
+   "vol_ratio": 10.5,
+   "last_day": "2026-10-02",
+   "open_price": 2130,
+   "open_chg": 1.41,
+   "range": 24.6,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "자동차부품"
+  },
+  {
+   "code": "128540",
+   "name": "에코캡",
+   "market": "KOSDAQ",
+   "price": 1080,
+   "cap_eok": 298,
+   "vol_ratio": 3.3,
+   "last_day": "2026-10-02",
+   "open_price": 1099,
+   "open_chg": -1.73,
+   "range": 15.6,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "자동차부품"
+  },
+  {
+   "code": "071850",
+   "name": "캐스텍코리아",
+   "market": "KOSDAQ",
+   "price": 1242,
+   "cap_eok": 295,
+   "vol_ratio": 4.3,
+   "last_day": "2026-10-02",
+   "open_price": 1245,
+   "open_chg": -0.24,
+   "range": 6.7,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "자동차부품"
+  },
+  {
+   "code": "450520",
+   "name": "인스웨이브",
+   "market": "KOSDAQ",
+   "price": 1903,
+   "cap_eok": 272,
+   "vol_ratio": 6.9,
+   "last_day": "2026-10-02",
+   "open_price": 1936,
+   "open_chg": -1.7,
+   "range": 24.5,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "소프트웨어"
+  },
+  {
+   "code": "048470",
+   "name": "대동스틸",
+   "market": "KOSDAQ",
+   "price": 2795,
+   "cap_eok": 271,
+   "vol_ratio": 4.1,
+   "last_day": "2026-10-02",
+   "open_price": 2850,
+   "open_chg": -1.93,
+   "range": 20.4,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "철강"
+  },
+  {
+   "code": "290520",
+   "name": "신도기연",
+   "market": "KOSDAQ",
+   "price": 1628,
+   "cap_eok": 256,
+   "vol_ratio": 4.3,
+   "last_day": "2026-10-02",
+   "open_price": 1610,
+   "open_chg": 1.12,
+   "range": 15.7,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "디스플레이장비및부품"
+  },
+  {
+   "code": "051780",
+   "name": "큐로홀딩스",
+   "market": "KOSDAQ",
+   "price": 2455,
+   "cap_eok": 185,
+   "vol_ratio": 3.7,
+   "last_day": "2026-10-02",
+   "open_price": 2480,
+   "open_chg": -1.01,
+   "range": 27.0,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "식품"
+  },
+  {
+   "code": "009620",
+   "name": "삼보산업",
+   "market": "KOSDAQ",
+   "price": 5110,
+   "cap_eok": 164,
+   "vol_ratio": 5.6,
+   "last_day": "2026-10-02",
+   "open_price": 5060,
+   "open_chg": 0.99,
+   "range": 13.8,
+   "flags": [
+    "소형주",
+    "거래량 급증"
+   ],
+   "sector": "비철금속"
+  },
+  {
+   "code": "473050",
+   "name": "유안타제15호스팩",
+   "market": "KOSDAQ",
+   "price": 2105,
+   "cap_eok": 148,
+   "vol_ratio": 3.6,
+   "last_day": "2026-10-02",
+   "open_price": 2100,
+   "open_chg": 0.24,
+   "range": 0.5,
+   "flags": [
+    "소형주",
+    "거래량 급증",
+    "스팩"
+   ],
+   "sector": "창업투자"
+  },
+  {
+   "code": "469900",
+   "name": "하나31호스팩",
+   "market": "KOSDAQ",
+   "price": 2100,
+   "cap_eok": 118,
+   "vol_ratio": 3.1,
+   "last_day": "2026-10-02",
+   "open_price": 2095,
+   "open_chg": 0.24,
+   "range": 0.7,
+   "flags": [
+    "소형주",
+    "거래량 급증",
+    "스팩"
+   ],
+   "sector": "창업투자"
+  },
+  {
+   "code": "474930",
+   "name": "신한제13호스팩",
+   "market": "KOSDAQ",
+   "price": 2115,
+   "cap_eok": 76,
+   "vol_ratio": 7.4,
+   "last_day": "2026-10-02",
+   "open_price": 2090,
+   "open_chg": 1.2,
+   "range": 1.7,
+   "flags": [
+    "소형주",
+    "거래량 급증",
+    "스팩"
+   ],
+   "sector": "창업투자"
   }
  ]
 }
