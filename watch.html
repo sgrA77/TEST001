@@ -158,13 +158,13 @@ function gh(name,n,cols){return '<tr class="gh"><td colspan="'+cols+'">'+esc(nam
 function tbl(rows,th){
   if(!rows||!rows.length)return '<div class="empty" style="padding:10px;color:var(--dim)">기준('+th+'% 이상)을 충족한 종목이 없습니다</div>';
   return '<div class="wrap"><table class="wk"><thead><tr><th>종목</th><th>종가</th><th>주간 변동률</th><th>시총</th><th>거래량 배수</th></tr></thead><tbody>'
-   +grp(rows).map(function(G){return gh(G.name,G.rows.length,5)+G.rows.map(function(r){return '<tr><td class="nm"><b>'+esc(r.name)+'</b><small>'+esc(r.code)+'</small>'+'<div class="sec">'+esc(r.sector||'–')+'</div>'+(r.flags||[]).map(function(f){return '<span class="fl">'+esc(f)+'</span>'}).join('')+'</td>'
-     +'<td>'+won(r.price)+'원<br><small class="note">직전주 '+won(r.prev_price)+'</small></td><td class="chg">+'+r.chg.toFixed(2)+'%</td><td>'+cap(r.cap_eok)+'</td><td>'+(r.vol_ratio?r.vol_ratio+'배':'–')+'</td></tr>'}).join('')+'</tbody></table></div>';
+   +grp(rows).map(function(G){return gh(G.name,G.rows.length,5)+G.rows.map(function(r){return '<tr><td class="nm"><b>'+esc(r.name)+'</b><small>'+esc(r.code)+'</small>'+(r.flags||[]).map(function(f){return '<span class="fl">'+esc(f)+'</span>'}).join('')+'</td>'
+     +'<td>'+won(r.price)+'원<br><small class="note">직전주 '+won(r.prev_price)+'</small></td><td class="chg">+'+r.chg.toFixed(2)+'%</td><td>'+cap(r.cap_eok)+'</td><td>'+(r.vol_ratio?r.vol_ratio+'배':'–')+'</td></tr>'}).join('')}).join('')+'</tbody></table></div>';
 }
 function atbl(rows){
   if(!rows||!rows.length)return '<div class="empty" style="padding:10px;color:var(--dim)">조건을 충족한 종목이 없습니다</div>';
   return '<div class="wrap"><table class="wk"><thead><tr><th>종목</th><th>종가</th><th>시작가 대비</th><th>주중 최고(시작가比)</th><th>시총</th><th>거래량 배수</th></tr></thead><tbody>'
-   +grp(rows).map(function(G){return gh(G.name,G.rows.length,6)+G.rows.map(function(r){var c=r.open_chg;return '<tr><td class="nm"><b>'+esc(r.name)+'</b><small>'+esc(r.code)+' · '+(r.market==='KOSPI'?'코스피':'코스닥')+'</small><div class="sec">'+esc(r.sector||'–')+'</div>'+(r.flags||[]).map(function(f){return '<span class="fl">'+esc(f)+'</span>'}).join('')+'</td>'
+   +grp(rows).map(function(G){return gh(G.name,G.rows.length,6)+G.rows.map(function(r){var c=r.open_chg;return '<tr><td class="nm"><b>'+esc(r.name)+'</b><small>'+esc(r.code)+' · '+(r.market==='KOSPI'?'코스피':'코스닥')+'</small>'+(r.flags||[]).map(function(f){return '<span class="fl">'+esc(f)+'</span>'}).join('')+'</td>'
      +'<td>'+won(r.price)+'원<br><small class="note">주 시작가 '+won(r.open_price)+'</small></td><td style="font-weight:800">'+(c>0?'+':'')+c.toFixed(2)+'%</td><td>'+(r.max_up!=null?'+'+r.max_up+'%':'–')+'</td><td>'+cap(r.cap_eok)+'</td><td>'+(r.vol_ratio?r.vol_ratio+'배':'–')+'</td></tr>'}).join('')}).join('')+'</tbody></table></div>';
 }
 function render(D){
