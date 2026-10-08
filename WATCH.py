@@ -23,6 +23,7 @@ ACCUM_BAND    = 3.0      # 매집 의심: 주봉 시작가(그 주 첫 거래일
 ACCUM_MAX_UP  = 10.0     # 매집 의심: 주중 최고가가 주봉 시작가 대비 +이 값(%) 이하 (주봉 최대 상승률)
 ACCUM_LOOKBACK_WEEKS = 26   # 매집 의심: 과거 확인 기간(주) ≈ 6개월
 ACCUM_PAST_SURGE = 30.0     # 매집 의심: 과거 기간 중 주간 상승률(직전 주 종가 대비)이 이 값(%) 이상 마감한 주가 1번 이상 있어야 함
+ACCUM_STREAK_BAND = 5.0    # 횡보 연속 기준: 주 시작가 대비 종가 변동이 ±이 값(%) 이내인 주가 연속(대상 주부터 거슬러 올라가며)
 ACCUM_MIN_CAP = 1000     # 매집 의심: 시가총액(억원) 이 값 이하는 제외
 SURGE_MIN_CAP = 2000     # 급등 목록: 시가총액(억원) 이 값 이하는 제외
 ACCUM_VOL     = 0.0      # 매집 의심: 거래량 배수 조건 (0 이면 사용 안 함, 예: 3.0 이면 직전 4주 일평균의 3배 이상만)
@@ -163,8 +164,21 @@ def history_stats(candles, mon):
             surge_n += 1; last = (m + dt.timedelta(days=4)).isoformat()
             best = chg if best is None else max(best, chg)
         if o and abs(c / o - 1) * 100 <= ACCUM_BAND: flat_n += 1
+    # 횡보 연속: 대상 주부터 과거로 거슬러 ±ACCUM_STREAK_BAND% 이내 주가 몇 주 연속인지 / 최근 6개월 중 최장 연속
+    def flat5(w): return bool(w[1]) and abs(w[4] / w[1] - 1) * 100 <= ACCUM_STREAK_BAND
+    upto = [w for w in ser if w[0] <= mon]
+    streak = 0
+    if upto and upto[-1][0] == mon:
+        for w in reversed(upto):
+            if flat5(w): streak += 1
+            else: break
+    run = longest = 0
+    for w in upto:
+        if w[0] < lo: continue
+        run = run + 1 if flat5(w) else 0
+        longest = max(longest, run)
     return {"surge_n": surge_n, "surge_last": last, "surge_max": round(best, 1) if best is not None else None,
-            "flat_n": flat_n, "hist_weeks": n}
+            "flat_n": flat_n, "hist_weeks": n, "streak_n": streak, "streak_max": longest}
 
 def fetch_history(s):
     try:
@@ -265,7 +279,7 @@ def run(stocks, fetch, mon, fri):
             hs = history_stats(c, mon)
             if hs["surge_n"] >= 1: r.update(hs); kept.append(r)
     accum_before_hist = len(accum); accum = kept
-    accum.sort(key=lambda r: (-r["surge_n"], cap_key(r)))   # +30% 마감 횟수 많은 순 (같으면 시총 큰 순)
+    accum.sort(key=lambda r: (0 if r["streak_n"] >= 2 else 1, -r["streak_n"] if r["streak_n"] >= 2 else 0, -r["surge_n"], cap_key(r)))   # ±5% 횡보 2주 이상 연속이 최우선(긴 순), 그다음 +30% 마감 횟수순, 시총순
     def tkey(r):
         t = r["theme"]; return (THEME_ORDER.index(t) if t in THEME_ORDER else 99, t, cap_key(r))
     surge.sort(key=tkey)
@@ -276,7 +290,7 @@ def build(surge, accum, accum_novol, ok, fail, mon, fri, now):
     return {"version": 3, "week_start": mon.isoformat(), "week_end": fri.isoformat(),
             "label": "%s ~ %s" % (mon.strftime("%Y.%m.%d"), fri.strftime("%m.%d")),
             "generated_at": now.isoformat(timespec="seconds"),
-            "thresholds": {"KOSPI": THRESH_KOSPI, "KOSDAQ": THRESH_KOSDAQ, "ACCUM_BAND": ACCUM_BAND, "ACCUM_MAX_UP": ACCUM_MAX_UP, "ACCUM_VOL": ACCUM_VOL, "ACCUM_MIN_CAP": ACCUM_MIN_CAP, "ACCUM_LOOKBACK_WEEKS": ACCUM_LOOKBACK_WEEKS, "ACCUM_PAST_SURGE": ACCUM_PAST_SURGE, "THEME_ORDER": THEME_ORDER, "ACCUM_THEMES": ACCUM_THEMES, "SURGE_MIN_CAP": SURGE_MIN_CAP},
+            "thresholds": {"KOSPI": THRESH_KOSPI, "KOSDAQ": THRESH_KOSDAQ, "ACCUM_BAND": ACCUM_BAND, "ACCUM_MAX_UP": ACCUM_MAX_UP, "ACCUM_VOL": ACCUM_VOL, "ACCUM_MIN_CAP": ACCUM_MIN_CAP, "ACCUM_LOOKBACK_WEEKS": ACCUM_LOOKBACK_WEEKS, "ACCUM_PAST_SURGE": ACCUM_PAST_SURGE, "THEME_ORDER": THEME_ORDER, "ACCUM_THEMES": ACCUM_THEMES, "ACCUM_STREAK_BAND": ACCUM_STREAK_BAND, "SURGE_MIN_CAP": SURGE_MIN_CAP},
             "scanned": ok, "failed": fail, "accum_before_history_filter": accum_novol,
             "kospi": [r for r in surge if r["market"] == "KOSPI"],
             "kosdaq": [r for r in surge if r["market"] == "KOSDAQ"],
