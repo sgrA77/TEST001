@@ -133,6 +133,7 @@ th{font-size:11px;color:var(--dim);font-weight:700;white-space:nowrap}
 .gh.tg td{cursor:pointer}.gh.tg td:before{content:'▸ '}.gh.tg.open td:before{content:'▾ '}.hid{display:none}
 .gh.pri td{color:var(--up-t);background:#fff4f4}
 .nr td{text-align:left!important;white-space:normal!important;font-size:12px;color:var(--sub);padding:3px 8px 8px;border-bottom:1px solid var(--line)}
+.nr .one{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:86vw}
 .nr a{color:var(--text);text-decoration:none;border-bottom:1px dotted var(--dim)}
 .gh td{background:var(--card);font-weight:800;font-size:12px;color:var(--amber);text-align:left!important;border-top:1px solid var(--line)}
 .sec{font-size:11px;color:var(--amber);font-weight:700;margin-top:1px}
@@ -151,7 +152,7 @@ function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return
 function fj(u){return fetch(u,{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(u+' '+r.status);return r.json()})}
 function won(n){return n==null?'–':Number(n).toLocaleString('ko-KR')}
 function cap(e){if(e==null)return '–';return e>=10000?(e/10000).toFixed(1)+'조':won(e)+'억'}
-var ORDER=[];
+var ORDER=[],TH={};
 function grp(rows,order){
   var g={},o=[];
   rows.forEach(function(r){var k=r.theme||r.sector||'–';if(!g[k]){g[k]={name:k,rows:[],sum:0};o.push(g[k])}g[k].rows.push(r);g[k].sum+=(r.cap_eok||0)});
@@ -162,12 +163,13 @@ function grp(rows,order){
 }
 function gh(name,n,cols,pri){return '<tr class="gh'+(pri?' pri':'')+'"><td colspan="'+cols+'">'+(pri?'★ ':'')+esc(name)+' <span class="note">'+n+'개</span></td></tr>'}
 function nm(r){
-  var sub=(r.sector&&r.sector!==r.theme)?'<div class="sec">'+esc(r.sector)+'</div>':'';
+  var sub=r.sector?'<div class="sec">'+esc(r.theme&&r.theme!==r.sector?r.theme+' · '+r.sector:r.sector)+'</div>':'';
   return '<td class="nm"><b>'+esc(r.name)+'</b><small>'+esc(r.code)+(r.market==='KOSPI'?' · 코스피':' · 코스닥')+'</small>'+sub+(r.flags||[]).map(function(f){return '<span class="fl">'+esc(f)+'</span>'}).join('')+'</td>';
 }
 function newsRow(r,cols){
-  if(!r.news||!r.news.length)return '<tr class="nr"><td colspan="'+cols+'"><span class="note">관련 뉴스를 찾지 못했습니다</span></td></tr>';
-  return '<tr class="nr"><td colspan="'+cols+'">'+r.news.map(function(n){return '<div>📰 <a href="'+esc(n.url)+'" target="_blank" rel="noopener">'+esc(n.title)+'</a> <span class="note">'+esc(n.office)+' '+esc((n.date||'').slice(5))+'</span></div>'}).join('')+'</td></tr>';
+  var n=r.news&&r.news[0];
+  if(!n)return '<tr class="nr"><td colspan="'+cols+'"><span class="note">관련 뉴스 없음</span></td></tr>';
+  return '<tr class="nr"><td colspan="'+cols+'"><div class="one">📰 <a href="'+esc(n.url)+'" target="_blank" rel="noopener">'+esc(n.title)+'</a></div></td></tr>';
 }
 function tbl(rows,th,order){
   if(!rows||!rows.length)return '<div class="empty" style="padding:10px;color:var(--dim)">기준('+th+'% 이상)을 충족한 종목이 없습니다</div>';
@@ -175,23 +177,28 @@ function tbl(rows,th,order){
    +grp(rows,order).map(function(G){return gh(G.name,G.rows.length,4,order.indexOf(G.name)>=0)+G.rows.map(function(r){return '<tr>'+nm(r)
      +'<td>'+won(r.price)+'원<br><small class="note">직전주 '+won(r.prev_price)+'</small></td><td class="chg">+'+r.chg.toFixed(2)+'%</td><td>'+cap(r.cap_eok)+'</td></tr>'+newsRow(r,4)}).join('')}).join('')+'</tbody></table></div>';
 }
-function atbl(rows,order){
+function atbl(rows){
   if(!rows||!rows.length)return '<div class="empty" style="padding:10px;color:var(--dim)">조건을 충족한 종목이 없습니다</div>';
-  return '<div class="wrap"><table class="wk"><thead><tr><th>종목</th><th>종가</th><th>시작가 대비</th><th>주중 최고(시작가比)</th><th>시총</th><th>6개월 내 +30% 마감</th><th>±2.5% 이내 마감</th></tr></thead><tbody>'
-   +grp(rows,order).map(function(G,gi){return '<tr class="gh tg" data-g="'+gi+'"><td colspan="7">'+esc(G.name)+' <span class="note">'+G.rows.length+'개 · 눌러서 펼치기</span></td></tr>'+G.rows.map(function(r){var c=r.open_chg;return '<tr class="hid g'+gi+'">'+nm(r)
-     +'<td>'+won(r.price)+'원<br><small class="note">주 시작가 '+won(r.open_price)+'</small></td><td style="font-weight:800">'+(c>0?'+':'')+c.toFixed(2)+'%</td><td>'+(r.max_up!=null?'+'+r.max_up+'%':'–')+'</td><td>'+cap(r.cap_eok)+'</td><td style="font-weight:800">'+(r.surge_n!=null?r.surge_n+'회':'–')+(r.surge_last?'<br><small class="note">최근 '+esc(r.surge_last.slice(5))+' 주 · 최대 +'+r.surge_max+'%</small>':'')+'</td><td>'+(r.flat_n!=null?r.flat_n+'주<br><small class="note">최근 '+(r.hist_weeks||'')+'주 중</small>':'–')+'</td></tr>'}).join('')}).join('')+'</tbody></table></div>';
+  var band=TH.ACCUM_BAND||3;
+  rows=rows.slice().sort(function(a,b){return (b.surge_n||0)-(a.surge_n||0)||(b.cap_eok||0)-(a.cap_eok||0)});
+  return '<div class="wrap"><table class="wk"><thead><tr><th>종목</th><th>6개월 내 +30% 마감</th><th>±'+band+'% 이내 마감</th><th>종가</th><th>시작가 대비</th><th>주중 최고</th><th>시총</th></tr></thead><tbody>'
+   +rows.map(function(r){var c=r.open_chg;return '<tr>'+nm(r)
+     +'<td style="font-weight:800">'+(r.surge_n!=null?r.surge_n+'회':'–')+(r.surge_last?'<br><small class="note">최근 '+esc(r.surge_last.slice(5))+' 주 · 최대 +'+r.surge_max+'%</small>':'')+'</td>'
+     +'<td>'+(r.flat_n!=null?r.flat_n+'주<br><small class="note">최근 '+(r.hist_weeks||'')+'주 중</small>':'–')+'</td>'
+     +'<td>'+won(r.price)+'원<br><small class="note">주 시작가 '+won(r.open_price)+'</small></td><td style="font-weight:800">'+(c>0?'+':'')+c.toFixed(2)+'%</td><td>'+(r.max_up!=null?'+'+r.max_up+'%':'–')+'</td><td>'+cap(r.cap_eok)+'</td></tr>'}).join('')+'</tbody></table></div>';
 }
 function bindTg(){[].forEach.call(document.querySelectorAll('tr.tg'),function(t){t.onclick=function(){var g=t.getAttribute('data-g'),open=t.className.indexOf('open')<0;t.className='gh tg'+(open?' open':'');[].forEach.call(document.querySelectorAll('tr.g'+g),function(r){r.className=(open?'':'hid ')+'g'+g})}})}
 function render(D){
+  TH=D.thresholds||{};
   document.getElementById('upd').innerHTML=esc(D.label)+'<br>갱신 '+esc((D.generated_at||'').slice(0,16).replace('T',' '));
   var T=D.thresholds||{};
   document.getElementById('view').innerHTML=
-   '<section class="panel mv"><h2>'+esc(D.label)+' <small>월~금 달력 주 · 관심 업종 우선 · 업종 안 시총순</small></h2>'
+   '<section class="panel mv"><h2>'+esc(D.label)+' <small>월~금 달력 주 · 관심 업종 우선 · 업종 안 시총순 · 시총 '+won(T.SURGE_MIN_CAP||2000)+'억 초과</small></h2>'
    +'<p style="margin:0">코스피 급등 <b>'+D.kospi.length+'</b>개 (+'+T.KOSPI+'% 이상) · 코스닥 급등 <b>'+D.kosdaq.length+'</b>개 (+'+T.KOSDAQ+'% 이상) · 매집 의심 <b>'+(D.accum?D.accum.length:'–')+'</b>개 · 점검 종목 '+won(D.scanned)+'개</p></section>'
    +'<section class="panel"><h2>코스피 <small>주간 +'+T.KOSPI+'% 이상 마감</small></h2>'+tbl(D.kospi,T.KOSPI,T.THEME_ORDER||[])+'</section>'
    +'<section class="panel"><h2>코스닥 <small>주간 +'+T.KOSDAQ+'% 이상 마감</small></h2>'+tbl(D.kosdaq,T.KOSDAQ,T.THEME_ORDER||[])+'</section>'
-   +'<section class="panel acc"><h2>매집 의심 모니터링 <small>최근 6개월 내 주간 +'+(T.ACCUM_PAST_SURGE||30)+'% 마감 이력 · 이번 주 시작가 대비 종가 ±'+(T.ACCUM_BAND||2.5)+'% 이내 · 주중 최고 +'+(T.ACCUM_MAX_UP||10)+'% 이하 · 관심 업종만 · 시총 '+won(T.ACCUM_MIN_CAP||2000)+'억 초과</small></h2>'+(D.accum?atbl(D.accum,T.ACCUM_THEMES||[]):'<div class="empty" style="padding:10px;color:var(--dim)">이 주 기록에는 매집 항목이 없습니다(기능 추가 이전 데이터)</div>')
-   +'<div class="note" style="margin-top:6px">과거 6개월 안에 한 주에 30% 이상 오른 적이 있는 종목 중, 이번 주에는 시작가 근처에서 크게 오르지 않고 머문 종목입니다. ‘+30% 마감’은 직전 주 종가 대비 주간 상승률이 30% 이상이었던 주의 횟수, ‘±2.5% 이내 마감’은 같은 기간 중 그 주 종가가 주 시작가 대비 ±2.5% 이내였던 주의 수입니다. 관심 업종(반도체, AI, 방산, 우주항공, 친환경에너지, 은행, 증권, 석유와가스, 제약, 생명과학도구, 조선)만 포함하며 시총 '+won(T.ACCUM_MIN_CAP||2000)+'억 이하는 제외했습니다. 급등 목록에 있는 종목은 제외됩니다.</div></section>'
+   +'<section class="panel acc"><h2>매집 의심 모니터링 <small>최근 6개월 내 주간 +'+(T.ACCUM_PAST_SURGE||30)+'% 마감 이력 · 이번 주 시작가 대비 종가 ±'+(T.ACCUM_BAND||3)+'% 이내 · 주중 최고 +'+(T.ACCUM_MAX_UP||10)+'% 이하 · 관심 업종만 · 시총 '+won(T.ACCUM_MIN_CAP||1000)+'억 초과 · +30% 마감 횟수순</small></h2>'+(D.accum?atbl(D.accum):'<div class="empty" style="padding:10px;color:var(--dim)">이 주 기록에는 매집 항목이 없습니다(기능 추가 이전 데이터)</div>')
+   +'<div class="note" style="margin-top:6px">과거 6개월 안에 한 주에 30% 이상 오른 적이 있는 종목 중, 이번 주에는 시작가 근처에서 크게 오르지 않고 머문 종목입니다. ‘+30% 마감’은 직전 주 종가 대비 주간 상승률이 30% 이상이었던 주의 횟수, ‘±'+(T.ACCUM_BAND||3)+'% 이내 마감’은 같은 기간 중 그 주 종가가 주 시작가 대비 ±'+(T.ACCUM_BAND||3)+'% 이내였던 주의 수입니다. 관심 업종(반도체, AI, 방산, 우주항공, 친환경에너지, 은행, 증권, 석유와가스, 제약, 생명과학도구, 조선, 유류)만 포함하며 시총 '+won(T.ACCUM_MIN_CAP||1000)+'억 이하는 제외했습니다. 급등 목록에 있는 종목은 제외됩니다.</div></section>'
    +'<section class="panel warn">이 페이지는 <b>급등 사실을 모아 보여주는 모니터링 도구</b>입니다. 급등 자체가 시세조종·작전을 뜻하지는 않습니다. 표시(소형주, 거래량 급증, 스팩)와 “매집 의심”은 수치 조건에 맞는 종목을 모은 것일 뿐 매집·시세조종 여부의 판단이 아닙니다. 투자 권유가 아니며, 관련 뉴스는 네이버 증권 종목 뉴스에서 그 주 기사 중 상승 원인으로 보이는 제목을 자동으로 고른 것이라 실제 상승 원인과 다를 수 있습니다. 가격은 네이버 금융/Yahoo Finance 일봉 기준이라 실제와 차이가 있을 수 있습니다.</section>';
   bindTg();
 }

@@ -19,24 +19,27 @@ THRESH_KOSPI  = 20.0     # 코스피 주간 상승률 기준(%)
 THRESH_KOSDAQ = 30.0     # 코스닥 주간 상승률 기준(%)
 MIN_OK_RATIO  = 0.90     # 수집 성공률이 이보다 낮으면 실패 처리
 WORKERS       = 12
-ACCUM_BAND    = 2.5      # 매집 의심: 주봉 시작가(그 주 첫 거래일 시가) 대비 종가 변동이 ±이 값(%) 이내
+ACCUM_BAND    = 3.0      # 매집 의심: 주봉 시작가(그 주 첫 거래일 시가) 대비 종가 변동이 ±이 값(%) 이내
 ACCUM_MAX_UP  = 10.0     # 매집 의심: 주중 최고가가 주봉 시작가 대비 +이 값(%) 이하 (주봉 최대 상승률)
 ACCUM_LOOKBACK_WEEKS = 26   # 매집 의심: 과거 확인 기간(주) ≈ 6개월
 ACCUM_PAST_SURGE = 30.0     # 매집 의심: 과거 기간 중 주간 상승률(직전 주 종가 대비)이 이 값(%) 이상 마감한 주가 1번 이상 있어야 함
-ACCUM_MIN_CAP = 2000     # 매집 의심: 시가총액(억원) 이 값 이하는 제외
+ACCUM_MIN_CAP = 1000     # 매집 의심: 시가총액(억원) 이 값 이하는 제외
+SURGE_MIN_CAP = 2000     # 급등 목록: 시가총액(억원) 이 값 이하는 제외
 ACCUM_VOL     = 0.0      # 매집 의심: 거래량 배수 조건 (0 이면 사용 안 함, 예: 3.0 이면 직전 4주 일평균의 3배 이상만)
 SMALL_CAP_EOK = 1000     # '소형주' 표시 기준(시가총액, 억원)
 # --- 테마(업종 묶음) 설정: 네이버 업종명 -> 보고 싶은 테마. 앞쪽일수록 화면 상단 ---
 THEME_ORDER = ["반도체", "AI", "방산", "우주항공", "친환경에너지", "은행", "증권", "석유와가스"]
-ACCUM_THEMES = THEME_ORDER + ["제약", "생명과학도구", "조선"]        # 매집 의심은 이 테마만 모니터링
+ACCUM_THEMES = THEME_ORDER + ["제약", "생명과학도구", "조선", "유류"]        # 매집 의심은 이 테마만 모니터링
 THEME_MAP = {
     "반도체와반도체장비": "반도체",
     "소프트웨어": "AI", "IT서비스": "AI", "컴퓨터와주변기기": "AI",
     "우주항공과국방": "방산",
     "에너지장비및서비스": "친환경에너지", "전기장비": "친환경에너지", "전기유틸리티": "친환경에너지", "복합유틸리티": "친환경에너지",
     "은행": "은행", "증권": "증권", "석유와가스": "석유와가스",
+    "가스유틸리티": "유류",
     "제약": "제약", "생명과학도구및서비스": "생명과학도구", "조선": "조선",
 }
+OIL_NAMES = ["석유", "정유", "유화", "오일", "에너비스", "원유"]   # 이름에 포함되면 '유류' 테마(종목이 있을 때만 표시됨)
 SPACE_NAMES = ["켄코아", "이노스페이스", "쎄트렉", "AP위성", "컨텍", "인텔리안", "한화시스템", "한화에어로", "페리지", "나라스페이스", "제노코", "스페이스"]  # 이름에 포함되면 '우주항공'(SpaceX 관련 국내 후보)
 # ================================================
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -190,12 +193,13 @@ def sector_of(code, names):
 
 def theme_of(name, sector):
     if any(k in name for k in SPACE_NAMES): return "우주항공"
+    if any(k in name for k in OIL_NAMES): return "유류"
     return THEME_MAP.get(sector, sector)
 
 KEYS = ("상한가", "급등", "강세", "수주", "계약", "승인", "인수", "공급", "실적", "임상", "특허", "협력", "MOU", "투자")
 
 def news_of(code, mon, fri):
-    """그 주(월~다음날) 안에 나온 종목 뉴스 중 상승 원인으로 보이는 제목을 최대 2개."""
+    """그 주(월~다음날) 안에 나온 종목 뉴스 중 상승 원인으로 보이는 제목 1개."""
     try:
         j = json.loads(http("https://m.stock.naver.com/api/news/stock/%s?pageSize=20&page=1" % code, tries=2))
     except Exception:
@@ -207,7 +211,7 @@ def news_of(code, mon, fri):
     inw = [x for x in items if lo <= str(x.get("datetime", "")) <= hi] or items[:5]
     inw.sort(key=lambda x: (-any(k in (x.get("title") or "") for k in KEYS), -int(x.get("datetime") or 0)))
     out = []
-    for x in inw[:2]:
+    for x in inw[:1]:
         t = re.sub(r"<[^>]+>", "", x.get("titleFull") or x.get("title") or "").strip()
         d = str(x.get("datetime", ""))
         out.append({"title": t, "url": x.get("mobileNewsUrl", ""), "office": x.get("officeName", ""),
@@ -245,7 +249,7 @@ def run(stocks, fetch, mon, fri):
             if s["cap"] is not None and s["cap"] < SMALL_CAP_EOK: flags.append("소형주")
             if "스팩" in s["name"]: flags.append("스팩")
             th = THRESH_KOSPI if s["market"] == "KOSPI" else THRESH_KOSDAQ
-            if w["chg"] >= th:
+            if w["chg"] >= th and (s["cap"] is None or s["cap"] > SURGE_MIN_CAP):
                 surge.append(dict(base, prev_price=int(w["prev_close"]), chg=w["chg"], flags=flags))
             if w["chg"] < th and w["vol_week"] > 0 and abs(w["open_chg"]) <= ACCUM_BAND and w["max_up"] is not None and w["max_up"] <= ACCUM_MAX_UP:   # 급등 종목은 제외(중복 방지)
                 accum_novol += 1
@@ -261,10 +265,10 @@ def run(stocks, fetch, mon, fri):
             hs = history_stats(c, mon)
             if hs["surge_n"] >= 1: r.update(hs); kept.append(r)
     accum_before_hist = len(accum); accum = kept
+    accum.sort(key=lambda r: (-r["surge_n"], cap_key(r)))   # +30% 마감 횟수 많은 순 (같으면 시총 큰 순)
     def tkey(r):
         t = r["theme"]; return (THEME_ORDER.index(t) if t in THEME_ORDER else 99, t, cap_key(r))
     surge.sort(key=tkey)
-    accum.sort(key=lambda r: ((ACCUM_THEMES.index(r["theme"])), cap_key(r)))
     add_news(surge, mon, fri)
     return surge, accum, accum_before_hist, ok, fail
 
@@ -272,7 +276,7 @@ def build(surge, accum, accum_novol, ok, fail, mon, fri, now):
     return {"version": 3, "week_start": mon.isoformat(), "week_end": fri.isoformat(),
             "label": "%s ~ %s" % (mon.strftime("%Y.%m.%d"), fri.strftime("%m.%d")),
             "generated_at": now.isoformat(timespec="seconds"),
-            "thresholds": {"KOSPI": THRESH_KOSPI, "KOSDAQ": THRESH_KOSDAQ, "ACCUM_BAND": ACCUM_BAND, "ACCUM_MAX_UP": ACCUM_MAX_UP, "ACCUM_VOL": ACCUM_VOL, "ACCUM_MIN_CAP": ACCUM_MIN_CAP, "ACCUM_LOOKBACK_WEEKS": ACCUM_LOOKBACK_WEEKS, "ACCUM_PAST_SURGE": ACCUM_PAST_SURGE, "THEME_ORDER": THEME_ORDER, "ACCUM_THEMES": ACCUM_THEMES},
+            "thresholds": {"KOSPI": THRESH_KOSPI, "KOSDAQ": THRESH_KOSDAQ, "ACCUM_BAND": ACCUM_BAND, "ACCUM_MAX_UP": ACCUM_MAX_UP, "ACCUM_VOL": ACCUM_VOL, "ACCUM_MIN_CAP": ACCUM_MIN_CAP, "ACCUM_LOOKBACK_WEEKS": ACCUM_LOOKBACK_WEEKS, "ACCUM_PAST_SURGE": ACCUM_PAST_SURGE, "THEME_ORDER": THEME_ORDER, "ACCUM_THEMES": ACCUM_THEMES, "SURGE_MIN_CAP": SURGE_MIN_CAP},
             "scanned": ok, "failed": fail, "accum_before_history_filter": accum_novol,
             "kospi": [r for r in surge if r["market"] == "KOSPI"],
             "kosdaq": [r for r in surge if r["market"] == "KOSDAQ"],
