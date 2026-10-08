@@ -4,7 +4,7 @@
 기준
   - 주간 = 달력상 월~금. 휴장일이 있으면 그 주의 마지막 거래일 종가를 사용.
   - 주간 변동률 = (그 주 마지막 거래일 종가 / 직전 주 마지막 거래일 종가 - 1) * 100
-  - 매집 의심 = 그 주 종가가 주봉 시작가(첫 거래일 시가) 대비 ±ACCUM_BAND% 이내이고, 주중 최고가가 시작가 대비 +ACCUM_MAX_UP% 이하.
+  - 매집 의심 = (최근 ACCUM_LOOKBACK_WEEKS주 중 주간 +ACCUM_PAST_SURGE% 이상 마감한 주가 있는 종목) 중 그 주 종가가 주봉 시작가(첫 거래일 시가) 대비 ±ACCUM_BAND% 이내이고, 주중 최고가가 시작가 대비 +ACCUM_MAX_UP% 이하.
   - 정렬은 업종별로 묶고 업종 안에서 시가총액 큰 순. 업종은 네이버 증권 업종 분류.
   - 대상 주 = 가장 최근에 끝난 주. (월~금에 실행하면 '지난주', 토/일에 실행하면 '방금 끝난 주')
   - 코스피 THRESH_KOSPI% 이상, 코스닥 THRESH_KOSDAQ% 이상 상승 마감 종목만 수록.
@@ -21,6 +21,8 @@ MIN_OK_RATIO  = 0.90     # 수집 성공률이 이보다 낮으면 실패 처리
 WORKERS       = 12
 ACCUM_BAND    = 2.5      # 매집 의심: 주봉 시작가(그 주 첫 거래일 시가) 대비 종가 변동이 ±이 값(%) 이내
 ACCUM_MAX_UP  = 10.0     # 매집 의심: 주중 최고가가 주봉 시작가 대비 +이 값(%) 이하 (주봉 최대 상승률)
+ACCUM_LOOKBACK_WEEKS = 26   # 매집 의심: 과거 확인 기간(주) ≈ 6개월
+ACCUM_PAST_SURGE = 30.0     # 매집 의심: 과거 기간 중 주간 상승률(직전 주 종가 대비)이 이 값(%) 이상 마감한 주가 1번 이상 있어야 함
 ACCUM_MIN_CAP = 2000     # 매집 의심: 시가총액(억원) 이 값 이하는 제외
 ACCUM_VOL     = 0.0      # 매집 의심: 거래량 배수 조건 (0 이면 사용 안 함, 예: 3.0 이면 직전 4주 일평균의 3배 이상만)
 SMALL_CAP_EOK = 1000     # '소형주' 표시 기준(시가총액, 억원)
@@ -107,8 +109,8 @@ def list_stocks():
             time.sleep(0.15)
     return out
 
-def candles_naver(code):
-    xml = http("https://fchart.stock.naver.com/sise.nhn?symbol=%s&timeframe=day&count=45&requestType=0" % code)
+def candles_naver(code, count=45):
+    xml = http("https://fchart.stock.naver.com/sise.nhn?symbol=%s&timeframe=day&count=%d&requestType=0" % (code, count))
     res = []
     for d in re.findall(r'<item data="([^"]+)"', xml):
         p = d.split("|")
@@ -127,6 +129,43 @@ def candles_yahoo(code, market):
 def fetch_candles(s):
     try:
         c = candles_naver(s["code"])
+        if c: return c
+    except Exception: pass
+    try: return candles_yahoo(s["code"], s["market"])
+    except Exception: return None
+
+# --------------------------- 6개월 이력 ---------------------------
+def weekly_series(candles):
+    """일봉 -> 주봉 [(월요일, 시가, 고가, 저가, 종가)] 오름차순"""
+    wk = {}
+    for d, o, h, l, c, v in candles:
+        if not c: continue
+        m = d - dt.timedelta(days=d.weekday())
+        if m not in wk: wk[m] = [o or c, h or c, l or c, c]
+        else:
+            w = wk[m]; w[1] = max(w[1], h or c); w[2] = min(w[2], l or c) if l else w[2]; w[3] = c
+    return [(m, w[0], w[1], w[2], w[3]) for m, w in sorted(wk.items())]
+
+def history_stats(candles, mon):
+    """대상 주(mon) 직전 ACCUM_LOOKBACK_WEEKS주: +30% 이상 마감 횟수, ±ACCUM_BAND% 이내 마감 횟수."""
+    ser = weekly_series(candles)
+    lo = mon - dt.timedelta(weeks=ACCUM_LOOKBACK_WEEKS)
+    surge_n = flat_n = n = 0; last = None; best = None
+    for i in range(1, len(ser)):
+        m, o, h, l, c = ser[i]
+        if m < lo or m >= mon: continue
+        n += 1
+        chg = (c / ser[i - 1][4] - 1) * 100 if ser[i - 1][4] else 0
+        if chg >= ACCUM_PAST_SURGE:
+            surge_n += 1; last = (m + dt.timedelta(days=4)).isoformat()
+            best = chg if best is None else max(best, chg)
+        if o and abs(c / o - 1) * 100 <= ACCUM_BAND: flat_n += 1
+    return {"surge_n": surge_n, "surge_last": last, "surge_max": round(best, 1) if best is not None else None,
+            "flat_n": flat_n, "hist_weeks": n}
+
+def fetch_history(s):
+    try:
+        c = candles_naver(s["code"], 170)
         if c: return c
     except Exception: pass
     try: return candles_yahoo(s["code"], s["market"])
@@ -214,19 +253,27 @@ def run(stocks, fetch, mon, fri):
                     accum.append(dict(base, open_price=int(w["week_open"]), open_chg=w["open_chg"], max_up=w["max_up"], range=w["range"], flags=flags))
     add_sectors(surge + accum)
     accum = [r for r in accum if r["theme"] in ACCUM_THEMES and (r["cap_eok"] or 0) > ACCUM_MIN_CAP]
+    kept = []
+    def hwork(r): return r, fetch_history(stocks[r["code"]])
+    with ThreadPoolExecutor(WORKERS) as ex:
+        for r, c in ex.map(hwork, accum):
+            if c is None: continue
+            hs = history_stats(c, mon)
+            if hs["surge_n"] >= 1: r.update(hs); kept.append(r)
+    accum_before_hist = len(accum); accum = kept
     def tkey(r):
         t = r["theme"]; return (THEME_ORDER.index(t) if t in THEME_ORDER else 99, t, cap_key(r))
     surge.sort(key=tkey)
     accum.sort(key=lambda r: ((ACCUM_THEMES.index(r["theme"])), cap_key(r)))
     add_news(surge, mon, fri)
-    return surge, accum, accum_novol, ok, fail
+    return surge, accum, accum_before_hist, ok, fail
 
 def build(surge, accum, accum_novol, ok, fail, mon, fri, now):
     return {"version": 3, "week_start": mon.isoformat(), "week_end": fri.isoformat(),
             "label": "%s ~ %s" % (mon.strftime("%Y.%m.%d"), fri.strftime("%m.%d")),
             "generated_at": now.isoformat(timespec="seconds"),
-            "thresholds": {"KOSPI": THRESH_KOSPI, "KOSDAQ": THRESH_KOSDAQ, "ACCUM_BAND": ACCUM_BAND, "ACCUM_MAX_UP": ACCUM_MAX_UP, "ACCUM_VOL": ACCUM_VOL, "ACCUM_MIN_CAP": ACCUM_MIN_CAP, "THEME_ORDER": THEME_ORDER, "ACCUM_THEMES": ACCUM_THEMES},
-            "scanned": ok, "failed": fail, "accum_total_without_volume_filter": accum_novol,
+            "thresholds": {"KOSPI": THRESH_KOSPI, "KOSDAQ": THRESH_KOSDAQ, "ACCUM_BAND": ACCUM_BAND, "ACCUM_MAX_UP": ACCUM_MAX_UP, "ACCUM_VOL": ACCUM_VOL, "ACCUM_MIN_CAP": ACCUM_MIN_CAP, "ACCUM_LOOKBACK_WEEKS": ACCUM_LOOKBACK_WEEKS, "ACCUM_PAST_SURGE": ACCUM_PAST_SURGE, "THEME_ORDER": THEME_ORDER, "ACCUM_THEMES": ACCUM_THEMES},
+            "scanned": ok, "failed": fail, "accum_before_history_filter": accum_novol,
             "kospi": [r for r in surge if r["market"] == "KOSPI"],
             "kosdaq": [r for r in surge if r["market"] == "KOSDAQ"],
             "accum": accum}
