@@ -21,9 +21,21 @@ MIN_OK_RATIO  = 0.90     # 수집 성공률이 이보다 낮으면 실패 처리
 WORKERS       = 12
 ACCUM_BAND    = 2.5      # 매집 의심: 주봉 시작가(그 주 첫 거래일 시가) 대비 종가 변동이 ±이 값(%) 이내
 ACCUM_MAX_UP  = 10.0     # 매집 의심: 주중 최고가가 주봉 시작가 대비 +이 값(%) 이하 (주봉 최대 상승률)
+ACCUM_MIN_CAP = 2000     # 매집 의심: 시가총액(억원) 이 값 이하는 제외
 ACCUM_VOL     = 0.0      # 매집 의심: 거래량 배수 조건 (0 이면 사용 안 함, 예: 3.0 이면 직전 4주 일평균의 3배 이상만)
 SMALL_CAP_EOK = 1000     # '소형주' 표시 기준(시가총액, 억원)
-VOL_SPIKE     = 3.0      # '거래량 급증' 표시 기준(최근 4주 평균 대비 배수)
+# --- 테마(업종 묶음) 설정: 네이버 업종명 -> 보고 싶은 테마. 앞쪽일수록 화면 상단 ---
+THEME_ORDER = ["반도체", "AI", "방산", "우주항공", "친환경에너지", "은행", "증권", "석유와가스"]
+ACCUM_THEMES = THEME_ORDER + ["제약", "생명과학도구", "조선"]        # 매집 의심은 이 테마만 모니터링
+THEME_MAP = {
+    "반도체와반도체장비": "반도체",
+    "소프트웨어": "AI", "IT서비스": "AI", "컴퓨터와주변기기": "AI",
+    "우주항공과국방": "방산",
+    "에너지장비및서비스": "친환경에너지", "전기장비": "친환경에너지", "전기유틸리티": "친환경에너지", "복합유틸리티": "친환경에너지",
+    "은행": "은행", "증권": "증권", "석유와가스": "석유와가스",
+    "제약": "제약", "생명과학도구및서비스": "생명과학도구", "조선": "조선",
+}
+SPACE_NAMES = ["켄코아", "이노스페이스", "쎄트렉", "AP위성", "컨텍", "인텔리안", "한화시스템", "한화에어로", "페리지", "나라스페이스", "제노코", "스페이스"]  # 이름에 포함되면 '우주항공'(SpaceX 관련 국내 후보)
 # ================================================
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.join(ROOT, "watch")
@@ -137,13 +149,44 @@ def sector_of(code, names):
     except Exception:
         return "–"
 
+def theme_of(name, sector):
+    if any(k in name for k in SPACE_NAMES): return "우주항공"
+    return THEME_MAP.get(sector, sector)
+
+KEYS = ("상한가", "급등", "강세", "수주", "계약", "승인", "인수", "공급", "실적", "임상", "특허", "협력", "MOU", "투자")
+
+def news_of(code, mon, fri):
+    """그 주(월~다음날) 안에 나온 종목 뉴스 중 상승 원인으로 보이는 제목을 최대 2개."""
+    try:
+        j = json.loads(http("https://m.stock.naver.com/api/news/stock/%s?pageSize=20&page=1" % code, tries=2))
+    except Exception:
+        return []
+    items = []
+    for g in j if isinstance(j, list) else []:
+        items += g.get("items") or []
+    lo = mon.strftime("%Y%m%d") + "0000"; hi = (fri + dt.timedelta(days=2)).strftime("%Y%m%d") + "2359"
+    inw = [x for x in items if lo <= str(x.get("datetime", "")) <= hi] or items[:5]
+    inw.sort(key=lambda x: (-any(k in (x.get("title") or "") for k in KEYS), -int(x.get("datetime") or 0)))
+    out = []
+    for x in inw[:2]:
+        t = re.sub(r"<[^>]+>", "", x.get("titleFull") or x.get("title") or "").strip()
+        d = str(x.get("datetime", ""))
+        out.append({"title": t, "url": x.get("mobileNewsUrl", ""), "office": x.get("officeName", ""),
+                    "date": "%s-%s-%s" % (d[:4], d[4:6], d[6:8]) if len(d) >= 8 else ""})
+    return out
+
 def add_sectors(rows):
     if not rows: return
     try: names = industry_names()
     except Exception as e:
         log("[warn] 업종 목록 수집 실패: %r" % e); names = {}
     with ThreadPoolExecutor(8) as ex:
-        for r, sec in zip(rows, ex.map(lambda r: sector_of(r["code"], names), rows)): r["sector"] = sec
+        for r, sec in zip(rows, ex.map(lambda r: sector_of(r["code"], names), rows)):
+            r["sector"] = sec; r["theme"] = theme_of(r["name"], sec)
+
+def add_news(rows, mon, fri):
+    with ThreadPoolExecutor(8) as ex:
+        for r, n in zip(rows, ex.map(lambda r: news_of(r["code"], mon, fri), rows)): r["news"] = n
 
 # --------------------------- 실행 ---------------------------
 def cap_key(r): return -(r["cap_eok"] if r["cap_eok"] is not None else -1)
@@ -161,7 +204,6 @@ def run(stocks, fetch, mon, fri):
                     "cap_eok": s["cap"], "vol_ratio": w["vol_ratio"], "last_day": w["last_day"]}
             flags = []
             if s["cap"] is not None and s["cap"] < SMALL_CAP_EOK: flags.append("소형주")
-            if w["vol_ratio"] and w["vol_ratio"] >= VOL_SPIKE: flags.append("거래량 급증")
             if "스팩" in s["name"]: flags.append("스팩")
             th = THRESH_KOSPI if s["market"] == "KOSPI" else THRESH_KOSDAQ
             if w["chg"] >= th:
@@ -171,14 +213,19 @@ def run(stocks, fetch, mon, fri):
                 if not ACCUM_VOL or (w["vol_ratio"] and w["vol_ratio"] >= ACCUM_VOL):
                     accum.append(dict(base, open_price=int(w["week_open"]), open_chg=w["open_chg"], max_up=w["max_up"], range=w["range"], flags=flags))
     add_sectors(surge + accum)
-    surge.sort(key=lambda r: (r.get("sector", ""), cap_key(r))); accum.sort(key=lambda r: (r.get("sector", ""), cap_key(r)))
+    accum = [r for r in accum if r["theme"] in ACCUM_THEMES and (r["cap_eok"] or 0) > ACCUM_MIN_CAP]
+    def tkey(r):
+        t = r["theme"]; return (THEME_ORDER.index(t) if t in THEME_ORDER else 99, t, cap_key(r))
+    surge.sort(key=tkey)
+    accum.sort(key=lambda r: ((ACCUM_THEMES.index(r["theme"])), cap_key(r)))
+    add_news(surge, mon, fri)
     return surge, accum, accum_novol, ok, fail
 
 def build(surge, accum, accum_novol, ok, fail, mon, fri, now):
-    return {"version": 2, "week_start": mon.isoformat(), "week_end": fri.isoformat(),
+    return {"version": 3, "week_start": mon.isoformat(), "week_end": fri.isoformat(),
             "label": "%s ~ %s" % (mon.strftime("%Y.%m.%d"), fri.strftime("%m.%d")),
             "generated_at": now.isoformat(timespec="seconds"),
-            "thresholds": {"KOSPI": THRESH_KOSPI, "KOSDAQ": THRESH_KOSDAQ, "ACCUM_BAND": ACCUM_BAND, "ACCUM_MAX_UP": ACCUM_MAX_UP, "ACCUM_VOL": ACCUM_VOL},
+            "thresholds": {"KOSPI": THRESH_KOSPI, "KOSDAQ": THRESH_KOSDAQ, "ACCUM_BAND": ACCUM_BAND, "ACCUM_MAX_UP": ACCUM_MAX_UP, "ACCUM_VOL": ACCUM_VOL, "ACCUM_MIN_CAP": ACCUM_MIN_CAP, "THEME_ORDER": THEME_ORDER, "ACCUM_THEMES": ACCUM_THEMES},
             "scanned": ok, "failed": fail, "accum_total_without_volume_filter": accum_novol,
             "kospi": [r for r in surge if r["market"] == "KOSPI"],
             "kosdaq": [r for r in surge if r["market"] == "KOSDAQ"],
