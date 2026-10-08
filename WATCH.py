@@ -198,20 +198,17 @@ def save(d):
     json.dump(idx, open(ip, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 def probe():
-    urls = [
-     "https://m.stock.naver.com/api/stock/005930/integration",
-     "https://m.stock.naver.com/api/stock/005930/basic",
-     "https://m.stock.naver.com/api/stocks/industry?page=1&pageSize=5",
-     "https://m.stock.naver.com/api/stocks/industry/278?page=1&pageSize=3",
-     "https://m.stock.naver.com/api/stock/196170/integration",
-    ]
-    for u in urls:
+    try:
+        names = industry_names()
+        t = " | ".join("%s:%s" % (k, v) for k, v in sorted(names.items(), key=lambda x: int(x[0])))
+        for i in range(0, len(t), 800): log("::warning title=industries %d::%s" % (i // 800, t[i:i + 800]))
+    except Exception as e: log("::warning title=ind FAIL::%r" % e)
+    for u in ["https://m.stock.naver.com/api/news/stock/196170?pageSize=3&page=1",
+              "https://m.stock.naver.com/api/stock/196170/news?pageSize=3&page=1"]:
         try:
             t = http(u, tries=1)
-            ctx = [t[max(0, m.start() - 60):m.start() + 160].replace("\n", " ") for m in re.finditer(r"ndustry|upjong|ector", t)][:3]
-            log("::warning title=probe OK::%s len=%d head=%r ctx=%r" % (u[26:90], len(t), t[:150], ctx))
-        except Exception as e:
-            log("::warning title=probe FAIL::%s %r" % (u[:80], e))
+            log("::warning title=news OK::%s len=%d %r" % (u[26:80], len(t), t[:600].replace("\n", " ")))
+        except Exception as e: log("::warning title=news FAIL::%s %r" % (u[26:80], e))
 
 def main():
     if "--probe" in sys.argv: return probe()
