@@ -11,7 +11,7 @@
 사용:  python WATCH.py            (자동)   |   python WATCH.py --week 2026-10-02   (그 주 금요일 날짜 지정)
 실패(수집률 낮음)하면 [error] 를 출력하고 종료코드 1 - 기존 watch.json 은 건드리지 않음.
 """
-import os, re, sys, json, time, datetime as dt, urllib.request, urllib.error
+import os, re, sys, json, time, html as htmllib, datetime as dt, urllib.request, urllib.error
 from concurrent.futures import ThreadPoolExecutor
 
 # ===================== 설정 =====================
@@ -212,7 +212,7 @@ def news_of(code, mon, fri):
     inw.sort(key=lambda x: (-any(k in (x.get("title") or "") for k in KEYS), -int(x.get("datetime") or 0)))
     out = []
     for x in inw[:1]:
-        t = re.sub(r"<[^>]+>", "", x.get("titleFull") or x.get("title") or "").strip()
+        t = htmllib.unescape(re.sub(r"<[^>]+>", "", x.get("titleFull") or x.get("title") or "")).strip()
         d = str(x.get("datetime", ""))
         out.append({"title": t, "url": x.get("mobileNewsUrl", ""), "office": x.get("officeName", ""),
                     "date": "%s-%s-%s" % (d[:4], d[4:6], d[6:8]) if len(d) >= 8 else ""})

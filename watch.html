@@ -166,10 +166,11 @@ function nm(r){
   var sub=r.sector?'<div class="sec">'+esc(r.theme&&r.theme!==r.sector?r.theme+' · '+r.sector:r.sector)+'</div>':'';
   return '<td class="nm"><b>'+esc(r.name)+'</b><small>'+esc(r.code)+(r.market==='KOSPI'?' · 코스피':' · 코스닥')+'</small>'+sub+(r.flags||[]).map(function(f){return '<span class="fl">'+esc(f)+'</span>'}).join('')+'</td>';
 }
+function dec(t){var e=document.createElement('textarea');e.innerHTML=t||'';return e.value}
 function newsRow(r,cols){
   var n=r.news&&r.news[0];
   if(!n)return '<tr class="nr"><td colspan="'+cols+'"><span class="note">관련 뉴스 없음</span></td></tr>';
-  return '<tr class="nr"><td colspan="'+cols+'"><div class="one">📰 <a href="'+esc(n.url)+'" target="_blank" rel="noopener">'+esc(n.title)+'</a></div></td></tr>';
+  return '<tr class="nr"><td colspan="'+cols+'"><div class="one">📰 <a href="'+esc(n.url)+'" target="_blank" rel="noopener">'+esc(dec(n.title))+'</a></div></td></tr>';
 }
 function tbl(rows,th,order){
   if(!rows||!rows.length)return '<div class="empty" style="padding:10px;color:var(--dim)">기준('+th+'% 이상)을 충족한 종목이 없습니다</div>';
