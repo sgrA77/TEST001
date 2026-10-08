@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-08 16:27 KST",
+ "updated_at": "2026-10-08 16:47 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -20,7 +20,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1339.57,
+    "value": 1340.07,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -28,7 +28,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 158.182,
+    "value": 158.192,
     "prev_month": 157.558,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -114,11 +114,11 @@
     "suffix": "%"
    },
    "VIX": {
-    "value": 15.08,
+    "value": 15.63,
     "prev_month": 16.34,
     "prev_year": 14.95,
     "prev_2year": 17.35,
-    "prev_day": 15.01,
+    "prev_day": 15.08,
     "kind": "pct"
    },
    "HY Spread": {
@@ -728,9 +728,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 83056.79,
+    "price": 83014.91,
     "prev_day": 83275.9297,
-    "turnover": 37062250496,
+    "turnover": 36915683328,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -739,7 +739,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4150.2,
+    "price": 4145.9,
     "prev_day": 4140.7002,
     "turnover": null,
     "prev_month": 4186.7002,
@@ -750,7 +750,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 59.365,
+    "price": 59.28,
     "prev_day": 59.899,
     "turnover": null,
     "prev_month": 60.098,
@@ -761,7 +761,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.6625,
+    "price": 6.674,
     "prev_day": 6.5965,
     "turnover": null,
     "prev_month": 6.559,
@@ -772,7 +772,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 91.23,
+    "price": 91.6,
     "prev_day": 88.28,
     "turnover": null,
     "prev_month": 90.42,
@@ -1052,7 +1052,7 @@
     "currency": "KRW",
     "price": 1681000.0,
     "prev_day": 1723000.0,
-    "turnover": 6337126255000.0,
+    "turnover": 6356101383000.0,
     "prev_month": 1776000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -1063,7 +1063,7 @@
     "currency": "KRW",
     "price": 262000.0,
     "prev_day": 268500.0,
-    "turnover": 6171964916000.0,
+    "turnover": 6177373644000.0,
     "prev_month": 268500.0,
     "prev_year": 119900.0,
     "prev_2year": 53200.0
