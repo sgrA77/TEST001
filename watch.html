@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>급등 종목 모니터링</title>
+<title>급등·매집 모니터링</title>
 <style>
 /* Market Dashboard(index.html)와 같은 라이트 테마·변수 사용 */
 :root{
@@ -130,11 +130,13 @@ th{font-size:11px;color:var(--dim);font-weight:700;white-space:nowrap}
 .wk .chg{font-weight:800;color:var(--up-t)}
 .fl{display:inline-block;white-space:nowrap;font-size:10.5px;font-weight:700;border:1px solid var(--line);border-radius:99px;padding:0 6px;margin-left:4px;color:var(--mid)}
 .wrap{overflow-x:auto}
+.sec{font-size:11px;color:var(--amber);font-weight:700;margin-top:1px}
+.acc{border-left:4px solid var(--down-t)}
 .warn{border-left:4px solid var(--mid);font-size:12px;color:var(--sub)}
 </style>
 </head>
 <body>
-<div class="topbar"><a class="back" href="index.html">← Dashboard</a><b style="font-size:15px">급등 종목 모니터링</b><div class="upd" id="upd">–</div></div>
+<div class="topbar"><a class="back" href="index.html">← Dashboard</a><b style="font-size:15px">급등·매집 모니터링</b><div class="upd" id="upd">–</div></div>
 <div class="wrapper" style="max-width:1000px;margin:0 auto;padding:14px">
 <div class="tabs" id="tabs"><button class="on" data-t="cur">이번 모니터링</button><button data-t="hist">주간 기록</button></div>
 <div id="view"></div>
@@ -147,24 +149,32 @@ function cap(e){if(e==null)return '–';return e>=10000?(e/10000).toFixed(1)+'�
 function tbl(rows,th){
   if(!rows||!rows.length)return '<div class="empty" style="padding:10px;color:var(--dim)">기준('+th+'% 이상)을 충족한 종목이 없습니다</div>';
   return '<div class="wrap"><table class="wk"><thead><tr><th>종목</th><th>종가</th><th>주간 변동률</th><th>시총</th><th>거래량 배수</th></tr></thead><tbody>'
-   +rows.map(function(r){return '<tr><td class="nm"><b>'+esc(r.name)+'</b><small>'+esc(r.code)+'</small>'+(r.flags||[]).map(function(f){return '<span class="fl">'+esc(f)+'</span>'}).join('')+'</td>'
+   +rows.map(function(r){return '<tr><td class="nm"><b>'+esc(r.name)+'</b><small>'+esc(r.code)+'</small>'+'<div class="sec">'+esc(r.sector||'–')+'</div>'+(r.flags||[]).map(function(f){return '<span class="fl">'+esc(f)+'</span>'}).join('')+'</td>'
      +'<td>'+won(r.price)+'원<br><small class="note">직전주 '+won(r.prev_price)+'</small></td><td class="chg">+'+r.chg.toFixed(2)+'%</td><td>'+cap(r.cap_eok)+'</td><td>'+(r.vol_ratio?r.vol_ratio+'배':'–')+'</td></tr>'}).join('')+'</tbody></table></div>';
+}
+function atbl(rows){
+  if(!rows||!rows.length)return '<div class="empty" style="padding:10px;color:var(--dim)">조건을 충족한 종목이 없습니다</div>';
+  return '<div class="wrap"><table class="wk"><thead><tr><th>종목 · 업종</th><th>종가</th><th>시작가 대비</th><th>주중 등락폭</th><th>시총</th><th>거래량 배수</th></tr></thead><tbody>'
+   +rows.map(function(r){var c=r.open_chg;return '<tr><td class="nm"><b>'+esc(r.name)+'</b><small>'+esc(r.code)+' · '+(r.market==='KOSPI'?'코스피':'코스닥')+'</small><div class="sec">'+esc(r.sector||'–')+'</div>'+(r.flags||[]).map(function(f){return '<span class="fl">'+esc(f)+'</span>'}).join('')+'</td>'
+     +'<td>'+won(r.price)+'원<br><small class="note">주 시작가 '+won(r.open_price)+'</small></td><td style="font-weight:800">'+(c>0?'+':'')+c.toFixed(2)+'%</td><td>'+(r.range!=null?r.range+'%':'–')+'</td><td>'+cap(r.cap_eok)+'</td><td>'+(r.vol_ratio?r.vol_ratio+'배':'–')+'</td></tr>'}).join('')+'</tbody></table></div>';
 }
 function render(D){
   document.getElementById('upd').innerHTML=esc(D.label)+'<br>갱신 '+esc((D.generated_at||'').slice(0,16).replace('T',' '));
   var T=D.thresholds||{};
   document.getElementById('view').innerHTML=
-   '<section class="panel mv"><h2>'+esc(D.label)+' <small>월~금 달력 주 · 직전 주 마지막 종가 대비</small></h2>'
-   +'<p style="margin:0">코스피 <b>'+D.kospi.length+'</b>개 (+'+T.KOSPI+'% 이상) · 코스닥 <b>'+D.kosdaq.length+'</b>개 (+'+T.KOSDAQ+'% 이상) · 점검 종목 '+won(D.scanned)+'개</p></section>'
+   '<section class="panel mv"><h2>'+esc(D.label)+' <small>월~금 달력 주 · 시가총액 큰 순 정렬</small></h2>'
+   +'<p style="margin:0">코스피 급등 <b>'+D.kospi.length+'</b>개 (+'+T.KOSPI+'% 이상) · 코스닥 급등 <b>'+D.kosdaq.length+'</b>개 (+'+T.KOSDAQ+'% 이상) · 매집 의심 <b>'+(D.accum?D.accum.length:'–')+'</b>개 · 점검 종목 '+won(D.scanned)+'개</p></section>'
    +'<section class="panel"><h2>코스피 <small>주간 +'+T.KOSPI+'% 이상 마감</small></h2>'+tbl(D.kospi,T.KOSPI)+'</section>'
    +'<section class="panel"><h2>코스닥 <small>주간 +'+T.KOSDAQ+'% 이상 마감</small></h2>'+tbl(D.kosdaq,T.KOSDAQ)+'</section>'
-   +'<section class="panel warn">이 페이지는 <b>급등 사실을 모아 보여주는 모니터링 도구</b>입니다. 급등 자체가 시세조종·작전을 뜻하지는 않습니다. 표시(소형주, 거래량 급증, 스팩)는 수치 조건일 뿐 판단이 아닙니다. 투자 권유가 아니며, 거래량 배수는 해당 주 일평균 거래량÷직전 약 4주 일평균입니다. 가격은 네이버 금융/Yahoo Finance 일봉 기준이라 실제와 차이가 있을 수 있습니다.</section>';
+   +'<section class="panel acc"><h2>매집 의심 모니터링 <small>주봉 시작가 대비 ±'+(T.ACCUM_BAND||2)+'% 이내 · 거래량 '+(T.ACCUM_VOL||3)+'배 이상 · 시총순</small></h2>'+(D.accum?atbl(D.accum):'<div class="empty" style="padding:10px;color:var(--dim)">이 주 기록에는 매집 항목이 없습니다(기능 추가 이전 데이터)</div>')
+   +'<div class="note" style="margin-top:6px">가격은 거의 안 움직였는데 거래량만 늘어난 종목입니다. 거래량 조건 없이 ±'+(T.ACCUM_BAND||2)+'%만 보면 '+won(D.accum_total_without_volume_filter)+'개입니다. 급등 목록에 있는 종목은 제외됩니다.</div></section>'
+   +'<section class="panel warn">이 페이지는 <b>급등 사실을 모아 보여주는 모니터링 도구</b>입니다. 급등 자체가 시세조종·작전을 뜻하지는 않습니다. 표시(소형주, 거래량 급증, 스팩)와 '매집 의심'은 수치 조건에 맞는 종목을 모은 것일 뿐 매집·시세조종 여부의 판단이 아닙니다. 투자 권유가 아니며, 거래량 배수는 해당 주 일평균 거래량÷직전 약 4주 일평균입니다. 가격은 네이버 금융/Yahoo Finance 일봉 기준이라 실제와 차이가 있을 수 있습니다.</section>';
 }
 function hist(){
   fj('watch/index.json').then(function(a){
     a=a.slice().reverse();
     document.getElementById('view').innerHTML='<section class="panel"><h2>주간 기록 <small>주를 누르면 그 주를 엽니다</small></h2>'
-     +a.map(function(x){return '<div class="item" style="cursor:pointer" data-d="'+esc(x.week_end)+'"><div class="t">'+esc(x.label)+' <span class="badge">코스피 '+x.kospi+' · 코스닥 '+x.kosdaq+'</span></div><div class="d">'+esc((x.top||[]).join(', '))+'</div></div>'}).join('')+'</section>';
+     +a.map(function(x){return '<div class="item" style="cursor:pointer" data-d="'+esc(x.week_end)+'"><div class="t">'+esc(x.label)+' <span class="badge">급등 코스피 '+x.kospi+' · 코스닥 '+x.kosdaq+(x.accum!=null?' · 매집 '+x.accum:'')+'</span></div><div class="d">'+esc((x.top||[]).join(', '))+'</div></div>'}).join('')+'</section>';
     [].forEach.call(document.querySelectorAll('[data-d]'),function(el){el.onclick=function(){fj('watch/'+el.getAttribute('data-d')+'.json').then(function(d){setT('cur');render(d)})}});
   }).catch(function(){document.getElementById('view').innerHTML='<div class="panel"><div class="empty">기록이 없습니다</div></div>'});
 }
