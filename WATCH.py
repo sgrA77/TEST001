@@ -4,8 +4,8 @@
 기준
   - 주간 = 달력상 월~금. 휴장일이 있으면 그 주의 마지막 거래일 종가를 사용.
   - 주간 변동률 = (그 주 마지막 거래일 종가 / 직전 주 마지막 거래일 종가 - 1) * 100
-  - 매집 의심 = 그 주 종가가 주봉 시작가(첫 거래일 시가) 대비 ±ACCUM_BAND% 이내이면서 거래량이 ACCUM_VOL배 이상.
-  - 정렬은 시가총액 큰 순. 업종은 네이버 증권 업종 분류.
+  - 매집 의심 = 그 주 종가가 주봉 시작가(첫 거래일 시가) 대비 ±ACCUM_BAND% 이내이고, 주중 최고가가 시작가 대비 +ACCUM_MAX_UP% 이하.
+  - 정렬은 업종별로 묶고 업종 안에서 시가총액 큰 순. 업종은 네이버 증권 업종 분류.
   - 대상 주 = 가장 최근에 끝난 주. (월~금에 실행하면 '지난주', 토/일에 실행하면 '방금 끝난 주')
   - 코스피 THRESH_KOSPI% 이상, 코스닥 THRESH_KOSDAQ% 이상 상승 마감 종목만 수록.
 사용:  python WATCH.py            (자동)   |   python WATCH.py --week 2026-10-02   (그 주 금요일 날짜 지정)
@@ -19,8 +19,9 @@ THRESH_KOSPI  = 20.0     # 코스피 주간 상승률 기준(%)
 THRESH_KOSDAQ = 30.0     # 코스닥 주간 상승률 기준(%)
 MIN_OK_RATIO  = 0.90     # 수집 성공률이 이보다 낮으면 실패 처리
 WORKERS       = 12
-ACCUM_BAND    = 2.0      # 매집 의심: 주봉 시작가(그 주 첫 거래일 시가) 대비 종가 변동이 ±이 값(%) 이내
-ACCUM_VOL     = 3.0      # 매집 의심: 거래량이 직전 4주 일평균의 이 배수 이상일 때만 수록 (0 이면 거래량 조건 없음)
+ACCUM_BAND    = 2.5      # 매집 의심: 주봉 시작가(그 주 첫 거래일 시가) 대비 종가 변동이 ±이 값(%) 이내
+ACCUM_MAX_UP  = 10.0     # 매집 의심: 주중 최고가가 주봉 시작가 대비 +이 값(%) 이하 (주봉 최대 상승률)
+ACCUM_VOL     = 0.0      # 매집 의심: 거래량 배수 조건 (0 이면 사용 안 함, 예: 3.0 이면 직전 4주 일평균의 3배 이상만)
 SMALL_CAP_EOK = 1000     # '소형주' 표시 기준(시가총액, 억원)
 VOL_SPIKE     = 3.0      # '거래량 급증' 표시 기준(최근 4주 평균 대비 배수)
 # ================================================
@@ -69,6 +70,7 @@ def weekly_change(candles, mon, fri):
     return {"close": last[4], "prev_close": base[4], "chg": round((last[4] / base[4] - 1) * 100, 2),
             "week_open": wopen, "open_chg": round((last[4] / wopen - 1) * 100, 2),
             "range": round((hi - lo) / wopen * 100, 1) if wopen else None,
+            "max_up": round((hi / wopen - 1) * 100, 1) if wopen else None,
             "last_day": last[0].isoformat(), "days": len(inweek), "vol_week": vol_week,
             "vol_ratio": round(vol_ratio, 1) if vol_ratio else None}
 
@@ -164,19 +166,19 @@ def run(stocks, fetch, mon, fri):
             th = THRESH_KOSPI if s["market"] == "KOSPI" else THRESH_KOSDAQ
             if w["chg"] >= th:
                 surge.append(dict(base, prev_price=int(w["prev_close"]), chg=w["chg"], flags=flags))
-            if w["chg"] < th and w["vol_week"] > 0 and abs(w["open_chg"]) <= ACCUM_BAND:   # 급등 종목은 제외(중복 방지)
+            if w["chg"] < th and w["vol_week"] > 0 and abs(w["open_chg"]) <= ACCUM_BAND and w["max_up"] is not None and w["max_up"] <= ACCUM_MAX_UP:   # 급등 종목은 제외(중복 방지)
                 accum_novol += 1
                 if not ACCUM_VOL or (w["vol_ratio"] and w["vol_ratio"] >= ACCUM_VOL):
-                    accum.append(dict(base, open_price=int(w["week_open"]), open_chg=w["open_chg"], range=w["range"], flags=flags))
-    surge.sort(key=cap_key); accum.sort(key=cap_key)
+                    accum.append(dict(base, open_price=int(w["week_open"]), open_chg=w["open_chg"], max_up=w["max_up"], range=w["range"], flags=flags))
     add_sectors(surge + accum)
+    surge.sort(key=lambda r: (r.get("sector", ""), cap_key(r))); accum.sort(key=lambda r: (r.get("sector", ""), cap_key(r)))
     return surge, accum, accum_novol, ok, fail
 
 def build(surge, accum, accum_novol, ok, fail, mon, fri, now):
     return {"version": 2, "week_start": mon.isoformat(), "week_end": fri.isoformat(),
             "label": "%s ~ %s" % (mon.strftime("%Y.%m.%d"), fri.strftime("%m.%d")),
             "generated_at": now.isoformat(timespec="seconds"),
-            "thresholds": {"KOSPI": THRESH_KOSPI, "KOSDAQ": THRESH_KOSDAQ, "ACCUM_BAND": ACCUM_BAND, "ACCUM_VOL": ACCUM_VOL},
+            "thresholds": {"KOSPI": THRESH_KOSPI, "KOSDAQ": THRESH_KOSDAQ, "ACCUM_BAND": ACCUM_BAND, "ACCUM_MAX_UP": ACCUM_MAX_UP, "ACCUM_VOL": ACCUM_VOL},
             "scanned": ok, "failed": fail, "accum_total_without_volume_filter": accum_novol,
             "kospi": [r for r in surge if r["market"] == "KOSPI"],
             "kosdaq": [r for r in surge if r["market"] == "KOSDAQ"],
