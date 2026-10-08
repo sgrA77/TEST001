@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-08 15:13 KST",
+ "updated_at": "2026-10-08 15:43 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -20,7 +20,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1337.57,
+    "value": 1338.38,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -28,7 +28,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 158.184,
+    "value": 158.182,
     "prev_month": 157.558,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -183,8 +183,8 @@
    "date": "2026-10-14",
    "ts": 1791981000,
    "d_day": 6,
-   "eps_est": 10.6485,
-   "rev_est": 11685730960,
+   "eps_est": 10.6598,
+   "rev_est": 11683369410,
    "quarters": [
     {
      "label": "4Q2025",
@@ -376,7 +376,7 @@
    "ts": 1793217600,
    "d_day": 20,
    "eps_est": 6.7358,
-   "rev_est": 63329245590,
+   "rev_est": 63347373250,
    "quarters": [
     {
      "label": "4Q2025",
@@ -440,7 +440,7 @@
    "ts": 1793304000,
    "d_day": 21,
    "eps_est": 1.9767,
-   "rev_est": 202027031620,
+   "rev_est": 202022776300,
    "quarters": [
     {
      "label": "4Q2025",
@@ -728,9 +728,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 82827.99,
+    "price": 82623.73,
     "prev_day": 85557.5625,
-    "turnover": 36770852864,
+    "turnover": 37035151360,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -739,7 +739,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4143.7,
+    "price": 4140.5,
     "prev_day": 4140.7002,
     "turnover": null,
     "prev_month": 4186.7002,
@@ -750,7 +750,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 59.595,
+    "price": 59.22,
     "prev_day": 59.899,
     "turnover": null,
     "prev_month": 60.098,
@@ -761,7 +761,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.6985,
+    "price": 6.6745,
     "prev_day": 6.5965,
     "turnover": null,
     "prev_month": 6.559,
@@ -772,7 +772,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 90.39,
+    "price": 90.6,
     "prev_day": 88.28,
     "turnover": null,
     "prev_month": 90.42,
@@ -783,7 +783,7 @@
     "ticker": "NG=F",
     "theme": "천연가스",
     "currency": "USD",
-    "price": 3.255,
+    "price": 3.253,
     "prev_day": 3.203,
     "turnover": null,
     "prev_month": 3.026,
@@ -1050,9 +1050,9 @@
     "ticker": "000660.KS",
     "theme": "DRAM · HBM",
     "currency": "KRW",
-    "price": 1708000.0,
+    "price": 1697000.0,
     "prev_day": 1723000.0,
-    "turnover": 3649504096000.0,
+    "turnover": 3854236582000.0,
     "prev_month": 1776000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -1061,9 +1061,9 @@
     "ticker": "005930.KS",
     "theme": "메모리 · 파운드리",
     "currency": "KRW",
-    "price": 265000.0,
+    "price": 264500.0,
     "prev_day": 268500.0,
-    "turnover": 3840695085000.0,
+    "turnover": 4112160340000.0,
     "prev_month": 268500.0,
     "prev_year": 119900.0,
     "prev_2year": 53200.0
@@ -1384,18 +1384,18 @@
   },
   "KOSPI": {
    "ticker": "^KS11",
-   "price": 6675.74,
-   "3Y": 39.56,
-   "5Y": 17.69,
-   "10Y": 12.51,
-   "15Y": 9.3,
-   "20Y": 8.33
+   "price": 6666.92,
+   "3Y": 39.49,
+   "5Y": 17.66,
+   "10Y": 12.5,
+   "15Y": 9.29,
+   "20Y": 8.32
   },
   "KOSDAQ": {
    "ticker": "^KQ11",
-   "price": 893.41,
+   "price": 893.44,
    "3Y": 2.78,
-   "5Y": -1.29,
+   "5Y": -1.28,
    "10Y": 2.83,
    "15Y": 4.79,
    "20Y": 2.23
@@ -1470,7 +1470,7 @@
    "AMZN": {
     "3Q2026": {
      "eps_est": 1.97667,
-     "rev_est": 202027031620
+     "rev_est": 202022776300
     }
    },
    "GOOGL": {
@@ -1482,7 +1482,7 @@
    "META": {
     "3Q2026": {
      "eps_est": 6.73583,
-     "rev_est": 63329245590
+     "rev_est": 63347373250
     }
    },
    "TSLA": {
@@ -1521,8 +1521,8 @@
    },
    "ASML": {
     "3Q2026": {
-     "eps_est": 10.64854,
-     "rev_est": 11685730960
+     "eps_est": 10.6598,
+     "rev_est": 11683369410
     }
    },
    "AMAT": {
