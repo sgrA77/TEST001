@@ -168,7 +168,7 @@ function render(D){
    +'<section class="panel"><h2>코스닥 <small>주간 +'+T.KOSDAQ+'% 이상 마감</small></h2>'+tbl(D.kosdaq,T.KOSDAQ)+'</section>'
    +'<section class="panel acc"><h2>매집 의심 모니터링 <small>주봉 시작가 대비 ±'+(T.ACCUM_BAND||2)+'% 이내 · 거래량 '+(T.ACCUM_VOL||3)+'배 이상 · 시총순</small></h2>'+(D.accum?atbl(D.accum):'<div class="empty" style="padding:10px;color:var(--dim)">이 주 기록에는 매집 항목이 없습니다(기능 추가 이전 데이터)</div>')
    +'<div class="note" style="margin-top:6px">가격은 거의 안 움직였는데 거래량만 늘어난 종목입니다. 거래량 조건 없이 ±'+(T.ACCUM_BAND||2)+'%만 보면 '+won(D.accum_total_without_volume_filter)+'개입니다. 급등 목록에 있는 종목은 제외됩니다.</div></section>'
-   +'<section class="panel warn">이 페이지는 <b>급등 사실을 모아 보여주는 모니터링 도구</b>입니다. 급등 자체가 시세조종·작전을 뜻하지는 않습니다. 표시(소형주, 거래량 급증, 스팩)와 '매집 의심'은 수치 조건에 맞는 종목을 모은 것일 뿐 매집·시세조종 여부의 판단이 아닙니다. 투자 권유가 아니며, 거래량 배수는 해당 주 일평균 거래량÷직전 약 4주 일평균입니다. 가격은 네이버 금융/Yahoo Finance 일봉 기준이라 실제와 차이가 있을 수 있습니다.</section>';
+   +'<section class="panel warn">이 페이지는 <b>급등 사실을 모아 보여주는 모니터링 도구</b>입니다. 급등 자체가 시세조종·작전을 뜻하지는 않습니다. 표시(소형주, 거래량 급증, 스팩)와 “매집 의심”은 수치 조건에 맞는 종목을 모은 것일 뿐 매집·시세조종 여부의 판단이 아닙니다. 투자 권유가 아니며, 거래량 배수는 해당 주 일평균 거래량÷직전 약 4주 일평균입니다. 가격은 네이버 금융/Yahoo Finance 일봉 기준이라 실제와 차이가 있을 수 있습니다.</section>';
 }
 function hist(){
   fj('watch/index.json').then(function(a){
