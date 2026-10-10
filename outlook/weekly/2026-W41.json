@@ -1,0 +1,420 @@
+{
+ "version": 1,
+ "mode": "weekly",
+ "week": "2026-W41",
+ "period": "2026-10-07 ~ 2026-10-09",
+ "generated_at": "2026-10-10T09:25:24+09:00",
+ "summary": "이번 주는 S&P500·나스닥이 사상 최고를 찍은 직후(10/6) 후퇴하며 시장 View가 Bullish에서 Neutral로 내려갔다. 변화의 축은 Fed 의사록이 연내 추가 인상을 공식 확인한 점, 10년물 장중 5.36%·30년물 5.73%의 2002년 이후 최고 금리, 브렌트 100달러 재상회, OpenAI 매출 정정으로 번진 AI 수익성 검증 논쟁이다. 3분기 이익 증가율 전망(약 30%)과 메모리·AI 칩 실적은 여전히 강해 시나리오는 Base를 유지했다.",
+ "biggest_changes": [
+  {
+   "title": "시장 View Bullish → Neutral",
+   "detail": "사상 최고 직후 지수가 후퇴하고 러셀2000(-1.31%)이 더 약해 시장 폭이 나빠졌다. 금리·유가 동반 상승으로 상방 근거가 약해졌다.",
+   "importance": "HIGH"
+  },
+  {
+   "title": "Fed 연내 추가 인상 기조 공식화",
+   "detail": "9월 의사록이 연내 추가 인상이 적절하다고 명시했고 12월 인상 확률은 최대 70%까지 반영됐다. 10월 인상 확률은 약 22%에서 17%로 낮아져 시점은 12월 쪽으로 이동했다.",
+   "importance": "HIGH"
+  },
+  {
+   "title": "OpenAI 매출 정정으로 AI 수익성 검증 부각",
+   "detail": "연환산 매출이 $68B가 아니라 약 $50B로 정정되자 엔비디아·오라클·코어위브 등 AI 인프라주가 하락했다. 주 초 'AI 투자 지속' 중심의 논리에 수익성 검증이 추가됐다.",
+   "importance": "HIGH"
+  },
+  {
+   "title": "에너지 공급 충격 재부각",
+   "detail": "후티·호르무즈 공격과 멕시코만 폭풍(미 걸프 해상 생산 약 9.2% 중단)이 겹치며 브렌트가 반락 후 다시 100달러를 넘었다.",
+   "importance": "HIGH"
+  }
+ ],
+ "new_issues": [
+  {
+   "title": "AI 인프라의 부채 자금조달 확대",
+   "detail": "스페이스X의 약 400억달러 엔비디아 칩 조달 협의, 오픈AI 300억달러 조달 협의, 앤트로픽 IPO 준비가 한꺼번에 보도됐다. 모두 미확정이며 칩 수요를 받치는 주체의 재무 의존도가 높아졌다는 신호다."
+  },
+  {
+   "title": "AI 매출 인식(총액 vs 순액) 논쟁",
+   "detail": "OpenAI 정정은 파트너 총매출 포함 여부에서 나왔고 앤트로픽도 클라우드 파트너 매출을 총액으로 계상한다는 지적이 있다. IPO 평가의 쟁점이 됐다."
+  },
+  {
+   "title": "AI 투자가 물가 압력 요인으로 의사록에 명시",
+   "detail": "일부 위원이 AI 투자가 수요를 공급보다 앞서게 해 물가를 자극할 수 있다고 경고했다."
+  },
+  {
+   "title": "메모리 주가와 펀더멘털의 괴리",
+   "detail": "한국 9월 반도체 수출이 +262.8%로 사상 최대인데도 외국인이 삼성전자·SK하이닉스를 대규모 순매도했다. 가격 상승률 둔화와 HBM 가격 불확실성이 이유로 거론된다."
+  },
+  {
+   "title": "시장 폭 악화",
+   "detail": "동일가중 S&P500은 고점 대비 5% 넘게, 러셀2000은 8% 넘게 낮다는 보도가 나와 상승이 소수 대형 기술주에 의존함이 부각됐다."
+  }
+ ],
+ "faded_issues": [
+  {
+   "title": "10월 Fed 인상 우려",
+   "detail": "9월 고용 부진(+2.9만명)을 반영해 10월 인상 확률이 약 70%에서 17% 안팎으로 낮아졌고 논점은 12월로 넘어갔다."
+  },
+  {
+   "title": "AI 전력 수요(구글 원전 계약)",
+   "detail": "10/7에는 HIGH~MEDIUM 이슈였으나 이후 Daily에서는 주요 이슈 목록에서 빠졌다."
+  }
+ ],
+ "ai_semi": [
+  {
+   "title": "공급망 지표는 강세 유지, 주가는 차익실현",
+   "detail": "마이크론 FQ4 매출 $54.23B와 FQ1 가이던스 $61.5B, TrendForce의 4Q 인상 전망이 이어졌으나 10/7 이후 마이크론·SOX는 약세로 출발했다."
+  },
+  {
+   "title": "논점이 수요에서 재원·수익성으로 이동",
+   "detail": "데이터센터 항목이 '전력 병목'에서 '자금조달 의존 확대'로, 이어 '데이터 부족'으로 바뀌었고 AI CAPEX는 '상향 기조·재원 점검'이 됐다. GPU/ASIC 수요는 견조하나 주가는 약했다."
+  },
+  {
+   "title": "엔터프라이즈 SSD 가격 가속",
+   "detail": "TrendForce는 4Q26 eSSD만 3분기보다 상승폭이 커진다고 보며 AI 추론·에이전트 데이터 검색 수요를 배경으로 든다."
+  }
+ ],
+ "institution_changes": [
+  {
+   "title": "Bernstein: SK하이닉스 목표가 하향",
+   "detail": "목표가를 330만원에서 270만원으로 낮췄고 HBM 진전과 가격 가정을 보수화했다. 삼성전자 선호는 유지했다."
+  },
+  {
+   "title": "NVDA 목표가·선호도 상향",
+   "detail": "BNP Paribas가 목표가를 345달러로 올렸고 Morgan Stanley는 엔비디아를 최선호 반도체주로 재지정했다."
+  },
+  {
+   "title": "Goldman Sachs: S&P500 목표 8,000",
+   "detail": "기존 7,600에서 상향했고 AI 인프라 수혜주가 올해 이익 증가의 약 절반이라고 봤다. 발표일은 기사에 표기되지 않았다."
+  }
+ ],
+ "core_stocks": [
+  {
+   "title": "NVDA",
+   "detail": "시총 약 5.8조달러로 신고가권에서 한 주를 시작했고 BNP·MS의 긍정적 평가가 나왔다. 그러나 10/8 OpenAI 매출 정정 때 AI 인프라주와 함께 하락해 '실적 강세, 주가 약세' 구도가 됐다."
+  },
+  {
+   "title": "MU",
+   "detail": "FQ4 호실적과 FQ1 가이던스 $61.5B로 메모리 슈퍼사이클을 확인했으나 선행 PER 약 6배는 '사이클 정점 우려'의 반영으로 해석됐다. 10/7 이후 차익실현 압력이 나타났다."
+  },
+  {
+   "title": "AMD·AVGO",
+   "detail": "10/7 Daily에서 AMD는 기록 경신, AVGO는 수요 가시성이 언급됐다. 이후 두 종목에 대한 새 근거는 Daily에 없어 한 주 변화는 확인되지 않는다."
+  },
+  {
+   "title": "오라클·코어위브 등 OpenAI 연계주",
+   "detail": "10/8 OpenAI 매출 정정 보도에 하락했다. 10/9 Daily에서 TSM·ORCL이 추적 종목에 추가됐으나 수치 근거는 없다."
+  }
+ ],
+ "spacex": [
+  {
+   "title": "심리 긍정 → 중립, 레버리지 부담",
+   "detail": "10/5 +8%(171.09달러)의 반등 뒤 10/8 은행대출 100억달러와 투자등급 채권 300억달러 등 약 400억달러를 엔비디아 칩 구매용으로 협의 중이라는 보도(예비 단계, 미확정)가 나왔다. 이에 SPCX와 로켓랩·AST스페이스모바일 등 우주 관련주가 약세였다."
+  },
+  {
+   "title": "락업 일정은 미확인",
+   "detail": "공모가 대비 약 20% 높은 수준이나 52주 고점보다 낮고, xAI·Cursor 통합과 Starlink 가입자 확대가 서사의 중심이다. 락업 만료 일정은 출처에 없다."
+  }
+ ],
+ "genai": [
+  {
+   "title": "Anthropic IPO: 11월, 기대 가치 약 2조달러",
+   "detail": "10/7 Daily는 11월 중순 IPO·10/14 투자자 미팅을 전했고 10/9 Daily는 10월에서 11월로 연기된 것으로 보도했다. 최대 2조달러 가치 기대는 일관되나 일정은 보도마다 다르다."
+  },
+  {
+   "title": "OpenAI: 매출 정정과 자금조달",
+   "detail": "연환산 매출을 $68B에서 약 $50B로 정정했고 3분기 런레이트는 +77%다. 약 1.4조달러 가치로 300억달러 조달을 협의 중이라는 보도도 있으며 모두 미확정이다."
+  },
+  {
+   "title": "대형 AI IPO 물량 부담",
+   "detail": "Goldman은 기록적 IPO 물량을 위험요인으로 언급했고 Anthropic 11월, OpenAI 2027년 IPO 가능성이 시장 자금 흡수 요인으로 거론됐다."
+  },
+  {
+   "title": "구글–유니티 AI 게임 플랫폼 협력",
+   "detail": "10/8 Daily에 협력 발표가 언급됐으나 시장 영향을 판단할 근거는 없다."
+  }
+ ],
+ "macro": [
+  {
+   "title": "장기금리 2002년 이후 최고 경신",
+   "detail": "10년물이 장중 5.36%(2002년 4월 이후 최고), 30년물이 장중 5.73%까지 올랐다. 종가는 10년물 5.28%, 30년물 약 5.67%다."
+  },
+  {
+   "title": "유가 반락 후 재상승",
+   "detail": "주 초 반락했던 유가가 중동 공급 차질로 브렌트 100달러 위로 돌아왔다(WTI 약 90달러). 8월 PCE 3.8%(추정), 근원 3.4%로 인플레 부담이 이어진다."
+  },
+  {
+   "title": "고용 둔화와 인플레 동시 진행",
+   "detail": "9월 비농업 +2.9만명, 실업률 4.2%로 10월 인상 확률은 낮아졌지만 의사록은 고용을 완전고용 근처로 평가해 12월 인상 경로는 열려 있다."
+  }
+ ],
+ "next_week": [
+  {
+   "title": "3분기 실적 시즌 개시",
+   "detail": "10/8 Daily는 실적 시즌이 다음 주 시작하며 LSEG 기준 3분기 S&P500 이익 증가율을 약 30.6%로 본다고 했다. 기대치가 높아 미달 시 되돌림이 클 수 있다."
+  },
+  {
+   "title": "Anthropic 투자자 미팅(10/14)",
+   "detail": "10/8 Daily가 10/14 투자자 미팅을 언급했으나 10/9 Daily는 IPO가 11월로 연기됐다고 해 일정 변동 가능성이 있다."
+  }
+ ],
+ "scenario_change": "Base 유지: 이익 전망과 AI 수요가 받치지만 금리·유가·AI 수익성 논쟁으로 Bull 쪽 근거는 약해졌다.",
+ "market_view_trend": [
+  {
+   "date": "2026-10-07",
+   "label": "Bullish",
+   "headline": "S&P500·나스닥 동반 사상 최고, 상승은 대형 기술주 집중"
+  },
+  {
+   "date": "2026-10-08",
+   "label": "Neutral",
+   "headline": "사상 최고 직후 조정: 지수 하락, 소형주와 시장 폭이 더 약함"
+  },
+  {
+   "date": "2026-10-09",
+   "label": "Neutral",
+   "headline": "Fed 의사록: 전원 9월 인상 지지, 연내 추가 인상 시사"
+  }
+ ],
+ "sources": [
+  {
+   "id": "s1",
+   "title": "Stock Market Today (Oct. 6, 2026)",
+   "publisher": "TheStreet",
+   "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-06-2026",
+   "date": "2026-10-06",
+   "tier": "언론"
+  },
+  {
+   "id": "s2",
+   "title": "Stock market today: S&P 500, Nasdaq hit record highs as Nvidia, AMD lead tech higher",
+   "publisher": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-october-6-dow-sp-500-nasdaq-080526166.html",
+   "date": "2026-10-06",
+   "tier": "언론"
+  },
+  {
+   "id": "s3",
+   "title": "Stock Market Today (Oct. 6, 2026): S&P 500 sets new record",
+   "publisher": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-6-134418919.html",
+   "date": "2026-10-06",
+   "tier": "언론"
+  },
+  {
+   "id": "s4",
+   "title": "The Employment Situation - September 2026",
+   "publisher": "BLS",
+   "url": "https://www.bls.gov/news.release/archives/empsit_10022026.htm",
+   "date": "2026-10-02",
+   "tier": "공식"
+  },
+  {
+   "id": "s5",
+   "title": "Fed raises rates in September, officials signal one more hike in 2026",
+   "publisher": "Chase",
+   "url": "https://www.chase.com/personal/investments/learning-and-insights/article/federal-reserve-raises-rates-officials-signal-one-more-hike-in-2026",
+   "date": "2026-09-17",
+   "tier": "리서치"
+  },
+  {
+   "id": "s6",
+   "title": "Earnings call transcript: Micron tops Q4 2026 estimates",
+   "publisher": "Investing.com",
+   "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-micron-tops-q4-2026-estimates-as-demand-stays-hot-93CH-4925992",
+   "date": "2026-09-30",
+   "tier": "언론"
+  },
+  {
+   "id": "s7",
+   "title": "Micron Q4 Earnings Analysis: Why MU Stock Stayed Flat",
+   "publisher": "INDmoney",
+   "url": "https://www.indmoney.com/blog/us-stocks/micron-stock-q4-earnings-analysis-mu",
+   "date": "2026-09-30",
+   "tier": "집계"
+  },
+  {
+   "id": "s8",
+   "title": "Google, Anthropic and OpenAI just locked in Broadcom's earnings through 2028",
+   "publisher": "TIKR",
+   "url": "https://www.tikr.com/blog/google-anthropic-and-openai-just-locked-in-broadcoms-q3-earnings-through-2028",
+   "date": "2026-09-03",
+   "tier": "리서치"
+  },
+  {
+   "id": "s9",
+   "title": "Why AI chip stocks AMD, Nvidia and Broadcom are rising in pre-market today, October 6",
+   "publisher": "TipRanks",
+   "url": "https://www.tipranks.com/news/why-ai-chip-stocks-amd-nvidia-and-broadcom-are-rising-in-pre-market-today-october-6",
+   "date": "2026-10-06",
+   "tier": "집계"
+  },
+  {
+   "id": "s10",
+   "title": "Nvidia hits record high near $6 trillion, yet still trails the chip sector's 2026 rally",
+   "publisher": "investingLive",
+   "url": "https://investinglive.com/stock-market-update/nvidia-hits-record-high-near-6-trillion-yet-still-trails-the-chip-sector-s-2026-rally/",
+   "date": "2026-10-05",
+   "tier": "언론"
+  },
+  {
+   "id": "s11",
+   "title": "Nvidia Hits a New All-Time High. Is the AI Stock a Buy?",
+   "publisher": "Motley Fool",
+   "url": "https://www.fool.com/investing/2026/10/06/nvidia-at-an-all-time-high-is-the-ai-stock-a-buy/",
+   "date": "2026-10-06",
+   "tier": "언론"
+  },
+  {
+   "id": "s12",
+   "title": "AMD stock closes at a record $633.91 as its Nvidia challenge gets real",
+   "publisher": "Startup Fortune",
+   "url": "https://startupfortune.com/amd-stock-closes-at-a-record-63391-as-its-nvidia-challenge-gets-real/",
+   "date": "2026-10-02",
+   "tier": "언론"
+  },
+  {
+   "id": "s13",
+   "title": "Amazon, Microsoft, Alphabet, Meta Plan $725B AI Capex in 2026",
+   "publisher": "AI Weekly",
+   "url": "https://aiweekly.co/alerts/amazon-microsoft-alphabet-meta-plan-725b-ai-capex-in-2026",
+   "date": "2026-07-31",
+   "tier": "집계"
+  },
+  {
+   "id": "s14",
+   "title": "Morgan Stanley, TD Cowen Back SpaceX as Starlink Passes 12 Million Subscribers",
+   "publisher": "Benzinga",
+   "url": "https://www.benzinga.com/trading-ideas/movers/26/10/62187303/morgan-stanley-td-cowen-back-spacex-as-starlink-passes-12-million-subscribers",
+   "date": "2026-10-06",
+   "tier": "언론"
+  },
+  {
+   "id": "s15",
+   "title": "SPCX Stock Ends Higher On Starship Fuel Plans, Analyst Optimism And TSMC Talks",
+   "publisher": "Stocktwits",
+   "url": "https://stocktwits.com/news-articles/markets/equity/spcx-stock-ends-higher-on-starship-fuel-plans-analyst-optimism-and-tsmc-talks/cZDqBUNRBjY",
+   "date": "2026-10-05",
+   "tier": "언론"
+  },
+  {
+   "id": "s16",
+   "title": "Initial public offering of SpaceX",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Initial_public_offering_of_SpaceX",
+   "date": "2026-10-07",
+   "tier": "집계"
+  },
+  {
+   "id": "s17",
+   "title": "Anthropic Could Beat OpenAI to Wall Street by Over a Year",
+   "publisher": "Motley Fool",
+   "url": "https://www.fool.com/investing/2026/10/06/anthropic-could-beat-openai-to-wall-street-by-over/",
+   "date": "2026-10-06",
+   "tier": "언론"
+  },
+  {
+   "id": "s18",
+   "title": "OpenAI seeks $30 billion in funding at $1.4 trillion valuation",
+   "publisher": "CoinDesk",
+   "url": "https://www.coindesk.com/markets/2026/09/30/openai-targets-usd1-4-trillion-valuation-and-unveils-dots-ai-agent",
+   "date": "2026-09-30",
+   "tier": "언론"
+  },
+  {
+   "id": "s19",
+   "title": "Anthropic tops OpenAI as most valuable AI startup, with $965B valuation",
+   "publisher": "Axios",
+   "url": "https://www.axios.com/2026/05/28/anthropic-ai-fundraising-openai",
+   "date": "2026-05-28",
+   "tier": "언론"
+  },
+  {
+   "id": "s20",
+   "title": "TrendForce 2Q26 memory price forecast",
+   "publisher": "UDN (TrendForce 인용)",
+   "url": "https://udn.com/news/story/7240/9414330",
+   "date": "2026-03-31",
+   "tier": "리서치"
+  },
+  {
+   "id": "s1",
+   "title": "Stock market today: Dow falls, S&P 500 and Nasdaq retreat from records amid bond market jitters",
+   "publisher": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-7-dow-sp-500-nasdaq-080241833.html",
+   "date": "2026-10-07",
+   "tier": "언론"
+  },
+  {
+   "id": "s2",
+   "title": "Stock Market Today (Oct. 7, 2026): Market faces pullback after S&P 500, Nasdaq records",
+   "publisher": "TheStreet",
+   "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-07-2026",
+   "date": "2026-10-07",
+   "tier": "언론"
+  },
+  {
+   "id": "s3",
+   "title": "Dow futures plunge 305 points: 5 things to know before Wall Street opens on Oct. 7",
+   "publisher": "Invezz",
+   "url": "https://invezz.com/pk/news/2026/10/07/dow-futures-plunge-305-points-5-things-to-know-before-wall-street-opens-on-oct-7",
+   "date": "2026-10-07",
+   "tier": "언론"
+  },
+  {
+   "id": "s4",
+   "title": "Nasdaq, S&P 500 slip from record highs as yields and oil rebound",
+   "publisher": "Business Recorder (Reuters)",
+   "url": "https://www.brecorder.com/news/40443112/nasdaq-sampp-500-slip-from-record-highs-as-yields-and-oil-rebound",
+   "date": "2026-10-07",
+   "tier": "언론"
+  },
+  {
+   "id": "s5",
+   "title": "Dow opens 400 pts lower as oil and Treasury yields rise ahead of Fed minutes",
+   "publisher": "Invezz",
+   "url": "https://invezz.com/news/2026/10/07/dow-opens-400-pts-lower-as-oil-and-treasury-yields-rise-ahead-of-fed-minutes/",
+   "date": "2026-10-07",
+   "tier": "언론"
+  },
+  {
+   "id": "s6",
+   "title": "SpaceX Slips 2% on a Reported $40 Billion Chip Financing Plan",
+   "publisher": "24/7 Wall St.",
+   "url": "https://247wallst.com/investing/2026/10/07/spacex-slips-2-on-a-reported-40-billion-chip-financing-plan-rocket-lab-eases-ast-spacemobile-falls-3/",
+   "date": "2026-10-07",
+   "tier": "언론"
+  },
+  {
+   "id": "s7",
+   "title": "Fed minutes preview: one more hike guidance meets softer data as October odds fade",
+   "publisher": "investingLive",
+   "url": "https://investinglive.com/central-banks/fed-minutes-preview-one-more-hike-guidance-meets-softer-data-as-october-odds-fade/",
+   "date": "2026-10-05",
+   "tier": "언론"
+  },
+  {
+   "id": "s8",
+   "title": "Stock Market News for Oct 7, 2026",
+   "publisher": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-news-oct-7-074400333.html",
+   "date": "2026-10-07",
+   "tier": "언론"
+  },
+  {
+   "id": "s9",
+   "title": "Why Samsung and SK Hynix are falling even as Korea's chip exports keep surging",
+   "publisher": "Invezz",
+   "url": "https://invezz.com/news/2026/10/06/why-samsung-and-sk-hynix-are-falling-even-as-koreas-chip-exports-keep-surging/",
+   "date": "2026-10-06",
+   "tier": "언론"
+  },
+  {
+   "id": "s10",
+   "title": "Anthropic reportedly looking to IPO as early as mid-November",
+   "publisher": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/technology/article/anthropic-reportedly-looking-to-ipo-as-early-as-mid-november-180315768.html",
+   "date": "2026-10-01",
+   "tier": "언론"
+  }
+ ]
+}
