@@ -1,32 +1,37 @@
 {
  "version": 1,
- "date": "2026-10-09",
+ "date": "2026-10-12",
  "mode": "daily",
- "generated_at": "2026-10-09T06:28:26+09:00",
- "data_as_of": "2026-10-07 미국 장 마감(+10/8 장중 보도 반영)",
+ "generated_at": "2026-10-12T06:33:40+09:00",
+ "data_as_of": "2026-10-09 미국 장 마감",
  "market_view": {
   "label": "Neutral",
-  "summary": "10/7 S&P 500은 7,803.73(-0.2%)으로 전날 사상 최고 이후 숨을 골랐고, Fed 9월 의사록이 '연내 추가 인상이 적절'이라는 매파 기조를 확인해 30년물이 5.668%까지 올랐다. 10/8에는 OpenAI 연환산 매출이 $68B가 아니라 약 $50B라는 정정 보도로 AI 인프라주가 하락해, 금리 부담에 AI 수익성 의문이 더해졌다. 이익 전망(3분기 S&P 500 이익 증가율 약 30%)은 여전히 강해 방향은 '혼조'로 본다.",
-  "ai_line": "AI 수요는 마이크론 FQ1 가이던스 $61.5B와 TrendForce 4Q26 DRAM +10~15% 전망으로 견조하나, OpenAI 매출 정정으로 AI 인프라 투자의 수익 검증 문제가 부각됐다.",
+  "summary": "10/9 S&P 500은 7,811.5(+0.6%), 다우 51,655(+0.8%), 나스닥 27,366(+0.6%)으로 목요일 AI 매도를 되돌리며 사상 최고 부근을 지켰다. 다만 10년물이 5.25% 안팎(24년 고점권), 브렌트가 $103~104로 높고 Fed 의사록은 연내 추가 인상을 시사해 밸류에이션 부담이 이어진다. 다음 주 은행 실적(10/13)과 9월 CPI(10/14)가 방향을 가를 변수다.",
+  "ai_line": "OpenAI 연환산 매출 $50B 보도(기대 $68~70B)로 NVDA -2.9%·AMD -3.9%·MU -4.8%가 빠졌다가 집계방식 차이 해명으로 반등했고, 메모리 가격(4Q DRAM +10~15%)은 여전히 강하다.",
   "src": [
    "s1",
    "s2",
-   "s4"
+   "s3",
+   "s4",
+   "s6",
+   "s7",
+   "s8"
   ]
  },
  "key_changes": [
   {
-   "title": "Fed 의사록: 전원 9월 인상 지지, 연내 추가 인상 시사",
-   "detail": "9/15~16 회의 의사록(10/7 공개)에서 대부분 위원이 연내 한 차례 더 인상이 적절하다고 봤고, 8월 PCE 물가는 3.8%(근원 3.4%)로 추정됐다. 10월 인상 확률은 17.2%, 12월 최대 70%로 반영됐다.",
+   "title": "AI 매출 쇼크 후 반등",
+   "detail": "10/8 FT가 OpenAI 연환산 매출을 약 $50B로 보도해 나스닥이 1.3% 안팎 하락했으나, 10/9 집계방식 차이(OpenAI는 클라우드 파트너 경유 매출 제외)와 연말 $70B+ 전망 보도로 기술주가 반등했다.",
    "importance": "HIGH",
    "src": [
-    "s1",
-    "s3"
+    "s6",
+    "s9",
+    "s2"
    ]
   },
   {
-   "title": "OpenAI 연환산 매출 $50B로 정정 → AI 인프라주 하락",
-   "detail": "OpenAI가 투자자에게 9월 말 연환산 매출을 약 $50B로 알렸고(기존 보도 $68B는 파트너 총매출 포함 보도), 10/8 엔비디아·오라클·코어위브 등이 하락했다. 하락폭은 출처에 수치가 없다.",
+   "title": "Fed: 연내 추가 인상 시사, 10월보다 12월",
+   "detail": "9월 의사록은 다수가 연말까지 추가 인상이 적절하다고 봤고, CME 기준 10월 인상 확률 17%, 12월 84%(10/7). 9월 고용 +29K(예상 84K)로 10월 인상 기대는 크게 꺾였다.",
    "importance": "HIGH",
    "src": [
     "s4",
@@ -34,170 +39,174 @@
    ]
   },
   {
-   "title": "장기금리 2002년 이후 최고 부근, 지수는 고점에서 후퇴",
-   "detail": "10/7 30년물은 5.668%로 2002년 5월 이후 최고 부근, 10년물은 5.286%였고 S&P 500은 -0.2%였다. 장중 기사는 금리 재상승과 높은 이익 기대 사이의 재평가를 지적했다.",
+   "title": "장기금리 고점권 횡보",
+   "detail": "10년물은 10/7 5.37% 부근(24년 최고)에서 10/9 5.25% 안팎, 30년물 5.61%로 소폭 내려왔으나 여전히 고점권이다.",
    "importance": "HIGH",
    "src": [
     "s1",
-    "s2"
+    "s3"
    ]
   },
   {
-   "title": "메모리 수급 타이트 지속: 마이크론 가이던스·TrendForce 4Q 인상",
-   "detail": "마이크론 FQ4 매출 $54.23B, FQ1 가이던스 $61.5B(±$1.5B)이며 TrendForce는 4Q26 일반 DRAM 계약가 +10~15%, NAND +15~20%를 전망했다.",
-   "importance": "HIGH",
-   "src": [
-    "s6",
-    "s7"
-   ]
-  },
-  {
-   "title": "Anthropic IPO 11월로 연기 보도, OpenAI는 $30B 조달 협의",
-   "detail": "Anthropic IPO가 10월에서 11월로 밀렸고 투자자들이 약 $2조 가치를 기대한다고 보도됐다. OpenAI는 약 $30B 조달 초기 협의 중이며 2027 IPO가 예상된다.",
+   "title": "SpaceX 800MHz 스펙트럼 인수 → 통신주 급락",
+   "detail": "그레인 매니지먼트의 전국 저대역 주파수를 약 $80억(WSJ 보도)에 인수하기로 하자 TMUS·VZ·T가 8.5~13% 급락, 타워주(CCI·AMT·SBAC)는 7~16% 급등했다.",
    "importance": "MEDIUM",
    "src": [
     "s11",
-    "s5"
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "title": "유가 $100대 유지, 지정학 변수 지속",
+   "detail": "브렌트는 $103~104로 하루 -1% 안팎이며, 트럼프의 11/3 중간선거 전 이란 공격 배제 발언과 러시아 디젤 공급 합의가 변수다. 멕시코만 생산 약 63%가 허리케인으로 중단됐다.",
+   "importance": "MEDIUM",
+   "src": [
+    "s1",
+    "s3"
    ]
   }
  ],
  "view_changed": [
   {
-   "item": "시장 View",
-   "frm": "Bullish",
-   "to": "Neutral",
-   "reason": "매파 의사록과 30년물 5.67%에 OpenAI 매출 정정이 겹쳐 AI 밸류에이션 정당화 부담이 커졌다.",
-   "src": [
-    "s1",
-    "s4"
-   ]
-  },
-  {
-   "item": "Fed 경로",
-   "frm": "연내 인상 가능성 시사",
-   "to": "연내 추가 인상이 '적절'(의사록 명시), 10월 17% / 12월 최대 70%",
-   "reason": "의사록이 추가 인상 기조를 공식 확인했다.",
-   "src": [
-    "s1",
-    "s3"
-   ]
-  },
-  {
-   "item": "AI 인프라 심리",
-   "frm": "AI 투자 지속 중심",
-   "to": "OpenAI 매출 정정으로 수익성 검증 논점 추가",
-   "reason": "연환산 매출 $68B→$50B 정정으로 오라클·코어위브 등 OpenAI 연계주가 약세였다.",
+   "item": "Fed 인상 경로",
+   "frm": "10월 인상 확률 약 70%(주초)",
+   "to": "10월 14~17%, 12월 84%",
+   "reason": "9월 고용 +29K 쇼크와 의사록의 '연내 추가 인상' 문구가 겹쳐 시점이 12월로 이동.",
    "src": [
     "s4",
     "s5"
+   ]
+  },
+  {
+   "item": "OpenAI 매출 충격",
+   "frm": "연환산 $68B 기대 → $50B 정정으로 AI 인프라주 하락(10/8)",
+   "to": "집계방식 차이 해명·연말 $70B+ 전망으로 반등(10/9)",
+   "reason": "OpenAI는 클라우드 파트너 경유 매출을 제외하는 반면 Anthropic은 포함, 3분기 런레이트 +77%.",
+   "src": [
+    "s6"
+   ]
+  },
+  {
+   "item": "유가 서술",
+   "frm": "브렌트 $100 안팎·이란 전쟁 부각",
+   "to": "브렌트 $103~104, 중간선거 전 공격 배제 발언과 호르무즈 재개방 제안 검토",
+   "reason": "공급 충격 우려는 유지되나 단기 긴장 완화 신호가 일부 나왔다.",
+   "src": [
+    "s1",
+    "s3"
    ]
   }
  ],
  "issues": [
   {
-   "title": "Fed 긴축 재개와 장기금리",
-   "summary": "정책금리 3.75~4.00%에서 연내 추가 인상이 시사됐고 30년물은 5.668%다. 밸류에이션의 핵심 변수다.",
+   "title": "Fed 추가 인상과 장기금리 5%대",
+   "summary": "의사록상 연내 추가 인상 지지가 우세하고 10년물은 5.25% 부근으로 밸류에이션의 최대 부담이다.",
    "importance": "HIGH",
-   "trend": "up",
+   "trend": "steady",
    "src": [
+    "s4",
     "s1",
     "s3"
    ]
   },
   {
-   "title": "AI 투자 수익성 검증(OpenAI 매출 정정)",
-   "summary": "OpenAI 연환산 매출이 약 $50B로 정정돼 AI 인프라 투자 회수 속도에 대한 질문이 커졌다.",
+   "title": "AI 투자 수익성 검증(OpenAI 매출 논란)",
+   "summary": "매출 수치 하나에 NVDA·AMD·MU·CoreWeave가 동시에 흔들려 AI 수요처의 현금창출력이 핵심 변수가 됐다.",
    "importance": "HIGH",
    "trend": "up",
    "src": [
-    "s4",
-    "s5"
+    "s6",
+    "s7",
+    "s9",
+    "s10"
    ]
   },
   {
-   "title": "메모리 슈퍼사이클",
-   "summary": "마이크론 FQ1 가이던스 $61.5B, TrendForce 4Q26 DRAM +10~15%로 가격 상승이 이어진다.",
+   "title": "메모리 가격 사이클",
+   "summary": "TrendForce는 4Q26 일반 DRAM +10~15%, NAND +15~20%를 전망하며 엔터프라이즈 SSD만 상승 가속이다. 상승률 둔화는 확인된다.",
    "importance": "HIGH",
    "trend": "steady",
    "src": [
-    "s6",
+    "s8",
     "s7"
    ]
   },
   {
-   "title": "인플레이션과 유가",
-   "summary": "8월 PCE 3.8%(근원 3.4%)이며 Fed는 중동 분쟁발 유가, 관세, AI 인프라 투자를 압력으로 꼽았다. WTI 11월물은 10/7 장중 $90.26이었다.",
+   "title": "에너지 가격과 인플레이션",
+   "summary": "브렌트 $100대와 8월 PCE 3.4%(근원 3.0%)로 Fed의 인하 여지가 없다.",
    "importance": "HIGH",
    "trend": "steady",
    "src": [
     "s1",
-    "s2"
+    "s3",
+    "s4"
    ]
   },
   {
-   "title": "대형 IPO 공급(SpaceX·Anthropic·OpenAI)",
-   "summary": "SpaceX는 6월 상장했고 Anthropic IPO는 11월, OpenAI는 2027년이 거론되며 Goldman은 기록적 IPO 물량을 위험요인으로 언급했다.",
+   "title": "대형 IPO·자금조달 공급",
+   "summary": "Anthropic 11월 중순 IPO 추진, OpenAI $30B+ 조달 협의, SoftBank 최대 $100B 펀드 추진이 동시에 진행돼 수급 부담 요인이다.",
    "importance": "MEDIUM",
    "trend": "up",
    "src": [
-    "s8",
-    "s11",
-    "s12"
+    "s13",
+    "s6",
+    "s9"
    ]
   }
  ],
  "ai_semi": {
-  "summary": "메모리·반도체 실적과 가격은 확장 국면이지만, 최상위 수요처인 OpenAI의 매출 정정이 AI CAPEX 재원 마련에 대한 시장 시선을 바꿨다. 10/15 TSMC 실적이 다음 확인 지점이다.",
+  "summary": "AI 체인은 수요(메모리·광통신 매진)는 강하지만 수요처의 수익성·자금조달 의문이 처음으로 주가를 흔들었다. 방향은 확장 지속과 둔화 조짐이 섞인 혼조로 본다.",
   "direction": "혼조",
   "chain": [
    {
     "step": "AI CAPEX",
-    "status": "상향 기조·재원 점검",
-    "detail": "빅테크 4곳의 2026 지출 계획이 $700B을 넘었다는 5/1 보도와 Meta 가이던스 $125~145B(상향)가 있다. 이번 회차에 갱신된 CAPEX 수치는 없다. OpenAI 매출 정정은 재원 논점이다.",
+    "status": "유지·수익 검증 논란",
+    "detail": "하이퍼스케일러 2026 CAPEX 추정 약 $725B(4월 실적 후 기준)이며 이후 신규 상향·삭감 자료는 확인하지 못했다. 10/8 OpenAI 매출 보도가 투자 회수 의문을 키웠다.",
     "src": [
-     "s16",
-     "s4"
+     "s15",
+     "s6"
     ]
    },
    {
     "step": "데이터센터",
-    "status": "데이터 부족",
-    "detail": "이번 회차에 새로 확인한 신뢰 자료가 없다. 8월 PCE 압력 요인으로 AI 인프라 투자가 Fed 의사록에 언급됐다.",
+    "status": "부채 의존 부각",
+    "detail": "CoreWeave는 10/8 -7.77%($81.58), 순부채/EBITDA 8.22배, 2026 이자비용 컨센서스 약 $30억으로 OpenAI 매출 보도에 민감하다.",
     "src": [
-     "s1"
+     "s10"
     ]
    },
    {
     "step": "GPU / ASIC",
-    "status": "수요 견조(주가 약세)",
-    "detail": "Nvidia는 다음 회계연도 매출 70% 성장을 예상한다고 보도됐다. OpenAI 정정일에 Nvidia 주가는 하락했다.",
+    "status": "단기 조정",
+    "detail": "10/8 NVDA -2.9%, AMD -3.9%였고 10/9 반등했으나 폭은 출처에 없다. NVDA는 10/6 사상 최고 종가 $230.48(시총 $5.77조, Stocktwits 보도).",
     "src": [
      "s9",
-     "s4"
+     "s6"
     ]
    },
    {
     "step": "HBM",
-    "status": "수치 없음",
-    "detail": "TrendForce 4Q26 기사에 HBM 수치가 없고 서버 DRAM 가격 상승과 패키징·테스트 병목이 언급됐다.",
+    "status": "2027 가격 인상 전망",
+    "detail": "TrendForce는 HBM 비중이 DRAM 웨이퍼 기준 2026 약 22%→2027 약 30%로 커지고 3대 업체가 2027 HBM 가격을 크게 올릴 것으로 본다. 4Q26 HBM 수치는 출처에 없다.",
     "src": [
-     "s7"
+     "s14"
     ]
    },
    {
     "step": "메모리 가격",
-    "status": "상승 지속",
-    "detail": "4Q26 일반 DRAM 계약가 +10~15%, NAND +15~20%(QoQ). 상승 폭은 둔화될 전망이다.",
+    "status": "상승, 폭 둔화",
+    "detail": "4Q26 일반 DRAM +10~15%, NAND +15~20%, 엔터프라이즈 SSD만 가속. 서버 DRAM은 공급 타이트 지속.",
     "src": [
-     "s7"
+     "s8"
     ]
    },
    {
     "step": "반도체 실적",
-    "status": "급증",
-    "detail": "마이크론 FQ4 매출 $54.23B(전분기 $41.46B, 전년 동기 $11.32B), 총이익률 86.8%(GAAP)다.",
+    "status": "신규 실적 없음",
+    "detail": "MU 10/8 -4.8%로 주가는 약했으나 Lynx는 2027~28년 메모리 공급이 FY26보다 '훨씬 타이트'하다고 본다. 이번 주 신규 실적 발표는 확인하지 못했다.",
     "src": [
-     "s6"
+     "s7"
     ]
    }
   ],
@@ -208,16 +217,23 @@
   "companies": [
    {
     "name": "Micron",
-    "note": "FQ1 2027 가이던스 매출 $61.5B±$1.5B, 비GAAP EPS $38.15±$1.00.",
+    "note": "10/8 -4.8%. 고금리와 OpenAI 매출 우려가 원인으로 지목됐고 Lynx는 낙관 유지, 필자는 내년 실적 대비 7배라고 평가.",
     "src": [
-     "s6"
+     "s7"
     ]
    },
    {
-    "name": "TSMC",
-    "note": "10/15 3분기 실적 예정. 7월 매출 +45%, 8월 +53%(전년비), 시장 추정 분기 +47%.",
+    "name": "Lumentum / AAOI",
+    "note": "Lumentum CEO가 생산능력이 2029년 초까지 매진이라고 밝혀 AAOI가 장전 +7.5%.",
     "src": [
-     "s9"
+     "s3"
+    ]
+   },
+   {
+    "name": "Skyworks / Apple",
+    "note": "Nikkei의 아이폰 18 Pro 부품 주문 15~20% 감축 보도로 SWKS -6.4%, AAPL -2.3%.",
+    "src": [
+     "s3"
     ]
    }
   ]
@@ -227,20 +243,21 @@
    "ticker": "NVDA",
    "name": "NVIDIA",
    "why": "",
-   "price": "$237.47 (9/30 기사 표시값, -0.74%)",
-   "move": "10/8 OpenAI 매출 정정 보도에 하락(하락폭 출처 없음)",
+   "price": "$230.48(10/6 사상 최고 종가, Stocktwits 보도)",
+   "move": "10/8 -2.9% 후 10/9 반등(폭 미확인)",
    "stance": null,
-   "summary": "Nvidia는 다음 회계연도 매출 70% 성장을 예상한다고 보도됐다. 최대 고객 OpenAI의 매출 정정이 심리 변수다.",
+   "summary": "OpenAI 매출 보도에 동반 하락했다가 해명 후 반등했다. 실적·가이던스 신규 자료는 이번 회차에 확인하지 못했다.",
    "catalysts": [
-    "10/15 TSMC 실적(공급사 신호)",
-    "70% 매출 성장 가이던스"
+    "OpenAI 연말 런레이트 $70B+ 전망",
+    "메모리·광통신 공급 타이트로 AI 수요 지속"
    ],
    "risks": [
-    "OpenAI 연환산 매출 $50B 정정으로 AI 수요처 재원 의문"
+    "수요처(OpenAI 등)의 수익·자금조달 의문",
+    "10년물 5%대 금리 부담"
    ],
    "src": [
     "s9",
-    "s4"
+    "s6"
    ]
   },
   {
@@ -248,115 +265,95 @@
    "name": "Micron",
    "why": "",
    "price": null,
-   "move": "1년 +475.68%(10/1 Finviz 기준 보도, 반도체 지수 내 1위)",
+   "move": "10/8 -4.8%, 10/9 반등(폭 미확인)",
    "stance": "Bullish",
-   "summary": "FQ4 매출 $54.23B, 총이익률 86.8%, FQ1 가이던스 $61.5B로 급증세다. TrendForce는 4Q26 DRAM·NAND 추가 인상을 전망한다.",
+   "summary": "금리와 OpenAI 매출 우려로 하락했으나 Lynx는 2027~28 공급이 더 타이트하다고 본다. 4Q26 DRAM +10~15%, NAND +15~20% 전망이 뒷받침한다.",
    "catalysts": [
-    "FQ1 가이던스 $61.5B",
-    "4Q26 DRAM +10~15%, 서버 DRAM·eSSD 강세"
+    "4Q26 DRAM·NAND 계약가 상승(TrendForce)",
+    "엔터프라이즈 SSD 가격 가속"
    ],
    "risks": [
-    "가격 상승폭 둔화 전망",
-    "소비자 부문 수요 약세(TrendForce)"
+    "수요처 자금조달 부담",
+    "상승률 둔화"
    ],
    "src": [
-    "s6",
     "s7",
-    "s14"
+    "s8"
    ]
   },
   {
    "ticker": "AMD",
    "name": "AMD",
    "why": "",
-   "price": "$645.86 (9/30 기사 표시값, -0.55%)",
-   "move": "1년 +271.72%(10/1 기준 보도)",
+   "price": null,
+   "move": "10/8 -3.9%, 10/9 반등(폭 미확인)",
    "stance": null,
-   "summary": "근거 있는 새 실적·가이던스 자료는 이번 회차에 없고, 가격 인상설은 미확인 루머로만 언급됐다.",
+   "summary": "OpenAI 매출 보도에 동반 하락했다. 이번 회차 신규 실적·수치 자료는 없다.",
    "catalysts": [
-    "10/15 TSMC 실적"
+    "AI 인프라 수요 지속"
    ],
    "risks": [
-    "AI 인프라 수요 둔화 우려 시 고밸류 부담"
+    "OpenAI 의존도 관련 수요 불확실성"
    ],
    "src": [
     "s9",
-    "s14"
+    "s6"
    ]
   },
   {
    "ticker": "AVGO",
    "name": "Broadcom",
    "why": "",
-   "price": "$376.51 (9/30 기사 표시값, +0.19%)",
+   "price": null,
    "move": "이번 회차 신규 등락 자료 없음",
    "stance": null,
-   "summary": "이번 회차에 새로 확인한 실적·가이던스 자료가 없다. 6/4 보도에서는 AI 칩 전망이 기대에 못 미쳐 장중 최대 15% 하락한 바 있다.",
+   "summary": "이번 회차에 신뢰할 만한 신규 주가·실적 자료를 확인하지 못했다.",
    "catalysts": [
-    "10/15 TSMC 실적"
+    "커스텀 ASIC 수요(신규 근거 미확인)"
    ],
    "risks": [
-    "AI 칩 전망 기대 미달 이력(6월)",
-    "OpenAI 맞춤형 칩 자금 조달 연계 이슈"
+    "AI 수요처 수익성 논란 확산 시 동반 조정"
    ],
-   "src": [
-    "s9",
-    "s5"
-   ]
+   "src": []
   },
   {
-   "ticker": "TSM",
-   "name": "TSMC",
-   "why": "10/15 3분기 실적 발표 예정으로 NVDA·AVGO·AMD의 선행 신호가 됨",
-   "price": "$472.20 (기사 표시값, -2.09%)",
-   "move": "기사 시점 -2.09%",
+   "ticker": "CRWV",
+   "name": "CoreWeave",
+   "why": "OpenAI 매출 보도로 하루 -7.77% 급락해 AI 부채 구조 리스크의 바로미터가 됨",
+   "price": "$81.58(10/8 종가)",
+   "move": "10/8 -7.77%",
    "stance": null,
-   "summary": "7월 매출 +45%, 8월 +53%(전년비)이며 시장 추정 분기 성장률은 +47%다. 선행 P/E 약 27배다.",
+   "summary": "순부채/EBITDA 8.22배, 2026 이자비용 컨센서스 약 $30억, 고객 계약 연동 $26억 대출은 조건 충족 시 캐시트랩 위험이 있다(현재 위반 아님).",
    "catalysts": [
-    "10/15 실적"
+    "OpenAI 연말 런레이트 $70B+ 전망"
    ],
    "risks": [
-    "대만 지정학, 수출 규제"
+    "고금리 속 차입 의존",
+    "주식 매각 프로그램 최대 3,500만 주"
    ],
    "src": [
-    "s9"
-   ]
-  },
-  {
-   "ticker": "ORCL",
-   "name": "Oracle",
-   "why": "OpenAI 매출 정정 보도의 직접 영향권(10/8 하락)",
-   "price": null,
-   "move": "10/8 하락(수치 출처 없음)",
-   "stance": null,
-   "summary": "OpenAI 연계 인프라 사업자로서 연환산 매출 정정 보도에 하락했다.",
-   "catalysts": [],
-   "risks": [
-    "OpenAI 매출 성장 속도에 대한 의존"
-   ],
-   "src": [
-    "s4",
-    "s5"
+    "s10"
    ]
   }
  ],
  "spacex": {
   "ticker": "SPCX",
-  "status": "상장(Nasdaq, 6월 12일 IPO)",
-  "price": "약 $165(10/5 기사), 조회 시점 $161.37(-3.72%)",
-  "valuation": "시총 약 $2조(기사 서술); 공모가 $135, 첫날 종가 $160.95, 52주 $104.83~$225.64",
-  "summary": "공모가 대비 약 20% 높은 수준에서 거래되며 52주 고점 대비로는 낮다. xAI·Cursor 통합과 Starlink 가입자 확대가 서사의 중심이다. 락업 만료 일정은 출처에 없다.",
+  "status": "상장(나스닥, 2026-06-12 IPO, 공모가 $135)",
+  "price": "10/9 장 중 +1% 이상(Yahoo), 장전 +4%(로이터). 종가 수치 미확인",
+  "valuation": "시총 약 $2조(9/2 기사 기준), 52주 $104.83~$225.64",
+  "summary": "그레인 매니지먼트의 800MHz 저대역 주파수를 약 $80억(WSJ 보도)에 인수 합의해 이동통신 진출 의지를 보였다. 모건스탠리는 기존 통신사 위협은 농촌부터 점진적으로 나타날 것으로 본다.",
   "catalysts": [
-   "Starlink 기업 고객 확대",
-   "Starship 발사비용 절감 기대"
+   "통신 사업 확장(규제 승인 필요)",
+   "나스닥-100 편입(7/7)"
   ],
   "risks": [
-   "락업 해제에 따른 물량 증가(일정 확인 불가)",
-   "대형 IPO 공급 증가"
+   "락업 해제 12/8 전체 만료, 유통물량 증가",
+   "2025년 매출 $18.67B 대비 $4.94B 손실, 매출 대비 높은 밸류에이션"
   ],
   "outlook": "중립",
   "src": [
-   "s8",
+   "s11",
+   "s1",
    "s12"
   ]
  },
@@ -364,45 +361,55 @@
   {
    "name": "Anthropic",
    "kind": "모델",
-   "headline": "IPO가 10월에서 11월로 연기됐다는 보도, 투자자들이 약 $2조 가치를 기대",
-   "detail": "6월 2일 보도 기준 비공개로 S-1 초안을 제출했고, 5/28 Series H $65B(post-money $965B)를 마감했다.",
-   "funding": "보도 기준 Series H 시점 런레이트 약 $47B(클라우드 파트너 매출은 총액 기준 계상). 내부 추정 2분기 영업이익 $559M(미감사).",
-   "market_impact": "대형 IPO 물량이 자금 흡수 요인이며, AWS·Google Cloud 등 파트너 클라우드 매출 인식 방식이 비교 쟁점이다.",
+   "headline": "11월 중순 IPO 추진 보도, 10/14 투자자 미팅",
+   "detail": "Claude Haiku 5.5를 출시했다. 국방부의 공급망 위협 지정 관련 정부와의 분쟁이 보도됐다.",
+   "funding": "Bloomberg 보도 기준 기업가치 최대 $2조 목표(보도 기준, 비공개 기업 수치)",
+   "market_impact": "대형 AI IPO 공급이 나스닥 수급과 AI 인프라주 심리에 영향.",
    "src": [
-    "s10",
-    "s11"
+    "s13",
+    "s9"
    ]
   },
   {
    "name": "OpenAI",
    "kind": "모델",
-   "headline": "연환산 매출을 약 $50B로 정정(기존 $68B), 3분기 런레이트 +77%",
-   "detail": "높은 수치는 파트너 총매출을 포함한 것이라는 관계자 설명이 보도됐다. 기업(엔터프라이즈) 런레이트는 +107%다.",
-   "funding": "보도 기준 약 $30B 조달 초기 협의(텀시트 미확정), 기업가치 $852B 방어 시도, 2027 IPO 예상, 6월 비공개 서류 제출.",
-   "market_impact": "Nvidia·Oracle·CoreWeave 등 OpenAI 연계 AI 인프라주 10/8 하락.",
+   "headline": "연환산 매출 약 $50B로 기대($68~70B)보다 낮게 보도, 연말 $70B+ 전망",
+   "detail": "차이는 집계방식(클라우드 파트너 경유 매출 제외)에서 비롯, 3분기 런레이트 +77%·기업부문 +107%. ChatGPT 시각 광고를 미국에서 테스트 예정.",
+   "funding": "$300억 이상 조달 협의, 가치 약 $1.4조(보도 기준)",
+   "market_impact": "NVDA·AMD·MU·CoreWeave 등 AI 인프라주 동반 변동.",
    "src": [
-    "s4",
-    "s5"
+    "s6",
+    "s9"
    ]
   },
   {
-   "name": "Oracle · CoreWeave",
+   "name": "CoreWeave",
    "kind": "인프라",
-   "headline": "OpenAI 매출 정정 보도에 동반 하락",
-   "detail": "OpenAI 연계 AI 클라우드·인프라 사업자의 수요 가시성이 투자자 관심사로 부상했다.",
-   "funding": "",
-   "market_impact": "하락폭 수치는 출처에 없다. AI 인프라 레버리지 기업의 민감도가 확인됐다.",
+   "headline": "OpenAI 매출 보도에 -7.77%",
+   "detail": "부채 의존형 AI 클라우드 모델의 금리·고객 리스크가 부각됐다.",
+   "funding": "9월 $37억 전환사채(2033년 만기, 2.875%) 발행",
+   "market_impact": "AI 데이터센터 금융 불안이 NVDA 등 공급사 심리에 전이.",
    "src": [
-    "s4",
-    "s5"
+    "s10"
+   ]
+  },
+  {
+   "name": "SoftBank",
+   "kind": "자금조달",
+   "headline": "걸프 투자자로부터 최대 $1,000억 AI 펀드 조달 추진(FT 보도)",
+   "detail": "OpenAI에 $300억 투자, $111억 하이일드 채권 발행에 이은 움직임.",
+   "funding": "보도 기준",
+   "market_impact": "AI 자금조달 확대가 지속된다는 신호이나 부채 의존 우려와 병행.",
+   "src": [
+    "s9"
    ]
   }
  ],
  "macro": [
   {
-   "name": "Fed",
-   "value": "정책금리 3.75~4.00%",
-   "detail": "9월 25bp 인상 전원 지지, 연내 추가 인상이 적절하다는 견해가 다수. 10월 인상 확률 17.2%, 12월 최대 70%(FedWatch).",
+   "name": "지수",
+   "value": "S&P 7,811.5 / 다우 51,655 / 나스닥 27,366",
+   "detail": "10/9 각각 +0.6%/+0.8%/+0.6%, 러셀2000 2,807(+0.5% 안팎). 주간 등락률은 출처별로 달라 생략.",
    "src": [
     "s1",
     "s3"
@@ -410,91 +417,175 @@
   },
   {
    "name": "금리",
-   "value": "10년물 5.286%, 30년물 5.668% (10/7)",
-   "detail": "30년물은 2002년 5월 이후 최고 부근이다. 10/8 10년물은 5.24%(Trading Economics).",
+   "value": "10년 5.25%, 30년 5.61%",
+   "detail": "10년물은 10/7 5.37% 부근에서 소폭 하락. 2년 4.80%.",
    "src": [
     "s1",
-    "s13"
-   ]
-  },
-  {
-   "name": "인플레이션",
-   "value": "8월 PCE 3.8%(추정), 근원 3.4%",
-   "detail": "Fed는 유가, 과거 관세 인상, AI 인프라 투자를 물가 압력으로 언급했다.",
-   "src": [
-    "s1"
-   ]
-  },
-  {
-   "name": "고용",
-   "value": "9월 실업률 4.2%(8월 4.1%)",
-   "detail": "의사록은 완전고용 근처, 고용 위험 균형으로 평가했다.",
-   "src": [
-    "s13",
     "s3"
    ]
   },
   {
-   "name": "유가",
-   "value": "WTI 11월물 $90.26 (10/7 장중)",
-   "detail": "중동 분쟁이 물가 압력 요인으로 거론된다.",
+   "name": "Fed",
+   "value": "9월 인상, 12월 인상 확률 84%",
+   "detail": "10월 28일 FOMC 종료. 일부 위원은 금리가 AI 관련 수요 확산과 물가를 억제한다고 언급.",
    "src": [
-    "s2",
-    "s1"
+    "s4"
    ]
   },
   {
-   "name": "지수",
-   "value": "S&P 500 7,803.73 (-0.2%)",
-   "detail": "전일 사상 최고 이후 하락. 3분기 S&P 500 이익 증가율 기대는 약 30%, VIX 15.84(장중).",
+   "name": "고용",
+   "value": "9월 +29K(예상 84K), 실업률 4.2%",
+   "detail": "7~8월 합산 -60K 하향.",
+   "src": [
+    "s5"
+   ]
+  },
+  {
+   "name": "유가",
+   "value": "브렌트 $103~104, WTI $91",
+   "detail": "이란·호르무즈 협상과 허리케인으로 변동성 높음.",
    "src": [
     "s1",
+    "s3"
+   ]
+  },
+  {
+   "name": "소비심리",
+   "value": "미시간 10월 예비 46.3",
+   "detail": "전월 48.1, 예상 47.6 하회.",
+   "src": [
+    "s3",
     "s2"
    ]
   }
  ],
  "institutions": [
   {
-   "name": "Goldman Sachs",
+   "name": "Lynx Equity Strategies",
    "stance": {
-    "market": "Bullish*",
+    "market": null,
     "ai": "Bullish*"
    },
-   "prev": "Bullish*",
-   "change": "→",
-   "note": "S&P 500 목표 8,000(기존 7,600), 2026 EPS $340. AI 인프라 수혜주가 올해 이익 증가의 약 절반. 발표일은 기사에 미표기.",
-   "asof": "2026 (기사 일자 미표기)",
+   "prev": null,
+   "change": "",
+   "note": "메모리 공급이 2027~28년 FY26보다 훨씬 타이트하다고 평가(Micron 기사).",
+   "asof": "2026-10-08",
    "src": [
-    "s12"
+    "s7"
    ]
   },
   {
-   "name": "JPMorgan",
+   "name": "TrendForce",
+   "stance": {
+    "market": null,
+    "ai": "Bullish*"
+   },
+   "prev": null,
+   "change": "",
+   "note": "4Q26 DRAM +10~15%, NAND +15~20% 전망, 2027 HBM 가격 대폭 인상 전망.",
+   "asof": "2026-09-30",
+   "src": [
+    "s8",
+    "s14"
+   ]
+  },
+  {
+   "name": "Morgan Stanley",
    "stance": {
     "market": null,
     "ai": null
    },
    "prev": null,
    "change": "",
-   "note": "8월 목표 상향 보도가 있으나 수치가 본문에 없어 View 판단 불가.",
-   "asof": "2026-08-11",
+   "note": "SpaceX 주파수 인수는 통신사에 점진적 위협, 타워주엔 건설적이라는 코멘트만 확인. 시장 View는 근거 없음.",
+   "asof": "2026-10-09",
+   "src": [
+    "s11"
+   ]
+  },
+  {
+   "name": "Penn Mutual AM",
+   "stance": {
+    "market": null,
+    "ai": null
+   },
+   "prev": null,
+   "change": "",
+   "note": "5% 부근 금리는 채권 수익 매력, 에너지·중동이 인플레이션 핵심 위험으로 지적.",
+   "asof": "2026-10-05",
+   "src": [
+    "s5"
+   ]
+  },
+  {
+   "name": "Goldman Sachs",
+   "stance": {
+    "market": null,
+    "ai": null
+   },
+   "prev": "Bullish*",
+   "change": "",
+   "note": "이번 회차 신규 원문을 열람하지 못해 View 판단 보류.",
+   "asof": "",
    "src": []
   }
  ],
  "emerging": [
   {
-   "title": "AI 매출 인식 방식 논쟁(총액 vs 순액)",
-   "detail": "OpenAI의 $68B→$50B 정정은 파트너 총매출 포함 여부에서 나왔고, Anthropic도 클라우드 파트너 매출을 총액으로 계상한다는 지적이 있다. 비교 가능한 수치가 IPO 평가의 쟁점이다.",
+   "title": "SpaceX의 이동통신 진출",
+   "detail": "800MHz 전국 주파수 확보로 통신 3사와 유럽 통신주(STOXX 통신지수 -2% 이상)가 동반 약세, 타워주는 급등했다.",
+   "importance": "MEDIUM",
+   "src": [
+    "s11",
+    "s3"
+   ]
+  },
+  {
+   "title": "AI 매출 집계방식 논쟁",
+   "detail": "OpenAI는 클라우드 파트너 경유 매출을 제외, Anthropic은 포함해 비교가 어긋나며 IPO 가치평가에 영향을 줄 수 있다.",
    "importance": "HIGH",
    "src": [
-    "s4",
-    "s5",
+    "s6"
+   ]
+  },
+  {
+   "title": "AI 인프라 부채 노출",
+   "detail": "CoreWeave의 높은 레버리지와 계약 연동 대출 조항이 고객 매출 보도에 민감하게 반응했다.",
+   "importance": "HIGH",
+   "src": [
     "s10"
    ]
   },
   {
-   "title": "AI 투자가 물가 압력 요인으로 Fed 의사록에 명시",
-   "detail": "일부 위원이 AI 투자가 수요를 공급보다 앞서게 해 물가를 자극할 수 있다고 경고했다.",
+   "title": "광통신 병목",
+   "detail": "Lumentum은 생산능력이 2029년 초까지 매진이라고 밝혀 AI 네트워크 부품이 새 병목으로 부각됐다.",
+   "importance": "MEDIUM",
+   "src": [
+    "s3"
+   ]
+  },
+  {
+   "title": "소비자 전자 수요 약화 신호",
+   "detail": "아이폰 18 Pro 부품 주문 감축 보도와 HP의 2027 PC 출하 감소 시사로 SWKS·AAPL·HPQ가 하락했다.",
+   "importance": "MEDIUM",
+   "src": [
+    "s3"
+   ]
+  }
+ ],
+ "risks": [
+  {
+   "title": "추가 금리 인상·장기금리 상승",
+   "detail": "의사록상 연내 추가 인상 지지가 다수이며 12월 인상 확률 84%, 10년물 5.25%.",
+   "importance": "HIGH",
+   "src": [
+    "s4",
+    "s1"
+   ]
+  },
+  {
+   "title": "에너지 충격",
+   "detail": "브렌트 $100 이상, 호르무즈 협상 결과(7일 내 이란 답변)와 허리케인 생산 중단이 인플레이션을 자극할 수 있다.",
    "importance": "HIGH",
    "src": [
     "s3",
@@ -502,217 +593,187 @@
    ]
   },
   {
-   "title": "대형 AI IPO 연쇄(Anthropic 11월, OpenAI 2027)",
-   "detail": "약 $2조 기대 가치의 Anthropic IPO가 시장 자금을 흡수할 수 있고 Goldman은 기록적 IPO 물량을 위험으로 언급했다.",
-   "importance": "MEDIUM",
-   "src": [
-    "s11",
-    "s12"
-   ]
-  },
-  {
-   "title": "엔터프라이즈 SSD 가격 가속",
-   "detail": "TrendForce는 4Q26에 eSSD만 3분기보다 상승폭이 커진다고 봤다. AI 추론·에이전트 데이터 검색 수요가 배경이다.",
-   "importance": "MEDIUM",
-   "src": [
-    "s7"
-   ]
-  }
- ],
- "risks": [
-  {
-   "title": "추가 금리 인상과 장기금리 급등",
-   "detail": "연내 추가 인상 시사, 12월 최대 70% 반영, 30년물 5.668%. 고밸류 성장주 할인율 압박이 커진다.",
+   "title": "AI 수요처 수익·자금조달",
+   "detail": "OpenAI 매출 보도 하나로 AI 인프라주가 동반 하락했고 CoreWeave 등 부채 의존도가 높은 기업이 취약하다.",
    "importance": "HIGH",
    "src": [
-    "s1",
-    "s3"
-   ]
-  },
-  {
-   "title": "AI 인프라 수요처의 수익 검증 실패",
-   "detail": "OpenAI 매출 정정에 Nvidia·Oracle·CoreWeave가 하락했다. 매출 성장 둔화가 재확인되면 CAPEX 재원 우려가 확대된다.",
-   "importance": "HIGH",
-   "src": [
-    "s4",
-    "s5"
-   ]
-  },
-  {
-   "title": "인플레이션 재가속과 에너지",
-   "detail": "8월 PCE 3.8%, 근원 3.4%이며 중동 분쟁발 유가가 압력 요인으로 지목됐다.",
-   "importance": "HIGH",
-   "src": [
-    "s1",
-    "s2"
-   ]
-  },
-  {
-   "title": "대만·수출규제 등 반도체 공급망",
-   "detail": "TSMC 의존도가 높아 대만 지정학과 수출 규제가 구조적 위험으로 지적된다.",
-   "importance": "MEDIUM",
-   "src": [
-    "s9",
-    "s14"
+    "s6",
+    "s10"
    ]
   },
   {
    "title": "IPO 물량·락업 공급",
-   "detail": "SpaceX 락업 해제와 Anthropic·OpenAI IPO가 주식 공급을 늘린다. SpaceX 락업 일정은 확인되지 않았다.",
+   "detail": "Anthropic 11월 IPO 추진, OpenAI 조달 협의, SpaceX 락업 12/8 전체 만료로 주식 공급이 커진다.",
    "importance": "MEDIUM",
    "src": [
-    "s8",
-    "s11",
+    "s13",
     "s12"
+   ]
+  },
+  {
+   "title": "소비 위축과 시장 폭 약화",
+   "detail": "미시간 심리 46.3(5개월 최저), 러셀2000은 주간 -0.91%(TheStreet)로 폭이 약하며 Delta는 연료비 $60억 증가로 가이던스를 낮췄다.",
+   "importance": "MEDIUM",
+   "src": [
+    "s3",
+    "s2"
+   ]
+  },
+  {
+   "title": "Fed 독립성 논란",
+   "detail": "트럼프가 쿡 이사의 해임 사유를 조사할 위원회를 구성했다.",
+   "importance": "LOW",
+   "src": [
+    "s2"
    ]
   }
  ],
  "scenarios": {
   "lean": "Base",
   "bull": {
-   "summary": "이익 기대(3분기 약 +30%)와 메모리 호황이 금리 부담을 상쇄해 지수가 재차 신고가를 연다.",
+   "summary": "CPI 둔화와 은행 실적 호조로 금리가 안정되며 AI 반등이 이어진다.",
    "conditions": [
-    "10/15 TSMC 실적 기대 상회",
-    "10월 FOMC 동결과 장기금리 안정",
-    "OpenAI 등 수요처의 추가 조달 성공"
+    "9월 CPI가 예상 이하",
+    "10년물 5% 아래",
+    "OpenAI 연말 런레이트 가이던스 확인"
    ]
   },
   "base": {
-   "summary": "고금리와 높은 이익 기대가 맞서며 고점 부근 박스권, AI 종목은 종목별 차별화가 이어진다.",
+   "summary": "지수는 고점 부근 횡보, 금리와 AI 수익성 논쟁 사이에서 종목별 차별화.",
    "conditions": [
-    "연내 1회 추가 인상 수준에서 안착",
-    "메모리 가격 상승 지속",
-    "AI 매출 정정 후 파장 제한"
+    "10년물 5.2~5.4% 박스",
+    "브렌트 $100 안팎",
+    "메모리 가격 상승 지속"
    ]
   },
   "bear": {
-   "summary": "장기금리 추가 급등과 AI 수요 의문이 겹쳐 AI 인프라주 중심으로 조정이 깊어진다.",
+   "summary": "CPI 상회·유가 급등으로 12월 인상이 굳어지고 AI 자금조달 불안이 확산된다.",
    "conditions": [
-    "10월 인상 또는 12월 인상 확률 확대",
-    "AI 기업 추가 매출 정정·조달 차질",
-    "유가·물가 재가속"
+    "10년물 5.4% 돌파",
+    "호르무즈 협상 결렬",
+    "AI 인프라 신용 스프레드 확대"
    ]
   }
  },
  "sources": [
   {
    "id": "s1",
-   "title": "Fed Minutes Hint to Another Hike This Year (Benzinga)",
-   "publisher": "Benzinga",
-   "url": "https://www.benzinga.com/news/26/10/62230795/fed-minutes-hint-to-another-hike-this-year-traders-dont-see-it-coming-in-october",
-   "date": "2026-10-07",
+   "title": "Markets News, Oct. 9, 2026: Stocks Rise as Oil Prices, Treasury Yields Stabilize",
+   "publisher": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/markets-news-oct-9-2026-105547352.html",
+   "date": "2026-10-09",
    "tier": "언론"
   },
   {
    "id": "s2",
-   "title": "Stock Market Today (Oct.7, 2026): Market faces pullback after S&P 500, Nasdaq records",
+   "title": "Stock market today: Dow, S&P 500, Nasdaq rally to cap volatile week as earnings season nears",
    "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-7-133458375.html",
-   "date": "2026-10-07",
+   "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-9-dow-sp-500-nasdaq-080148117.html",
+   "date": "2026-10-09",
    "tier": "언론"
   },
   {
    "id": "s3",
-   "title": "Fed Minutes preview/summary (FXStreet)",
-   "publisher": "FXStreet",
-   "url": "https://www.fxstreet.com/news/fed-minutes-set-to-provide-some-insight-into-the-timing-of-next-rate-hikes-202610071400",
-   "date": "2026-10-07",
+   "title": "Stock Market Today (Oct. 9, 2026): Dow, S&P 500 end week higher",
+   "publisher": "TheStreet",
+   "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-09-2026",
+   "date": "2026-10-09",
    "tier": "언론"
   },
   {
    "id": "s4",
-   "title": "OpenAI corrects annualized revenue figure to $50 billion",
-   "publisher": "Quartz",
-   "url": "https://qz.com/openai-annualized-revenue-50-billion-correction-ai-stocks-100826",
-   "date": "2026-10-08",
+   "title": "Fed policymakers saw multiple 2026 rate hikes as likely, September FOMC minutes show",
+   "publisher": "Scotsman Guide",
+   "url": "https://www.scotsmanguide.com/news/fed-policymakers-saw-multiple-2026-rate-hikes-as-likely-september-fomc-minutes-show/",
+   "date": "2026-10-07",
    "tier": "언론"
   },
   {
    "id": "s5",
-   "title": "AI Stocks Sink After OpenAI Reports $50 Billion Revenue, Below Widely Cited $68 Billion",
-   "publisher": "Zetik",
-   "url": "https://www.zetik.com/news/article/story_id-p008-222512",
-   "date": "2026-10-08",
-   "tier": "집계"
-  },
-  {
-   "id": "s6",
-   "title": "Micron FQ4 2026 press release (8-K)",
-   "publisher": "SEC / Micron",
-   "url": "https://www.sec.gov/Archives/edgar/data/0000723125/000072312526000018/a2026q4ex991-pressrelease.htm",
-   "date": "2026-09-30",
-   "tier": "공식"
-  },
-  {
-   "id": "s7",
-   "title": "AI Server Demand Sustains Memory Contract Price Increases in 4Q26",
-   "publisher": "TrendForce",
-   "url": "https://www.trendforce.com/presscenter/news/20260930-13258.html",
-   "date": "2026-09-30",
+   "title": "Soft Jobs Report Cools Hike Bets as Yields Hold Near Multi-Decade Highs",
+   "publisher": "Penn Mutual Asset Management",
+   "url": "https://www.pennmutualam.com/market-insights/blogs/monday-morning-perspectives/2026-10-05-soft-jobs-report-cools-hike-bets-as-yields-hold-near-multi-decade-highs",
+   "date": "2026-10-05",
    "tier": "리서치"
   },
   {
-   "id": "s8",
-   "title": "If You Invested $5,000 in SpaceX at Its IPO, Here Is What It Is Worth Today",
-   "publisher": "Motley Fool",
-   "url": "https://www.fool.com/investing/2026/10/08/if-you-invested-5000-in-spacex-at-its-ipo-here-is/",
+   "id": "s6",
+   "title": "Nvidia and Micron shares rebound as OpenAI clarifies its revenue picture",
+   "publisher": "CryptoBriefing",
+   "url": "https://cryptobriefing.com/nvidia-micron-rebound-openai-revenue/",
+   "date": "2026-10-09",
+   "tier": "언론"
+  },
+  {
+   "id": "s7",
+   "title": "Why Micron stock dropped Thursday",
+   "publisher": "Nasdaq.com",
+   "url": "https://www.nasdaq.com/articles/why-micronstock-dropped-thursday",
    "date": "2026-10-08",
    "tier": "언론"
   },
   {
-   "id": "s9",
-   "title": "Nvidia, Broadcom, and AMD Investors Need to Have Oct. 15 Circled",
-   "publisher": "Motley Fool",
-   "url": "https://www.fool.com/investing/2026/09/30/nvidia-broadcom-and-amd-investors-need-to-have-oct/",
+   "id": "s8",
+   "title": "AI 伺服器新增需求支撐 4Q26 記憶體合約價漲勢 (TrendForce 인용)",
+   "publisher": "TechNews",
+   "url": "https://technews.tw/?p=1622115",
    "date": "2026-09-30",
+   "tier": "집계"
+  },
+  {
+   "id": "s9",
+   "title": "Stocktwits AI Roundup: OpenAI Revenue Woes Rattle Chip Stocks, SoftBank Hunts $100B",
+   "publisher": "Stocktwits",
+   "url": "https://stocktwits.com/news-articles/markets/equity/stocktwits-ai-roundup-open-ai-revenue-woes-rattle-chip-stocks-soft-bank-hunts-100-b-microsoft-goes-ai-first/cZD6Ly7RBV8",
+   "date": "2026-10-09",
    "tier": "언론"
   },
   {
    "id": "s10",
-   "title": "Anthropic Files For IPO, Looking to Beat OpenAI to the Punch",
-   "publisher": "Futurum",
-   "url": "https://futurumgroup.com/insights/anthropic-files-for-ipo-looking-to-beat-openai-to-the-punch/",
-   "date": "2026-06-02",
+   "title": "CoreWeave Stock Fell Nearly 8% in a Day on an OpenAI Revenue Report",
+   "publisher": "TIKR",
+   "url": "https://www.tikr.com/blog/coreweave-stock-fell-nearly-8-in-a-day-on-an-openai-revenue-report-heres-why-its-borrowing-model-raises-the-stakes",
+   "date": "2026-10-08",
    "tier": "리서치"
   },
   {
    "id": "s11",
-   "title": "Anthropic Pushes Its IPO to November as Investors Eye a $2 Trillion Valuation",
-   "publisher": "Yahoo Finance (Motley Fool)",
-   "url": "https://finance.yahoo.com/technology/ai/articles/anthropic-pushes-ipo-november-investors-212000869.html",
-   "date": "2026-10-06",
+   "title": "US, European telecom stocks slide as SpaceX spectrum deal rattles sector (Reuters)",
+   "publisher": "The Star / Reuters",
+   "url": "https://www.thestar.com.my/tech/tech-news/2026/10/09/us-european-telecom-stocks-slide-as-spacex-spectrum-deal-rattles-sector",
+   "date": "2026-10-09",
    "tier": "언론"
   },
   {
    "id": "s12",
-   "title": "Goldman Sachs hikes its S&P 500 target and rejects bubble-era comparisons",
-   "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/goldman-sachs-hikes-p-500-084300964.html",
-   "date": "",
-   "tier": "언론"
-  },
-  {
-   "id": "s13",
-   "title": "US 10 Year Treasury Note Yield",
-   "publisher": "Trading Economics",
-   "url": "https://tradingeconomics.com/united-states/government-bond-yield",
-   "date": "2026-10-08",
+   "title": "SpaceX Stock Is Back Above Its $135 IPO Price",
+   "publisher": "KuCoin Blog",
+   "url": "https://www.kucoin.com/blog/spacex-stock-is-back-above-its-135-ipo-price-will-spcx-drop-below-100-in-2026",
+   "date": "2026-09-02",
    "tier": "집계"
   },
   {
-   "id": "s14",
-   "title": "7 Best-Performing Semiconductor Stocks for October 2026",
-   "publisher": "NerdWallet",
-   "url": "https://www.nerdwallet.com/investing/learn/best-semiconductor-stocks",
+   "id": "s13",
+   "title": "Anthropic reportedly looking to IPO as early as mid-November",
+   "publisher": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/technology/article/anthropic-reportedly-looking-to-ipo-as-early-as-mid-november-180315768.html",
    "date": "2026-10-01",
    "tier": "언론"
   },
   {
-   "id": "s16",
-   "title": "Hyperscalers Hit $700 Billion in 2026 AI Spending Plans",
+   "id": "s14",
+   "title": "TrendForce Forecasts Sustained DRAM Shortage, Potential for Significant HBM Price Hikes by 2027",
+   "publisher": "Tiger Brokers (TrendForce 인용)",
+   "url": "https://www-web.itiger.com/news/1142333916",
+   "date": "2026-06-02",
+   "tier": "집계"
+  },
+  {
+   "id": "s15",
+   "title": "VIX in Whipsaw on Sticky Inflation, Fed Dissent and Lofty AI Capex",
    "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/sectors/technology/articles/hyperscalers-hit-700-billion-2026-111243744.html",
-   "date": "2026-05-01",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/vix-whipsaw-sticky-inflation-fed-153505950.html",
+   "date": "2026-04-30",
    "tier": "언론"
   }
  ]
