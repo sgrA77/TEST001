@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-12 03:29 KST",
+ "updated_at": "2026-10-12 07:22 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -20,7 +20,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1340.02,
+    "value": 1341.07,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -28,7 +28,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 158.246,
+    "value": 158.294,
     "prev_month": 157.558,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -728,9 +728,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 83788.01,
+    "price": 83527.86,
     "prev_day": 82912.2266,
-    "turnover": 12284943360,
+    "turnover": 12813683712,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -739,8 +739,8 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4216.3,
-    "prev_day": 4157.0,
+    "price": 4217.0,
+    "prev_day": 4216.2998,
     "turnover": null,
     "prev_month": 4186.7002,
     "prev_year": 4341.1001,
@@ -750,8 +750,8 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 61.048,
-    "prev_day": 59.064,
+    "price": 61.23,
+    "prev_day": 60.67,
     "turnover": null,
     "prev_month": 60.098,
     "prev_year": 70.134,
@@ -761,8 +761,8 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.692,
-    "prev_day": 6.519,
+    "price": 6.702,
+    "prev_day": 6.6425,
     "turnover": null,
     "prev_month": 6.559,
     "prev_year": 5.63,
@@ -772,8 +772,8 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 91.85,
-    "prev_day": 91.49,
+    "price": 92.3,
+    "prev_day": 91.85,
     "turnover": null,
     "prev_month": 90.42,
     "prev_year": 57.42,
@@ -783,8 +783,8 @@
     "ticker": "NG=F",
     "theme": "천연가스",
     "currency": "USD",
-    "price": 3.22,
-    "prev_day": 3.168,
+    "price": 3.18,
+    "prev_day": 3.22,
     "turnover": null,
     "prev_month": 3.026,
     "prev_year": 3.686,
@@ -1404,45 +1404,45 @@
  "gpu_rental": {
   "H100 SXM": {
    "spec": "Hopper · 80GB HBM3",
-   "price": 2.67,
-   "date": "2026-10-10",
-   "prev_day": 2.79,
-   "w1": 2.64,
-   "m1": 2.84,
-   "m3": 2.55,
+   "price": 2.65,
+   "date": "2026-10-11",
+   "prev_day": 2.67,
+   "w1": 2.59,
+   "m1": 2.87,
+   "m3": 2.61,
    "m6": null,
    "y1": null
   },
   "H200": {
    "spec": "Hopper · 141GB HBM3e",
-   "price": 5.91,
-   "date": "2026-10-10",
-   "prev_day": 5.7,
-   "w1": 6.05,
-   "m1": 4.93,
+   "price": 5.61,
+   "date": "2026-10-11",
+   "prev_day": 5.91,
+   "w1": 5.57,
+   "m1": 5.12,
    "m3": 4.39,
    "m6": null,
    "y1": null
   },
   "B200": {
    "spec": "Blackwell · 180GB HBM3e",
-   "price": 7.53,
-   "date": "2026-10-10",
-   "prev_day": 7.46,
-   "w1": 7.81,
-   "m1": 6.89,
-   "m3": 6.75,
+   "price": 7.45,
+   "date": "2026-10-11",
+   "prev_day": 7.53,
+   "w1": 7.71,
+   "m1": 6.84,
+   "m3": 6.94,
    "m6": null,
    "y1": null
   },
   "A100 SXM4": {
    "spec": "Ampere · 80GB HBM2e",
-   "price": 0.95,
-   "date": "2026-10-10",
-   "prev_day": 0.92,
-   "w1": 0.9,
-   "m1": 0.98,
-   "m3": 1.04,
+   "price": 0.96,
+   "date": "2026-10-11",
+   "prev_day": 0.95,
+   "w1": 0.88,
+   "m1": 0.99,
+   "m3": 1.03,
    "m6": null,
    "y1": null
   }
@@ -1676,7 +1676,8 @@
    "2026-10-07": 2.85,
    "2026-10-08": 2.84,
    "2026-10-09": 2.79,
-   "2026-10-10": 2.67
+   "2026-10-10": 2.67,
+   "2026-10-11": 2.65
   },
   "GPU H200": {
    "2026-07-02": 4.02,
@@ -1779,7 +1780,8 @@
    "2026-10-07": 5.29,
    "2026-10-08": 5.65,
    "2026-10-09": 5.7,
-   "2026-10-10": 5.91
+   "2026-10-10": 5.91,
+   "2026-10-11": 5.61
   },
   "GPU B200": {
    "2026-07-02": 5.13,
@@ -1882,7 +1884,8 @@
    "2026-10-07": 7.56,
    "2026-10-08": 7.51,
    "2026-10-09": 7.46,
-   "2026-10-10": 7.53
+   "2026-10-10": 7.53,
+   "2026-10-11": 7.45
   },
   "GPU A100 SXM4": {
    "2026-07-02": 1.01,
@@ -1985,7 +1988,8 @@
    "2026-10-07": 0.9,
    "2026-10-08": 0.91,
    "2026-10-09": 0.92,
-   "2026-10-10": 0.95
+   "2026-10-10": 0.95,
+   "2026-10-11": 0.96
   }
  }
 }
