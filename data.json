@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-11 22:45 KST",
+ "updated_at": "2026-10-12 03:29 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -20,7 +20,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1340.9,
+    "value": 1340.02,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -142,31 +142,31 @@
    "name": "CPI",
    "date": "2026-10-14",
    "ts": 1791981000,
-   "d_day": 3
+   "d_day": 2
   },
   {
    "name": "FOMC",
    "date": "2026-10-28",
    "ts": 1793210400,
-   "d_day": 17
+   "d_day": 16
   },
   {
    "name": "Fed Press",
    "date": "2026-10-28",
    "ts": 1793212200,
-   "d_day": 17
+   "d_day": 16
   },
   {
    "name": "PCE",
    "date": "2026-10-29",
    "ts": 1793277000,
-   "d_day": 18
+   "d_day": 17
   },
   {
    "name": "NFP",
    "date": "2026-11-06",
    "ts": 1793971800,
-   "d_day": 26
+   "d_day": 25
   },
   {
    "name": "IPO · Anthropic",
@@ -182,9 +182,9 @@
    "name": "ASML",
    "date": "2026-10-14",
    "ts": 1791981000,
-   "d_day": 3,
-   "eps_est": 10.6598,
-   "rev_est": 11683369410,
+   "d_day": 2,
+   "eps_est": 10.7645,
+   "rev_est": 11726436440,
    "quarters": [
     {
      "label": "4Q2025",
@@ -205,7 +205,7 @@
      "eps_est": 6.9481,
      "eps_act": 7.58,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 9326500000
     }
    ]
   },
@@ -214,9 +214,9 @@
    "name": "TSMC",
    "date": "2026-10-15",
    "ts": 1792067400,
-   "d_day": 4,
-   "eps_est": 4.4792,
-   "rev_est": 1455665055340,
+   "d_day": 3,
+   "eps_est": 4.4641,
+   "rev_est": 1457602436260,
    "quarters": [
     {
      "label": "4Q2025",
@@ -246,9 +246,9 @@
    "name": "Tesla",
    "date": "2026-10-21",
    "ts": 1792612800,
-   "d_day": 10,
-   "eps_est": 0.4507,
-   "rev_est": 28013915020,
+   "d_day": 9,
+   "eps_est": 0.4479,
+   "rev_est": 28044361180,
    "quarters": [
     {
      "label": "4Q2025",
@@ -278,8 +278,8 @@
    "name": "Lam Research",
    "date": "2026-10-21",
    "ts": 1792612800,
-   "d_day": 10,
-   "eps_est": 2.1779,
+   "d_day": 9,
+   "eps_est": 2.1771,
    "rev_est": 8133724960,
    "quarters": [
     {
@@ -310,7 +310,7 @@
    "name": "Microsoft",
    "date": "2026-10-28",
    "ts": 1793217600,
-   "d_day": 17,
+   "d_day": 16,
    "eps_est": 4.7234,
    "rev_est": 90685460400,
    "quarters": [
@@ -342,9 +342,9 @@
    "name": "Alphabet",
    "date": "2026-10-28",
    "ts": 1793217600,
-   "d_day": 17,
-   "eps_est": 3.0589,
-   "rev_est": 127303453410,
+   "d_day": 16,
+   "eps_est": 3.0546,
+   "rev_est": 127400974580,
    "quarters": [
     {
      "label": "4Q2025",
@@ -374,9 +374,9 @@
    "name": "Meta",
    "date": "2026-10-28",
    "ts": 1793217600,
-   "d_day": 17,
+   "d_day": 16,
    "eps_est": 6.7358,
-   "rev_est": 63347373250,
+   "rev_est": 63352671120,
    "quarters": [
     {
      "label": "4Q2025",
@@ -406,9 +406,9 @@
    "name": "KLA",
    "date": "2026-10-28",
    "ts": 1793217600,
-   "d_day": 17,
+   "d_day": 16,
    "eps_est": 1.179,
-   "rev_est": 4040194880,
+   "rev_est": 4040175830,
    "quarters": [
     {
      "label": "4Q2025",
@@ -438,9 +438,9 @@
    "name": "Amazon",
    "date": "2026-10-29",
    "ts": 1793304000,
-   "d_day": 18,
+   "d_day": 17,
    "eps_est": 1.9767,
-   "rev_est": 202022776300,
+   "rev_est": 202089495540,
    "quarters": [
     {
      "label": "4Q2025",
@@ -470,9 +470,9 @@
    "name": "SanDisk",
    "date": "2026-10-29",
    "ts": 1793304000,
-   "d_day": 18,
-   "eps_est": 46.184,
-   "rev_est": 10680448060,
+   "d_day": 17,
+   "eps_est": 46.2722,
+   "rev_est": 10694236670,
    "quarters": [
     {
      "label": "4Q2025",
@@ -502,7 +502,7 @@
    "name": "Intel",
    "date": "2026-10-29",
    "ts": 1793304000,
-   "d_day": 18,
+   "d_day": 17,
    "eps_est": 0.3909,
    "rev_est": 16434269030,
    "quarters": [
@@ -534,9 +534,9 @@
    "name": "Apple",
    "date": "2026-11-02",
    "ts": 1793649600,
-   "d_day": 22,
-   "eps_est": 1.9824,
-   "rev_est": 113624521680,
+   "d_day": 21,
+   "eps_est": 1.9822,
+   "rev_est": 113617923250,
    "quarters": [
     {
      "label": "4Q2025",
@@ -557,7 +557,7 @@
      "eps_est": 1.8924,
      "eps_act": 2.02,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 109417000000
     }
    ]
   },
@@ -566,7 +566,7 @@
    "name": "AMD",
    "date": "2026-11-03",
    "ts": 1793736000,
-   "d_day": 23,
+   "d_day": 22,
    "eps_est": 1.9294,
    "rev_est": 13058084460,
    "quarters": [
@@ -598,7 +598,7 @@
    "name": "Applied Materials",
    "date": "2026-11-12",
    "ts": 1794513600,
-   "d_day": 32,
+   "d_day": 31,
    "eps_est": 4.0559,
    "rev_est": 10299491080,
    "quarters": [
@@ -630,7 +630,7 @@
    "name": "NVIDIA",
    "date": "2026-11-17",
    "ts": 1794945600,
-   "d_day": 37,
+   "d_day": 36,
    "eps_est": 2.4733,
    "rev_est": 108976837760,
    "quarters": [
@@ -662,7 +662,7 @@
    "name": "Broadcom",
    "date": "2026-12-09",
    "ts": 1796846400,
-   "d_day": 59,
+   "d_day": 58,
    "eps_est": 3.8276,
    "rev_est": 34888468920,
    "quarters": [
@@ -685,7 +685,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": 29591000000
+     "rev_act": null
     }
    ]
   },
@@ -694,7 +694,7 @@
    "name": "Micron",
    "date": "2026-12-23",
    "ts": 1798056000,
-   "d_day": 73,
+   "d_day": 72,
    "eps_est": 38.2106,
    "rev_est": 61670130780,
    "quarters": [
@@ -728,9 +728,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 82997.57,
+    "price": 83788.01,
     "prev_day": 82912.2266,
-    "turnover": 10374977536,
+    "turnover": 12284943360,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -809,7 +809,7 @@
     "currency": "USD",
     "price": 751.27,
     "prev_day": 747.58,
-    "turnover": 15639382169.0,
+    "turnover": 15898344187.0,
     "prev_month": 739.77,
     "prev_year": 614.31,
     "prev_2year": 511.23
@@ -844,7 +844,7 @@
     "currency": "USD",
     "price": 81.28,
     "prev_day": 80.23,
-    "turnover": 3199594515.0,
+    "turnover": 3218028250.0,
     "prev_month": 78.03,
     "prev_year": 52.72,
     "prev_2year": 39.565
@@ -857,7 +857,7 @@
     "currency": "USD",
     "price": 603.33,
     "prev_day": 607.27,
-    "turnover": 3278989347.0,
+    "turnover": 3329123657.0,
     "prev_month": 609.0,
     "prev_year": 360.13,
     "prev_2year": 242.17
@@ -868,7 +868,7 @@
     "currency": "USD",
     "price": 559.4,
     "prev_day": 563.28,
-    "turnover": 2739488086.0,
+    "turnover": 2815860730.0,
     "prev_month": 568.64,
     "prev_year": 301.15,
     "prev_2year": 215.49
@@ -890,7 +890,7 @@
     "currency": "USD",
     "price": 36.86,
     "prev_day": 37.28,
-    "turnover": 265018792.0,
+    "turnover": 268019307.0,
     "prev_month": 36.71,
     "prev_year": 29.3367,
     "prev_2year": 22.13
@@ -903,7 +903,7 @@
     "currency": "USD",
     "price": 66.6,
     "prev_day": 65.6,
-    "turnover": 45340148.0,
+    "turnover": 45399355.0,
     "prev_month": 65.16,
     "prev_year": 50.86,
     "prev_2year": 38.64
@@ -914,7 +914,7 @@
     "currency": "USD",
     "price": 35.48,
     "prev_day": 34.83,
-    "turnover": 17375195.0,
+    "turnover": 17406736.0,
     "prev_month": 35.23,
     "prev_year": 36.23,
     "prev_2year": 31.95
@@ -938,7 +938,7 @@
     "currency": "USD",
     "price": 229.28,
     "prev_day": 230.48,
-    "turnover": 19330012595.0,
+    "turnover": 19407533768.0,
     "prev_month": 228.38,
     "prev_year": 186.5,
     "prev_2year": 134.29
@@ -949,7 +949,7 @@
     "currency": "USD",
     "price": 535.07,
     "prev_day": 522.61,
-    "turnover": 9572934695.0,
+    "turnover": 9899122463.0,
     "prev_month": 512.9,
     "prev_year": 483.62,
     "prev_2year": 421.5
@@ -960,7 +960,7 @@
     "currency": "USD",
     "price": 336.64,
     "prev_day": 340.42,
-    "turnover": 12732114292.0,
+    "turnover": 12752326831.0,
     "prev_month": 333.02,
     "prev_year": 271.86,
     "prev_2year": 250.42
@@ -971,7 +971,7 @@
     "currency": "USD",
     "price": 262.43,
     "prev_day": 254.06,
-    "turnover": 8794104355.0,
+    "turnover": 9124690838.0,
     "prev_month": 249.15,
     "prev_year": 230.82,
     "prev_2year": 219.39
@@ -982,7 +982,7 @@
     "currency": "USD",
     "price": 351.66,
     "prev_day": 348.29,
-    "turnover": 6059579706.0,
+    "turnover": 6077211938.0,
     "prev_month": 344.08,
     "prev_year": 313.0,
     "prev_2year": 189.3
@@ -993,7 +993,7 @@
     "currency": "USD",
     "price": 718.67,
     "prev_day": 720.89,
-    "turnover": 9045248175.0,
+    "turnover": 9069557188.0,
     "prev_month": 725.18,
     "prev_year": 660.09,
     "prev_2year": 585.51
@@ -1004,7 +1004,7 @@
     "currency": "USD",
     "price": 382.7,
     "prev_day": 375.0,
-    "turnover": 14861923732.0,
+    "turnover": 14907093430.0,
     "prev_month": 354.81,
     "prev_year": 449.72,
     "prev_2year": 403.84
@@ -1028,7 +1028,7 @@
     "currency": "USD",
     "price": 209.05,
     "prev_day": 198.78,
-    "turnover": 7816350024.0,
+    "turnover": 7864991360.0,
     "prev_month": 187.05,
     "prev_year": 177.75,
     "prev_2year": 75.63
@@ -1076,7 +1076,7 @@
     "currency": "USD",
     "price": 608.1,
     "prev_day": 620.68,
-    "turnover": 8309111846.0,
+    "turnover": 8351249527.0,
     "prev_month": 611.76,
     "prev_year": 214.16,
     "prev_2year": 120.79
@@ -1087,7 +1087,7 @@
     "currency": "USD",
     "price": 361.54,
     "prev_day": 360.14,
-    "turnover": 5953585473.0,
+    "turnover": 6089711429.0,
     "prev_month": 351.19,
     "prev_year": 346.1,
     "prev_2year": 231.84
@@ -1098,7 +1098,7 @@
     "currency": "USD",
     "price": 164.17,
     "prev_day": 167.92,
-    "turnover": 1073988320.0,
+    "turnover": 1158830227.0,
     "prev_month": 177.65,
     "prev_year": null,
     "prev_2year": null
@@ -1111,7 +1111,7 @@
     "currency": "USD",
     "price": 608.1,
     "prev_day": 620.68,
-    "turnover": 8309111846.0,
+    "turnover": 8351249527.0,
     "prev_month": 611.76,
     "prev_year": 214.16,
     "prev_2year": 120.79
@@ -1122,7 +1122,7 @@
     "currency": "USD",
     "price": 104.7,
     "prev_day": 107.08,
-    "turnover": 7808227082.0,
+    "turnover": 7854359053.0,
     "prev_month": 120.23,
     "prev_year": 36.9,
     "prev_2year": 20.05
@@ -1135,7 +1135,7 @@
     "currency": "USD",
     "price": 1581.82,
     "prev_day": 1609.46,
-    "turnover": 8792854925.0,
+    "turnover": 8868940467.0,
     "prev_month": 1739.89,
     "prev_year": 237.38,
     "prev_2year": null
@@ -1161,7 +1161,7 @@
     "currency": "USD",
     "price": 1780.34,
     "prev_day": 1769.79,
-    "turnover": 2142147816.0,
+    "turnover": 2145071134.0,
     "prev_month": 1811.67,
     "prev_year": 1069.86,
     "prev_2year": 693.08
@@ -1172,7 +1172,7 @@
     "currency": "USD",
     "price": 507.03,
     "prev_day": 509.57,
-    "turnover": 1691136707.0,
+    "turnover": 1694068355.0,
     "prev_month": 511.38,
     "prev_year": 256.99,
     "prev_2year": 162.63
@@ -1183,7 +1183,7 @@
     "currency": "USD",
     "price": 318.84,
     "prev_day": 320.59,
-    "turnover": 1463176209.0,
+    "turnover": 1484251852.0,
     "prev_month": 328.51,
     "prev_year": 171.18,
     "prev_2year": 72.23
@@ -1194,7 +1194,7 @@
     "currency": "USD",
     "price": 195.57,
     "prev_day": 196.72,
-    "turnover": 1035186430.0,
+    "turnover": 1046259799.0,
     "prev_month": 194.93,
     "prev_year": 121.508,
     "prev_2year": 63.012
@@ -1218,7 +1218,7 @@
     "currency": "USD",
     "price": 275.28,
     "prev_day": 274.66,
-    "turnover": 4135984000.0,
+    "turnover": 4151996212.0,
     "prev_month": 264.21,
     "prev_year": 84.98,
     "prev_2year": 110.45
@@ -1310,7 +1310,7 @@
     "currency": "USD",
     "price": 82.08,
     "prev_day": 81.58,
-    "turnover": 1633117360.0,
+    "turnover": 1642539570.0,
     "prev_month": 87.12,
     "prev_year": 71.61,
     "prev_2year": null
@@ -1321,7 +1321,7 @@
     "currency": "USD",
     "price": 1026.06,
     "prev_day": 1011.16,
-    "turnover": 326367113.0,
+    "turnover": 342519349.0,
     "prev_month": 1011.58,
     "prev_year": 766.16,
     "prev_2year": 942.89
@@ -1356,7 +1356,7 @@
     "currency": "USD",
     "price": 41.855,
     "prev_day": 42.77,
-    "turnover": 1139133549.0,
+    "turnover": 1143479102.0,
     "prev_month": 41.07,
     "prev_year": 29.27,
     "prev_2year": 30.48
@@ -1463,32 +1463,32 @@
    },
    "AAPL": {
     "3Q2026": {
-     "eps_est": 1.98236,
-     "rev_est": 113624521680
+     "eps_est": 1.9822,
+     "rev_est": 113617923250
     }
    },
    "AMZN": {
     "3Q2026": {
      "eps_est": 1.97667,
-     "rev_est": 202022776300
+     "rev_est": 202089495540
     }
    },
    "GOOGL": {
     "3Q2026": {
-     "eps_est": 3.05895,
-     "rev_est": 127303453410
+     "eps_est": 3.05457,
+     "rev_est": 127400974580
     }
    },
    "META": {
     "3Q2026": {
      "eps_est": 6.73583,
-     "rev_est": 63347373250
+     "rev_est": 63352671120
     }
    },
    "TSLA": {
     "3Q2026": {
-     "eps_est": 0.45071,
-     "rev_est": 28013915020
+     "eps_est": 0.44794,
+     "rev_est": 28044361180
     }
    },
    "AMD": {
@@ -1515,14 +1515,14 @@
    },
    "TSM": {
     "3Q2026": {
-     "eps_est": 4.47918,
-     "rev_est": 1455665055340
+     "eps_est": 4.46407,
+     "rev_est": 1457602436260
     }
    },
    "ASML": {
     "3Q2026": {
-     "eps_est": 10.6598,
-     "rev_est": 11683369410
+     "eps_est": 10.76451,
+     "rev_est": 11726436440
     }
    },
    "AMAT": {
@@ -1533,20 +1533,20 @@
    },
    "LRCX": {
     "3Q2026": {
-     "eps_est": 2.17786,
+     "eps_est": 2.17706,
      "rev_est": 8133724960
     }
    },
    "KLAC": {
     "3Q2026": {
      "eps_est": 1.17897,
-     "rev_est": 4040194880
+     "rev_est": 4040175830
     }
    },
    "SNDK": {
     "3Q2026": {
-     "eps_est": 46.18405,
-     "rev_est": 10680448060
+     "eps_est": 46.27224,
+     "rev_est": 10694236670
     }
    },
    "INTC": {
@@ -1572,7 +1572,8 @@
    "2026-10-08": 4.97,
    "2026-10-09": 4.97,
    "2026-10-10": 4.97,
-   "2026-10-11": 4.97
+   "2026-10-11": 4.97,
+   "2026-10-12": 4.97
   },
   "GPU H100 SXM": {
    "2026-07-02": 2.57,
