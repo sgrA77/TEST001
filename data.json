@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-12 07:22 KST",
+ "updated_at": "2026-10-12 10:31 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0HYM2: 연결 실패 ReadTimeout (해결: TEST001.py의 FRED_API_KEY에 무료 키 입력)",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -20,7 +20,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1341.07,
+    "value": 1336.18,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -28,7 +28,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 158.294,
+    "value": 158.179,
     "prev_month": 157.558,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -183,8 +183,8 @@
    "date": "2026-10-14",
    "ts": 1791981000,
    "d_day": 2,
-   "eps_est": 10.7645,
-   "rev_est": 11726436440,
+   "eps_est": 10.6598,
+   "rev_est": 11683369410,
    "quarters": [
     {
      "label": "4Q2025",
@@ -205,7 +205,7 @@
      "eps_est": 6.9481,
      "eps_act": 7.58,
      "rev_est": null,
-     "rev_act": 9326500000
+     "rev_act": null
     }
    ]
   },
@@ -215,8 +215,8 @@
    "date": "2026-10-15",
    "ts": 1792067400,
    "d_day": 3,
-   "eps_est": 4.4641,
-   "rev_est": 1457602436260,
+   "eps_est": 4.4792,
+   "rev_est": 1455665055340,
    "quarters": [
     {
      "label": "4Q2025",
@@ -247,8 +247,8 @@
    "date": "2026-10-21",
    "ts": 1792612800,
    "d_day": 9,
-   "eps_est": 0.4479,
-   "rev_est": 28044361180,
+   "eps_est": 0.4507,
+   "rev_est": 28013915020,
    "quarters": [
     {
      "label": "4Q2025",
@@ -279,7 +279,7 @@
    "date": "2026-10-21",
    "ts": 1792612800,
    "d_day": 9,
-   "eps_est": 2.1771,
+   "eps_est": 2.1779,
    "rev_est": 8133724960,
    "quarters": [
     {
@@ -344,7 +344,7 @@
    "ts": 1793217600,
    "d_day": 16,
    "eps_est": 3.0546,
-   "rev_est": 127400974580,
+   "rev_est": 127400614950,
    "quarters": [
     {
      "label": "4Q2025",
@@ -376,7 +376,7 @@
    "ts": 1793217600,
    "d_day": 16,
    "eps_est": 6.7358,
-   "rev_est": 63352671120,
+   "rev_est": 63347373250,
    "quarters": [
     {
      "label": "4Q2025",
@@ -408,7 +408,7 @@
    "ts": 1793217600,
    "d_day": 16,
    "eps_est": 1.179,
-   "rev_est": 4040175830,
+   "rev_est": 4040194880,
    "quarters": [
     {
      "label": "4Q2025",
@@ -440,7 +440,7 @@
    "ts": 1793304000,
    "d_day": 17,
    "eps_est": 1.9767,
-   "rev_est": 202089495540,
+   "rev_est": 202022776300,
    "quarters": [
     {
      "label": "4Q2025",
@@ -471,8 +471,8 @@
    "date": "2026-10-29",
    "ts": 1793304000,
    "d_day": 17,
-   "eps_est": 46.2722,
-   "rev_est": 10694236670,
+   "eps_est": 46.184,
+   "rev_est": 10680448060,
    "quarters": [
     {
      "label": "4Q2025",
@@ -535,8 +535,8 @@
    "date": "2026-11-02",
    "ts": 1793649600,
    "d_day": 21,
-   "eps_est": 1.9822,
-   "rev_est": 113617923250,
+   "eps_est": 1.9824,
+   "rev_est": 113624521680,
    "quarters": [
     {
      "label": "4Q2025",
@@ -557,7 +557,7 @@
      "eps_est": 1.8924,
      "eps_act": 2.02,
      "rev_est": null,
-     "rev_act": 109417000000
+     "rev_act": null
     }
    ]
   },
@@ -685,7 +685,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 29591000000
     }
    ]
   },
@@ -728,9 +728,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 83527.86,
+    "price": 83685.24,
     "prev_day": 82912.2266,
-    "turnover": 12813683712,
+    "turnover": 13362473984,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -739,7 +739,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4217.0,
+    "price": 4234.4,
     "prev_day": 4216.2998,
     "turnover": null,
     "prev_month": 4186.7002,
@@ -750,7 +750,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 61.23,
+    "price": 61.685,
     "prev_day": 60.67,
     "turnover": null,
     "prev_month": 60.098,
@@ -761,7 +761,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.702,
+    "price": 6.737,
     "prev_day": 6.6425,
     "turnover": null,
     "prev_month": 6.559,
@@ -772,7 +772,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 92.3,
+    "price": 90.18,
     "prev_day": 91.85,
     "turnover": null,
     "prev_month": 90.42,
@@ -783,7 +783,7 @@
     "ticker": "NG=F",
     "theme": "천연가스",
     "currency": "USD",
-    "price": 3.18,
+    "price": 3.158,
     "prev_day": 3.22,
     "turnover": null,
     "prev_month": 3.026,
@@ -1050,9 +1050,9 @@
     "ticker": "000660.KS",
     "theme": "DRAM · HBM",
     "currency": "KRW",
-    "price": 1681000.0,
-    "prev_day": 1723000.0,
-    "turnover": 5384631311000.0,
+    "price": 1616000.0,
+    "prev_day": 1681000.0,
+    "turnover": 1411226944000.0,
     "prev_month": 1776000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -1061,9 +1061,9 @@
     "ticker": "005930.KS",
     "theme": "메모리 · 파운드리",
     "currency": "KRW",
-    "price": 262000.0,
-    "prev_day": 268500.0,
-    "turnover": 5569872672000.0,
+    "price": 255500.0,
+    "prev_day": 262000.0,
+    "turnover": 1107745800000.0,
     "prev_month": 268500.0,
     "prev_year": 119900.0,
     "prev_2year": 53200.0
@@ -1384,21 +1384,21 @@
   },
   "KOSPI": {
    "ticker": "^KS11",
-   "price": 6625.93,
-   "3Y": 39.21,
-   "5Y": 17.06,
-   "10Y": 12.6,
-   "15Y": 8.94,
-   "20Y": 8.28
+   "price": 6458.94,
+   "3Y": 38.03,
+   "5Y": 16.46,
+   "10Y": 12.31,
+   "15Y": 8.75,
+   "20Y": 8.15
   },
   "KOSDAQ": {
    "ticker": "^KQ11",
-   "price": 892.27,
-   "3Y": 2.74,
-   "5Y": -2.07,
-   "10Y": 2.98,
-   "15Y": 4.31,
-   "20Y": 2.23
+   "price": 865.2,
+   "3Y": 1.69,
+   "5Y": -2.67,
+   "10Y": 2.67,
+   "15Y": 4.09,
+   "20Y": 2.07
   }
  },
  "gpu_rental": {
@@ -1463,32 +1463,32 @@
    },
    "AAPL": {
     "3Q2026": {
-     "eps_est": 1.9822,
-     "rev_est": 113617923250
+     "eps_est": 1.98236,
+     "rev_est": 113624521680
     }
    },
    "AMZN": {
     "3Q2026": {
      "eps_est": 1.97667,
-     "rev_est": 202089495540
+     "rev_est": 202022776300
     }
    },
    "GOOGL": {
     "3Q2026": {
      "eps_est": 3.05457,
-     "rev_est": 127400974580
+     "rev_est": 127400614950
     }
    },
    "META": {
     "3Q2026": {
      "eps_est": 6.73583,
-     "rev_est": 63352671120
+     "rev_est": 63347373250
     }
    },
    "TSLA": {
     "3Q2026": {
-     "eps_est": 0.44794,
-     "rev_est": 28044361180
+     "eps_est": 0.45071,
+     "rev_est": 28013915020
     }
    },
    "AMD": {
@@ -1515,14 +1515,14 @@
    },
    "TSM": {
     "3Q2026": {
-     "eps_est": 4.46407,
-     "rev_est": 1457602436260
+     "eps_est": 4.47918,
+     "rev_est": 1455665055340
     }
    },
    "ASML": {
     "3Q2026": {
-     "eps_est": 10.76451,
-     "rev_est": 11726436440
+     "eps_est": 10.6598,
+     "rev_est": 11683369410
     }
    },
    "AMAT": {
@@ -1533,20 +1533,20 @@
    },
    "LRCX": {
     "3Q2026": {
-     "eps_est": 2.17706,
+     "eps_est": 2.17786,
      "rev_est": 8133724960
     }
    },
    "KLAC": {
     "3Q2026": {
      "eps_est": 1.17897,
-     "rev_est": 4040175830
+     "rev_est": 4040194880
     }
    },
    "SNDK": {
     "3Q2026": {
-     "eps_est": 46.27224,
-     "rev_est": 10694236670
+     "eps_est": 46.18405,
+     "rev_est": 10680448060
     }
    },
    "INTC": {
