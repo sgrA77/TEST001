@@ -341,6 +341,7 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 
     <a class="panel slim ol-link" href="outlook.html" id="olink"><span class="ol-t">Market Outlook</span><span class="ol-s" id="ol-sub">시황·전망 · AI/반도체 →</span></a>
     <a class="panel slim ol-link" href="watch.html" id="wlink"><span class="ol-t">급등·매집 모니터링</span><span class="ol-s" id="wl-sub">주간 급등 · 매집 의심 →</span></a>
+    <a class="panel slim ol-link" href="scenario.html" id="slink"><span class="ol-t">하락 시나리오 분석</span><span class="ol-s" id="sl-sub">저장된 분석 보기 →</span></a>
 
     <section class="panel slim">
         <div class="panel-head">
@@ -979,6 +980,13 @@ fetch("data.json?t=" + Date.now())
   fetch('watch.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
     var el=document.getElementById('wl-sub'); if(!d||!el) return;
     el.innerHTML='<span class="ol-v">'+d.label+'</span> · 급등 '+(d.kospi.length+d.kosdaq.length)+(d.accum?' · 매집 '+d.accum.length:'')+' →';
+  }).catch(function(){});
+})();
+(function(){
+  fetch('scenarios/index.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
+    var el=document.getElementById('sl-sub'); if(!d||!d.length||!el) return;
+    d.sort(function(a,b){return (b.updated||b.date)<(a.updated||a.date)?-1:1});
+    el.innerHTML='<span class="ol-v">'+d.length+'건</span> · '+String(d[0].title).replace(/[<>&]/g,'')+' →';
   }).catch(function(){});
 })();
 </script>
