@@ -155,6 +155,7 @@ table.t tr.tot td{font-weight:700}
 .ex{background:#fff8e1;border-left:3px solid var(--yellow);padding:8px 10px;font-size:12.5px;margin-top:10px;border-radius:4px}
 .bt{font-size:12px;font-weight:700;margin:10px 0 2px}.br{display:grid;grid-template-columns:70px 1fr 60px;gap:6px;align-items:center;font-size:12px;margin:3px 0}.br i{display:block;height:10px;background:var(--down-t);border-radius:3px}.br em{font-style:normal;text-align:right;color:var(--sub)}
 .ng{color:var(--down-t);font-weight:600}.br i.neg{background:var(--mid)}.br{grid-template-columns:110px 1fr 64px}
+details.panel>summary{cursor:pointer;font-weight:800;font-size:14px}details.panel[open]>summary{margin-bottom:10px}
 </style>
 </head>
 <body>
@@ -185,7 +186,7 @@ function detail(id){
     document.getElementById('upd').textContent=d.date+(d.updated&&d.updated!==d.date?' (갱신 '+d.updated+')':'');
     var h='<div class="panel sum"><h2>'+esc(d.title)+'</h2><ul class="ul">'+d.summary.map(function(x){return '<li>'+lk(x)+'</li>'}).join('')+'</ul></div>';
     (d.sections||[]).forEach(function(s){
-      h+='<div class="panel"><h2>'+esc(s.title)+'</h2>';
+      h+=s.fold?'<details class="panel"><summary>'+esc(s.title)+'</summary>':'<div class="panel"><h2>'+esc(s.title)+'</h2>';
       if(s.intro)h+='<div class="note" style="color:var(--sub);font-size:13px;margin-bottom:8px">'+lk(s.intro)+'</div>';
       if(s.steps)h+='<ol class="fl">'+s.steps.map(function(x){return '<li><b>'+lk(x.t)+'</b><span>'+lk(x.d)+'</span></li>'}).join('')+'</ol>';
       if(s.table)h+=tbl(s.table);
@@ -194,7 +195,7 @@ function detail(id){
       if(s.ex)h+='<div class="ex">'+lk(s.ex)+'</div>';
       if(s.bullets)h+='<ul class="ul">'+s.bullets.map(function(x){return '<li>'+lk(x)+'</li>'}).join('')+'</ul>';
       if(s.note)h+='<div class="note" style="margin-top:8px">'+lk(s.note)+'</div>';
-      h+='</div>';
+      h+=s.fold?'</details>':'</div>';
     });
     h+='<div class="panel"><h2>Sources</h2><ul class="ul">'+(d.sources||[]).map(function(s){return '<li>[s'+s.n+'] <a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.title)+'</a></li>'}).join('')+'</ul></div>';
     h+='<div class="note">'+esc(d.disclaimer||'')+'</div>';

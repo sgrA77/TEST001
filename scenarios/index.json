@@ -1,10 +1,10 @@
 [
  {
   "id": "2026-10-13-cashflow-structure",
-  "title": "AI·메모리 기업 현금흐름·재무구조 비교 (안정군 vs 불안정군)",
+  "title": "AI·메모리 기업 현금 체력 비교 (번 돈·보유 현금·투자 지출)",
   "date": "2026-10-13",
   "updated": "2026-10-13",
-  "summary": "안정군(자체 현금으로 투자 소화): NVDA·MU·SK하이닉스·삼성전자·GOOGL·MSFT. 주의군: META·AMZN·AVGO·AMD. 불안정군(투자>영업현금흐름, 외부자금 의존): INTC·ORCL·CoreWeave + 비상장 OpenAI·Anthropic."
+  "summary": "MSFT는 번 돈 $182.9B > 투자 $115.9B → 외부자금이 필요 없음(번 돈의 63% 사용, 남는 돈 $67.0B). 외부 자금이 필요한 쪽은 투자가 번 돈을 넘는 ORCL(174%)·INTC(152%)·CoreWeave(332%)이고, AMZN(94%)은 여유가 거의 없음."
  },
  {
   "id": "2026-10-13-ai-vs-semi-weak-links",
