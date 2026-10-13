@@ -327,6 +327,18 @@ def _parse_fred_txt(text):
 FRED_API_KEY = ""
 
 
+def _parse_fred_reader(text):
+    """r.jina.ai(공개 텍스트 리더)로 가져온 FRED 'data/<ID>.txt' 표에서 (날짜, 값) 추출.
+    GitHub Actions에서 FRED 웹이 막혀도 리더 서버가 대신 읽어옴. 키 불필요."""
+    seen, rows = set(), []
+    for d, v in re.findall(r"(\d{4}-\d{2}-\d{2})\D{0,6}(-?\d+\.\d+)", text):
+        if d in seen:
+            continue
+        seen.add(d)
+        rows.append((datetime.strptime(d, "%Y-%m-%d").date(), float(v)))
+    return sorted(rows)
+
+
 def _parse_fred_api(text):
     return [(date.fromisoformat(o["date"]), float(o["value"]))
             for o in json.loads(text)["observations"] if o["value"] not in (".", "")]
@@ -334,7 +346,7 @@ def _parse_fred_api(text):
 
 def fetch_fred(series_ids):
     """FRED 공개 데이터. 시리즈 ID를 리스트로 주면 앞에서부터 시도.
-    시도 순서: 공식 API(키가 있을 때) → FRED 웹 CSV → ALFRED(FRED 자매 사이트) CSV
+    시도 순서: 공식 API(키가 있을 때) → 공개 리더(r.jina.ai) 경유 → FRED 웹 CSV → ALFRED(FRED 자매 사이트) CSV
     (GitHub Actions에서 FRED 웹이 ReadTimeout 나는 경우가 있어 API 키 사용을 권장)"""
     global _fred_net_fail
     ids = [series_ids] if isinstance(series_ids, str) else series_ids
@@ -349,6 +361,7 @@ def fetch_fred(series_ids):
                 f"{sid}&api_key={FRED_API_KEY}&file_type=json&observation_start={since}",
                 _parse_fred_api, False))
         sources += [
+            (f"https://r.jina.ai/https://fred.stlouisfed.org/data/{sid}.txt", _parse_fred_reader, False),
             (f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}&cosd={since}", _parse_fred_csv, True),
             (f"https://alfred.stlouisfed.org/graph/fredgraph.csv?id={sid}&cosd={since}", _parse_fred_csv, True),
         ]
