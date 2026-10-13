@@ -1,0 +1,28 @@
+name: Probe FRED
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe
+        run: |
+          pip install requests -q
+          python - <<'PY'
+          import requests,time
+          UA={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124.0 Safari/537.36","Accept":"text/csv,text/plain,*/*"}
+          urls=[
+           "https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2&cosd=2026-09-20",
+           "https://fred.stlouisfed.org/data/BAMLH0A0HYM2.txt",
+           "https://alfred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2&cosd=2026-09-20",
+           "https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&file_type=json",
+           "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+           "https://r.jina.ai/https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+          ]
+          for u in urls:
+              t=time.time()
+              try:
+                  r=requests.get(u,headers=UA,timeout=(8,15))
+                  print(f"::notice title=probe::{r.status_code} {round(time.time()-t,1)}s {u[:70]} :: {r.text[:120]!r}")
+              except Exception as e:
+                  print(f"::warning title=probe::FAIL {type(e).__name__} {round(time.time()-t,1)}s {u[:70]}")
+          PY
