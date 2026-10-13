@@ -156,6 +156,9 @@ table.t tr.tot td{font-weight:700}
 .bt{font-size:12px;font-weight:700;margin:10px 0 2px}.br{display:grid;grid-template-columns:70px 1fr 60px;gap:6px;align-items:center;font-size:12px;margin:3px 0}.br i{display:block;height:10px;background:var(--down-t);border-radius:3px}.br em{font-style:normal;text-align:right;color:var(--sub)}
 .ng{color:var(--down-t);font-weight:600}.br i.neg{background:var(--mid)}.br{grid-template-columns:110px 1fr 64px}
 details.panel>summary{cursor:pointer;font-weight:800;font-size:14px}details.panel[open]>summary{margin-bottom:10px}
+.toc{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}.toc button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:4px 11px;font:inherit;font-size:11.5px;font-weight:700;color:var(--sub);cursor:pointer}
+td.g{background:#eaf6ee}td.y{background:#fff6dd}td.r{background:#fdecec}
+table.t td{vertical-align:top;line-height:1.55}.panel h2{font-size:15px}
 </style>
 </head>
 <body>
@@ -177,7 +180,7 @@ function list(){
   }).catch(function(e){V.innerHTML='<div class="panel note">불러오기 실패: '+esc(e.message)+'</div>'});
 }
 function tbl(t){
-  return '<div class="tw"><table class="t"><thead><tr>'+t.head.map(function(h){return '<th>'+esc(h)+'</th>'}).join('')+'</tr></thead><tbody>'+t.rows.map(function(r){return '<tr'+(/^(\uD569\uACC4|\uC18C\uACC4)/.test(r[0])?' class="tot"':'')+'>'+r.map(function(c){return '<td>'+(/^[\u2212-]\d/.test(c)?'<span class="ng">'+lk(c)+'</span>':lk(c))+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table></div>';
+  return '<div class="tw"><table class="t"><thead><tr>'+t.head.map(function(h){return '<th>'+esc(h)+'</th>'}).join('')+'</tr></thead><tbody>'+t.rows.map(function(r){return '<tr'+(/^(\uD569\uACC4|\uC18C\uACC4)/.test(r[0])?' class="tot"':'')+'>'+r.map(function(c){var m=/^(\uD83D\uDFE2|\uD83D\uDFE1|\uD83D\uDD34)/.exec(c);var k=m?({'\uD83D\uDFE2':'g','\uD83D\uDFE1':'y','\uD83D\uDD34':'r'})[m[1]]:'';var x=lk(c).replace(/\n/g,'<br>');return '<td'+(k?' class="'+k+'"':'')+'>'+(/^[\u2212-]\d/.test(c)?'<span class="ng">'+x+'</span>':x)+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table></div>';
 }
 function detail(id){
   var b=document.getElementById('bk');b.href='#';b.textContent='\u2190 목록';
@@ -185,8 +188,10 @@ function detail(id){
     (d.sources||[]).forEach(function(s){SRC[s.n]=s.url});
     document.getElementById('upd').textContent=d.date+(d.updated&&d.updated!==d.date?' (갱신 '+d.updated+')':'');
     var h='<div class="panel sum"><h2>'+esc(d.title)+'</h2><ul class="ul">'+d.summary.map(function(x){return '<li>'+lk(x)+'</li>'}).join('')+'</ul></div>';
-    (d.sections||[]).forEach(function(s){
-      h+=s.fold?'<details class="panel"><summary>'+esc(s.title)+'</summary>':'<div class="panel"><h2>'+esc(s.title)+'</h2>';
+    var tocs=[];(d.sections||[]).forEach(function(s,i){if(/^\d/.test(s.title))tocs.push('<button onclick="document.getElementById(\'sec'+i+'\').scrollIntoView({behavior:\'smooth\'})">'+esc(s.title.replace(/^(\d+)\.\s*/,'$1 '))+'</button>')});
+    if(tocs.length>4)h+='<div class="toc">'+tocs.join('')+'</div>';
+    (d.sections||[]).forEach(function(s,i){
+      h+=s.fold?'<details class="panel" id="sec'+i+'"><summary>'+esc(s.title)+'</summary>':'<div class="panel" id="sec'+i+'"><h2>'+esc(s.title)+'</h2>';
       if(s.intro)h+='<div class="note" style="color:var(--sub);font-size:13px;margin-bottom:8px">'+lk(s.intro)+'</div>';
       if(s.steps)h+='<ol class="fl">'+s.steps.map(function(x){return '<li><b>'+lk(x.t)+'</b><span>'+lk(x.d)+'</span></li>'}).join('')+'</ol>';
       if(s.table)h+=tbl(s.table);
