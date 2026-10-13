@@ -1,5 +1,12 @@
 [
  {
+  "id": "2026-10-13-cashflow-structure",
+  "title": "AI·메모리 기업 현금흐름·재무구조 비교 (안정군 vs 불안정군)",
+  "date": "2026-10-13",
+  "updated": "2026-10-13",
+  "summary": "안정군(자체 현금으로 투자 소화): NVDA·MU·SK하이닉스·삼성전자·GOOGL·MSFT. 주의군: META·AMZN·AVGO·AMD. 불안정군(투자>영업현금흐름, 외부자금 의존): INTC·ORCL·CoreWeave + 비상장 OpenAI·Anthropic."
+ },
+ {
   "id": "2026-10-13-ai-vs-semi-weak-links",
   "title": "AI vs 반도체 상승 분해 + 약한 고리(CXMT·OpenAI/Anthropic·Oracle·엔비디아 투자망)",
   "date": "2026-10-13",

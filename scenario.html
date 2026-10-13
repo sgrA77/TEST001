@@ -146,7 +146,7 @@ th{font-size:11px;color:var(--dim);font-weight:700;white-space:nowrap}
 table.t{border-collapse:collapse;width:100%;font-size:12.5px;min-width:520px}
 table.t th{background:var(--card);text-align:left;font-size:11.5px;color:var(--sub);white-space:nowrap}
 table.t th,table.t td{padding:6px 8px;border-bottom:1px solid var(--line)}
-table.t tr:last-child td{font-weight:700}
+table.t tr.tot td{font-weight:700}
 .sm li{margin:4px 0}.ul{margin:6px 0 0;padding-left:18px}.ul li{margin:5px 0;font-size:13px}
 .sum{border-left:4px solid var(--down-t)}
 .fl{list-style:none;padding:0;margin:8px 0 4px}.fl li{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 10px;position:relative;margin-bottom:16px}
@@ -154,6 +154,7 @@ table.t tr:last-child td{font-weight:700}
 .fl b{display:block;font-size:13px}.fl span{font-size:12.5px;color:var(--sub)}
 .ex{background:#fff8e1;border-left:3px solid var(--yellow);padding:8px 10px;font-size:12.5px;margin-top:10px;border-radius:4px}
 .bt{font-size:12px;font-weight:700;margin:10px 0 2px}.br{display:grid;grid-template-columns:70px 1fr 60px;gap:6px;align-items:center;font-size:12px;margin:3px 0}.br i{display:block;height:10px;background:var(--down-t);border-radius:3px}.br em{font-style:normal;text-align:right;color:var(--sub)}
+.ng{color:var(--down-t);font-weight:600}.br i.neg{background:var(--mid)}.br{grid-template-columns:110px 1fr 64px}
 </style>
 </head>
 <body>
@@ -175,7 +176,7 @@ function list(){
   }).catch(function(e){V.innerHTML='<div class="panel note">불러오기 실패: '+esc(e.message)+'</div>'});
 }
 function tbl(t){
-  return '<div class="tw"><table class="t"><thead><tr>'+t.head.map(function(h){return '<th>'+esc(h)+'</th>'}).join('')+'</tr></thead><tbody>'+t.rows.map(function(r){return '<tr>'+r.map(function(c){return '<td>'+lk(c)+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table></div>';
+  return '<div class="tw"><table class="t"><thead><tr>'+t.head.map(function(h){return '<th>'+esc(h)+'</th>'}).join('')+'</tr></thead><tbody>'+t.rows.map(function(r){return '<tr'+(/^(\uD569\uACC4|\uC18C\uACC4)/.test(r[0])?' class="tot"':'')+'>'+r.map(function(c){return '<td>'+(/^[\u2212-]\d/.test(c)?'<span class="ng">'+lk(c)+'</span>':lk(c))+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table></div>';
 }
 function detail(id){
   var b=document.getElementById('bk');b.href='#';b.textContent='\u2190 목록';
@@ -188,7 +189,8 @@ function detail(id){
       if(s.intro)h+='<div class="note" style="color:var(--sub);font-size:13px;margin-bottom:8px">'+lk(s.intro)+'</div>';
       if(s.steps)h+='<ol class="fl">'+s.steps.map(function(x){return '<li><b>'+lk(x.t)+'</b><span>'+lk(x.d)+'</span></li>'}).join('')+'</ol>';
       if(s.table)h+=tbl(s.table);
-      if(s.bars)s.bars.forEach(function(g){var mx=Math.max.apply(null,g.items.map(function(i){return i[1]}));h+='<div class="bt">'+lk(g.title)+'</div>'+g.items.map(function(i){return '<div class="br"><span>'+esc(i[0])+'</span><i style="width:'+Math.max(2,i[1]/mx*100)+'%"></i><em>'+i[1].toLocaleString()+'</em></div>'}).join('')});
+      if(s.bars)s.bars.forEach(function(g){var mx=Math.max.apply(null,g.items.map(function(i){return Math.abs(i[1])}));h+='<div class="bt">'+lk(g.title)+'</div>'+g.items.map(function(i){var v=i[1];return '<div class="br"><span>'+esc(i[0])+'</span><i class="'+(v<0?'neg':'')+'" style="width:'+Math.max(2,Math.abs(v)/mx*100)+'%"></i><em>'+(v<0?'\u2212':'')+Math.abs(v).toLocaleString(undefined,{minimumFractionDigits:(g.unit==='%'?0:1)})+esc(g.unit||'')+'</em></div>'}).join('')});
+      if(s.html)h+='<div class="tw">'+s.html+'</div>';
       if(s.ex)h+='<div class="ex">'+lk(s.ex)+'</div>';
       if(s.bullets)h+='<ul class="ul">'+s.bullets.map(function(x){return '<li>'+lk(x)+'</li>'}).join('')+'</ul>';
       if(s.note)h+='<div class="note" style="margin-top:8px">'+lk(s.note)+'</div>';

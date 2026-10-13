@@ -1,0 +1,1231 @@
+{
+ "id": "2026-10-13-cashflow-structure",
+ "title": "AI·메모리 기업 현금흐름·재무구조 비교 (안정군 vs 불안정군)",
+ "date": "2026-10-13",
+ "updated": "2026-10-13",
+ "summary": [
+  "안정군(자체 현금으로 투자 소화): NVDA·MU·SK하이닉스·삼성전자·GOOGL·MSFT. 주의군: META·AMZN·AVGO·AMD. 불안정군(투자>영업현금흐름, 외부자금 의존): INTC·ORCL·CoreWeave + 비상장 OpenAI·Anthropic.",
+  "핵심 지표 'Capex/영업현금흐름': CRWV 337% · ORCL 174% · INTC 151% · AMZN 94% — 100% 초과는 부족분을 부채·주식·고객 선지급으로 메우는 구조.",
+  "5대 AI 투자사(MSFT·GOOGL·AMZN·META·ORCL) 합계: 영업현금흐름 약 $635B 중 capex 약 $465B(73%), FCF 합계 약 $170B. 이 중 ORCL은 −$23.7B, AMZN은 $7.7B로 사실상 여력 없음.",
+  "메모리·반도체 2대 수혜(MU·SK하이닉스)는 1~2년 사이 적자 → 사상 최대 이익으로 급반전. 이익이 '사이클 정점' 값이라는 점이 취약성."
+ ],
+ "sections": [
+  {
+   "title": "1. 판정 스코어카드 (최신 회계연도, $B / 한국 2사는 조원)",
+   "table": {
+    "head": [
+     "기업",
+     "판정",
+     "영업이익",
+     "영업현금흐름",
+     "Capex",
+     "Capex/OCF",
+     "FCF",
+     "순현금(부채)"
+    ],
+    "rows": [
+     [
+      "NVDA",
+      "🟢",
+      "130.4",
+      "102.7",
+      "6.0",
+      "6%",
+      "96.7",
+      "51.1"
+     ],
+     [
+      "MU",
+      "🟢(사이클)",
+      "99.3",
+      "89.7",
+      "30.7",
+      "34%",
+      "59.0",
+      "68.3"
+     ],
+     [
+      "SK하이닉스(조원)",
+      "🟢(사이클)",
+      "47.2",
+      "53.4",
+      "27.5",
+      "51%",
+      "25.9",
+      "10.4"
+     ],
+     [
+      "삼성전자(조원)",
+      "🟢",
+      "43.6",
+      "85.3",
+      "47.5",
+      "56%",
+      "37.8",
+      "100.6"
+     ],
+     [
+      "GOOGL",
+      "🟢",
+      "129.0",
+      "164.7",
+      "91.4",
+      "55%",
+      "73.3",
+      "59.8"
+     ],
+     [
+      "MSFT",
+      "🟢",
+      "155.2",
+      "182.9",
+      "115.9",
+      "63%",
+      "67.0",
+      "−52.0"
+     ],
+     [
+      "META",
+      "🟡",
+      "83.3",
+      "115.8",
+      "69.7",
+      "60%",
+      "46.1",
+      "−3.5"
+     ],
+     [
+      "AMZN",
+      "🟡",
+      "80.0",
+      "139.5",
+      "131.8",
+      "94%",
+      "7.7",
+      "−55.5"
+     ],
+     [
+      "AVGO",
+      "🟡",
+      "26.4",
+      "27.5",
+      "0.6",
+      "2%",
+      "26.9",
+      "−50.3"
+     ],
+     [
+      "AMD",
+      "🟡",
+      "3.7",
+      "7.7",
+      "1.0",
+      "13%",
+      "6.7",
+      "6.6"
+     ],
+     [
+      "INTC",
+      "🔴",
+      "0.9",
+      "9.7",
+      "14.7",
+      "152%",
+      "−5.0",
+      "−9.2"
+     ],
+     [
+      "ORCL",
+      "🔴",
+      "22.4",
+      "32.0",
+      "55.7",
+      "174%",
+      "−23.7",
+      "−135.5"
+     ],
+     [
+      "CRWV",
+      "🔴",
+      "−0.02",
+      "3.1",
+      "10.3",
+      "332%",
+      "−7.3",
+      "−26.7"
+     ]
+    ]
+   },
+   "note": "🟢 안정 / 🟡 주의 / 🔴 불안정은 제 분류 기준(FCF 부호·Capex/OCF·순현금 추세)입니다. 순현금 = 현금+단기투자 − 총부채(리스 포함). 최신 FY: MSFT FY26(6월)·MU FY26(9월)·NVDA FY26(1월)·ORCL FY26(5월), 나머지 2025(CRWV는 FY25 현금흐름). 영업이익은 회계기준 연도 혼재."
+  },
+  {
+   "title": "2. 한눈에 비교",
+   "bars": [
+    {
+     "title": "Capex ÷ 영업현금흐름 (%) — 100% 초과 = 외부자금 필요",
+     "items": [
+      [
+       "CRWV",
+       332
+      ],
+      [
+       "ORCL",
+       174
+      ],
+      [
+       "INTC",
+       152
+      ],
+      [
+       "AMZN",
+       94
+      ],
+      [
+       "MSFT",
+       63
+      ],
+      [
+       "META",
+       60
+      ],
+      [
+       "삼성전자(조원)",
+       56
+      ],
+      [
+       "GOOGL",
+       55
+      ],
+      [
+       "SK하이닉스(조원)",
+       51
+      ],
+      [
+       "MU",
+       34
+      ],
+      [
+       "AMD",
+       13
+      ],
+      [
+       "NVDA",
+       6
+      ],
+      [
+       "AVGO",
+       2
+      ]
+     ],
+     "unit": "%"
+    },
+    {
+     "title": "순현금(+) / 순부채(−) ($B, 한국 2사는 조원)",
+     "items": [
+      [
+       "삼성전자(조원)",
+       100.6
+      ],
+      [
+       "MU",
+       68.3
+      ],
+      [
+       "GOOGL",
+       59.8
+      ],
+      [
+       "NVDA",
+       51.1
+      ],
+      [
+       "SK하이닉스(조원)",
+       10.4
+      ],
+      [
+       "AMD",
+       6.6
+      ],
+      [
+       "META",
+       -3.5
+      ],
+      [
+       "INTC",
+       -9.2
+      ],
+      [
+       "CRWV",
+       -26.7
+      ],
+      [
+       "AVGO",
+       -50.3
+      ],
+      [
+       "MSFT",
+       -52.0
+      ],
+      [
+       "AMZN",
+       -55.5
+      ],
+      [
+       "ORCL",
+       -135.5
+      ]
+     ],
+     "unit": ""
+    }
+   ]
+  },
+  {
+   "title": "3. 연도별 추이 — 영업이익",
+   "table": {
+    "head": [
+     "기업",
+     "2022",
+     "2023",
+     "2024",
+     "2025",
+     "최신"
+    ],
+    "rows": [
+     [
+      "MSFT",
+      "83.4",
+      "88.5",
+      "109.4",
+      "128.5",
+      "155.2"
+     ],
+     [
+      "GOOGL",
+      "74.8",
+      "84.3",
+      "112.4",
+      "129.0",
+      "147.6"
+     ],
+     [
+      "AMZN",
+      "13.3",
+      "36.9",
+      "68.6",
+      "80.0",
+      "93.7"
+     ],
+     [
+      "META",
+      "33.6",
+      "46.8",
+      "69.4",
+      "83.3",
+      "86.9"
+     ],
+     [
+      "NVDA",
+      "5.6",
+      "33.0",
+      "81.5",
+      "130.4",
+      "197.6"
+     ],
+     [
+      "AVGO",
+      "14.3",
+      "16.7",
+      "15.8",
+      "26.4",
+      "43.5"
+     ],
+     [
+      "AMD",
+      "1.3",
+      "0.4",
+      "2.1",
+      "3.7",
+      "6.5"
+     ],
+     [
+      "MU",
+      "9.7",
+      "−3.6",
+      "1.3",
+      "9.8",
+      "99.3"
+     ],
+     [
+      "INTC",
+      "3.9",
+      "0.03",
+      "−1.4",
+      "0.9",
+      "4.5"
+     ],
+     [
+      "ORCL",
+      "15.8",
+      "13.7",
+      "15.8",
+      "18.0",
+      "22.4"
+     ],
+     [
+      "CRWV",
+      "−0.02",
+      "−0.01",
+      "0.3",
+      "−0.02",
+      "−0.2"
+     ],
+     [
+      "SK하이닉스(조원)",
+      "6.8",
+      "−7.7",
+      "23.5",
+      "47.2",
+      "128.7"
+     ],
+     [
+      "삼성전자(조원)",
+      "43.4",
+      "6.6",
+      "32.7",
+      "43.6",
+      "179.0"
+     ]
+    ]
+   },
+   "note": "단위 $B(한국 2사 조원). '최신'은 TTM(2026 중반) 또는 최신 FY. NVDA·MSFT·ORCL·MU 등 비(非)12월 결산은 FY 종료년 기준으로 가장 가까운 연도에 배치(NVDA 2022열 = FY2023 등)."
+  },
+  {
+   "title": "4. 연도별 추이 — 잉여현금흐름(FCF)",
+   "table": {
+    "head": [
+     "기업",
+     "2022",
+     "2023",
+     "2024",
+     "2025",
+     "최신"
+    ],
+    "rows": [
+     [
+      "MSFT",
+      "65.1",
+      "59.5",
+      "74.1",
+      "71.6",
+      "67.0"
+     ],
+     [
+      "GOOGL",
+      "60.0",
+      "69.5",
+      "72.8",
+      "73.3",
+      "—"
+     ],
+     [
+      "AMZN",
+      "−16.9",
+      "32.2",
+      "32.9",
+      "7.7",
+      "—"
+     ],
+     [
+      "META",
+      "19.3",
+      "44.1",
+      "54.1",
+      "46.1",
+      "—"
+     ],
+     [
+      "NVDA",
+      "3.8",
+      "27.0",
+      "60.9",
+      "96.7",
+      "—"
+     ],
+     [
+      "AVGO",
+      "16.3",
+      "17.6",
+      "19.4",
+      "26.9",
+      "—"
+     ],
+     [
+      "AMD",
+      "3.1",
+      "1.1",
+      "2.4",
+      "6.7",
+      "—"
+     ],
+     [
+      "MU",
+      "3.1",
+      "−6.1",
+      "0.1",
+      "1.7",
+      "59.0"
+     ],
+     [
+      "INTC",
+      "−9.4",
+      "−14.3",
+      "−15.7",
+      "−5.0",
+      "2.8"
+     ],
+     [
+      "ORCL",
+      "5.0",
+      "8.5",
+      "11.8",
+      "−0.4",
+      "−23.7"
+     ],
+     [
+      "CRWV",
+      "−1.1",
+      "−6.0",
+      "−7.3",
+      "—",
+      "—"
+     ],
+     [
+      "SK하이닉스(조원)",
+      "−4.2",
+      "−4.0",
+      "13.9",
+      "25.9",
+      "—"
+     ],
+     [
+      "삼성전자(조원)",
+      "12.8",
+      "−13.5",
+      "21.6",
+      "37.8",
+      "—"
+     ]
+    ]
+   },
+   "note": "— 는 미확인(조사하지 않음). INTC '최신'은 TTM(+2.8). FCF = 영업현금흐름 − capex."
+  },
+  {
+   "title": "5. 연도별 추이 — Capex (설비·데이터센터 투자)",
+   "table": {
+    "head": [
+     "기업",
+     "2022",
+     "2023",
+     "2024",
+     "2025",
+     "최신"
+    ],
+    "rows": [
+     [
+      "MSFT",
+      "23.9",
+      "28.1",
+      "44.5",
+      "64.6",
+      "115.9"
+     ],
+     [
+      "GOOGL",
+      "31.5",
+      "32.3",
+      "52.5",
+      "91.4",
+      "—"
+     ],
+     [
+      "AMZN",
+      "63.6",
+      "52.7",
+      "83.0",
+      "131.8",
+      "—"
+     ],
+     [
+      "META",
+      "31.2",
+      "27.0",
+      "37.3",
+      "69.7",
+      "—"
+     ],
+     [
+      "NVDA",
+      "1.8",
+      "1.1",
+      "3.2",
+      "6.0",
+      "—"
+     ],
+     [
+      "AVGO",
+      "0.4",
+      "0.5",
+      "0.5",
+      "0.6",
+      "—"
+     ],
+     [
+      "AMD",
+      "0.5",
+      "0.5",
+      "0.6",
+      "1.0",
+      "—"
+     ],
+     [
+      "MU",
+      "12.1",
+      "7.7",
+      "8.4",
+      "15.9",
+      "30.7"
+     ],
+     [
+      "INTC",
+      "24.8",
+      "25.8",
+      "23.9",
+      "14.7",
+      "—"
+     ],
+     [
+      "ORCL",
+      "4.5",
+      "8.7",
+      "6.9",
+      "21.2",
+      "55.7"
+     ],
+     [
+      "CRWV",
+      "2.9",
+      "8.7",
+      "10.3",
+      "—",
+      "—"
+     ],
+     [
+      "SK하이닉스(조원)",
+      "19.0",
+      "8.3",
+      "15.9",
+      "27.5",
+      "—"
+     ],
+     [
+      "삼성전자(조원)",
+      "49.4",
+      "57.6",
+      "51.4",
+      "47.5",
+      "—"
+     ]
+    ]
+   }
+  },
+  {
+   "title": "6. 연도별 추이 — 총부채 (리스 포함)",
+   "table": {
+    "head": [
+     "기업",
+     "2022",
+     "2023",
+     "2024",
+     "2025",
+     "최신"
+    ],
+    "rows": [
+     [
+      "MSFT",
+      "78.4",
+      "79.4",
+      "97.9",
+      "112.2",
+      "128.8"
+     ],
+     [
+      "GOOGL",
+      "30.0",
+      "29.8",
+      "30.4",
+      "67.0",
+      "—"
+     ],
+     [
+      "AMZN",
+      "169.9",
+      "161.6",
+      "155.4",
+      "178.5",
+      "—"
+     ],
+     [
+      "META",
+      "26.6",
+      "37.2",
+      "49.1",
+      "85.1",
+      "—"
+     ],
+     [
+      "NVDA",
+      "12.0",
+      "11.1",
+      "10.0",
+      "11.4",
+      "—"
+     ],
+     [
+      "AVGO",
+      "40.0",
+      "39.6",
+      "68.9",
+      "66.5",
+      "—"
+     ],
+     [
+      "AMD",
+      "2.9",
+      "3.0",
+      "2.2",
+      "4.0",
+      "4.3"
+     ],
+     [
+      "MU",
+      "7.6",
+      "14.0",
+      "14.1",
+      "14.6",
+      "5.2"
+     ],
+     [
+      "INTC",
+      "42.1",
+      "49.7",
+      "50.5",
+      "47.1",
+      "—"
+     ],
+     [
+      "ORCL",
+      "75.9",
+      "90.5",
+      "94.4",
+      "109.0",
+      "167.4"
+     ],
+     [
+      "CRWV",
+      "—",
+      "2.0",
+      "10.6",
+      "29.8",
+      "51.6"
+     ],
+     [
+      "SK하이닉스(조원)",
+      "24.8",
+      "32.5",
+      "25.5",
+      "24.8",
+      "—"
+     ],
+     [
+      "삼성전자(조원)",
+      "10.3",
+      "12.7",
+      "19.3",
+      "25.2",
+      "—"
+     ]
+    ]
+   }
+  },
+  {
+   "title": "7. 연도별 추이 — 순현금(+) / 순부채(−)",
+   "table": {
+    "head": [
+     "기업",
+     "2022",
+     "2023",
+     "2024",
+     "2025",
+     "최신"
+    ],
+    "rows": [
+     [
+      "MSFT",
+      "26.3",
+      "31.8",
+      "−22.3",
+      "−17.6",
+      "−52.0"
+     ],
+     [
+      "GOOGL",
+      "83.8",
+      "81.1",
+      "65.2",
+      "59.8",
+      "—"
+     ],
+     [
+      "AMZN",
+      "−99.9",
+      "−74.8",
+      "−54.2",
+      "−55.5",
+      "—"
+     ],
+     [
+      "META",
+      "14.1",
+      "28.2",
+      "28.8",
+      "−3.5",
+      "—"
+     ],
+     [
+      "NVDA",
+      "1.3",
+      "14.9",
+      "33.2",
+      "51.1",
+      "—"
+     ],
+     [
+      "AVGO",
+      "−27.6",
+      "−25.5",
+      "−59.6",
+      "−50.3",
+      "—"
+     ],
+     [
+      "AMD",
+      "3.0",
+      "2.8",
+      "2.9",
+      "6.6",
+      "8.8"
+     ],
+     [
+      "MU",
+      "3.4",
+      "−3.6",
+      "−4.9",
+      "−2.6",
+      "68.3"
+     ],
+     [
+      "INTC",
+      "−12.4",
+      "−23.5",
+      "−27.6",
+      "−9.2",
+      "−20.6"
+     ],
+     [
+      "ORCL",
+      "−54.0",
+      "−80.3",
+      "−83.8",
+      "−97.7",
+      "−135.5"
+     ],
+     [
+      "CRWV",
+      "—",
+      "−1.8",
+      "−9.3",
+      "−26.7",
+      "−46.0"
+     ],
+     [
+      "SK하이닉스(조원)",
+      "−18.7",
+      "−23.7",
+      "−11.3",
+      "10.4",
+      "—"
+     ],
+     [
+      "삼성전자(조원)",
+      "104.9",
+      "79.7",
+      "93.3",
+      "100.6",
+      "—"
+     ]
+    ]
+   },
+   "note": "MSFT는 2년 새 +$31.8B → −$52.0B, META는 +$28.8B → −$3.5B(1년), MU는 −$2.6B → +$68.3B(1년)로 급변. 부채 급증 3사: ORCL 2.2배(2022→FY26), META 3.2배(2022→2025), CRWV 2023 이후 26배."
+  },
+  {
+   "title": "8. AI·메모리 투자 방식과 구조적 취약점",
+   "table": {
+    "head": [
+     "기업",
+     "투자 형태",
+     "변화(수치)",
+     "취약점"
+    ],
+    "rows": [
+     [
+      "MSFT",
+      "자체 capex + OpenAI 지분(약 27%)",
+      "capex $23.9B→$115.9B (×4.9)",
+      "부채 증가·순현금 악화, OpenAI 약정 $250B 의존"
+     ],
+     [
+      "GOOGL",
+      "자체 capex + TPU + Anthropic 지원",
+      "capex $31.5B→$91.4B (×2.9), 부채 $30B→$67B",
+      "자금조달 증가(대규모 채권), 순현금 감소 추세"
+     ],
+     [
+      "AMZN",
+      "capex + Anthropic·OpenAI 투자",
+      "capex $63.6B→$131.8B, FCF −16.9→+7.7",
+      "capex가 영업현금흐름의 94% → 추가 투자는 부채 필요"
+     ],
+     [
+      "META",
+      "capex + 장부 외 SPV(Hyperion 약 $27B)",
+      "부채 $26.6B→$85.1B (×3.2)",
+      "장부 외 약정·임대, AI 매출 불확실"
+     ],
+     [
+      "NVDA",
+      "자체 capex 미미 + 지분투자·보증",
+      "FCF $96.7B, 자사주 $48B, 비상장 투자 약 $48B",
+      "보증 우발채무(최대 $600B 검토), 고객 순환"
+     ],
+     [
+      "MU",
+      "자체 capex + 고객 선수금(장기 $12.9B)",
+      "capex $12.1B→$30.7B, 부채 $14.6B→$5.2B",
+      "이익이 사이클 정점, 신규 공급자(CXMT)"
+     ],
+     [
+      "SK하이닉스·삼성",
+      "자체 capex(HBM·증설)",
+      "하이닉스 capex 19.0→27.5조, 순부채→순현금",
+      "메모리 사이클, CXMT·증설 경쟁"
+     ],
+     [
+      "AVGO",
+      "M&A(VMware) 부채 + 맞춤칩",
+      "부채 $40B→$66.5B, FCF $16B→$27B",
+      "부채 부담(순부채 −$50B), 소수 고객"
+     ],
+     [
+      "AMD",
+      "워런트(OpenAI)로 매출 확보",
+      "순현금 +$8.8B, OI $6.5B(TTM)",
+      "지분 약 9.8% 희석 가능, 이익 규모 작음"
+     ],
+     [
+      "INTC",
+      "정부·NVDA·SoftBank 지분 유치 + 파운드리 capex",
+      "capex $25.8B→$14.7B 축소, FCF −15.7→−5.0→+2.8(TTM)",
+      "부채 $47B, 18A 수율 실행 위험"
+     ],
+     [
+      "ORCL",
+      "부채 + 주식 발행 + 고객 제공 장비 $75B",
+      "capex $4.5B→$55.7B (×12), 부채 $75.9B→$167.4B",
+      "FCF −$23.7B, 순부채 −$135.5B, BBB−, OpenAI 집중"
+     ],
+     [
+      "CRWV",
+      "GPU 담보 SPV 대출",
+      "부채 $2.0B(2023)→$51.6B(TTM), 영업손익 적자",
+      "capex가 영업현금흐름의 337%, 고객(OpenAI·Meta) 집중"
+     ]
+    ]
+   },
+   "note": "capex 배수는 2022 대비(회계연도 기준)."
+  },
+  {
+   "title": "9. 기업 간 자금 관계: 순환도",
+   "html": "<svg viewBox='0 0 720 330' style='width:100%;min-width:640px;font-family:inherit' xmlns='http://www.w3.org/2000/svg'><defs><marker id='ar' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0L10,5L0,10z' style='fill:var(--sub)'/></marker></defs><g style='stroke:var(--sub);fill:none;stroke-width:1.6'><path d='M160,150 H285' marker-end='url(#ar)'/><path d='M435,150 H560' marker-end='url(#ar)'/><path d='M635,220 V285 H85 V222' marker-end='url(#ar)'/><path d='M360,62 V108' marker-end='url(#ar)'/><path d='M435,35 H635 V108' marker-end='url(#ar)'/></g><g style='stroke-width:1.5'><rect x='10' y='110' width='150' height='110' rx='10' style='fill:#e9f7ee;stroke:#2e9d5b'/><rect x='285' y='110' width='150' height='110' rx='10' style='fill:#fdecec;stroke:#c0392b'/><rect x='560' y='110' width='150' height='110' rx='10' style='fill:#fff4dc;stroke:#b7791f'/><rect x='285' y='8' width='150' height='54' rx='10' style='fill:var(--card);stroke:var(--sub)'/></g><g style='fill:var(--text);font-size:12.5px;text-anchor:middle'><text x='85' y='138' style='font-weight:800'>칩·메모리</text><text x='85' y='160'>NVDA·AMD·AVGO</text><text x='85' y='180'>MU·SK하이닉스</text><text x='85' y='200'>삼성·INTC</text><text x='360' y='140' style='font-weight:800'>AI랩 (비상장)</text><text x='360' y='168'>OpenAI</text><text x='360' y='190'>Anthropic</text><text x='635' y='138' style='font-weight:800'>클라우드·네오</text><text x='635' y='160'>MSFT·AMZN·GOOGL</text><text x='635' y='180'>ORCL·META</text><text x='635' y='200'>CRWV</text><text x='360' y='30' style='font-weight:800'>자본시장</text><text x='360' y='48' style='font-size:10.5px'>회사채·사모신용·VC</text></g><g style='fill:var(--sub);font-size:11px;text-anchor:middle'><text x='222' y='138'>투자·워런트·보증</text><text x='222' y='168' style='font-size:10px'>NVDA 투자 $40B</text><text x='222' y='182' style='font-size:10px'>보증검토 $250~350B</text><text x='222' y='196' style='font-size:10px'>AMD 워런트≈$97B</text><text x='497' y='138'>컴퓨트 약정</text><text x='497' y='168' style='font-size:10px'>OpenAI ≈$568B</text><text x='497' y='182' style='font-size:10px'>Anthropic ≥$180B</text><text x='360' y='304'>칩·서버 구매 (capex) — 5대 투자사 최근 FY 합계 ≈ $465B</text><text x='368' y='84' style='text-anchor:start;font-size:10px'>라운드: OpenAI $122B</text><text x='368' y='97' style='text-anchor:start;font-size:10px'>Anthropic $65B</text><text x='535' y='26'>IG 채권 순발행 2026 ≈ $274B</text></g></svg>",
+   "note": "화살표 = 돈의 흐름. 칩 업체가 AI랩에 투자 → AI랩이 클라우드와 대규모 약정 → 클라우드가 칩을 구매 → 칩 업체 매출. 클라우드는 자본시장에서 빚으로 조달. 약정은 'up to'·다년 합계 포함."
+  },
+  {
+   "title": "10. 투자·계약 관계 매트릭스 (누가 → 어디에, 어떤 방식으로)",
+   "table": {
+    "head": [
+     "투자·공급자",
+     "OpenAI",
+     "Anthropic",
+     "CoreWeave·네오",
+     "Oracle",
+     "Intel"
+    ],
+    "rows": [
+     [
+      "NVDA",
+      "지분 $30B + 보증 검토 $250B·칩 금융 $350B [s14][s15]",
+      "지분 ≤$10B",
+      "지분 $2B + 용량 계약 $30B + 공급 $6.3B",
+      "—",
+      "지분 $5B(주당 23.28 → 평가 약 $21.8B)"
+     ],
+     [
+      "AMD",
+      "워런트 1.6억주(≈$97B) + MI450 6GW",
+      "—",
+      "—",
+      "MI450 5만 개",
+      "—"
+     ],
+     [
+      "AVGO",
+      "맞춤칩 10GW",
+      "(Google TPU 경유)",
+      "—",
+      "—",
+      "—"
+     ],
+     [
+      "MU·SK·삼성",
+      "—",
+      "전략 인프라 파트너(HBM) [s21]",
+      "—",
+      "—",
+      "—"
+     ],
+     [
+      "MSFT",
+      "지분 약 27%, Azure 약정 $250B 수취 [s17]",
+      "투자 ≤$5B, Azure $30B 수취 [s18]",
+      "고객 $1.2B(2024)",
+      "—",
+      "18A 위탁 계약(2월)"
+     ],
+     [
+      "AMZN",
+      "투자 $50B (2026-03)",
+      "투자 $5B(+≤$20B), 기존 $8B / AWS 약정 $100B+ [s18]",
+      "—",
+      "—",
+      "Xeon 확대"
+     ],
+     [
+      "GOOGL",
+      "—",
+      "TPU 수 GW 공급 [s18]",
+      "—",
+      "—",
+      "—"
+     ],
+     [
+      "ORCL",
+      "컴퓨트 약 $300B 수주(2027~) [s17]",
+      "—",
+      "—",
+      "(RPO $638B 중 약 절반 OpenAI) [s20]",
+      "—"
+     ],
+     [
+      "META",
+      "—",
+      "—",
+      "고객 ≤$21B",
+      "고객 약 $20B(보도)",
+      "—"
+     ],
+     [
+      "SoftBank",
+      "$30B (누적 약 $64.6B, 약 13%) [s17]",
+      "—",
+      "—",
+      "Ampere 지분 인수 $4.3B",
+      "$2B"
+     ],
+     [
+      "OpenAI·Anthropic",
+      "—",
+      "—",
+      "OpenAI → CoreWeave $18.4B 계약",
+      "—",
+      "—"
+     ]
+    ]
+   },
+   "note": "약정·보증은 보도·추정 포함, 확정 금액과 구분 필요. [s14] The Research Note, [s15] TradingKey, [s17] OpenAI 팩트시트, [s18] Sacra, [s20] The Next Web, [s21] Anthropic."
+  },
+  {
+   "title": "11. 비상장 AI랩 (외부 투자 의존)",
+   "table": {
+    "head": [
+     "항목",
+     "OpenAI",
+     "Anthropic"
+    ],
+    "rows": [
+     [
+      "평가가치",
+      "$852B (3월) · $1.4T 협의",
+      "$965B (5월)"
+     ],
+     [
+      "런레이트 매출",
+      "약 $40B(8월)~$70B(비공식)",
+      "$47B(5월)~$65B(7월 추정)"
+     ],
+     [
+      "손익·현금",
+      "Q1 현금소진 $3.7B, 2026~30 누적 FCF −$2,780억 계획",
+      "미공개 (2029까지 클라우드 비용 약 $800억 필요 추정)"
+     ],
+     [
+      "컴퓨트 약정",
+      "Azure $250B·Oracle $300B·CoreWeave $18.4B 등",
+      "AWS $100B+·Azure $30B·Fluidstack $50B 등"
+     ],
+     [
+      "조달",
+      "최근 라운드 $122B",
+      "Series H $65B, 누적 약 $125B"
+     ]
+    ]
+   },
+   "note": "Anthropic 항목은 공개 수치만 사용(저는 Anthropic이 만든 모델임). 상세는 이전 분석 참조."
+  },
+  {
+   "title": "12. 결론: 구조적 취약 순서",
+   "bullets": [
+    "① 불안정(외부자금 의존): OpenAI·Anthropic ≫ CoreWeave(Capex/OCF 337%) > Oracle(FCF −$23.7B, 순부채 −$135.5B) > Intel(FCF 개선 중이나 부채 $47B).",
+    "② 주의(현금흐름은 양호하나 순현금 악화): AMZN(FCF $7.7B) · META(부채 3.2배, 장부 외) · AVGO(부채 $66.5B) · AMD(워런트 희석).",
+    "③ 안정(버퍼 큼): NVDA · 삼성전자(순현금 100조 원) · GOOGL · MSFT. 단 MU·SK하이닉스는 지금 이익이 사이클 정점이라 '안정'이 아니라 '현재 안정'.",
+    "연쇄 방향: 불안정군(AI랩·CoreWeave·Oracle)이 약정을 못 지키면 → 안정군(NVDA·AMD·AVGO)의 수주 감소 → 반도체 주가 하락. 반대로 안정군은 위기 시 인수·지원 여력이 있어 완충 역할 가능."
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "n": 1,
+   "title": "stockanalysis.com — MSFT 재무제표",
+   "url": "https://stockanalysis.com/stocks/msft/financials/"
+  },
+  {
+   "n": 2,
+   "title": "stockanalysis.com — GOOGL 재무제표",
+   "url": "https://stockanalysis.com/stocks/googl/financials/"
+  },
+  {
+   "n": 3,
+   "title": "stockanalysis.com — AMZN 재무제표",
+   "url": "https://stockanalysis.com/stocks/amzn/financials/"
+  },
+  {
+   "n": 4,
+   "title": "stockanalysis.com — META 재무제표",
+   "url": "https://stockanalysis.com/stocks/meta/financials/"
+  },
+  {
+   "n": 5,
+   "title": "stockanalysis.com — NVDA 재무제표",
+   "url": "https://stockanalysis.com/stocks/nvda/financials/"
+  },
+  {
+   "n": 6,
+   "title": "stockanalysis.com — AVGO 재무제표",
+   "url": "https://stockanalysis.com/stocks/avgo/financials/"
+  },
+  {
+   "n": 7,
+   "title": "stockanalysis.com — AMD 재무제표",
+   "url": "https://stockanalysis.com/stocks/amd/financials/"
+  },
+  {
+   "n": 8,
+   "title": "stockanalysis.com — MU 재무제표",
+   "url": "https://stockanalysis.com/stocks/mu/financials/"
+  },
+  {
+   "n": 9,
+   "title": "stockanalysis.com — INTC 재무제표",
+   "url": "https://stockanalysis.com/stocks/intc/financials/"
+  },
+  {
+   "n": 10,
+   "title": "stockanalysis.com — ORCL 재무제표",
+   "url": "https://stockanalysis.com/stocks/orcl/financials/"
+  },
+  {
+   "n": 11,
+   "title": "stockanalysis.com — CRWV 재무제표",
+   "url": "https://stockanalysis.com/stocks/crwv/financials/"
+  },
+  {
+   "n": 12,
+   "title": "stockanalysis.com — SK하이닉스 재무제표",
+   "url": "https://stockanalysis.com/quote/krx/000660/financials/"
+  },
+  {
+   "n": 13,
+   "title": "stockanalysis.com — 삼성전자 재무제표",
+   "url": "https://stockanalysis.com/quote/krx/005930/financials/"
+  },
+  {
+   "n": 14,
+   "title": "The Research Note — AI money map",
+   "url": "https://www.theresearchnote.com/ai-money-map"
+  },
+  {
+   "n": 15,
+   "title": "TradingKey — 엔비디아 2026 투자 목록",
+   "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262135443-nvidia-2026-ai-investment-openai-huggingface-nvda-tradingkey"
+  },
+  {
+   "n": 16,
+   "title": "Axios — 엔비디아 OpenAI 금융보증 검토",
+   "url": "https://www.axios.com/2026/07/27/nvidia-openai-financing-ai-jensen-huang-ssi"
+  },
+  {
+   "n": 17,
+   "title": "OpenAI 재무 팩트시트",
+   "url": "https://www.useluminix.com/reports/company-overviews/openai-financial-fact-sheet-june-2026"
+  },
+  {
+   "n": 18,
+   "title": "Sacra — Anthropic",
+   "url": "https://sacra.com/c/anthropic/"
+  },
+  {
+   "n": 19,
+   "title": "UBS AM — Webs of AI debt",
+   "url": "https://www.ubs.com/gr/en/assetmanagement/insights/investment-outlook/the-red-thread/trt-end-year-2026/articles/webs-of-ai-debt.html"
+  },
+  {
+   "n": 20,
+   "title": "The Next Web — Oracle S&P 강등",
+   "url": "https://thenextweb.com/news/oracle-sp-downgrade-ai-spending-junk-risk"
+  },
+  {
+   "n": 21,
+   "title": "Anthropic — Series H",
+   "url": "https://www.anthropic.com/news/series-h"
+  }
+ ],
+ "disclaimer": "재무 수치는 stockanalysis.com(S&P Global 데이터) 기준이며 회계연도·TTM 시점이 기업마다 다릅니다(한국 2사는 원화 조원). 판정 등급과 관계 매트릭스의 약정·보증은 제 분류·보도 기반 추정입니다. 투자 조언이 아닙니다."
+}
