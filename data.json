@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-16 08:32 KST",
+ "updated_at": "2026-10-16 10:37 KST",
  "warnings": [
   "IPO 캘린더 9건 중 AI 관련 0건 (정상일 수 있음. 키워드는 IPO_AI_KEYWORDS)"
  ],
@@ -16,7 +16,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1340.56,
+    "value": 1347.17,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -24,7 +24,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 158.128,
+    "value": 158.119,
     "prev_month": 157.558,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -493,7 +493,7 @@
      "eps_est": 1.8924,
      "eps_act": 2.02,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 109417000000
     }
    ]
   },
@@ -621,7 +621,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": 29591000000
+     "rev_act": null
     }
    ]
   },
@@ -728,9 +728,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 82114.21,
+    "price": 82100.01,
     "prev_day": 81562.4922,
-    "turnover": 42007687168,
+    "turnover": 41267462144,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -739,7 +739,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4184.4,
+    "price": 4170.9,
     "prev_day": 4107.8999,
     "turnover": null,
     "prev_month": 4186.7002,
@@ -750,7 +750,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 57.355,
+    "price": 57.315,
     "prev_day": 55.55,
     "turnover": null,
     "prev_month": 60.098,
@@ -761,7 +761,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.557,
+    "price": 6.581,
     "prev_day": 6.6115,
     "turnover": null,
     "prev_month": 6.559,
@@ -772,7 +772,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 96.14,
+    "price": 95.93,
     "prev_day": 95.09,
     "turnover": null,
     "prev_month": 90.42,
@@ -783,7 +783,7 @@
     "ticker": "NG=F",
     "theme": "천연가스",
     "currency": "USD",
-    "price": 3.215,
+    "price": 3.207,
     "prev_day": 3.198,
     "turnover": null,
     "prev_month": 3.026,
@@ -1050,9 +1050,9 @@
     "ticker": "000660.KS",
     "theme": "DRAM · HBM",
     "currency": "KRW",
-    "price": 1262000.0,
-    "prev_day": 1419000.0,
-    "turnover": 7443745464000.0,
+    "price": 1305000.0,
+    "prev_day": 1262000.0,
+    "turnover": 2189123145000.0,
     "prev_month": 1776000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -1061,9 +1061,9 @@
     "ticker": "005930.KS",
     "theme": "메모리 · 파운드리",
     "currency": "KRW",
-    "price": 210000.0,
-    "prev_day": 232000.0,
-    "turnover": 7209418650000.0,
+    "price": 216750.0,
+    "prev_day": 210000.0,
+    "turnover": 1197543099750.0,
     "prev_month": 268500.0,
     "prev_year": 119900.0,
     "prev_2year": 53200.0
@@ -1384,21 +1384,21 @@
   },
   "KOSPI": {
    "ticker": "^KS11",
-   "price": 5554.22,
-   "3Y": 32.74,
-   "5Y": 13.0,
-   "10Y": 10.57,
-   "15Y": 7.65,
-   "20Y": 7.27
+   "price": 5737.91,
+   "3Y": 34.18,
+   "5Y": 13.73,
+   "10Y": 10.93,
+   "15Y": 7.88,
+   "20Y": 7.45
   },
   "KOSDAQ": {
    "ticker": "^KQ11",
-   "price": 760.82,
-   "3Y": -0.37,
-   "5Y": -5.14,
-   "10Y": 1.56,
-   "15Y": 3.1,
-   "20Y": 1.34
+   "price": 792.23,
+   "3Y": 0.99,
+   "5Y": -4.37,
+   "10Y": 1.97,
+   "15Y": 3.38,
+   "20Y": 1.55
   }
  },
  "gpu_rental": {
