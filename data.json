@@ -1,10 +1,6 @@
 {
- "updated_at": "2026-10-18 05:33 KST",
+ "updated_at": "2026-10-18 07:37 KST",
  "warnings": [
-  "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLH0A0HYM2 | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0H",
-  "MACRO HY Spread 전체 실패 → 캐시/static 사용",
-  "MACRO BBB Spread ← fred:BAMLC0A4CBBB 실패: FRED 실패 → BAMLC0A4CBBB: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLC0A4CBBB | BAMLC0A4CBBB: 연결 실패 ReadTimeout | BAMLC0A4",
-  "MACRO BBB Spread 전체 실패 → 캐시/static 사용",
   "IPO 캘린더 8건 중 AI 관련 0건 (정상일 수 있음. 키워드는 IPO_AI_KEYWORDS)"
  ],
  "macro": {
@@ -128,8 +124,7 @@
     "prev_2year": 2.92,
     "prev_day": 3.25,
     "kind": "pp",
-    "suffix": "%",
-    "stale": true
+    "suffix": "%"
    },
    "BBB Spread": {
     "value": 1.05,
@@ -138,8 +133,7 @@
     "prev_2year": 1.02,
     "prev_day": 1.04,
     "kind": "pp",
-    "suffix": "%",
-    "stale": true
+    "suffix": "%"
    }
   }
  },
@@ -734,9 +728,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 81525.0,
+    "price": 81226.36,
     "prev_day": 81500.8047,
-    "turnover": 11460686848,
+    "turnover": 12223963136,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -1058,7 +1052,7 @@
     "currency": "KRW",
     "price": 1272000.0,
     "prev_day": 1262000.0,
-    "turnover": 5801675952000.0,
+    "turnover": 6221807376000.0,
     "prev_month": 1776000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -1069,7 +1063,7 @@
     "currency": "KRW",
     "price": 215500.0,
     "prev_day": 210000.0,
-    "turnover": 4074794680000.0,
+    "turnover": 4373961693000.0,
     "prev_month": 268500.0,
     "prev_year": 119900.0,
     "prev_2year": 53200.0
