@@ -1,261 +1,273 @@
 {
  "version": 1,
- "date": "2026-10-16",
+ "date": "2026-10-19",
  "mode": "daily",
- "generated_at": "2026-10-16T06:30:17+09:00",
- "data_as_of": "2026-10-15 미국 장 마감(지수 일부는 장중 수치, 종목은 10/14 종가+10/15 장중)",
+ "generated_at": "2026-10-19T06:36:24+09:00",
+ "data_as_of": "2026-10-16 미국 장 마감",
  "market_view": {
   "label": "Neutral",
-  "summary": "10/15 다우 +1.1%, S&P500 +0.3%, 나스닥 +0.1%로 지수는 반등했지만 반도체지수는 7거래일 연속 하락해 이 기간 -12.4%(연초 대비로는 +63.5%)를 기록했고, 방어주(헬스케어 +2.6% 등) 중심의 가치 로테이션이 나타났다. 9월 CPI(3.7% y/y)와 PPI 급등으로 Fed 추가 인상 부담이 커졌고 AI 인프라 신용 우려(코어위브 채권)가 겹쳐 방향은 중립을 유지하되 단기 변동성에 방어적으로 본다.",
-  "ai_line": "TSMC는 사상 최대 실적·4분기 가이던스 상향에도 2027 신중론과 CXMT 경쟁·자금조달 우려로 반도체가 약세였다. 수요는 견조하나 비용·신용이 변수다.",
+  "summary": "10/16 S&P500은 7,659.44(-1.09%), 나스닥은 26,140.03(-2.14%)로 마감해 주간 기준 나스닥 -4.5%, S&P500 -2%를 기록했고 반도체지수는 8거래일 연속 하락했다. 9월 CPI(3.7%)·PPI(6.3%)가 뜨거워 12월 인상 확률이 약 89%로 반영되고 유가는 브렌트 100달러 중반~110달러라 밸류에이션 부담이 큰 가운데, AI 인프라 자금조달 스트레스가 매도를 키웠다. 다만 다우·동일가중 지수는 주간 상승이고 3분기 이익 증가율 컨센서스가 약 30.7%라 약세 확정보다 변동성 확대 국면의 중립(하방 경계)으로 본다.",
+  "ai_line": "AI 수요(TSMC·마이크론)는 견조하나 시장의 질문이 '수요'에서 '누가 얼마의 자본을 대는가'로 옮겨가 칩·메모리 주가는 급락했다.",
   "src": [
    "s1",
-   "s2",
-   "s3",
    "s5",
-   "s11"
+   "s6",
+   "s12"
   ]
  },
  "key_changes": [
   {
-   "title": "반도체 7거래일 연속 하락, 지수는 방어주로 순환",
-   "detail": "필라델피아 반도체지수는 10/15 장중 -2.4%로 7연속 하락했고 7거래일 누적 -12.4%(연초 대비 +63.5%)다. 반면 다우 +1.1%, 헬스케어 +2.6%, 필수소비재 +1%로 AI 편중 조정 성격이 짙다.",
-   "importance": "HIGH",
-   "src": [
-    "s2",
-    "s11"
-   ]
-  },
-  {
-   "title": "9월 CPI·PPI 상회로 Fed 인상 경계",
-   "detail": "9월 CPI는 전월비 +0.6%, 전년비 3.7%(예상 3.6%)였고 PPI는 4년 반 만의 최대 상승을 보였다. 10월 말 FOMC 인상 여부를 '반반'으로 보는 시각이 있으며 10년물은 장중 5.09% 안팎(전일 대비 약 -10bp)이다.",
+   "title": "AI·반도체 매도 확산, 나스닥 주간 -4.5%",
+   "detail": "10/16 나스닥 -2.14%, S&P500 -1.09%였고 주간 낙폭은 S&P500 -2%, 나스닥 -4.5%다. 반도체지수는 8거래일 연속 하락해 6월 고점 대비 약 24% 낮고 같은 주 다우와 동일가중 S&P는 오르며 로테이션이 나타났다.",
    "importance": "HIGH",
    "src": [
     "s1",
-    "s2",
-    "s3"
+    "s5"
    ]
   },
   {
-   "title": "TSMC 사상 최대 실적, 그러나 2027은 신중",
-   "detail": "3분기 매출 467.2억달러(+41.2% y/y), 순이익 +68.7%, 4분기 가이던스 523~543억달러로 상향됐다. 총마진은 66.4%로 하락했고 CEO는 2027 계획에서 '신중'을 언급해 ADR이 약 -4% 하락했다.",
+   "title": "AI 인프라 신용 스트레스 본격화",
+   "detail": "코어위브 5년 CDS가 기록적인 1,194.5bp까지 올랐고 주간 주가는 약 -25%였다. 브로드컴 CEO는 AI 성장의 가장 큰 제약이 자본이라고 말했고 오라클·빅테크 CDS도 사상 최고 수준이라는 집계가 있다.",
    "importance": "HIGH",
    "src": [
     "s5",
-    "s6",
-    "s7",
+    "s13",
+    "s15",
+    "s18"
+   ]
+  },
+  {
+   "title": "인플레 재가속과 Fed 인상 경계",
+   "detail": "9월 CPI는 전년비 3.7%, PPI는 전월비 +1.3%·전년비 6.3%였고 10년물은 10/14 5.3%대를 찍은 뒤 10/16 약 5.09%였다. CME 기준 10월 인상 확률은 17%로 낮아졌으나 12월은 89%다.",
+   "importance": "HIGH",
+   "src": [
+    "s1",
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "title": "메모리: 펀더멘털 강세 vs 주가 급락",
+   "detail": "DDR5 현물이 사상 최고(16Gb $59.9)이고 마이크론은 2027 HBM 물량 75% 이상이 확정됐다고 밝혔지만, 코스피는 7거래일 -21%, 메모리 ETF(DRAM)는 주간 두 자릿수 하락했다. 10/16 한국은 반등했으나 CXMT 경쟁·자본 우려가 변수다.",
+   "importance": "HIGH",
+   "src": [
+    "s8",
+    "s9",
+    "s11",
     "s1"
    ]
   },
   {
-   "title": "한국 메모리주 급락: 코스피 -7.8% 서킷브레이커",
-   "detail": "10/15 코스피가 -7.83%(5,538.09)로 급락했고 SK하이닉스 약 -10%, 삼성전자 약 -8%다. 중국 CXMT 경쟁 우려가 직접 원인으로 지목된다.",
-   "importance": "HIGH",
+   "title": "유가·지정학 재상승",
+   "detail": "10/16 WTI가 장 마감 무렵 $101.35(+3.4%), 브렌트 $109.55였고 트럼프가 이란 핵시설 추가 타격 가능성을 언급했다. 에너지 섹터는 반등했고 인플레·금리 부담을 키운다.",
+   "importance": "MEDIUM",
    "src": [
-    "s4",
-    "s7"
-   ]
-  },
-  {
-   "title": "AI 인프라 신용 스트레스: 코어위브 채권 수익률 기록",
-   "detail": "코어위브가 10/14 약 -15% 급락한 뒤 채권 수익률이 기록적 수준으로 올랐다. 베어드는 시장이 '엔비디아·AMD·브로드컴 은행'에 지쳤다며 순환금융 경계를 언급했다.",
-   "importance": "HIGH",
-   "src": [
-    "s2",
-    "s7",
-    "s13"
+    "s1",
+    "s2"
    ]
   }
  ],
  "view_changed": [
   {
-   "item": "시장 View",
-   "frm": "Neutral(10/14)",
-   "to": "Neutral 유지",
-   "reason": "CPI 충격 후 지수는 반등했으나 반도체 7연속 하락·금리 부담이 이어져 방어적 중립을 유지한다.",
+   "item": "NVDA 종목 View",
+   "frm": "Bullish",
+   "to": "Neutral",
+   "reason": "수요는 견조하나 고객(코어위브 등) 신용 악화와 순환금융 논란으로 주가 변동·불확실성이 커졌다.",
    "src": [
-    "s2",
-    "s11"
-   ]
-  },
-  {
-   "item": "TSMC 실적",
-   "frm": "10/15 발표 대기",
-   "to": "사상 최대 실적·가이던스 상향, 2027 신중",
-   "reason": "발표 결과 AI 수요는 견조하나 마진 하락과 2027 신중 발언으로 주가는 약세였다.",
-   "src": [
-    "s5",
-    "s7"
-   ]
-  },
-  {
-   "item": "AI 인프라 자금조달",
-   "frm": "브로드컴 CEO의 자금조달 경고(10/14)",
-   "to": "코어위브 채권 수익률 기록·순환금융 비판 부상",
-   "reason": "우려가 발언 수준에서 신용시장 지표로 구체화됐다.",
-   "src": [
-    "s2",
     "s13",
-    "s9"
+    "s14",
+    "s18"
    ]
   },
   {
-   "item": "메모리 사이클 논쟁",
-   "frm": "CXMT 4F² 설계 발표(10/13~14)",
-   "to": "한국 메모리주 서킷브레이커급 급락",
-   "reason": "경쟁 우려가 코스피 -7.8%로 확산됐고 2029년 공급과잉 우려까지 거론된다.",
+   "item": "AVGO 종목 View",
+   "frm": "Bullish",
+   "to": "Neutral",
+   "reason": "AI 칩 매출 가이던스는 강하나 CEO의 자본 제약 발언과 Anthropic 관련 최대 420억달러 금융 노출이 부각됐다.",
    "src": [
-    "s4",
-    "s7"
+    "s15",
+    "s22",
+    "s21"
+   ]
+  },
+  {
+   "item": "Fed 10월 인상 가능성",
+   "frm": "'반반'(Capital.com)",
+   "to": "약 15~17%(CME)",
+   "reason": "워시 의장이 신호를 주지 않았고 기술주 급락에 금리가 하락해 10월 확률은 내려갔으나 12월은 약 89%다.",
+   "src": [
+    "s1",
+    "s5"
+   ]
+  },
+  {
+   "item": "Anthropic 상장 일정",
+   "frm": "11월 상장 준비",
+   "to": "10/26 공개 제출·11/9 로드쇼·11월 중순 상장 보도",
+   "reason": "IFRE가 구체 일정과 최대 2조달러·1,000억달러 조달을 보도했으나 회사는 확정하지 않았다.",
+   "src": [
+    "s20",
+    "s19"
    ]
   }
  ],
  "issues": [
   {
-   "title": "인플레이션 재가속과 Fed 추가 인상 경로",
-   "summary": "CPI 3.7%, PPI 급등으로 에너지 밖으로 물가 압력이 번지는 모습이다. 10월 말 FOMC 인상 여부는 반반으로 보는 시각이 있고 Fed 의장 연설이 대기 중이다.",
+   "title": "AI 인프라 자금조달·신용 스트레스",
+   "summary": "코어위브 CDS 기록, 오라클 CDS 288bp 기록 등으로 칩 공급사의 고객 신용 위험이 시장의 중심 논점이 됐다.",
    "importance": "HIGH",
+   "trend": "up",
+   "src": [
+    "s7",
+    "s13",
+    "s18"
+   ]
+  },
+  {
+   "title": "인플레·장기금리 5%대와 12월 인상 확률 89%",
+   "summary": "CPI·PPI 서프라이즈로 10년물이 5.3%대를 터치한 뒤 5.1% 안팎이며 기술주 밸류에이션 압박이 이어진다.",
+   "importance": "HIGH",
+   "trend": "steady",
+   "src": [
+    "s1",
+    "s6",
+    "s5"
+   ]
+  },
+  {
+   "title": "반도체·메모리 포지션 조정과 사이클 논쟁",
+   "summary": "SOX 8연속 하락과 한국 메모리주 급락 속에서도 TSMC·마이크론의 수요·가격 지표는 강해 괴리가 커졌다.",
+   "importance": "HIGH",
+   "trend": "up",
+   "src": [
+    "s5",
+    "s9",
+    "s12",
+    "s8"
+   ]
+  },
+  {
+   "title": "유가 100달러대와 중동 리스크",
+   "summary": "WTI·브렌트가 다시 100달러를 웃돌고 이란 관련 발언이 나와 에너지 인플레 압력이 유지된다.",
+   "importance": "MEDIUM",
    "trend": "up",
    "src": [
     "s1",
-    "s2",
-    "s3"
+    "s2"
    ]
   },
   {
-   "title": "AI 인프라 자금조달·레버리지 우려",
-   "summary": "코어위브 채권 수익률 급등, 브로드컴 CEO의 자금조달 한계 경고, 순환금융 비판이 겹쳤다. 높은 금리가 데이터센터 프로젝트 수익성을 압박한다.",
-   "importance": "HIGH",
-   "trend": "up",
-   "src": [
-    "s2",
-    "s9",
-    "s13"
-   ]
-  },
-  {
-   "title": "반도체·메모리 사이클 vs 중국 CXMT·센티먼트",
-   "summary": "반도체지수 7연속 하락과 코스피 급락이 이어졌으나 TSMC는 수요가 공급을 웃돈다고 밝혔다. 펀더멘털과 주가 괴리가 커졌다.",
-   "importance": "HIGH",
-   "trend": "up",
-   "src": [
-    "s4",
-    "s5",
-    "s11"
-   ]
-  },
-  {
-   "title": "방어주 로테이션과 시장 폭",
-   "summary": "헬스케어·필수소비재가 강하고 기술은 약해 지수 내부 순환이 뚜렷하다. 다우가 나스닥을 앞서는 구도다.",
+   "title": "대형 AI IPO·락업 공급",
+   "summary": "Anthropic IPO 일정 보도와 SpaceX 락업 해제(10/26 등)가 겹쳐 성장주 수급 부담이 거론된다.",
    "importance": "MEDIUM",
    "trend": "up",
    "src": [
-    "s2",
-    "s11"
-   ]
-  },
-  {
-   "title": "에너지·중동 변수",
-   "summary": "브렌트가 10/14 106.06달러에 마감했고 호르무즈·홍해 위험이 지속된다. 인플레이션 경로와 직결된다.",
-   "importance": "MEDIUM",
-   "trend": "steady",
-   "src": [
-    "s3",
-    "s1"
+    "s20",
+    "s4"
    ]
   }
  ],
  "ai_semi": {
-  "summary": "AI 수요(TSMC '수요>공급', 엔비디아 CEO 발언)는 견조하나 자금조달 비용·신용 우려와 CXMT 경쟁이 주가를 누르고 있다. 실적은 강하고 센티먼트는 약한 혼조 국면이다.",
+  "summary": "공급 측 신호(TSMC 수요>공급, 마이크론 2027 HBM 75% 이상 확정, DDR5 현물 최고)는 확장 지속이지만, 주가와 신용시장은 자본조달 한계를 가격에 반영하며 둔화 가능성을 먼저 반영하고 있다.",
   "direction": "혼조",
   "chain": [
    {
     "step": "AI CAPEX",
     "status": "확대 유지·재원 우려",
-    "detail": "TSMC는 2026 capex 600~640억달러를 재확인했고 2026~2028 capex가 과거 3년보다 크게 늘 것이라고 밝혔다. 빅테크 capex 실적은 이달 말 발표된다.",
+    "detail": "브로드컴 CEO는 자본이 최대 제약이라고 했고 포브스는 2026년 대형 데이터센터 프로젝트 최소 47건이 지연·취소됐다고 인용했다. 파이프라인 중 신뢰 가능한 비중은 약 35%라는 분석도 소개됐다.",
     "src": [
-     "s5",
-     "s7"
+     "s15",
+     "s3"
     ]
    },
    {
     "step": "데이터센터",
     "status": "차입 스트레스",
-    "detail": "코어위브가 10/14 약 -15% 하락했고 채권 수익률이 기록적 수준이다. 가트너는 다수 네오클라우드가 2030년까지 독립 운영을 중단할 수 있다고 전망했다.",
+    "detail": "코어위브는 부채 약 351억달러(리스 포함 516억달러), 현금 55.2억달러이며 5년 CDS가 1,194.5bp로 기록을 경신했다. MS가 영국 Nscale 데이터센터 앵커 테넌트에서 철회했다는 보도도 있다.",
     "src": [
-     "s2",
-     "s7"
+     "s7",
+     "s13",
+     "s3"
     ]
    },
    {
     "step": "GPU / ASIC",
-    "status": "수요>공급, 주가 약세",
-    "detail": "TSMC CEO는 첨단 공정 수요가 공급을 웃돈다고 했고, MSFT는 Maia 300(2027 양산)이 GPU 대비 메가와트당 토큰 40% 처리를 주장했다.",
+    "status": "수요 견조, 주가 약세",
+    "detail": "TSMC CEO는 수요가 공급 능력을 웃돈다고 했고 브로드컴은 AI 칩 매출을 FY27 약 1,150억달러로 두 배 늘릴 것으로 가이던스했다. 엔비디아는 한 주 -6.6%, AMD -13.1%, 브로드컴 -9.1%였다.",
     "src": [
-     "s5",
-     "s8"
-    ]
-   },
-   {
-    "step": "HBM",
-    "status": "2027 ASP +121% 전망(믹스 효과)",
-    "detail": "TrendForce는 HBM4/4E 비중 확대로 2027 HBM 평균판매가가 121% 오른다고 봤으며 이는 동일 제품 가격 인상이 아니다. HBM의 DRAM 웨이퍼 비중은 약 20%에서 30%로 확대될 전망이다.",
-    "src": [
-     "s16"
-    ]
-   },
-   {
-    "step": "메모리 가격",
-    "status": "신규 가격 데이터 없음",
-    "detail": "이번 회차에 확인한 신규 DRAM·HBM 가격 수치는 없다. CXMT 경쟁과 2029년 공급과잉 우려가 센티먼트를 누르고 있다.",
-    "src": [
-     "s7",
-     "s4"
-    ]
-   },
-   {
-    "step": "반도체 실적",
-    "status": "TSMC 사상 최대",
-    "detail": "TSMC 3분기 매출 467.2억달러, 순이익 +68.7%, 총마진 66.4%이며 4분기 매출 523~543억달러를 제시했다. 2026 매출 성장률은 약 44%로 상향됐다.",
-    "src": [
-     "s5",
-     "s6"
-    ]
-   }
-  ],
-  "gpu_rental": {
-   "status": "데이터 없음",
-   "note": "신뢰할 만한 GPU 임대가격 자료를 이번 회차에 확인하지 못했다."
-  },
-  "companies": [
-   {
-    "name": "TSMC",
-    "note": "HPC가 매출의 68%이고 2nm 램프로 총마진이 희석됐다. 미국 Arizona Fab2는 2027년 3분기 양산 예정이다.",
-    "src": [
+     "s12",
+     "s22",
      "s5"
     ]
    },
    {
-    "name": "Broadcom",
-    "note": "CEO가 자금조달 접근과 비용이 AI 성장의 핵심 제약이 될 수 있다고 말했다. 회계 3분기 매출 296억달러, AI 칩 매출 167억달러다.",
+    "step": "HBM",
+    "status": "수급 타이트·2027 가격 협상",
+    "detail": "마이크론은 2027 HBM 공급의 75% 이상이 확정됐고 공급 타이트가 2028년까지 간다고 밝혔다. TrendForce(6월)는 2027 HBM 가격 인상 근거가 충분하다고 봤다.",
+    "src": [
+     "s8",
+     "s23"
+    ]
+   },
+   {
+    "step": "메모리 가격",
+    "status": "사상 최고 근처",
+    "detail": "DDR5 16Gb 현물이 $59.9(10/13, 전월비 +10.2%)로 사상 최고이고 서버 32GB RDIMM은 $2,185로 6개월 새 2배 이상이다. CXMT는 연내 4F² DDR5 RDIMM 공개를 예고했으나 양산·수율은 미검증이다.",
+    "src": [
+     "s11"
+    ]
+   },
+   {
+    "step": "반도체 실적",
+    "status": "사상 최대",
+    "detail": "TSMC 3분기 순이익은 NT$7,630.6억(+68.7%), 매출 NT$1.494조(+50.9%)이고 4분기 매출 가이던스는 523~543억달러다. 마이크론 FQ4 매출 542억달러, FQ1 가이던스 615억달러(±15억)다.",
+    "src": [
+     "s12",
+     "s8"
+    ]
+   }
+  ],
+  "gpu_rental": {
+   "status": "2차 보도만 확인",
+   "note": "공식·원문 가격 자료는 확인하지 못했다. 2차 브리프(Neo Reports)가 코어위브 약 25% 인상(7월), Nebius H100 $3.85→$4.50/GPU-시간(10/1), AWS 예약 GPU 약 15% 인상(10월)을 전했으나 원문 미확인이라 참고용이다."
+  },
+  "companies": [
+   {
+    "name": "TSMC",
+    "note": "3분기 사상 최대 순이익, 수요가 공급 능력 초과라고 밝혔고 텍사스 등 미국 내 확장과 머스크의 Terafab 논의 가능성을 언급했다.",
+    "src": [
+     "s12"
+    ]
+   },
+   {
+    "name": "SK하이닉스·삼성전자",
+    "note": "10/6 이후 7거래일간 각각 -31.5%, -23.9% 후 10/16 소폭 반등했으며 실적 발표는 10/28·10/29다. 증권가는 과도한 조정이라고 본다.",
     "src": [
      "s9"
     ]
    },
    {
-    "name": "SK하이닉스·삼성전자",
-    "note": "10/15 코스피 급락 속 각각 약 -10%, -8% 하락했다. 두 회사가 한국 시총의 절반 이상이다.",
+    "name": "마이크론",
+    "note": "FQ4 매출 542억달러·GM 87%, 애널리스트 목표가 상향 속에서도 주가는 한 주 -14.6%였다.",
     "src": [
-     "s4"
+     "s8",
+     "s5"
     ]
    },
    {
-    "name": "CoreWeave·Oracle",
-    "note": "코어위브 10/14 약 -15%, 오라클 -8.83% 후 10/15 오라클 +2.1%, 코어위브 -1.3%로 변동성이 크다.",
+    "name": "엔비디아",
+    "note": "젠슨 황은 코어위브에 백스톱이 필요 없다고 했고 지분 약 10%를 보유한다. 다음 실적은 11월 18일 전후다.",
     "src": [
-     "s2",
-     "s9",
-     "s14"
+     "s13",
+     "s22"
+    ]
+   },
+   {
+    "name": "브로드컴",
+    "note": "FQ3 AI 칩 매출 167억달러, FQ4 가이던스 217억달러이며 Anthropic 관련 금융 지원 노출이 보도됐다.",
+    "src": [
+     "s22",
+     "s21"
     ]
    }
   ]
@@ -265,45 +277,50 @@
    "ticker": "NVDA",
    "name": "NVIDIA",
    "why": "",
-   "price": "$221.30 (10/14 종가), 10/15 장중 약 $216~217",
-   "move": "10/14 -3.16%, 10/15 장중 약 -2%. 52주 고점($243.37) 대비 약 -9%",
+   "price": "$221.30 (10/14 종가)",
+   "move": "10/14 -3.16%, 10/16 -1.5%, 주간 -6.6%",
    "stance": "Neutral",
-   "summary": "회사 고유 악재는 확인되지 않았고 금리·AI 자금조달·메모리 경쟁 우려의 섹터 매도 영향이다. 젠슨 황은 AI 인프라 수요가 부품 공급을 수년간 웃돌 것이라고 말했다.",
+   "summary": "황은 코어위브에 백스톱이 불필요하다고 했고 수요 구성(약 1/3 일반 컴퓨팅, 1/4~1/3 프런티어 랩 5~6곳)을 설명했다(2차 브리프). 수요보다 고객 신용·순환금융이 주가 변수다.",
    "catalysts": [
-    "11월 FY27 3분기 실적",
-    "빅테크 capex 발표(이달 말)"
+    "11월 18일 전후 실적",
+    "황이 언급한 2027 병목(토지·전력·공장 용량) 해소 속도"
    ],
    "risks": [
-    "MSFT Maia 300 등 자체 칩 확산",
-    "AI 고객 신용 악화",
-    "금리 인상"
+    "코어위브 등 고객 신용 악화(지분 약 10%)",
+    "OpenAI 2,500억달러 금융 지원 협의 보도(미확인)"
    ],
    "src": [
-    "s7",
-    "s8",
-    "s10"
+    "s6",
+    "s1",
+    "s13",
+    "s18",
+    "s22"
    ]
   },
   {
    "ticker": "MU",
    "name": "Micron",
    "why": "",
-   "price": null,
-   "move": "10/14 -4.1%, 10/15 장중 약 -5%(보도)",
-   "stance": "Neutral",
-   "summary": "CXMT 서버 메모리 경쟁 우려와 한국 메모리주 급락의 여파가 이어졌다. 신규 가격·실적 수치는 이번에 확인하지 못했다.",
+   "price": "$931.24 (10/15 종가, 2차 집계)",
+   "move": "10/16 -5.6%, 주간 -14.6%",
+   "stance": "Bullish",
+   "summary": "FQ4 매출 542억달러(전년비 +379%), 비GAAP EPS 33.42달러, GM 87%였고 FQ1 매출 가이던스는 615억달러다. 2027 HBM 75% 이상 확정, 공급 타이트는 2028년까지라는 설명에도 주가는 메모리 ETF와 동반 하락했다.",
    "catalysts": [
-    "TrendForce의 2027 HBM ASP +121% 전망"
+    "2027 HBM 가격 협상",
+    "DDR5 현물 사상 최고"
    ],
    "risks": [
-    "CXMT 추격",
-    "2029년 공급과잉 우려",
-    "금리"
+    "메모리 섹터 포지션 청산(DRAM ETF 주간 두 자릿수 하락)",
+    "CXMT 공급 경쟁 부각",
+    "모닝스타 적정가 700달러로 하향"
    ],
    "src": [
-    "s7",
-    "s14",
-    "s16"
+    "s8",
+    "s3",
+    "s5",
+    "s11",
+    "s18",
+    "s1"
    ]
   },
   {
@@ -311,18 +328,21 @@
    "name": "AMD",
    "why": "",
    "price": null,
-   "move": "10/14 -5.73%, 10/15 장중 -4%(로이터)~-6%(보도)",
-   "stance": null,
-   "summary": "반도체 섹터 매도 속 낙폭이 컸다. 이번 회차에 새 실적·가이던스 자료는 확인하지 못했다.",
-   "catalysts": [],
+   "move": "10/16 -6%, 주간 -13.1%",
+   "stance": "Neutral",
+   "summary": "한 주 -13.1%로 반도체 중 낙폭이 컸다. 2차 브리프는 모건스탠리가 2026 AI GPU 출하 전망을 75% 낮춰 60만 개로 제시했다고 전한다(원문 미확인).",
+   "catalysts": [
+    "차세대 EPYC 'Verano'에 LPDDR 기반 SOCAMM2 채택 계획"
+   ],
    "risks": [
-    "AI 인프라 자금조달 비용 상승",
-    "순환금융 비판"
+    "AI GPU 출하 전망 하향 보도",
+    "고객 자금조달 스트레스"
    ],
    "src": [
-    "s2",
-    "s7",
-    "s8"
+    "s5",
+    "s3",
+    "s18",
+    "s11"
    ]
   },
   {
@@ -330,214 +350,303 @@
    "name": "Broadcom",
    "why": "",
    "price": "$346.25 (10/14 종가)",
-   "move": "10/14 -3.10%. 52주 고점($495.00) 대비 약 -30%",
+   "move": "10/14 -3.10%, 10/16 -3.6%, 주간 -9.1%",
    "stance": "Neutral",
-   "summary": "CEO가 자금조달 비용이 AI 성장의 제약이 될 수 있다고 말한 점이 부담이다. 다만 회계 3분기 매출 296억달러(+86%), AI 칩 167억달러로 실적은 견조하다.",
+   "summary": "FQ3 매출 296억달러(+86%), AI 칩 167억달러이며 FQ4 AI 칩 217억달러, FY27 AI 칩 약 1,150억달러를 제시했다. 호크 탄은 자본이 최대 제약이라고 했다.",
    "catalysts": [
-    "회계 4분기 실적(12/9)"
+    "12월 9일 전후 FQ4 실적",
+    "AI 칩 FY27 두 배 성장 가이던스"
    ],
    "risks": [
-    "커스텀 칩 고객 6곳 집중",
-    "고객 데이터센터 프로젝트 수익성"
+    "Anthropic 관련 최대 420억달러 금융·리스 백스톱 노출(보도)",
+    "AI 칩 비중 확대에 따른 GM 하락(약 73%)",
+    "6개 맞춤형 칩 고객 집중"
    ],
    "src": [
-    "s9"
-   ]
-  },
-  {
-   "ticker": "TSM",
-   "name": "TSMC",
-   "why": "10/15 3분기 실적 발표로 반도체 업황의 핵심 지표였기 때문",
-   "price": null,
-   "move": "10/14 ADR -3.4%, 10/15 약 -4%",
-   "stance": "Neutral",
-   "summary": "사상 최대 실적과 가이던스 상향에도 총마진 하락과 2027 신중 발언으로 주가는 약세였다. AI 가속기 수요는 공급을 웃돈다고 밝혔다.",
-   "catalysts": [
-    "N2 생산능력 2027 2배 이상 확대",
-    "Arizona Fab2 2027 3Q 양산"
-   ],
-   "risks": [
-    "소비자 부문 부품가격 부담",
-    "해외 팹 마진 희석",
-    "첨단 패키징 경쟁"
-   ],
-   "src": [
-    "s5",
-    "s6",
-    "s1",
-    "s7"
+    "s21",
+    "s22",
+    "s15",
+    "s3"
    ]
   },
   {
    "ticker": "CRWV",
    "name": "CoreWeave",
-   "why": "10/14 약 -15% 급락과 채권 수익률 기록으로 AI 인프라 신용 우려의 중심이 됐기 때문",
-   "price": null,
-   "move": "10/14 약 -15%, 10/15 장중 -1.3%",
+   "why": "이번 주 AI 인프라 신용 스트레스와 반도체 매도의 진원지(주간 -25%)",
+   "price": "$60.36 (10/15 장중 저점)",
+   "move": "10/14 약 -15%, 10/16 -12%, 주간 -25%",
    "stance": "Bearish",
-   "summary": "네오클라우드 채권 수익률 차트가 확산되며 급락했고 채권 수익률이 기록적 수준으로 올랐다. 부채 중심 재무구조와 이자비용 증가가 부각됐다.",
-   "catalysts": [],
+   "summary": "CDS 1,194.5bp 기록, 부채 약 351억달러, Q2 순이자비용 6.4억달러, 순손실 6.26억달러다. 백로그 약 1,040억달러에도 자금조달 우려가 지배한다.",
+   "catalysts": [
+    "80억 달러대 투자등급 GPU담보 대출 보도(2차)",
+    "엔비디아 지분 약 10%"
+   ],
    "risks": [
-    "채권 시장 접근성",
-    "금리 상승",
-    "순환금융 비판"
+    "채권 수익률 15% 이상",
+    "OpenAI 매출 둔화 보도에 민감",
+    "번스타인 Underperform(2차)"
    ],
    "src": [
-    "s2",
     "s7",
-    "s14"
+    "s13",
+    "s5",
+    "s1",
+    "s14",
+    "s18"
    ]
   },
   {
    "ticker": "ORCL",
    "name": "Oracle",
-   "why": "베어드가 FCF가 약하고 조달 의존이 큰 AI 인프라 기업으로 꼽았고 10/14 -8.83% 급락했기 때문",
+   "why": "AI 인프라 신용 우려의 지표(10/14 급락, CDS 기록)",
    "price": null,
-   "move": "10/14 -8.83%, 10/15 장중 +2.1%",
+   "move": "10/14 약 -10%, 10/15 약 +3%(2차)",
    "stance": null,
-   "summary": "AI 인프라 자금조달 우려의 직격탄을 맞았다가 10/15 소폭 반등했다.",
+   "summary": "10/14 AI 인프라 전반 매도에 약 10% 하락했고 5년 CDS가 288bp로 기록적이라는 집계가 있다. 도이치뱅크는 투자등급 이탈 시 매도 강제 가능성을 주시 지표로 봤다(2차).",
    "catalysts": [],
    "risks": [
-    "높은 조달 의존",
-    "금리"
+    "신용등급 강등 우려",
+    "OpenAI 의존도"
    ],
    "src": [
-    "s13",
-    "s9",
-    "s2"
+    "s7",
+    "s18"
    ]
   }
  ],
  "spacex": {
   "ticker": "SPCX",
-  "status": "상장(SPCX)",
-  "price": "$148.16 (10/15 장중, -2.34%)",
-  "valuation": "확인 불가",
-  "summary": "10/15 장중 -2.34%로 시장 전반의 기술주 약세 속에 하락했다. 바클레이즈는 테슬라 연례 주총(늦어도 12/6) 이전에 합병 발표가 있을 수 있다고 본다.",
+  "status": "상장(Nasdaq: SPCX, 2026년 6월 IPO 공모가 $135)",
+  "price": "$146.03 (10/16 종가, -1.74%)",
+  "valuation": "시가총액 약 1.98조달러(상장 유통주 기준 표기)~2.2조달러(본문)로 출처 내 표기가 다름",
+  "summary": "첫날 종가 $160.95, 52주 범위 $104.83~$225.64이다. Q2 매출 78억달러(+92%), 순손실 5.41억달러이고 시총은 연환산 매출의 약 71배다.",
   "catalysts": [
-   "테슬라 합병 발표 가능성(바클레이즈 전망)"
+   "Evercore 목표가 상향(TheStreet)",
+   "락업 해제 소화 후 수급 안정"
   ],
   "risks": [
-   "기술주·고밸류 약세",
-   "대형 AI IPO 공급 경쟁"
+   "10/26 최대 3.284억 주, Q3 실적 후 2번째 거래일 최대 13억 주, 12/8 장 마감 후 7.976억 주 락업 해제",
+   "머스크 보유분 2027년 6월까지 락업",
+   "고밸류와 기술주 약세"
   ],
   "outlook": "중립",
   "src": [
-   "s1"
+   "s4",
+   "s2"
   ]
  },
  "genai": [
   {
    "name": "Anthropic",
    "kind": "모델",
-   "headline": "3분기 매출 약 168억달러(+45% q/q, FT 보도)로 성장세가 이전 분기보다 둔화돼 일부 시장 기대에 못 미쳤다고 보도됐다. 11월 상장을 준비 중이며 10/14 샌프란시스코에서 투자자 설명회를 열었다.",
-   "detail": "조정 기준 2분기 연속 흑자, 컴퓨팅 비용 1달러당 매출 1.70달러라고 투자자에게 밝혔다(보도). 조정 지표는 회계상 이익과 다를 수 있다.",
-   "funding": "기업가치·조달 규모는 이번 보도에 없음. 수치는 모두 FT 보도 기준.",
-   "market_impact": "반등 재료가 되지 못했고, 베어드는 순환금융 논쟁을 Anthropic 설명회와 연결했다. AI 인프라주 센티먼트의 변수다.",
+   "headline": "Reuters 보도로 3분기 매출 168억달러(전분기 대비 +45%)가 전해졌다. 단일 투자자 발언 기반이며 회사 미발표다.",
+   "detail": "1분기→2분기 성장률 140% 초과에서 둔화됐다. IFRE는 10/26 공개 제출, 11/9 로드쇼, 11월 중순 상장을 보도했고 뉴욕시 감사관이 IPO 중단을 요청했다.",
+   "funding": "보도 기준: 기업가치 최대 2조달러, 조달 최대 1,000억달러(미확정). 브로드컴의 최대 420억달러 금융 지원 보도도 있다.",
+   "market_impact": "대형 AI IPO 공급이 성장주 수급에 부담일 수 있고 브로드컴·클라우드(AMZN·GOOGL) 노출이 거론된다.",
    "src": [
-    "s15",
-    "s2",
-    "s13"
+    "s19",
+    "s20",
+    "s22"
    ]
   },
   {
    "name": "OpenAI",
    "kind": "모델",
-   "headline": "GPT-6가 10/7 유료 요금제부터 순차 출시됐고 10/8 무료 요금제에 GPT-6 Luna가 배포됐다(TechCrunch 인용 보도).",
-   "detail": "이번 회차에 새 매출·조달 수치는 확인하지 못했다.",
-   "funding": "확인 자료 없음",
-   "market_impact": "직접적인 신규 시장 영향은 이번 자료에서 확인되지 않았다.",
+   "headline": "투자자에게 9월 말 연환산 매출이 약 500억달러라고 밝혔다는 보도(10/8)가 나왔다. 9월 말 보도된 약 700억달러와 차이가 있고 일부는 순매출 집계 차이다.",
+   "detail": "엔비디아가 오하이오 10GW 캠퍼스용 2,500억달러 금융 백스톱을 협의 중이라는 보도가 있으나 양사 미확인이다. DNI는 OpenAI 회의실 사례와 연계해 AI 경쟁 관련 외국 스파이 위험을 경고했다.",
+   "funding": "이번 회차에 새 기업가치·조달 수치는 확인하지 못했다(보도 기준 수치만 인용).",
+   "market_impact": "10/8 보도에 코어위브·엔비디아·오라클이 하락해 OpenAI 매출 궤적이 AI 인프라 신용의 핵심 변수임이 확인됐다.",
    "src": [
-    "s17"
-   ]
-  },
-  {
-   "name": "Microsoft",
-   "kind": "칩·공급망",
-   "headline": "10/12 자체 AI 칩 Maia 300을 공개했고 생산은 2027년 시작한다. GPU 대비 메가와트당 토큰 40% 추가 처리를 주장한다.",
-   "detail": "MSFT 주가는 10/14 -1.80%였고 10/15에는 소프트웨어와 함께 지수 낙폭을 줄이는 역할을 했다.",
-   "funding": "",
-   "market_impact": "NVDA의 장기 물량 우려 요인이나 단기 영향은 제한적이라는 시각이 있다.",
-   "src": [
-    "s8",
+    "s14",
+    "s13",
     "s2"
    ]
   },
   {
    "name": "CoreWeave·네오클라우드",
    "kind": "인프라",
-   "headline": "CoreWeave가 10/14 약 -15% 급락했고 채권 수익률이 기록적이다.",
-   "detail": "가트너는 네오클라우드 다수가 2030년까지 독립 운영을 중단할 수 있다고 전망했다.",
-   "funding": "",
-   "market_impact": "NVDA·AVGO·AMD 등 칩 공급사의 고객 신용 위험으로 연결된다.",
+   "headline": "코어위브 CDS 기록, 주간 -25%이며 엔비디아는 백스톱 불필요를 강조했다.",
+   "detail": "나스닥 상장 네오클라우드(Nebius 등)도 10%대 하락이 이어졌다.",
+   "funding": "부채 약 351억달러, 현금 55.2억달러, 백로그 약 1,040억달러.",
+   "market_impact": "NVDA·AVGO·AMD의 고객 신용 위험과 오라클·빅테크 CDS 확대로 연결된다.",
    "src": [
-    "s2",
-    "s7"
+    "s7",
+    "s13",
+    "s5",
+    "s2"
    ]
   },
   {
    "name": "중국 CXMT",
    "kind": "칩·공급망",
-   "headline": "더 높은 집적도의 메모리 설계 진전을 주장해 메모리 공급과잉·가격 압박 우려를 키웠다.",
-   "detail": "코스피 급락의 직접 배경으로 거론된다.",
+   "headline": "10/10 연내 4F² 구조의 서버 DDR5 RDIMM 출시를 예고해 한국 메모리주 급락의 배경으로 거론됐다.",
+   "detail": "셀 면적 약 33% 축소를 주장하나 누설전류·데이터 보존·수율은 미검증이며 현물가는 반응하지 않았다.",
    "funding": "",
-   "market_impact": "MU, SK하이닉스, 삼성전자에 부담이다.",
+   "market_impact": "SK하이닉스·삼성전자·MU에 경쟁 우려로 작용했으나 업계는 수급·심리 영향이 크다고 본다.",
    "src": [
-    "s7",
-    "s4"
+    "s11",
+    "s10",
+    "s9"
+   ]
+  },
+  {
+   "name": "데이터센터 전력·입지",
+   "kind": "전력",
+   "headline": "포브스는 2026년 대형 데이터센터 프로젝트 최소 47건이 지연·취소됐다고 전했다.",
+   "detail": "MS가 영국 Nscale 앵커 테넌트에서 철회했다는 보도가 있고, 황은 2027년 병목이 토지·전력·공장 용량이라고 했다(2차).",
+   "funding": "",
+   "market_impact": "장비·서버(Dell 주간 -22.9% 등)와 AI 하드웨어 주문 가시성에 부담이다.",
+   "src": [
+    "s3",
+    "s5",
+    "s18"
    ]
   }
  ],
  "macro": [
   {
    "name": "지수",
-   "value": "다우 +1.1%, S&P500 +0.3%(7,744.06), 나스닥 +0.1%(26,713.03)",
-   "detail": "10/14에는 S&P500 -1.11%(7,718.94), 나스닥 -1.88%였고 VIX는 16.87로 상승했다. 10/15 지수 레벨은 페이지 헤더 기준이다.",
+   "value": "S&P500 7,659.44(-1.09%), 나스닥 26,140.03(-2.14%), 다우 52,002.41(-0.34%)",
+   "detail": "주간은 S&P500 -2%, 나스닥 -4.5%, 다우 +0.7%. VIX 19.99(+21%), 기술 섹터 -3% 이상.",
    "src": [
-    "s12",
-    "s11",
-    "s3"
+    "s1",
+    "s2",
+    "s5"
    ]
   },
   {
    "name": "인플레이션",
-   "value": "9월 CPI 전월비 +0.6%, 전년비 3.7%(예상 3.6%), 근원 2.6%",
-   "detail": "PPI는 4년 반 만의 최대 상승(전년비 6.3%, TheStreet)으로 물가 압력이 에너지 밖으로 번지는 모습이다.",
+   "value": "9월 CPI 전년비 3.7%(예상 3.6%), 근원 2.6%, PPI 전월비 +1.3%·전년비 6.3%",
+   "detail": "휘발유 +9.1%(월), 에너지 +5.2%가 주도했다. 다음 CPI는 11/10.",
    "src": [
-    "s3",
-    "s2",
-    "s1"
+    "s6",
+    "s5"
    ]
   },
   {
    "name": "Fed",
-   "value": "10월 말 FOMC 인상 여부 '반반'(Capital.com)",
-   "detail": "Bowman 부의장은 9월 인상 이후 상황을 지켜볼 수 있다고 말했다. Warsh 의장의 IMF 연설을 시장이 주시했다.",
+   "value": "10월 FOMC(10/27~28) 인상 확률 17%, 12월 89%(CME)",
+   "detail": "워시 의장은 IMF 회의에서 10월·12월 결정에 신호를 주지 않았다.",
    "src": [
     "s1",
-    "s3",
-    "s2"
+    "s6"
    ]
   },
   {
    "name": "금리",
-   "value": "10년물 5.085%, 30년물 5.426%(10/15 오후)",
-   "detail": "장기물이 전일 대비 약 10bp 내렸다. 2년물은 4.749%다.",
+   "value": "10년물 약 5.09~5.10%(10/16), 10/14 장중 5.33%",
+   "detail": "주간 종가 기준 10년물 5.07%(-17bp), 30년물 5.42%.",
    "src": [
-    "s1"
+    "s1",
+    "s5"
    ]
   },
   {
    "name": "유가",
-   "value": "브렌트 106.06달러(10/14 종가), WTI 95.09달러",
-   "detail": "10/15 장중 브렌트 104.60달러. 중동·호르무즈 위험이 지속된다.",
+   "value": "WTI $101.35, 브렌트 $109.55(10/16 오후)",
+   "detail": "중동 리스크와 IEA 비축유 방출 계획이 맞섰다.",
    "src": [
-    "s3",
-    "s1"
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "name": "실적 시즌",
+   "value": "3분기 S&P500 EPS 성장 컨센서스 30.7%",
+   "detail": "10/19 주에 72개사 발표, 메타·테슬라는 10/21이다.",
+   "src": [
+    "s5"
    ]
   }
  ],
  "institutions": [
+  {
+   "name": "JPMorgan",
+   "stance": {
+    "market": null,
+    "ai": null
+   },
+   "prev": null,
+   "change": "",
+   "note": "AI 급락 후 7월 같은 반등은 어렵다고 봤다(저가매수·자사주 매입 약화). 2차 브리프는 데이터센터 capex +80%(2026)·+50%(2027) 모델과 Rubin 램프 지연을 전한다.",
+   "asof": "2026-10-15",
+   "src": [
+    "s16",
+    "s18"
+   ]
+  },
+  {
+   "name": "Citigroup",
+   "stance": {
+    "market": "Neutral*",
+    "ai": null
+   },
+   "prev": null,
+   "change": "",
+   "note": "연말 S&P500 기본 시나리오 8,100(현재 대비 +5.8%)이나 상방 대비 하방 위험이 커졌다고 본다(2차).",
+   "asof": "2026-10-16",
+   "src": [
+    "s18",
+    "s1"
+   ]
+  },
+  {
+   "name": "Yardeni",
+   "stance": {
+    "market": "Neutral*",
+    "ai": null
+   },
+   "prev": null,
+   "change": "",
+   "note": "연말 S&P500 목표를 8,400에서 7,900으로 하향했다(2차).",
+   "asof": "2026-10-16",
+   "src": [
+    "s18"
+   ]
+  },
+  {
+   "name": "Goldman Sachs",
+   "stance": {
+    "market": null,
+    "ai": "Bullish*"
+   },
+   "prev": null,
+   "change": "",
+   "note": "삼성전자·SK하이닉스 Buy 유지(목표가 각 50만원·350만원)와 2027 IT 수요 공백 없음을 제시했다(2차). 헤지펀드 매도는 전술적 조정이라고 평가했다.",
+   "asof": "2026-10-15",
+   "src": [
+    "s18",
+    "s17"
+   ]
+  },
+  {
+   "name": "Morgan Stanley",
+   "stance": {
+    "market": null,
+    "ai": null
+   },
+   "prev": null,
+   "change": "",
+   "note": "AMD 2026 AI GPU 출하 전망을 75% 낮춰 60만 개로 제시했다는 2차 보도가 있다.",
+   "asof": "2026-10-16",
+   "src": [
+    "s18"
+   ]
+  },
+  {
+   "name": "Bernstein",
+   "stance": {
+    "market": null,
+    "ai": null
+   },
+   "prev": null,
+   "change": "",
+   "note": "코어위브 Underperform, 목표가 74달러, 2027년까지 EPS 적자를 전망했다(2차).",
+   "asof": "2026-10-16",
+   "src": [
+    "s18"
+   ]
+  },
   {
    "name": "TrendForce",
    "stance": {
@@ -546,257 +655,304 @@
    },
    "prev": null,
    "change": "",
-   "note": "2027 HBM 평균판매가 +121%를 전망했으며 HBM4/4E 믹스 효과다.",
-   "asof": "2026-09-29",
+   "note": "6월 자료에서 2027 HBM 가격 인상 근거가 충분하다고 봤으나 최신 업데이트는 확인하지 못했다.",
+   "asof": "2026-06-02",
    "src": [
-    "s16"
-   ]
-  },
-  {
-   "name": "Baird (Mortonson)",
-   "stance": {
-    "market": null,
-    "ai": null
-   },
-   "prev": null,
-   "change": "",
-   "note": "AI 매도는 누가 자금이 필요하고 비용이 얼마냐의 문제이며 조정을 '건전하다'고 평가하고 소프트웨어로의 순환 가능성을 언급했다.",
-   "asof": "2026-10-15",
-   "src": [
-    "s13"
-   ]
-  },
-  {
-   "name": "Barclays",
-   "stance": {
-    "market": null,
-    "ai": null
-   },
-   "prev": null,
-   "change": "",
-   "note": "테슬라 주총(늦어도 12/6) 이전 SpaceX 합병 발표 가능성을 전망했다.",
-   "asof": "2026-10-15",
-   "src": [
-    "s1"
-   ]
-  },
-  {
-   "name": "CFRA (Stovall)",
-   "stance": {
-    "market": null,
-    "ai": null
-   },
-   "prev": null,
-   "change": "",
-   "note": "현재 흐름을 '방어적 로테이션'으로 평가했다.",
-   "asof": "2026-10-15",
-   "src": [
-    "s2"
-   ]
-  },
-  {
-   "name": "Capital.com (Hathorn)",
-   "stance": {
-    "market": null,
-    "ai": null
-   },
-   "prev": null,
-   "change": "",
-   "note": "Fed 인상 가능성이 높고 2주 뒤 회의에서 '반반'이라고 평가했다.",
-   "asof": "2026-10-15",
-   "src": [
-    "s1"
+    "s23"
    ]
   }
  ],
  "emerging": [
   {
-   "title": "AI 인프라 신용시장 경고등",
-   "detail": "코어위브 채권 수익률이 기록적 수준으로 오르며 10/14 주가가 약 -15% 하락했다. 오라클·네비우스 등 FCF가 약하고 조달 의존이 큰 기업이 취약하다는 지적이 나온다.",
+   "title": "AI 인프라 신용시장 이탈",
+   "detail": "코어위브 CDS 1,194.5bp와 2032 채권 약 78센트, 오라클 CDS 288bp 기록이 겹쳤다. 질문이 'AI 성공 여부'에서 '자본 조달과 주주 몫'으로 옮겨갔다.",
    "importance": "HIGH",
    "src": [
-    "s2",
+    "s5",
     "s13",
-    "s7"
+    "s18",
+    "s3"
    ]
   },
   {
-   "title": "순환금융 비판 부상",
-   "detail": "베어드는 시장이 칩 기업이 고객에게 자금을 대는 구조에 지쳤다고 말했다. 높아진 자본비용 환경에서 검증 압박이 커졌다.",
+   "title": "'자본이 AI의 최대 제약' 담론",
+   "detail": "호크 탄이 자본을 최대 제약으로 꼽았고 포브스는 데이터센터 47건 지연·취소를 인용했다. 5% 안팎의 10년물이 프로젝트 수익 기준을 높였다.",
    "importance": "HIGH",
    "src": [
-    "s13"
+    "s15",
+    "s3"
    ]
   },
   {
-   "title": "중국 CXMT 메모리 추격",
-   "detail": "더 높은 집적도의 설계 진전 주장이 한국 메모리주 급락(코스피 -7.8%)과 MU 약세로 이어졌다. 2029년 공급과잉 우려도 언급된다.",
-   "importance": "HIGH",
+   "title": "Anthropic IPO 일정 구체화",
+   "detail": "10/26 공개 제출, 11/9 로드쇼, 11월 중순 상장이 보도됐고 최대 2조달러·1,000억달러가 거론된다. 10/26에는 SpaceX 락업(3.284억 주) 해제도 겹친다.",
+   "importance": "MEDIUM",
    "src": [
-    "s7",
+    "s20",
+    "s19",
     "s4"
    ]
   },
   {
-   "title": "하이퍼스케일러 자체 칩",
-   "detail": "MSFT Maia 300은 2027년 양산 예정이며 GPU 대비 효율을 주장한다. NVDA 물량 대체 가능성이 장기 논점이다.",
+   "title": "CXMT 4F² DDR5 연내 공개 예고",
+   "detail": "성공 시 삼성·SK하이닉스보다 약 2년 빠른 상용화이나 양산·수율은 미검증이며 현물가는 아직 반응하지 않았다.",
    "importance": "MEDIUM",
    "src": [
-    "s8"
+    "s11",
+    "s10"
    ]
   },
   {
-   "title": "방어주·소프트웨어 순환",
-   "detail": "헬스케어 +2.6%, 필수소비재 +1%가 강했고 일부 전략가는 소프트웨어로의 자금 이동을 언급했다.",
+   "title": "방어주·가치 로테이션과 시장 집중",
+   "detail": "기술 섹터가 주간 -7.7%일 때 필수소비재 +5.0%, 에너지 +4.9%, 헬스케어 +3.5%였다. 단일 테마가 시장 비중 40%를 넘으면 정점과 연관된다는 분석도 소개됐다.",
    "importance": "MEDIUM",
    "src": [
-    "s2",
-    "s13"
+    "s5",
+    "s1"
    ]
   }
  ],
  "risks": [
   {
-   "title": "Fed 추가 인상과 장기금리",
-   "detail": "CPI 3.7%, PPI 급등으로 10월 말 FOMC 인상 가능성이 열려 있고 10년물은 5%대 초반이다. 고밸류 기술주에 직접 부담이다.",
+   "title": "인플레 재가속과 12월 Fed 인상",
+   "detail": "CPI 3.7%, PPI 6.3%, 12월 인상 확률 89%이며 에너지가 주도해 하방 경직적이다. 11/10 CPI와 10/29 근원 PCE가 확인 지점이다.",
    "importance": "HIGH",
    "src": [
-    "s3",
+    "s6",
+    "s1",
+    "s5"
+   ]
+  },
+  {
+   "title": "AI 인프라 신용 사건(코어위브 등) 전이",
+   "detail": "CDS 기록 속에 칩 공급사는 고객 신용 위험을 떠안는다. 엔비디아는 백스톱을 부인했으나 오라클·네오클라우드로 전이 가능성이 남는다.",
+   "importance": "HIGH",
+   "src": [
+    "s7",
+    "s13",
+    "s18"
+   ]
+  },
+  {
+   "title": "유가 100달러 이상·이란 리스크",
+   "detail": "브렌트가 110달러를 시험했고 트럼프의 이란 타격 발언이 있었다. 인플레 압력과 금리 고착의 원인이다.",
+   "importance": "HIGH",
+   "src": [
     "s1",
     "s2"
    ]
   },
   {
-   "title": "AI 인프라 자금조달·레버리지",
-   "detail": "브로드컴 CEO는 자금조달 접근과 비용이 AI 성장의 제약이 될 수 있다고 했다. 고객 프로젝트 수익성 악화는 칩 수요로 번질 수 있다.",
+   "title": "반도체 포지션 쏠림과 변동성 확대",
+   "detail": "SOX 8연속 하락(2008년 이후 최장), VIX 주간 +35%, Fear & Greed 18이다. 포지션 축소가 이어지면 변동성이 더 커질 수 있다.",
    "importance": "HIGH",
+   "src": [
+    "s5",
+    "s16",
+    "s17"
+   ]
+  },
+  {
+   "title": "한국·대만 메모리 변동성과 사이클 정점 논쟁",
+   "detail": "코스피 7거래일 -21%, 한국 -15.1%(주간). SK하이닉스·삼성 실적이 10/28·29에 나오며 2027 가격 협상과 CXMT가 변수다.",
+   "importance": "MEDIUM",
    "src": [
     "s9",
-    "s2"
-   ]
-  },
-  {
-   "title": "메모리 공급과잉·가격 압박",
-   "detail": "CXMT 경쟁 우려와 HBM 비중 확대 후의 공급 구조 변화가 가격 논쟁을 키운다. 신규 가격 데이터는 확인되지 않았다.",
-   "importance": "HIGH",
-   "src": [
-    "s7",
-    "s16"
-   ]
-  },
-  {
-   "title": "에너지·지정학",
-   "detail": "브렌트 약 105~106달러, 호르무즈·홍해 위험이 지속되고 이란 관련 군사 계획 보도도 있다. 인플레이션 경로를 악화시킬 수 있다.",
-   "importance": "MEDIUM",
-   "src": [
-    "s3",
-    "s1"
-   ]
-  },
-  {
-   "title": "AI 기업 성장 둔화·IPO 공급",
-   "detail": "Anthropic 매출 성장률이 직전 분기보다 둔화돼 일부 기대에 못 미쳤다는 보도와 11월 IPO 준비가 겹친다. 대형 IPO 공급과 수익성 검증이 쟁점이다.",
-   "importance": "MEDIUM",
-   "src": [
-    "s15",
-    "s2"
+    "s5",
+    "s11"
    ]
   }
  ],
  "scenarios": {
   "lean": "Base",
   "bull": {
-   "summary": "인플레이션이 완화되고 빅테크 capex가 유지돼 반도체가 낙폭을 되돌린다.",
+   "summary": "메타·테슬라(10/21) 등 빅테크 실적이 AI 매출·현금흐름을 입증하고 신용 스프레드가 안정되며 반도체가 기술적 반등에 나선다.",
    "conditions": [
-    "10월 FOMC 인상 회피",
-    "빅테크 capex 상향",
-    "코어위브 채권 안정"
+    "코어위브 CDS 및 채권 수익률 하락",
+    "10년물 5% 아래 안착",
+    "SK하이닉스(10/28)·삼성(10/29) 실적에서 2027 가격 확인"
    ]
   },
   "base": {
-   "summary": "지수는 박스권, AI 반도체는 변동성 큰 조정 속에서 실적과 자금조달 뉴스에 연동된다.",
+   "summary": "인플레와 금리 부담 속에 AI 부문은 변동성 높은 횡보를 이어가고 로테이션이 지속된다. 수요 지표는 견조하나 자금조달 이슈가 상단을 누른다.",
    "conditions": [
-    "10년물 5%대 유지",
-    "TSMC 등 수요 견조",
-    "방어주 순환 지속"
+    "10월 FOMC(10/27~28) 동결, 12월 인상 확률 유지",
+    "유가 100달러 안팎",
+    "메모리 현물가 강세 유지"
    ]
   },
   "bear": {
-   "summary": "Fed 인상과 신용 경색이 AI 인프라 투자 둔화 우려로 번지며 반도체 조정이 깊어진다.",
+   "summary": "AI 인프라 신용 사건과 12월 인상 확정이 겹쳐 반도체 하락이 지수로 번지고 VIX가 급등한다.",
    "conditions": [
-    "FOMC 인상",
-    "네오클라우드 채권 추가 급등",
-    "CXMT발 메모리 가격 하락"
+    "코어위브·오라클 등 신용 이벤트 발생",
+    "근원 PCE(10/29) 상방 서프라이즈",
+    "유가 추가 급등과 10년물 5.3% 재돌파"
    ]
   }
  },
  "sources": [
   {
    "id": "s1",
-   "title": "Stock Market Today (Oct. 15, 2026): Dow edges higher as tech sell-off pivots",
-   "publisher": "TheStreet",
-   "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-15-2026",
-   "date": "2026-10-15",
+   "title": "Markets News, Oct. 16, 2026 (Investopedia)",
+   "publisher": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/markets-news-oct-16-2026-103800633.html",
+   "date": "2026-10-16",
    "tier": "언론"
   },
   {
    "id": "s2",
-   "title": "S&P 500, Nasdaq pare declines as AI rout teeters; healthcare, staples gain",
-   "publisher": "Reuters (Lufkin Daily News)",
-   "url": "https://lufkindailynews.com/news_reuters/business/s-p-500-nasdaq-pare-declines-as-ai-rout-teeters-healthcare-staples-gain/article_278bb84e-f104-5c53-8913-6f5cfd77cb9d.html",
-   "date": "2026-10-15",
+   "title": "Stock Market Today (Oct. 16, 2026)",
+   "publisher": "TheStreet",
+   "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-16-2026",
+   "date": "2026-10-16",
    "tier": "언론"
   },
   {
    "id": "s3",
-   "title": "Stock Market News for Oct 15, 2026",
-   "publisher": "Zacks (Yahoo Finance)",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-news-oct-15-123000001.html",
-   "date": "2026-10-15",
-   "tier": "집계"
+   "title": "The AI Selloff Is Spreading To The Stocks Investors Thought Were Safe",
+   "publisher": "Forbes",
+   "url": "https://www.forbes.com/sites/jimosman/2026/10/18/the-ai-selloff-is-spreading-to-the-stocks-investors-thought-were-safe/",
+   "date": "2026-10-18",
+   "tier": "언론"
   },
   {
    "id": "s4",
-   "title": "Global chip sell-off deepens as South Korean market plunges",
-   "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/article/global-chip-sell-off-deepens-as-south-korean-market-plunges-024927049.html",
-   "date": "2026-10-14",
+   "title": "SpaceX Stock Has Climbed About 50% Through 6 Insider Share Unlocks",
+   "publisher": "Motley Fool",
+   "url": "https://www.fool.com/investing/2026/10/13/spacex-stock-has-climbed-about-50-through-6-insider-share-unlocks-the-biggest-is-still-ahead/",
+   "date": "2026-10-16",
    "tier": "언론"
   },
   {
    "id": "s5",
-   "title": "TSMC (TSM) Q3 2026 Earnings Call Transcript",
-   "publisher": "Motley Fool",
-   "url": "https://www.fool.com/earnings/call-transcripts/2026/10/15/tsmc-tsm-q3-2026-earnings-call-transcript/",
-   "date": "2026-10-15",
-   "tier": "언론"
+   "title": "Week #42 — Market Update for October 12-16, 2026",
+   "publisher": "Atrani Capital (Substack)",
+   "url": "https://atranicapital.substack.com/p/week-42-market-update-for-october-e67",
+   "date": "2026-10-17",
+   "tier": "집계"
   },
   {
    "id": "s6",
-   "title": "TSMC reports Q3 2026 earnings as net income rises 69% to record",
-   "publisher": "Quartz",
-   "url": "https://qz.com/tsmc-record-profit-ai-chip-demand-101526",
-   "date": "2026-10-15",
-   "tier": "언론"
+   "title": "Hot US CPI Revives Fed Rate-Hike Fears, Stock Futures Fall",
+   "publisher": "Gotrade",
+   "url": "https://www.heygotrade.com/en/news/hot-us-cpi-revives-fed-rate-hike-fears-stock-futures-fall/",
+   "date": "2026-10-14",
+   "tier": "집계"
   },
   {
    "id": "s7",
-   "title": "Nvidia Stock Falls Again as AI Chip Sell-Off Deepens Despite TSMC's Record Profit",
-   "publisher": "IBTimes Australia",
-   "url": "https://www.ibtimes.com.au/nvidia-shares-fall-global-ai-chip-selloff-1876772",
-   "date": "2026-10-15",
-   "tier": "언론"
-  },
-  {
-   "id": "s8",
-   "title": "Nvidia Stock News (Oct 15, 2026): NVDA Falls 3.2% to $221.30",
-   "publisher": "Gotrade",
-   "url": "https://www.heygotrade.com/en/news/nvidia-nvda-stock-news-october-15-2026/",
+   "title": "CoreWeave shares plunge to lowest since May 2025 as credit fears mount",
+   "publisher": "ROIC.ai",
+   "url": "https://www.roic.ai/news/coreweave-shares-plunge-to-lowest-since-may-2025-as-credit-fears-mount-10-15-2026",
    "date": "2026-10-15",
    "tier": "집계"
   },
   {
+   "id": "s8",
+   "title": "Micron Stock Slips Despite Record Q4, Analyst Price Hikes",
+   "publisher": "24/7 Wall St.",
+   "url": "https://247wallst.com/investing/2026/10/01/micron-stock-slips-despite-record-q4-analyst-price-hikes-heres-why-mu-stock-is-still-a-buy/",
+   "date": "2026-10-01",
+   "tier": "언론"
+  },
+  {
    "id": "s9",
+   "title": "Samsung, SK hynix sell-off excessive as memory outlook stays strong: analysts",
+   "publisher": "Korea Times",
+   "url": "https://www.koreatimes.co.kr/economy/20261016/samsung-sk-hynix-sell-off-excessive-as-memory-outlook-stays-strong-analysts",
+   "date": "2026-10-16",
+   "tier": "언론"
+  },
+  {
+   "id": "s10",
+   "title": "Samsung Electronics plunges 7.39%, SK hynix 10.09%",
+   "publisher": "Herald Business",
+   "url": "https://biz.heraldcorp.com/article/10901393",
+   "date": "2026-10-13",
+   "tier": "언론"
+  },
+  {
+   "id": "s11",
+   "title": "CXMT 4F² DRAM and DDR5 spot prices",
+   "publisher": "Money Today",
+   "url": "https://www.mt.co.kr/en/industry/2026/10/15/2026101415332169555",
+   "date": "2026-10-15",
+   "tier": "언론"
+  },
+  {
+   "id": "s12",
+   "title": "TSMC says AI demand still exceeds its supply capability as Q3 profit reaches a record",
+   "publisher": "LetsDataScience (AP 인용)",
+   "url": "https://letsdatascience.com/news/tsmc-says-ai-demand-still-exceeds-its-supply-capability-as-q-2fed75bf",
+   "date": "2026-10-15",
+   "tier": "집계"
+  },
+  {
+   "id": "s13",
+   "title": "Nvidia's Huang says CoreWeave needs no backstop, as its credit swaps hit a record",
+   "publisher": "The Next Web",
+   "url": "https://thenextweb.com/news/huang-coreweave-backstop-stockholm",
+   "date": "2026-10-15",
+   "tier": "언론"
+  },
+  {
+   "id": "s14",
+   "title": "CoreWeave Stock Fell Nearly 8% in a Day on an OpenAI Revenue Report",
+   "publisher": "TIKR",
+   "url": "https://www.tikr.com/blog/coreweave-stock-fell-nearly-8-in-a-day-on-an-openai-revenue-report-heres-why-its-borrowing-model-raises-the-stakes",
+   "date": "2026-10-08",
+   "tier": "리서치"
+  },
+  {
+   "id": "s15",
+   "title": "Broadcom CEO says biggest hurdle in AI-fuelled tech growth is capital, not memory chips",
+   "publisher": "The Star (Reuters)",
+   "url": "https://www.thestar.com.my/tech/tech-news/2026/10/12/broadcom-ceo-says-biggest-hurdle-in-ai-fuelled-tech-growth-is-capital-not-memory-chips",
+   "date": "2026-10-12",
+   "tier": "언론"
+  },
+  {
+   "id": "s16",
+   "title": "JPMorgan doesn't expect AI stocks to rebound like July",
+   "publisher": "Quartz",
+   "url": "https://qz.com/jpmorgan-ai-stocks-rebound-july-selloff-101526",
+   "date": "2026-10-15",
+   "tier": "언론"
+  },
+  {
+   "id": "s17",
+   "title": "Goldman Sachs AI Stocks Show Selective Retrenchment in 2026",
+   "publisher": "Cryptonomist",
+   "url": "https://en.cryptonomist.ch/2026/10/15/goldman-sachs-ai-stocks/",
+   "date": "2026-10-15",
+   "tier": "집계"
+  },
+  {
+   "id": "s18",
+   "title": "Daily AI Investment Brief October 16 2026",
+   "publisher": "Neo Reports (Substack)",
+   "url": "https://neoreports.substack.com/p/daily-ai-investment-brief-261016",
+   "date": "2026-10-16",
+   "tier": "집계"
+  },
+  {
+   "id": "s19",
+   "title": "Anthropic Q3 revenue rises 45% to $16.8 billion ahead of IPO",
+   "publisher": "investingLive (Reuters 인용)",
+   "url": "https://investinglive.com/stocks/anthropic-q3-revenue-rises-45-to-16-8-billion-ahead-of-ipo/",
+   "date": "2026-10-14",
+   "tier": "언론"
+  },
+  {
+   "id": "s20",
+   "title": "Anthropic pushes ahead with mid-November IPO",
+   "publisher": "IFRE",
+   "url": "https://www.ifre.com/equities/2499407/anthropic-pushes-ahead-with-mid-november-ipo",
+   "date": "2026-10-15",
+   "tier": "언론"
+  },
+  {
+   "id": "s21",
    "title": "Broadcom Stock News (Oct 15, 2026): AVGO Falls 3.1% to $346.25",
    "publisher": "Gotrade",
    "url": "https://www.heygotrade.com/en/news/broadcom-avgo-stock-news-october-15-2026/",
@@ -804,68 +960,20 @@
    "tier": "집계"
   },
   {
-   "id": "s10",
-   "title": "Chip Stocks Plummet Amid Inflation Concerns: NVDA, AMD, MU, TSM",
-   "publisher": "GuruFocus",
-   "url": "https://www.gurufocus.com/news/9125950/chip-stocks-plummet-amid-inflation-concerns-nvda-amd-mu-tsm",
-   "date": "2026-10-15",
-   "tier": "집계"
-  },
-  {
-   "id": "s11",
-   "title": "US stocks close higher as investors turn toward value",
-   "publisher": "Rallies.ai (SPY News)",
-   "url": "https://rallies.ai/news/us-stocks-close-higher-as-investors-turn-toward-value-1472aef2abdd3a37",
-   "date": "2026-10-15",
-   "tier": "집계"
-  },
-  {
-   "id": "s12",
-   "title": "S&P 500, Nasdaq pare declines as AI rout teeters (MarketScreener)",
-   "publisher": "MarketScreener (Reuters)",
-   "url": "https://www.marketscreener.com/news/s-p-500-nasdaq-pare-declines-as-ai-rout-teeters-healthcare-staples-gain-ce785dd3de81f227",
-   "date": "2026-10-15",
-   "tier": "언론"
-  },
-  {
-   "id": "s13",
-   "title": "Wall Street is 'tiring of the Bank of Nvidia, the Bank of AMD and the Bank of Broadcom': Baird's Mortonson",
-   "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/article/wall-street-is-tiring-of-the-bank-of-nvidia-the-bank-of-amd-and-the-bank-of-broadcom-bairds-mortonson-121235021.html",
-   "date": "2026-10-15",
-   "tier": "언론"
-  },
-  {
-   "id": "s14",
-   "title": "Nvidia stock sinks as chip sell-off deepens on hot inflation data",
-   "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/article/nvidia-stock-sinks-as-chip-sell-off-deepens-on-hot-inflation-data-203235137.html",
-   "date": "2026-10-15",
-   "tier": "언론"
-  },
-  {
-   "id": "s15",
-   "title": "Anthropic Reports 45% Revenue Growth to $16.8 Billion in Q3 Ahead of Planned IPO (FT report)",
-   "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/technology/ai/articles/anthropic-reports-45-revenue-growth-102235753.html",
-   "date": "2026-10-15",
-   "tier": "언론"
-  },
-  {
-   "id": "s16",
-   "title": "TrendForce: 2027 HBM blended ASP to jump 121% as HBM4/HBM4E mix shifts",
-   "publisher": "Silicon Analysts",
-   "url": "https://siliconanalysts.com/market/trendforce-2027-hbm-blended-asp-to-jump-121-as-hbm4-hbm4e-mix-shifts-2026-10-06",
+   "id": "s22",
+   "title": "What Will Decide Broadcom Stock Performance Over The Next Six Months?",
+   "publisher": "Trefis",
+   "url": "https://www.trefis.com/articles/617688/what-will-decide-broadcom-stock-performance-over-the-next-six-months/2026-10-06",
    "date": "2026-10-06",
    "tier": "리서치"
   },
   {
-   "id": "s17",
-   "title": "AI news for Thursday, October 8, 2026",
-   "publisher": "AI Weekly",
-   "url": "https://aiweekly.co/ai-news-today/edition/2026-10-08",
-   "date": "2026-10-08",
-   "tier": "집계"
+   "id": "s23",
+   "title": "Tight DRAM supply boosts pricing power; HBM contract prices set to surge in 2027 (TrendForce)",
+   "publisher": "I-Connect007",
+   "url": "https://iconnect007.com/article/150239/tight-dram-supply-boosts-pricing-power-hbm-contract-prices-set-to-surge-in-2027/150236/smt",
+   "date": "2026-06-02",
+   "tier": "리서치"
   }
  ]
 }
