@@ -8,7 +8,7 @@
 """
 import json, sys, time, datetime as dt, requests
 
-UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36"}
+UA = {"User-Agent": "Mozilla/5.0"}   # TEST001.py와 동일 (긴 UA는 야후가 빈 응답을 줌)
 PERIODS = {"week": ("1wk", "10y", "주봉"), "month": ("1mo", "25y", "월봉")}
 WINDOWS = (60, 120)
 KEEP = {"week": 200, "month": 160}   # 차트에 쓸 최근 봉 수
@@ -21,6 +21,7 @@ def fetch(sym, interval, rng):
             try:
                 u = f"https://{host}.finance.yahoo.com/v8/finance/chart/{sym}?range={rng}&interval={interval}"
                 r = requests.get(u, headers=UA, timeout=25)
+                if not r.text.strip(): raise RuntimeError(f"빈 응답 HTTP {r.status_code}")
                 res = r.json()["chart"]["result"][0]
                 ts = res["timestamp"]; q = res["indicators"]["quote"][0]
                 bars = [(t, c) for t, c in zip(ts, q["close"]) if c is not None]
