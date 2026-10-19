@@ -78,7 +78,7 @@ def main():
             r.update(symbol=sym, name=it.get("name", sym), group=it.get("group", ""))
             items.append(r); print("ok", sym, r["price"])
         except Exception as e:
-            print("[warn]", sym, e)
+            print("[warn]", sym, e); print(f"::error::{sym} {str(e)[:300]}")
             if sym in old:
                 o = old[sym]; o["stale"] = True; items.append(o)
     if ok == 0:
