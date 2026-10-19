@@ -1,0 +1,37 @@
+name: MA Tracker
+
+on:
+  schedule:
+    - cron: "7 */2 * * 1-6"   # 2시간마다(월~토 UTC) — 한국장·미국장 마감 후 값 모두 반영
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ma-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  ma:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests
+      - name: Run MA.py
+        run: python MA.py
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ma.json 2>/dev/null || true
+          if git diff --cached --quiet; then echo "no changes"; exit 0; fi
+          git commit -m "ma: update moving averages"
+          for i in 1 2 3; do
+            git pull --rebase --autostash origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && exit 0
+            sleep 5
+          done
+          exit 1
