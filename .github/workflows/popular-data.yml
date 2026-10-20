@@ -1,0 +1,31 @@
+name: Popular Data (manual)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests
+      - name: Fetch
+        run: python POPULAR_FETCH.py
+      - name: Publish to popular-data branch
+        run: |
+          cp popular_raw.json "$RUNNER_TEMP/pr.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -q --orphan popular-data
+          git rm -rfq . 2>/dev/null || true
+          cp "$RUNNER_TEMP/pr.json" popular_raw.json
+          git add popular_raw.json
+          git commit -qm "popular raw $(date -u +%FT%TZ)"
+          git push -f origin popular-data
