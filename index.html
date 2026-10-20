@@ -424,6 +424,7 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 </div>
 
 <script>
+var MA_URL="https://raw.githubusercontent.com/sgrA77/TEST001/ma-data/ma.json";   // MA.py 결과(ma-data 브랜치, 5분마다 갱신)
 
 /* =========================================================
    설정: 색이 가장 진해지는 변화폭 (이 값 이상이면 최대 농도)
@@ -1020,7 +1021,7 @@ fetch("data.json?t=" + Date.now())
         return r.json();
     })
     .then(data => Promise.all([
-        fetch("ma.json?t=" + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null),
+        fetch(MA_URL + "?t=" + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null),
         fetch("pinned.json?t=" + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null),
     ]).then(([ma, pin]) => {
         MAMAP = {};
@@ -1088,7 +1089,7 @@ fetch("data.json?t=" + Date.now())
   }).catch(function(){});
 })();
 (function(){
-  fetch('ma.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
+  fetch(MA_URL+'?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
     var el=document.getElementById('ma-sub'); if(!d||!d.items||!el) return;
     var n=0,b=null;d.items.forEach(function(it){(it.mas||[]).forEach(function(k){var m=it['ma'+k];if(!m)return;var g=(m/it.price-1)*100;if(Math.abs(g)<=3)n++;if(!b||Math.abs(g)<Math.abs(b.g))b={g:g,s:it.name,l:k}})});
     el.innerHTML='<span class="ol-v">'+d.items.length+'종목</span>'+(n?' · 근접 '+n+'건':' · 근접 없음')+(b?' · 최근접 '+b.s+' MA'+b.l+' '+(b.g>0?'+':'−')+Math.abs(b.g).toFixed(1)+'%':'')+' →';

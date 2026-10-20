@@ -9,9 +9,11 @@ permissions:
   contents: write
 
 concurrency:
-  group: ma-${{ github.ref }}
+  group: ma-tracker
   cancel-in-progress: false
 
+# 결과(ma.json)는 main 이 아니라 'ma-data' 브랜치(커밋 1개, 매번 덮어씀)에 저장합니다.
+# main 에 5분마다 커밋하면 test.yml(git push 재시도 없음)의 푸시가 충돌해 실패하기 때문입니다.
 jobs:
   ma:
     runs-on: ubuntu-latest
@@ -21,17 +23,19 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install requests
+      - name: 이전 결과 불러오기 (수집 실패 시 값 유지용)
+        run: |
+          git fetch origin ma-data 2>/dev/null && git show FETCH_HEAD:ma.json > ma.json || echo "no previous ma.json"
       - name: Run MA.py
         run: python MA.py
-      - name: Commit and push
+      - name: Publish to ma-data branch
         run: |
+          cp ma.json "$RUNNER_TEMP/ma.json"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add ma.json 2>/dev/null || true
-          if git diff --cached --quiet; then echo "no changes"; exit 0; fi
-          git commit -m "ma: update moving averages"
-          for i in 1 2 3; do
-            git pull --rebase --autostash origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && exit 0
-            sleep 5
-          done
-          exit 1
+          git checkout -q --orphan ma-data
+          git rm -rfq . 2>/dev/null || true
+          cp "$RUNNER_TEMP/ma.json" ma.json
+          git add ma.json
+          git commit -qm "ma.json $(date -u +%FT%TZ)"
+          git push -f origin ma-data

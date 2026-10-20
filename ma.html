@@ -67,6 +67,7 @@ details.f ul{margin:8px 0 0;padding-left:18px;font-size:12.5px;color:var(--sub)}
   </div>
 </div>
 <script>
+var MA_URL="https://raw.githubusercontent.com/sgrA77/TEST001/ma-data/ma.json";   // MA.py 결과(ma-data 브랜치, 5분마다 갱신)
 var NEAR=3;
 function fj(u){return fetch(u,{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(u+' '+r.status);return r.json()})}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
@@ -133,7 +134,7 @@ function render(d){
     return '<details class="c"><summary><b>'+esc(it.name)+'</b><span>'+fmt(it.price,it)+' · '+it.mas.map(function(n){return 'MA'+n+' '+fmt(it['ma'+n],it)}).join(' · ')+'</span></summary>'+chart(it)+'</details>';
   }).join('');
 }
-fj('ma.json').then(render).catch(function(e){document.getElementById('tabs').innerHTML='<div class="panel note">데이터를 불러오지 못했습니다: '+esc(e.message)+'<br>첫 수집 전일 수 있습니다.</div>'});
+fj(MA_URL+'?t='+Date.now()).then(render).catch(function(e){document.getElementById('tabs').innerHTML='<div class="panel note">데이터를 불러오지 못했습니다: '+esc(e.message)+'<br>첫 수집 전일 수 있습니다.</div>'});
 </script>
 </body>
 </html>
