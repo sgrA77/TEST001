@@ -206,6 +206,20 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
                  padding: 4px 2px; font-size: 12.5px; line-height: 1.25; border-radius: 4px; }
 .c-right .chip .cl { font-size: 8.5px; font-weight: 700; line-height: 1; letter-spacing: 0; opacity: .72; }
 
+/* 주봉 이동평균선 줄 (MARKET 카드 하단) */
+.card.has-ma { flex-wrap: wrap; }
+.cards > .card { min-width: 0; }
+@media (max-width: 760px) { .card.has-ma { flex-wrap: nowrap; } #market .card { justify-content: flex-start; } }
+.c-ma { flex: 0 0 auto; width: 100%; display: flex; gap: 4px; margin-top: 2px; padding-top: 5px; border-top: 1px dashed var(--line); text-decoration: none; color: inherit; min-width: 0; }
+.c-ma .mc { flex: 1 1 0; min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: 4px; padding: 3px 4px; line-height: 1.25; text-align: center; white-space: nowrap; overflow: hidden; }
+.c-ma .mc.near { background: #fff0c2; box-shadow: inset 0 0 0 1px #f0d98a; }
+.c-ma .mc b { display: block; font-size: clamp(11px, 3vw, 13px); font-weight: 800; letter-spacing: -0.04em; }
+.c-ma .mc small { display: block; font-size: 10px; color: var(--sub); letter-spacing: -0.03em; }
+.c-ma .mc small i { font-style: normal; font-weight: 600; margin-right: 3px; }
+.c-ma .mc small em { font-style: normal; font-weight: 800; }
+.c-ma .mc small em.up { color: var(--up-t); }
+.c-ma .mc small em.dn { color: var(--down-t); }
+
 /* 아이콘 */
 .ico {
     position: relative; flex: none; overflow: hidden;
@@ -593,7 +607,7 @@ function glyphIcon(name) {
 /* ---------- 공통 카드 ----------
    cells: [{l:"1M", text:"+5.0%", v:5.0, cap:15}, ...] */
 
-function cardHTML({ cls = "", icon, name, tag = "", price, dayText, dayV, sub, cells }) {
+function cardHTML({ cls = "", icon, name, tag = "", price, dayText, dayV, sub, cells, extra = "" }) {
     return `
     <div class="card ${cls}">
         <div class="c-left">
@@ -610,6 +624,7 @@ function cardHTML({ cls = "", icon, name, tag = "", price, dayText, dayV, sub, c
         <div class="c-right">
             ${cells.map(c => chip(c.v, c.cap, c.text, c.l)).join("")}
         </div>
+        ${extra}
     </div>`;
 }
 
@@ -700,6 +715,25 @@ function renderEvents(events, earnings) {
 }
 
 
+/* ---------- 주봉 이동평균선 (ma.json → MARKET 카드 하단) ---------- */
+
+let MAMAP = {};
+function maHTML(ticker) {
+    const it = MAMAP[ticker];
+    if (!it || !it.price) return "";
+    const kr = it.currency === "KRW";
+    const f = v => kr ? "₩" + num(v, 0) : "$" + num(v, v >= 1000 ? 0 : 2);
+    const cells = (it.mas || []).map(n => {
+        const m = it["ma" + n];
+        if (!m) return "";
+        const g = (m / it.price - 1) * 100;
+        const near = Math.abs(g) <= 3 ? " near" : "";
+        return `<span class="mc${near}"><b>${f(m)}</b><small><i>주봉${n}</i><em class="${g > 0 ? "up" : "dn"}">${signed(g, 1, "%")}</em></small></span>`;
+    }).join("");
+    return cells ? `<a class="c-ma" href="ma.html" title="주봉 이동평균선 분석 보기">${cells}</a>` : "";
+}
+
+
 /* ---------- MARKET ---------- */
 
 const COLLAPSED_SECTORS = ["에너지 / 원자재"];   // MARKET 에서 기본 접어둘 섹터 (이름은 TEST001.py 와 동일하게)
@@ -760,7 +794,9 @@ function renderMarket(market) {
             const sub = [s.theme, turn].filter(Boolean)
                 .map(x => `<span>${x}</span>`).join(`<span class="sep">|</span>`) || "&nbsp;";
 
+            const maRow = maHTML(s.ticker || name);
             return cardHTML({
+                cls: maRow ? "has-ma" : "",
                 icon: tickerIcon(s.ticker || name, name),
                 name,
                 price: fmtPrice(s),
@@ -771,6 +807,7 @@ function renderMarket(market) {
                     { l: "1Y", v: y,  cap: CAP.market.y,  text: signed(y, Math.abs(y) >= 10 ? 0 : 1, "%") },
                     { l: "2Y", v: y2, cap: CAP.market.y2, text: signed(y2, 0, "%") },
                 ],
+                extra: maRow,
             });
         }).join("");
 
@@ -940,6 +977,11 @@ fetch("data.json?t=" + Date.now())
         if (!r.ok) throw new Error("HTTP " + r.status);
         return r.json();
     })
+    .then(data => fetch("ma.json?t=" + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null).then(ma => {
+        MAMAP = {};
+        ((ma && ma.items) || []).forEach(it => { MAMAP[it.symbol] = it; });
+        return data;
+    }))
     .then(data => {
         $("updated").textContent = (data.updated_at || "-").replace(/^\d{2}(\d{2}-\d{2}-\d{2}) /, "$1, ");   // 26-10-02, 16:43 KST   // 예: 10-02 13:05
 
