@@ -21,10 +21,10 @@ a{color:inherit}
 table{border-collapse:collapse;width:100%;font-size:12.5px}
 th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:right;white-space:nowrap}
 th{font-size:11px;color:var(--sub);font-weight:700;background:var(--card)}
-th:first-child,td:first-child{text-align:left;white-space:normal;min-width:104px}
+th:first-child,td:first-child{text-align:left;white-space:nowrap}th,td{padding:7px 7px}
 tbody tr{cursor:pointer}tbody tr:hover{background:#fafbfd}
 td.g1{background:#fff0c2}td.g2{background:#fff8e1}td .u,td .d{font-size:11.5px;font-weight:700}
-.pv{font-weight:600;color:var(--text);font-size:12.5px}td.g1 .pv,td.g2 .pv{font-weight:800}.u{color:var(--up-t)}.d{color:var(--down-t)}
+.pr{font-size:11.5px;font-weight:600;color:var(--sub)}.pv{font-weight:600;color:var(--text);font-size:12.5px}td.g1 .pv,td.g2 .pv{font-weight:800}.u{color:var(--up-t)}.d{color:var(--down-t)}
 .grp{font-size:10.5px;color:var(--dim);font-weight:500;margin-left:4px}
 .near{font-size:11.5px;color:var(--sub)}
 .leg{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--sub);margin:0 0 8px}
@@ -53,18 +53,18 @@ details.f ul{margin:8px 0 0;padding-left:18px;font-size:12.5px;color:var(--sub)}
 <div class="wrap">
   <div class="panel">
     <h2>한눈에 보기 <small>각 이동평균선(MA)의 가격과, 현재가가 그 선에서 몇 % 떨어져 있는지 · 노란 칸 = 근접 (±2% 진한색, ±5% 연한색)</small></h2>
-    <div class="tw"><table id="sum"><thead><tr><th>종목</th><th>현재가</th><th>주봉 MA60</th><th>주봉 MA120</th><th>월봉 MA60</th><th>월봉 MA120</th></tr></thead><tbody></tbody></table></div>
-    <div class="note">칸 안: 위 = MA 가격, 아래 = 현재가의 거리(+ 빨강 = MA 위, − 파랑 = MA 아래). 종목을 누르면 아래 차트로 이동합니다. 가장 가까운 선이 있는 종목 순으로 정렬됩니다.</div>
+    <div class="tw"><table id="sum"><thead><tr><th>종목 (현재가)</th><th>주봉<br>MA120</th><th>월봉<br>MA60</th><th>월봉<br>MA120</th></tr></thead><tbody></tbody></table></div>
+    <div class="note">칸 안: 위 = MA 가격, 아래 = 현재가의 거리(+ 빨강 = MA 위, − 파랑 = MA 아래). 종목을 누르면 아래 차트로 이동합니다.</div>
   </div>
   <div class="cards" id="cards"></div>
   <div class="panel">
     <details class="f"><summary>보는 법·계산 기준·종목 추가 방법</summary>
     <ul>
-      <li><b>주봉 MA60</b> = 최근 60개 주봉 종가의 평균(약 14개월), <b>주봉 MA120</b> = 120주(약 2.3년). <b>월봉 MA60</b> = 60개월(5년), <b>월봉 MA120</b> = 120개월(10년). 숫자가 클수록 장기 추세선입니다.</li>
+      <li><b>주봉 MA120</b> = 최근 120개 주봉 종가의 평균(약 2.3년). <b>월봉 MA60</b> = 60개월(5년), <b>월봉 MA120</b> = 120개월(10년). 숫자가 클수록 장기 추세선입니다.</li>
       <li><b>거리(%)</b> = 현재가 ÷ MA − 1. 0%에 가까울수록 이동평균선 근처이고, 선을 위로 뚫는지/아래로 깨는지가 관찰 포인트입니다.</li>
       <li>마지막 봉은 <b>이번 주/이번 달의 진행 중인 봉</b>(현재가 기준)이며 MA 계산에도 포함됩니다(HTS·차트 프로그램의 기본 방식과 동일). 주/월이 마감되면 값이 확정됩니다.</li>
       <li>월봉 MA120은 10년치 월봉이 필요해, 상장한 지 10년이 안 된 종목은 '–'로 표시됩니다.</li>
-      <li><b>갱신:</b> 월~토 2시간마다 자동(GitHub Actions). 야후 파이낸스 시세라 지연 시세(미국 장 마감 후 반영 포함)일 수 있습니다.</li>
+      <li><b>갱신:</b> 월~토 5분마다 자동(GitHub Actions, 실제로는 서버 사정으로 몇 분 늦어질 수 있음). 야후 파이낸스 시세라 지연 시세(미국 장 마감 후 반영 포함)일 수 있습니다.</li>
       <li><b>종목 추가:</b> Claude에게 "○○ 추가해줘"라고 하거나, 저장소의 <code>ma_watch.json</code>에 티커 한 줄을 추가하면 다음 갱신 때 자동 반영됩니다(미국: AAPL, 코스피 종목: 005930.KS, 코스닥 종목: 000000.KQ).</li>
     </ul></details>
     <div class="note">데이터: Yahoo Finance. 분석 참고용이며 투자 조언이 아닙니다.</div>
@@ -77,19 +77,19 @@ function fmt(v,cur){if(v==null)return '–';var d=Math.abs(v)>=1000?0:2;return N
 function gp(g){if(g==null)return '–';return (g>0?'+':g<0?'−':'')+Math.abs(g).toFixed(1)+'%'}
 function gc(g){return g==null?'':g>0?'u':'d'}
 function tint(g){if(g==null)return '';var a=Math.abs(g);return a<=2?'g1':a<=5?'g2':''}
-var KEYS=[['week',60],['week',120],['month',60],['month',120]];
+var KEYS=[['week',120],['month',60],['month',120]];
 function nearest(it){var b=null;KEYS.forEach(function(k){var g=it.periods[k[0]]['gap'+k[1]];if(g!=null&&(b==null||Math.abs(g)<Math.abs(b.g)))b={g:g,l:(k[0]==='week'?'주봉':'월봉')+' MA'+k[1]}});return b}
-function chart(p){
+function chart(p,ks){
   var n=p.close.length,W=380,H=180,L=6,R=74,T=10,B=16,vals=[];
-  [p.close,p.ma60,p.ma120].forEach(function(a){a.forEach(function(v){if(v!=null)vals.push(v)})});
+  [p.close].concat(ks.map(function(n){return p['ma'+n]})).forEach(function(a){a.forEach(function(v){if(v!=null)vals.push(v)})});
   var mn=Math.min.apply(null,vals),mx=Math.max.apply(null,vals),pad=(mx-mn)*.06;mn-=pad;mx+=pad;
   function x(i){return L+(W-L-R)*i/(n-1)}function y(v){return T+(H-T-B)*(1-(v-mn)/(mx-mn))}
   function path(a,c,w){var d='',on=false;a.forEach(function(v,i){if(v==null){on=false;return}d+=(on?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1);on=true});return d?'<path d="'+d+'" fill="none" stroke="'+c+'" stroke-width="'+w+'" stroke-linejoin="round"/>':''}
   var s='<svg viewBox="0 0 '+W+' '+H+'" role="img">';
   for(var k=0;k<=3;k++){var v=mn+(mx-mn)*k/3,yy=y(v);s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+yy+'" y2="'+yy+'" stroke="#e5e9ef" stroke-width="1"/><text x="'+(L+2)+'" y="'+(yy-2)+'" font-size="8.5" fill="#b3bac5">'+fmt(v)+'</text>'}
-  s+=path(p.ma120,'#7a3fc4',1.8)+path(p.ma60,'#e08a00',1.8)+path(p.close,'#1a1f29',1.4);
+  ks.forEach(function(n){s+=path(p['ma'+n],n===60?'#e08a00':'#7a3fc4',1.8)});s+=path(p.close,'#1a1f29',1.4);
   var lc=p.close[n-1];s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(lc)+'" y2="'+y(lc)+'" stroke="#1a1f29" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/><circle cx="'+x(n-1)+'" cy="'+y(lc)+'" r="4" fill="#1a1f29" stroke="#fff" stroke-width="1.5"/>';
-  var tg=[{v:lc,c:'#1a1f29',t:'현재 '+fmt(lc),b:1},{v:p.ma60[n-1],c:'#e08a00',t:'60 '+fmt(p.ma60[n-1])},{v:p.ma120[n-1],c:'#7a3fc4',t:'120 '+fmt(p.ma120[n-1])}].filter(function(o){return o.v!=null});
+  var tg=[{v:lc,c:'#1a1f29',t:'현재 '+fmt(lc),b:1}].concat(ks.map(function(m){var v=p['ma'+m][n-1];return {v:v,c:m===60?'#e08a00':'#7a3fc4',t:m+' '+fmt(v)}})).filter(function(o){return o.v!=null});
   tg.forEach(function(o){o.y=y(o.v)});tg.sort(function(a,b){return a.y-b.y});
   for(var q=1;q<tg.length;q++){if(tg[q].y-tg[q-1].y<13)tg[q].y=tg[q-1].y+13}
   tg.forEach(function(o){s+='<rect x="'+(W-R+2)+'" y="'+(o.y-7)+'" width="'+(R-2)+'" height="14" rx="3" fill="'+o.c+'"/><text x="'+(W-R+5)+'" y="'+(o.y+3.5)+'" font-size="'+(o.b?9.5:9)+'" font-weight="'+(o.b?800:700)+'" fill="#fff">'+esc(o.t)+'</text>'});
@@ -102,22 +102,20 @@ function meter(label,g,mv){
   return '<div class="mr"><span>'+label+'</span><div class="tr"><i class="mk" style="left:'+pos+'%;background:'+col+'"></i></div><div class="rv"><em>'+fmt(mv)+'</em><b class="'+gc(g)+'">'+gp(g)+'</b></div></div>';
 }
 function render(d){
-  document.getElementById('upd').innerHTML='갱신 '+esc(d.updated)+' KST<br>2시간마다 자동';
+  document.getElementById('upd').innerHTML='갱신 '+esc(d.updated)+' KST<br>5분마다 자동';
   var items=d.items.slice();
-  items.forEach(function(it){it._n=nearest(it)});
-  items.sort(function(a,b){return (a._n?Math.abs(a._n.g):999)-(b._n?Math.abs(b._n.g):999)});
   var tb=document.querySelector('#sum tbody');
   tb.innerHTML=items.map(function(it,i){
     var P=it.periods,c=KEYS.map(function(k){var g=P[k[0]]['gap'+k[1]];var mv=P[k[0]]['ma'+k[1]+'_now'];return '<td class="'+tint(g)+'"><div class="pv">'+fmt(mv)+'</div><div class="'+gc(g)+'">'+gp(g)+'</div></td>'}).join('');
-    return '<tr data-i="'+esc(it.symbol)+'"><td><b>'+esc(it.name)+'</b><span class="grp">'+esc(it.group||'')+'</span>'+(it.stale?' <span class="stale">지연</span>':'')+'</td><td>'+fmt(it.price)+'</td>'+c+'</tr>';
+    return '<tr data-i="'+esc(it.symbol)+'"><td><b>'+esc(it.name)+'</b>'+(it.stale?' <span class="stale">지연</span>':'')+'<div class="pr">('+fmt(it.price)+')</div></td>'+c+'</tr>';
   }).join('');
   tb.querySelectorAll('tr').forEach(function(tr){tr.onclick=function(){var e=document.getElementById('c-'+tr.dataset.i);if(e)e.scrollIntoView({behavior:'smooth',block:'start'})}});
   document.getElementById('cards').innerHTML=items.map(function(it){
     var P=it.periods;
-    var cb=['week','month'].map(function(k){var p=P[k];return '<div class="cbox"><div class="ct"><span>'+p.label+'</span></div><div class="sb"><div class="cur"><div class="k">현재가</div><div class="v">'+fmt(it.price)+'</div></div><div class="m6"><div class="k">MA60</div><div class="v">'+fmt(p.ma60_now)+'</div><div class="s '+gc(p.gap60)+'">'+gp(p.gap60)+'</div></div><div class="m12"><div class="k">MA120</div><div class="v">'+fmt(p.ma120_now)+'</div><div class="s '+gc(p.gap120)+'">'+gp(p.gap120)+'</div></div></div>'+chart(p)+'</div>'}).join('');
+    var cb=[['week',[120]],['month',[60,120]]].map(function(z){var p=P[z[0]],ks=z[1];var chips=ks.map(function(n){var g=p['gap'+n];return '<div class="'+(n===60?'m6':'m12')+'"><div class="k">MA'+n+'</div><div class="v">'+fmt(p['ma'+n+'_now'])+'</div><div class="s '+gc(g)+'">'+gp(g)+'</div></div>'}).join('');return '<div class="cbox"><div class="ct"><span>'+p.label+'</span></div><div class="sb"><div class="cur"><div class="k">현재가</div><div class="v">'+fmt(it.price)+'</div></div>'+chips+'</div>'+chart(p,ks)+'</div>'}).join('');
     var mt=KEYS.map(function(k){return meter((k[0]==='week'?'주봉':'월봉')+' MA'+k[1],P[k[0]]['gap'+k[1]],P[k[0]]['ma'+k[1]+'_now'])}).join('');
-    return '<div class="panel" id="c-'+esc(it.symbol)+'"><h2>'+esc(it.name)+' <small>'+esc(it.symbol)+' · 현재가 '+fmt(it.price)+' '+esc(it.currency||'')+(it.stale?' · 지연':'')+'</small></h2>'+
-      '<div class="leg"><span><i style="background:#1a1f29"></i>종가</span><span><i style="background:var(--m60)"></i>MA60</span><span><i style="background:var(--m120)"></i>MA120</span></div>'+
+    return '<div class="panel" id="c-'+esc(it.symbol)+'"><h2>'+esc(it.name)+' <small>'+esc(it.symbol)+(it.stale?' · 지연':'')+'</small></h2>'+
+      '<div class="leg"><span><i style="background:#1a1f29"></i>종가</span><span><i style="background:var(--m60)"></i>MA60 (월봉만)</span><span><i style="background:var(--m120)"></i>MA120</span></div>'+
       '<div class="ch">'+cb+'</div><div class="mt">'+mt+'</div><div class="sc"><span>−25%</span><span>MA</span><span>+25%</span></div></div>';
   }).join('');
 }

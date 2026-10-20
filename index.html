@@ -1001,7 +1001,7 @@ fetch("data.json?t=" + Date.now())
 (function(){
   fetch('ma.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
     var el=document.getElementById('ma-sub'); if(!d||!d.items||!el) return;
-    var b=null;d.items.forEach(function(it){['week','month'].forEach(function(k){[60,120].forEach(function(n){var g=it.periods[k]['gap'+n];if(g!=null&&(!b||Math.abs(g)<Math.abs(b.g)))b={g:g,s:it.name.split(' ')[0],l:(k==='week'?'주':'월')+n}})})});
+    var b=null;d.items.forEach(function(it){['week','month'].forEach(function(k){(k==='week'?[120]:[60,120]).forEach(function(n){var g=it.periods[k]['gap'+n];if(g!=null&&(!b||Math.abs(g)<Math.abs(b.g)))b={g:g,s:it.name.split(' ')[0],l:(k==='week'?'주':'월')+n}})})});
     el.innerHTML='<span class="ol-v">'+d.items.length+'종목</span>'+(b?' · 최근접 '+b.s+' '+b.l+' '+(b.g>0?'+':'−')+Math.abs(b.g).toFixed(1)+'%':'')+' →';
   }).catch(function(){});
 })();

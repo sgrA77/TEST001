@@ -2,7 +2,7 @@ name: MA Tracker
 
 on:
   schedule:
-    - cron: "7 */2 * * 1-6"   # 2시간마다(월~토 UTC) — 한국장·미국장 마감 후 값 모두 반영
+    - cron: "*/5 * * * 1-6"   # 5분마다(월~토 UTC) — 한국장·미국장 장중/마감 값 반영
   workflow_dispatch:
 
 permissions:
