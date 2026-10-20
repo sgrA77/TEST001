@@ -1,35 +1,119 @@
 {
- "_설명": "관심종목 목록. 종목을 추가하려면 items에 한 줄 추가하면 다음 갱신 때 자동 반영됩니다. symbol은 야후 파이낸스 티커(미국: SPY, 코스피 종목: 005930.KS, 코스닥 종목: 000000.KQ, 지수: ^KS11 / ^KQ11).",
+ "_설명": "관심종목 목록. 종목 추가 = items에 한 줄 추가 (symbol: 야후 티커 / name: 표시 이름 / group: 표 묶음 / mas: 보려는 주봉 이동평균선 [60,120]). 코스피 종목은 005930.KS, 코스닥 종목은 000000.KQ 형식.",
  "items": [
-  {
-   "symbol": "SPY",
-   "name": "SPY",
-   "group": "미국"
-  },
-  {
-   "symbol": "QQQ",
-   "name": "QQQ",
-   "group": "미국"
-  },
   {
    "symbol": "^KS11",
    "name": "코스피",
-   "group": "한국"
-  },
-  {
-   "symbol": "^KQ11",
-   "name": "코스닥",
-   "group": "한국"
+   "group": "국내",
+   "mas": [
+    120
+   ]
   },
   {
    "symbol": "005930.KS",
    "name": "삼성전자",
-   "group": "한국"
+   "group": "국내",
+   "mas": [
+    120
+   ]
   },
   {
    "symbol": "000660.KS",
    "name": "SK하이닉스",
-   "group": "한국"
+   "group": "국내",
+   "mas": [
+    120
+   ]
+  },
+  {
+   "symbol": "SPY",
+   "name": "SPY",
+   "group": "미국 ETF",
+   "mas": [
+    60,
+    120
+   ]
+  },
+  {
+   "symbol": "QQQ",
+   "name": "QQQ",
+   "group": "미국 ETF",
+   "mas": [
+    60,
+    120
+   ]
+  },
+  {
+   "symbol": "QLD",
+   "name": "QLD",
+   "group": "미국 ETF",
+   "mas": [
+    60,
+    120
+   ]
+  },
+  {
+   "symbol": "AAPL",
+   "name": "AAPL",
+   "group": "매그니피센트 7",
+   "mas": [
+    60,
+    120
+   ]
+  },
+  {
+   "symbol": "MSFT",
+   "name": "MSFT",
+   "group": "매그니피센트 7",
+   "mas": [
+    60,
+    120
+   ]
+  },
+  {
+   "symbol": "GOOGL",
+   "name": "GOOGL",
+   "group": "매그니피센트 7",
+   "mas": [
+    60,
+    120
+   ]
+  },
+  {
+   "symbol": "AMZN",
+   "name": "AMZN",
+   "group": "매그니피센트 7",
+   "mas": [
+    60,
+    120
+   ]
+  },
+  {
+   "symbol": "NVDA",
+   "name": "NVDA",
+   "group": "매그니피센트 7",
+   "mas": [
+    60,
+    120
+   ]
+  },
+  {
+   "symbol": "META",
+   "name": "META",
+   "group": "매그니피센트 7",
+   "mas": [
+    60,
+    120
+   ]
+  },
+  {
+   "symbol": "TSLA",
+   "name": "TSLA",
+   "group": "매그니피센트 7",
+   "mas": [
+    60,
+    120
+   ]
   }
  ]
 }
