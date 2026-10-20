@@ -53,6 +53,15 @@
    ]
   },
   {
+   "symbol": "^SOX",
+   "name": "SOX",
+   "group": "미국 ETF",
+   "mas": [
+    60,
+    120
+   ]
+  },
+  {
    "symbol": "AAPL",
    "name": "AAPL",
    "group": "매그니피센트 7",
