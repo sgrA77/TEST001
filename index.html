@@ -386,6 +386,7 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     <a class="panel slim ol-link" href="scenario.html" id="slink"><span class="ol-t">하락 시나리오 분석</span><span class="ol-s" id="sl-sub">저장된 분석 보기 →</span></a>
     <a class="panel slim ol-link" href="aicorp.html" id="alink"><span class="ol-t">AI 기업 분석</span><span class="ol-s" id="al-sub">저장된 분석 보기 →</span></a>
     <a class="panel slim ol-link" href="ma.html" id="malink"><span class="ol-t">주요 종목 이동평균선 분석</span><span class="ol-s" id="ma-sub">주봉 MA60/120 보기 →</span></a>
+    <a class="panel slim ol-link" href="rebound.html" id="rlink"><span class="ol-t">하락 후 반등 분석</span><span class="ol-s" id="rb-sub">대장주 vs 낙폭 과대주 →</span></a>
 
     <section class="panel slim">
         <div class="panel-head">
@@ -1104,6 +1105,13 @@ fetch("data.json?t=" + Date.now())
     var el=document.getElementById('ma-sub'); if(!d||!d.items||!el) return;
     var n=0,b=null;d.items.forEach(function(it){(it.mas||[]).forEach(function(k){var m=it['ma'+k];if(!m)return;var g=(m/it.price-1)*100;if(Math.abs(g)<=3)n++;if(!b||Math.abs(g)<Math.abs(b.g))b={g:g,s:it.name,l:k}})});
     el.innerHTML='<span class="ol-v">'+d.items.length+'종목</span>'+(n?' · 근접 '+n+'건':' · 근접 없음')+(b?' · 최근접 '+b.s+' MA'+b.l+' '+(b.g>0?'+':'−')+Math.abs(b.g).toFixed(1)+'%':'')+' →';
+  }).catch(function(){});
+})();
+(function(){
+  fetch('rebound/index.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
+    var el=document.getElementById('rb-sub'); if(!d||!d.length||!el) return;
+    d.sort(function(a,b){return (b.updated||b.date)<(a.updated||a.date)?-1:1});
+    el.innerHTML='<span class="ol-v">'+d.length+'건</span> · '+String(d[0].title).replace(/[<>&]/g,'')+' →';
   }).catch(function(){});
 })();
 </script>
