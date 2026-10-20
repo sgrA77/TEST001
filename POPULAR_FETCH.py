@@ -50,8 +50,9 @@ def hot_search():
     out = {}
     try:
         t = get("https://finance.naver.com/sise/lastsearch2.naver", enc="euc-kr").text
-        for i, m in enumerate(re.finditer(r'code=(\d{6})"[^>]*>([^<]+)</a>', t), 1):
-            out.setdefault(m.group(1), i)
+        print("hot page len", len(t))
+        for m in re.finditer(r'code=(\d{6})', t):
+            out.setdefault(m.group(1), len(out) + 1)
     except Exception as e:
         print("::warning::인기검색 실패", e)
     return out
@@ -81,7 +82,7 @@ def one(item):
         r["hi_gap"] = round((s[-1][1] / max(c for _, c, _ in s) - 1) * 100, 1)
     except Exception as e:
         r["err"] = str(e)
-    r["news7"] = news_count(name, 7); r["news30"] = news_count(name, 30)
+    r["news1"] = news_count(name, 1); r["news3"] = news_count(name, 3); r["news7"] = news_count(name, 7)
     r["board_per_h"] = board_speed(code)
     return r
 
