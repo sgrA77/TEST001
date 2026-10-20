@@ -171,6 +171,9 @@ MANUAL_EVENTS = [
     # {"name": "IPO · Anthropic", "date": "2026-11-12"},
     # 날짜 미정이면 date 대신 note: (언론 보도 기준, 확정 아님)
     {"name": "IPO · Anthropic", "note": "11월 예상(보도)"},
+    # 미국 주요 선거 (선거일 = 투표일, 미국 현지 날짜)
+    {"name": "미국 중간선거 · 상하원", "date": "2026-11-03"},
+    {"name": "미국 대선", "date": "2028-11-07"},
 ]
 
 # 미국 상장(Nasdaq IPO 캘린더) 중 AI 관련만 EVENTS 에 자동 표시.
