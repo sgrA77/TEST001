@@ -740,7 +740,8 @@ function maHTML(ticker) {
     const it = MAMAP[ticker];
     if (!it || !it.price) return "";
     const kr = it.currency === "KRW";
-    const f = v => kr ? "₩" + num(v, 0) : "$" + num(v, v >= 1000 ? 0 : 2);
+    const idx = (it.symbol || "").startsWith("^");
+    const f = v => idx ? num(v, v >= 1000 ? 0 : 2) : (kr ? "₩" + num(v, 0) : "$" + num(v, v >= 1000 ? 0 : 2));
     const cells = (it.mas || []).map(n => {
         const m = it["ma" + n];
         if (!m) return "";
@@ -760,7 +761,8 @@ function renderPinned() {
         const it = MAMAP[sym];
         if (!it || !it.price) return "";
         const kr = it.currency === "KRW";
-        const f = v => kr ? "₩" + num(v, 0) : "$" + num(v, v >= 1000 ? 0 : 2);
+        const idx = (it.symbol || "").startsWith("^");
+    const f = v => idx ? num(v, v >= 1000 ? 0 : 2) : (kr ? "₩" + num(v, 0) : "$" + num(v, v >= 1000 ? 0 : 2));
         const rows = (it.mas || []).map(n => {
             const m = it["ma" + n];
             if (!m) return "";
