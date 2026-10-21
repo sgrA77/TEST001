@@ -7,7 +7,7 @@ out = {}
 for s in SYMS:
     for host in ("query1", "query2"):
         try:
-            r = requests.get(f"https://{host}.finance.yahoo.com/v8/finance/chart/{s}?range=max&interval=1d&includeAdjustedClose=false", headers=UA, timeout=60)
+            r = requests.get(f"https://{host}.finance.yahoo.com/v8/finance/chart/{s}?period1=-1325635200&period2=1900000000&interval=1d", headers=UA, timeout=60)
             j = r.json()["chart"]["result"][0]
             q = j["indicators"]["quote"][0]
             rows = [[t, q["open"][i], q["high"][i], q["low"][i], q["close"][i]] for i, t in enumerate(j["timestamp"]) if q["close"][i] is not None]
