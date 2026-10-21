@@ -1,22 +1,27 @@
 name: MA Tracker
 
+# GitHub 의 schedule(cron)은 부하 시 수 시간씩 건너뛰어 5분 주기가 지켜지지 않습니다.
+# 그래서 한 번 시작되면 약 5시간 40분 동안 직접 반복(5분 간격)하고, 끝나기 전에 스스로를 다시 실행(workflow_dispatch)합니다.
+# cron 은 체인이 끊겼을 때의 재시작용 보험입니다. (중복 실행은 concurrency 로 대기)
 on:
   schedule:
-    - cron: "*/5 * * * 1-6"   # 5분마다(월~토 UTC) — 한국장·미국장 장중/마감 값 반영
+    - cron: "7 * * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: ma-tracker
   cancel-in-progress: false
 
 # 결과(ma.json)는 main 이 아니라 'ma-data' 브랜치(커밋 1개, 매번 덮어씀)에 저장합니다.
-# main 에 5분마다 커밋하면 test.yml(git push 재시도 없음)의 푸시가 충돌해 실패하기 때문입니다.
+# main 에 자주 커밋하면 test.yml(git push 재시도 없음)의 푸시가 충돌해 실패하기 때문입니다.
 jobs:
   ma:
     runs-on: ubuntu-latest
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -26,16 +31,24 @@ jobs:
       - name: 이전 결과 불러오기 (수집 실패 시 값 유지용)
         run: |
           git fetch origin ma-data 2>/dev/null && git show FETCH_HEAD:ma.json > ma.json || echo "no previous ma.json"
-      - name: Run MA.py
-        run: python MA.py
-      - name: Publish to ma-data branch
+      - name: 반복 실행 (5분 간격, 최대 5시간 40분)
         run: |
-          cp ma.json "$RUNNER_TEMP/ma.json"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout -q --orphan ma-data
-          git rm -rfq . 2>/dev/null || true
-          cp "$RUNNER_TEMP/ma.json" ma.json
-          git add ma.json
-          git commit -qm "ma.json $(date -u +%FT%TZ)"
-          git push -f origin ma-data
+          END=$(( $(date +%s) + 340*60 ))
+          while true; do
+            python MA.py || echo "::warning::MA.py 실패 - 이전 값 유지"
+            if [ -s ma.json ]; then
+              blob=$(git hash-object -w ma.json)
+              tree=$(printf '100644 blob %s\tma.json\n' "$blob" | git mktree)
+              commit=$(git commit-tree "$tree" -m "ma.json $(date -u +%FT%TZ)")
+              git push -f origin "$commit:refs/heads/ma-data" || echo "::warning::push 실패"
+            fi
+            [ $(( $(date +%s) + 300 )) -ge $END ] && break
+            sleep 300
+          done
+      - name: 다음 실행 예약 (체인 유지)
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run ma.yml --ref main || echo "::warning::재실행 예약 실패 (cron 이 재시작)"
