@@ -437,6 +437,7 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 
 <script>
 var MAUPD="";
+var PRICES_URL="https://raw.githubusercontent.com/sgrA77/TEST001/price-data/prices.json";   // PRICES.py(10분 간격)
 var MA_URL="https://raw.githubusercontent.com/sgrA77/TEST001/ma-data/ma.json";   // MA.py 결과(ma-data 브랜치, 5분마다 갱신)
 
 /* =========================================================
@@ -747,6 +748,37 @@ function renderEvents(events, earnings) {
 }
 
 
+
+/* ---------- 현재가 오버레이 (prices.json: 10분 간격) ---------- */
+let PRUPD = "";
+function applyLive(data, pr) {
+    if (!pr || !pr.p) return;
+    PRUPD = pr.updated || "";
+    const L = pr.p, ok = (a, b) => a > 0 && b > 0 && b / a > 0.5 && b / a < 2;
+    const patch = s => {                                   // 카드: price / prev_day 교체
+        const l = s && s.ticker && L[s.ticker];
+        if (!l || !ok(s.price, l[0])) return;
+        s.price = l[0];
+        if (s.prev_day != null && ok(s.prev_day, l[1])) s.prev_day = l[1];
+    };
+    Object.values(data.market || {}).forEach(g => Object.values(g).forEach(patch));
+    Object.values(data.growth || {}).forEach(patch);
+    const MAC = { "USD/KRW": "KRW=X", "USD/JPY": "JPY=X", "VIX": "^VIX" };
+    Object.values(data.macro || {}).forEach(g => Object.entries(g).forEach(([n, s]) => {
+        const l = MAC[n] && L[MAC[n]];
+        if (!l || !ok(s.value, l[0])) return;
+        s.value = l[0];
+        if (s.prev_day != null && ok(s.prev_day, l[1])) s.prev_day = l[1];
+    }));
+    Object.values(MAMAP).forEach(it => {                   // MA: 현재가 변화분만큼 보정 (주봉 MA 의 마지막 봉이 현재가)
+        const l = L[it.symbol];
+        if (!l || !ok(it.price, l[0])) return;
+        const d = l[0] - it.price;
+        (it.mas || []).forEach(k => { if (it["ma" + k] != null) it["ma" + k] += d / k; });
+        it.price = l[0];
+    });
+}
+
 /* ---------- 주봉 이동평균선 (ma.json → MARKET 카드 하단) ---------- */
 
 let MAMAP = {};
@@ -1037,14 +1069,16 @@ fetch("data.json?t=" + Date.now())
     .then(data => Promise.all([
         fetch(MA_URL + "?t=" + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null),
         fetch("pinned.json?t=" + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null),
-    ]).then(([ma, pin]) => {
+        fetch(PRICES_URL + "?t=" + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null),
+    ]).then(([ma, pin, pr]) => {
         MAMAP = {}; MAUPD = (ma && ma.updated) || "";
         ((ma && ma.items) || []).forEach(it => { MAMAP[it.symbol] = it; });
+        safe(() => applyLive(data, pr));
         PINNED = (pin && pin.symbols) || [];
         return data;
     }))
     .then(data => {
-        $("updated").textContent = (data.updated_at || "-").replace(/^\d{2}(\d{2}-\d{2}-\d{2}) /, "$1, ")+(MAUPD?" · MA "+MAUPD.slice(5):"");   // 26-10-02, 16:43 KST   // 예: 10-02 13:05
+        $("updated").textContent = (data.updated_at || "-").replace(/^\d{2}(\d{2}-\d{2}-\d{2}) /, "$1, ")+(PRUPD?" · 현재가 "+PRUPD.slice(5):"");   // 26-10-02, 16:43 KST   // 예: 10-02 13:05
 
         safe(() => renderTop(data.macro));
         safe(() => renderPinned());

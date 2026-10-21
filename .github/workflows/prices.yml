@@ -1,0 +1,54 @@
+name: Prices
+
+# 관심 종목 현재가(가벼운 요청, 약 40건)를 10분(주말 30분)마다 갱신 -> 'price-data' 브랜치.
+# GitHub cron 은 지연·누락이 잦아서, 한 번 시작되면 약 5시간 40분 직접 반복하고 끝나기 전에 스스로 재실행합니다.
+# cron(시간당)은 체인이 끊겼을 때의 재시작용 보험입니다.
+on:
+  schedule:
+    - cron: "3 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: prices
+  cancel-in-progress: false
+
+jobs:
+  prices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests
+      - name: 이전 값 불러오기
+        run: |
+          git fetch origin price-data 2>/dev/null && git show FETCH_HEAD:prices.json > prices.json || echo "no previous"
+      - name: 반복 실행
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          END=$(( $(date +%s) + 340*60 ))
+          while true; do
+            python PRICES.py || echo "::warning::PRICES.py 실패 - 이전 값 유지"
+            if [ -s prices.json ]; then
+              blob=$(git hash-object -w prices.json)
+              tree=$(printf '100644 blob %s\tprices.json\n' "$blob" | git mktree)
+              commit=$(git commit-tree "$tree" -m "prices $(date -u +%FT%TZ)")
+              git push -f origin "$commit:refs/heads/price-data" || echo "::warning::push 실패"
+            fi
+            DOW=$(date -u +%u)                     # 6,7 = 토,일
+            if [ "$DOW" -ge 6 ]; then GAP=1800; else GAP=600; fi
+            [ $(( $(date +%s) + GAP )) -ge $END ] && break
+            sleep $GAP
+          done
+      - name: 다음 실행 예약 (체인 유지)
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run prices.yml --ref main || echo "::warning::재실행 예약 실패 (cron 이 재시작)"

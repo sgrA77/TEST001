@@ -134,7 +134,11 @@ function render(d){
     return '<details class="c"><summary><b>'+esc(it.name)+'</b><span>'+fmt(it.price,it)+' · '+it.mas.map(function(n){return 'MA'+n+' '+fmt(it['ma'+n],it)}).join(' · ')+'</span></summary>'+chart(it)+'</details>';
   }).join('');
 }
-fj(MA_URL+'?t='+Date.now()).then(render).catch(function(e){document.getElementById('tabs').innerHTML='<div class="panel note">데이터를 불러오지 못했습니다: '+esc(e.message)+'<br>첫 수집 전일 수 있습니다.</div>'});
+fj(MA_URL+'?t='+Date.now()).then(function(d){
+  return fetch('https://raw.githubusercontent.com/sgrA77/TEST001/price-data/prices.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).catch(function(){return null}).then(function(pr){
+    try{if(pr&&pr.p)(d.items||[]).forEach(function(it){var l=pr.p[it.symbol];if(!l||!(it.price>0)||l[0]/it.price>2||l[0]/it.price<.5)return;var x=l[0]-it.price;(it.mas||[]).forEach(function(k){if(it['ma'+k]!=null)it['ma'+k]+=x/k});it.price=l[0];if(it.close&&it.close.length)it.close[it.close.length-1]=l[0];});}catch(e){}
+    return d;});
+}).then(render).catch(function(e){document.getElementById('tabs').innerHTML='<div class="panel note">데이터를 불러오지 못했습니다: '+esc(e.message)+'<br>첫 수집 전일 수 있습니다.</div>'});
 </script>
 </body>
 </html>
