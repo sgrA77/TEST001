@@ -365,6 +365,14 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 .ol-link .ol-t{font-size:13px;font-weight:800;white-space:nowrap}
 .ol-link .ol-s{font-size:12px;color:var(--sub);text-align:right;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ol-link .ol-v{font-weight:800}
+.rules{background:#fffbea;border-left:5px solid var(--yellow);margin-bottom:12px;padding:10px 12px 8px}
+.rules .rl-h{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px}
+.rules .rl-h b{font-size:15px;font-weight:800}.rules .rl-h span{font-size:11px;color:var(--sub)}
+.rules .rl{display:flex;gap:8px;align-items:baseline;padding:6px 0;border-top:1px solid #f0e3a8;font-size:13px;line-height:1.5}
+.rules .rl i{flex:none;width:38px;font-style:normal;font-size:11px;font-weight:800;color:var(--amber);background:#fff2c2;border-radius:4px;text-align:center;padding:1px 0}
+.rules .rl em{font-style:normal;font-weight:800;color:var(--amber);font-size:14.5px;white-space:nowrap}
+.rules .rl .loss{color:var(--down-t);font-weight:800;font-size:14.5px;white-space:nowrap}
+.rules .rl small{color:var(--sub);font-size:11.5px}
 </style>
 </head>
 
@@ -380,6 +388,15 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 </div>
 
 <div class="wrap">
+
+    <div class="panel rules" id="rules">
+        <div class="rl-h"><b>📌 투자 원칙</b><span>매일 확인 · 흔들리지 말 것</span></div>
+        <div class="rl"><i>기간</i><div><em>2030년 말</em>까지 적립식 투자 <b>1차 완주</b> → 이후 계획 재수립</div></div>
+        <div class="rl"><i>방식</i><div>초기 시드 <em>5,000만원</em> + 매월 <em>70만원</em><br><small>1·8·9월 +200만(명절·휴가) · 10월 성과급 1,000만 · 12월 +300만(연말상여) = 연 2,740만원</small></div></div>
+        <div class="rl"><i>효과</i><div>적립투자로 연간 시드 상승 약 <em>+2,500만원</em></div></div>
+        <div class="rl"><i>기대</i><div>최종 시드 약 <em>2.5~3억원</em></div></div>
+        <div class="rl"><i>한도</i><div>허용 최대 연간 손실 <span class="loss">500~750만원</span></div></div>
+    </div>
 
     <a class="panel slim ol-link" href="outlook.html" id="olink"><span class="ol-t">Market Outlook</span><span class="ol-s" id="ol-sub">시황·전망 · AI/반도체 →</span></a>
     <a class="panel slim ol-link" href="watch.html" id="wlink"><span class="ol-t">급등·매집 모니터링</span><span class="ol-s" id="wl-sub">주간 급등 · 매집 의심 →</span></a>
