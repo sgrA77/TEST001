@@ -147,7 +147,7 @@ table.t{border-collapse:collapse;width:100%;font-size:12.5px}
 table.t th{background:var(--card);text-align:left;font-size:11.5px;color:var(--sub);white-space:nowrap}
 table.t th,table.t td{padding:6px 8px;border-bottom:1px solid var(--line)}
 @media(max-width:560px){table.t th,table.t td{padding:6px 4px;font-size:12px}}
-table.t tr.tot td{font-weight:700}
+table.t tr.tot td{font-weight:700}table.t tr.grp td{background:var(--card);font-weight:700;font-size:12.5px;color:var(--text,inherit);padding:7px 6px}
 .sm li{margin:4px 0}.ul{margin:6px 0 0;padding-left:18px}.ul li{margin:5px 0;font-size:13px}
 .sum{border-left:4px solid var(--down-t)}
 .fl{list-style:none;padding:0;margin:8px 0 4px}.fl li{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 10px;position:relative;margin-bottom:16px}
@@ -184,7 +184,7 @@ function list(){
 function sg(t){return t.replace(/([+\u2212-]\d[\d,.]*)/g,function(m){return '<span class="'+(m[0]==='+'?'pp':'nn')+'">'+m+'</span>'})}
 function cell(c){return String(c).split('\n').map(function(l){var m=/^~(.*)~$/.exec(l);if(m)return '<span class="sm">'+sg(esc(m[1]))+'</span>';var e=lk(l);if(/^\(?[+\u2212-]\d/.test(l))return '<span class="'+(/^\(?\+/.test(l)?'pp':'nn')+'">'+e+'</span>';return e}).join('<br>')}
 function tbl(t){
-  return '<div class="tw"><table class="t"><thead><tr>'+t.head.map(function(h){return '<th>'+esc(h)+'</th>'}).join('')+'</tr></thead><tbody>'+t.rows.map(function(r){return '<tr'+(/^(\uD569\uACC4|\uC18C\uACC4)/.test(r[0])?' class="tot"':'')+'>'+r.map(function(c){var m=/^(\uD83D\uDFE2|\uD83D\uDFE1|\uD83D\uDD34)/.exec(c);var k=m?({'\uD83D\uDFE2':'g','\uD83D\uDFE1':'y','\uD83D\uDD34':'r'})[m[1]]:'';return '<td'+(k?' class="'+k+'"':'')+'>'+cell(c)+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table></div>';
+  return '<div class="tw"><table class="t"><thead><tr>'+t.head.map(function(h){return '<th>'+esc(h).replace(/\n/g,'<br>')+'</th>'}).join('')+'</tr></thead><tbody>'+t.rows.map(function(r){if(r.length===1)return '<tr class="grp"><td colspan="'+t.head.length+'">'+lk(r[0])+'</td></tr>';return '<tr'+(/^(\uD569\uACC4|\uC18C\uACC4)/.test(r[0])?' class="tot"':'')+'>'+r.map(function(c){var m=/^(\uD83D\uDFE2|\uD83D\uDFE1|\uD83D\uDD34)/.exec(c);var k=m?({'\uD83D\uDFE2':'g','\uD83D\uDFE1':'y','\uD83D\uDD34':'r'})[m[1]]:'';return '<td'+(k?' class="'+k+'"':'')+'>'+cell(c)+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table></div>';
 }
 function detail(id){
   var b=document.getElementById('bk');b.href='#';b.textContent='\u2190 목록';
