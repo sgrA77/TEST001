@@ -1,0 +1,179 @@
+{
+ "id": "2026-10-23-gpu-supply-demand-hbm",
+ "title": "GPU 수급을 메모리 마진으로 읽기 (AI 이전 vs 지금)",
+ "date": "2026-10-23",
+ "updated": "2026-10-23 10:00",
+ "summary": [
+  "GPU 수급은 직접 측정이 어려워 메모리 마진으로 대리 확인. 2023년 하이닉스 영업이익률 −24%·마이크론 매출총이익률 −9% → 2026년 마이크론 80.7%. 극단적 공급 부족 신호이며, 과거 사이클상 마진 정점은 공급 과잉 전환점과 가까웠음."
+ ],
+ "sections": [
+  {
+   "title": "1. 마진 비교 (AI 이전 → 현재)",
+   "table": {
+    "head": [
+     "시점",
+     "SK하이닉스\n영업이익률",
+     "마이크론\n매출총이익률",
+     "엔비디아\nDC 매출"
+    ],
+    "center": true,
+    "cls": [
+     "c-k",
+     "c-h",
+     "c-h",
+     "c-em"
+    ],
+    "rows": [
+     [
+      "2022",
+      "15%",
+      "45.2%\n(FY22)",
+      "~150억$\n(FY23 *)"
+     ],
+     [
+      "2023",
+      "−24%",
+      "−9.1%\n(FY23)",
+      "~475억$\n(FY24 *)"
+     ],
+     [
+      "2024",
+      "~35%",
+      "22.4%\n(FY24)",
+      "–"
+     ],
+     [
+      "2025",
+      "49%",
+      "39.8%\n(FY25)",
+      "–"
+     ],
+     [
+      "2026",
+      "78%\n(3Q 추정)",
+      "80.7%\n(FY26)",
+      "1,937억$\n(FY26)"
+     ]
+    ]
+   },
+   "note": "*표는 공시 기억치(이번 검색 미검증). 하이닉스 2026은 3분기 시장 예상치(영업이익 약 77조원), 실적 발표는 10/29 예정. 마이크론 FQ4-26은 매출총이익률 86.8%."
+  },
+  {
+   "title": "2. 마진이 말하는 것",
+   "bullets": [
+    "메모리는 범용재 → **마진 = 가격 − 원가**, 가격은 수급이 결정. 마진 급등 = 공급 부족 심화.",
+    "**2022→2023**: 마이크론 매출 −49%(307.6→155.4억$), 마진 45%→−9%. 공급 과잉 때 가격 붕괴를 보여준 사례.",
+    "**2026**: 마이크론 매출 FY25 374억$ → FY26 1,332억$(약 3.6배). 수요 폭증에 공급이 못 따라간 상태.",
+    "HBM 점유율(추정): 하이닉스 50% / 삼성 33% / 마이크론 18%. HBM 단독 마진은 공시 안 됨 → 전체 메모리 마진으로 대리."
+   ]
+  },
+  {
+   "title": "3. 다른 부품 신호 (MLCC)",
+   "table": {
+    "head": [
+     "지표",
+     "내용"
+    ],
+    "cls": [
+     "c-k",
+     ""
+    ],
+    "rows": [
+     [
+      "재고",
+      "유통재고 물량 YoY −22% (2026.7말)"
+     ],
+     [
+      "가격",
+      "단가지수 YoY +13%"
+     ],
+     [
+      "인상",
+      "삼성전기 +30%(8/1~), 야게오 약 +50%"
+     ]
+    ]
+   },
+   "note": "MLCC도 AI 서버 수요로 재고가 사상 최저 수준. 단, 이번에 2023년 업체별 마진은 확인 못함."
+  },
+  {
+   "title": "4. Griffin 발언과 연결",
+   "bullets": [
+    "Citadel 켄 그리핀(2026.10.20): GPU는 **항공기처럼 한계비용이 낮아** 공급 과잉 시 가격이 자유낙하할 수 있다. 통신 광케이블 과잉 선례 언급.",
+    "메모리 마진은 **현재 상태(동행·후행) 지표**. 정점 판단에는 부족 → 선행 지표 병행 필요."
+   ]
+  },
+  {
+   "title": "5. 감시할 신호 (과잉 전환 징후)",
+   "table": {
+    "head": [
+     "신호",
+     "의미"
+    ],
+    "cls": [
+     "c-k",
+     ""
+    ],
+    "rows": [
+     [
+      "마진 상승 둔화",
+      "정점 근접"
+     ],
+     [
+      "빅테크 CAPEX 가이던스",
+      "2026 약 7,000~7,250억$, 감소 시 위험"
+     ],
+     [
+      "메모리 계약가 하락",
+      "공급 과잉 시작"
+     ],
+     [
+      "MLCC 재고 반등",
+      "부품 수급 정상화"
+     ],
+     [
+      "엔비디아 가이던스",
+      "FQ3 매출 1,080억$ 전망 미달 여부"
+     ]
+    ]
+   }
+  }
+ ],
+ "sources": [
+  {
+   "n": 1,
+   "title": "SK hynix 2023 실적 (TechNode)",
+   "url": "https://technode.global/prnasia/sk-hynix-reports-financial-results-for-2023-4q23/"
+  },
+  {
+   "n": 2,
+   "title": "SK hynix FY25 실적 (StorageNewsletter)",
+   "url": "https://www.storagenewsletter.com/2026/02/10/sk-hynix-fiscal-4q25-and-fy25-financial-results/"
+  },
+  {
+   "n": 3,
+   "title": "Micron FQ4-26 보도자료 (SEC)",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000723125/000072312526000018/a2026q4ex991-pressrelease.htm"
+  },
+  {
+   "n": 4,
+   "title": "Micron FY2023 보도자료 (SEC)",
+   "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312523000051/a2023q4ex991-pressrelease.htm"
+  },
+  {
+   "n": 5,
+   "title": "Micron 연간 재무 (StockAnalysis)",
+   "url": "https://stockanalysis.com/stocks/mu/financials/income-statement/"
+  },
+  {
+   "n": 6,
+   "title": "Nvidia FY26 실적 (StorageNewsletter)",
+   "url": "https://www.storagenewsletter.com/2026/03/04/nvidia-fiscal-4q26-and-fy26-financial-results/"
+  },
+  {
+   "n": 7,
+   "title": "MLCC 재고 부족 (SCMP)",
+   "url": "https://www.scmp.com/tech/tech-trends/article/3365353/ai-server-boom-fuels-record-supply-crunch-rice-electronics"
+  }
+ ],
+ "disclaimer": "투자 권유가 아닌 개인 참고용 분석입니다. 수치는 웹 검색 결과(2026-10-23 기준)이며 일부는 미검증으로 표시했습니다."
+}

@@ -1,0 +1,99 @@
+{
+ "id": "2026-10-23-qld-institutional-view",
+ "title": "QLD(2배 레버리지)를 운용사·기관은 어떻게 보나",
+ "date": "2026-10-23",
+ "updated": "2026-10-23 10:00",
+ "summary": [
+  "QQQ는 약 4,853억 달러 규모의 장기 코어 자산이지만 QLD는 일 단위 목표의 전술 상품. 레버리지 ETF 거래의 약 90%가 개인 단기 매매. 기관의 QLD 보유·보유기간 수치는 이번에 확인하지 못함."
+ ],
+ "sections": [
+  {
+   "title": "1. 결론 (확인된 것 / 미확인)",
+   "bullets": [
+    "**QQQ**: 순자산 약 **4,853억 달러**, 보수 0.18% → 연금·기관이 쓰는 장기 코어 상품.",
+    "**레버리지 ETF 전체**: 약 **1,605억 달러**(2025.11, 452개 펀드). QQQ 한 종목의 1/3 수준.",
+    "**누가 거래하나**: 2025.4~7월 개인 단기 트레이더는 미국 주식 거래의 약 **5.5%**지만 레버리지 펀드 회전의 약 **90%**.",
+    "**QLD 단독 순자산·13F 상위 보유 기관·평균 보유기간**: 이번 검색에서 **확인 못함**. (추정치는 쓰지 않음)",
+    "**BlackRock·Citadel 개별 시각**: 공개된 발언·보유 자료 못 찾음. 아래는 구조적 해석."
+   ]
+  },
+  {
+   "title": "2. QQQ vs QLD 구조 비교",
+   "table": {
+    "head": [
+     "항목",
+     "QQQ",
+     "QLD"
+    ],
+    "center": true,
+    "cls": [
+     "",
+     "c-h",
+     "c-q"
+    ],
+    "rows": [
+     [
+      "목표",
+      "지수 추종",
+      "나스닥100 **일 수익률 2배**"
+     ],
+     [
+      "복리",
+      "없음",
+      "**매일 재설정** → 기간 수익률 2배 아님"
+     ],
+     [
+      "규모",
+      "약 4,853억$",
+      "미확인"
+     ],
+     [
+      "주 사용자",
+      "장기·기관·연금",
+      "개인·전술·헤지"
+     ]
+    ]
+   },
+   "note": "일 단위 재설정 때문에 변동성 큰 횡보장에서는 지수 대비 손실이 누적(변동성 잠식)됩니다."
+  },
+  {
+   "title": "3. 기관은 어떻게 볼까 (해석, 근거 약함)",
+   "bullets": [
+    "운용사 입장: 일 단위 상품은 **장기 코어 자산배분에 부적합**하다는 규제 경고(FINRA·SEC)가 오래전부터 있음.",
+    "그래서 기관 쓰임새는 대체로 **단기 노출 조절·헤지·유동성 도구**일 가능성이 큼 (실제 비중은 미확인).",
+    "Citadel 등은 보유자보다 **마켓메이커·유동성 공급자**로 거래에 관여할 가능성이 높음 (추정).",
+    "레버리지 펀드는 매일 지수 선물·스왑을 사고팔아 **리밸런싱** → 급락일에 추가 매도 압력이 생길 수 있음."
+   ]
+  },
+  {
+   "title": "4. 내 계획에 주는 시사점",
+   "bullets": [
+    "QLD 적립식(4년)은 **장기 보유용이 아닌 레버리지 상품을 길게 쓰는 것** → 시나리오의 '월 균등 상승' 가정과 실제 변동성 경로가 다름.",
+    "확인 필요: QLD 순자산 추이, 13F 보유 기관, 보유기간 연구(운용사 공시·학술논문)."
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "n": 1,
+   "title": "Leveraged ETFs have stopped being a niche trade (Ultumus)",
+   "url": "https://insights.ultumus.com/feed/leveraged-etfs-have-stopped-being-a-niche-trade.-the-charts-prove-it"
+  },
+  {
+   "n": 2,
+   "title": "Invesco QQQ 개요 (StockAnalysis)",
+   "url": "https://stockanalysis.com/stocks/QQQ/"
+  },
+  {
+   "n": 3,
+   "title": "SEC joins Finra in warning about leveraged and inverse ETFs",
+   "url": "https://www.investmentnews.com/?p=23375"
+  },
+  {
+   "n": 4,
+   "title": "Leveraged ETFs ride retail trading boom (Wealth Professional)",
+   "url": "https://www.wealthprofessional.ca/investments/etfs/leveraged-etfs-ride-retail-trading-boom-as-single-stock-bets-redefine-market-stress-playbook/391686"
+  }
+ ],
+ "disclaimer": "투자 권유가 아닌 개인 참고용 분석입니다. 수치는 웹 검색 결과(2026-10-23 기준)이며 일부는 미검증으로 표시했습니다."
+}
