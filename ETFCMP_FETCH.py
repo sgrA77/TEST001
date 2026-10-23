@@ -2,7 +2,7 @@
 """ETFCMP_FETCH.py - ETF·종목·환율 일봉(종가·수정종가) 2022-12 ~ 현재 -> etfcmp.json (GitHub Actions)"""
 import json, time, requests
 UA = {"User-Agent": "Mozilla/5.0"}
-SYMS = ["SOXX", "QQQ", "SPY", "VOO", "NEM", "GDX", "BRK-B", "010130.KS", "KRW=X"]
+SYMS = ["SOXX", "QQQ", "SPY", "VOO", "GLD", "IAU", "132030.KS", "411060.KS", "360750.KS", "133690.KS", "KRW=X"]
 P1 = 1669852800  # 2022-12-01
 out = {}
 for s in SYMS:
