@@ -1,0 +1,153 @@
+{
+ "id": "2026-10-23-ai-voices",
+ "title": "AI 시장, 영향력 인물들은 어떻게 보나 (2026.7~10)",
+ "date": "2026-10-23",
+ "updated": "2026-10-23 11:00",
+ "summary": [
+  "**버블 경계파**: 그리핀(Citadel)·달리오 — 공급 과잉 시 GPU 가격 급락, 금리·현금화가 버블을 터뜨릴 수 있음.",
+  "**수요 강세파**: 엔비디아·아마존·알파벳·블랙록 — 공급이 수요를 못 따라감, 공급제약이 성장 한도.",
+  "**중간**: 거스트너 — 버블은 아니지만 2026은 '실제 매출'로 증명해야 하는 해."
+ ],
+ "sections": [
+  {
+   "title": "1. 한눈에 보는 입장",
+   "table": {
+    "head": [
+     "인물",
+     "입장",
+     "한 줄"
+    ],
+    "cls": [
+     "c-k",
+     "",
+     ""
+    ],
+    "rows": [
+     [
+      "그리핀\nCitadel",
+      "경계",
+      "GPU는 항공좌석, 과잉이면 가격 자유낙하"
+     ],
+     [
+      "달리오\nBridgewater",
+      "경계",
+      "'고전적 버블', 터지기 직전 근처"
+     ],
+     [
+      "거스트너\nAltimeter",
+      "중립+",
+      "버블 아님, 매출로 증명해야"
+     ],
+     [
+      "젠슨 황\nNvidia",
+      "강세",
+      "FY28 +70%, 공급 제약 전망"
+     ],
+     [
+      "재시\nAmazon",
+      "강세",
+      "투자해도 용량 부족"
+     ],
+     [
+      "올트먼\nOpenAI",
+      "강세",
+      "계획한 컴퓨트 모두 수익성 있게 사용"
+     ],
+     [
+      "핑크\nBlackRock",
+      "강세",
+      "버블 아닌 그 반대"
+     ]
+    ]
+   },
+   "note": "입장 분류는 제가 발언을 요약해 붙인 라벨입니다."
+  },
+  {
+   "title": "2. 타임라인 (최신순)",
+   "bullets": [
+    "**10/20 켄 그리핀 (Citadel CEO)** — GPU는 항공사처럼 운영 한계비용이 매우 낮아, 공급 과잉이 오면 가격이 자유낙하할 수 있다. 통신 광케이블 과잉을 선례로 언급. AI는 '거의 확실히' 버블이지만 살아남은 기업은 수십 년 주도할 수 있다. (같은 주 SOX 약 −11%)",
+    "**10/7 레이 달리오 (Bridgewater 창업자)** — Forbes 싱가포르 행사. AI는 '고전적 버블'이며 '터지기 전 단계지만 가까이 와 있다'. 금리 상승과, 부를 현금화해야 하는 순간이 트리거라고 봄. 당시 S&P·나스닥100은 사상 최고.",
+    "**9/17 브래드 거스트너 (Altimeter)** — All-In 팟캐스트(요약본 기준). 주요 AI 랩 합산 연 매출 약 1,000억$인데 인프라를 정당화하려면 연말 1,800억$ 필요. 나스닥 상승의 약 70%가 AI 반도체. 2023~25는 서사만으로 벌었고, 2026은 실제 매출·인프라 인도가 관건. 금리 인상 확률과 전력 병목도 위험으로 지목.",
+    "**8/26 엔비디아 실적콜** — CFO 콜레트 크레스: FY28 매출 약 +70% 전망, '공급 제약 전망'. 황: 주문 기준 성장은 100% 이상이나 공급망이 한계. '순환 금융' 비판엔 '다르게 본다'. (2차 보도 기준)",
+    "**8월 샘 올트먼 (OpenAI)** — TIME 인터뷰: '계획 중인 컴퓨트를 모두 수익성 있게 쓸 수 있을 것'. '사람들이 데이터센터를 싫어한다, AI에 꽤 부정적'이라고 인정.",
+    "**7월말~8월초 빅테크 실적** — 앤디 재시(Amazon): 2026 capex 약 2,200억$로 올려도 '수요를 다 못 맞출 용량'. 알파벳 CFO: '수요가 투자를 여전히 웃돈다', capex 1,950~2,050억$."
+   ]
+  },
+  {
+   "title": "3. 기간 밖 참고 (맥락용)",
+   "bullets": [
+    "**5/5 래리 핑크 (BlackRock)** — Milken: '버블이 아니라 그 반대, 충분히 빠르게 못 가고 있다'. 수요가 예상보다 훨씬 빠르게 증가, 건설은 부채·사모신용으로 조달 전망.",
+    "**2월 다리오 아모데이 (Anthropic)** — 데이터센터 수요 예측이 몇 년 어긋나면 파산 위험. 컴퓨트는 수요 확정 18~24개월 전에 계약해야 함. (2차 보도)",
+    "**2025.11 순다르 피차이 (Google)** — AI 투자에 '비합리성의 요소'가 있고 '버블이 터지면 우리도 예외가 아니다'."
+   ]
+  },
+  {
+   "title": "4. 읽는 법",
+   "bullets": [
+    "경계파는 **가격·금융 조건**(공급 과잉, 금리, 부채)을 보고, 강세파는 **현재 수급**(용량 부족, 주문)을 봅니다. 둘은 시점이 달라 동시에 맞을 수 있음.",
+    "공통 전제: 지금은 공급 부족. 갈리는 지점은 '그 부족이 언제까지, 그리고 증설 후 가격이 어떻게 되나'.",
+    "강세 발언 다수는 **이해당사자**(공급사·고객·투자자)의 말이라는 점을 감안."
+   ]
+  },
+  {
+   "title": "5. 이번에 못 찾은 것",
+   "bullets": [
+    "차마스, 개빈 베이커, 피차이, 젠슨 황의 **최근 3개월 직접 발언**은 검색에서 확인 못함 (다음 갱신 때 보강).",
+    "일부는 팟캐스트 요약·2차 보도라 원문 표현과 다를 수 있음."
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "n": 1,
+   "title": "Ken Griffin Says AI Is 'Almost Certainly' in a Bubble (Yahoo Finance)",
+   "url": "https://finance.yahoo.com/technology/ai/articles/ken-griffin-says-ai-almost-213102019.html"
+  },
+  {
+   "n": 2,
+   "title": "Ken Griffin Compares AI Chips to Airline Seats (Yahoo Finance)",
+   "url": "https://finance.yahoo.com/technology/ai/articles/ken-griffin-compares-ai-chips-033500269.html"
+  },
+  {
+   "n": 3,
+   "title": "Dalio: AI a classic bubble near bursting (Business Standard)",
+   "url": "https://www.business-standard.com/world-news/ai-a-classic-bubble-that-is-nearing-bursting-point-warns-ray-dalio-126100700284_1.html"
+  },
+  {
+   "n": 4,
+   "title": "Gerstner on All-In, 9/17 요약 (Shortform)",
+   "url": "https://www.shortform.com/podcast/episode/all-in-with-chamath-jason-sacks-friedberg-2026-09-17-episode-summary-brad-gerstner-no-ai-bubble-semis-eat-the-nasdaq-ai-s-take-off-problem"
+  },
+  {
+   "n": 5,
+   "title": "Nvidia FY28 +70% 가이던스 (StockHub)",
+   "url": "https://stockhub.kr/en/insights/view_1787778662493_qnf75rbqx"
+  },
+  {
+   "n": 6,
+   "title": "Inside OpenAI's Reboot (TIME)",
+   "url": "https://time.com/article/2026/08/26/openai-sam-altman-interview/"
+  },
+  {
+   "n": 7,
+   "title": "Cloud giants pour nearly $600B into capex (The Register)",
+   "url": "https://www.theregister.com/a/5282679"
+  },
+  {
+   "n": 8,
+   "title": "Larry Fink at Milken (Yahoo Finance)",
+   "url": "https://finance.yahoo.com/sectors/technology/articles/larry-fink-says-theres-opposite-110500062.html"
+  },
+  {
+   "n": 9,
+   "title": "Amodei 파산 경고 (StartupHub)",
+   "url": "https://www.startuphub.ai/news/figure-dario-amodei-bankruptcy-warning-q1-growth-2026-07-11"
+  },
+  {
+   "n": 10,
+   "title": "Pichai BBC 인터뷰 2025.11",
+   "url": "https://bbc.bm/?p=29809"
+  }
+ ],
+ "disclaimer": "투자 권유가 아닌 참고용 요약입니다. 발언은 언론·요약 기준이며 원문과 다를 수 있습니다."
+}
