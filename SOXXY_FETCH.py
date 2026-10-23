@@ -2,7 +2,7 @@
 """SOXXY_FETCH.py - SOXX와 반도체 대형주 일봉(종가·수정종가) 2018-12 ~ 현재 -> soxxy.json (GitHub Actions)"""
 import json, time, requests
 UA = {"User-Agent": "Mozilla/5.0"}
-SYMS = ["SOXX","NVDA","AVGO","AMD","INTC","QCOM","TXN","MU","AMAT","LRCX","KLAC","MRVL","ADI","MCHP","NXPI","ON","MPWR","TER","SWKS","QRVO","XLNX","MXIM","MLNX","TSM","ASML","ARM","MCHP","WOLF","ENTG"]
+SYMS = ["SOXX","NVDA","AVGO","AMD","INTC","QCOM","TXN","MU","AMAT","LRCX","KLAC","MRVL","ADI","MCHP","NXPI","ON","MPWR","TER","SWKS","TSM","ASML","ENTG","QQQ","SPY","GLD","AAPL","MSFT","AMZN","GOOGL","META","TSLA","COST","NFLX","ADBE","CSCO","PEP","AMGN","CMCSA","TMUS","INTU","BKNG","HON","SBUX","ISRG","ADP","GILD","MDLZ","PYPL","JPM","BRK-B","JNJ","UNH","XOM","V","MA","PG","HD","LLY","WMT","CVX","ABBV","KO","MRK","BAC","ORCL","CRM","PFE","DIS","T","VZ","WFC","CAT","GS","NEE","IBM","GE","MCD","PM","ABT","TMO","LIN","NKE","MMM","BA","AMT"]
 P1 = 1543622400  # 2018-12-01
 out = {}
 for s in dict.fromkeys(SYMS):
