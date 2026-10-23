@@ -1,0 +1,31 @@
+name: SOXX history data (manual)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests
+      - name: Fetch
+        run: python SOXXY_FETCH.py
+      - name: Publish to soxxy-data branch
+        run: |
+          cp soxxy.json "$RUNNER_TEMP/sy.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -q --orphan soxxy-data
+          git rm -rfq . 2>/dev/null || true
+          cp "$RUNNER_TEMP/sy.json" soxxy.json
+          git add soxxy.json
+          git commit -qm "soxxy $(date -u +%FT%TZ)"
+          git push -f origin soxxy-data
