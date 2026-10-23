@@ -3,7 +3,7 @@
 import json, time, requests
 UA = {"User-Agent": "Mozilla/5.0"}
 SYMS = ["SOXX", "QQQ", "SPY", "VOO", "GLD", "IAU", "132030.KS", "411060.KS", "360750.KS", "133690.KS", "381180.KS", "091230.KS", "SPUU", "QLD", "USD", "KRW=X"]
-P1 = 1669852800  # 2022-12-01
+P1 = 1606780800
 out = {}
 for s in SYMS:
     for host in ("query1", "query2"):
