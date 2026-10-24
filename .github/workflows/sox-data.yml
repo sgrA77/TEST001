@@ -1,0 +1,31 @@
+name: SOX index history (manual)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests
+      - name: Fetch
+        run: python SOX_FETCH.py
+      - name: Publish to sox-data branch
+        run: |
+          cp sox.json "$RUNNER_TEMP/sx.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -q --orphan sox-data
+          git rm -rfq . 2>/dev/null || true
+          cp "$RUNNER_TEMP/sx.json" sox.json
+          git add sox.json
+          git commit -qm "lev $(date -u +%FT%TZ)"
+          git push -f origin sox-data
