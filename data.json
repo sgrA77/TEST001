@@ -1,6 +1,10 @@
 {
- "updated_at": "2026-10-25 04:18 KST",
+ "updated_at": "2026-10-25 06:40 KST",
  "warnings": [
+  "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLH0A0HYM2 | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0H",
+  "MACRO HY Spread 전체 실패 → 캐시/static 사용",
+  "MACRO BBB Spread ← fred:BAMLC0A4CBBB 실패: FRED 실패 → BAMLC0A4CBBB: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLC0A4CBBB | BAMLC0A4CBBB: 연결 실패 ReadTimeout | BAMLC0A4",
+  "MACRO BBB Spread 전체 실패 → 캐시/static 사용",
   "IPO 캘린더 11건 중 AI 관련 0건 (정상일 수 있음. 키워드는 IPO_AI_KEYWORDS)"
  ],
  "macro": {
@@ -124,7 +128,8 @@
     "prev_2year": 2.92,
     "prev_day": 3.27,
     "kind": "pp",
-    "suffix": "%"
+    "suffix": "%",
+    "stale": true
    },
    "BBB Spread": {
     "value": 1.11,
@@ -133,7 +138,8 @@
     "prev_2year": 1.02,
     "prev_day": 1.09,
     "kind": "pp",
-    "suffix": "%"
+    "suffix": "%",
+    "stale": true
    }
   }
  },
@@ -409,7 +415,7 @@
      "eps_est": 1.8924,
      "eps_act": 2.02,
      "rev_est": null,
-     "rev_act": 109417000000
+     "rev_act": null
     }
    ]
   },
@@ -537,7 +543,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 29591000000
     }
    ]
   },
@@ -740,9 +746,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 80385.8,
+    "price": 80316.19,
     "prev_day": 81074.1875,
-    "turnover": 23317301248,
+    "turnover": 22912090112,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -1064,7 +1070,7 @@
     "currency": "KRW",
     "price": 1277000.0,
     "prev_day": 1223000.0,
-    "turnover": 5033226542000.0,
+    "turnover": 5404221859000.0,
     "prev_month": 1776000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -1416,45 +1422,45 @@
  "gpu_rental": {
   "H100 SXM": {
    "spec": "Hopper · 80GB HBM3",
-   "price": 3.17,
-   "date": "2026-10-23",
-   "prev_day": 3.15,
-   "w1": 2.74,
-   "m1": 3.05,
-   "m3": 2.68,
+   "price": 3.02,
+   "date": "2026-10-24",
+   "prev_day": 3.17,
+   "w1": 2.78,
+   "m1": 2.92,
+   "m3": 2.6,
    "m6": null,
    "y1": null
   },
   "H200": {
    "spec": "Hopper · 141GB HBM3e",
-   "price": 5.74,
-   "date": "2026-10-23",
-   "prev_day": 6.02,
-   "w1": 6.34,
-   "m1": 5.02,
-   "m3": 4.55,
+   "price": 6.2,
+   "date": "2026-10-24",
+   "prev_day": 5.74,
+   "w1": 6.39,
+   "m1": 5.16,
+   "m3": 4.86,
    "m6": null,
    "y1": null
   },
   "B200": {
    "spec": "Blackwell · 180GB HBM3e",
-   "price": 9.58,
-   "date": "2026-10-23",
-   "prev_day": 9.32,
-   "w1": 8.12,
-   "m1": 7.95,
-   "m3": 6.7,
+   "price": 9.57,
+   "date": "2026-10-24",
+   "prev_day": 9.58,
+   "w1": 8.48,
+   "m1": 8.01,
+   "m3": 6.58,
    "m6": null,
    "y1": null
   },
   "A100 SXM4": {
    "spec": "Ampere · 80GB HBM2e",
-   "price": 1.09,
-   "date": "2026-10-23",
+   "price": 1.08,
+   "date": "2026-10-24",
    "prev_day": 1.09,
-   "w1": 0.94,
-   "m1": 1.03,
-   "m3": 1.06,
+   "w1": 0.97,
+   "m1": 1.02,
+   "m3": 1.05,
    "m6": null,
    "y1": null
   }
@@ -1734,7 +1740,8 @@
    "2026-10-20": 3.12,
    "2026-10-21": 3.09,
    "2026-10-22": 3.15,
-   "2026-10-23": 3.17
+   "2026-10-23": 3.17,
+   "2026-10-24": 3.02
   },
   "GPU H200": {
    "2026-07-02": 4.02,
@@ -1850,7 +1857,8 @@
    "2026-10-20": 6.16,
    "2026-10-21": 5.88,
    "2026-10-22": 6.02,
-   "2026-10-23": 5.74
+   "2026-10-23": 5.74,
+   "2026-10-24": 6.2
   },
   "GPU B200": {
    "2026-07-02": 5.13,
@@ -1966,7 +1974,8 @@
    "2026-10-20": 8.83,
    "2026-10-21": 9.4,
    "2026-10-22": 9.32,
-   "2026-10-23": 9.58
+   "2026-10-23": 9.58,
+   "2026-10-24": 9.57
   },
   "GPU A100 SXM4": {
    "2026-07-02": 1.01,
@@ -2082,7 +2091,8 @@
    "2026-10-20": 1.04,
    "2026-10-21": 1.07,
    "2026-10-22": 1.09,
-   "2026-10-23": 1.09
+   "2026-10-23": 1.09,
+   "2026-10-24": 1.08
   }
  }
 }
