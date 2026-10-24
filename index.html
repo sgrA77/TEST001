@@ -366,27 +366,24 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 .ol-link .ol-t{font-size:13px;font-weight:800;white-space:nowrap}
 .ol-link .ol-s{font-size:12px;color:var(--sub);text-align:right;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ol-link .ol-v{font-weight:800}
-.rules{background:var(--card,#fff);border-left:5px solid var(--yellow);margin-bottom:12px;padding:12px 12px 10px}
-.rules .rl-h{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:8px}
-.rules .rl-h b{font-size:16px;font-weight:800}.rules .rl-h span{font-size:11px;color:var(--sub)}
-.rules .rb{padding:10px 0;border-top:1px solid var(--line,#e8e8ec)}
-.rules .rb-t{font-size:13.5px;font-weight:800;display:flex;align-items:center;gap:7px;margin-bottom:7px}
-.rules .rb-t i{flex:none;width:19px;height:19px;border-radius:50%;background:var(--amber);color:#fff;font-style:normal;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.rules{background:var(--card,#fff);border-left:5px solid var(--yellow);margin-bottom:12px;padding:9px 11px 8px}
+.rules .rl-h{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:4px}
+.rules .rl-h b{font-size:15px;font-weight:800}.rules .rl-h span{font-size:10.5px;color:var(--sub)}
 .rules em{font-style:normal;color:var(--amber);font-weight:800}
-.rules .rb-g{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.rules .rb-g div{background:rgba(128,128,128,.08);border-radius:8px;padding:7px 4px;text-align:center}
-.rules .rb-g span{display:block;font-size:10.5px;color:var(--sub)}.rules .rb-g b{font-size:15px;font-weight:800}
-.rules .rb-s{font-size:11.5px;color:var(--sub);line-height:1.55;margin-top:7px}
-.rules .rb-s b{color:inherit}
-.rules .rb-big{font-size:22px;font-weight:800}
-.rules .loss{color:var(--down-t)}
-.rules .rb-hl{background:rgba(255,193,7,.09);margin:0 -12px -10px;padding:10px 12px;border-radius:0 0 8px 8px}
-.rules .rb-act{font-size:14px;margin-bottom:8px}.rules .rb-act b{font-weight:800;color:var(--amber)}
-.rules .rb-tb{width:100%;border-collapse:collapse;font-size:12.5px}
-.rules .rb-tb th{font-size:11px;font-weight:700;color:var(--sub);text-align:center;padding:3px 4px;border-bottom:1px solid rgba(128,128,128,.25)}
+.rules .rr{display:flex;gap:8px;align-items:baseline;padding:5px 0;border-top:1px solid var(--line,#e2e6ec);font-size:12.5px;line-height:1.45}
+.rules .rr i{flex:none;width:44px;font-style:normal;font-size:10.5px;font-weight:800;color:var(--amber);background:rgba(224,138,0,.12);border-radius:4px;text-align:center;padding:1px 0}
+.rules .rr small{color:var(--sub);font-size:11px}.rules .rr small b{color:inherit}
+.rules .rr-hl b{color:var(--amber)}
+.rules .loss{color:var(--down-t);font-weight:800;font-size:14px}
+.rules .rb-tb{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:5px}
+.rules .rb-tb th{font-size:10.5px;font-weight:700;color:var(--sub);text-align:center;padding:2px 3px;border-bottom:1px solid rgba(128,128,128,.25)}
 .rules .rb-tb th:first-child,.rules .rb-tb td:first-child{text-align:left}
-.rules .rb-tb td{text-align:center;padding:5px 4px;font-weight:700}
-.rules .rb-tb .up{color:var(--up-t,#d03030);font-weight:800}
+.rules .rb-tb td{text-align:center;padding:2px 3px;font-weight:700;border-bottom:1px solid rgba(128,128,128,.1)}
+.rules .rb-tb .up{color:var(--up-t,#cf2525);font-weight:800}
+.rules .rb-tb tr.md td{background:rgba(224,138,0,.1)}
+.rules .rb-tb small{color:var(--sub);font-weight:600;font-size:9.5px}
+.rules .rb-d{margin-top:4px}.rules .rb-d summary{font-size:11px;color:var(--sub);cursor:pointer;padding:2px 0}
+.rules .rb-n{font-size:10.5px;color:var(--sub);margin-top:5px;line-height:1.45}
 </style>
 </head>
 
@@ -405,32 +402,21 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 
     <div class="panel rules" id="rules">
         <div class="rl-h"><b>투자 원칙</b><span>매일 확인 · 흔들리지 말 것</span></div>
-
-        <div class="rb">
-            <div class="rb-t"><i>1</i>적립식은 <em>SOXX</em>에만</div>
-            <div class="rb-g">
-                <div><span>시드</span><b>5,000만</b></div>
-                <div><span>매월 25일</span><b>70만</b></div>
-                <div><span>연 합계</span><b>2,740만</b></div>
-            </div>
-            <div class="rb-s">1·8·9월 +200만 · 10월 +1,000만 · 12월 +300만 · 2030년 말까지 1차 완주</div>
-        </div>
-
-        <div class="rb">
-            <div class="rb-t"><i>2</i>허용 연간 손실</div>
-            <div class="rb-big loss">500~750만원</div>
-        </div>
-
-        <div class="rb rb-hl">
-            <div class="rb-t"><i>3</i>SOXX 주봉 <em>120주선</em> 터치 시</div>
-            <div class="rb-act"><b>USD(2x)</b> 또는 <b>SOXL(3x)</b> 적극 매수</div>
-            <table class="rb-tb">
-                <tr><th>평균 기대수익률</th><th>USD 2x</th><th>SOXL 3x</th></tr>
-                <tr><td>6개월</td><td class="up">+60%</td><td class="up">+79%</td></tr>
-                <tr><td>12개월</td><td class="up">+163%</td><td class="up">+248%</td></tr>
-            </table>
-            <div class="rb-s"><b>최소 12개월 홀딩</b> · 길어지면 최대 약 2년까지<br>과거 4번 평균(가상 계산) · 최악 6개월 −1% / −13% · SOXL 낙폭 최대 −54%</div>
-        </div>
+        <div class="rr"><i>적립</i><div><b>SOXX에만</b> · 시드 <em>5,000만</em> + 매월 25일 <em>70만</em> · 연 <em>2,740만</em><br><small>1·8·9월 +200 · 10월 +1,000 · 12월 +300 (만원) · 2030년 말까지 1차 완주</small></div></div>
+        <div class="rr"><i>손실</i><div>허용 연간 손실 <span class="loss">500~750만원</span></div></div>
+        <div class="rr rr-hl"><i>120주선</i><div>SOXX 주봉 120주선 터치 → <b>USD(2x)</b> 또는 <b>SOXL(3x)</b> 적극 매수<br><small><b>최소 12개월 홀딩</b> · 길면 최대 약 2년</small></div></div>
+        <table class="rb-tb">
+            <tr><th>평균 기대수익률</th><th>USD 2x</th><th>SOXL 3x</th></tr>
+            <tr><td>6개월</td><td class="up">+60%</td><td class="up">+79%</td></tr>
+            <tr><td>12개월</td><td class="up">+163%</td><td class="up">+248%</td></tr>
+        </table>
+        <table class="rb-tb">
+            <tr><th colspan="5">터치 후 다음 터치 전까지 최고 수익 (최근 4번)</th></tr>
+            <tr><th>터치</th><th>SOXX</th><th>2x</th><th>3x</th><th>고점까지</th></tr><tr><td>25.03 <small>진행 중</small></td><td class="up">+247%</td><td class="up">+860%</td><td class="up">+2,014%</td><td>15개월</td></tr><tr><td>22.06</td><td class="up">+117%</td><td class="up">+280%</td><td class="up">+439%</td><td>25개월</td></tr><tr><td>20.03</td><td class="up">+194%</td><td class="up">+570%</td><td class="up">+1,072%</td><td>22개월</td></tr><tr><td>18.12</td><td class="up">+76%</td><td class="up">+184%</td><td class="up">+322%</td><td>14개월</td></tr><tr class="md"><td>16번 중앙값</td><td class="up">+26%</td><td class="up">+54%</td><td class="up">+87%</td><td></td></tr>
+        </table>
+        <details class="rb-d"><summary>2004년 이후 16번 전체 보기</summary>
+        <table class="rb-tb"><tr><th>터치</th><th>SOXX</th><th>2x</th><th>3x</th><th>고점까지</th></tr><tr><td>25.03 <small>진행 중</small></td><td class="up">+247%</td><td class="up">+860%</td><td class="up">+2,014%</td><td>15개월</td></tr><tr><td>22.06</td><td class="up">+117%</td><td class="up">+280%</td><td class="up">+439%</td><td>25개월</td></tr><tr><td>20.03</td><td class="up">+194%</td><td class="up">+570%</td><td class="up">+1,072%</td><td>22개월</td></tr><tr><td>18.12</td><td class="up">+76%</td><td class="up">+184%</td><td class="up">+322%</td><td>14개월</td></tr><tr><td>16.06</td><td class="up">+123%</td><td class="up">+366%</td><td class="up">+808%</td><td>20개월</td></tr><tr><td>16.01</td><td class="up">+17%</td><td class="up">+35%</td><td class="up">+51%</td><td>6개월</td></tr><tr><td>15.08</td><td class="up">+16%</td><td class="up">+32%</td><td class="up">+46%</td><td>3개월</td></tr><tr><td>12.05</td><td class="up">+96%</td><td class="up">+241%</td><td class="up">+429%</td><td>37개월</td></tr><tr><td>11.08</td><td class="up">+26%</td><td class="up">+48%</td><td class="up">+63%</td><td>8개월</td></tr><tr><td>10.08</td><td class="up">+55%</td><td class="up">+137%</td><td class="up">+254%</td><td>6개월</td></tr><tr><td>10.01</td><td class="up">+25%</td><td class="up">+55%</td><td class="up">+89%</td><td>2개월</td></tr><tr><td>07.11</td><td>0%</td><td>0%</td><td>0%</td><td>0개월</td></tr><tr><td>06.06</td><td class="up">+27%</td><td class="up">+53%</td><td class="up">+74%</td><td>13개월</td></tr><tr><td>05.10</td><td class="up">+25%</td><td class="up">+52%</td><td class="up">+85%</td><td>7개월</td></tr><tr><td>05.01</td><td class="up">+23%</td><td class="up">+47%</td><td class="up">+70%</td><td>8개월</td></tr><tr><td>04.07</td><td class="up">+11%</td><td class="up">+18%</td><td class="up">+21%</td><td>5개월</td></tr><tr class="md"><td>16번 중앙값</td><td class="up">+26%</td><td class="up">+54%</td><td class="up">+87%</td><td></td></tr></table></details>
+        <div class="rb-n">과거 평균(2x·3x는 가상 계산) · 고점은 지나야 알 수 있음 · 최악 6개월 −1% / −13% · SOXL 낙폭 최대 −54%</div>
     </div>
 
     <a class="panel slim ol-link hl-link" href="etfcmp.html" id="etflink"><span class="ol-t">★ ETF 적립식 비교</span><span class="ol-s">미국 vs 국내 · 금·지수 ETF · 세후 →</span></a>
