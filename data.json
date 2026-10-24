@@ -1,10 +1,6 @@
 {
- "updated_at": "2026-10-25 01:57 KST",
+ "updated_at": "2026-10-25 04:18 KST",
  "warnings": [
-  "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLH0A0HYM2 | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0H",
-  "MACRO HY Spread 전체 실패 → 캐시/static 사용",
-  "MACRO BBB Spread ← fred:BAMLC0A4CBBB 실패: FRED 실패 → BAMLC0A4CBBB: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLC0A4CBBB | BAMLC0A4CBBB: 연결 실패 ReadTimeout | BAMLC0A4",
-  "MACRO BBB Spread 전체 실패 → 캐시/static 사용",
   "IPO 캘린더 11건 중 AI 관련 0건 (정상일 수 있음. 키워드는 IPO_AI_KEYWORDS)"
  ],
  "macro": {
@@ -128,8 +124,7 @@
     "prev_2year": 2.92,
     "prev_day": 3.27,
     "kind": "pp",
-    "suffix": "%",
-    "stale": true
+    "suffix": "%"
    },
    "BBB Spread": {
     "value": 1.11,
@@ -138,8 +133,7 @@
     "prev_2year": 1.02,
     "prev_day": 1.09,
     "kind": "pp",
-    "suffix": "%",
-    "stale": true
+    "suffix": "%"
    }
   }
  },
@@ -201,8 +195,8 @@
    "date": "2026-10-28",
    "ts": 1793217600,
    "d_day": 3,
-   "eps_est": 4.7153,
-   "rev_est": 90716592940,
+   "eps_est": 4.7199,
+   "rev_est": 90751435050,
    "quarters": [
     {
      "label": "4Q2025",
@@ -266,7 +260,7 @@
    "ts": 1793217600,
    "d_day": 3,
    "eps_est": 1.1782,
-   "rev_est": 4038223450,
+   "rev_est": 4038185350,
    "quarters": [
     {
      "label": "4Q2025",
@@ -415,7 +409,7 @@
      "eps_est": 1.8924,
      "eps_act": 2.02,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 109417000000
     }
    ]
   },
@@ -543,7 +537,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": 29591000000
+     "rev_act": null
     }
    ]
   },
@@ -617,7 +611,7 @@
    "date": null,
    "ts": null,
    "d_day": null,
-   "eps_est": 8.489,
+   "eps_est": 8.5522,
    "rev_est": 74946821700,
    "quarters": [
     {
@@ -650,7 +644,7 @@
    "ts": null,
    "d_day": null,
    "eps_est": 0.4943,
-   "rev_est": 29266523500,
+   "rev_est": 29327323500,
    "quarters": [
     {
      "label": "1Q2026",
@@ -746,9 +740,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 80152.7,
+    "price": 80385.8,
     "prev_day": 81074.1875,
-    "turnover": 23285532672,
+    "turnover": 23317301248,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -1070,7 +1064,7 @@
     "currency": "KRW",
     "price": 1277000.0,
     "prev_day": 1223000.0,
-    "turnover": 5404221859000.0,
+    "turnover": 5033226542000.0,
     "prev_month": 1776000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -1475,8 +1469,8 @@
    },
    "MSFT": {
     "3Q2026": {
-     "eps_est": 4.71529,
-     "rev_est": 90716592940
+     "eps_est": 4.71992,
+     "rev_est": 90751435050
     }
    },
    "AAPL": {
@@ -1503,7 +1497,7 @@
      "rev_est": 63405681590
     },
     "4Q2026": {
-     "eps_est": 8.489,
+     "eps_est": 8.55222,
      "rev_est": 74946821700
     }
    },
@@ -1514,7 +1508,7 @@
     },
     "4Q2026": {
      "eps_est": 0.49431,
-     "rev_est": 29266523500
+     "rev_est": 29327323500
     }
    },
    "AMD": {
@@ -1578,7 +1572,7 @@
    "KLAC": {
     "3Q2026": {
      "eps_est": 1.17822,
-     "rev_est": 4038223450
+     "rev_est": 4038185350
     }
    },
    "SNDK": {
