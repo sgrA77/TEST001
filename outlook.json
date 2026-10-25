@@ -1,237 +1,194 @@
 {
  "version": 2,
- "date": "2026-10-23",
- "data_as_of": "2026-10-22 미국 장 마감 (Western Digital 실적은 장 마감 후 발표 예정, 미반영)",
- "generated_at": "2026-10-23T09:40:29+09:00",
+ "data_as_of": "2026-10-23 미국 장 마감",
  "market_view": {
   "label": "Neutral",
-  "summary": "10/22 S&P 500은 약 7,663(-1.2%), 나스닥은 약 26,009(-2.6%, Reuters는 4개월 만의 최대 낙폭으로 표현)로 마감했고 다우는 보합(+0.02%)이었다. Meta의 첫 현금 소진과 Lam Research의 공급 병목 경고로 AI 투자 수익성·자금조달 의구심이 재점화돼 반도체지수가 6%대 하락했다. 10년물이 5% 안팎으로 내렸고 일부는 방어주로 순환했지만, 브렌트 111달러대와 10/28 FOMC·12월 인상 기대가 남아 중립(하방 경계)을 유지한다.",
-  "ai_line": "AI 수요 자체보다 자본 조달(Meta 현금 소진, 엔비디아 CEO의 '자본 부족' 발언)과 공급 병목(Lam)이 부각돼 반도체는 이틀간의 반등을 반납했다.",
+  "summary": "10/23 S&P 500은 7,623.68(-0.52%, 9/16 이후 최저, 10/6 고점 대비 -2.5%), 나스닥 종합은 25,955.34(-0.21%), 다우는 -1.23%였고 반도체지수는 전날 -6.72% 뒤 +0.44% 반등했다. Brent는 116.72달러로 4/29 이후 최고가 됐고 10년물은 5.00% 안팎에서 채권이 주식 하락을 방어하지 못했다. AI 투자 자금조달 우려와 유가·인플레 재압박이 겹쳐 중립(하방 경계)을 유지하며, 10/28 FOMC와 빅테크 실적을 앞두고 있다.",
+  "ai_line": "반도체는 전날 -6.72% 급락 후 +0.44% 반등했지만 주간 SOX -3.2%로 7월 저점을 시험 중이고, Amazon은 2026 AI 컴퓨트가 전량 예약됐다고 밝혀 수요와 자금조달 우려가 엇갈린다.",
   "src": [
+   "s1",
    "s2",
-   "s4",
-   "s5",
-   "s6",
-   "s8"
+   "s7"
   ]
  },
  "key_changes": [
   {
-   "title": "AI 투자 수익성 의구심 재점화: 나스닥 -2.6%, 반도체지수 -6%대",
-   "detail": "Meta의 첫 현금 소진, Tesla의 2026 capex 하향(250→200억달러), Lam 공급 경고가 겹쳐 전날 반등을 반납했다. SOX는 6월 22일 기록 대비 26% 이상 낮지만 연초 대비 약 +52%다(Reuters).",
+   "title": "S&P 500 -0.52%, 나스닥 -0.21%: 방어주·소비재 약세, 반도체는 +0.44% 반등",
+   "detail": "S&P 500은 7,623.68로 9/16 이후 최저, 다우는 652.82포인트(-1.23%) 하락했다. 전날 -6.72%였던 반도체지수는 10,779.46으로 반등했으나 주간 기준 -3.2%다.",
    "importance": "HIGH",
    "src": [
-    "s5",
-    "s6",
-    "s4",
-    "s2"
-   ]
-  },
-  {
-   "title": "Meta: 매출은 호조, 3분기 잉여현금흐름 -21.2억달러, CDS 기록",
-   "detail": "2026 capex 가이던스 하단을 1,350억달러로 상향(상단 1,450억달러). 2027년 1월부터 비의결권 Class C 주식을 거래하고 2:1 분할을 추진하며 주가는 약 -7%였다(7월 이후 최대 낙폭으로 보도).",
-   "importance": "HIGH",
-   "src": [
-    "s4",
-    "s5",
-    "s8"
-   ]
-  },
-  {
-   "title": "Lam Research 실적: 사상 최대에도 공급 병목으로 가이던스 제약",
-   "detail": "매출 82.2억달러, 12월 분기 가이던스 86억달러±4억달러이며 CFO는 공급 제약이 없었다면 '조금 더 높았을 것'이라고 했다. 2027 WFE는 2,000억달러 초과로 예비 전망했으나 주가는 약 -9~12%였고 AMAT·ASML·MRVL·AMD 등이 동반 하락했다.",
-   "importance": "HIGH",
-   "src": [
-    "s11",
-    "s12",
-    "s13",
+    "s1",
+    "s2",
     "s4"
    ]
   },
   {
-   "title": "채권·유가: 10년물 5% 안팎으로 급락, 브렌트는 5개월 고점",
-   "detail": "위험회피로 10년물이 하루 10bp 이상 하락했지만(출처별 4.95~5.03%) 브렌트는 111~113달러로 올랐다. Houthi의 사우디 공격과 'US·이스라엘이 총선 이후 이란 공격 재개를 계획'(NYT 보도)이 배경이다.",
+   "title": "Brent 116.72달러(+3.55) 4/29 이후 최고: 후티의 사우디 시설 공격과 걸프 충돌 우려",
+   "detail": "WTI는 103.27달러로 마감했고 6~12개월 선물도 올라 조기 해소 기대가 약하다. 미시간대 1년 기대인플레이션 4.7%, PMI 판매가격은 2022년 8월 이후 최대 상승이다.",
    "importance": "HIGH",
    "src": [
     "s2",
-    "s6",
-    "s8",
-    "s1"
+    "s3"
    ]
   },
   {
-   "title": "SpaceX 실적 랠리 반납: -9%, 4분기 capex 350~400억달러",
-   "detail": "전날 +7.8% 상승분의 절반 이상을 반납했다. 4분기 capex 가이던스가 3분기 196억달러에서 크게 오르고 Tesla 합병 불확실성과 락업 물량이 부담이다.",
+   "title": "10년물 5.00% 안팎: 3주 연속 하락에도 유가·물가 지표로 반등 압력, 12월 인상 확률 약 78%",
+   "detail": "10/5 고점보다 약 31bp 낮지만 이날은 주식과 채권이 함께 약했다. 10/28 인상 확률은 약 10%이고 로이터 설문 이코노미스트 100명 전원이 12월 인상을 예상했다.",
+   "importance": "HIGH",
+   "src": [
+    "s2",
+    "s5"
+   ]
+  },
+  {
+   "title": "SpaceX의 미국 기지국 8만 곳 접근 협상 보도: AT&T -8.0%, T-Mobile -7.7%, Crown Castle +9.1%",
+   "detail": "SpaceX가 제4 이동통신사 진출을 위해 기지국 확보를 협상 중이라는 보도다. 타워 업체는 급등했고 통신사는 급락했다.",
    "importance": "MEDIUM",
    "src": [
-    "s23",
-    "s24",
-    "s25"
+    "s1",
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "title": "SK hynix, 자회사 Solidigm 상장 검토 중단: 자본시장 여건 이유",
+   "detail": "10/23 발표이며 직전 거래일 코스피는 -3.52%였다. 이중상장 희석 우려가 있었던 만큼 일부는 긍정 재료로 본다.",
+   "importance": "MEDIUM",
+   "src": [
+    "s4"
    ]
   }
  ],
  "issues": [
   {
    "title": "AI 투자 자금조달·수익성 검증",
-   "detail": "병목이 수요에서 '자본'으로 이동했다. Meta 현금 소진·CDS 기록, 엔비디아 CEO의 '자본 부족' 발언, CoreWeave -10%에 IBM·Tesla의 AI 지출 신중론까지 겹쳤다. 10/28 MSFT·GOOGL, 10/29 AMZN 실적이 시험대다.",
-   "tag": "신규",
+   "detail": "Meta는 3분기 잉여현금흐름이 -21.2억달러(영업현금 327.9억 대 capex 349.1억)이고 5년 CDS가 기록인 114.79bp다. Man Group은 내년 데이터센터 투자가 예상보다 줄 가능성을 언급했고, Goldman은 CoreWeave·Oracle의 부채 조달 필요를 추정한다(모델 추정).",
+   "tag": "지속",
    "trend": "up",
    "importance": "HIGH",
    "src": [
+    "s3",
     "s4",
-    "s8",
-    "s14",
-    "s22",
-    "s31"
+    "s7",
+    "s8"
    ]
   },
   {
-   "title": "반도체 공급 병목·메모리 가격 둔화",
-   "detail": "Lam은 클린룸·부품 제약이 2027년까지 갈 수 있다고 했다(수요 둔화가 아닌 공급 제약). TrendForce는 계약가 상승 둔화를, 시장은 CXMT 경쟁을 우려해 SanDisk -8%, MU -6%.",
+   "title": "유가 6개월 고점이 인플레·금리로 전이",
+   "detail": "Brent 116.72달러와 기대인플레 4.7%가 12월 인상 베팅을 지지하고, 에너지 업종은 사상 최고(AP 중간 집계)다. Wells Fargo의 디젤 비용 경고로 할인소매·항공이 약했다.",
    "tag": "지속",
-   "trend": "steady",
+   "trend": "up",
    "importance": "HIGH",
    "src": [
-    "s11",
-    "s12",
-    "s13",
-    "s15",
-    "s16"
+    "s2",
+    "s3",
+    "s5"
    ]
   },
   {
-   "title": "대형 AI IPO·락업 물량",
-   "detail": "Anthropic S-1 공개 시한이 10/25 전후, 11/9 주간 로드쇼 보도. OpenAI는 약 300억달러 조달을 서두르고 SpaceX 락업 해제(10/22경·10/24)와 Tesla 합병 불확실성이 수급 부담이다.",
+   "title": "AI 수요 매진 vs 공급·전력 병목",
+   "detail": "Amazon은 2026 AI 컴퓨트가 전량 예약이고 2027도 대부분 판매됐으며 메모리·전력 병목이 2027 이후에도 갈 수 있다고 본다(2차 브리프 요약). 버지니아 Loudoun 데이터센터 모라토리엄 표결은 11/17로 연기됐다.",
    "tag": "지속",
    "trend": "steady",
    "importance": "MEDIUM",
    "src": [
-    "s23",
-    "s25",
-    "s26",
-    "s27"
+    "s7"
+   ]
+  },
+  {
+   "title": "SpaceX의 AI·통신 동시 확장",
+   "detail": "SpaceX 3분기 매출은 +161%인 145.8억달러, AI 부문은 +830%인 75.6억달러로 통신을 처음 앞섰다. 컴퓨팅 용량을 내년 말 13GW 이상으로 늘릴 계획이고, 통신 진출 보도로 통신주가 흔들렸다.",
+   "tag": "신규",
+   "trend": "up",
+   "importance": "MEDIUM",
+   "src": [
+    "s1",
+    "s2",
+    "s10"
    ]
   }
  ],
  "risks": [
   {
-   "title": "Fed 12월 인상·장기금리",
-   "detail": "9월 CPI 3.7%. 12월 인상 확률 약 83%(10/20), 10년물 5% 안팎으로 밸류에이션 부담.",
-   "watch": "10/28 FOMC (동결 우세)",
+   "title": "Fed 12월 인상·장기금리 재상승",
+   "detail": "유가·기대인플레가 높아 10/28 FOMC에서 12월 신호가 강해지면 5% 안팎의 10년물이 다시 오를 수 있다. 시장은 12월을 사실상 반영했다.",
+   "watch": "10/28 FOMC·워시 기자회견, 10/29 3분기 GDP와 9월 PCE",
    "importance": "HIGH",
    "src": [
-    "s10",
-    "s6"
+    "s5",
+    "s6",
+    "s2"
    ]
   },
   {
-   "title": "유가·중동 에스컬레이션",
-   "detail": "브렌트 111~113달러, 5개월 고점. Houthi의 사우디 공격·이란 공격 재개 보도가 인플레와 금리 경로를 자극.",
-   "watch": "브렌트 추가 상승, 중동 보도",
+   "title": "중동 확전(걸프 공격·해저케이블)",
+   "detail": "이란이 미국·이스라엘이 다시 공격하면 걸프 해저케이블을 타격할 계획을 세웠다는 보도가 있다. 주말 에스컬레이션 우려가 유가를 밀어올렸다.",
+   "watch": "주말 이후 Brent 117달러 돌파 여부, 후티·이란 관련 헤드라인",
    "importance": "HIGH",
    "src": [
-    "s2",
-    "s8",
-    "s1"
-   ]
-  },
-  {
-   "title": "AI 인프라 신용 경색",
-   "detail": "Meta CDS 기록, CoreWeave 무담보채 수익률 15% 보도 등 신용 비용이 AI 투자를 제약할 수 있다.",
-   "watch": "네오클라우드 스프레드·CDS",
-   "importance": "HIGH",
-   "src": [
-    "s4",
-    "s8"
+    "s1",
+    "s2"
    ]
   },
   {
    "title": "반도체 쏠림·포지션 청산",
-   "detail": "SOX는 6월 22일 기록 대비 26% 이상 낮다. 나스닥100 기술 비중 약 68%, NVDA·MU·AMD가 약 17.6%.",
-   "watch": "SOX 추가 하락, 대형주 동반 매도",
+   "detail": "SOX는 주간 -3.2%로 7월 저점을 시험 중이다. 10/22 헤지펀드 수익률이 코로나 이후 처음 -1% 이상 하락했다고 한다.",
+   "watch": "10/28 SK hynix, 10/29 Samsung·Intel·Amazon 실적, SOX 7월 저점 이탈 여부",
    "importance": "HIGH",
    "src": [
+    "s2",
     "s6",
-    "s14"
+    "s4"
+   ]
+  },
+  {
+   "title": "AI 인프라 신용 경색",
+   "detail": "Nebius는 364일 만기 35억달러 브리지론을 SOFR+2.75%로 조달했고 Meta CDS는 기록이다. 자금 비용이 오르면 데이터센터 확장 속도가 꺾일 수 있다.",
+   "watch": "10/28 Alphabet·Microsoft capex 가이던스와 조달 계획",
+   "importance": "MEDIUM",
+   "src": [
+    "s7",
+    "s4",
+    "s6"
    ]
   }
  ],
- "flow": "Neutral 유지(하방 경계): Meta 현금 소진·Lam 병목으로 AI 수익성 의구심 재점화, 금리 5%·유가 111달러 부담.",
+ "flow": "Neutral 유지(하방 경계): Brent 116.72달러·중동 긴장과 AI 자금조달 우려가 지속되고, 반도체는 급락 후 반등했지만 10/28 FOMC와 빅테크 실적 전까지 방향성이 불확실하다.",
  "sources": [
   {
    "id": "s1",
-   "title": "Schwab Market Update: Thursday, October 22, 2026",
-   "publisher": "Charles Schwab",
-   "url": "https://www.schwab.com/learn/story/stock-market-update-open",
-   "date": "2026-10-22",
+   "title": "US Stocks Close: Dow Drops Over 600 Points, CrowdStrike Gains Over 8%",
+   "publisher": "TradingKey",
+   "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262236830-us-market-close-dow-drop-consumer-healthcare-chips-rebound-crowdstrike-tradingkey",
+   "date": "2026-10-23",
    "tier": "집계"
   },
   {
    "id": "s2",
-   "title": "Stock market today: S&P 500, Nasdaq tank as tech sinks amid AI trade worries, Meta plummets",
-   "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/article/stock-market-today-thursday-october-22-dow-sp-500-nasdaq-tesla-meta-112217857.html",
-   "date": "2026-10-22",
-   "tier": "언론"
+   "title": "Oil hits a six-month high and stocks slip. Tech holds steady.",
+   "publisher": "CNT Trading (Substack)",
+   "url": "https://cnttrading.substack.com/p/daily-market-2026-10-23",
+   "date": "2026-10-23",
+   "tier": "집계"
   },
   {
    "id": "s3",
-   "title": "Stock Market Midday, Oct. 22: Tech Weakness Drags Nasdaq Lower as AI Spending Concerns Mount",
-   "publisher": "Motley Fool",
-   "url": "https://www.fool.com/coverage/stock-market-today/2026/10/22/stock-market-midday-oct-22-tech-weakness-drags-nasdaq-lower-as-ai-spending-concerns-mount/",
-   "date": "2026-10-22",
-   "tier": "언론"
-  },
-  {
-   "id": "s4",
-   "title": "Steep bill for AI buildout punishes Meta, other tech favorites (Reuters)",
-   "publisher": "Investing.com / Reuters",
-   "url": "https://www.investing.com/news/economy-news/steep-bill-for-ai-buildout-punishes-meta-other-tech-favorites-4967187",
-   "date": "2026-10-22",
-   "tier": "언론"
-  },
-  {
-   "id": "s5",
-   "title": "Nasdaq Sinks 694 Points as Meta Stock Slumps After Earnings",
-   "publisher": "Kiplinger",
-   "url": "https://www.kiplinger.com/investing/stocks/nasdaq-sinks-694-points-as-meta-stock-slumps-stock-market-today",
-   "date": "2026-10-22",
-   "tier": "언론"
-  },
-  {
-   "id": "s6",
-   "title": "S&P 500, Nasdaq end sharply lower as revived AI doubts ignite tech selloff (Reuters)",
-   "publisher": "Yahoo Finance / Reuters",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-futures-drop-over-1-093849296.html",
-   "date": "2026-10-22",
-   "tier": "언론"
-  },
-  {
-   "id": "s7",
-   "title": "Wall Street sinks as Nasdaq falls over 2% on AI cost worries",
-   "publisher": "The Korea Times",
-   "url": "https://www.koreatimes.co.kr/world/20261023/wall-street-sinks-as-nasdaq-falls-over-2-on-ai-cost-worries",
+   "title": "Dow, S&P 500 fall, tech steadies to end rocky week",
+   "publisher": "Spokesman-Review (AP)",
+   "url": "https://www.spokesman.com/stories/2026/oct/23/dow-sp-500-fall-tech-steadies-to-end-rocky-week/",
    "date": "2026-10-23",
    "tier": "언론"
   },
   {
-   "id": "s8",
-   "title": "Tech stocks fall as Nvidia boss warns of AI funding slowdown",
-   "publisher": "AOL",
-   "url": "https://www.aol.com/articles/tech-stocks-fall-nvidia-boss-152634000.html",
-   "date": "2026-10-22",
+   "id": "s4",
+   "title": "Kospi faces another 'Black Friday' as US chip stocks tumble; SK hynix halts Solidigm IPO plan",
+   "publisher": "The Herald Business",
+   "url": "https://biz.heraldcorp.com/article/10912123",
+   "date": "2026-10-23",
    "tier": "언론"
   },
   {
-   "id": "s9",
-   "title": "US Stock Market Today LIVE: Dow, S&P 500, Nasdaq slide as Brent tops $111",
-   "publisher": "The Sunday Guardian",
-   "url": "https://sundayguardianlive.com/business/us-stock-market-today-live-dow-jones-slips-300-points-sp-500-slips-127-and-nasdaq-down-207-as-price-tops-111-spacex-tech-stocks-slide-check-latest-wall-street-updates-310277/",
-   "date": "2026-10-22",
-   "tier": "언론"
-  },
-  {
-   "id": "s10",
+   "id": "s5",
    "title": "The Fed will sit still on October 28 — but 100 of 100 economists now expect a December hike",
    "publisher": "Mitrade",
    "url": "https://www.mitrade.com/insights/more/Central-Banks/fed-october-hold-december-hike-20261022J1428",
@@ -239,172 +196,38 @@
    "tier": "집계"
   },
   {
-   "id": "s11",
-   "title": "Lam Research Q1 FY2027 Earnings Call Highlights",
-   "publisher": "GuruFocus",
-   "url": "https://www.gurufocus.com/news/9136007/lam-research-corp-lrcx-q1-2027-earnings-call-highlights-record-revenue-firstever-40-operating-margin-and-a-bullish-200-billion-wfe-outlook",
-   "date": "2026-10-21",
-   "tier": "집계"
-  },
-  {
-   "id": "s12",
-   "title": "Lam Research Sinks 9% as Supply Constraints Cap Outlook; Applied Materials Drops 6%, ASML Falls 4%",
-   "publisher": "24/7 Wall St.",
-   "url": "https://247wallst.com/investing/2026/10/22/lam-research-sinks-9-as-supply-constraints-cap-outlook-applied-materials-drops-6-asml-holding-falls-4/",
-   "date": "2026-10-22",
-   "tier": "언론"
-  },
-  {
-   "id": "s13",
-   "title": "Chip Stocks Fall as Supply Warning Deepens AI Selloff: Marvell and AMD Sink 8%, Intel Drops 7%",
-   "publisher": "24/7 Wall St.",
-   "url": "https://247wallst.com/investing/2026/10/22/chip-stocks-fall-as-supply-warning-deepens-ai-selloff-marvell-and-amd-sink-8-intel-drops-7/",
-   "date": "2026-10-22",
-   "tier": "언론"
-  },
-  {
-   "id": "s14",
-   "title": "Nvidia, AMD, Micron fall sharply: why Wall Street is punishing AI spending either way",
-   "publisher": "Invezz",
-   "url": "https://invezz.com/news/2026/10/22/nvidia-amd-and-micron-plunge-sharply-why-wall-street-is-punishing-ai-spending-either-way/",
-   "date": "2026-10-22",
-   "tier": "언론"
-  },
-  {
-   "id": "s15",
-   "title": "SanDisk Sinks 8% as Memory Selloff Deepens; Western Digital Drops 7%, Micron Falls 6%",
-   "publisher": "24/7 Wall St.",
-   "url": "https://247wallst.com/investing/2026/10/22/sandisk-sinks-8-as-memory-selloff-deepens-ahead-of-earnings-western-digital-drops-7-micron-falls-6/",
-   "date": "2026-10-22",
-   "tier": "언론"
-  },
-  {
-   "id": "s16",
-   "title": "DRAM Market Bulletin - Oct. 7, 2026",
-   "publisher": "TrendForce",
-   "url": "https://www.trendforce.com/research/download/RP261007RZ",
-   "date": "2026-10-07",
+   "id": "s6",
+   "title": "ECONOMIC WEEK AHEAD: October 26-30",
+   "publisher": "Yardeni Research",
+   "url": "https://www.yardeniquicktakes.com/economic-week-ahead-october-26-30/",
+   "date": "2026-10-24",
    "tier": "리서치"
   },
   {
-   "id": "s17",
-   "title": "Micron to Host Technology Symposium as Q4 Memory Contract Prices Seen Rising (TrendForce 9/24 forecast cited)",
-   "publisher": "BigGo Finance",
-   "url": "https://finance.biggo.com/news/c3c22d25-a59b-4f9f-9b53-36de7fe504a0",
-   "date": "2026-10-21",
-   "tier": "집계"
-  },
-  {
-   "id": "s18",
-   "title": "Samsung Q3 Operating Profit Surges Nearly 8-Fold to Record High: Outlook for Micron, Nvidia, Memory Stocks",
-   "publisher": "TradingKey",
-   "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262205515-samsung-hbm-dram-mu-nvda-skhynix-tradingkey",
-   "date": "2026-10-08",
-   "tier": "집계"
-  },
-  {
-   "id": "s19",
-   "title": "SK hynix third-quarter operating profit may top W80tr as Solidigm IPO clouds outlook",
-   "publisher": "The Herald Business",
-   "url": "https://biz.heraldcorp.com/article/10908296",
-   "date": "2026-10-20",
-   "tier": "언론"
-  },
-  {
-   "id": "s20",
-   "title": "Broadcom Inc Stock (AVGO) Moved Down by 4.36% on Oct 22",
-   "publisher": "TradingKey",
-   "url": "https://www.tradingkey.com/news/market-movers/262232753-market-movers-avgo-20261022",
-   "date": "2026-10-22",
-   "tier": "집계"
-  },
-  {
-   "id": "s21",
-   "title": "Broadcom's AI Revenue Is Set to Quadruple. Why Is the Stock Well Off Its High?",
-   "publisher": "Top1Markets",
-   "url": "https://www.top1markets.com/news/broadcom-stock-ai-revenue-230-billion-financing-risk",
-   "date": "2026-10-22",
-   "tier": "집계"
-  },
-  {
-   "id": "s22",
-   "title": "Nvidia's AI Build-Out Hits a Financing Wall Even as Deployment Speeds Up",
-   "publisher": "ad-hoc-news",
-   "url": "https://www.ad-hoc-news.de/boerse/news/unternehmensnachrichten/nvidia-s-ai-build-out-hits-a-financing-wall-even-as-deployment-speeds-up/70395368",
-   "date": "2026-10-22",
-   "tier": "집계"
-  },
-  {
-   "id": "s23",
-   "title": "SpaceX stock slides as tech trade tumbles",
-   "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/article/spacex-stock-slides-as-tech-trade-tumbles-191751177.html",
-   "date": "2026-10-22",
-   "tier": "언론"
-  },
-  {
-   "id": "s24",
-   "title": "Why SpaceX Stock Dropped After Earnings",
-   "publisher": "Motley Fool",
-   "url": "https://www.fool.com/investing/2026/10/22/why-spacex-stock-dropped-after-earnings/",
-   "date": "2026-10-22",
-   "tier": "언론"
-  },
-  {
-   "id": "s25",
-   "title": "SpaceX Investors, Mark Your Calendars: A Massive Stock Lockup Expiration Is Coming",
-   "publisher": "Motley Fool",
-   "url": "https://www.fool.com/investing/2026/10/19/spacex-investors-mark-your-calendars-a-massive-stock-lockup-expiration-is-coming/",
-   "date": "2026-10-19",
-   "tier": "언론"
-  },
-  {
-   "id": "s26",
-   "title": "Why Anthropic Is Racing to IPO While OpenAI Waits Until 2027",
-   "publisher": "Motley Fool",
-   "url": "https://www.fool.com/investing/2026/10/22/why-anthropic-is-racing-to-ipo-while-openai-waits/",
-   "date": "2026-10-22",
-   "tier": "언론"
-  },
-  {
-   "id": "s27",
-   "title": "OpenAI is racing to raise $30 billion before Anthropic's expected IPO",
-   "publisher": "Quartz",
-   "url": "https://qz.com/openai-30-billion-funding-round-anthropic-ipo-102026",
-   "date": "2026-10-20",
-   "tier": "언론"
-  },
-  {
-   "id": "s28",
-   "title": "Anthropic Files For IPO, Looking to Beat OpenAI to the Punch",
-   "publisher": "Futurum",
-   "url": "https://futurumgroup.com/insights/anthropic-files-for-ipo-looking-to-beat-openai-to-the-punch/",
-   "date": "2026-06-02",
+   "id": "s7",
+   "title": "404K SEMI-AI Evening Brief — October 24, 2026",
+   "publisher": "404K Research (Substack)",
+   "url": "https://404kresearch.substack.com/p/404k-semi-ai-evening-brief-october-850",
+   "date": "2026-10-24",
    "tier": "리서치"
   },
   {
-   "id": "s29",
-   "title": "S&P 500 Index Forecast: Morgan Stanley Says US Stock Pullback Is Nearing an End, Focus on 7,500",
-   "publisher": "TradingKey",
-   "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262223846-sp500-forecast-morgan-stanley-correction-ending-7500-focus-tradingkey",
-   "date": "2026-10-19",
-   "tier": "집계"
-  },
-  {
-   "id": "s30",
-   "title": "1 Wall Street Analyst Sees the S&P 500 Climbing to 8,000 by Year-End",
-   "publisher": "Motley Fool",
-   "url": "https://www.fool.com/investing/2026/10/22/1-wall-street-analyst-sees-the-sp-500-climbing-to/",
-   "date": "2026-10-22",
-   "tier": "언론"
-  },
-  {
-   "id": "s31",
-   "title": "Earnings Season October 2026: Key Dates and Results So Far",
-   "publisher": "BloFin",
-   "url": "https://blofin.com/academy/education/tradfi/earnings-season-october-2026",
+   "id": "s8",
+   "title": "Earnings call transcript: Meta beats Q3 2026 estimates as AI push lifts shares",
+   "publisher": "Investing.com",
+   "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-meta-beats-q3-2026-estimates-as-ai-push-lifts-shares-93CH-4964260",
    "date": "2026-10-21",
    "tier": "집계"
+  },
+  {
+   "id": "s10",
+   "title": "Musk's Posts Swing Samsung, SK hynix Shares",
+   "publisher": "Seoul Economic Daily",
+   "url": "https://en.sedaily.com/finance/2026/10/24/musks-posts-swing-samsung-sk-hynix-shares",
+   "date": "2026-10-24",
+   "tier": "언론"
   }
- ]
+ ],
+ "date": "2026-10-26",
+ "generated_at": "2026-10-26T06:26:41+09:00"
 }

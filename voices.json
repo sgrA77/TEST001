@@ -1,9 +1,9 @@
 {
  "version": 1,
- "updated": "2026-10-23",
+ "updated": "2026-10-26",
  "window": "최근 3개월(기간 밖 항목은 표시)",
  "summary": [
-  "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD·Nvidia). 올트먼은 컴퓨트 수익성 확신.",
+  "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD·Nvidia). 저커버그는 공격적 투자 지속을 밝혔으나 FCF는 적자 전환, 머스크는 컴퓨팅 회수 단축을 주장.",
   "투자업계는 핑크(강세) vs 달리오·그리핀(경계)로 갈림. 그레이·거스트너는 중립.",
   "워시는 AI가 당분간 물가 압력, 트럼프는 데이터센터 전력·지역 배당 의무화."
  ],
@@ -77,26 +77,26 @@
      "who": "저커버그",
      "org": "Meta",
      "stance": "확대",
-     "quote": "개인 초지능을 수십억 명에게\" (4/29)",
-     "date": "4/29 · 기간 밖",
-     "detail": "\"개인 초지능을 수십억 명에게\". 2026 capex 1,250~1,450억$로 상향(부품 가격 상승), 실적 후 주가 약 −10%, JPM은 AI 투자 회수 경로가 어려워졌다며 하향.",
+     "quote": "모두에게 유능한 개인 에이전트, 투자는 공격적으로",
+     "date": "10/21 3분기 실적콜",
+     "detail": "\"모두가 매우 유능한 개인 에이전트를 갖도록 돕겠다\", Muse를 그 비전의 제품으로 소개하고 북미 1,000만 명 이상이 약 6주 만에 설정했다고 밝힘. CFO 리는 2026 capex를 1,350~1,450억$로 좁히고 내년도 \"공격적으로 투자\"하겠다면서 구체 계획은 4분기 콜로 미뤘고, 자금조달 계획은 없다고 함. 3분기 FCF −21.2억$. (실적콜 트랜스크립트 기준)",
      "src": [
-      21
+      25
      ],
-     "outside": true
+     "outside": false
     },
     {
      "who": "머스크",
      "org": "xAI·SpaceX",
      "stance": "낙관",
-     "quote": "올해 따라잡고 2029년 추월\" (3/14)",
-     "date": "3/14 · 기간 밖",
-     "detail": "xAI가 \"올해 따라잡고\" 2029년까지 경쟁사를 추월할 것. SpaceX는 xAI를 2월에 인수, 우주 AI 컴퓨트 위성·Terafab(AI 칩 공장)을 추진(7/22 보도). 최근 직접 발언은 못 찾음.",
+     "quote": "컴퓨팅 투자 회수 6개월로 단축 가능(SpaceX), 테슬라 capex는 예상보다 낮음",
+     "date": "10/20 SpaceX·10/21 Tesla 실적콜",
+     "detail": "SpaceX 10/20 실적콜: 컴퓨팅 투자 회수 기간이 2027년 6개월로 짧아질 수 있다고 언급, 용량 약 1.7GW에서 내년 말 13GW 이상 목표(2차 보도). Tesla 10/21: \"capex가 예상보다 조금 낮게 나오고 있다\", 연간 capex 가이던스 250억→200억$. 10/14 X 글: Micron은 합리적, 타사는 \"과도하다\", 중국이 2028년 대량 RAM 생산해 메모리 과잉이 빨라질 수 있다고 주장.",
      "src": [
-      22,
-      23
+      26,
+      27
      ],
-     "outside": true
+     "outside": false
     },
     {
      "who": "올트먼",
@@ -249,8 +249,7 @@
  ],
  "missing": [
   "드러켄밀러·하워드 막스 등 투자자, a16z·세쿼이아·코슬라 등 VC의 최근 3개월 직접 발언",
-  "애플 AI 발언, 메타 7월 실적, 머스크 최근 직접 발언",
-  "일부는 실적콜 요약·2차 보도라 원문과 표현이 다를 수 있음"
+  "애플 AI 발언"
  ],
  "sources": [
   {
@@ -372,6 +371,21 @@
    "n": 24,
    "title": "리사 수 10/6 (Mezha)",
    "url": "https://mezha.ua/en/news/amd-high-demand-and-urges-to-cooperate-on-ai-safety-315882/amp/"
+  },
+  {
+   "n": 25,
+   "title": "Earnings call transcript: Meta beats Q3 2026 estimates (Investing.com)",
+   "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-meta-beats-q3-2026-estimates-as-ai-push-lifts-shares-93CH-4964260"
+  },
+  {
+   "n": 26,
+   "title": "Musk's Posts Swing Samsung, SK hynix Shares (Seoul Economic Daily)",
+   "url": "https://en.sedaily.com/finance/2026/10/24/musks-posts-swing-samsung-sk-hynix-shares"
+  },
+  {
+   "n": 27,
+   "title": "Tesla stock slips despite Q3 earnings beat, better-than-expected capex spend (Yahoo Finance)",
+   "url": "https://sg.finance.yahoo.com/news/tesla-stock-slips-despite-q3-earnings-beat-better-than-expected-capex-spend-101521707.html"
   }
  ]
 }
