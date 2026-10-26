@@ -3,7 +3,7 @@
 import json, time, requests
 UA = {"User-Agent": "Mozilla/5.0"}
 out = {}
-for s, q in (("SOX", "%5ESOX"), ("SOXX", "SOXX"), ("SOXL", "SOXL"), ("USD", "USD")):
+for s, q in (("SOX", "%5ESOX"), ("SOXX", "SOXX"), ("SMH", "SMH"), ("SOXL", "SOXL"), ("USD", "USD")):
     for host in ("query1", "query2"):
         try:
             r = requests.get(f"https://{host}.finance.yahoo.com/v8/finance/chart/{q}?period1=631152000&period2=1900000000&interval=1d", headers=UA, timeout=60)
