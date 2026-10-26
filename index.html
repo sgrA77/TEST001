@@ -400,6 +400,13 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 .rules .rb-tb small{color:var(--sub);font-weight:600;font-size:9.5px}
 .rules .rb-d{margin-top:4px}.rules .rb-d summary{font-size:11px;color:var(--sub);cursor:pointer;padding:2px 0}
 .rules .rb-n{font-size:10.5px;color:var(--sub);margin-top:5px;line-height:1.45}
+.rules .hero-sub{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin:-2px 0 8px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,.55);font-size:11.5px;color:var(--sub)}
+@media (prefers-color-scheme:dark){.rules .hero-sub{background:rgba(255,255,255,.06)}}
+.rules .hero-sub .hs-t{font-size:12.5px;font-weight:800;color:inherit;margin-right:2px}.rules .hero-sub .hs-t em{font-style:normal;font-weight:700;font-size:10.5px;color:var(--sub)}
+.rules .hero-sub b{font-weight:800;color:inherit}
+.rules .hero-sub #sm-status{font-weight:800;font-size:11px;border-radius:999px;padding:1px 8px;background:rgba(128,128,128,.15);color:inherit}
+.rules .hero-sub .st-near{background:rgba(224,138,0,.22)!important;color:var(--amber)!important}
+.rules .hero-sub .st-hit{background:var(--up-t,#cf2525)!important;color:#fff!important;animation:pulse 1.4s infinite}
 .rules .hero-live{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:-2px 0 8px;font-size:11px;color:var(--sub)}
 .rules .hero-live #sx-status{font-weight:800;font-size:11.5px;border-radius:999px;padding:2px 9px;background:rgba(128,128,128,.15);color:inherit}
 .rules .hero-live .st-wait{background:rgba(128,128,128,.15)}
@@ -433,8 +440,9 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
                 <div><span id="sx-gl">닿으려면</span><b id="sx-gap" class="dn">–</b></div>
             </div>
             <div class="hero-live"><span id="sx-status" class="st-wait">상태 확인 중…</span><span id="sx-sub"></span></div>
+            <div class="hero-sub"><span class="hs-t">SMH <em>120주선</em></span><span>현재가 <b id="sm-p">–</b></span><span>120주선 <b id="sm-ma">–</b></span><span id="sm-gl">닿으려면</span> <b id="sm-gap">–</b><span id="sm-status" class="st-wait">확인 중…</span></div>
             <div class="hero-act">터치하면 → <b>USD(2x)</b> 또는 <b>SOXL(3x)</b> <u>적극 매수 검토</u></div>
-            <div class="hero-chips"><span>최소 12개월 홀딩</span><span>길면 최대 약 2년</span><span>신호는 SOXX 기준 · SOX는 교차확인 (USD·SOXL 차트 X)</span></div>
+            <div class="hero-chips"><span>최소 12개월 홀딩</span><span>길면 최대 약 2년</span><span>신호는 SOXX 기준 · SMH·SOX는 교차확인 (USD·SOXL 차트 X)</span></div>
             <div class="hero-warn"><b>SOXL 주의</b> · 수익이 낮거나 <b>4~5년까지 물릴 수 있음</b><br>22.06 신호 후 12개월 +36%, 낙폭 −63%, 2021-12 고점 회복 약 4.3년 (USD는 +79%, 약 2년)</div>
         </div>
 
@@ -1253,6 +1261,13 @@ fetch("data.json?t=" + Date.now())
       else{st.className='st-wait';st.textContent='대기 · 120주선보다 +'+pct.toFixed(0)+'% 위'}
       var t=((pr&&pr.updated)||ma.updated||'').slice(5);
       q('sx-sub').textContent=(s?'SOX '+f(s.p)+' · 120주선 '+f(s.m)+' ('+(s.g<0?'−':'+')+Math.abs(s.g).toFixed(1)+'%)':'')+(t?' · '+t:'');
+      var m=get('SMH');if(m){var mh=m.p<=m.m,mp=(m.p/m.m-1)*100,mg=mh?mp:m.g;
+        q('sm-p').textContent='$'+f(m.p,2);q('sm-ma').textContent='≈ $'+f(m.m,2);
+        q('sm-gl').textContent=mh?'120주선 아래':'닿으려면';q('sm-gap').textContent=(mg<0?'−':'+')+Math.abs(mg).toFixed(1)+'%';q('sm-gap').className=mh?'up':'dn';
+        var ms=q('sm-status');
+        if(mh){ms.className='st-hit';ms.textContent='터치!'}
+        else if(mp<=10){ms.className='st-near';ms.textContent=(mp<=5?'근접 · ':'접근 중 · ')+'+'+mp.toFixed(1)+'% 위'}
+        else{ms.className='st-wait';ms.textContent='대기 +'+mp.toFixed(0)+'% 위'}}
     });
   }
   run();setInterval(run,300000);
