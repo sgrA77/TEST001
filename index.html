@@ -378,7 +378,7 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 @media (prefers-color-scheme:dark){.rules .hero-st div{background:rgba(255,255,255,.06)}}
 .rules .hero-st span{display:block;font-size:10px;color:var(--sub)}.rules .hero-st b{font-size:15px;font-weight:800}
 .rules .dn{color:var(--down-t)}
-.rules .hero-act{font-size:14px;line-height:1.5;margin-bottom:7px}
+.rules .hero-act{font-size:15px;line-height:1.5;margin-bottom:7px;padding:7px 9px;border-radius:8px;background:rgba(224,138,0,.16)}
 .rules .hero-act b{color:var(--amber);font-weight:800}.rules .hero-act u{text-decoration:none;font-weight:800;border-bottom:2px solid #e08a00}
 .rules .hero-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px}
 .rules .hero-chips span{font-size:11px;font-weight:700;background:rgba(224,138,0,.15);color:var(--amber);border-radius:999px;padding:2px 8px}
@@ -400,18 +400,19 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 .rules .rb-tb small{color:var(--sub);font-weight:600;font-size:9.5px}
 .rules .rb-d{margin-top:4px}.rules .rb-d summary{font-size:11px;color:var(--sub);cursor:pointer;padding:2px 0}
 .rules .rb-n{font-size:10.5px;color:var(--sub);margin-top:5px;line-height:1.45}
-.rules .hero-sub{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin:-2px 0 8px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,.55);font-size:11.5px;color:var(--sub)}
-@media (prefers-color-scheme:dark){.rules .hero-sub{background:rgba(255,255,255,.06)}}
-.rules .hero-sub .hs-t{font-size:12.5px;font-weight:800;color:inherit;margin-right:2px}.rules .hero-sub .hs-t em{font-style:normal;font-weight:700;font-size:10.5px;color:var(--sub)}
-.rules .hero-sub b{font-weight:800;color:inherit}
-.rules .hero-sub #sm-status{font-weight:800;font-size:11px;border-radius:999px;padding:1px 8px;background:rgba(128,128,128,.15);color:inherit}
-.rules .hero-sub .st-near{background:rgba(224,138,0,.22)!important;color:var(--amber)!important}
-.rules .hero-sub .st-hit{background:var(--up-t,#cf2525)!important;color:#fff!important;animation:pulse 1.4s infinite}
-.rules .hero-live{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:-2px 0 8px;font-size:11px;color:var(--sub)}
-.rules .hero-live #sx-status{font-weight:800;font-size:11.5px;border-radius:999px;padding:2px 9px;background:rgba(128,128,128,.15);color:inherit}
-.rules .hero-live .st-wait{background:rgba(128,128,128,.15)}
-.rules .hero-live .st-near{background:rgba(224,138,0,.22);color:var(--amber)}
-.rules .hero-live .st-hit{background:var(--up-t,#cf2525);color:#fff;animation:pulse 1.4s infinite}
+.rules .mon{background:rgba(255,255,255,.55);border:2px solid transparent;border-radius:10px;padding:7px 7px 6px;margin-bottom:7px}
+@media (prefers-color-scheme:dark){.rules .mon{background:rgba(255,255,255,.06)}}
+.rules .mon.near{border-color:#e08a00}.rules .mon.hit{border-color:var(--up-t,#cf2525);background:rgba(207,37,37,.1)}
+.rules .mon-h{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px}
+.rules .mon-h b{font-size:15px;font-weight:800}
+.rules .mon-h span{font-weight:800;font-size:11.5px;border-radius:999px;padding:2px 9px;background:rgba(128,128,128,.18);color:inherit}
+.rules .mon-h .st-near{background:rgba(224,138,0,.25);color:var(--amber)}
+.rules .mon-h .st-hit{background:var(--up-t,#cf2525);color:#fff;animation:pulse 1.4s infinite}
+.rules .mon .hero-st{margin-bottom:0}
+.rules .mon .hero-st div{background:transparent;padding:2px 2px}
+.rules .mon .gapc{background:rgba(128,128,128,.14)!important;border-radius:8px}
+.rules .mon .gapc b{font-size:19px}
+.rules .mon-sub{font-size:10.5px;color:var(--sub);margin:-2px 0 8px;text-align:right}
 @keyframes pulse{50%{opacity:.65}}
 </style>
 </head>
@@ -433,17 +434,27 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
         <div class="rl-h"><b>투자 원칙</b><span>매일 확인 · 흔들리지 말 것</span></div>
 
         <div class="hero">
-            <div class="hero-t"><span class="hero-k">핵심</span>SOXX <em>주봉 120주선</em> 모니터링</div>
-            <div class="hero-st">
-                <div><span>SOXX 현재가</span><b id="sx-p">–</b></div>
-                <div><span>120주선</span><b id="sx-ma">–</b></div>
-                <div><span id="sx-gl">닿으려면</span><b id="sx-gap" class="dn">–</b></div>
+            <div class="hero-t"><span class="hero-k">핵심</span><em>주봉 120주선</em> 가격차이 모니터링</div>
+            <div class="mon" id="mon-sx">
+                <div class="mon-h"><b>SOXX</b><span id="sx-status" class="st-wait">확인 중…</span></div>
+                <div class="hero-st">
+                    <div><span>현재가</span><b id="sx-p">–</b></div>
+                    <div><span>120주선</span><b id="sx-ma">–</b></div>
+                    <div class="gapc"><span id="sx-gl">닿으려면</span><b id="sx-gap" class="dn">–</b></div>
+                </div>
             </div>
-            <div class="hero-live"><span id="sx-status" class="st-wait">상태 확인 중…</span><span id="sx-sub"></span></div>
-            <div class="hero-sub"><span class="hs-t">SMH <em>120주선</em></span><span>현재가 <b id="sm-p">–</b></span><span>120주선 <b id="sm-ma">–</b></span><span id="sm-gl">닿으려면</span> <b id="sm-gap">–</b><span id="sm-status" class="st-wait">확인 중…</span></div>
-            <div class="hero-act">터치하면 → <b>USD(2x)</b> 또는 <b>SOXL(3x)</b> <u>적극 매수 검토</u></div>
-            <div class="hero-chips"><span>최소 12개월 홀딩</span><span>길면 최대 약 2년</span><span>신호는 SOXX 기준 · SMH·SOX는 교차확인 (USD·SOXL 차트 X)</span></div>
-            <div class="hero-warn"><b>SOXL 주의</b> · 수익이 낮거나 <b>4~5년까지 물릴 수 있음</b><br>22.06 신호 후 12개월 +36%, 낙폭 −63%, 2021-12 고점 회복 약 4.3년 (USD는 +79%, 약 2년)</div>
+            <div class="mon" id="mon-sm">
+                <div class="mon-h"><b>SMH</b><span id="sm-status" class="st-wait">확인 중…</span></div>
+                <div class="hero-st">
+                    <div><span>현재가</span><b id="sm-p">–</b></div>
+                    <div><span>120주선</span><b id="sm-ma">–</b></div>
+                    <div class="gapc"><span id="sm-gl">닿으려면</span><b id="sm-gap" class="dn">–</b></div>
+                </div>
+            </div>
+            <div class="mon-sub" id="sx-sub"></div>
+            <div class="hero-act">120주선 근처(접근·터치) → <b>USD(2x)</b> 또는 <b>SOXL(3x)</b> <u>적극 매수 고민</u></div>
+            <div class="hero-warn"><b>⚠ SOXL(3x) 주의</b> · 수익이 낮거나 <b>4~5년까지 물릴 수 있음</b><br>22.06 신호 후 12개월 +36%, 낙폭 −63%, 2021-12 고점 회복 약 4.3년 (USD는 +79%, 약 2년)</div>
+            <div class="hero-chips"><span>최소 12개월 홀딩</span><span>길면 최대 약 2년</span><span>신호는 SOXX 기준 · SMH·SOX 교차확인</span></div>
         </div>
 
         <div class="cards2">
@@ -1239,6 +1250,18 @@ fetch("data.json?t=" + Date.now())
 })();
 (function(){
   var f=function(n,d){return Number(n).toLocaleString('en-US',{maximumFractionDigits:d==null?0:d,minimumFractionDigits:d==null?0:d})};
+  var q=function(id){return document.getElementById(id)};
+  function paint(pre,x){
+    var hit=x.p<=x.m,pct=(x.p/x.m-1)*100,card=q('mon-'+pre),st=q(pre+'-status'),g=q(pre+'-gap');
+    q(pre+'-p').textContent='$'+f(x.p,2);q(pre+'-ma').textContent='≈ $'+f(x.m,2);
+    q(pre+'-gl').textContent=hit?'120주선 아래':'닿으려면';
+    var gv=hit?pct:x.g;g.textContent=(gv<0?'−':'+')+Math.abs(gv).toFixed(1)+'%';g.className=hit?'up':'dn';
+    var cls='st-wait',txt='대기 · 120주선보다 +'+pct.toFixed(0)+'% 위',c2='';
+    if(hit){cls='st-hit';txt='터치! 매수 고민';c2='hit'}
+    else if(pct<=5){cls='st-near';txt='근접 · +'+pct.toFixed(1)+'% 위';c2='near'}
+    else if(pct<=10){cls='st-near';txt='접근 중 · +'+pct.toFixed(1)+'% 위';c2='near'}
+    st.className=cls;st.textContent=txt;card.className='mon '+c2;
+  }
   function run(){
     Promise.all([
       fetch(MA_URL+'?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).catch(function(){return null}),
@@ -1249,25 +1272,10 @@ fetch("data.json?t=" + Date.now())
         var p=it.price,m=it.ma120,l=pr&&pr.p&&pr.p[sym];
         if(l&&l[0]>0&&l[0]/p>0.5&&l[0]/p<2){m=m+(l[0]-p)/120;p=l[0]}   /* 현재가 변화분만큼 주봉 마지막 봉 보정 */
         return {p:p,m:m,g:(m/p-1)*100}};
-      var x=get('SOXX'),s=get('^SOX');if(!x)return;
-      var q=function(id){return document.getElementById(id)};
-      q('sx-p').textContent='$'+f(x.p,2);q('sx-ma').textContent='≈ $'+f(x.m,2);
-      var hit=x.p<=x.m;q('sx-gl').textContent=hit?'120주선 아래':'닿으려면';
-      var g=q('sx-gap');var gv=hit?(x.p/x.m-1)*100:x.g;g.textContent=(gv<0?'−':'+')+Math.abs(gv).toFixed(1)+'%';g.className=hit?'up':'dn';
-      var st=q('sx-status'),pct=(x.p/x.m-1)*100;
-      if(hit){st.className='st-hit';st.textContent='터치! 매수 검토 (USD·SOXL)'}
-      else if(pct<=5){st.className='st-near';st.textContent='근접 · 120주선 +'+pct.toFixed(1)+'% 위'}
-      else if(pct<=10){st.className='st-near';st.textContent='접근 중 · +'+pct.toFixed(1)+'% 위'}
-      else{st.className='st-wait';st.textContent='대기 · 120주선보다 +'+pct.toFixed(0)+'% 위'}
+      var x=get('SOXX'),m=get('SMH'),s=get('^SOX');
+      if(x)paint('sx',x);if(m)paint('sm',m);
       var t=((pr&&pr.updated)||ma.updated||'').slice(5);
-      q('sx-sub').textContent=(s?'SOX '+f(s.p)+' · 120주선 '+f(s.m)+' ('+(s.g<0?'−':'+')+Math.abs(s.g).toFixed(1)+'%)':'')+(t?' · '+t:'');
-      var m=get('SMH');if(m){var mh=m.p<=m.m,mp=(m.p/m.m-1)*100,mg=mh?mp:m.g;
-        q('sm-p').textContent='$'+f(m.p,2);q('sm-ma').textContent='≈ $'+f(m.m,2);
-        q('sm-gl').textContent=mh?'120주선 아래':'닿으려면';q('sm-gap').textContent=(mg<0?'−':'+')+Math.abs(mg).toFixed(1)+'%';q('sm-gap').className=mh?'up':'dn';
-        var ms=q('sm-status');
-        if(mh){ms.className='st-hit';ms.textContent='터치!'}
-        else if(mp<=10){ms.className='st-near';ms.textContent=(mp<=5?'근접 · ':'접근 중 · ')+'+'+mp.toFixed(1)+'% 위'}
-        else{ms.className='st-wait';ms.textContent='대기 +'+mp.toFixed(0)+'% 위'}}
+      q('sx-sub').textContent=(s?'참고 SOX '+f(s.p)+' · 120주선 '+f(s.m)+' ('+(s.g<0?'−':'+')+Math.abs(s.g).toFixed(1)+'%)':'')+(t?' · '+t:'');
     });
   }
   run();setInterval(run,300000);
