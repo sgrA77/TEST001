@@ -1,49 +1,21 @@
 {
  "version": 2,
- "data_as_of": "2026-10-23 미국 장 마감",
+ "data_as_of": "2026-10-26 미국 장 마감",
  "market_view": {
   "label": "Neutral",
-  "summary": "10/23 S&P 500은 7,623.68(-0.52%, 9/16 이후 최저, 10/6 고점 대비 -2.5%), 나스닥 종합은 25,955.34(-0.21%), 다우는 -1.23%였고 반도체지수는 전날 -6.72% 뒤 +0.44% 반등했다. Brent는 116.72달러로 4/29 이후 최고가 됐고 10년물은 5.00% 안팎에서 채권이 주식 하락을 방어하지 못했다. AI 투자 자금조달 우려와 유가·인플레 재압박이 겹쳐 중립(하방 경계)을 유지하며, 10/28 FOMC와 빅테크 실적을 앞두고 있다.",
-  "ai_line": "반도체는 전날 -6.72% 급락 후 +0.44% 반등했지만 주간 SOX -3.2%로 7월 저점을 시험 중이고, Amazon은 2026 AI 컴퓨트가 전량 예약됐다고 밝혀 수요와 자금조달 우려가 엇갈린다.",
+  "summary": "10/26 S&P 500은 7,676.80(+0.70%), 나스닥 26,169.38(+0.82%), 다우 52,361.52(+0.28%)로 반등했고 반도체지수는 +3%대로 11,000선을 회복했다. 다만 10월 낙폭(약 -12%)은 여전하고, Brent 115달러대·10년물 4.98% 부근에서 Meta 대규모 증자 보도와 머스크의 네오클라우드 자금경색 경고가 나와 중립(하방 경계)을 유지한다. 10/28 FOMC와 MS·Alphabet·Amazon 실적이 분기점이다.",
+  "ai_line": "반도체는 급락 후 +3%대 반등했지만, AI 인프라 자금조달(Meta 증자·SpaceX 400억$ 부채·네오클라우드 신용)이 핵심 변수로 부상했다.",
   "src": [
    "s1",
    "s2",
-   "s7"
+   "s3"
   ]
  },
  "key_changes": [
   {
-   "title": "S&P 500 -0.52%, 나스닥 -0.21%: 방어주·소비재 약세, 반도체는 +0.44% 반등",
-   "detail": "S&P 500은 7,623.68로 9/16 이후 최저, 다우는 652.82포인트(-1.23%) 하락했다. 전날 -6.72%였던 반도체지수는 10,779.46으로 반등했으나 주간 기준 -3.2%다.",
+   "title": "S&P 500 +0.70%, 나스닥 +0.82%: AI·반도체 반등이 주도, 반도체지수 +3%대",
+   "detail": "기술·경기소비재·산업재가 올랐고 통신·필수소비재·헬스케어는 52주 고점 부근에서 밀렸다. 반도체지수는 11,000선을 회복했으나 10월 기준 약 -12%다.",
    "importance": "HIGH",
-   "src": [
-    "s1",
-    "s2",
-    "s4"
-   ]
-  },
-  {
-   "title": "Brent 116.72달러(+3.55) 4/29 이후 최고: 후티의 사우디 시설 공격과 걸프 충돌 우려",
-   "detail": "WTI는 103.27달러로 마감했고 6~12개월 선물도 올라 조기 해소 기대가 약하다. 미시간대 1년 기대인플레이션 4.7%, PMI 판매가격은 2022년 8월 이후 최대 상승이다.",
-   "importance": "HIGH",
-   "src": [
-    "s2",
-    "s3"
-   ]
-  },
-  {
-   "title": "10년물 5.00% 안팎: 3주 연속 하락에도 유가·물가 지표로 반등 압력, 12월 인상 확률 약 78%",
-   "detail": "10/5 고점보다 약 31bp 낮지만 이날은 주식과 채권이 함께 약했다. 10/28 인상 확률은 약 10%이고 로이터 설문 이코노미스트 100명 전원이 12월 인상을 예상했다.",
-   "importance": "HIGH",
-   "src": [
-    "s2",
-    "s5"
-   ]
-  },
-  {
-   "title": "SpaceX의 미국 기지국 8만 곳 접근 협상 보도: AT&T -8.0%, T-Mobile -7.7%, Crown Castle +9.1%",
-   "detail": "SpaceX가 제4 이동통신사 진출을 위해 기지국 확보를 협상 중이라는 보도다. 타워 업체는 급등했고 통신사는 급락했다.",
-   "importance": "MEDIUM",
    "src": [
     "s1",
     "s2",
@@ -51,183 +23,165 @@
    ]
   },
   {
-   "title": "SK hynix, 자회사 Solidigm 상장 검토 중단: 자본시장 여건 이유",
-   "detail": "10/23 발표이며 직전 거래일 코스피는 -3.52%였다. 이중상장 희석 우려가 있었던 만큼 일부는 긍정 재료로 본다.",
+   "title": "Brent 115달러대(-0.8~-1.3%) 소폭 하락: 사우디 국방장관 이란 방문 소식에 긴장 완화 기대",
+   "detail": "WTI는 약 101.4~101.8달러로 하락했으나 Brent는 주간 +6%로 6개월 고점권이다. 중간선거 이후 미국의 대이란 재공습 우려도 거론된다.",
+   "importance": "HIGH",
+   "src": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "title": "Meta 약 950억$ 증자 계획 보도·SpaceX 400억$ 부채 조달: AI 인프라가 주식·부채시장 자금에 의존",
+   "detail": "Meta는 장 초반 -1.70%였고, SpaceX는 AI 칩 구매용 400억$ 부채를 확보했다고 밝혔다(TheStreet 보도 기준).",
+   "importance": "HIGH",
+   "src": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "title": "머스크, 네오클라우드 200여 곳 다수 도산 가능 경고: Nebius·CoreWeave·Iren 하락",
+   "detail": "부채시장이 독립 수익이 없는 AI 데이터센터 운영사에 자금 공급을 사실상 중단했다는 경고다. 그럼에도 지수는 상승 마감했다.",
    "importance": "MEDIUM",
    "src": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "title": "Anthropic, 나스닥 상장 신청서 제출(티커 ANT): 상장 기업가치 평가 약 2조$→1.5조$로 하향 거론",
+   "detail": "WSJ 재인용 요약 기준 상반기 매출 163억$, 컴퓨팅 약정 5,180억$이며 11월 상장 예정이다.",
+   "importance": "MEDIUM",
+   "src": [
+    "s2",
+    "s3",
     "s4"
    ]
   }
  ],
  "issues": [
   {
-   "title": "AI 투자 자금조달·수익성 검증",
-   "detail": "Meta는 3분기 잉여현금흐름이 -21.2억달러(영업현금 327.9억 대 capex 349.1억)이고 5년 CDS가 기록인 114.79bp다. Man Group은 내년 데이터센터 투자가 예상보다 줄 가능성을 언급했고, Goldman은 CoreWeave·Oracle의 부채 조달 필요를 추정한다(모델 추정).",
-   "tag": "지속",
-   "trend": "up",
-   "importance": "HIGH",
-   "src": [
-    "s3",
-    "s4",
-    "s7",
-    "s8"
-   ]
-  },
-  {
-   "title": "유가 6개월 고점이 인플레·금리로 전이",
-   "detail": "Brent 116.72달러와 기대인플레 4.7%가 12월 인상 베팅을 지지하고, 에너지 업종은 사상 최고(AP 중간 집계)다. Wells Fargo의 디젤 비용 경고로 할인소매·항공이 약했다.",
+   "title": "AI 인프라 자금조달·네오클라우드 신용",
+   "detail": "Meta 증자 보도, SpaceX 400억$ 부채, 머스크의 네오클라우드 경고가 같은 날 겹쳤다. 수익성 검증 우려가 주식·채권 양쪽 조달 비용 문제로 번지는 양상이다.",
    "tag": "지속",
    "trend": "up",
    "importance": "HIGH",
    "src": [
     "s2",
-    "s3",
-    "s5"
+    "s3"
    ]
   },
   {
-   "title": "AI 수요 매진 vs 공급·전력 병목",
-   "detail": "Amazon은 2026 AI 컴퓨트가 전량 예약이고 2027도 대부분 판매됐으며 메모리·전력 병목이 2027 이후에도 갈 수 있다고 본다(2차 브리프 요약). 버지니아 Loudoun 데이터센터 모라토리엄 표결은 11/17로 연기됐다.",
+   "title": "유가 6개월 고점과 인플레·금리",
+   "detail": "Brent는 하락했지만 주간 +6%로 고점권이고 10년물은 4.97~4.98%로 5% 바로 아래다. 2년물 입찰은 수요가 약했다.",
    "tag": "지속",
    "trend": "steady",
-   "importance": "MEDIUM",
+   "importance": "HIGH",
    "src": [
-    "s7"
+    "s2",
+    "s3"
    ]
   },
   {
-   "title": "SpaceX의 AI·통신 동시 확장",
-   "detail": "SpaceX 3분기 매출은 +161%인 145.8억달러, AI 부문은 +830%인 75.6억달러로 통신을 처음 앞섰다. 컴퓨팅 용량을 내년 말 13GW 이상으로 늘릴 계획이고, 통신 진출 보도로 통신주가 흔들렸다.",
+   "title": "Anthropic IPO와 AI 밸류에이션 가늠자",
+   "detail": "ANT 상장 신청으로 대형 AI 랩의 가치가 공개 시장에서 검증된다. 매출 집중(상위 2곳 약 25%)과 5,180억$ 컴퓨팅 약정이 쟁점이다(재인용 요약).",
    "tag": "신규",
    "trend": "up",
    "importance": "MEDIUM",
    "src": [
-    "s1",
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "title": "FOMC·빅테크 실적 주간",
+   "detail": "10/28 금리 결정은 인상 확률 약 10%로 동결이 유력하고, 12월 인상 신호와 MS·Alphabet·Amazon의 capex 가이던스가 초점이다.",
+   "tag": "지속",
+   "trend": "steady",
+   "importance": "HIGH",
+   "src": [
     "s2",
-    "s10"
+    "s3"
    ]
   }
  ],
  "risks": [
   {
-   "title": "Fed 12월 인상·장기금리 재상승",
-   "detail": "유가·기대인플레가 높아 10/28 FOMC에서 12월 신호가 강해지면 5% 안팎의 10년물이 다시 오를 수 있다. 시장은 12월을 사실상 반영했다.",
-   "watch": "10/28 FOMC·워시 기자회견, 10/29 3분기 GDP와 9월 PCE",
-   "importance": "HIGH",
-   "src": [
-    "s5",
-    "s6",
-    "s2"
-   ]
-  },
-  {
-   "title": "중동 확전(걸프 공격·해저케이블)",
-   "detail": "이란이 미국·이스라엘이 다시 공격하면 걸프 해저케이블을 타격할 계획을 세웠다는 보도가 있다. 주말 에스컬레이션 우려가 유가를 밀어올렸다.",
-   "watch": "주말 이후 Brent 117달러 돌파 여부, 후티·이란 관련 헤드라인",
-   "importance": "HIGH",
-   "src": [
-    "s1",
-    "s2"
-   ]
-  },
-  {
-   "title": "반도체 쏠림·포지션 청산",
-   "detail": "SOX는 주간 -3.2%로 7월 저점을 시험 중이다. 10/22 헤지펀드 수익률이 코로나 이후 처음 -1% 이상 하락했다고 한다.",
-   "watch": "10/28 SK hynix, 10/29 Samsung·Intel·Amazon 실적, SOX 7월 저점 이탈 여부",
+   "title": "Fed 12월 인상·장기금리 5% 돌파",
+   "detail": "유가 고착과 물가 지표가 이어지면 인상 경로가 굳어지고 장기금리가 5%를 넘을 수 있다.",
+   "watch": "10/28 FOMC 성명·워시 의장 기자회견 톤, GDP·PCE 발표",
    "importance": "HIGH",
    "src": [
     "s2",
-    "s6",
-    "s4"
+    "s3"
+   ]
+  },
+  {
+   "title": "중동 확전·대이란 재공습",
+   "detail": "중간선거 이후 미국의 재공습 우려가 있고 사우디 관련 공격이 유가를 고점권에 묶어 두고 있다.",
+   "watch": "사우디-이란 접촉 결과, Brent 120달러 여부",
+   "importance": "HIGH",
+   "src": [
+    "s2",
+    "s3"
    ]
   },
   {
    "title": "AI 인프라 신용 경색",
-   "detail": "Nebius는 364일 만기 35억달러 브리지론을 SOFR+2.75%로 조달했고 Meta CDS는 기록이다. 자금 비용이 오르면 데이터센터 확장 속도가 꺾일 수 있다.",
-   "watch": "10/28 Alphabet·Microsoft capex 가이던스와 조달 계획",
+   "detail": "네오클라우드 자금경색 경고와 대형 증자가 이어지면 AI 투자 사이클의 조달 비용이 급등할 수 있다.",
+   "watch": "CoreWeave 등 회사채 수익률, Meta 증자 공식 발표 여부",
+   "importance": "HIGH",
+   "src": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "title": "반도체 쏠림·포지션 청산 재발",
+   "detail": "반도체지수는 이번 반등에도 10월 약 -12%로, 변동성이 큰 상태다.",
+   "watch": "빅테크 capex 가이던스 하향 여부, SOX 11,000선 유지",
    "importance": "MEDIUM",
    "src": [
-    "s7",
-    "s4",
-    "s6"
+    "s3"
    ]
   }
  ],
- "flow": "Neutral 유지(하방 경계): Brent 116.72달러·중동 긴장과 AI 자금조달 우려가 지속되고, 반도체는 급락 후 반등했지만 10/28 FOMC와 빅테크 실적 전까지 방향성이 불확실하다.",
+ "flow": "Neutral 유지(하방 경계): AI·반도체 반등으로 지수는 올랐지만 Meta 증자·네오클라우드 신용 우려와 Brent 115달러·10년물 5% 부담이 남아 10/28 FOMC와 빅테크 실적을 확인해야 한다.",
  "sources": [
   {
    "id": "s1",
-   "title": "US Stocks Close: Dow Drops Over 600 Points, CrowdStrike Gains Over 8%",
-   "publisher": "TradingKey",
-   "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262236830-us-market-close-dow-drop-consumer-healthcare-chips-rebound-crowdstrike-tradingkey",
-   "date": "2026-10-23",
-   "tier": "집계"
+   "title": "Stock Market Today (Oct. 26, 2026): S&P 500 climbs as markets gear up for earnings, Fed decision",
+   "publisher": "TheStreet/Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-26-134626728.html",
+   "date": "2026-10-26",
+   "tier": "언론"
   },
   {
    "id": "s2",
-   "title": "Oil hits a six-month high and stocks slip. Tech holds steady.",
-   "publisher": "CNT Trading (Substack)",
-   "url": "https://cnttrading.substack.com/p/daily-market-2026-10-23",
-   "date": "2026-10-23",
-   "tier": "집계"
+   "title": "Stock Market Today (Oct. 26, 2026): Nasdaq, S&P 500 jump after Anthropic IPO announcement",
+   "publisher": "TheStreet",
+   "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-26-2026",
+   "date": "2026-10-26",
+   "tier": "언론"
   },
   {
    "id": "s3",
-   "title": "Dow, S&P 500 fall, tech steadies to end rocky week",
-   "publisher": "Spokesman-Review (AP)",
-   "url": "https://www.spokesman.com/stories/2026/oct/23/dow-sp-500-fall-tech-steadies-to-end-rocky-week/",
-   "date": "2026-10-23",
-   "tier": "언론"
+   "title": "Market Review: October 26, 2026",
+   "publisher": "Investrade",
+   "url": "https://investrade.com/market-review-october-26-2026/",
+   "date": "2026-10-26",
+   "tier": "집계"
   },
   {
    "id": "s4",
-   "title": "Kospi faces another 'Black Friday' as US chip stocks tumble; SK hynix halts Solidigm IPO plan",
-   "publisher": "The Herald Business",
-   "url": "https://biz.heraldcorp.com/article/10912123",
-   "date": "2026-10-23",
-   "tier": "언론"
-  },
-  {
-   "id": "s5",
-   "title": "The Fed will sit still on October 28 — but 100 of 100 economists now expect a December hike",
-   "publisher": "Mitrade",
-   "url": "https://www.mitrade.com/insights/more/Central-Banks/fed-october-hold-december-hike-20261022J1428",
-   "date": "2026-10-22",
+   "title": "Anthropic S-1 Shows $16.3B H1 Revenue, 25% From Two Customers",
+   "publisher": "AI Weekly (WSJ 재인용)",
+   "url": "https://aiweekly.co/alerts/anthropic-s-1-shows-163b-h1-revenue-25-from-two-customers-and-807b-non-cash",
+   "date": "2026-10-20",
    "tier": "집계"
-  },
-  {
-   "id": "s6",
-   "title": "ECONOMIC WEEK AHEAD: October 26-30",
-   "publisher": "Yardeni Research",
-   "url": "https://www.yardeniquicktakes.com/economic-week-ahead-october-26-30/",
-   "date": "2026-10-24",
-   "tier": "리서치"
-  },
-  {
-   "id": "s7",
-   "title": "404K SEMI-AI Evening Brief — October 24, 2026",
-   "publisher": "404K Research (Substack)",
-   "url": "https://404kresearch.substack.com/p/404k-semi-ai-evening-brief-october-850",
-   "date": "2026-10-24",
-   "tier": "리서치"
-  },
-  {
-   "id": "s8",
-   "title": "Earnings call transcript: Meta beats Q3 2026 estimates as AI push lifts shares",
-   "publisher": "Investing.com",
-   "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-meta-beats-q3-2026-estimates-as-ai-push-lifts-shares-93CH-4964260",
-   "date": "2026-10-21",
-   "tier": "집계"
-  },
-  {
-   "id": "s10",
-   "title": "Musk's Posts Swing Samsung, SK hynix Shares",
-   "publisher": "Seoul Economic Daily",
-   "url": "https://en.sedaily.com/finance/2026/10/24/musks-posts-swing-samsung-sk-hynix-shares",
-   "date": "2026-10-24",
-   "tier": "언론"
   }
  ],
- "date": "2026-10-26",
- "generated_at": "2026-10-26T06:26:41+09:00"
+ "date": "2026-10-27",
+ "generated_at": "2026-10-27T06:26:18+09:00"
 }

@@ -1,9 +1,9 @@
 {
  "version": 1,
- "updated": "2026-10-26",
+ "updated": "2026-10-27",
  "window": "최근 3개월(기간 밖 항목은 표시)",
  "summary": [
-  "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD·Nvidia). 저커버그는 공격적 투자 지속을 밝혔으나 FCF는 적자 전환, 머스크는 컴퓨팅 회수 단축을 주장.",
+  "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD·Nvidia). 저커버그는 공격적 투자 지속을 밝혔으나 FCF는 적자 전환, 머스크는 컴퓨팅 회수 단축을 주장하면서도 10/26 네오클라우드 다수 도산 가능성을 경고.",
   "투자업계는 핑크(강세) vs 달리오·그리핀(경계)로 갈림. 그레이·거스트너는 중립.",
   "워시는 AI가 당분간 물가 압력, 트럼프는 데이터센터 전력·지역 배당 의무화."
  ],
@@ -88,11 +88,13 @@
     {
      "who": "머스크",
      "org": "xAI·SpaceX",
-     "stance": "낙관",
-     "quote": "컴퓨팅 투자 회수 6개월로 단축 가능(SpaceX), 테슬라 capex는 예상보다 낮음",
-     "date": "10/20 SpaceX·10/21 Tesla 실적콜",
-     "detail": "SpaceX 10/20 실적콜: 컴퓨팅 투자 회수 기간이 2027년 6개월로 짧아질 수 있다고 언급, 용량 약 1.7GW에서 내년 말 13GW 이상 목표(2차 보도). Tesla 10/21: \"capex가 예상보다 조금 낮게 나오고 있다\", 연간 capex 가이던스 250억→200억$. 10/14 X 글: Micron은 합리적, 타사는 \"과도하다\", 중국이 2028년 대량 RAM 생산해 메모리 과잉이 빨라질 수 있다고 주장.",
+     "stance": "경계",
+     "quote": "네오클라우드 200여 곳 다수 도산 가능, 부채시장이 자금 공급 중단(10/26)",
+     "date": "10/26 발언(보도)",
+     "detail": "10/26 머스크가 200여 네오클라우드 중 다수가 망할 수 있고 부채시장이 독립 수익 없는 AI 데이터센터 운영사에 자금 공급을 사실상 중단했다고 경고, Nebius·CoreWeave·Iren 하락(2차 보도, 원문 미확인). 앞서 10/20 SpaceX 콜에서는 컴퓨팅 투자 회수 6개월 가능·수요 문제 없다고 발언, 10/21 Tesla 연간 capex 가이던스 250억→200억$.",
      "src": [
+      28,
+      29,
       26,
       27
      ],
@@ -116,11 +118,12 @@
      "stance": "신중",
      "quote": "속도 규제 옵션 제안, 3Q 매출 168억$",
      "date": "10/21 X 글",
-     "detail": "\"PRC 통제 기업 판매를 제한한 유일한 프런티어 기업\", 안전 관련 비용 큰 결정 9가지, 연방 선점은 '너무 거칠다', 2027.1.15까지 AI 속도 규제 옵션 제안 약속. 10/14 투자자 설명(FT): 3분기 매출 168억$, 11월 상장 추진.",
+     "detail": "\"PRC 통제 기업 판매를 제한한 유일한 프런티어 기업\", 안전 관련 비용 큰 결정 9가지, 연방 선점은 '너무 거칠다', 2027.1.15까지 AI 속도 규제 옵션 제안 약속. 10/14 투자자 설명(FT): 3분기 매출 168억$, 11월 상장 추진. 10/26 Anthropic이 나스닥 상장 신청서(티커 ANT) 제출(보도, 아모데이 직접 발언 아님).",
      "src": [
       12,
       13,
-      14
+      14,
+      29
      ],
      "outside": false
     },
@@ -386,6 +389,16 @@
    "n": 27,
    "title": "Tesla stock slips despite Q3 earnings beat, better-than-expected capex spend (Yahoo Finance)",
    "url": "https://sg.finance.yahoo.com/news/tesla-stock-slips-despite-q3-earnings-beat-better-than-expected-capex-spend-101521707.html"
+  },
+  {
+   "n": 28,
+   "title": "Market Review: October 26, 2026 (Investrade)",
+   "url": "https://investrade.com/market-review-october-26-2026/"
+  },
+  {
+   "n": 29,
+   "title": "Stock Market Today (Oct. 26, 2026) (TheStreet)",
+   "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-26-2026"
   }
  ]
 }
