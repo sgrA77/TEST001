@@ -1,10 +1,6 @@
 {
- "updated_at": "2026-10-26 08:47 KST",
+ "updated_at": "2026-10-26 10:49 KST",
  "warnings": [
-  "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLH0A0HYM2 | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0H",
-  "MACRO HY Spread 전체 실패 → 캐시/static 사용",
-  "MACRO BBB Spread ← fred:BAMLC0A4CBBB 실패: FRED 실패 → BAMLC0A4CBBB: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLC0A4CBBB | BAMLC0A4CBBB: 연결 실패 ReadTimeout | BAMLC0A4",
-  "MACRO BBB Spread 전체 실패 → 캐시/static 사용",
   "IPO 캘린더 11건 중 AI 관련 0건 (정상일 수 있음. 키워드는 IPO_AI_KEYWORDS)"
  ],
  "macro": {
@@ -20,7 +16,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1324.28,
+    "value": 1323.88,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -28,7 +24,7 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 156.834,
+    "value": 156.844,
     "prev_month": 157.558,
     "prev_year": 156.413,
     "prev_2year": 156.995,
@@ -128,8 +124,7 @@
     "prev_2year": 2.92,
     "prev_day": 3.27,
     "kind": "pp",
-    "suffix": "%",
-    "stale": true
+    "suffix": "%"
    },
    "BBB Spread": {
     "value": 1.11,
@@ -138,8 +133,7 @@
     "prev_2year": 1.02,
     "prev_day": 1.09,
     "kind": "pp",
-    "suffix": "%",
-    "stale": true
+    "suffix": "%"
    }
   }
  },
@@ -746,9 +740,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 79849.46,
+    "price": 79549.94,
     "prev_day": 80790.8359,
-    "turnover": 11898201088,
+    "turnover": 13601683456,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -757,7 +751,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 4015.1,
+    "price": 3998.8,
     "prev_day": 4007.8999,
     "turnover": null,
     "prev_month": 4186.7002,
@@ -768,7 +762,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 54.035,
+    "price": 53.835,
     "prev_day": 53.711,
     "turnover": null,
     "prev_month": 60.098,
@@ -790,7 +784,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 102.08,
+    "price": 101.49,
     "prev_day": 103.27,
     "turnover": null,
     "prev_month": 90.42,
@@ -801,7 +795,7 @@
     "ticker": "NG=F",
     "theme": "천연가스",
     "currency": "USD",
-    "price": 2.989,
+    "price": 2.988,
     "prev_day": 2.64,
     "turnover": null,
     "prev_month": 3.026,
@@ -1068,9 +1062,9 @@
     "ticker": "000660.KS",
     "theme": "DRAM · HBM",
     "currency": "KRW",
-    "price": 1277000.0,
-    "prev_day": 1223000.0,
-    "turnover": 5033226542000.0,
+    "price": 1308000.0,
+    "prev_day": 1277000.0,
+    "turnover": 1283633268000.0,
     "prev_month": 1776000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -1080,8 +1074,8 @@
     "theme": "메모리 · 파운드리",
     "currency": "KRW",
     "price": 215500.0,
-    "prev_day": 214500.0,
-    "turnover": 3479456966000.0,
+    "prev_day": 215500.0,
+    "turnover": 966473322500.0,
     "prev_month": 268500.0,
     "prev_year": 119900.0,
     "prev_2year": 53200.0
@@ -1402,21 +1396,21 @@
   },
   "KOSPI": {
    "ticker": "^KS11",
-   "price": 5550.3,
-   "3Y": 34.08,
-   "5Y": 13.32,
-   "10Y": 10.64,
-   "15Y": 7.3,
-   "20Y": 7.25
+   "price": 5531.85,
+   "3Y": 33.93,
+   "5Y": 13.24,
+   "10Y": 10.6,
+   "15Y": 7.27,
+   "20Y": 7.23
   },
   "KOSDAQ": {
    "ticker": "^KQ11",
-   "price": 751.69,
-   "3Y": 0.14,
-   "5Y": -5.4,
-   "10Y": 1.62,
-   "15Y": 2.89,
-   "20Y": 1.25
+   "price": 738.18,
+   "3Y": -0.46,
+   "5Y": -5.75,
+   "10Y": 1.43,
+   "15Y": 2.76,
+   "20Y": 1.16
   }
  },
  "gpu_rental": {
