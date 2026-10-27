@@ -1,10 +1,10 @@
 {
  "version": 2,
- "data_as_of": "2026-10-26 미국 장 마감",
+ "data_as_of": "2026-10-27 미국 장 마감",
  "market_view": {
   "label": "Neutral",
-  "summary": "10/26 S&P 500은 7,676.80(+0.70%), 나스닥 26,169.38(+0.82%), 다우 52,361.52(+0.28%)로 반등했고 반도체지수는 +3%대로 11,000선을 회복했다. 다만 10월 낙폭(약 -12%)은 여전하고, Brent 115달러대·10년물 4.98% 부근에서 Meta 대규모 증자 보도와 머스크의 네오클라우드 자금경색 경고가 나와 중립(하방 경계)을 유지한다. 10/28 FOMC와 MS·Alphabet·Amazon 실적이 분기점이다.",
-  "ai_line": "반도체는 급락 후 +3%대 반등했지만, AI 인프라 자금조달(Meta 증자·SpaceX 400억$ 부채·네오클라우드 신용)이 핵심 변수로 부상했다.",
+  "summary": "10/27 S&P 500 7,722.60(+0.60%), 나스닥 26,477.81(+1.18%), 다우 52,377.57(+0.03%)로 기술주 중심 이틀째 반등했다. Anthropic 상장 서류 공개가 AI 심리를 끌어올렸지만 Brent 113달러대·10년물 약 4.99%와 Meta 대규모 증자 보도로 AI 자금조달 부담은 남아 있어 중립(하방 경계)을 유지한다. 10/28 FOMC와 MS·Alphabet 실적이 분기점이다.",
+  "ai_line": "반도체지수 +3% 이상 반등, Broadcom 630억$ 금융·Anthropic IPO 서류가 칩·네트워킹 수요 기대를 자극했으나 CoreWeave류 차입 의존 우려는 지속.",
   "src": [
    "s1",
    "s2",
@@ -13,8 +13,8 @@
  },
  "key_changes": [
   {
-   "title": "S&P 500 +0.70%, 나스닥 +0.82%: AI·반도체 반등이 주도, 반도체지수 +3%대",
-   "detail": "기술·경기소비재·산업재가 올랐고 통신·필수소비재·헬스케어는 52주 고점 부근에서 밀렸다. 반도체지수는 11,000선을 회복했으나 10월 기준 약 -12%다.",
+   "title": "나스닥 +1.18%, 반도체지수 +3%대: Anthropic 상장 서류가 AI 심리 견인",
+   "detail": "S&P 500 +0.60%, 러셀2000 +1.16%, VIX 17.52(-4.7%). 다우는 보합(+0.03%)으로 성장주 쏠림 장세.",
    "importance": "HIGH",
    "src": [
     "s1",
@@ -23,8 +23,8 @@
    ]
   },
   {
-   "title": "Brent 115달러대(-0.8~-1.3%) 소폭 하락: 사우디 국방장관 이란 방문 소식에 긴장 완화 기대",
-   "detail": "WTI는 약 101.4~101.8달러로 하락했으나 Brent는 주간 +6%로 6개월 고점권이다. 중간선거 이후 미국의 대이란 재공습 우려도 거론된다.",
+   "title": "Brent 113.88달러(-1.7%), WTI 99.90달러(-1.8%): 중동 외교 기대",
+   "detail": "전일 115~117달러대에서 하락했으나 여전히 높은 수준이며, UBS는 연말 Brent 110달러 안팎을 예상.",
    "importance": "HIGH",
    "src": [
     "s2",
@@ -32,156 +32,146 @@
    ]
   },
   {
-   "title": "Meta 약 950억$ 증자 계획 보도·SpaceX 400억$ 부채 조달: AI 인프라가 주식·부채시장 자금에 의존",
-   "detail": "Meta는 장 초반 -1.70%였고, SpaceX는 AI 칩 구매용 400억$ 부채를 확보했다고 밝혔다(TheStreet 보도 기준).",
+   "title": "Meta 950억~1,000억$ 주식 발행 보도, Nvidia 30억$ 투자",
+   "detail": "AI 인프라 재원을 주식시장에서 조달한다는 보도(2차 보도). Oracle은 Google TPU·Cerebras 등으로 Nvidia 의존을 낮추려 한다.",
    "importance": "HIGH",
    "src": [
-    "s2",
+    "s1"
+   ]
+  },
+  {
+   "title": "Broadcom, Anthropic용 630억$ 금융 조달 계획: CoreWeave +7.9%",
+   "detail": "Broadcom은 장중 +3.3%, CoreWeave는 59.57달러로 반등했으나 차입 의존 구조 우려는 남음.",
+   "importance": "MEDIUM",
+   "src": [
     "s3"
    ]
   },
   {
-   "title": "머스크, 네오클라우드 200여 곳 다수 도산 가능 경고: Nebius·CoreWeave·Iren 하락",
-   "detail": "부채시장이 독립 수익이 없는 AI 데이터센터 운영사에 자금 공급을 사실상 중단했다는 경고다. 그럼에도 지수는 상승 마감했다.",
-   "importance": "MEDIUM",
+   "title": "10년물 4.99% 부근 유지, 10/28 FOMC는 동결 우세",
+   "detail": "CME 기준 인상 확률 약 10%. 시장은 인상 가이던스 문구에 주목.",
+   "importance": "HIGH",
    "src": [
-    "s2",
-    "s3"
-   ]
-  },
-  {
-   "title": "Anthropic, 나스닥 상장 신청서 제출(티커 ANT): 상장 기업가치 평가 약 2조$→1.5조$로 하향 거론",
-   "detail": "WSJ 재인용 요약 기준 상반기 매출 163억$, 컴퓨팅 약정 5,180억$이며 11월 상장 예정이다.",
-   "importance": "MEDIUM",
-   "src": [
-    "s2",
-    "s3",
-    "s4"
+    "s1",
+    "s2"
    ]
   }
  ],
  "issues": [
   {
-   "title": "AI 인프라 자금조달·네오클라우드 신용",
-   "detail": "Meta 증자 보도, SpaceX 400억$ 부채, 머스크의 네오클라우드 경고가 같은 날 겹쳤다. 수익성 검증 우려가 주식·채권 양쪽 조달 비용 문제로 번지는 양상이다.",
+   "title": "AI 인프라 자금조달: 증자·부채·IPO 의존",
+   "detail": "Meta 증자 보도, Broadcom 630억$ 금융, Anthropic 상장 서류가 한꺼번에 나오며 AI 투자가 외부 자금시장에 달려 있음을 보여준다. 반도체는 반등했지만 CoreWeave 등 차입 사업자 취약성은 그대로다.",
    "tag": "지속",
    "trend": "up",
    "importance": "HIGH",
    "src": [
-    "s2",
+    "s1",
     "s3"
    ]
   },
   {
-   "title": "유가 6개월 고점과 인플레·금리",
-   "detail": "Brent는 하락했지만 주간 +6%로 고점권이고 10년물은 4.97~4.98%로 5% 바로 아래다. 2년물 입찰은 수요가 약했다.",
+   "title": "유가 100달러대와 인플레·금리",
+   "detail": "Brent 113.88달러로 소폭 내렸으나 고물가 압력이 FOMC의 긴축 기조 장기화 우려로 이어진다. 10년물 4.986~4.993%, 30년물 5.30%.",
    "tag": "지속",
    "trend": "steady",
    "importance": "HIGH",
    "src": [
     "s2",
-    "s3"
+    "s1"
    ]
   },
   {
-   "title": "Anthropic IPO와 AI 밸류에이션 가늠자",
-   "detail": "ANT 상장 신청으로 대형 AI 랩의 가치가 공개 시장에서 검증된다. 매출 집중(상위 2곳 약 25%)과 5,180억$ 컴퓨팅 약정이 쟁점이다(재인용 요약).",
-   "tag": "신규",
+   "title": "Anthropic IPO가 AI 밸류에이션 가늠자",
+   "detail": "상장 서류 공개가 투자 심리를 개선하고 칩·네트워킹·클라우드 수요 기대를 키웠다.",
+   "tag": "지속",
    "trend": "up",
    "importance": "MEDIUM",
    "src": [
-    "s3",
-    "s4"
+    "s2",
+    "s3"
    ]
   },
   {
-   "title": "FOMC·빅테크 실적 주간",
-   "detail": "10/28 금리 결정은 인상 확률 약 10%로 동결이 유력하고, 12월 인상 신호와 MS·Alphabet·Amazon의 capex 가이던스가 초점이다.",
+   "title": "FOMC와 MS·Alphabet 실적 주간",
+   "detail": "10/28 14시(ET) 금리 결정, 14시 30분 워시 의장 회견, 장 마감 후 MS·Alphabet 실적. AI 투자가 매출·수익으로 이어지는지가 관건.",
    "tag": "지속",
    "trend": "steady",
    "importance": "HIGH",
    "src": [
-    "s2",
-    "s3"
+    "s3",
+    "s1"
    ]
   }
  ],
  "risks": [
   {
-   "title": "Fed 12월 인상·장기금리 5% 돌파",
-   "detail": "유가 고착과 물가 지표가 이어지면 인상 경로가 굳어지고 장기금리가 5%를 넘을 수 있다.",
-   "watch": "10/28 FOMC 성명·워시 의장 기자회견 톤, GDP·PCE 발표",
+   "title": "Fed 인상 시사·장기금리 5% 돌파",
+   "detail": "동결이 우세하나 높은 물가로 인상 가이던스가 나오면 성장주 부담이 커진다.",
+   "watch": "10/28 FOMC 성명·워시 회견, 10년물 5% 안착 여부",
    "importance": "HIGH",
    "src": [
-    "s2",
+    "s1",
     "s3"
    ]
   },
   {
-   "title": "중동 확전·대이란 재공습",
-   "detail": "중간선거 이후 미국의 재공습 우려가 있고 사우디 관련 공격이 유가를 고점권에 묶어 두고 있다.",
-   "watch": "사우디-이란 접촉 결과, Brent 120달러 여부",
+   "title": "중동 확전·이란 협상 결렬",
+   "detail": "유가는 외교 기대로 내렸지만 사우디 공격 등 불안이 남아 있다.",
+   "watch": "미-이란 협상 뉴스, Brent 115달러 재돌파, 이스라엘 총선 후 연정 구도",
    "importance": "HIGH",
    "src": [
-    "s2",
+    "s1",
     "s3"
    ]
   },
   {
    "title": "AI 인프라 신용 경색",
-   "detail": "네오클라우드 자금경색 경고와 대형 증자가 이어지면 AI 투자 사이클의 조달 비용이 급등할 수 있다.",
-   "watch": "CoreWeave 등 회사채 수익률, Meta 증자 공식 발표 여부",
+   "detail": "차입 의존 네오클라우드와 대규모 증자가 겹쳐 자금시장 흔들리면 파급이 크다.",
+   "watch": "CoreWeave 채권·주가, Meta 증자 조건, MS·Alphabet capex 가이던스",
    "importance": "HIGH",
    "src": [
-    "s2",
-    "s3"
+    "s3",
+    "s1"
    ]
   },
   {
-   "title": "반도체 쏠림·포지션 청산 재발",
-   "detail": "반도체지수는 이번 반등에도 10월 약 -12%로, 변동성이 큰 상태다.",
-   "watch": "빅테크 capex 가이던스 하향 여부, SOX 11,000선 유지",
+   "title": "성장주·반도체 쏠림",
+   "detail": "다우 보합 속 나스닥·반도체만 급등해 실적이 실망스러우면 되돌림 폭이 커질 수 있다.",
+   "watch": "10/28 MS·Alphabet, 이후 Amazon·Apple 실적",
    "importance": "MEDIUM",
    "src": [
-    "s3"
+    "s3",
+    "s2"
    ]
   }
  ],
- "flow": "Neutral 유지(하방 경계): AI·반도체 반등으로 지수는 올랐지만 Meta 증자·네오클라우드 신용 우려와 Brent 115달러·10년물 5% 부담이 남아 10/28 FOMC와 빅테크 실적을 확인해야 한다.",
+ "flow": "Neutral 유지(하방 경계): Anthropic 상장 서류로 AI·반도체가 반등했지만 Meta 증자·차입 의존과 Brent 113달러·10년물 5% 부담이 남아 10/28 FOMC와 MS·Alphabet 실적을 확인해야 한다.",
  "sources": [
   {
    "id": "s1",
-   "title": "Stock Market Today (Oct. 26, 2026): S&P 500 climbs as markets gear up for earnings, Fed decision",
-   "publisher": "TheStreet/Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-26-134626728.html",
-   "date": "2026-10-26",
+   "title": "Stock Market Today (Oct. 27, 2026): S&P 500 climbs as Wall Street gears up for earnings, Fed meeting",
+   "publisher": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-27-135043351.html",
+   "date": "2026-10-27",
    "tier": "언론"
   },
   {
    "id": "s2",
-   "title": "Stock Market Today (Oct. 26, 2026): Nasdaq, S&P 500 jump after Anthropic IPO announcement",
+   "title": "Stock Market Today (Oct. 27, 2026): Big Tech buoys S&P 500, Nasdaq as growth rebound continues",
    "publisher": "TheStreet",
-   "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-26-2026",
-   "date": "2026-10-26",
+   "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-27-2026",
+   "date": "2026-10-27",
    "tier": "언론"
   },
   {
    "id": "s3",
-   "title": "Market Review: October 26, 2026",
-   "publisher": "Investrade",
-   "url": "https://investrade.com/market-review-october-26-2026/",
-   "date": "2026-10-26",
-   "tier": "집계"
-  },
-  {
-   "id": "s4",
-   "title": "Anthropic S-1 Shows $16.3B H1 Revenue, 25% From Two Customers",
-   "publisher": "AI Weekly (WSJ 재인용)",
-   "url": "https://aiweekly.co/alerts/anthropic-s-1-shows-163b-h1-revenue-25-from-two-customers-and-807b-non-cash",
-   "date": "2026-10-20",
-   "tier": "집계"
+   "title": "Stock Market Today: Nasdaq Rises 1.2% as Anthropic Rally Extends Into Second Day",
+   "publisher": "Eurasia Business News",
+   "url": "https://eurasiabusinessnews.com/2026/10/27/stock-market-today-nasdaq-rises-1-2-as-anthropic-rally-extends-into-second-day/",
+   "date": "2026-10-27",
+   "tier": "언론"
   }
  ],
- "date": "2026-10-27",
- "generated_at": "2026-10-27T06:26:18+09:00"
+ "date": "2026-10-28",
+ "generated_at": "2026-10-28T06:26:05+09:00"
 }
