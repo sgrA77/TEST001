@@ -1,0 +1,31 @@
+name: Institution data (manual)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests
+      - name: Fetch
+        run: python INST_FETCH.py
+      - name: Publish to inst-data branch
+        run: |
+          cp inst.json "$RUNNER_TEMP/in.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -q --orphan inst-data
+          git rm -rfq . 2>/dev/null || true
+          cp "$RUNNER_TEMP/in.json" inst.json
+          git add inst.json
+          git commit -qm "lev $(date -u +%FT%TZ)"
+          git push -f origin inst-data
