@@ -1,0 +1,31 @@
+name: KQ probe (manual)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests pykrx
+      - name: Probe
+        run: python KQ_PROBE.py
+      - name: Publish to kq-data branch
+        run: |
+          cp kq_probe.json "$RUNNER_TEMP/kp.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -q --orphan kq-data
+          git rm -rfq . 2>/dev/null || true
+          cp "$RUNNER_TEMP/kp.json" kq_probe.json
+          git add kq_probe.json
+          git commit -qm "kq probe $(date -u +%FT%TZ)"
+          git push -f origin kq-data
