@@ -1,11 +1,11 @@
 {
  "version": 1,
- "updated": "2026-10-27",
+ "updated": "2026-10-29",
  "window": "최근 3개월(기간 밖 항목은 표시)",
  "summary": [
   "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD·Nvidia). 저커버그는 공격적 투자 지속을 밝혔으나 FCF는 적자 전환, 머스크는 컴퓨팅 회수 단축을 주장하면서도 10/26 네오클라우드 다수 도산 가능성을 경고.",
   "투자업계는 핑크(강세) vs 달리오·그리핀(경계)로 갈림. 그레이·거스트너는 중립.",
-  "워시는 AI가 당분간 물가 압력, 트럼프는 데이터센터 전력·지역 배당 의무화."
+  "워시는 10/28 동결하며 인플레가 여전히 높다고 했고(AI 투자 붐이 물가 압력이라는 입장 유지), 트럼프는 데이터센터 전력·지역 배당 의무화."
  ],
  "groups": [
   {
@@ -226,10 +226,11 @@
      "who": "워시",
      "org": "Fed 의장",
      "stance": "정책",
-     "quote": "AI는 \"가장 중요한 변화\", 지금은 물가 압력",
-     "date": "10/16 IMF·세계은행 총회",
-     "detail": "AI는 \"내 평생 가장 중요한 변화\"이나 길은 \"매우 험난\". 취임 전엔 AI가 물가를 낮출 것이라 했으나 지금은 투자 붐이 수요를 키워 물가를 올리고 있다고 인정. 10/28 금리 결정은 \"예단하지 않는다\".",
+     "quote": "\"인플레이션은 여전히 높지만 정책이 효과를 내기 시작했다\"",
+     "date": "10/28 FOMC",
+     "detail": "10/28 FOMC에서 금리 동결. \"인플레이션은 여전히 높지만 위원회는 정책이 효과를 내기 시작했다고 본다\"고 발언(2차 보도). 10/16에는 AI 투자 붐이 수요를 키워 물가를 올린다고 인정, AI를 \"내 평생 가장 중요한 변화\"라 평가.",
      "src": [
+      30,
       11
      ],
      "outside": false
@@ -399,6 +400,11 @@
    "n": 29,
    "title": "Stock Market Today (Oct. 26, 2026) (TheStreet)",
    "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-26-2026"
+  },
+  {
+   "n": 30,
+   "title": "Americas FX news wrap 28 Oct: Fed holds rates (investingLive)",
+   "url": "https://investinglive.com/news/investinglive-americas-fx-news-wrap-28-oct-fed-holds-rates-yield-curve-steepens-as-big-tech-earnings-diverge/"
   }
  ]
 }

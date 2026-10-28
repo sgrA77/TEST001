@@ -1,10 +1,10 @@
 {
  "version": 2,
- "data_as_of": "2026-10-27 미국 장 마감",
+ "data_as_of": "2026-10-28 미국 장 마감",
  "market_view": {
   "label": "Neutral",
-  "summary": "10/27 S&P 500 7,722.60(+0.60%), 나스닥 26,477.81(+1.18%), 다우 52,377.57(+0.03%)로 기술주 중심 이틀째 반등했다. Anthropic 상장 서류 공개가 AI 심리를 끌어올렸지만 Brent 113달러대·10년물 약 4.99%와 Meta 대규모 증자 보도로 AI 자금조달 부담은 남아 있어 중립(하방 경계)을 유지한다. 10/28 FOMC와 MS·Alphabet 실적이 분기점이다.",
-  "ai_line": "반도체지수 +3% 이상 반등, Broadcom 630억$ 금융·Anthropic IPO 서류가 칩·네트워킹 수요 기대를 자극했으나 CoreWeave류 차입 의존 우려는 지속.",
+  "summary": "10/28 S&P 500 7,744.38(+0.28%), 나스닥 26,549.85(+0.27%), 다우 52,485.24(+0.19%)로 3일 연속 상승했다. Fed는 금리를 동결했으나 인플레 경계 속에 10년물이 5.04%로 올랐고, 장 마감 후 MS는 호실적, Alphabet은 EPS 미스·FCF 적자로 엇갈렸다. 방향성은 AI 수익성 확인 여부에 달려 중립(하방 경계)을 유지한다.",
+  "ai_line": "MS Azure +48% 호조 vs Alphabet FCF −90.7억$: AI 투자 수익화와 현금 부담이 동시에 부각.",
   "src": [
    "s1",
    "s2",
@@ -13,165 +13,140 @@
  },
  "key_changes": [
   {
-   "title": "나스닥 +1.18%, 반도체지수 +3%대: Anthropic 상장 서류가 AI 심리 견인",
-   "detail": "S&P 500 +0.60%, 러셀2000 +1.16%, VIX 17.52(-4.7%). 다우는 보합(+0.03%)으로 성장주 쏠림 장세.",
-   "importance": "HIGH",
-   "src": [
-    "s1",
-    "s2",
-    "s3"
-   ]
-  },
-  {
-   "title": "Brent 113.88달러(-1.7%), WTI 99.90달러(-1.8%): 중동 외교 기대",
-   "detail": "전일 115~117달러대에서 하락했으나 여전히 높은 수준이며, UBS는 연말 Brent 110달러 안팎을 예상.",
+   "title": "Fed 동결, 10년물 5.04%로 상승: 장기금리 부담 지속",
+   "detail": "Warsh 의장은 \"인플레이션은 여전히 높지만 정책이 효과를 내기 시작했다\"고 밝혔고, 2년물은 하락(4.72%)·30년물은 상승(5.36%)해 커브가 가팔라졌다. Yahoo는 10-2 표결로 Hammack·Cook이 인상을 선호했다고 전했다.",
    "importance": "HIGH",
    "src": [
     "s2",
-    "s3"
-   ]
-  },
-  {
-   "title": "Meta 950억~1,000억$ 주식 발행 보도, Nvidia 30억$ 투자",
-   "detail": "AI 인프라 재원을 주식시장에서 조달한다는 보도(2차 보도). Oracle은 Google TPU·Cerebras 등으로 Nvidia 의존을 낮추려 한다.",
-   "importance": "HIGH",
-   "src": [
     "s1"
    ]
   },
   {
-   "title": "Broadcom, Anthropic용 630억$ 금융 조달 계획: CoreWeave +7.9%",
-   "detail": "Broadcom은 장중 +3.3%, CoreWeave는 59.57달러로 반등했으나 차입 의존 구조 우려는 남음.",
-   "importance": "MEDIUM",
+   "title": "MS 클라우드 호조: Azure +48%로 예상(44.8%) 상회, 시간외 +4%",
+   "detail": "MS 매출 923억$(예상 906억$), 클라우드 매출 639억$. AI 수요가 실적으로 확인됐다.",
+   "importance": "HIGH",
    "src": [
-    "s3"
+    "s2",
+    "s1"
    ]
   },
   {
-   "title": "10년물 4.99% 부근 유지, 10/28 FOMC는 동결 우세",
-   "detail": "CME 기준 인상 확률 약 10%. 시장은 인상 가이던스 문구에 주목.",
+   "title": "Alphabet EPS 2.12달러로 예상(약 3.0달러) 크게 하회, 시간외 −8%대",
+   "detail": "클라우드 매출은 307억$(+103%)로 호조였으나 검색·유튜브가 예상 미달이고 지분증권 평가손실 87억$가 반영됐다. FCF는 2분기 연속 적자(−90.7억$).",
    "importance": "HIGH",
    "src": [
-    "s1",
+    "s3",
     "s2"
+   ]
+  },
+  {
+   "title": "Anthropic 상장 서류: 상반기 매출 163억$지만 순손실 약 810억$, 인프라 약정 6,000억$ 이상",
+   "detail": "손실의 약 720억$는 전환사채 등 회계상 비용이며 상위 2개 고객이 매출의 약 5분의 1이다. WSJ 보도 인용 기사 기준.",
+   "importance": "MEDIUM",
+   "src": [
+    "s4"
    ]
   }
  ],
  "issues": [
   {
-   "title": "AI 인프라 자금조달: 증자·부채·IPO 의존",
-   "detail": "Meta 증자 보도, Broadcom 630억$ 금융, Anthropic 상장 서류가 한꺼번에 나오며 AI 투자가 외부 자금시장에 달려 있음을 보여준다. 반도체는 반등했지만 CoreWeave 등 차입 사업자 취약성은 그대로다.",
-   "tag": "지속",
+   "title": "빅테크 실적 엇갈림: AI 수익화 vs 현금흐름 부담",
+   "detail": "MS는 Azure 가속, Alphabet은 FCF 적자·EPS 미스. 시장은 AI 투자 회수 속도를 종목별로 차별화하기 시작했다.",
+   "tag": "신규",
    "trend": "up",
    "importance": "HIGH",
    "src": [
-    "s1",
+    "s2",
     "s3"
    ]
   },
   {
-   "title": "유가 100달러대와 인플레·금리",
-   "detail": "Brent 113.88달러로 소폭 내렸으나 고물가 압력이 FOMC의 긴축 기조 장기화 우려로 이어진다. 10년물 4.986~4.993%, 30년물 5.30%.",
-   "tag": "지속",
-   "trend": "steady",
-   "importance": "HIGH",
-   "src": [
-    "s2",
-    "s1"
-   ]
-  },
-  {
-   "title": "Anthropic IPO가 AI 밸류에이션 가늠자",
-   "detail": "상장 서류 공개가 투자 심리를 개선하고 칩·네트워킹·클라우드 수요 기대를 키웠다.",
+   "title": "AI 인프라 자금조달·밸류에이션 가늠자: Anthropic IPO",
+   "detail": "상장 서류에서 매출 급증과 대규모 손실·장기 약정이 함께 확인됐다. 11월 상장 추진이 AI 가격 기준점이 될 수 있다.",
    "tag": "지속",
    "trend": "up",
    "importance": "MEDIUM",
    "src": [
-    "s2",
-    "s3"
+    "s4"
    ]
   },
   {
-   "title": "FOMC와 MS·Alphabet 실적 주간",
-   "detail": "10/28 14시(ET) 금리 결정, 14시 30분 워시 의장 회견, 장 마감 후 MS·Alphabet 실적. AI 투자가 매출·수익으로 이어지는지가 관건.",
+   "title": "장기금리 5% 상회와 유가 100달러대",
+   "detail": "10년물 5.04%, 30년물 5.36%, 미국산 원유 약 101.5달러(+1.3%)로 인플레·금리 부담이 이어진다.",
    "tag": "지속",
    "trend": "steady",
    "importance": "HIGH",
    "src": [
-    "s3",
+    "s2",
     "s1"
    ]
   }
  ],
  "risks": [
   {
-   "title": "Fed 인상 시사·장기금리 5% 돌파",
-   "detail": "동결이 우세하나 높은 물가로 인상 가이던스가 나오면 성장주 부담이 커진다.",
-   "watch": "10/28 FOMC 성명·워시 회견, 10년물 5% 안착 여부",
+   "title": "12월 Fed 인상 현실화",
+   "detail": "Yahoo는 시장이 12월 인상 가능성을 반영한다고 전했다. 현실화하면 성장주·반도체 밸류에이션 타격이 크다.",
+   "watch": "12월 FOMC, 다음 CPI, 10년물 5.1% 안착 여부",
    "importance": "HIGH",
    "src": [
-    "s1",
-    "s3"
-   ]
-  },
-  {
-   "title": "중동 확전·이란 협상 결렬",
-   "detail": "유가는 외교 기대로 내렸지만 사우디 공격 등 불안이 남아 있다.",
-   "watch": "미-이란 협상 뉴스, Brent 115달러 재돌파, 이스라엘 총선 후 연정 구도",
-   "importance": "HIGH",
-   "src": [
-    "s1",
-    "s3"
-   ]
-  },
-  {
-   "title": "AI 인프라 신용 경색",
-   "detail": "차입 의존 네오클라우드와 대규모 증자가 겹쳐 자금시장 흔들리면 파급이 크다.",
-   "watch": "CoreWeave 채권·주가, Meta 증자 조건, MS·Alphabet capex 가이던스",
-   "importance": "HIGH",
-   "src": [
-    "s3",
     "s1"
    ]
   },
   {
-   "title": "성장주·반도체 쏠림",
-   "detail": "다우 보합 속 나스닥·반도체만 급등해 실적이 실망스러우면 되돌림 폭이 커질 수 있다.",
-   "watch": "10/28 MS·Alphabet, 이후 Amazon·Apple 실적",
-   "importance": "MEDIUM",
+   "title": "AI 현금흐름 악화·자금조달 경색",
+   "detail": "Alphabet FCF 적자와 Anthropic의 대규모 약정·손실처럼 투자가 영업현금 대비 커지고 있다. 채권·증자 시장이 닫히면 capex 축소로 이어질 수 있다.",
+   "watch": "빅테크 capex 가이던스, Anthropic 상장 가격·흥행",
+   "importance": "HIGH",
    "src": [
     "s3",
+    "s4"
+   ]
+  },
+  {
+   "title": "유가 100달러대 장기화와 중동 변수",
+   "detail": "원유가 100달러대에 머무는 한 인플레 재가속과 금리 인상 압력이 유지된다.",
+   "watch": "WTI·Brent 100달러 지지 여부, 중동 협상 소식",
+   "importance": "MEDIUM",
+   "src": [
     "s2"
    ]
   }
  ],
- "flow": "Neutral 유지(하방 경계): Anthropic 상장 서류로 AI·반도체가 반등했지만 Meta 증자·차입 의존과 Brent 113달러·10년물 5% 부담이 남아 10/28 FOMC와 MS·Alphabet 실적을 확인해야 한다.",
+ "flow": "Neutral 유지(하방 경계): Fed 동결에도 10년물 5.04%·WTI 101달러 부담이 이어지고, MS 호조 vs Alphabet FCF 적자로 AI 수익화가 종목별로 갈리며 12월 인상 가능성이 변수다.",
  "sources": [
   {
    "id": "s1",
-   "title": "Stock Market Today (Oct. 27, 2026): S&P 500 climbs as Wall Street gears up for earnings, Fed meeting",
+   "title": "Stock market today: Dow, S&P 500, Nasdaq rise as Fed holds rates steady, Big Tech earnings loom",
    "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-27-135043351.html",
-   "date": "2026-10-27",
+   "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-28-dow-sp-500-nasdaq-fed-meeting-decision-big-tech-earnings-130508769.html",
+   "date": "2026-10-28",
    "tier": "언론"
   },
   {
    "id": "s2",
-   "title": "Stock Market Today (Oct. 27, 2026): Big Tech buoys S&P 500, Nasdaq as growth rebound continues",
-   "publisher": "TheStreet",
-   "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-27-2026",
-   "date": "2026-10-27",
-   "tier": "언론"
+   "title": "Americas FX news wrap 28 Oct: Fed holds rates, yield curve steepens as Big Tech earnings diverge",
+   "publisher": "investingLive",
+   "url": "https://investinglive.com/news/investinglive-americas-fx-news-wrap-28-oct-fed-holds-rates-yield-curve-steepens-as-big-tech-earnings-diverge/",
+   "date": "2026-10-28",
+   "tier": "집계"
   },
   {
    "id": "s3",
-   "title": "Stock Market Today: Nasdaq Rises 1.2% as Anthropic Rally Extends Into Second Day",
-   "publisher": "Eurasia Business News",
-   "url": "https://eurasiabusinessnews.com/2026/10/27/stock-market-today-nasdaq-rises-1-2-as-anthropic-rally-extends-into-second-day/",
-   "date": "2026-10-27",
-   "tier": "언론"
+   "title": "Alphabet Shares Plunge 8% After Hours as Q3 Revenue, Net Income Miss Estimates, FCF Hits Negative $9.065B",
+   "publisher": "TradingKey",
+   "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262248965-google-earnings-report-q3-services-cloud-search-capital-expenditures-cash-tradingkey",
+   "date": "2026-10-28",
+   "tier": "집계"
+  },
+  {
+   "id": "s4",
+   "title": "Anthropic IPO draft shows nearly 15-fold revenue jump and $600 billion in compute deals",
+   "publisher": "investingLive (WSJ 인용)",
+   "url": "https://investinglive.com/stocks/anthropic-ipo-draft-shows-nearly-15-fold-revenue-jump-and-600-billion-in-compute-deals/",
+   "date": "2026-10-20",
+   "tier": "집계"
   }
  ],
- "date": "2026-10-28",
- "generated_at": "2026-10-28T06:26:05+09:00"
+ "date": "2026-10-29",
+ "generated_at": "2026-10-29T06:26:46+09:00"
 }
