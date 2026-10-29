@@ -1,0 +1,27 @@
+name: BigTech data (manual)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests
+      - run: python BT_FETCH.py
+      - name: Publish
+        run: |
+          cp bt.json "$RUNNER_TEMP/b.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -q --orphan bt-data
+          git rm -rfq . 2>/dev/null || true
+          cp "$RUNNER_TEMP/b.json" bt.json
+          git add bt.json
+          git commit -qm "bt"
+          git push -f origin bt-data
