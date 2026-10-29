@@ -1,9 +1,9 @@
 {
  "version": 1,
- "updated": "2026-10-29",
+ "updated": "2026-10-30",
  "window": "최근 3개월(기간 밖 항목은 표시)",
  "summary": [
-  "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD·Nvidia). 저커버그는 공격적 투자 지속을 밝혔으나 FCF는 적자 전환, 머스크는 컴퓨팅 회수 단축을 주장하면서도 10/26 네오클라우드 다수 도산 가능성을 경고.",
+  "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD·Nvidia). 저커버그는 공격적 투자 지속을 밝혔으나 FCF는 적자 전환, 머스크는 컴퓨팅 회수 단축을 주장하면서도 10/26 네오클라우드 다수 도산 가능성을 경고. 피차이는 10/28 검색 쿼리 성장 최고라 반박했으나 FCF 적자 속 Alphabet은 -13%.",
   "투자업계는 핑크(강세) vs 달리오·그리핀(경계)로 갈림. 그레이·거스트너는 중립.",
   "워시는 10/28 동결하며 인플레가 여전히 높다고 했고(AI 투자 붐이 물가 압력이라는 입장 유지), 트럼프는 데이터센터 전력·지역 배당 의무화."
  ],
@@ -51,13 +51,13 @@
     {
      "who": "피차이",
      "org": "Alphabet",
-     "stance": "강세",
-     "quote": "AI는 \"매우 초기\", 클라우드 수주잔고 5,140억$",
-     "date": "7/22 실적",
-     "detail": "생성 AI는 \"매우 초기(very early innings)\", Gemini 앱 월 9.5억 명, 검색 AI 모드 10억 명 초과, 클라우드 수주잔고 5,140억$, Gemini 4 학습 중. CFO 아슈케나지: capex 1,950~2,050억$, \"공급 제약\" 상태. (참고 2025.11: AI 투자에 \"비합리성의 요소\", \"버블이 터지면 우리도 예외 아니다\")",
+     "stance": "중립",
+     "quote": "검색 쿼리 증가율 \"최근 5년 중 가장 높다\"",
+     "date": "10/28 실적콜(2차 보도)",
+     "detail": "검색 약화 우려에 반박. 3Q Cloud +103%, 수주잔고 5,610억$, 2026 capex 1,950~2,050억$ 유지·2027 \"상당한 증가\" 예고. FCF -91억$로 주가 -13%(2차 보도 기준).",
      "src": [
-      19,
-      10
+      31,
+      19
      ],
      "outside": false
     },
@@ -405,6 +405,11 @@
    "n": 30,
    "title": "Americas FX news wrap 28 Oct: Fed holds rates (investingLive)",
    "url": "https://investinglive.com/news/investinglive-americas-fx-news-wrap-28-oct-fed-holds-rates-yield-curve-steepens-as-big-tech-earnings-diverge/"
+  },
+  {
+   "n": 31,
+   "title": "Alphabet Stock Plunges 13% in Worst Day Since IPO (IBTimes)",
+   "url": "https://www.ibtimes.com.au/alphabet-shares-plunge-ai-spending-profit-cash-flow-1877589"
   }
  ]
 }

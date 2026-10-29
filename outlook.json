@@ -1,10 +1,10 @@
 {
  "version": 2,
- "data_as_of": "2026-10-28 미국 장 마감",
+ "data_as_of": "2026-10-29 미국 장 마감",
  "market_view": {
   "label": "Neutral",
-  "summary": "10/28 S&P 500 7,744.38(+0.28%), 나스닥 26,549.85(+0.27%), 다우 52,485.24(+0.19%)로 3일 연속 상승했다. Fed는 금리를 동결했으나 인플레 경계 속에 10년물이 5.04%로 올랐고, 장 마감 후 MS는 호실적, Alphabet은 EPS 미스·FCF 적자로 엇갈렸다. 방향성은 AI 수익성 확인 여부에 달려 중립(하방 경계)을 유지한다.",
-  "ai_line": "MS Azure +48% 호조 vs Alphabet FCF −90.7억$: AI 투자 수익화와 현금 부담이 동시에 부각.",
+  "summary": "10/29 S&P 500 7,720.39(-0.30%), 나스닥 26,184.73(-1.38%), 다우 52,342.56(-0.25%)로 3일 상승을 마감했다. Alphabet이 FCF 적자·검색 부진으로 약 13% 급락(상장 후 최대 낙폭)하고 소프트웨어주도 동반 약세였으나, 러셀 2000 +1.0%·헬스케어 사상 최고 등 순환매가 지수 낙폭을 제한했다. 10년물 4.99%·유가 100달러대 부담이 이어져 중립(하방 경계)을 유지한다.",
+  "ai_line": "Cloud +103%(Alphabet)·AWS +39%에도 FCF 적자(Alphabet -91억$, Amazon 12개월 -424억$)가 부각되며 AI 투자 수익성 우려 재확산.",
   "src": [
    "s1",
    "s2",
@@ -13,140 +13,167 @@
  },
  "key_changes": [
   {
-   "title": "Fed 동결, 10년물 5.04%로 상승: 장기금리 부담 지속",
-   "detail": "Warsh 의장은 \"인플레이션은 여전히 높지만 정책이 효과를 내기 시작했다\"고 밝혔고, 2년물은 하락(4.72%)·30년물은 상승(5.36%)해 커브가 가팔라졌다. Yahoo는 10-2 표결로 Hammack·Cook이 인상을 선호했다고 전했다.",
+   "title": "Alphabet -12.6%, 상장 후 최대 낙폭: 시총 약 5,000억$ 증발",
+   "detail": "3분기 EPS 2.12달러(예상 3.02달러), 검색 +12%(약 650억$ 예상 하회), FCF -91억$. Cloud는 +103%·수주잔고 5,610억$였으나 2026 capex 1,950~2,050억$ 유지에 2027 '상당한 증가'를 예고했다.",
    "importance": "HIGH",
    "src": [
-    "s2",
-    "s1"
-   ]
-  },
-  {
-   "title": "MS 클라우드 호조: Azure +48%로 예상(44.8%) 상회, 시간외 +4%",
-   "detail": "MS 매출 923억$(예상 906억$), 클라우드 매출 639억$. AI 수요가 실적으로 확인됐다.",
-   "importance": "HIGH",
-   "src": [
-    "s2",
-    "s1"
-   ]
-  },
-  {
-   "title": "Alphabet EPS 2.12달러로 예상(약 3.0달러) 크게 하회, 시간외 −8%대",
-   "detail": "클라우드 매출은 307억$(+103%)로 호조였으나 검색·유튜브가 예상 미달이고 지분증권 평가손실 87억$가 반영됐다. FCF는 2분기 연속 적자(−90.7억$).",
-   "importance": "HIGH",
-   "src": [
-    "s3",
-    "s2"
-   ]
-  },
-  {
-   "title": "Anthropic 상장 서류: 상반기 매출 163억$지만 순손실 약 810억$, 인프라 약정 6,000억$ 이상",
-   "detail": "손실의 약 720억$는 전환사채 등 회계상 비용이며 상위 2개 고객이 매출의 약 5분의 1이다. WSJ 보도 인용 기사 기준.",
-   "importance": "MEDIUM",
-   "src": [
-    "s4"
-   ]
-  }
- ],
- "issues": [
-  {
-   "title": "빅테크 실적 엇갈림: AI 수익화 vs 현금흐름 부담",
-   "detail": "MS는 Azure 가속, Alphabet은 FCF 적자·EPS 미스. 시장은 AI 투자 회수 속도를 종목별로 차별화하기 시작했다.",
-   "tag": "신규",
-   "trend": "up",
-   "importance": "HIGH",
-   "src": [
+    "s1",
     "s2",
     "s3"
    ]
   },
   {
-   "title": "AI 인프라 자금조달·밸류에이션 가늠자: Anthropic IPO",
-   "detail": "상장 서류에서 매출 급증과 대규모 손실·장기 약정이 함께 확인됐다. 11월 상장 추진이 AI 가격 기준점이 될 수 있다.",
-   "tag": "지속",
-   "trend": "up",
-   "importance": "MEDIUM",
-   "src": [
-    "s4"
-   ]
-  },
-  {
-   "title": "장기금리 5% 상회와 유가 100달러대",
-   "detail": "10년물 5.04%, 30년물 5.36%, 미국산 원유 약 101.5달러(+1.3%)로 인플레·금리 부담이 이어진다.",
-   "tag": "지속",
-   "trend": "steady",
+   "title": "Amazon AWS +39% 가속에도 12개월 FCF -424억$: 시간외 약세",
+   "detail": "2026 capex 2,200억$ 유지, 매출 2,019억$·EPS 1.89달러로 예상(1.97달러) 하회. 시간외 한때 -10% 후 낙폭을 줄였다(-6.7%).",
    "importance": "HIGH",
    "src": [
-    "s2",
-    "s1"
-   ]
-  }
- ],
- "risks": [
-  {
-   "title": "12월 Fed 인상 현실화",
-   "detail": "Yahoo는 시장이 12월 인상 가능성을 반영한다고 전했다. 현실화하면 성장주·반도체 밸류에이션 타격이 크다.",
-   "watch": "12월 FOMC, 다음 CPI, 10년물 5.1% 안착 여부",
-   "importance": "HIGH",
-   "src": [
-    "s1"
-   ]
-  },
-  {
-   "title": "AI 현금흐름 악화·자금조달 경색",
-   "detail": "Alphabet FCF 적자와 Anthropic의 대규모 약정·손실처럼 투자가 영업현금 대비 커지고 있다. 채권·증자 시장이 닫히면 capex 축소로 이어질 수 있다.",
-   "watch": "빅테크 capex 가이던스, Anthropic 상장 가격·흥행",
-   "importance": "HIGH",
-   "src": [
+    "s1",
     "s3",
     "s4"
    ]
   },
   {
-   "title": "유가 100달러대 장기화와 중동 변수",
-   "detail": "원유가 100달러대에 머무는 한 인플레 재가속과 금리 인상 압력이 유지된다.",
-   "watch": "WTI·Brent 100달러 지지 여부, 중동 협상 소식",
+   "title": "소프트웨어·칩 실적 실망 확산: ServiceNow -25%, Intel 시간외 -17.6%",
+   "detail": "ServiceNow·Fortinet(-21%) 실적에 IGV가 -4%였고, Intel은 4분기 매출 가이던스 150~160억$(예상 170억$)를 PC 수요 약화 탓으로 제시했다. Marvell도 -13.2%.",
    "importance": "MEDIUM",
    "src": [
-    "s2"
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "title": "지수는 나스닥 -1.38%, 순환매가 하방 제한: 러셀 +1.0%, 10년물 4.99%",
+   "detail": "헬스케어(S&P 부문 사상 최고)·금융·부동산으로 자금이 이동했다. 3분기 GDP +3.4%, 9월 PCE 전년비 3.6%(근원 3.1%)로 경기는 견조하나 인플레가 높다.",
+   "importance": "MEDIUM",
+   "src": [
+    "s1",
+    "s3",
+    "s5"
    ]
   }
  ],
- "flow": "Neutral 유지(하방 경계): Fed 동결에도 10년물 5.04%·WTI 101달러 부담이 이어지고, MS 호조 vs Alphabet FCF 적자로 AI 수익화가 종목별로 갈리며 12월 인상 가능성이 변수다.",
+ "issues": [
+  {
+   "title": "빅테크 AI 수익화 vs 현금흐름 부담",
+   "detail": "Alphabet(FCF -91억$)·Amazon(12개월 -424억$)이 매출 가속에도 투자 부담으로 매도됐고, MS는 -0.16%로 상대적으로 견조했다. 시장은 AI 매출보다 현금창출을 보고 있다.",
+   "tag": "지속",
+   "trend": "up",
+   "importance": "HIGH",
+   "src": [
+    "s1",
+    "s2",
+    "s4"
+   ]
+  },
+  {
+   "title": "AI 우려의 소프트웨어·반도체 전이",
+   "detail": "ServiceNow -25%, Fortinet -21%, Marvell -13.2%, Intel 시간외 -17.6%. AI 수혜주에서도 실적 실망이 큰 낙폭으로 이어지는 국면이다.",
+   "tag": "신규",
+   "trend": "up",
+   "importance": "MEDIUM",
+   "src": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "title": "인플레 재가속과 유가 100달러대",
+   "detail": "9월 PCE 3.6%, WTI 약 103달러·Brent 약 115달러, 10년물 4.99%. 2년물 약 4.70%로 커브가 가팔라졌다.",
+   "tag": "지속",
+   "trend": "steady",
+   "importance": "HIGH",
+   "src": [
+    "s1",
+    "s5"
+   ]
+  },
+  {
+   "title": "대형주 이탈 속 순환매",
+   "detail": "러셀 2000 +1.01%, 헬스케어·금융·부동산 강세로 지수 낙폭이 S&P -0.30%에 그쳤다.",
+   "tag": "신규",
+   "trend": "up",
+   "importance": "LOW",
+   "src": [
+    "s1",
+    "s3"
+   ]
+  }
+ ],
+ "risks": [
+  {
+   "title": "12월 Fed 금리 인상 현실화",
+   "detail": "Fed는 10-2(2명 인상 선호)로 동결했고 시장은 12월 인상 확률을 약 80%로 본다. 인플레·유가가 꺾이지 않으면 장기금리 5% 돌파가 이어질 수 있다.",
+   "watch": "11/6 고용 보고서, 12/9 FOMC",
+   "importance": "HIGH",
+   "src": [
+    "s5",
+    "s1"
+   ]
+  },
+  {
+   "title": "하이퍼스케일러 FCF 적자 확대와 자금조달 경색",
+   "detail": "Alphabet은 2027 capex를 크게 늘리겠다고 했고 FCF는 두 분기 연속 적자다. 증자·차입 의존이 커질수록 시장 반응이 더 가혹해질 수 있다.",
+   "watch": "Alphabet·Amazon 2027 capex 가이던스, 대형 증자·채권 발행 공시",
+   "importance": "HIGH",
+   "src": [
+    "s2",
+    "s4"
+   ]
+  },
+  {
+   "title": "유가 100달러대 장기화",
+   "detail": "WTI 102.91달러·Brent 약 115달러로 인플레와 금리 인상 기대를 동시에 자극한다.",
+   "watch": "Brent 115달러 지지 여부, 중동 소식",
+   "importance": "MEDIUM",
+   "src": [
+    "s1",
+    "s5"
+   ]
+  }
+ ],
+ "flow": "Neutral 유지(하방 경계): Alphabet FCF 적자·검색 부진(-13%)과 Amazon·Intel 실망으로 AI 수익성 우려가 확산되고, 10년물 4.99%·유가 100달러대·12월 인상 기대가 부담이다.",
  "sources": [
   {
    "id": "s1",
-   "title": "Stock market today: Dow, S&P 500, Nasdaq rise as Fed holds rates steady, Big Tech earnings loom",
+   "title": "Stock market today: Dow, S&P 500, Nasdaq slip as Alphabet stock sinks 12% and AI jitters return",
    "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-28-dow-sp-500-nasdaq-fed-meeting-decision-big-tech-earnings-130508769.html",
-   "date": "2026-10-28",
+   "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-october-29-dow-sp-500-nasdaq-alphabet-microsoft-earnings-130305714.html",
+   "date": "2026-10-29",
    "tier": "언론"
   },
   {
    "id": "s2",
-   "title": "Americas FX news wrap 28 Oct: Fed holds rates, yield curve steepens as Big Tech earnings diverge",
-   "publisher": "investingLive",
-   "url": "https://investinglive.com/news/investinglive-americas-fx-news-wrap-28-oct-fed-holds-rates-yield-curve-steepens-as-big-tech-earnings-diverge/",
-   "date": "2026-10-28",
-   "tier": "집계"
+   "title": "Alphabet Stock Plunges 13% in Worst Day Since IPO, Erasing Nearly $500 Billion as AI Spending Sinks Cash Flow",
+   "publisher": "IBTimes",
+   "url": "https://www.ibtimes.com.au/alphabet-shares-plunge-ai-spending-profit-cash-flow-1877589",
+   "date": "2026-10-29",
+   "tier": "언론"
   },
   {
    "id": "s3",
-   "title": "Alphabet Shares Plunge 8% After Hours as Q3 Revenue, Net Income Miss Estimates, FCF Hits Negative $9.065B",
-   "publisher": "TradingKey",
-   "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262248965-google-earnings-report-q3-services-cloud-search-capital-expenditures-cash-tradingkey",
-   "date": "2026-10-28",
+   "title": "Stock Market Today October 29, 2026: Nasdaq Falls as Alphabet Drops; Amazon and Intel Slide After Hours",
+   "publisher": "Stock Titan",
+   "url": "https://www.stocktitan.net/articles/stock-market-today-live-october-29-2026",
+   "date": "2026-10-29",
    "tier": "집계"
   },
   {
    "id": "s4",
-   "title": "Anthropic IPO draft shows nearly 15-fold revenue jump and $600 billion in compute deals",
-   "publisher": "investingLive (WSJ 인용)",
-   "url": "https://investinglive.com/stocks/anthropic-ipo-draft-shows-nearly-15-fold-revenue-jump-and-600-billion-in-compute-deals/",
-   "date": "2026-10-20",
-   "tier": "집계"
+   "title": "Stock Market Today, Oct. 29: Amazon Falls on Q3 Earnings Report and Capex Concerns",
+   "publisher": "Motley Fool",
+   "url": "https://www.fool.com/coverage/stock-market-today/2026/10/29/stock-market-today-oct-29-amazon-falls-on-q3-earnings-report-and-capex-concerns/",
+   "date": "2026-10-29",
+   "tier": "언론"
+  },
+  {
+   "id": "s5",
+   "title": "Markets Today - October 29, 2026",
+   "publisher": "Nexo",
+   "url": "https://nexo.com/blog/markets-today-october-29",
+   "date": "2026-10-29",
+   "tier": "리서치"
   }
  ],
- "date": "2026-10-29",
- "generated_at": "2026-10-29T06:26:46+09:00"
+ "date": "2026-10-30",
+ "generated_at": "2026-10-30T06:32:05+09:00"
 }
