@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-01 04:34 KST",
+ "updated_at": "2026-11-01 07:47 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLH0A0HYM2 | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0H",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -202,7 +202,7 @@
    "ts": 1793649600,
    "d_day": 1,
    "eps_est": 1.9846,
-   "rev_est": 113252174380,
+   "rev_est": 113265972500,
    "quarters": [
     {
      "label": "4Q2025",
@@ -489,8 +489,8 @@
    "date": "2027-01-28",
    "ts": 1801166400,
    "d_day": 88,
-   "eps_est": 0.2431,
-   "rev_est": 16509622390,
+   "eps_est": 0.248,
+   "rev_est": 16254905240,
    "quarters": [
     {
      "label": "1Q2026",
@@ -521,8 +521,8 @@
    "date": null,
    "ts": null,
    "d_day": null,
-   "eps_est": 2.485,
-   "rev_est": 244313309730,
+   "eps_est": 2.5143,
+   "rev_est": 244617854270,
    "quarters": [
     {
      "label": "1Q2026",
@@ -554,7 +554,7 @@
    "ts": null,
    "d_day": null,
    "eps_est": 3.2576,
-   "rev_est": 142270944480,
+   "rev_est": 142356715910,
    "quarters": [
     {
      "label": "1Q2026",
@@ -746,9 +746,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 77450.98,
+    "price": 77465.97,
     "prev_day": 77198.2109,
-    "turnover": 14229970944,
+    "turnover": 12531504128,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -1070,7 +1070,7 @@
     "currency": "KRW",
     "price": 1418000.0,
     "prev_day": 1526000.0,
-    "turnover": 5473342454000.0,
+    "turnover": 6158205258000.0,
     "prev_month": 1776000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -1081,7 +1081,7 @@
     "currency": "KRW",
     "price": 225000.0,
     "prev_day": 232000.0,
-    "turnover": 4425316875000.0,
+    "turnover": 4969246275000.0,
     "prev_month": 268500.0,
     "prev_year": 119900.0,
     "prev_2year": 53200.0
@@ -1486,7 +1486,7 @@
    "AAPL": {
     "3Q2026": {
      "eps_est": 1.98463,
-     "rev_est": 113252174380
+     "rev_est": 113265972500
     }
    },
    "AMZN": {
@@ -1495,8 +1495,8 @@
      "rev_est": 202264872830
     },
     "4Q2026": {
-     "eps_est": 2.485,
-     "rev_est": 244313309730
+     "eps_est": 2.51429,
+     "rev_est": 244617854270
     }
    },
    "GOOGL": {
@@ -1506,7 +1506,7 @@
     },
     "4Q2026": {
      "eps_est": 3.25758,
-     "rev_est": 142270944480
+     "rev_est": 142356715910
     }
    },
    "META": {
@@ -1613,8 +1613,8 @@
      "rev_est": 16505005140
     },
     "4Q2026": {
-     "eps_est": 0.2431,
-     "rev_est": 16509622390
+     "eps_est": 0.24795,
+     "rev_est": 16254905240
     }
    }
   },
