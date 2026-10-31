@@ -1,0 +1,344 @@
+{
+ "version": 3,
+ "week_start": "2026-10-26",
+ "week_end": "2026-10-30",
+ "label": "2026.10.26 ~ 10.30",
+ "generated_at": "2026-10-31T16:23:56+09:00",
+ "thresholds": {
+  "KOSPI": 20.0,
+  "KOSDAQ": 30.0,
+  "ACCUM_BAND": 3.0,
+  "ACCUM_MAX_UP": 10.0,
+  "ACCUM_VOL": 0.0,
+  "ACCUM_MIN_CAP": 1000,
+  "ACCUM_LOOKBACK_WEEKS": 26,
+  "ACCUM_PAST_SURGE": 30.0,
+  "THEME_ORDER": [
+   "반도체",
+   "AI",
+   "방산",
+   "우주항공",
+   "친환경에너지",
+   "은행",
+   "증권",
+   "석유와가스"
+  ],
+  "ACCUM_THEMES": [
+   "반도체",
+   "AI",
+   "방산",
+   "우주항공",
+   "친환경에너지",
+   "은행",
+   "증권",
+   "석유와가스",
+   "제약",
+   "생명과학도구",
+   "조선",
+   "유류"
+  ],
+  "ACCUM_STREAK_BAND": 5.0,
+  "SURGE_MIN_CAP": 2000
+ },
+ "scanned": 2673,
+ "failed": 2,
+ "accum_before_history_filter": 121,
+ "kospi": [
+  {
+   "code": "489790",
+   "name": "한화비전",
+   "market": "KOSPI",
+   "price": 50200,
+   "cap_eok": 25345,
+   "vol_ratio": 4.8,
+   "last_day": "2026-10-30",
+   "prev_price": 38300,
+   "chg": 31.07,
+   "flags": [],
+   "sector": "통신장비",
+   "theme": "통신장비",
+   "news": [
+    {
+     "title": "삼성전자 수급 공백 괜찮을까…美 빅테크 실적발 변동성 주의",
+     "url": "https://n.news.naver.com/mnews/article/008/0005433840",
+     "office": "머니투데이",
+     "date": "2026-10-29"
+    }
+   ]
+  }
+ ],
+ "kosdaq": [
+  {
+   "code": "425420",
+   "name": "티에프이",
+   "market": "KOSDAQ",
+   "price": 85800,
+   "cap_eok": 10594,
+   "vol_ratio": 2.2,
+   "last_day": "2026-10-30",
+   "prev_price": 64600,
+   "chg": 32.82,
+   "flags": [],
+   "sector": "반도체와반도체장비",
+   "theme": "반도체",
+   "news": [
+    {
+     "title": "[이 시각 시황] 외국인 ‘사자’에 코스피 급등…5700선 탈환",
+     "url": "https://n.news.naver.com/mnews/article/374/0000539921",
+     "office": "SBS Biz",
+     "date": "2026-10-27"
+    }
+   ]
+  },
+  {
+   "code": "053800",
+   "name": "안랩",
+   "market": "KOSDAQ",
+   "price": 121100,
+   "cap_eok": 13474,
+   "vol_ratio": 3.0,
+   "last_day": "2026-10-30",
+   "prev_price": 76200,
+   "chg": 58.92,
+   "flags": [],
+   "sector": "소프트웨어",
+   "theme": "AI",
+   "news": [
+    {
+     "title": "증권사에서 코인거래소까지 다 뚫렸다…보안주 동반 급등",
+     "url": "https://n.news.naver.com/mnews/article/008/0005433105",
+     "office": "머니투데이",
+     "date": "2026-10-28"
+    }
+   ]
+  },
+  {
+   "code": "093320",
+   "name": "케이아이엔엑스",
+   "market": "KOSDAQ",
+   "price": 175700,
+   "cap_eok": 8574,
+   "vol_ratio": 4.4,
+   "last_day": "2026-10-30",
+   "prev_price": 135000,
+   "chg": 30.15,
+   "flags": [],
+   "sector": "IT서비스",
+   "theme": "AI",
+   "news": [
+    {
+     "title": "맥쿼리·가비아 주주 갈등 일단락…인수·상장폐지 절차 드라이브",
+     "url": "https://n.news.naver.com/mnews/article/092/0002442887",
+     "office": "지디넷코리아",
+     "date": "2026-10-29"
+    }
+   ]
+  },
+  {
+   "code": "263860",
+   "name": "지니언스",
+   "market": "KOSDAQ",
+   "price": 26650,
+   "cap_eok": 2420,
+   "vol_ratio": 3.6,
+   "last_day": "2026-10-30",
+   "prev_price": 19280,
+   "chg": 38.23,
+   "flags": [],
+   "sector": "소프트웨어",
+   "theme": "AI",
+   "news": [
+    {
+     "title": "파랗게 질렸는데…\"다 뚫렸다\" 29% 급등한 종목",
+     "url": "https://n.news.naver.com/mnews/article/215/0001271105",
+     "office": "한국경제TV",
+     "date": "2026-10-30"
+    }
+   ]
+  },
+  {
+   "code": "328130",
+   "name": "루닛",
+   "market": "KOSDAQ",
+   "price": 15400,
+   "cap_eok": 11467,
+   "vol_ratio": 3.8,
+   "last_day": "2026-10-30",
+   "prev_price": 11240,
+   "chg": 37.01,
+   "flags": [],
+   "sector": "건강관리기술",
+   "theme": "건강관리기술",
+   "news": [
+    {
+     "title": "루닛이 끌어올린 의료AI…뷰노 평가·뉴로핏 빅파마 계약 주목[바이오...",
+     "url": "https://n.news.naver.com/mnews/article/018/0006397541",
+     "office": "이데일리",
+     "date": "2026-10-28"
+    }
+   ]
+  },
+  {
+   "code": "046890",
+   "name": "서울반도체",
+   "market": "KOSDAQ",
+   "price": 11440,
+   "cap_eok": 6670,
+   "vol_ratio": 5.2,
+   "last_day": "2026-10-30",
+   "prev_price": 8210,
+   "chg": 39.34,
+   "flags": [],
+   "sector": "디스플레이장비및부품",
+   "theme": "디스플레이장비및부품",
+   "news": [
+    {
+     "title": "원가 절반으로 절감…서울바이오시스, 희토류 없앤 LED 개발에 상한가",
+     "url": "https://n.news.naver.com/mnews/article/003/0014286493",
+     "office": "뉴시스",
+     "date": "2026-10-29"
+    }
+   ]
+  }
+ ],
+ "accum": [
+  {
+   "code": "051600",
+   "name": "한전KPS",
+   "market": "KOSPI",
+   "price": 40750,
+   "cap_eok": 18338,
+   "vol_ratio": 1.2,
+   "last_day": "2026-10-30",
+   "open_price": 40500,
+   "open_chg": 0.62,
+   "max_up": 3.8,
+   "range": 5.4,
+   "flags": [],
+   "sector": "전기유틸리티",
+   "theme": "친환경에너지",
+   "surge_n": 1,
+   "surge_last": "2026-06-12",
+   "surge_max": 31.3,
+   "flat_n": 7,
+   "hist_weeks": 26,
+   "streak_n": 7,
+   "streak_max": 7
+  },
+  {
+   "code": "024060",
+   "name": "흥구석유",
+   "market": "KOSDAQ",
+   "price": 11630,
+   "cap_eok": 1745,
+   "vol_ratio": 1.2,
+   "last_day": "2026-10-30",
+   "open_price": 11720,
+   "open_chg": -0.77,
+   "max_up": 5.5,
+   "range": 11.9,
+   "flags": [],
+   "sector": "석유와가스",
+   "theme": "유류",
+   "surge_n": 1,
+   "surge_last": "2026-09-11",
+   "surge_max": 35.0,
+   "flat_n": 9,
+   "hist_weeks": 26,
+   "streak_n": 6,
+   "streak_max": 6
+  },
+  {
+   "code": "032580",
+   "name": "피델릭스",
+   "market": "KOSDAQ",
+   "price": 6810,
+   "cap_eok": 2256,
+   "vol_ratio": 0.5,
+   "last_day": "2026-10-30",
+   "open_price": 6800,
+   "open_chg": 0.15,
+   "max_up": 8.8,
+   "range": 13.7,
+   "flags": [],
+   "sector": "반도체와반도체장비",
+   "theme": "반도체",
+   "surge_n": 3,
+   "surge_last": "2026-08-07",
+   "surge_max": 164.2,
+   "flat_n": 1,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 1
+  },
+  {
+   "code": "003470",
+   "name": "유안타증권",
+   "market": "KOSPI",
+   "price": 3885,
+   "cap_eok": 7486,
+   "vol_ratio": 0.8,
+   "last_day": "2026-10-30",
+   "open_price": 3825,
+   "open_chg": 1.57,
+   "max_up": 5.0,
+   "range": 7.7,
+   "flags": [],
+   "sector": "증권",
+   "theme": "증권",
+   "surge_n": 1,
+   "surge_last": "2026-05-08",
+   "surge_max": 36.6,
+   "flat_n": 9,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 10
+  },
+  {
+   "code": "101930",
+   "name": "인화정공",
+   "market": "KOSDAQ",
+   "price": 6280,
+   "cap_eok": 2870,
+   "vol_ratio": 1.6,
+   "last_day": "2026-10-30",
+   "open_price": 6440,
+   "open_chg": -2.48,
+   "max_up": 7.1,
+   "range": 12.4,
+   "flags": [],
+   "sector": "조선",
+   "theme": "조선",
+   "surge_n": 1,
+   "surge_last": "2026-05-01",
+   "surge_max": 30.0,
+   "flat_n": 4,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 4
+  },
+  {
+   "code": "119830",
+   "name": "아이텍",
+   "market": "KOSDAQ",
+   "price": 5440,
+   "cap_eok": 1444,
+   "vol_ratio": 1.1,
+   "last_day": "2026-10-30",
+   "open_price": 5600,
+   "open_chg": -2.86,
+   "max_up": 4.8,
+   "range": 12.5,
+   "flags": [],
+   "sector": "반도체와반도체장비",
+   "theme": "반도체",
+   "surge_n": 1,
+   "surge_last": "2026-08-14",
+   "surge_max": 31.8,
+   "flat_n": 5,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 2
+  }
+ ]
+}
