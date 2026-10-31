@@ -1,6 +1,10 @@
 {
- "updated_at": "2026-11-01 00:47 KST",
+ "updated_at": "2026-11-01 04:34 KST",
  "warnings": [
+  "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLH0A0HYM2 | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0H",
+  "MACRO HY Spread 전체 실패 → 캐시/static 사용",
+  "MACRO BBB Spread ← fred:BAMLC0A4CBBB 실패: FRED 실패 → BAMLC0A4CBBB: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLC0A4CBBB | BAMLC0A4CBBB: 연결 실패 ReadTimeout | BAMLC0A4",
+  "MACRO BBB Spread 전체 실패 → 캐시/static 사용",
   "IPO 캘린더 응답에 종목이 0개 (Nasdaq 차단/구조 변경 가능성) - MANUAL_EVENTS 로 추가 가능"
  ],
  "macro": {
@@ -124,7 +128,8 @@
     "prev_2year": 2.92,
     "prev_day": 3.14,
     "kind": "pp",
-    "suffix": "%"
+    "suffix": "%",
+    "stale": true
    },
    "BBB Spread": {
     "value": 1.1,
@@ -133,7 +138,8 @@
     "prev_2year": 1.02,
     "prev_day": 1.07,
     "kind": "pp",
-    "suffix": "%"
+    "suffix": "%",
+    "stale": true
    }
   }
  },
@@ -228,7 +234,7 @@
    "ts": 1793736000,
    "d_day": 2,
    "eps_est": 1.9366,
-   "rev_est": 13083021310,
+   "rev_est": 13084823940,
    "quarters": [
     {
      "label": "4Q2025",
@@ -740,9 +746,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 77432.98,
+    "price": 77450.98,
     "prev_day": 77198.2109,
-    "turnover": 17922527232,
+    "turnover": 14229970944,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -1064,7 +1070,7 @@
     "currency": "KRW",
     "price": 1418000.0,
     "prev_day": 1526000.0,
-    "turnover": 6158205258000.0,
+    "turnover": 5473342454000.0,
     "prev_month": 1776000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -1075,7 +1081,7 @@
     "currency": "KRW",
     "price": 225000.0,
     "prev_day": 232000.0,
-    "turnover": 4969246275000.0,
+    "turnover": 4425316875000.0,
     "prev_month": 268500.0,
     "prev_year": 119900.0,
     "prev_2year": 53200.0
@@ -1526,7 +1532,7 @@
    "AMD": {
     "3Q2026": {
      "eps_est": 1.93659,
-     "rev_est": 13083021310
+     "rev_est": 13084823940
     }
    },
    "AVGO": {
