@@ -1,11 +1,7 @@
 {
- "updated_at": "2026-10-31 08:52 KST",
+ "updated_at": "2026-10-31 12:59 KST",
  "warnings": [
-  "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLH0A0HYM2 | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0H",
-  "MACRO HY Spread 전체 실패 → 캐시/static 사용",
-  "MACRO BBB Spread ← fred:BAMLC0A4CBBB 실패: FRED 실패 → BAMLC0A4CBBB: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLC0A4CBBB | BAMLC0A4CBBB: 연결 실패 ReadTimeout | BAMLC0A4",
-  "MACRO BBB Spread 전체 실패 → 캐시/static 사용",
-  "IPO 캘린더 18건 중 AI 관련 0건 (정상일 수 있음. 키워드는 IPO_AI_KEYWORDS)"
+  "IPO 캘린더 16건 중 AI 관련 0건 (정상일 수 있음. 키워드는 IPO_AI_KEYWORDS)"
  ],
  "macro": {
   "유동성 / 환율": {
@@ -20,11 +16,11 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1333.44,
+    "value": 1335.1,
     "prev_month": 1356.84,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
-    "prev_day": 1340.34,
+    "prev_day": 1337.98,
     "kind": "pct"
    },
    "USD/JPY": {
@@ -128,8 +124,7 @@
     "prev_2year": 2.92,
     "prev_day": 3.14,
     "kind": "pp",
-    "suffix": "%",
-    "stale": true
+    "suffix": "%"
    },
    "BBB Spread": {
     "value": 1.1,
@@ -138,8 +133,7 @@
     "prev_2year": 1.02,
     "prev_day": 1.07,
     "kind": "pp",
-    "suffix": "%",
-    "stale": true
+    "suffix": "%"
    }
   }
  },
@@ -201,8 +195,8 @@
    "date": "2026-11-02",
    "ts": 1793649600,
    "d_day": 2,
-   "eps_est": 1.9826,
-   "rev_est": 113322287400,
+   "eps_est": 1.9846,
+   "rev_est": 113252174380,
    "quarters": [
     {
      "label": "4Q2025",
@@ -223,7 +217,7 @@
      "eps_est": 1.8924,
      "eps_act": 2.02,
      "rev_est": null,
-     "rev_act": 109417000000
+     "rev_act": null
     }
    ]
   },
@@ -351,7 +345,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 29591000000
     }
    ]
   },
@@ -457,8 +451,8 @@
    "date": "2027-01-28",
    "ts": 1801166400,
    "d_day": 89,
-   "eps_est": 1.4347,
-   "rev_est": 4665027520,
+   "eps_est": 1.4415,
+   "rev_est": 4711050020,
    "quarters": [
     {
      "label": "1Q2026",
@@ -489,8 +483,8 @@
    "date": "2027-01-28",
    "ts": 1801166400,
    "d_day": 89,
-   "eps_est": 0.4466,
-   "rev_est": 16902965280,
+   "eps_est": 0.2431,
+   "rev_est": 16509622390,
    "quarters": [
     {
      "label": "1Q2026",
@@ -508,7 +502,7 @@
     },
     {
      "label": "3Q2026",
-     "eps_est": 0.3986,
+     "eps_est": 0.3991,
      "eps_act": 0.52,
      "rev_est": 16505005140,
      "rev_act": 16513000000
@@ -521,8 +515,8 @@
    "date": null,
    "ts": null,
    "d_day": null,
-   "eps_est": 2.4342,
-   "rev_est": 244309143060,
+   "eps_est": 2.485,
+   "rev_est": 244313309730,
    "quarters": [
     {
      "label": "1Q2026",
@@ -540,7 +534,7 @@
     },
     {
      "label": "3Q2026",
-     "eps_est": 1.9594,
+     "eps_est": 1.9579,
      "eps_act": 1.89,
      "rev_est": 202264872830,
      "rev_act": 201944000000
@@ -554,7 +548,7 @@
    "ts": null,
    "d_day": null,
    "eps_est": 3.2576,
-   "rev_est": 142242942850,
+   "rev_est": 142270944480,
    "quarters": [
     {
      "label": "1Q2026",
@@ -713,8 +707,8 @@
    "date": null,
    "ts": null,
    "d_day": null,
-   "eps_est": 53.3517,
-   "rev_est": 12232217100,
+   "eps_est": 57.1868,
+   "rev_est": 12525194590,
    "quarters": [
     {
      "label": "1Q2026",
@@ -746,9 +740,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 77152.24,
+    "price": 77011.23,
     "prev_day": 77775.1094,
-    "turnover": 46281416704,
+    "turnover": 32644100096,
     "prev_month": 83553.8516,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -1485,8 +1479,8 @@
    },
    "AAPL": {
     "3Q2026": {
-     "eps_est": 1.98261,
-     "rev_est": 113322287400
+     "eps_est": 1.98463,
+     "rev_est": 113252174380
     }
    },
    "AMZN": {
@@ -1495,8 +1489,8 @@
      "rev_est": 202264872830
     },
     "4Q2026": {
-     "eps_est": 2.43417,
-     "rev_est": 244309143060
+     "eps_est": 2.485,
+     "rev_est": 244313309730
     }
    },
    "GOOGL": {
@@ -1506,7 +1500,7 @@
     },
     "4Q2026": {
      "eps_est": 3.25758,
-     "rev_est": 142242942850
+     "rev_est": 142270944480
     }
    },
    "META": {
@@ -1593,8 +1587,8 @@
      "rev_est": 4038185350
     },
     "4Q2026": {
-     "eps_est": 1.43467,
-     "rev_est": 4665027520
+     "eps_est": 1.44148,
+     "rev_est": 4711050020
     }
    },
    "SNDK": {
@@ -1603,8 +1597,8 @@
      "rev_est": 10700329480
     },
     "4Q2026": {
-     "eps_est": 53.3517,
-     "rev_est": 12232217100
+     "eps_est": 57.18676,
+     "rev_est": 12525194590
     }
    },
    "INTC": {
@@ -1613,8 +1607,8 @@
      "rev_est": 16505005140
     },
     "4Q2026": {
-     "eps_est": 0.44661,
-     "rev_est": 16902965280
+     "eps_est": 0.2431,
+     "rev_est": 16509622390
     }
    }
   },
