@@ -1,0 +1,27 @@
+name: SOXX holdings (manual)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests
+      - run: python SOXXH_FETCH.py
+      - name: Publish
+        run: |
+          cp soxxh.json "$RUNNER_TEMP/x.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -q --orphan soxxh-data
+          git rm -rfq . 2>/dev/null || true
+          cp "$RUNNER_TEMP/x.json" soxxh.json
+          git add soxxh.json
+          git commit -qm "soxxh"
+          git push -f origin soxxh-data
