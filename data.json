@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-01 07:47 KST",
+ "updated_at": "2026-11-01 10:31 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLH0A0HYM2 | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0H",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -199,7 +199,7 @@
    "symbol": "AAPL",
    "name": "Apple",
    "date": "2026-11-02",
-   "ts": 1793649600,
+   "ts": 1793653200,
    "d_day": 1,
    "eps_est": 1.9846,
    "rev_est": 113265972500,
@@ -231,7 +231,7 @@
    "symbol": "AMD",
    "name": "AMD",
    "date": "2026-11-03",
-   "ts": 1793736000,
+   "ts": 1793739600,
    "d_day": 2,
    "eps_est": 1.9366,
    "rev_est": 13084823940,
@@ -263,7 +263,7 @@
    "symbol": "AMAT",
    "name": "Applied Materials",
    "date": "2026-11-12",
-   "ts": 1794513600,
+   "ts": 1794517200,
    "d_day": 11,
    "eps_est": 4.0558,
    "rev_est": 10299491080,
@@ -295,7 +295,7 @@
    "symbol": "NVDA",
    "name": "NVIDIA",
    "date": "2026-11-17",
-   "ts": 1794945600,
+   "ts": 1794949200,
    "d_day": 16,
    "eps_est": 2.4733,
    "rev_est": 108976833310,
@@ -327,7 +327,7 @@
    "symbol": "AVGO",
    "name": "Broadcom",
    "date": "2026-12-09",
-   "ts": 1796846400,
+   "ts": 1796850000,
    "d_day": 38,
    "eps_est": 3.8377,
    "rev_est": 34906205760,
@@ -359,7 +359,7 @@
    "symbol": "MU",
    "name": "Micron",
    "date": "2026-12-23",
-   "ts": 1798056000,
+   "ts": 1798059600,
    "d_day": 52,
    "eps_est": 38.2913,
    "rev_est": 61744368110,
@@ -391,7 +391,7 @@
    "symbol": "TSM",
    "name": "TSMC",
    "date": "2027-01-14",
-   "ts": 1799929800,
+   "ts": 1799933400,
    "d_day": 74,
    "eps_est": 5.1641,
    "rev_est": 1705011253270,
@@ -423,7 +423,7 @@
    "symbol": "MSFT",
    "name": "Microsoft",
    "date": "2027-01-27",
-   "ts": 1801080000,
+   "ts": 1801083600,
    "d_day": 87,
    "eps_est": 4.8602,
    "rev_est": 96627860740,
@@ -452,10 +452,138 @@
    ]
   },
   {
+   "symbol": "META",
+   "name": "Meta",
+   "date": "2027-01-27",
+   "ts": 1801083600,
+   "d_day": 87,
+   "eps_est": 8.7188,
+   "rev_est": 75155372690,
+   "quarters": [
+    {
+     "label": "1Q2026",
+     "eps_est": 6.6587,
+     "eps_act": 10.44,
+     "rev_est": null,
+     "rev_act": 56311000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 7.2214,
+     "eps_act": 6.18,
+     "rev_est": null,
+     "rev_act": 60801000000
+    },
+    {
+     "label": "3Q2026",
+     "eps_est": 5.4836,
+     "eps_act": 3.83,
+     "rev_est": 63405681590,
+     "rev_act": 64601000000
+    }
+   ]
+  },
+  {
+   "symbol": "TSLA",
+   "name": "Tesla",
+   "date": "2027-01-27",
+   "ts": 1801083600,
+   "d_day": 87,
+   "eps_est": 0.5033,
+   "rev_est": 29322961330,
+   "quarters": [
+    {
+     "label": "1Q2026",
+     "eps_est": 0.35,
+     "eps_act": 0.41,
+     "rev_est": null,
+     "rev_act": 22387000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 0.5424,
+     "eps_act": 0.33,
+     "rev_est": null,
+     "rev_act": 28236000000
+    },
+    {
+     "label": "3Q2026",
+     "eps_est": 0.4511,
+     "eps_act": 0.48,
+     "rev_est": 28253140390,
+     "rev_act": 28046000000
+    }
+   ]
+  },
+  {
+   "symbol": "ASML",
+   "name": "ASML",
+   "date": "2027-01-27",
+   "ts": 1801056600,
+   "d_day": 87,
+   "eps_est": 15.3884,
+   "rev_est": 14816055140,
+   "quarters": [
+    {
+     "label": "1Q2026",
+     "eps_est": 6.621,
+     "eps_act": 7.15,
+     "rev_est": null,
+     "rev_act": 8767000000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 6.9481,
+     "eps_act": 7.58,
+     "rev_est": null,
+     "rev_act": 9326500000
+    },
+    {
+     "label": "3Q2026",
+     "eps_est": 10.7582,
+     "eps_act": 11.8193,
+     "rev_est": 11716143870,
+     "rev_act": 11662000000
+    }
+   ]
+  },
+  {
+   "symbol": "LRCX",
+   "name": "Lam Research",
+   "date": "2027-01-27",
+   "ts": 1801083600,
+   "d_day": 87,
+   "eps_est": 2.3492,
+   "rev_est": 8643520980,
+   "quarters": [
+    {
+     "label": "1Q2026",
+     "eps_est": 1.3628,
+     "eps_act": 1.47,
+     "rev_est": null,
+     "rev_act": 5841488000
+    },
+    {
+     "label": "2Q2026",
+     "eps_est": 1.6836,
+     "eps_act": 1.82,
+     "rev_est": null,
+     "rev_act": 6722238000
+    },
+    {
+     "label": "3Q2026",
+     "eps_est": 2.1795,
+     "eps_act": 2.2,
+     "rev_est": 8537735040,
+     "rev_act": 8219418000
+    }
+   ]
+  },
+  {
    "symbol": "KLAC",
    "name": "KLA",
    "date": "2027-01-28",
-   "ts": 1801166400,
+   "ts": 1801170000,
    "d_day": 88,
    "eps_est": 1.4415,
    "rev_est": 4711050020,
@@ -487,7 +615,7 @@
    "symbol": "INTC",
    "name": "Intel",
    "date": "2027-01-28",
-   "ts": 1801166400,
+   "ts": 1801170000,
    "d_day": 88,
    "eps_est": 0.248,
    "rev_est": 16254905240,
@@ -580,134 +708,6 @@
    ]
   },
   {
-   "symbol": "META",
-   "name": "Meta",
-   "date": null,
-   "ts": null,
-   "d_day": null,
-   "eps_est": 8.7188,
-   "rev_est": 75155372690,
-   "quarters": [
-    {
-     "label": "1Q2026",
-     "eps_est": 6.6587,
-     "eps_act": 10.44,
-     "rev_est": null,
-     "rev_act": 56311000000
-    },
-    {
-     "label": "2Q2026",
-     "eps_est": 7.2214,
-     "eps_act": 6.18,
-     "rev_est": null,
-     "rev_act": 60801000000
-    },
-    {
-     "label": "3Q2026",
-     "eps_est": 5.4836,
-     "eps_act": 3.83,
-     "rev_est": 63405681590,
-     "rev_act": 64601000000
-    }
-   ]
-  },
-  {
-   "symbol": "TSLA",
-   "name": "Tesla",
-   "date": null,
-   "ts": null,
-   "d_day": null,
-   "eps_est": 0.5033,
-   "rev_est": 29322961330,
-   "quarters": [
-    {
-     "label": "1Q2026",
-     "eps_est": 0.35,
-     "eps_act": 0.41,
-     "rev_est": null,
-     "rev_act": 22387000000
-    },
-    {
-     "label": "2Q2026",
-     "eps_est": 0.5424,
-     "eps_act": 0.33,
-     "rev_est": null,
-     "rev_act": 28236000000
-    },
-    {
-     "label": "3Q2026",
-     "eps_est": 0.4511,
-     "eps_act": 0.48,
-     "rev_est": 28253140390,
-     "rev_act": 28046000000
-    }
-   ]
-  },
-  {
-   "symbol": "ASML",
-   "name": "ASML",
-   "date": null,
-   "ts": null,
-   "d_day": null,
-   "eps_est": 15.3884,
-   "rev_est": 14816055140,
-   "quarters": [
-    {
-     "label": "1Q2026",
-     "eps_est": 6.621,
-     "eps_act": 7.15,
-     "rev_est": null,
-     "rev_act": 8767000000
-    },
-    {
-     "label": "2Q2026",
-     "eps_est": 6.9481,
-     "eps_act": 7.58,
-     "rev_est": null,
-     "rev_act": 9326500000
-    },
-    {
-     "label": "3Q2026",
-     "eps_est": 10.7582,
-     "eps_act": 11.8193,
-     "rev_est": 11716143870,
-     "rev_act": 11662000000
-    }
-   ]
-  },
-  {
-   "symbol": "LRCX",
-   "name": "Lam Research",
-   "date": null,
-   "ts": null,
-   "d_day": null,
-   "eps_est": 2.3492,
-   "rev_est": 8643520980,
-   "quarters": [
-    {
-     "label": "1Q2026",
-     "eps_est": 1.3628,
-     "eps_act": 1.47,
-     "rev_est": null,
-     "rev_act": 5841488000
-    },
-    {
-     "label": "2Q2026",
-     "eps_est": 1.6836,
-     "eps_act": 1.82,
-     "rev_est": null,
-     "rev_act": 6722238000
-    },
-    {
-     "label": "3Q2026",
-     "eps_est": 2.1795,
-     "eps_act": 2.2,
-     "rev_est": 8537735040,
-     "rev_act": 8219418000
-    }
-   ]
-  },
-  {
    "symbol": "SNDK",
    "name": "SanDisk",
    "date": null,
@@ -746,10 +746,10 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 77465.97,
+    "price": 77537.38,
     "prev_day": 77198.2109,
-    "turnover": 12531504128,
-    "prev_month": 83553.8516,
+    "turnover": 11171673088,
+    "prev_month": 77198.2109,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
    },
