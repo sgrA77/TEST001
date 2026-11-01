@@ -1,9 +1,9 @@
 {
  "version": 1,
- "updated": "2026-10-30",
+ "updated": "2026-11-02",
  "window": "최근 3개월(기간 밖 항목은 표시)",
  "summary": [
-  "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD·Nvidia). 저커버그는 공격적 투자 지속을 밝혔으나 FCF는 적자 전환, 머스크는 컴퓨팅 회수 단축을 주장하면서도 10/26 네오클라우드 다수 도산 가능성을 경고. 피차이는 10/28 검색 쿼리 성장 최고라 반박했으나 FCF 적자 속 Alphabet은 -13%.",
+  "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD·Nvidia). 저커버그는 공격적 투자 지속을 밝혔으나 FCF는 적자 전환, 머스크는 컴퓨팅 회수 단축을 주장하면서도 10/26 네오클라우드 다수 도산 가능성을 경고. 피차이는 10/28 검색 쿼리 성장 최고라 반박했으나 FCF 적자 속 Alphabet은 -13%. MS는 10/28 Azure +48%로 호조였으나 FCF 커버율은 51%로 하락.",
   "투자업계는 핑크(강세) vs 달리오·그리핀(경계)로 갈림. 그레이·거스트너는 중립.",
   "워시는 10/28 동결하며 인플레가 여전히 높다고 했고(AI 투자 붐이 물가 압력이라는 입장 유지), 트럼프는 데이터센터 전력·지역 배당 의무화."
  ],
@@ -28,10 +28,11 @@
      "who": "나델라",
      "org": "Microsoft",
      "stance": "강세",
-     "quote": "1GW 추가, 2년 내 용량 2배 (CFO: 여전히 용량 부족)",
-     "date": "7/29 실적",
-     "detail": "분기에 데이터센터 31곳, 1GW 추가, 2년 내 전체 용량 약 2배 예정. M365 Copilot 유료 3,000만 석, GitHub Copilot 5,000만 명. CFO 에이미 후드: 수요가 용량을 계속 웃돈다, FY27 capex 약 1,750억$, 1분기 500억$ 초과 전망. (요약 기사 기준, 직접 인용 아님)",
+     "quote": "Azure +48% 가속(가이던스 약 45%), 분기 capex 394억$ (경영진 직접 발언은 못 찾음)",
+     "date": "10/28 실적(2차 보도)",
+     "detail": "3분기 매출 922.8억$(+19%), Azure 331.7억$로 +48% 성장. capex 393.7억$(+103%), FCF 186.3억$로 순이익 대비 51%(전년 92%). 올해 capex 약 1,750억$ 전망(데이터센터 내용연수 15→25년 변경 일부 반영). 실적 후 시간외 +3~4%. 직원 6만 명 대상 자발적 퇴직 제안(실적 며칠 전). 경영진 직접 인용은 못 찾음. 7/29 콜: 1GW 추가, 용량 2배 계획, 수요가 용량 상회.",
      "src": [
+      32,
       18
      ],
      "outside": false
@@ -46,7 +47,7 @@
      "src": [
       20
      ],
-     "outside": false
+     "outside": true
     },
     {
      "who": "피차이",
@@ -71,7 +72,7 @@
      "src": [
       7
      ],
-     "outside": false
+     "outside": true
     },
     {
      "who": "저커버그",
@@ -410,6 +411,11 @@
    "n": 31,
    "title": "Alphabet Stock Plunges 13% in Worst Day Since IPO (IBTimes)",
    "url": "https://www.ibtimes.com.au/alphabet-shares-plunge-ai-spending-profit-cash-flow-1877589"
+  },
+  {
+   "n": 32,
+   "title": "Microsoft results: cloud growth overshadows capex questions (XTB, 10/28)",
+   "url": "https://www.xtb.com/int/market-analysis/news-and-research/microsoft-results-cloud-growth-overshadows-capex-questions"
   }
  ]
 }
