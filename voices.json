@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-11-02",
+ "updated": "2026-11-03",
  "window": "최근 3개월(기간 밖 항목은 표시)",
  "summary": [
   "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD·Nvidia). 저커버그는 공격적 투자 지속을 밝혔으나 FCF는 적자 전환, 머스크는 컴퓨팅 회수 단축을 주장하면서도 10/26 네오클라우드 다수 도산 가능성을 경고. 피차이는 10/28 검색 쿼리 성장 최고라 반박했으나 FCF 적자 속 Alphabet은 -13%. MS는 10/28 Azure +48%로 호조였으나 FCF 커버율은 51%로 하락.",
@@ -66,13 +66,14 @@
      "who": "재시",
      "org": "Amazon",
      "stance": "강세",
-     "quote": "수요를 다 맞출 용량이 부족",
-     "date": "7월말",
-     "detail": "2026 capex 약 2,200억$로 올리고도 \"수요를 다 맞출 용량은 부족\". 메모리 가격 상승도 capex 증가 요인.",
+     "quote": "\"AWS 인프라·기능 투자가 효과를 내고 있다\"",
+     "date": "10/29 실적콜(2차 보도)",
+     "detail": "AWS 매출 +39.3% 460억$(연환산 약 1,840억$), 수주잔고 5,780억$. 2026 capex 약 2,200억$, 2027은 \"상당히 더 증가\" 예상, 2027·28 AWS 40%+ 성장 전망. 단 Amazon 주가는 3Q EPS 미스·FCF 악화로 하락(2차 보도, 실적콜 원문 미확인).",
      "src": [
+      33,
       7
      ],
-     "outside": true
+     "outside": false
     },
     {
      "who": "저커버그",
@@ -416,6 +417,11 @@
    "n": 32,
    "title": "Microsoft results: cloud growth overshadows capex questions (XTB, 10/28)",
    "url": "https://www.xtb.com/int/market-analysis/news-and-research/microsoft-results-cloud-growth-overshadows-capex-questions"
+  },
+  {
+   "n": 33,
+   "title": "MAG 7 Voices This Week (Stocktwits, 10/30)",
+   "url": "https://stocktwits.com/news-articles/markets/equity/elon-musk-warns-of-ai-shakeout-while-zuckerberg-pichai-nadella-jassy-discuss-the-costs-mag-7-voices-this-week/cZUKmssR9cO"
   }
  ]
 }
