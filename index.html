@@ -438,6 +438,15 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
   .pin .pm i { font-size: 8px; margin-right: 2px; }
   .pin .pm em { font-size: 9px; }
 }
+.yc-wrap { padding: 0 8px 6px; }
+.yc-wrap:empty { display: none; }
+.yc { display: flex; flex-wrap: wrap; gap: 3px; align-items: center; }
+.yc .ycl { font-size: 9px; font-weight: 800; color: var(--sub); margin-right: 2px; }
+.yc .yi { font-size: 10.5px; font-weight: 800; padding: 2px 5px; border-radius: 5px; border: 1px solid var(--line); background: var(--card); white-space: nowrap; line-height: 1.25; }
+.yc .yi b { font-weight: 700; color: var(--sub); margin-right: 3px; }
+.yc .yi.neg { border-color: var(--down-t); background: rgba(80,120,255,.10); color: var(--down-t); }
+.yc .yi.pos { color: var(--up-t); }
+@media (max-width: 760px) { .yc-wrap { padding: 0 6px 5px; } .yc { gap: 3px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); } .yc .ycl { grid-column: 1 / -1; margin: 0; } .yc .yi { font-size: 10px; padding: 2px 3px; text-align: center; overflow: hidden; text-overflow: ellipsis; } .yc .yi b { margin-right: 2px; font-size: 9px; } }
 </style>
 </head>
 
@@ -450,6 +459,7 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 </div>
 
 <div class="pin-wrap"><div class="pin" id="pinned"></div></div>
+<div class="yc-wrap" id="ycwrap"></div>
 </div>
 
 <div class="wrap">
@@ -1291,6 +1301,26 @@ fetch("data.json?t=" + Date.now())
     });
   }
   run();setInterval(run,300000);
+})();
+
+// 연봉(올해 시가 대비) 양/음봉 스트립: Mag7 + TSMC/MU/AMD/AVGO
+(function(){
+  var YC_URL="https://raw.githubusercontent.com/sgrA77/TEST001/yc-data/yc.json";
+  var NM={AAPL:"AAPL",MSFT:"MSFT",GOOGL:"GOOGL",AMZN:"AMZN",NVDA:"NVDA",META:"META",TSLA:"TSLA",TSM:"TSMC",MU:"MU",AMD:"AMD",AVGO:"AVGO"};
+  Promise.all([
+    fetch(YC_URL+"?t="+Date.now()).then(function(r){return r.ok?r.json():null}).catch(function(){return null}),
+    fetch(PRICES_URL+"?t="+Date.now()).then(function(r){return r.ok?r.json():null}).catch(function(){return null})
+  ]).then(function(a){
+    var yc=a[0], pr=a[1], el=document.getElementById("ycwrap");
+    if(!yc||!el) return;
+    var p=(pr&&pr.p)||{}, h="";
+    Object.keys(NM).forEach(function(s){
+      var it=yc.items[s]; if(!it) return;
+      var c=(p[s]&&p[s][0])||it.c, g=(c/it.o-1)*100, hi=(c/it.h-1)*100;
+      h+='<span class="yi '+(g<0?"neg":"pos")+'" title="'+NM[s]+' 올해 시가 '+it.o+' → 현재 '+c+' · 올해 고점 '+it.h+' 대비 '+hi.toFixed(1)+'%"><b>'+NM[s]+'</b>'+(g>0?"+":"")+g.toFixed(1)+'%</span>';
+    });
+    el.innerHTML='<div class="yc"><span class="ycl">연봉 · '+yc.year+'년 시가 대비 (파랑=음봉)</span>'+h+'</div>';
+  });
 })();
 </script>
 </body>
