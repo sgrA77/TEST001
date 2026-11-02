@@ -14,14 +14,7 @@ INST={"cash":["CashAndCashEquivalentsAtCarryingValue","CashCashEquivalentsRestri
 "eq":["StockholdersEquity"]}
 d=lambda s:date.fromisoformat(s)
 def dur(f):return (d(f["end"])-d(f["start"])).days
-def series(g,tags):
-    for tg in tags:
-        if tg in g:
-            arr=[f for f in g[tg]["units"].get("USD",[]) if "start" in f and f.get("form") in("10-K","10-Q","10-K/A","10-Q/A")]
-            if arr:return arr
-    return []
-def ttm(g,tags):
-    arr=series(g,tags)
+def ttm1(arr):
     fy=[f for f in arr if f["form"].startswith("10-K") and 350<=dur(f)<=380]
     if not fy:return None
     fe=max(f["end"] for f in fy);fyv={f["end"]:f["val"] for f in sorted(fy,key=lambda f:f["filed"])}
@@ -34,13 +27,27 @@ def ttm(g,tags):
     if not pr:return {"fy_end":fe,"fy":fyval,"ytd":y["val"],"ytd_end":y["end"],"ytd_prior":None,"ttm":None}
     p=max(pr,key=lambda f:f["filed"])
     return {"fy_end":fe,"fy":fyval,"ytd":y["val"],"ytd_end":y["end"],"ytd_prior":p["val"],"ttm":fyval+y["val"]-p["val"]}
+def ttm(g,tags):
+    best=None
+    for tg in tags:
+        if tg not in g:continue
+        arr=[f for f in g[tg]["units"].get("USD",[]) if "start" in f and f.get("form") in("10-K","10-Q","10-K/A","10-Q/A")]
+        if not arr:continue
+        r=ttm1(arr)
+        if not r:continue
+        key=(r.get("ytd_end") or r["fy_end"],r["ttm"] is not None)
+        if best is None or key>best[0]:best=(key,r,tg)
+    if best:best[1]["tag"]=best[2];return best[1]
+    return None
 def inst(g,tags):
+    best=None
     for tg in tags:
         if tg in g:
             arr=[f for f in g[tg]["units"].get("USD",[]) if f.get("form") in("10-K","10-Q") and "start" not in f]
             if arr:
-                m=max(arr,key=lambda f:(f["end"],f["filed"]));return {"v":m["val"],"end":m["end"],"tag":tg}
-    return None
+                m=max(arr,key=lambda f:(f["end"],f["filed"]))
+                if best is None or m["end"]>best["end"]:best={"v":m["val"],"end":m["end"],"tag":tg}
+    return best
 out={}
 for t in T:
     try:
