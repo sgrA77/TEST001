@@ -217,7 +217,7 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 /* 관심종목(핀) — 상단 지표 바로 아래 */
 .pin-wrap { background: #fff; border-bottom: 1px solid var(--line); padding: 8px 20px 10px; }
 .pin-wrap:empty, .pin-wrap:has(.pin:empty) { display: none; }
-.pin { display: grid; grid-template-columns: repeat(var(--n, 5), minmax(0, 1fr)); gap: 8px; max-width: 1760px; margin: 0 auto; }
+.pin { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; max-width: 1760px; margin: 0 auto; }
 @media (max-width: 760px) { .pin-wrap { padding: 6px 8px 8px; } .pin { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; } .pin .pc:last-child:nth-child(odd) { grid-column: span 2; } }
 .pin .pc { display: block; text-decoration: none; color: inherit; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 6px 9px 7px; min-width: 0; }
 .pin .pc:hover { border-color: rgba(240, 185, 11, .9); }
@@ -414,6 +414,28 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 .rules .mon .gapc b{font-size:19px}
 .rules .mon-sub{font-size:10.5px;color:var(--sub);margin:-2px 0 8px;text-align:right}
 @keyframes pulse{50%{opacity:.65}}
+
+/* KEY 영역 모바일 압축: 상단 지표 2x2 한눈에, 핀 카드 3열 */
+.pin .pd { font-size: 10px; font-weight: 800; margin-left: 4px; letter-spacing: -0.02em; }
+.pin .pd.up { color: var(--up-t); } .pin .pd.dn { color: var(--down-t); }
+@media (max-width: 760px) {
+  .key .topbar { display: block; position: relative; padding: 15px 10px 6px; }
+  .key .top-vals { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 10px; }
+  .key .top-vals .tv-n { font-size: 10px; margin-right: 4px; }
+  .key .top-vals .tv-v { font-size: 14px; }
+  .key .top-vals .tv-d { font-size: 10px; margin-left: 3px; }
+  .key .topbar .updated { position: absolute; top: 1px; right: 8px; font-size: 9px; }
+  .pin-wrap { padding: 5px 6px 6px; }
+  .pin { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
+  .pin .pc:last-child:nth-child(odd) { grid-column: auto; }
+  .pin .pc { padding: 4px 5px 5px; border-radius: 6px; }
+  .pin .pn { font-size: 9.5px; }
+  .pin .pp { font-size: 13.5px; }
+  .pin .pd { font-size: 9px; margin-left: 3px; }
+  .pin .pm { font-size: 9px; padding: 1px 3px; margin-top: 2px; gap: 2px; }
+  .pin .pm i { font-size: 8px; margin-right: 2px; }
+  .pin .pm em { font-size: 9px; }
+}
 </style>
 </head>
 
@@ -879,6 +901,7 @@ function applyLive(data, pr) {
         const d = l[0] - it.price;
         (it.mas || []).forEach(k => { if (it["ma" + k] != null) it["ma" + k] += d / k; });
         it.price = l[0];
+        if (l[1] > 0) it.dprev = l[1];
     });
 }
 
@@ -902,7 +925,7 @@ function maHTML(ticker) {
 }
 
 
-let PINNED = [];
+let PINNED = [], PINNAMES = {};
 function renderPinned() {
     const box = $("pinned");
     if (!box) return;
@@ -920,7 +943,9 @@ function renderPinned() {
             return `<div class="pm${Math.abs(g) <= 3 ? " near" : ""}"><span><i>주봉${n}</i><b>${f(m)}</b></span><em class="${g > 0 ? "up" : "dn"}">${signed(g, 1, "%")}</em></div>`;
         }).join("");
         const pf = sym.startsWith("^") ? num(it.price, it.price >= 1000 ? 0 : 2) : f(it.price);
-        return `<div class="pc"><div class="pn">${it.name}</div><div class="pp">${pf}</div>${rows}</div>`;
+        const dg = it.dprev > 0 ? (it.price / it.dprev - 1) * 100 : null;
+        const pd = dg == null ? "" : `<span class="pd ${dg > 0 ? "up" : (dg < 0 ? "dn" : "")}">${signed(dg, 1, "%")}</span>`;
+        return `<div class="pc"><div class="pn">${PINNAMES[sym] || it.name}</div><div class="pp">${pf}${pd}</div>${rows}</div>`;
     }).join("");
 }
 
@@ -1177,7 +1202,7 @@ fetch("data.json?t=" + Date.now())
         MAMAP = {}; MAUPD = (ma && ma.updated) || "";
         ((ma && ma.items) || []).forEach(it => { MAMAP[it.symbol] = it; });
         safe(() => applyLive(data, pr));
-        PINNED = (pin && pin.symbols) || [];
+        PINNED = (pin && pin.symbols) || []; PINNAMES = (pin && pin.names) || {};
         return data;
     }))
     .then(data => {
