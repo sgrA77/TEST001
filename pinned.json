@@ -13,8 +13,6 @@
   "AMDL",
   "MUU",
   "AVL",
-  "SPCX",
-  "SPCU",
   "SPCH",
   "SKHL",
   "GGLL",
@@ -34,12 +32,10 @@
   "AMDL": "AMD 2x(AMDL)",
   "MUU": "마이크론 2x(MUU)",
   "AVL": "브로드컴 2x(AVL)",
-  "SPCX": "스페이스X(SPCX)",
   "SKHL": "하이닉스 2x(SKHL)",
   "GGLL": "알파벳 2x(GGLL)",
   "ORCU": "오라클 2x(ORCU)",
   "CRWU": "코어위브 2x(CRWU)",
-  "SPCU": "스페이스X 2x(SPCU)",
   "SPCH": "스페이스X 2x(SPCH)"
  }
 }

@@ -220,6 +220,8 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 .pin { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; max-width: 1760px; margin: 0 auto; }
 @media (max-width: 760px) { .pin-wrap { padding: 6px 8px 8px; } .pin { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; } .pin .pc:last-child:nth-child(odd) { grid-column: span 2; } }
 .pin .pc { display: block; text-decoration: none; color: inherit; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 6px 9px 7px; min-width: 0; }
+.pin .pc.focus { border-color: #f0b90b; background: rgba(240,185,11,.10); box-shadow: 0 0 0 1px rgba(240,185,11,.55); }
+.pin .pc.focus .pn { color: #f0b90b; }
 .pin .pc:hover { border-color: rgba(240, 185, 11, .9); }
 .pin .pn { font-size: 11px; font-weight: 800; color: var(--sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pin .pp { font-size: clamp(16px, 4.6vw, 20px); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; }
@@ -926,6 +928,7 @@ function maHTML(ticker) {
 
 
 let PINNED = [], PINNAMES = {};
+const FOCUS = new Set(["ORCU","CRWU","SMH"]);
 function renderPinned() {
     const box = $("pinned");
     if (!box) return;
@@ -945,7 +948,7 @@ function renderPinned() {
         const pf = sym.startsWith("^") ? num(it.price, it.price >= 1000 ? 0 : 2) : f(it.price);
         const dg = it.dprev > 0 ? (it.price / it.dprev - 1) * 100 : null;
         const pd = dg == null ? "" : `<span class="pd ${dg > 0 ? "up" : (dg < 0 ? "dn" : "")}">${signed(dg, 1, "%")}</span>`;
-        return `<div class="pc"><div class="pn">${PINNAMES[sym] || it.name}</div><div class="pp">${pf}${pd}</div>${rows}</div>`;
+        return `<div class="pc${FOCUS.has(sym) ? " focus" : ""}"><div class="pn">${PINNAMES[sym] || it.name}</div><div class="pp">${pf}${pd}</div>${rows}</div>`;
     }).join("");
 }
 
