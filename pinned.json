@@ -14,6 +14,8 @@
   "MUU",
   "AVL",
   "SPCX",
+  "SPCU",
+  "SPCH",
   "SKHL",
   "GGLL",
   "ORCU",
@@ -36,6 +38,8 @@
   "SKHL": "하이닉스 2x(SKHL)",
   "GGLL": "알파벳 2x(GGLL)",
   "ORCU": "오라클 2x(ORCU)",
-  "CRWU": "코어위브 2x(CRWU)"
+  "CRWU": "코어위브 2x(CRWU)",
+  "SPCU": "스페이스X 2x(SPCU)",
+  "SPCH": "스페이스X 2x(SPCH)"
  }
 }
