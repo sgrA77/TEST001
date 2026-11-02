@@ -482,23 +482,12 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     <a class="panel slim ol-link hl-link" href="etfcmp.html" id="etflink"><span class="ol-t">★ ETF 적립식 비교</span><span class="ol-s">미국 vs 국내 · 금·지수 ETF · 세후 →</span></a>
     <a class="panel slim ol-link" href="semietf.html" id="semietflink"><span class="ol-t">반도체 ETF 성과 분석</span><span class="ol-s">SMH·SOXX·USD·SOXL · 상승/횡보/하락 →</span></a>
     <a class="panel slim ol-link" href="semimkt.html" id="semimktlink"><span class="ol-t">반도체 시장 전망과 주가</span><span class="ol-s">시장 규모 25년 · 주가 선행 · 기관 전망 →</span></a>
-    <a class="panel slim ol-link" href="smhplan.html" id="smhplanlink"><span class="ol-t">SMH 적립식 수익 극대화</span><span class="ol-s">시드·타이밍·레버리지·임계점·생활비 목표 →</span></a>
-    <a class="panel slim ol-link" href="instmoney.html" id="instmoneylink"><span class="ol-t">기관은 어떻게 돈을 버나</span><span class="ol-s">연기금·기금·헤지펀드 · 20년 섹터·개별주 →</span></a>
-    <a class="panel slim ol-link" href="sectorcycle.html" id="sectorcyclelink"><span class="ol-t">섹터 순환 분석 (2000~)</span><span class="ol-s">연도별 강세 섹터 · SPY/QQQ 대비 · 이후 성과 →</span></a>
-    <a class="panel slim ol-link" href="kosdaq.html" id="kosdaqlink"><span class="ol-t">코스닥 지수 vs 개별주</span><span class="ol-s">하락 후 반등 패턴 · 전년 낙폭주 · 승자 분석 →</span></a>
-    <a class="panel slim ol-link" href="etfsplit.html" id="etfsplitlink"><span class="ol-t">ETF 분할 이력</span><span class="ol-s">SPY · VOO · QQQ · SMH · SOXX · 분할 전 환산가 →</span></a>
     <a class="panel slim ol-link" href="bigtech.html" id="bigtechlink"><span class="ol-t">빅테크 매출 분석</span><span class="ol-s">20개사 연·분기 매출 (2020~2026) · OpenAI/Anthropic →</span></a>
-    <a class="panel slim ol-link" href="soxpos.html" id="soxposlink"><span class="ol-t">SOX의 위치 (vs SPY·QQQ)</span><span class="ol-s">정부 백업? · 기관 시각 · 위기 낙폭 →</span></a>
-    <a class="panel slim ol-link" href="soxxsc.html" id="soxxsclink"><span class="ol-t">SOXX 적립식 시나리오</span><span class="ol-s">5·10·15년 세후 수익 · 연도별 가격 · 타겟 $2,500~4,000 →</span></a>
     <a class="panel slim ol-link" href="lev.html" id="levlink"><span class="ol-t">레버리지 2x 장기 분석</span><span class="ol-s">원본에 수렴? 실현 1.5배 · 낙폭·회복 →</span></a>
     <a class="panel slim ol-link" href="outlook.html" id="olink"><span class="ol-t">Market Outlook</span><span class="ol-s" id="ol-sub">이슈·위험·주요 인물 발언 →</span></a>
     <a class="panel slim ol-link" href="watch.html" id="wlink"><span class="ol-t">급등·매집 모니터링</span><span class="ol-s" id="wl-sub">주간 급등 · 매집 의심 →</span></a>
-    <a class="panel slim ol-link" href="scenario.html" id="slink"><span class="ol-t">하락 시나리오 분석</span><span class="ol-s" id="sl-sub">저장된 분석 보기 →</span></a>
     <a class="panel slim ol-link" href="popular.html" id="plink"><span class="ol-t">국내 인기종목 (방산·반도체·전선)</span><span class="ol-s">거래대금·뉴스 기준 업종별 5종목 →</span></a>
     <a class="panel slim ol-link" href="usbear.html" id="ublink"><span class="ol-t">미국 하락장 역사</span><span class="ol-s">S&P500·나스닥100 언제·얼마나·왜·회복 기간 →</span></a>
-    <a class="panel slim ol-link" href="invplan.html" id="iplink"><span class="ol-t">5·10년 투자 시뮬레이션</span><span class="ol-s">하이리스크 한도(QQQ 2000 시나리오) →</span></a>
-    <a class="panel slim ol-link" href="qldplan.html" id="qplink"><span class="ol-t">적립식 시나리오 (QLD·CAGR)</span><span class="ol-s">QLD 4년 2배 · 7% 15년 →</span></a>
-    <a class="panel slim ol-link" href="research.html" id="rsplink"><span class="ol-t">리서치 (QLD·GPU 수급)</span><span class="ol-s">QLD 기관 시각 · HBM 마진으로 보는 GPU 수급 →</span></a>
     <a class="panel slim ol-link" href="aicorp.html" id="alink"><span class="ol-t">AI 기업 분석</span><span class="ol-s" id="al-sub">저장된 분석 보기 →</span></a>
     <a class="panel slim ol-link" href="ma.html" id="malink"><span class="ol-t">주요 종목 이동평균선 분석</span><span class="ol-s" id="ma-sub">주봉 MA60/120 보기 →</span></a>
 
@@ -1233,13 +1222,6 @@ fetch("data.json?t=" + Date.now())
   fetch('watch.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
     var el=document.getElementById('wl-sub'); if(!d||!el) return;
     el.innerHTML='<span class="ol-v">'+d.label+'</span> · 급등 '+(d.kospi.length+d.kosdaq.length)+(d.accum?' · 매집 '+d.accum.length:'')+' →';
-  }).catch(function(){});
-})();
-(function(){
-  fetch('scenarios/index.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
-    var el=document.getElementById('sl-sub'); if(!d||!d.length||!el) return;
-    d.sort(function(a,b){return (b.updated||b.date)<(a.updated||a.date)?-1:1});
-    el.innerHTML='<span class="ol-v">'+d.length+'건</span> · '+String(d[0].title).replace(/[<>&]/g,'')+' →';
   }).catch(function(){});
 })();
 (function(){
