@@ -58,7 +58,7 @@ def ttm(g,tags):
         key=(r["end"],r["ttm"] is not None)
         if best is None or key>best[0]:best=(key,r)
     return best[1] if best else None
-TAGS={"rev":["Revenues","RevenueFromContractWithCustomerExcludingAssessedTax","RevenueFromContractWithCustomerIncludingAssessedTax","SalesRevenueNet","RevenuesNetOfInterestExpense"],"oi":["OperatingIncomeLoss"],"ocf":["NetCashProvidedByUsedInOperatingActivities"],"capex":["PaymentsToAcquirePropertyPlantAndEquipment","PaymentsToAcquireProductiveAssets","PaymentsToAcquirePropertyPlantAndEquipmentAndIntangibleAssets"]}
+TAGS={"rev":["Revenues","RevenueFromContractWithCustomerExcludingAssessedTax","RevenueFromContractWithCustomerIncludingAssessedTax","SalesRevenueNet","RevenuesNetOfInterestExpense"],"oi":["OperatingIncomeLoss"],"ni":["NetIncomeLoss"],"ocf":["NetCashProvidedByUsedInOperatingActivities"],"capex":["PaymentsToAcquirePropertyPlantAndEquipment","PaymentsToAcquireProductiveAssets","PaymentsToAcquirePropertyPlantAndEquipmentAndIntangibleAssets"]}
 def fund():
     tk=requests.get("https://www.sec.gov/files/company_tickers.json",headers=SEC,timeout=60).json()
     cik={v["ticker"]:v["cik_str"] for v in tk.values()};out={}
@@ -86,7 +86,7 @@ def main():
         o=F.get(t) or {};g=lambda k:((o.get(k) or {}).get("ttm"))
         oi,ocf=g("oi"),g("ocf");cx=g("capex") or 0
         if ocf is None:return None
-        return dict(oi=oi,ocf=ocf,fcf=ocf-cx,rev=g("rev"),pos=(oi is None or oi>0) and ocf>0)
+        return dict(oi=oi,ni=g("ni"),ocf=ocf,fcf=ocf-cx,rev=g("rev"),pos=(oi is None or oi>0) and ocf>0)
     prev=json.load(open("prev_state.json")) if os.path.exists("prev_state.json") else {}
     pset=set(prev.get("hits",[]));new=[h for h in hits if h not in pset] if pset else [];gone=[h for h in pset if h not in hits]
     order=MANUAL+[h for h in sorted(hits,key=lambda x:st[x]["dd"]) if h not in MANUAL]
@@ -103,10 +103,16 @@ def main():
         if not x:return [KR.get(t,t),'—','—','—','수집 못함']
         r=o["rev"] or {};gr=""
         if r.get("ytd") and r.get("ytd_prior"):gr=f"\n~누적 {(r['ytd']/r['ytd_prior']-1)*100:+.0f}%~".replace('-','−')
-        if x["oi"] is not None and x["oi"]<=0:lab="영업적자"+("\nFCF 적자" if x["fcf"]<0 else "")
-        elif x["ocf"]<=0:lab="현금 소진"
-        elif x["fcf"]<0:lab="흑자\nFCF 적자"
-        else:lab="**양호**" if x["rev"] and r.get("ytd") and r.get("ytd_prior") and r["ytd"]>r["ytd_prior"] else "흑자"
+        fl=[]
+        if x["oi"] is not None and x["oi"]<=0:fl.append("영업적자")
+        elif x["ocf"]<=0:fl.append("현금 소진")
+        elif x["fcf"]<0:fl.append("흑자\nFCF 적자")
+        else:fl.append("흑자")
+        if x["ni"] is not None and x["ni"]<0 and "영업적자" not in fl:fl.append("순손실")
+        if r.get("ytd") and r.get("ytd_prior") and r["ytd"]<r["ytd_prior"]:fl.append("매출 감소")
+        if x["fcf"]<0 and "FCF 적자" not in "".join(fl) and "현금 소진" not in fl:fl.append("FCF 적자")
+        lab="\n".join(fl)
+        if lab=="흑자":lab="**양호**"
         return [KR.get(t,t).replace('코인베이스','코인베\n이스'),(b(x["rev"]) if x["rev"] else '—')+gr,'—' if x["oi"] is None else b(x["oi"]),b(x["fcf"]),lab]
     T=json.load(open("levwatch/levwatch-candidates.json",encoding="utf-8"))
     now=dt.datetime.utcnow()+dt.timedelta(hours=9)
@@ -121,6 +127,10 @@ def main():
         elif s["title"].startswith("3. 기초 기업"):
             s["title"]="3. 기초 기업 펀더멘털 (TTM, 억 달러, 자동 갱신)"
             s["table"]["rows"]=[frow(t) for t in unders]
+            neg=[f"{KR.get(t,t)}({b(good(t)['fcf'])})" for t in unders if good(t) and good(t)['fcf']<0]
+            loss=[KR.get(t,t) for t in unders if good(t) and good(t)['oi'] is not None and good(t)['oi']<=0]
+            s["bullets"]=["FCF는 영업현금흐름에서 설비투자를 뺀 값입니다. **FCF 적자(번 돈보다 많이 투자)**: "+(', '.join(neg) or '없음')+".",
+              "**영업적자**: "+(', '.join(loss) or '없음')+" — '펀더멘털 있음' 조건에 맞지 않습니다.","ARM·알리바바는 공시 형식 차이로 수집하지 못했습니다. 판정은 TTM 수치만 본 것이라 성장 전망은 반영하지 않았습니다."]
     # 요약: 자동 줄 추가
     T["summary"]=[x for x in T["summary"] if not x.startswith("**자동 선별")]
     T["summary"].insert(1,f"**자동 선별(기준 {asof})**: 조건 부합 ETF {len(hits)}개"+(f", 신규 {', '.join(new)}" if new else "")+(f", 이탈 {', '.join(gone)}" if gone else "")+". 아래 2·3번 표는 매일 자동 갱신됩니다.")
