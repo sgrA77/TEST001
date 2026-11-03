@@ -1,187 +1,192 @@
 {
  "version": 2,
- "data_as_of": "2026-11-02 미국 장 마감",
+ "data_as_of": "2026-11-03 미국 장 마감",
  "market_view": {
   "label": "Neutral",
-  "summary": "11/2 S&P 500 7,541.40(-0.51%), 나스닥 25,164.32(-1.07%), 다우 51,983.98(+0.41%). WTI가 미·이란 외교 해법 기대로 7.6% 급락(96.18달러)하고 10년물이 4.89%로 내렸지만, 칩이 주도한 기술주 이탈과 Oracle·Marvell의 대규모 자금조달·인수 부담이 지수를 눌렀다. 하방 경계 속 중립을 유지한다.",
-  "ai_line": "AI 인프라 자금조달 부담 확산: Oracle 200억$ 증자·채권, Marvell의 1,150억$ 전량 주식 Lumentum 인수, 기술주(XLK) 약 -2.4%.",
+  "summary": "11/3 S&P 500 약 7,569(+0.4%), 나스닥 약 25,372(+0.8%), 다우 약 51,787(-0.4%). 전날 급락한 칩이 반등해 나스닥을 끌어올렸지만 Apple이 마진 가이던스 실망으로 약 2% 하락해 다우를 눌렀다. 10년물 4.9%대, 유가 100달러 안팎, 중간선거 결과가 겹쳐 중립을 유지한다.",
+  "ai_line": "반도체지수는 10월 고점 대비 약 22% 아래(두 번째 약세장)에서 반등했고, AMD는 장 마감 후 Q4 매출 가이던스 170억$로 컨센서스(162.3억$)를 상회했다.",
   "src": [
    "s1",
-   "s2"
+   "s2",
+   "s3",
+   "s4"
   ]
  },
  "key_changes": [
   {
-   "title": "WTI -7.6% 96달러: 미·이란 외교 해법 기대로 유가 급락",
-   "detail": "WTI 12월물이 96.18달러로 마감해 100달러 아래로 내려왔고 10년물 금리도 4.89%로 하락했다. 다우는 올랐으나 기술주는 반등하지 못했다.",
-   "importance": "HIGH",
-   "src": [
-    "s1"
-   ]
-  },
-  {
-   "title": "나스닥 -1.07%: 칩 주도 기술주 이탈, XLK 약 -2.4%",
-   "detail": "금요일 급락 후 반등 기대를 뒤로하고 반도체 중심 매도가 이어져 S&P 500은 -0.51%로 마감했다.",
-   "importance": "HIGH",
-   "src": [
-    "s1"
-   ]
-  },
-  {
-   "title": "Oracle 200억$ 증자·채권 발표, 주가 약 -5%",
-   "detail": "주식·채권 각 약 100억$로 AI 투자 자금을 조달한다. 2월 250억$ 부채+200억$ 증자 후 올해 추가 채권은 없다고 했던 터라 레버리지 우려가 커졌다.",
+   "title": "칩 반등으로 나스닥 +0.8%: AMD +3.7%, 전날 칩지수 -7.2% 후 메모리·장비주 주도",
+   "detail": "S&P 500 약 +0.4%, 나스닥 약 +0.8%, 다우 약 -0.4%. 반도체지수는 월요일 기준 10월 고점 대비 약 22% 낮아 '베어 트랩' 가능성도 거론된다.",
    "importance": "HIGH",
    "src": [
     "s1",
-    "s3"
+    "s2"
    ]
   },
   {
-   "title": "Marvell, Lumentum을 1,150억$ 전량 주식으로 인수: MRVL 장중 -6.8%",
-   "detail": "Lumentum 1주당 Marvell 4.5주로 기존 Marvell 주주 지분은 약 67%로 희석되고 2028년 상반기 종결 예정이다. 광연결 병목 해소 논리지만 희석 부담이 먼저 반영됐다.",
+   "title": "AMD 장 마감 후 호실적: Q3 매출 134억$(+45%), Q4 가이던스 약 170억$",
+   "detail": "데이터센터 매출 85억$(+97%). Q4 가이던스 170억$는 시장 예상 162.3억$를 웃돌았고 시간외 초기 약 +6%(블로그 보도).",
+   "importance": "HIGH",
+   "src": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "title": "Apple 약 -2%: 연말 분기 마진 전망·iPad 부진, 메모리 원가 상승 부담",
+   "detail": "시총 약 930억$ 증발, 다우 하락 요인. 메모리 가격 상승이 기기 마진을 압박한다는 해석.",
    "importance": "MEDIUM",
    "src": [
-    "s4",
+    "s2",
     "s5"
    ]
   },
   {
-   "title": "Apple 실적 발표 직전 약 -2%: 터너스 첫 실적, AI 인프라 노출 낮음",
-   "detail": "장 마감 후 실적이라 결과는 반영 전이다.",
-   "importance": "LOW",
+   "title": "Palantir -2%: 실적·가이던스 상향에도 신규 계약 둔화와 고평가 부각",
+   "detail": "애널리스트는 AI 투자 수익성·FCF 중시 분위기와 높은 금리가 기술주 밸류에 부담이라고 지적했다.",
+   "importance": "MEDIUM",
    "src": [
-    "s1",
-    "s2"
+    "s5"
+   ]
+  },
+  {
+   "title": "유가 변동 확대: Qeshm섬 공습 보도에 급등 후 협상설에 반락, WTI 95~96달러",
+   "detail": "월요일 Brent -7% 이후 화요일 장중 반등했다 반락. 이란 당국자는 양측 입장차가 크다고 밝혔다(Reuters 인용). 10년물은 4.9%대.",
+   "importance": "MEDIUM",
+   "src": [
+    "s2",
+    "s6"
    ]
   }
  ],
  "issues": [
   {
-   "title": "AI 인프라 자금조달·레버리지 우려",
-   "detail": "Oracle 200억$ 조달에 Microsoft의 250억$ 채권 발행 재개가 겹쳐 채권 투자자가 더 높은 금리와 보호장치를 요구한다. Marvell의 전량 주식 인수도 자금조달 부담을 키웠다.",
-   "tag": "지속",
-   "trend": "up",
-   "importance": "HIGH",
-   "src": [
-    "s3",
-    "s4",
-    "s5"
-   ]
-  },
-  {
-   "title": "빅테크 실적 후 AI 수익성 의구심",
-   "detail": "Alphabet·Amazon·Intel 실망이 금요일 나스닥 급락을 불렀고 11/2에도 기술주 매도가 이어졌다. 다만 Amazon·Microsoft는 클라우드 성장(AWS +39%, Azure +48%)을 보였다.",
+   "title": "AI 투자 수익성·FCF 의구심과 고금리",
+   "detail": "Palantir·Apple 하락과 10년물 4.9%대로 투자자가 AI 지출 수익성과 FCF를 따진다. 높은 금리가 미래 이익의 가치를 깎는다는 분석.",
    "tag": "지속",
    "trend": "steady",
    "importance": "HIGH",
    "src": [
-    "s1",
-    "s2",
+    "s5",
     "s6"
    ]
   },
   {
-   "title": "유가 급락과 중동 외교 변수",
-   "detail": "미·이란 외교 해법 보도로 WTI가 100달러 아래로 내려왔고 금리도 소폭 하락했다. 합의 여부에 따라 되돌림 가능성이 있다.",
+   "title": "칩 반등 vs 약세장: AMD 실적이 수요 시험대",
+   "detail": "칩지수가 고점 대비 -22%에서 반등했고 AMD가 Q4 가이던스 170억$로 수요를 확인시켰다. 반등 지속 여부는 다음 거래일 반응에 달렸다.",
    "tag": "신규",
-   "trend": "down",
-   "importance": "MEDIUM",
+   "trend": "up",
+   "importance": "HIGH",
    "src": [
-    "s1"
+    "s1",
+    "s3",
+    "s4"
    ]
   },
   {
-   "title": "반도체 업종 M&A와 자금조달 부각",
-   "detail": "Marvell-Lumentum은 AI 광연결 수요를 보여주지만, 높은 밸류에이션에서 주식 대가 딜이 희석 우려를 낳았다.",
+   "title": "메모리 가격 상승이 기기 마진 압박",
+   "detail": "Apple이 메모리 원가 상승으로 연말 분기 총마진 전망이 실망스러웠다. 메모리 업체엔 수혜, 세트업체엔 부담.",
    "tag": "신규",
    "trend": "up",
    "importance": "MEDIUM",
    "src": [
-    "s4",
+    "s2",
     "s5"
+   ]
+  },
+  {
+   "title": "중동 외교와 유가",
+   "detail": "공습 보도와 협상설이 교차하며 유가가 일중 등락했다. 이란 측은 입장차가 크다고 밝혔다.",
+   "tag": "지속",
+   "trend": "steady",
+   "importance": "MEDIUM",
+   "src": [
+    "s2",
+    "s6"
    ]
   }
  ],
  "risks": [
   {
-   "title": "11/3 중간선거 후 재정·금리 경로",
-   "detail": "의회 권력 균형이 재정 정책, 차입, 국채 금리에 영향을 줄 수 있다.",
-   "watch": "11/3 선거 결과, 10월 고용보고서, 10년물 4.9% 부근",
+   "title": "민주당 승리 시 시장 충격 가능성",
+   "detail": "예측시장은 민주당 상원 승리 확률을 약 75%로 보며, 양원 장악은 수요일 주가에 부담이 될 수 있고 아직 가격에 반영되지 않았다는 분석.",
+   "watch": "11/4 개장 선거 결과와 10년물·달러 반응",
    "importance": "MEDIUM",
+   "src": [
+    "s2",
+    "s1"
+   ]
+  },
+  {
+   "title": "인플레 재가열과 연준 인상 우려",
+   "detail": "연준 위원 2명이 인플레 억제를 위해 금리 인상이 필요할 수 있다고 최근 발언했고 고유가가 물가 압력을 더한다.",
+   "watch": "10년물 5% 재돌파 여부, 연준 인사 발언",
+   "importance": "HIGH",
    "src": [
     "s2"
    ]
   },
   {
-   "title": "AI 인프라 자금조달 시장 경색",
-   "detail": "채권 투자자의 요구 금리가 오르는 가운데 빅테크 발행이 이어진다. 조달 비용이 오르면 capex 계획이 흔들릴 수 있다.",
-   "watch": "Oracle 채권 발행 금리, 빅테크 후속 발행, 2027 capex 가이던스",
-   "importance": "HIGH",
-   "src": [
-    "s3"
-   ]
-  },
-  {
-   "title": "미·이란 협상 결렬 시 유가 재급등",
-   "detail": "유가 하락은 외교 기대에 의존해 협상이 틀어지면 되돌릴 수 있다.",
-   "watch": "미·이란 협상 진행, WTI 100달러 회복 여부",
+   "title": "협상 결렬 시 유가 재급등",
+   "detail": "이란 당국자가 양측 입장차가 크다고 밝혀 외교 기대가 꺾이면 유가가 다시 오를 수 있다.",
+   "watch": "미·이란 협상 보도, WTI 100달러 회복 여부",
    "importance": "MEDIUM",
    "src": [
-    "s1"
+    "s2",
+    "s6"
    ]
   }
  ],
- "flow": "Neutral 유지: 유가 급락·금리 하락에도 Oracle·Marvell 자금조달 부담과 칩 주도 기술주 매도로 AI 수익성·레버리지 우려가 이어지고 11/3 선거가 변수다.",
+ "flow": "Neutral 유지: 칩 반등과 AMD 호실적이 AI 수요를 받쳤지만 Apple 마진 실망, 10년물 4.9%대·유가 100달러 안팎, 중간선거 결과가 변수다.",
  "sources": [
   {
    "id": "s1",
-   "title": "Yahoo Finance - U.S. market close, Monday Nov 2, 2026",
+   "title": "Stock market today: Dow slips, S&P and Nasdaq gain as chip stocks rally, focus shifts to midterm elections",
    "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/live/stock-market-today-monday-november-2-dow-sp-500-nasdaq-091835095.html",
-   "date": "2026-11-02",
+   "url": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-november-3-dow-sp-500-nasdaq-midterms-amd-earnings-141143244.html",
+   "date": "2026-11-03",
    "tier": "언론"
   },
   {
    "id": "s2",
-   "title": "Stock Market Today (Nov. 2, 2026)",
-   "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-nov-2-144446387.html",
-   "date": "2026-11-02",
-   "tier": "언론"
+   "title": "Stock Market Today Live, November 3, 2026: Chip Stocks Lift the Nasdaq as Apple Weighs on the Dow",
+   "publisher": "StockTitan",
+   "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-3-2026",
+   "date": "2026-11-03",
+   "tier": "집계"
   },
   {
    "id": "s3",
-   "title": "Oracle Stock Trickles Down as Tech Giant Plans $20 Billion Fundraise",
-   "publisher": "TipRanks",
-   "url": "https://www.tipranks.com/news/oracle-stock-trickles-down-as-tech-giant-plans-20-billion-fundraise-for-ai-buildout",
-   "date": "2026-11-02",
-   "tier": "언론"
+   "title": "AMD Reports Third Quarter 2026 Financial Results",
+   "publisher": "AMD (GlobeNewswire)",
+   "url": "https://www.globenewswire.com/news-release/2026/11/03/3394824/0/en/amd-reports-third-quarter-2026-financial-results.html",
+   "date": "2026-11-03",
+   "tier": "공식"
   },
   {
    "id": "s4",
-   "title": "Marvell to purchase Lumentum in $115 billion deal",
-   "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/article/marvell-to-purchase-lumentum-in-115-billion-deal-as-ai-124702761.html",
-   "date": "2026-11-02",
+   "title": "Live: Will AMD Crush Q3 Earnings Tonight After a 4% Intraday Pop?",
+   "publisher": "24/7 Wall St.",
+   "url": "https://247wallst.com/investing/2026/11/03/live-will-amd-crush-q3-earnings-tonight-after-a-4-intraday-pop/",
+   "date": "2026-11-03",
    "tier": "언론"
   },
   {
    "id": "s5",
-   "title": "Marvell Stocks Decline 6.8% With Lumentum Deal",
-   "publisher": "GuruFocus/TradingView",
-   "url": "https://www.tradingview.com/news/gurufocus:419f06afd094b:0-marvell-stocks-decline-6-8-with-lumentum-deal-putting-dilution-ahead-of-synergies/",
-   "date": "2026-11-02",
+   "title": "Stock Market Today (Nov. 3, 2026): Nasdaq edges higher as U.S. midterm voting begins",
+   "publisher": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-nov-3-145801086.html",
+   "date": "2026-11-03",
    "tier": "언론"
   },
   {
    "id": "s6",
-   "title": "MAG 7 Voices This Week",
-   "publisher": "Stocktwits",
-   "url": "https://stocktwits.com/news-articles/markets/equity/elon-musk-warns-of-ai-shakeout-while-zuckerberg-pichai-nadella-jassy-discuss-the-costs-mag-7-voices-this-week/cZUKmssR9cO",
-   "date": "2026-10-30",
+   "title": "Stock Market Today (Nov. 3, 2026): Nasdaq, Russell 2000 finish higher in homestretch of U.S. midterm election",
+   "publisher": "TheStreet",
+   "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-03-2026",
+   "date": "2026-11-03",
    "tier": "언론"
   }
  ],
- "date": "2026-11-03",
- "generated_at": "2026-11-03T06:26:24+09:00"
+ "date": "2026-11-04",
+ "generated_at": "2026-11-04T06:26:28+09:00"
 }
