@@ -1,6 +1,10 @@
 {
- "updated_at": "2026-11-03 04:50 KST",
+ "updated_at": "2026-11-03 10:59 KST",
  "warnings": [
+  "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLH0A0HYM2 | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0H",
+  "MACRO HY Spread 전체 실패 → 캐시/static 사용",
+  "MACRO BBB Spread ← fred:BAMLC0A4CBBB 실패: FRED 실패 → BAMLC0A4CBBB: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLC0A4CBBB | BAMLC0A4CBBB: 연결 실패 ReadTimeout | BAMLC0A4",
+  "MACRO BBB Spread 전체 실패 → 캐시/static 사용",
   "IPO 캘린더 응답에 종목이 0개 (Nasdaq 차단/구조 변경 가능성) - MANUAL_EVENTS 로 추가 가능"
  ],
  "macro": {
@@ -16,19 +20,19 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1345.03,
+    "value": 1342.27,
     "prev_month": 1337.98,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
-    "prev_day": 1337.98,
+    "prev_day": 1325.52,
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 157.915,
+    "value": 157.913,
     "prev_month": 157.804,
     "prev_year": 156.413,
     "prev_2year": 156.995,
-    "prev_day": 157.804,
+    "prev_day": 157.677,
     "kind": "pct"
    }
   },
@@ -72,11 +76,11 @@
     "suffix": "%"
    },
    "US 2Y": {
-    "value": 4.56,
-    "prev_month": 4.88,
+    "value": 4.59,
+    "prev_month": 4.56,
     "prev_year": 3.47,
     "prev_2year": 4.25,
-    "prev_day": 4.61,
+    "prev_day": 4.56,
     "kind": "pp",
     "suffix": "%"
    },
@@ -90,7 +94,7 @@
     "suffix": "%"
    },
    "US 30Y": {
-    "value": 5.264,
+    "value": 5.269,
     "prev_month": 5.309,
     "prev_year": 4.84,
     "prev_2year": 4.786,
@@ -110,7 +114,7 @@
     "suffix": "%"
    },
    "VIX": {
-    "value": 20.95,
+    "value": 21.15,
     "prev_month": 19.42,
     "prev_year": 14.95,
     "prev_2year": 17.35,
@@ -124,7 +128,8 @@
     "prev_2year": 2.92,
     "prev_day": 3.26,
     "kind": "pp",
-    "suffix": "%"
+    "suffix": "%",
+    "stale": true
    },
    "BBB Spread": {
     "value": 1.16,
@@ -133,7 +138,8 @@
     "prev_2year": 1.02,
     "prev_day": 1.1,
     "kind": "pp",
-    "suffix": "%"
+    "suffix": "%",
+    "stale": true
    }
   }
  },
@@ -195,7 +201,7 @@
    "date": "2026-11-03",
    "ts": 1793739600,
    "d_day": 0,
-   "eps_est": 1.9386,
+   "eps_est": 1.9399,
    "rev_est": 13092087100,
    "quarters": [
     {
@@ -313,7 +319,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 29591000000
     }
    ]
   },
@@ -387,8 +393,8 @@
    "date": "2027-01-27",
    "ts": 1801083600,
    "d_day": 85,
-   "eps_est": 4.8573,
-   "rev_est": 96701925060,
+   "eps_est": 4.8027,
+   "rev_est": 96699555770,
    "quarters": [
     {
      "label": "1Q2026",
@@ -580,7 +586,7 @@
    "ts": 1801170000,
    "d_day": 86,
    "eps_est": 0.2488,
-   "rev_est": 15703525240,
+   "rev_est": 15698361720,
    "quarters": [
     {
      "label": "1Q2026",
@@ -611,16 +617,9 @@
    "date": null,
    "ts": null,
    "d_day": null,
-   "eps_est": 1.9925,
-   "rev_est": 113350453600,
+   "eps_est": 2.8846,
+   "rev_est": 153064137540,
    "quarters": [
-    {
-     "label": "4Q2025",
-     "eps_est": 2.6708,
-     "eps_act": 2.84,
-     "rev_est": null,
-     "rev_act": 143756000000
-    },
     {
      "label": "1Q2026",
      "eps_est": 1.9427,
@@ -634,6 +633,13 @@
      "eps_act": 2.02,
      "rev_est": null,
      "rev_act": 109417000000
+    },
+    {
+     "label": "3Q2026",
+     "eps_est": 1.9858,
+     "eps_act": 2.1,
+     "rev_est": 113350453600,
+     "rev_act": 114477000000
     }
    ]
   },
@@ -644,7 +650,7 @@
    "ts": null,
    "d_day": null,
    "eps_est": 2.485,
-   "rev_est": 244719282850,
+   "rev_est": 244711508830,
    "quarters": [
     {
      "label": "1Q2026",
@@ -675,8 +681,8 @@
    "date": null,
    "ts": null,
    "d_day": null,
-   "eps_est": 3.2547,
-   "rev_est": 142237589900,
+   "eps_est": 3.2611,
+   "rev_est": 142318557130,
    "quarters": [
     {
      "label": "1Q2026",
@@ -740,9 +746,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 76604.1,
+    "price": 77005.27,
     "prev_day": 78248.4531,
-    "turnover": 21985777664,
+    "turnover": 23442626560,
     "prev_month": 77434.75,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -751,7 +757,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 3954.6,
+    "price": 3960.5,
     "prev_day": 3898.8999,
     "turnover": null,
     "prev_month": 3898.8999,
@@ -762,7 +768,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 50.56,
+    "price": 50.37,
     "prev_day": 49.097,
     "turnover": null,
     "prev_month": 49.097,
@@ -773,7 +779,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.538,
+    "price": 6.5095,
     "prev_day": 6.4585,
     "turnover": null,
     "prev_month": 6.4585,
@@ -784,7 +790,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 96.67,
+    "price": 96.54,
     "prev_day": 104.12,
     "turnover": null,
     "prev_month": 104.12,
@@ -808,10 +814,10 @@
     "ticker": "SPY",
     "theme": "S&P 500",
     "currency": "USD",
-    "price": 753.25,
-    "prev_day": 755.72,
-    "turnover": 21408531784.0,
-    "prev_month": 755.72,
+    "price": 752.1,
+    "prev_day": 769.36,
+    "turnover": 38190579043.0,
+    "prev_month": 762.63,
     "prev_year": 681.92,
     "prev_2year": 586.08
    },
@@ -819,10 +825,10 @@
     "ticker": "QQQ",
     "theme": "Nasdaq 100",
     "currency": "USD",
-    "price": 682.73,
-    "prev_day": 690.49,
-    "turnover": 25151581353.0,
-    "prev_month": 690.49,
+    "price": 681.09,
+    "prev_day": 715.34,
+    "turnover": 37266808541.0,
+    "prev_month": 739.77,
     "prev_year": 614.31,
     "prev_2year": 511.23
    }
@@ -832,10 +838,10 @@
     "ticker": "SPXL",
     "theme": "S&P 500 3x",
     "currency": "USD",
-    "price": 267.67,
-    "prev_day": 270.35,
-    "turnover": 371311824.0,
-    "prev_month": 270.35,
+    "price": 266.32,
+    "prev_day": 285.67,
+    "turnover": 604520301.0,
+    "prev_month": 281.1,
     "prev_year": 220.61,
     "prev_2year": 168.7
    },
@@ -843,10 +849,10 @@
     "ticker": "QLD",
     "theme": "Nasdaq 100 2x",
     "currency": "USD",
-    "price": 80.69,
-    "prev_day": 82.59,
-    "turnover": 419141704.0,
-    "prev_month": 82.59,
+    "price": 80.3,
+    "prev_day": 88.74,
+    "turnover": 727450227.0,
+    "prev_month": 95.65,
     "prev_year": 70.41,
     "prev_2year": 54.12
    },
@@ -854,10 +860,10 @@
     "ticker": "TQQQ",
     "theme": "Nasdaq 100 3x",
     "currency": "USD",
-    "price": 59.895,
-    "prev_day": 62.01,
-    "turnover": 3230203714.0,
-    "prev_month": 62.01,
+    "price": 59.46,
+    "prev_day": 69.26,
+    "turnover": 4386871453.0,
+    "prev_month": 78.03,
     "prev_year": 52.72,
     "prev_2year": 39.565
    }
@@ -867,10 +873,10 @@
     "ticker": "SMH",
     "theme": "반도체 지수 (시총가중)",
     "currency": "USD",
-    "price": 508.57,
-    "prev_day": 522.49,
-    "turnover": 2834769180.0,
-    "prev_month": 522.49,
+    "price": 508.31,
+    "prev_day": 561.67,
+    "turnover": 4505503789.0,
+    "prev_month": 609.0,
     "prev_year": 360.13,
     "prev_2year": 242.17
    },
@@ -878,10 +884,10 @@
     "ticker": "SOXX",
     "theme": "필라델피아 반도체",
     "currency": "USD",
-    "price": 453.825,
-    "prev_day": 471.51,
-    "turnover": 3415759699.0,
-    "prev_month": 471.51,
+    "price": 453.65,
+    "prev_day": 513.86,
+    "turnover": 4900428010.0,
+    "prev_month": 568.64,
     "prev_year": 301.15,
     "prev_2year": 215.49
    },
@@ -889,10 +895,10 @@
     "ticker": "SOXL",
     "theme": "반도체 3x",
     "currency": "USD",
-    "price": 68.249,
-    "prev_day": 77.05,
-    "turnover": 7710362594.0,
-    "prev_month": 77.05,
+    "price": 68.17,
+    "prev_day": 102.39,
+    "turnover": 10840778220.0,
+    "prev_month": 147.86,
     "prev_year": 42.03,
     "prev_2year": 27.31
    },
@@ -900,10 +906,10 @@
     "ticker": "NVDL",
     "theme": "NVDA 2x",
     "currency": "USD",
-    "price": 28.49,
-    "prev_day": 28.97,
-    "turnover": 157642948.0,
-    "prev_month": 28.97,
+    "price": 28.24,
+    "prev_day": 31.6,
+    "turnover": 212059215.0,
+    "prev_month": 36.71,
     "prev_year": 29.3367,
     "prev_2year": 22.13
    }
@@ -913,10 +919,10 @@
     "ticker": "AIQ",
     "theme": "AI · 빅데이터",
     "currency": "USD",
-    "price": 59.311,
-    "prev_day": 60.14,
-    "turnover": 44602584.0,
-    "prev_month": 60.14,
+    "price": 59.135,
+    "prev_day": 62.94,
+    "turnover": 63408982.0,
+    "prev_month": 65.16,
     "prev_year": 50.86,
     "prev_2year": 38.64
    },
@@ -924,10 +930,10 @@
     "ticker": "BOTZ",
     "theme": "AI · 로보틱스",
     "currency": "USD",
-    "price": 32.265,
-    "prev_day": 32.22,
-    "turnover": 19796481.0,
-    "prev_month": 32.22,
+    "price": 32.27,
+    "prev_day": 33.42,
+    "turnover": 24734697.0,
+    "prev_month": 35.23,
     "prev_year": 36.23,
     "prev_2year": 31.95
    },
@@ -935,10 +941,10 @@
     "ticker": "IGV",
     "theme": "소프트웨어",
     "currency": "USD",
-    "price": 102.3,
-    "prev_day": 104.29,
-    "turnover": 662560272.0,
-    "prev_month": 104.29,
+    "price": 101.9,
+    "prev_day": 107.97,
+    "turnover": 1094113343.0,
+    "prev_month": 106.48,
     "prev_year": 105.69,
     "prev_2year": 100.12
    }
@@ -948,10 +954,10 @@
     "ticker": "NVDA",
     "theme": "AI · GPU",
     "currency": "USD",
-    "price": 203.02,
-    "prev_day": 204.64,
-    "turnover": 13551616265.0,
-    "prev_month": 204.64,
+    "price": 202.06,
+    "prev_day": 213.66,
+    "turnover": 24090047027.0,
+    "prev_month": 228.38,
     "prev_year": 186.5,
     "prev_2year": 134.29
    },
@@ -959,10 +965,10 @@
     "ticker": "MSFT",
     "theme": "Cloud · AI",
     "currency": "USD",
-    "price": 513.31,
-    "prev_day": 521.91,
-    "turnover": 9676711203.0,
-    "prev_month": 521.91,
+    "price": 507.12,
+    "prev_day": 530.14,
+    "turnover": 17616792489.0,
+    "prev_month": 512.9,
     "prev_year": 483.62,
     "prev_2year": 421.5
    },
@@ -970,10 +976,10 @@
     "ticker": "AAPL",
     "theme": "Device",
     "currency": "USD",
-    "price": 337.295,
-    "prev_day": 344.63,
-    "turnover": 10477095404.0,
-    "prev_month": 344.63,
+    "price": 338.32,
+    "prev_day": 348.91,
+    "turnover": 21885634920.0,
+    "prev_month": 333.02,
     "prev_year": 271.86,
     "prev_2year": 250.42
    },
@@ -981,10 +987,10 @@
     "ticker": "AMZN",
     "theme": "Cloud · 커머스",
     "currency": "USD",
-    "price": 247.35,
-    "prev_day": 240.35,
-    "turnover": 9693901765.0,
-    "prev_month": 240.35,
+    "price": 245.63,
+    "prev_day": 243.79,
+    "turnover": 14327070532.0,
+    "prev_month": 249.15,
     "prev_year": 230.82,
     "prev_2year": 219.39
    },
@@ -992,10 +998,10 @@
     "ticker": "GOOGL",
     "theme": "검색 · AI",
     "currency": "USD",
-    "price": 281.215,
-    "prev_day": 279.84,
-    "turnover": 8359894278.0,
-    "prev_month": 279.84,
+    "price": 278.99,
+    "prev_day": 283.82,
+    "turnover": 13532227212.0,
+    "prev_month": 344.08,
     "prev_year": 313.0,
     "prev_2year": 189.3
    },
@@ -1003,10 +1009,10 @@
     "ticker": "META",
     "theme": "SNS · AI",
     "currency": "USD",
-    "price": 609.365,
-    "prev_day": 614.99,
-    "turnover": 7066701704.0,
-    "prev_month": 614.99,
+    "price": 606.73,
+    "prev_day": 624.52,
+    "turnover": 11827677742.0,
+    "prev_month": 725.18,
     "prev_year": 660.09,
     "prev_2year": 585.51
    },
@@ -1014,10 +1020,10 @@
     "ticker": "TSLA",
     "theme": "EV · 로보틱스",
     "currency": "USD",
-    "price": 402.076,
-    "prev_day": 399.81,
-    "turnover": 13247579140.0,
-    "prev_month": 399.81,
+    "price": 403.82,
+    "prev_day": 403.3,
+    "turnover": 17416524000.0,
+    "prev_month": 354.81,
     "prev_year": 449.72,
     "prev_2year": 403.84
    }
@@ -1027,10 +1033,10 @@
     "ticker": "ORCL",
     "theme": "Cloud · DB",
     "currency": "USD",
-    "price": 118.69,
-    "prev_day": 130.67,
-    "turnover": 4701052274.0,
-    "prev_month": 130.67,
+    "price": 119.22,
+    "prev_day": 139.56,
+    "turnover": 6999411803.0,
+    "prev_month": 137.3,
     "prev_year": 194.91,
     "prev_2year": 166.64
    },
@@ -1038,10 +1044,10 @@
     "ticker": "PLTR",
     "theme": "AI 데이터 분석",
     "currency": "USD",
-    "price": 180.24,
-    "prev_day": 184.11,
-    "turnover": 3378010316.0,
-    "prev_month": 184.11,
+    "price": 178.34,
+    "prev_day": 196.42,
+    "turnover": 6614595645.0,
+    "prev_month": 187.05,
     "prev_year": 177.75,
     "prev_2year": 75.63
    }
@@ -1051,10 +1057,10 @@
     "ticker": "MU",
     "theme": "DRAM · HBM",
     "currency": "USD",
-    "price": 830.86,
-    "prev_day": 884.74,
-    "turnover": 16549529776.0,
-    "prev_month": 884.74,
+    "price": 833.59,
+    "prev_day": 934.27,
+    "turnover": 24898115425.0,
+    "prev_month": 1065.11,
     "prev_year": 285.41,
     "prev_2year": 84.16
    },
@@ -1062,10 +1068,10 @@
     "ticker": "000660.KS",
     "theme": "DRAM · HBM",
     "currency": "KRW",
-    "price": 1472000.0,
-    "prev_day": 1526000.0,
-    "turnover": 5681777216000.0,
-    "prev_month": 1776000.0,
+    "price": 1414000.0,
+    "prev_day": 1472000.0,
+    "turnover": 1206707600000.0,
+    "prev_month": 1418000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
    },
@@ -1073,10 +1079,10 @@
     "ticker": "005930.KS",
     "theme": "메모리 · 파운드리",
     "currency": "KRW",
-    "price": 229000.0,
-    "prev_day": 232000.0,
-    "turnover": 4503989175000.0,
-    "prev_month": 268500.0,
+    "price": 221250.0,
+    "prev_day": 229000.0,
+    "turnover": 1057335828750.0,
+    "prev_month": 225000.0,
     "prev_year": 119900.0,
     "prev_2year": 53200.0
    }
@@ -1086,10 +1092,10 @@
     "ticker": "AMD",
     "theme": "GPU",
     "currency": "USD",
-    "price": 470.525,
-    "prev_day": 504.8,
-    "turnover": 9825822066.0,
-    "prev_month": 504.8,
+    "price": 466.84,
+    "prev_day": 566.42,
+    "turnover": 14999351186.0,
+    "prev_month": 611.76,
     "prev_year": 214.16,
     "prev_2year": 120.79
    },
@@ -1097,10 +1103,10 @@
     "ticker": "AVGO",
     "theme": "커스텀 AI칩",
     "currency": "USD",
-    "price": 323.02,
-    "prev_day": 326.08,
-    "turnover": 3361586447.0,
-    "prev_month": 326.08,
+    "price": 322.23,
+    "prev_day": 345.0,
+    "turnover": 6547349802.0,
+    "prev_month": 351.19,
     "prev_year": 346.1,
     "prev_2year": 231.84
    },
@@ -1108,10 +1114,10 @@
     "ticker": "CBRS",
     "theme": "웨이퍼 AI칩",
     "currency": "USD",
-    "price": 95.45,
-    "prev_day": 109.18,
-    "turnover": 938619220.0,
-    "prev_month": 109.18,
+    "price": 96.36,
+    "prev_day": 115.16,
+    "turnover": 1279565018.0,
+    "prev_month": 177.65,
     "prev_year": null,
     "prev_2year": null
    }
@@ -1121,10 +1127,10 @@
     "ticker": "AMD",
     "theme": "CPU",
     "currency": "USD",
-    "price": 470.525,
-    "prev_day": 504.8,
-    "turnover": 9825822066.0,
-    "prev_month": 504.8,
+    "price": 466.84,
+    "prev_day": 566.42,
+    "turnover": 14999351186.0,
+    "prev_month": 611.76,
     "prev_year": 214.16,
     "prev_2year": 120.79
    },
@@ -1132,10 +1138,10 @@
     "ticker": "INTC",
     "theme": "CPU · 파운드리",
     "currency": "USD",
-    "price": 60.011,
-    "prev_day": 65.76,
-    "turnover": 9822061581.0,
-    "prev_month": 65.76,
+    "price": 59.97,
+    "prev_day": 92.07,
+    "turnover": 13822207759.0,
+    "prev_month": 120.23,
     "prev_year": 36.9,
     "prev_2year": 20.05
    }
@@ -1145,10 +1151,10 @@
     "ticker": "SNDK",
     "theme": "NAND",
     "currency": "USD",
-    "price": 1076.06,
-    "prev_day": 1150.89,
-    "turnover": 8168005600.0,
-    "prev_month": 1150.89,
+    "price": 1075.08,
+    "prev_day": 1330.05,
+    "turnover": 11347207080.0,
+    "prev_month": 1739.89,
     "prev_year": 237.38,
     "prev_2year": null
    }
@@ -1158,10 +1164,10 @@
     "ticker": "TSM",
     "theme": "파운드리",
     "currency": "USD",
-    "price": 399.51,
-    "prev_day": 406.13,
-    "turnover": 3501840184.0,
-    "prev_month": 406.13,
+    "price": 398.63,
+    "prev_day": 431.81,
+    "turnover": 5256806361.0,
+    "prev_month": 456.19,
     "prev_year": 303.89,
     "prev_2year": 197.49
    }
@@ -1171,10 +1177,10 @@
     "ticker": "ASML",
     "theme": "EUV 노광",
     "currency": "USD",
-    "price": 1522.24,
-    "prev_day": 1565.9,
-    "turnover": 1528481184.0,
-    "prev_month": 1565.9,
+    "price": 1526.14,
+    "prev_day": 1675.7,
+    "turnover": 2772758302.0,
+    "prev_month": 1811.67,
     "prev_year": 1069.86,
     "prev_2year": 693.08
    },
@@ -1182,10 +1188,10 @@
     "ticker": "AMAT",
     "theme": "증착 · 식각",
     "currency": "USD",
-    "price": 374.673,
-    "prev_day": 390.09,
-    "turnover": 1572843908.0,
-    "prev_month": 390.09,
+    "price": 374.53,
+    "prev_day": 421.66,
+    "turnover": 2937678115.0,
+    "prev_month": 511.38,
     "prev_year": 256.99,
     "prev_2year": 162.63
    },
@@ -1193,10 +1199,10 @@
     "ticker": "LRCX",
     "theme": "식각",
     "currency": "USD",
-    "price": 224.77,
-    "prev_day": 239.11,
-    "turnover": 1174013944.0,
-    "prev_month": 239.11,
+    "price": 227.56,
+    "prev_day": 254.39,
+    "turnover": 2591132876.0,
+    "prev_month": 328.51,
     "prev_year": 171.18,
     "prev_2year": 72.23
    },
@@ -1204,10 +1210,10 @@
     "ticker": "KLAC",
     "theme": "검사 · 계측",
     "currency": "USD",
-    "price": 153.195,
-    "prev_day": 157.91,
-    "turnover": 951473004.0,
-    "prev_month": 157.91,
+    "price": 153.11,
+    "prev_day": 167.43,
+    "turnover": 2320804634.0,
+    "prev_month": 194.93,
     "prev_year": 121.508,
     "prev_2year": 63.012
    }
@@ -1217,10 +1223,10 @@
     "ticker": "ANET",
     "theme": "AI 데이터센터 스위치",
     "currency": "USD",
-    "price": 163.6,
-    "prev_day": 168.86,
-    "turnover": 652965064.0,
-    "prev_month": 168.86,
+    "price": 164.14,
+    "prev_day": 184.22,
+    "turnover": 1215331625.0,
+    "prev_month": 203.59,
     "prev_year": 131.03,
     "prev_2year": 110.53
    },
@@ -1228,10 +1234,10 @@
     "ticker": "MRVL",
     "theme": "커스텀칩 · 광 DSP",
     "currency": "USD",
-    "price": 170.085,
-    "prev_day": 196.4,
-    "turnover": 7252273875.0,
-    "prev_month": 196.4,
+    "price": 171.41,
+    "prev_day": 218.34,
+    "turnover": 10532931780.0,
+    "prev_month": 264.21,
     "prev_year": 84.98,
     "prev_2year": 110.45
    },
@@ -1239,10 +1245,10 @@
     "ticker": "CIEN",
     "theme": "광전송",
     "currency": "USD",
-    "price": 285.73,
-    "prev_day": 320.72,
-    "turnover": 782590754.0,
-    "prev_month": 320.72,
+    "price": 284.34,
+    "prev_day": 349.45,
+    "turnover": 1239527911.0,
+    "prev_month": 351.82,
     "prev_year": 233.87,
     "prev_2year": 84.81
    },
@@ -1250,10 +1256,10 @@
     "ticker": "COHR",
     "theme": "광모듈 · 레이저",
     "currency": "USD",
-    "price": 199.09,
-    "prev_day": 210.32,
-    "turnover": 1435481903.0,
-    "prev_month": 210.32,
+    "price": 199.95,
+    "prev_day": 237.22,
+    "turnover": 1917547293.0,
+    "prev_month": 287.81,
     "prev_year": 184.57,
     "prev_2year": 94.73
    }
@@ -1264,9 +1270,9 @@
     "theme": "전력 · 냉각 설비",
     "currency": "USD",
     "price": 224.24,
-    "prev_day": 232.5,
-    "turnover": 952920886.0,
-    "prev_month": 232.5,
+    "prev_day": 245.92,
+    "turnover": 1371394883.0,
+    "prev_month": 241.31,
     "prev_year": 162.01,
     "prev_2year": 113.61
    },
@@ -1274,10 +1280,10 @@
     "ticker": "GEV",
     "theme": "가스터빈 · 전력망",
     "currency": "USD",
-    "price": 867.09,
-    "prev_day": 857.87,
-    "turnover": 2240656807.0,
-    "prev_month": 857.87,
+    "price": 862.25,
+    "prev_day": 887.85,
+    "turnover": 3023372706.0,
+    "prev_month": 950.49,
     "prev_year": 653.57,
     "prev_2year": 328.93
    },
@@ -1285,10 +1291,10 @@
     "ticker": "ETN",
     "theme": "전기설비",
     "currency": "USD",
-    "price": 365.1,
-    "prev_day": 369.97,
-    "turnover": 634866548.0,
-    "prev_month": 369.97,
+    "price": 366.07,
+    "prev_day": 393.72,
+    "turnover": 1168239191.0,
+    "prev_month": 429.71,
     "prev_year": 318.51,
     "prev_2year": 331.87
    },
@@ -1296,10 +1302,10 @@
     "ticker": "CEG",
     "theme": "원전 전력",
     "currency": "USD",
-    "price": 257.765,
-    "prev_day": 262.38,
-    "turnover": 426230409.0,
-    "prev_month": 262.38,
+    "price": 257.25,
+    "prev_day": 264.58,
+    "turnover": 869402357.0,
+    "prev_month": 254.02,
     "prev_year": 353.27,
     "prev_2year": 223.71
    },
@@ -1307,10 +1313,10 @@
     "ticker": "VST",
     "theme": "발전 · PPA",
     "currency": "USD",
-    "price": 134.258,
-    "prev_day": 138.37,
-    "turnover": 357992781.0,
-    "prev_month": 138.37,
+    "price": 134.61,
+    "prev_day": 140.95,
+    "turnover": 645603021.0,
+    "prev_month": 138.35,
     "prev_year": 161.33,
     "prev_2year": 137.87
    }
@@ -1320,10 +1326,10 @@
     "ticker": "CRWV",
     "theme": "GPU 클라우드",
     "currency": "USD",
-    "price": 49.94,
-    "prev_day": 54.87,
-    "turnover": 1723948127.0,
-    "prev_month": 54.87,
+    "price": 50.15,
+    "prev_day": 60.74,
+    "turnover": 2430036003.0,
+    "prev_month": 87.12,
     "prev_year": 71.61,
     "prev_2year": null
    },
@@ -1331,10 +1337,10 @@
     "ticker": "EQIX",
     "theme": "데이터센터 리츠",
     "currency": "USD",
-    "price": 984.24,
-    "prev_day": 1013.7,
-    "turnover": 398664444.0,
-    "prev_month": 1013.7,
+    "price": 993.69,
+    "prev_day": 1036.67,
+    "turnover": 732588016.0,
+    "prev_month": 1011.58,
     "prev_year": 766.16,
     "prev_2year": 942.89
    },
@@ -1342,10 +1348,10 @@
     "ticker": "DLR",
     "theme": "데이터센터 리츠",
     "currency": "USD",
-    "price": 174.33,
-    "prev_day": 180.7,
-    "turnover": 316214223.0,
-    "prev_month": 180.7,
+    "price": 175.95,
+    "prev_day": 182.91,
+    "turnover": 639918537.0,
+    "prev_month": 175.53,
     "prev_year": 154.71,
     "prev_2year": 177.33
    }
@@ -1355,10 +1361,10 @@
     "ticker": "DELL",
     "theme": "AI 서버",
     "currency": "USD",
-    "price": 398.125,
-    "prev_day": 424.3,
-    "turnover": 1730335652.0,
-    "prev_month": 424.3,
+    "price": 392.78,
+    "prev_day": 475.51,
+    "turnover": 2595669348.0,
+    "prev_month": 537.95,
     "prev_year": 125.88,
     "prev_2year": 115.24
    },
@@ -1366,10 +1372,10 @@
     "ticker": "SMCI",
     "theme": "AI 서버 · 액침냉각",
     "currency": "USD",
-    "price": 30.53,
-    "prev_day": 32.95,
-    "turnover": 780590094.0,
-    "prev_month": 32.95,
+    "price": 30.44,
+    "prev_day": 34.43,
+    "turnover": 1255226762.0,
+    "prev_month": 41.07,
     "prev_year": 29.27,
     "prev_2year": 30.48
    }
@@ -1378,39 +1384,39 @@
  "growth": {
   "S&P 500": {
    "ticker": "^GSPC",
-   "price": 7556.26,
-   "3Y": 20.13,
-   "5Y": 9.97,
-   "10Y": 13.74,
-   "15Y": 12.72,
-   "20Y": 8.94
+   "price": 7541.4,
+   "3Y": 20.05,
+   "5Y": 9.93,
+   "10Y": 13.72,
+   "15Y": 12.71,
+   "20Y": 8.92
   },
   "QQQ (Nasdaq 100)": {
    "ticker": "^NDX",
-   "price": 28066.37,
-   "3Y": 22.95,
-   "5Y": 11.4,
-   "10Y": 19.67,
-   "15Y": 17.96,
-   "20Y": 15.04
+   "price": 27989.82,
+   "3Y": 22.84,
+   "5Y": 11.34,
+   "10Y": 19.63,
+   "15Y": 17.94,
+   "20Y": 15.02
   },
   "KOSPI": {
    "ticker": "^KS11",
-   "price": 5859.08,
-   "3Y": 35.25,
-   "5Y": 14.56,
-   "10Y": 11.45,
-   "15Y": 7.69,
-   "20Y": 7.48
+   "price": 5710.14,
+   "3Y": 34.09,
+   "5Y": 13.97,
+   "10Y": 11.16,
+   "15Y": 7.51,
+   "20Y": 7.34
   },
   "KOSDAQ": {
    "ticker": "^KQ11",
-   "price": 734.36,
-   "3Y": -2.08,
-   "5Y": -6.01,
-   "10Y": 1.86,
-   "15Y": 2.56,
-   "20Y": 1.03
+   "price": 719.67,
+   "3Y": -2.73,
+   "5Y": -6.39,
+   "10Y": 1.65,
+   "15Y": 2.42,
+   "20Y": 0.92
   }
  },
  "gpu_rental": {
@@ -1473,14 +1479,18 @@
      "rev_est": 90736182420
     },
     "4Q2026": {
-     "eps_est": 4.85731,
-     "rev_est": 96701925060
+     "eps_est": 4.80272,
+     "rev_est": 96699555770
     }
    },
    "AAPL": {
     "3Q2026": {
      "eps_est": 1.99252,
      "rev_est": 113350453600
+    },
+    "4Q2026": {
+     "eps_est": 2.88462,
+     "rev_est": 153064137540
     }
    },
    "AMZN": {
@@ -1490,7 +1500,7 @@
     },
     "4Q2026": {
      "eps_est": 2.485,
-     "rev_est": 244719282850
+     "rev_est": 244711508830
     }
    },
    "GOOGL": {
@@ -1499,8 +1509,8 @@
      "rev_est": 127913936970
     },
     "4Q2026": {
-     "eps_est": 3.25472,
-     "rev_est": 142237589900
+     "eps_est": 3.26107,
+     "rev_est": 142318557130
     }
    },
    "META": {
@@ -1525,7 +1535,7 @@
    },
    "AMD": {
     "3Q2026": {
-     "eps_est": 1.93863,
+     "eps_est": 1.93991,
      "rev_est": 13092087100
     }
    },
@@ -1567,7 +1577,7 @@
    },
    "AMAT": {
     "3Q2026": {
-     "eps_est": 4.05576,
+     "eps_est": 4.05577,
      "rev_est": 10299491080
     }
    },
@@ -1607,8 +1617,8 @@
      "rev_est": 16505005140
     },
     "4Q2026": {
-     "eps_est": 0.24878,
-     "rev_est": 15703525240
+     "eps_est": 0.24882,
+     "rev_est": 15698361720
     }
    }
   },
