@@ -1,10 +1,10 @@
 {
  "version": 2,
- "data_as_of": "2026-11-03 미국 장 마감",
+ "data_as_of": "2026-11-04 미국 장 마감",
  "market_view": {
   "label": "Neutral",
-  "summary": "11/3 S&P 500 약 7,569(+0.4%), 나스닥 약 25,372(+0.8%), 다우 약 51,787(-0.4%). 전날 급락한 칩이 반등해 나스닥을 끌어올렸지만 Apple이 마진 가이던스 실망으로 약 2% 하락해 다우를 눌렀다. 10년물 4.9%대, 유가 100달러 안팎, 중간선거 결과가 겹쳐 중립을 유지한다.",
-  "ai_line": "반도체지수는 10월 고점 대비 약 22% 아래(두 번째 약세장)에서 반등했고, AMD는 장 마감 후 Q4 매출 가이던스 170억$로 컨센서스(162.3억$)를 상회했다.",
+  "summary": "11/4 다우 +3%(1,570p, 2025년 4월 이후 최대), S&P 500 약 +1.5%, 나스닥 +1.4%. 민주당의 상·하원 장악이 예상 범위의 결과로 받아들여지고 유가가 급락하며 상승했지만, 칩·데이터센터주는 약세였다. AI 투자 규제 리스크와 인플레·유가 변수가 남아 중립을 유지한다.",
+  "ai_line": "Nvidia 약 -3%, Micron 장중 -6%대, IREN·Hut 8 등 데이터센터 운영사 급락 vs AMD는 매출 134억$·Q4 가이던스 약 170억$",
   "src": [
    "s1",
    "s2",
@@ -14,8 +14,8 @@
  },
  "key_changes": [
   {
-   "title": "칩 반등으로 나스닥 +0.8%: AMD +3.7%, 전날 칩지수 -7.2% 후 메모리·장비주 주도",
-   "detail": "S&P 500 약 +0.4%, 나스닥 약 +0.8%, 다우 약 -0.4%. 반도체지수는 월요일 기준 10월 고점 대비 약 22% 낮아 '베어 트랩' 가능성도 거론된다.",
+   "title": "다우 +3%, 민주당 의회 장악에도 상승: 유가 급락·'예상된 결과' 안도",
+   "detail": "다우 1,570p(+3%)로 2025/4/9 이후 최대 상승, S&P 500 약 +1.5%, 나스닥 +1.4%. Deutsche Bank는 '역사적으로 평범한 선거'라고 평가했다.",
    "importance": "HIGH",
    "src": [
     "s1",
@@ -23,170 +23,166 @@
    ]
   },
   {
-   "title": "AMD 장 마감 후 호실적: Q3 매출 134억$(+45%), Q4 가이던스 약 170억$",
-   "detail": "데이터센터 매출 85억$(+97%). Q4 가이던스 170억$는 시장 예상 162.3억$를 웃돌았고 시간외 초기 약 +6%(블로그 보도).",
+   "title": "WTI -7% 88.6달러: 이란 전쟁 종결 기대와 선거 결과",
+   "detail": "WTI는 지난 금요일 종가 104달러에서 약 15달러 하락해 2020년 4월 이후 최악의 주간 흐름이다. 에너지주(XLE)는 5% 넘게 하락했다.",
    "importance": "HIGH",
    "src": [
-    "s3",
-    "s4"
+    "s1",
+    "s2"
    ]
   },
   {
-   "title": "Apple 약 -2%: 연말 분기 마진 전망·iPad 부진, 메모리 원가 상승 부담",
-   "detail": "시총 약 930억$ 증발, 다우 하락 요인. 메모리 가격 상승이 기기 마진을 압박한다는 해석.",
-   "importance": "MEDIUM",
+   "title": "데이터센터·칩 약세: 민주당 승리가 AI 인프라 규제 우려 자극",
+   "detail": "Nvidia 약 -3%, IREN·Hut 8 급락. 텍사스 주지사 당선자는 신규 데이터센터 건설 중단을 공약했다고 보도됐다. Evercore는 프로젝트가 지연되거나 차단될 수 있다고 봤다.",
+   "importance": "HIGH",
    "src": [
+    "s1",
     "s2",
-    "s5"
+    "s3"
    ]
   },
   {
-   "title": "Palantir -2%: 실적·가이던스 상향에도 신규 계약 둔화와 고평가 부각",
-   "detail": "애널리스트는 AI 투자 수익성·FCF 중시 분위기와 높은 금리가 기술주 밸류에 부담이라고 지적했다.",
+   "title": "MS·Amazon 약 +6%, Apple 사상 최고: 대형주 주도 랠리",
+   "detail": "MS와 Amazon은 6% 넘게 상승했고 Apple은 장중 시총 5조$ 위로 올라 사상 최고가를 기록했다. 방산주는 1.5조$ 국방예산 통과 의문에 하락했다.",
    "importance": "MEDIUM",
    "src": [
-    "s5"
-   ]
-  },
-  {
-   "title": "유가 변동 확대: Qeshm섬 공습 보도에 급등 후 협상설에 반락, WTI 95~96달러",
-   "detail": "월요일 Brent -7% 이후 화요일 장중 반등했다 반락. 이란 당국자는 양측 입장차가 크다고 밝혔다(Reuters 인용). 10년물은 4.9%대.",
-   "importance": "MEDIUM",
-   "src": [
+    "s1",
     "s2",
-    "s6"
+    "s3"
+   ]
+  },
+  {
+   "title": "AMD Q3 매출 134억$(+45%), 데이터센터 +97%, Q4 가이던스 약 170억$",
+   "detail": "Q4 가이던스는 ±3%로 전년 대비 약 66% 성장을 뜻한다. 장 마감 후 발표라 주가 방향은 출처마다 엇갈려 확인하지 못했다.",
+   "importance": "MEDIUM",
+   "src": [
+    "s4",
+    "s3"
    ]
   }
  ],
  "issues": [
   {
-   "title": "AI 투자 수익성·FCF 의구심과 고금리",
-   "detail": "Palantir·Apple 하락과 10년물 4.9%대로 투자자가 AI 지출 수익성과 FCF를 따진다. 높은 금리가 미래 이익의 가치를 깎는다는 분석.",
-   "tag": "지속",
-   "trend": "steady",
-   "importance": "HIGH",
-   "src": [
-    "s5",
-    "s6"
-   ]
-  },
-  {
-   "title": "칩 반등 vs 약세장: AMD 실적이 수요 시험대",
-   "detail": "칩지수가 고점 대비 -22%에서 반등했고 AMD가 Q4 가이던스 170억$로 수요를 확인시켰다. 반등 지속 여부는 다음 거래일 반응에 달렸다.",
+   "title": "민주당 의회 장악과 AI·데이터센터 규제 리스크",
+   "detail": "Dan Ives는 상원 장악이 AI·기술 입법에 '큰 장애물'이 될 것이라 했다. 선거 캠페인 다수가 데이터센터에 비판적이었고 데이터센터 운영사 주가에 먼저 반영됐다.",
    "tag": "신규",
    "trend": "up",
    "importance": "HIGH",
    "src": [
     "s1",
-    "s3",
-    "s4"
+    "s2",
+    "s3"
    ]
   },
   {
-   "title": "메모리 가격 상승이 기기 마진 압박",
-   "detail": "Apple이 메모리 원가 상승으로 연말 분기 총마진 전망이 실망스러웠다. 메모리 업체엔 수혜, 세트업체엔 부담.",
-   "tag": "신규",
-   "trend": "up",
-   "importance": "MEDIUM",
+   "title": "AI 수요는 견조, 수익성·자금조달 의구심은 지속",
+   "detail": "AMD는 데이터센터 +97%로 수요를 재확인했지만 칩·AI 인프라주는 규제와 자본지출 불안 속에 약세였다.",
+   "tag": "지속",
+   "trend": "steady",
+   "importance": "HIGH",
    "src": [
+    "s4",
     "s2",
     "s5"
    ]
   },
   {
-   "title": "중동 외교와 유가",
-   "detail": "공습 보도와 협상설이 교차하며 유가가 일중 등락했다. 이란 측은 입장차가 크다고 밝혔다.",
+   "title": "중동 외교와 유가 급락",
+   "detail": "전쟁 종결 기대로 WTI가 90달러 아래로 내려왔고 휘발유 평균은 4.12달러다. Vance의 공화당 패배 원인 발언도 유가에 영향을 줬다고 보도됐다.",
    "tag": "지속",
-   "trend": "steady",
+   "trend": "down",
    "importance": "MEDIUM",
    "src": [
-    "s2",
-    "s6"
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "title": "대형주 쏠림 랠리: 금융·필수소비·헬스케어까지 확산",
+   "detail": "MS·Amazon·Apple이 지수를 이끌었고 금융·필수소비·부동산·헬스케어도 올랐다. 에너지·방산·데이터센터는 약세였다.",
+   "tag": "신규",
+   "trend": "up",
+   "importance": "MEDIUM",
+   "src": [
+    "s1",
+    "s2"
    ]
   }
  ],
  "risks": [
   {
-   "title": "민주당 승리 시 시장 충격 가능성",
-   "detail": "예측시장은 민주당 상원 승리 확률을 약 75%로 보며, 양원 장악은 수요일 주가에 부담이 될 수 있고 아직 가격에 반영되지 않았다는 분석.",
-   "watch": "11/4 개장 선거 결과와 10년물·달러 반응",
-   "importance": "MEDIUM",
+   "title": "AI 투자·데이터센터 입법·지방 규제 현실화",
+   "detail": "조사나 건설 제한이 현실화하면 칩·데이터센터 자본지출 전망에 타격이 크다.",
+   "watch": "새 의회의 AI·전력 관련 청문·입법과 주 단위 건설 중단 조치",
+   "importance": "HIGH",
    "src": [
-    "s2",
-    "s1"
+    "s1",
+    "s2"
    ]
   },
   {
    "title": "인플레 재가열과 연준 인상 우려",
-   "detail": "연준 위원 2명이 인플레 억제를 위해 금리 인상이 필요할 수 있다고 최근 발언했고 고유가가 물가 압력을 더한다.",
-   "watch": "10년물 5% 재돌파 여부, 연준 인사 발언",
+   "detail": "유가는 내렸지만 ISM 서비스 가격지수가 73.0으로 높고 휘발유 공급은 전쟁으로 제약된 상태다.",
+   "watch": "10월 고용·물가 지표와 12월 FOMC 기대 변화",
    "importance": "HIGH",
    "src": [
     "s2"
    ]
   },
   {
-   "title": "협상 결렬 시 유가 재급등",
-   "detail": "이란 당국자가 양측 입장차가 크다고 밝혀 외교 기대가 꺾이면 유가가 다시 오를 수 있다.",
-   "watch": "미·이란 협상 보도, WTI 100달러 회복 여부",
+   "title": "협상 결렬 시 유가 재반등",
+   "detail": "호르무즈 해협에서 유조선 4척이 기뢰로 화재를 입었다는 IRGC 발표가 있었다. 유가는 외교 기대로 이미 빠진 상태라 되돌림 폭이 클 수 있다.",
+   "watch": "미·이란 협상 진전 여부와 호르무즈 해협 상황",
    "importance": "MEDIUM",
    "src": [
-    "s2",
-    "s6"
+    "s5",
+    "s2"
    ]
   }
  ],
- "flow": "Neutral 유지: 칩 반등과 AMD 호실적이 AI 수요를 받쳤지만 Apple 마진 실망, 10년물 4.9%대·유가 100달러 안팎, 중간선거 결과가 변수다.",
+ "flow": "Neutral 유지: 민주당 의회 장악이 예상 범위로 받아들여지고 유가가 급락해 다우 +3%였지만 AI 규제 우려로 칩·데이터센터는 약했고 인플레·유가 변수가 남았다.",
  "sources": [
   {
    "id": "s1",
-   "title": "Stock market today: Dow slips, S&P and Nasdaq gain as chip stocks rally, focus shifts to midterm elections",
-   "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-november-3-dow-sp-500-nasdaq-midterms-amd-earnings-141143244.html",
-   "date": "2026-11-03",
+   "title": "Dow surges 1,000 points as Democrats take control of Congress",
+   "publisher": "ABC News",
+   "url": "https://abcnews.com/Business/dow-surges-1000-points-democrats-control-congress/story?id=137842989",
+   "date": "2026-11-04",
    "tier": "언론"
   },
   {
    "id": "s2",
-   "title": "Stock Market Today Live, November 3, 2026: Chip Stocks Lift the Nasdaq as Apple Weighs on the Dow",
-   "publisher": "StockTitan",
-   "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-3-2026",
-   "date": "2026-11-03",
-   "tier": "집계"
+   "title": "Stock market today: Dow rallies 1,500 points, S&P 500 and Nasdaq gain after Democrats win control of Congress",
+   "publisher": "Yahoo Finance",
+   "url": "https://sg.finance.yahoo.com/news/live/stock-market-today-dow-rallies-1500-points-sp-500-nasdaq-midterm-elections-democrats-sweep-201207340.html",
+   "date": "2026-11-04",
+   "tier": "언론"
   },
   {
    "id": "s3",
+   "title": "Wall Street ends higher after Democrats win Congress; data center stocks tumble",
+   "publisher": "rallies.ai",
+   "url": "https://rallies.ai/news/wall-street-ends-higher-after-democrats-win-congress-data-center-stocks-tumble-6188d2449e66fe7c",
+   "date": "2026-11-04",
+   "tier": "집계"
+  },
+  {
+   "id": "s4",
    "title": "AMD Reports Third Quarter 2026 Financial Results",
-   "publisher": "AMD (GlobeNewswire)",
-   "url": "https://www.globenewswire.com/news-release/2026/11/03/3394824/0/en/amd-reports-third-quarter-2026-financial-results.html",
+   "publisher": "AMD IR",
+   "url": "https://ir.amd.com/news-events/press-releases/detail/1303/amd-reports-third-quarter-2026-financial-results",
    "date": "2026-11-03",
    "tier": "공식"
   },
   {
-   "id": "s4",
-   "title": "Live: Will AMD Crush Q3 Earnings Tonight After a 4% Intraday Pop?",
-   "publisher": "24/7 Wall St.",
-   "url": "https://247wallst.com/investing/2026/11/03/live-will-amd-crush-q3-earnings-tonight-after-a-4-intraday-pop/",
-   "date": "2026-11-03",
-   "tier": "언론"
-  },
-  {
    "id": "s5",
-   "title": "Stock Market Today (Nov. 3, 2026): Nasdaq edges higher as U.S. midterm voting begins",
-   "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-nov-3-145801086.html",
-   "date": "2026-11-03",
-   "tier": "언론"
-  },
-  {
-   "id": "s6",
-   "title": "Stock Market Today (Nov. 3, 2026): Nasdaq, Russell 2000 finish higher in homestretch of U.S. midterm election",
+   "title": "Stock Market Today (Nov. 4, 2026)",
    "publisher": "TheStreet",
-   "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-03-2026",
-   "date": "2026-11-03",
+   "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-04-2026",
+   "date": "2026-11-04",
    "tier": "언론"
   }
  ],
- "date": "2026-11-04",
- "generated_at": "2026-11-04T06:26:28+09:00"
+ "date": "2026-11-05",
+ "generated_at": "2026-11-05T06:27:28+09:00"
 }
