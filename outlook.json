@@ -1,21 +1,28 @@
 {
  "version": 2,
- "data_as_of": "2026-11-04 미국 장 마감",
+ "data_as_of": "2026-11-05 미국 장 마감(마감 직전 집계 기준)",
  "market_view": {
-  "label": "Neutral",
-  "summary": "11/4 다우 +3%(1,570p, 2025년 4월 이후 최대), S&P 500 약 +1.5%, 나스닥 +1.4%. 민주당의 상·하원 장악이 예상 범위의 결과로 받아들여지고 유가가 급락하며 상승했지만, 칩·데이터센터주는 약세였다. AI 투자 규제 리스크와 인플레·유가 변수가 남아 중립을 유지한다.",
-  "ai_line": "Nvidia 약 -3%, Micron 장중 -6%대, IREN·Hut 8 등 데이터센터 운영사 급락 vs AMD는 매출 134억$·Q4 가이던스 약 170억$",
+  "label": "Bearish",
+  "summary": "11/5 나스닥 약 -5.3%로 10/6 고점 대비 조정권에 진입했고 S&P 500 -4.2%, 다우 -3.4%로 전날 선거 후 랠리를 모두 반납했다. 민주당 의회 장악이 AI 인프라 확대를 늦추고 비싸게 만든다는 해석에 칩·데이터센터 밸류체인이 급락했고 VIX는 27로 급등했다. 일부는 '과도한 낙폭·항복 국면'으로 보지만 11/6 고용과 11/10 CPI 전까지 변동성이 클 전망이다.",
+  "ai_line": "반도체지수(SOX) 약 -10.7%, Nvidia -6~8%, Micron -12%, AMD -13~15%; 네오클라우드·전력주도 동반 급락.",
   "src": [
    "s1",
-   "s2",
-   "s3",
-   "s4"
+   "s2"
   ]
  },
  "key_changes": [
   {
-   "title": "다우 +3%, 민주당 의회 장악에도 상승: 유가 급락·'예상된 결과' 안도",
-   "detail": "다우 1,570p(+3%)로 2025/4/9 이후 최대 상승, S&P 500 약 +1.5%, 나스닥 +1.4%. Deutsche Bank는 '역사적으로 평범한 선거'라고 평가했다.",
+   "title": "나스닥 -5.3%·S&P -4.2%·다우 -3.4%: 전날 선거 후 랠리 전액 반납",
+   "detail": "Nasdaq 24,371.93(-5.30%), S&P 500 7,366.75(-4.19%), Dow 51,554.34(-3.38%). 나스닥은 10/6 종가 고점 대비 10% 이상 하락해 조정권에 들어섰다(Yahoo 위젯 기준, 공식 종가 미확인).",
+   "importance": "HIGH",
+   "src": [
+    "s2",
+    "s1"
+   ]
+  },
+  {
+   "title": "SOX 약 -10.7%: 민주당 의회 장악이 AI 인프라 확대 둔화 우려로 번짐",
+   "detail": "eToro 애널리스트는 시장이 'AI 인프라 구축이 더 느리고 비싸질 것'으로 해석한다고 설명. Nvidia·Micron 등 칩주가 급락했고 IREN·CoreWeave·Nebius 등은 12% 이상 하락했다.",
    "importance": "HIGH",
    "src": [
     "s1",
@@ -23,83 +30,67 @@
    ]
   },
   {
-   "title": "WTI -7% 88.6달러: 이란 전쟁 종결 기대와 선거 결과",
-   "detail": "WTI는 지난 금요일 종가 104달러에서 약 15달러 하락해 2020년 4월 이후 최악의 주간 흐름이다. 에너지주(XLE)는 5% 넘게 하락했다.",
-   "importance": "HIGH",
+   "title": "VIX 27(+62%), 개인 투자자 순매도 3.58억$: 2020년 3월 이후 최대",
+   "detail": "Vanda는 개인의 '완전한 항복'이라 평가했고 기관 '구매자 파업'과 시스템·레버리지 전략 강제 매도도 지적했다. Nomura는 개별 종목 변동이 '말도 안 될 정도'라고 했다.",
+   "importance": "MEDIUM",
    "src": [
-    "s1",
     "s2"
    ]
   },
   {
-   "title": "데이터센터·칩 약세: 민주당 승리가 AI 인프라 규제 우려 자극",
-   "detail": "Nvidia 약 -3%, IREN·Hut 8 급락. 텍사스 주지사 당선자는 신규 데이터센터 건설 중단을 공약했다고 보도됐다. Evercore는 프로젝트가 지연되거나 차단될 수 있다고 봤다.",
-   "importance": "HIGH",
+   "title": "WTI 약 90달러(+2.9%) 반등: 트럼프의 이란 합의 추진 불확실성",
+   "detail": "Brent는 97달러 안팎까지 올랐다. 전날은 이란 외교 기대로 Brent가 8% 이상 급락했었다. 10년물은 4.84%(-5.7bp)로 내렸다.",
+   "importance": "MEDIUM",
    "src": [
-    "s1",
     "s2",
     "s3"
    ]
   },
   {
-   "title": "MS·Amazon 약 +6%, Apple 사상 최고: 대형주 주도 랠리",
-   "detail": "MS와 Amazon은 6% 넘게 상승했고 Apple은 장중 시총 5조$ 위로 올라 사상 최고가를 기록했다. 방산주는 1.5조$ 국방예산 통과 의문에 하락했다.",
-   "importance": "MEDIUM",
+   "title": "BOE 0.25%p 인상(4.00%): 중동 분쟁 지속 시 추가 인상 가능 시사",
+   "detail": "Bailey 총재는 이번 인상이 긴 인상 사이클의 시작은 아니지만, 분쟁이 풀리지 않으면 마지막도 아닐 것 같다고 말했다.",
+   "importance": "LOW",
    "src": [
-    "s1",
-    "s2",
-    "s3"
-   ]
-  },
-  {
-   "title": "AMD Q3 매출 134억$(+45%), 데이터센터 +97%, Q4 가이던스 약 170억$",
-   "detail": "Q4 가이던스는 ±3%로 전년 대비 약 66% 성장을 뜻한다. 장 마감 후 발표라 주가 방향은 출처마다 엇갈려 확인하지 못했다.",
-   "importance": "MEDIUM",
-   "src": [
-    "s4",
-    "s3"
+    "s2"
    ]
   }
  ],
  "issues": [
   {
-   "title": "민주당 의회 장악과 AI·데이터센터 규제 리스크",
-   "detail": "Dan Ives는 상원 장악이 AI·기술 입법에 '큰 장애물'이 될 것이라 했다. 선거 캠페인 다수가 데이터센터에 비판적이었고 데이터센터 운영사 주가에 먼저 반영됐다.",
-   "tag": "신규",
+   "title": "민주당 의회 장악 후 AI·데이터센터 정책 리스크 가격 반영",
+   "detail": "전기요금 상승이 정치 쟁점이 되며 일부 민주당 인사가 신규 데이터센터 제한·중단을 거론한다. 전날 '예상된 결과' 안도가 하루 만에 뒤집혔다.",
+   "tag": "지속",
    "trend": "up",
    "importance": "HIGH",
-   "src": [
-    "s1",
-    "s2",
-    "s3"
-   ]
-  },
-  {
-   "title": "AI 수요는 견조, 수익성·자금조달 의구심은 지속",
-   "detail": "AMD는 데이터센터 +97%로 수요를 재확인했지만 칩·AI 인프라주는 규제와 자본지출 불안 속에 약세였다.",
-   "tag": "지속",
-   "trend": "steady",
-   "importance": "HIGH",
-   "src": [
-    "s4",
-    "s2",
-    "s5"
-   ]
-  },
-  {
-   "title": "중동 외교와 유가 급락",
-   "detail": "전쟁 종결 기대로 WTI가 90달러 아래로 내려왔고 휘발유 평균은 4.12달러다. Vance의 공화당 패배 원인 발언도 유가에 영향을 줬다고 보도됐다.",
-   "tag": "지속",
-   "trend": "down",
-   "importance": "MEDIUM",
    "src": [
     "s1",
     "s2"
    ]
   },
   {
-   "title": "대형주 쏠림 랠리: 금융·필수소비·헬스케어까지 확산",
-   "detail": "MS·Amazon·Apple이 지수를 이끌었고 금융·필수소비·부동산·헬스케어도 올랐다. 에너지·방산·데이터센터는 약세였다.",
+   "title": "칩·AI 인프라 연쇄 매도: 한 달간 Lam -36%, AMAT -30%, AMD -22%",
+   "detail": "Argent의 Ellerbroek는 '데이터센터 capex 수혜주의 항복 국면이지만 낙폭은 과도하다'고 평가. Nomura는 연말 앞둔 헤지펀드 이익 확정으로 봤고 펀더멘털 변화는 아니라고 설명했다.",
+   "tag": "지속",
+   "trend": "up",
+   "importance": "HIGH",
+   "src": [
+    "s2",
+    "s1"
+   ]
+  },
+  {
+   "title": "Palantir·CrowdStrike 등 소프트웨어 AI 승자주도 동반 매도",
+   "detail": "Palantir은 약 400억$ 시총이 증발해 10/9 고점 대비 약 4분의 1 낮아졌다(Yahoo 요약 기준).",
+   "tag": "신규",
+   "trend": "up",
+   "importance": "MEDIUM",
+   "src": [
+    "s2"
+   ]
+  },
+  {
+   "title": "Tesla·SpaceX 급락: 민주당 승리로 합병 전망 의문",
+   "detail": "Tesla는 약 -9~12%, SpaceX는 약 -8~9% 하락했다. 정치 구도 변화가 머스크 계열 합병 시나리오에 부담이라는 해석이다.",
    "tag": "신규",
    "trend": "up",
    "importance": "MEDIUM",
@@ -111,9 +102,18 @@
  ],
  "risks": [
   {
-   "title": "AI 투자·데이터센터 입법·지방 규제 현실화",
-   "detail": "조사나 건설 제한이 현실화하면 칩·데이터센터 자본지출 전망에 타격이 크다.",
-   "watch": "새 의회의 AI·전력 관련 청문·입법과 주 단위 건설 중단 조치",
+   "title": "연말 앞둔 강제 매도·유동성 악화(시스템·레버리지 전략)",
+   "detail": "기관 구매자 파업과 개인 항복 매도가 겹쳤다. 나스닥은 200일선 아래로 내려갔고 전문가들은 추가 변동성을 경고한다.",
+   "watch": "11/6 10월 고용보고서, VIX 25 이상 유지 여부, 나스닥 200일선 회복 여부",
+   "importance": "HIGH",
+   "src": [
+    "s2"
+   ]
+  },
+  {
+   "title": "데이터센터 입법·인허가 제한이 실제 capex 감축으로 이어질 위험",
+   "detail": "현재는 정치 해석 단계다. 구체 법안·주 정부 조치가 나오면 하이퍼스케일러 투자 계획과 칩 수요 가정이 흔들릴 수 있다.",
+   "watch": "새 의회 개원 후 데이터센터 관련 법안, 지방 규제, 하이퍼스케일러 capex 코멘트",
    "importance": "HIGH",
    "src": [
     "s1",
@@ -121,68 +121,43 @@
    ]
   },
   {
-   "title": "인플레 재가열과 연준 인상 우려",
-   "detail": "유가는 내렸지만 ISM 서비스 가격지수가 73.0으로 높고 휘발유 공급은 전쟁으로 제약된 상태다.",
-   "watch": "10월 고용·물가 지표와 12월 FOMC 기대 변화",
-   "importance": "HIGH",
-   "src": [
-    "s2"
-   ]
-  },
-  {
-   "title": "협상 결렬 시 유가 재반등",
-   "detail": "호르무즈 해협에서 유조선 4척이 기뢰로 화재를 입었다는 IRGC 발표가 있었다. 유가는 외교 기대로 이미 빠진 상태라 되돌림 폭이 클 수 있다.",
-   "watch": "미·이란 협상 진전 여부와 호르무즈 해협 상황",
+   "title": "인플레 재가열과 금리 부담",
+   "detail": "BOE는 중동 분쟁이 이어지면 추가 인상 가능성을 열어뒀다. 미국도 유가 반등 시 물가 부담이 되살아날 수 있다.",
+   "watch": "11/10 CPI, 이란 합의 진행, Brent 97달러 안착 여부",
    "importance": "MEDIUM",
    "src": [
-    "s5",
-    "s2"
+    "s2",
+    "s3"
    ]
   }
  ],
- "flow": "Neutral 유지: 민주당 의회 장악이 예상 범위로 받아들여지고 유가가 급락해 다우 +3%였지만 AI 규제 우려로 칩·데이터센터는 약했고 인플레·유가 변수가 남았다.",
+ "flow": "Bearish 전환(단기): 민주당 의회 장악이 AI 인프라 확대 둔화 우려로 번져 나스닥 -5%·SOX -10%로 조정권에 들어갔고, 낙폭 과대·항복 매도 해석이 나오지만 11/6 고용·11/10 CPI 전까지 변동성이 크다.",
  "sources": [
   {
    "id": "s1",
-   "title": "Dow surges 1,000 points as Democrats take control of Congress",
-   "publisher": "ABC News",
-   "url": "https://abcnews.com/Business/dow-surges-1000-points-democrats-control-congress/story?id=137842989",
-   "date": "2026-11-04",
+   "title": "Stocks plunge as Dem midterm sweep fuels AI regulatory concerns",
+   "publisher": "Fox Business",
+   "url": "https://foxbusiness.com/markets/stocks-nov-5-2026",
+   "date": "2026-11-05",
    "tier": "언론"
   },
   {
    "id": "s2",
-   "title": "Stock market today: Dow rallies 1,500 points, S&P 500 and Nasdaq gain after Democrats win control of Congress",
+   "title": "Stock market today: Nasdaq plunges 5% amid chip stock wipeout, Dow and S&P 500 erase post-election rally gains",
    "publisher": "Yahoo Finance",
-   "url": "https://sg.finance.yahoo.com/news/live/stock-market-today-dow-rallies-1500-points-sp-500-nasdaq-midterm-elections-democrats-sweep-201207340.html",
-   "date": "2026-11-04",
+   "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-oil-rises-chip-stocks-141439950.html",
+   "date": "2026-11-05",
    "tier": "언론"
   },
   {
    "id": "s3",
-   "title": "Wall Street ends higher after Democrats win Congress; data center stocks tumble",
-   "publisher": "rallies.ai",
-   "url": "https://rallies.ai/news/wall-street-ends-higher-after-democrats-win-congress-data-center-stocks-tumble-6188d2449e66fe7c",
-   "date": "2026-11-04",
+   "title": "Market Pulse November 05 2026",
+   "publisher": "NordFX",
+   "url": "https://nordfx.com/market-news/market-pulse-november-05-2026",
+   "date": "2026-11-05",
    "tier": "집계"
-  },
-  {
-   "id": "s4",
-   "title": "AMD Reports Third Quarter 2026 Financial Results",
-   "publisher": "AMD IR",
-   "url": "https://ir.amd.com/news-events/press-releases/detail/1303/amd-reports-third-quarter-2026-financial-results",
-   "date": "2026-11-03",
-   "tier": "공식"
-  },
-  {
-   "id": "s5",
-   "title": "Stock Market Today (Nov. 4, 2026)",
-   "publisher": "TheStreet",
-   "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-04-2026",
-   "date": "2026-11-04",
-   "tier": "언론"
   }
  ],
- "date": "2026-11-05",
- "generated_at": "2026-11-05T06:27:28+09:00"
+ "date": "2026-11-06",
+ "generated_at": "2026-11-06T06:26:09+09:00"
 }
