@@ -17,7 +17,8 @@
   "SKHL",
   "GGLL",
   "ORCU",
-  "CRWU"
+  "CRWU",
+  "SOXL"
  ],
  "names": {
   "^KS11": "코스피(KOSPI)",
@@ -36,6 +37,7 @@
   "GGLL": "알파벳 2x(GGLL)",
   "ORCU": "오라클 2x(ORCU)",
   "CRWU": "코어위브 2x(CRWU)",
-  "SPCH": "스페이스X 2x(SPCH)"
+  "SPCH": "스페이스X 2x(SPCH)",
+  "SOXL": "SOXL 3x(SOXL)"
  }
 }

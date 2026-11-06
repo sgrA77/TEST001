@@ -13,18 +13,42 @@ UA = {"User-Agent": "Mozilla/5.0"}   # TEST001.py와 동일 (긴 UA는 야후가
 KEEP = 130   # 차트용 최근 주봉 수
 
 
+def fix_splits(bars, res):
+    """액면분할 직후 야후가 과거 봉 보정을 덜 끝내 값이 섞이는 경우(예: SOXX 3:1) 직접 맞춘다.
+    이벤트의 분할비율(r)에 가까운 점프(0.7r~1.4r)가 인접 봉 사이에 있으면 이전 봉들을 보정."""
+    ev = (res.get("events") or {}).get("splits") or {}
+    ratios = [v["numerator"] / v["denominator"] for v in ev.values() if v.get("denominator")]
+    ratios += [1 / r for r in ratios]
+    if not ratios or len(bars) < 2:
+        return bars
+    cl = [c for _, c in bars]
+    for i in range(len(cl) - 2, -1, -1):
+        j = cl[i] / cl[i + 1]                # 과거/이후
+        for r in ratios:
+            if r > 1 and 0.7 * r <= j <= 1.4 * r:      # 과거 봉이 분할 전 가격 -> 나눈다
+                f = 1 / r
+            elif r < 1 and 0.7 * r <= j <= 1.4 * r:    # 과거 봉이 너무 낮음 -> 곱한다
+                f = 1 / r
+            else:
+                continue
+            for k in range(i + 1):
+                cl[k] *= f
+            break
+    return [(t, c) for (t, _), c in zip(bars, cl)]
+
+
 def fetch(sym):
     last = None
     for host in ("query1", "query2"):
         for _ in range(2):
             try:
-                r = requests.get(f"https://{host}.finance.yahoo.com/v8/finance/chart/{sym}?range=5y&interval=1wk", headers=UA, timeout=25)
+                r = requests.get(f"https://{host}.finance.yahoo.com/v8/finance/chart/{sym}?range=5y&interval=1wk&events=split", headers=UA, timeout=25)
                 if not r.text.strip():
                     raise RuntimeError(f"빈 응답 HTTP {r.status_code}")
                 res = r.json()["chart"]["result"][0]
                 q = res["indicators"]["quote"][0]
                 bars = [(t, c) for t, c in zip(res["timestamp"], q["close"]) if c is not None]
-                return bars, res["meta"]
+                return fix_splits(bars, res), res["meta"]
             except Exception as e:
                 last = e; time.sleep(2)
     raise RuntimeError(f"{sym}: {last}")
