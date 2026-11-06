@@ -15,12 +15,12 @@ def q(page, size=100, frm="1960-01-01", to="2026-11-06"):
 rows = []
 for p in range(1, 120):
     t = q(p)
-    trs = re.findall(r"<tr\s[^>]*onclick=\"fnDetailView\([^)]*\)\">(.*?)</tr>", t, re.S)
+    trs = re.findall(r"<tr\s[^>]*onclick=\"fnDetailView\('([^']*)'[^)]*\)\">(.*?)</tr>", t, re.S)
     if not trs:
         print("stop at", p, len(t)); break
-    for tr in trs:
+    for code, tr in trs:
         tds = [unescape(re.sub(r"<[^>]+>", "", x)).strip() for x in re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S)]
-        rows.append(tds)
-    print(p, len(trs), rows[-1][:3])
+        rows.append([code] + tds)
+    print(p, len(trs), rows[-1][:4])
 json.dump({"rows": rows}, open("hj_probe.json", "w"), ensure_ascii=False)
 print("total", len(rows))
