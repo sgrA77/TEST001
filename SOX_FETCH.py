@@ -6,11 +6,11 @@ out = {}
 for s, q in (("SOX", "%5ESOX"), ("SOXX", "SOXX"), ("SMH", "SMH"), ("SOXL", "SOXL"), ("USD", "USD")):
     for host in ("query1", "query2"):
         try:
-            r = requests.get(f"https://{host}.finance.yahoo.com/v8/finance/chart/{q}?period1=631152000&period2=1900000000&interval=1d", headers=UA, timeout=60)
+            r = requests.get(f"https://{host}.finance.yahoo.com/v8/finance/chart/{q}?period1=631152000&period2=1900000000&interval=1d&events=split", headers=UA, timeout=60)
             j = r.json()["chart"]["result"][0]
             qq = j["indicators"]["quote"][0]
             rows = [[t, qq["close"][i]] for i, t in enumerate(j["timestamp"]) if qq["close"][i] is not None]
-            out[s] = {"rows": rows}; print(s, len(rows)); break
+            out[s] = {"rows": rows, "splits": [[int(k), v["numerator"], v["denominator"]] for k, v in (j.get("events") or {}).get("splits", {}).items()]}; print(s, len(rows)); break
         except Exception as e:
             print("::warning::", s, host, e); time.sleep(2)
 json.dump(out, open("sox.json", "w"))
