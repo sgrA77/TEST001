@@ -1,0 +1,23 @@
+name: HJ list (manual)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  hj:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests
+      - run: python HJ_LIST.py
+      - name: Publish to hj-data branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          tree=$(printf '100644 blob %s\thj_list.json\n' "$(git hash-object -w hj_list.json)" | git mktree)
+          commit=$(git commit-tree "$tree" -m "hj list $(date -u +%FT%TZ)")
+          git push -f origin "$commit:refs/heads/hj-data"
