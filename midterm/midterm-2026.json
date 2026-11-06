@@ -232,6 +232,67 @@
     "무기한 중단 가능성: 공사 중인 사설 시설은 기득권(vested rights)·재산권 소송 때문에 낮음. 현실적 최악은 '취소'보다 '1~2년 지연+비용 증가'. 진짜 방아쇠는 정책 자체보다 CAPEX 하향.",
     "확인 신호: 하이퍼스케일러 CAPEX 가이던스, FERC 대형부하 규칙, TX/PA 대기열 조치, 주지사 행정명령 추가 여부."
    ]
+  },
+  {
+   "title": "8. 정량: 공사 중 vs 제동 가능 물량",
+   "intro": "집계 기관마다 정의가 달라 수치 차이가 큼. 아래는 기관별 원수치와 제 계산(가정).",
+   "table": {
+    "head": [
+     "구분",
+     "규모",
+     "출처"
+    ],
+    "center": [],
+    "rows": [
+     [
+      "미국 공개 파이프라인",
+      "430GW+",
+      "WoodMac [s7]"
+     ],
+     [
+      "공사 중",
+      "약 80GW\n(1Q말 44GW)",
+      "WoodMac [s7]"
+     ],
+     [
+      "전력 계약 확정",
+      "201GW\n(고신뢰 약 300GW)",
+      "WoodMac [s7]"
+     ],
+     [
+      "공사 외(계산)",
+      "약 350GW\n(430−80, 제 계산)",
+      "—"
+     ],
+     [
+      "모라토리엄 영향 계획분",
+      "100GW+\n(부지의 18%)",
+      "WoodMac [s7]"
+     ],
+     [
+      "텍사스 허가 중단·감사",
+      "60GW+",
+      "WoodMac [s7]"
+     ],
+     [
+      "지방 제한 구역 내\n실제 지연",
+      "약 20GW 중 1.5GW\n(뉴욕 0.8GW 별도)",
+      "SemiAnalysis [s4]"
+     ],
+     [
+      "AI 데이터센터\n(정의 다름)",
+      "발표 16GW 중\n공사 5GW(31%)",
+      "DC Atlas [s8]"
+     ]
+    ]
+   },
+   "bullets": [
+    "공사 중 약 80GW는 파이프라인의 약 19%(계산). 나머지 약 80%는 아직 착공 전이라 이론상 제동 대상.",
+    "단 제동 대상 중 '전력 계약 확정' 201GW는 이미 돈과 계약이 걸려 사실상 진행 쪽(가정).",
+    "기관 간 괴리 큼: WoodMac '100GW+ 영향' vs SemiAnalysis '1.5GW 지연'. 정의(계획 vs 실제 지연)가 다르므로 한쪽을 확정하지 말 것.",
+    "병목은 규제보다 이미 전력 연결 3~5년·변압기 18~36개월(DC Atlas 추정) [s8]. 정치 제동은 그 위에 얹히는 변수.",
+    "'신규를 무기한 불허' 가능성: 지방·주 단위 일부 지역에서는 가능(재연장). 전국 단위 영구 금지는 입법 장벽이 높음(제 판단)."
+   ]
   }
  ],
  "sources": [
@@ -264,6 +325,16 @@
    "n": 6,
    "title": "KSAT/AP — Data center bill falls short in Senate (57-43)",
    "url": "https://www.ksat.com/news/politics/2026/09/30/data-center-bill-falls-short-in-senate-as-lawmakers-take-final-votes-before-the-midterms/"
+  },
+  {
+   "n": 7,
+   "title": "Wood Mackenzie — US data centre additions Q2 2026",
+   "url": "https://www.woodmac.com/press-releases/us-data-centre-additions-return-to-growth-in-q2-2026-as-developers-push-construction-and-pipeline-continues-to-expand2"
+  },
+  {
+   "n": 8,
+   "title": "DC Atlas — Announced vs under construction 2026",
+   "url": "https://dcatlas.io/en/articles/trends/half-built-america-us-data-center-supply-demand-gap-2026"
   }
  ],
  "disclaimer": "투자 조언이 아닙니다. 수치는 장중 보도 기준이며 섹터별 전망은 가정입니다."
