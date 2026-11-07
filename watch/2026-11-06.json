@@ -1,0 +1,389 @@
+{
+ "version": 3,
+ "week_start": "2026-11-02",
+ "week_end": "2026-11-06",
+ "label": "2026.11.02 ~ 11.06",
+ "generated_at": "2026-11-07T16:39:03+09:00",
+ "thresholds": {
+  "KOSPI": 20.0,
+  "KOSDAQ": 30.0,
+  "ACCUM_BAND": 3.0,
+  "ACCUM_MAX_UP": 10.0,
+  "ACCUM_VOL": 0.0,
+  "ACCUM_MIN_CAP": 1000,
+  "ACCUM_LOOKBACK_WEEKS": 26,
+  "ACCUM_PAST_SURGE": 30.0,
+  "THEME_ORDER": [
+   "반도체",
+   "AI",
+   "방산",
+   "우주항공",
+   "친환경에너지",
+   "은행",
+   "증권",
+   "석유와가스"
+  ],
+  "ACCUM_THEMES": [
+   "반도체",
+   "AI",
+   "방산",
+   "우주항공",
+   "친환경에너지",
+   "은행",
+   "증권",
+   "석유와가스",
+   "제약",
+   "생명과학도구",
+   "조선",
+   "유류"
+  ],
+  "ACCUM_STREAK_BAND": 5.0,
+  "SURGE_MIN_CAP": 2000
+ },
+ "scanned": 2673,
+ "failed": 2,
+ "accum_before_history_filter": 86,
+ "kospi": [
+  {
+   "code": "181710",
+   "name": "NHN",
+   "market": "KOSPI",
+   "price": 57800,
+   "cap_eok": 18686,
+   "vol_ratio": 2.1,
+   "last_day": "2026-11-06",
+   "prev_price": 46050,
+   "chg": 25.52,
+   "flags": [],
+   "sector": "IT서비스",
+   "theme": "AI",
+   "news": [
+    {
+     "title": "[마켓뷰] 美 ‘블루 웨이브’에 파랗게 질린 코스피…5000선 턱걸이",
+     "url": "https://n.news.naver.com/mnews/article/366/0001203106",
+     "office": "조선비즈",
+     "date": "2026-11-06"
+    }
+   ]
+  },
+  {
+   "code": "112610",
+   "name": "씨에스윈드",
+   "market": "KOSPI",
+   "price": 48800,
+   "cap_eok": 20580,
+   "vol_ratio": 3.5,
+   "last_day": "2026-11-06",
+   "prev_price": 37750,
+   "chg": 29.27,
+   "flags": [],
+   "sector": "에너지장비및서비스",
+   "theme": "친환경에너지",
+   "news": [
+    {
+     "title": "“AI 투자 멈추나” 美 민주당 승리에 반도체 흔들…코스피는 반등",
+     "url": "https://n.news.naver.com/mnews/article/018/0006403789",
+     "office": "이데일리",
+     "date": "2026-11-04"
+    }
+   ]
+  },
+  {
+   "code": "259960",
+   "name": "크래프톤",
+   "market": "KOSPI",
+   "price": 220000,
+   "cap_eok": 100062,
+   "vol_ratio": 1.7,
+   "last_day": "2026-11-06",
+   "prev_price": 181300,
+   "chg": 21.35,
+   "flags": [],
+   "sector": "게임엔터테인먼트",
+   "theme": "게임엔터테인먼트",
+   "news": [
+    {
+     "title": "피지컬 AI·게임·드론 기업들 투자 유치 [VC 브리핑]",
+     "url": "https://n.news.naver.com/mnews/article/015/0005350477",
+     "office": "한국경제",
+     "date": "2026-11-05"
+    }
+   ]
+  },
+  {
+   "code": "008930",
+   "name": "한미사이언스",
+   "market": "KOSPI",
+   "price": 53700,
+   "cap_eok": 36726,
+   "vol_ratio": 1.0,
+   "last_day": "2026-11-06",
+   "prev_price": 42350,
+   "chg": 26.8,
+   "flags": [],
+   "sector": "제약",
+   "theme": "제약",
+   "news": [
+    {
+     "title": "\"온가족 드세요\"…한미사이언스, 새 영양식 출시",
+     "url": "https://n.news.naver.com/mnews/article/003/0014307595",
+     "office": "뉴시스",
+     "date": "2026-11-07"
+    }
+   ]
+  },
+  {
+   "code": "104700",
+   "name": "한국철강",
+   "market": "KOSPI",
+   "price": 12900,
+   "cap_eok": 4702,
+   "vol_ratio": 10.9,
+   "last_day": "2026-11-06",
+   "prev_price": 10430,
+   "chg": 23.68,
+   "flags": [],
+   "sector": "철강",
+   "theme": "철강",
+   "news": [
+    {
+     "title": "KISCO홀딩스, 자회사 한국철강 상장폐지 추진…'동반 급등'[핫종목]",
+     "url": "https://n.news.naver.com/mnews/article/421/0009264296",
+     "office": "뉴스1",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "code": "180640",
+   "name": "한진칼",
+   "market": "KOSPI",
+   "price": 196700,
+   "cap_eok": 131321,
+   "vol_ratio": 20.3,
+   "last_day": "2026-11-06",
+   "prev_price": 122900,
+   "chg": 60.05,
+   "flags": [],
+   "sector": "항공사",
+   "theme": "항공사",
+   "news": [
+    {
+     "title": "“도대체 바닥이 어딜까?”…코스피 5000선 겨우 지켰다 [투자360]",
+     "url": "https://n.news.naver.com/mnews/article/016/0002720046",
+     "office": "헤럴드경제",
+     "date": "2026-11-06"
+    }
+   ]
+  },
+  {
+   "code": "010060",
+   "name": "OCI홀딩스",
+   "market": "KOSPI",
+   "price": 198800,
+   "cap_eok": 37116,
+   "vol_ratio": 2.7,
+   "last_day": "2026-11-06",
+   "prev_price": 162300,
+   "chg": 22.49,
+   "flags": [],
+   "sector": "화학",
+   "theme": "화학",
+   "news": [
+    {
+     "title": "“美증시는 급등했는데”…삼전닉스, 프리마켓서 2~4% 급락[특징주]",
+     "url": "https://n.news.naver.com/mnews/article/018/0006403971",
+     "office": "이데일리",
+     "date": "2026-11-05"
+    }
+   ]
+  }
+ ],
+ "kosdaq": [
+  {
+   "code": "389260",
+   "name": "대명에너지",
+   "market": "KOSDAQ",
+   "price": 13630,
+   "cap_eok": 2442,
+   "vol_ratio": 53.8,
+   "last_day": "2026-11-06",
+   "prev_price": 10080,
+   "chg": 35.22,
+   "flags": [],
+   "sector": "에너지장비및서비스",
+   "theme": "친환경에너지",
+   "news": [
+    {
+     "title": "미국 중간선거에 국장도 들썩…상한가까지 터진 ‘블루 쓰나미’ 수혜...",
+     "url": "https://n.news.naver.com/mnews/article/011/0004678892",
+     "office": "서울경제",
+     "date": "2026-11-05"
+    }
+   ]
+  }
+ ],
+ "accum": [
+  {
+   "code": "051600",
+   "name": "한전KPS",
+   "market": "KOSPI",
+   "price": 41300,
+   "cap_eok": 18585,
+   "vol_ratio": 0.7,
+   "last_day": "2026-11-06",
+   "open_price": 40500,
+   "open_chg": 1.98,
+   "max_up": 6.7,
+   "range": 8.1,
+   "flags": [],
+   "sector": "전기유틸리티",
+   "theme": "친환경에너지",
+   "surge_n": 1,
+   "surge_last": "2026-06-12",
+   "surge_max": 31.3,
+   "flat_n": 8,
+   "hist_weeks": 26,
+   "streak_n": 8,
+   "streak_max": 8
+  },
+  {
+   "code": "082800",
+   "name": "비보존 제약",
+   "market": "KOSDAQ",
+   "price": 3000,
+   "cap_eok": 1822,
+   "vol_ratio": 1.4,
+   "last_day": "2026-11-06",
+   "open_price": 3050,
+   "open_chg": -1.64,
+   "max_up": 8.9,
+   "range": 12.8,
+   "flags": [],
+   "sector": "제약",
+   "theme": "제약",
+   "surge_n": 2,
+   "surge_last": "2026-06-12",
+   "surge_max": 35.7,
+   "flat_n": 6,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 4
+  },
+  {
+   "code": "178320",
+   "name": "서진시스템",
+   "market": "KOSDAQ",
+   "price": 28400,
+   "cap_eok": 18097,
+   "vol_ratio": 0.8,
+   "last_day": "2026-11-06",
+   "open_price": 27900,
+   "open_chg": 1.79,
+   "max_up": 9.1,
+   "range": 23.1,
+   "flags": [],
+   "sector": "전기장비",
+   "theme": "친환경에너지",
+   "surge_n": 1,
+   "surge_last": "2026-10-02",
+   "surge_max": 30.6,
+   "flat_n": 4,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 2
+  },
+  {
+   "code": "093320",
+   "name": "케이아이엔엑스",
+   "market": "KOSDAQ",
+   "price": 175000,
+   "cap_eok": 8540,
+   "vol_ratio": 1.7,
+   "last_day": "2026-11-06",
+   "open_price": 175700,
+   "open_chg": -0.4,
+   "max_up": 1.8,
+   "range": 4.9,
+   "flags": [],
+   "sector": "IT서비스",
+   "theme": "AI",
+   "surge_n": 1,
+   "surge_last": "2026-10-30",
+   "surge_max": 30.1,
+   "flat_n": 11,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 5
+  },
+  {
+   "code": "079940",
+   "name": "가비아",
+   "market": "KOSDAQ",
+   "price": 49600,
+   "cap_eok": 6657,
+   "vol_ratio": 0.7,
+   "last_day": "2026-11-06",
+   "open_price": 49800,
+   "open_chg": -0.4,
+   "max_up": 4.4,
+   "range": 7.0,
+   "flags": [],
+   "sector": "IT서비스",
+   "theme": "AI",
+   "surge_n": 1,
+   "surge_last": "2026-07-24",
+   "surge_max": 40.3,
+   "flat_n": 9,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 5
+  },
+  {
+   "code": "015860",
+   "name": "일진홀딩스",
+   "market": "KOSPI",
+   "price": 5850,
+   "cap_eok": 2887,
+   "vol_ratio": 1.0,
+   "last_day": "2026-11-06",
+   "open_price": 6000,
+   "open_chg": -2.5,
+   "max_up": 6.8,
+   "range": 14.3,
+   "flags": [],
+   "sector": "전기장비",
+   "theme": "친환경에너지",
+   "surge_n": 1,
+   "surge_last": "2026-05-08",
+   "surge_max": 32.8,
+   "flat_n": 4,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 3
+  },
+  {
+   "code": "452450",
+   "name": "피아이이",
+   "market": "KOSDAQ",
+   "price": 4075,
+   "cap_eok": 1468,
+   "vol_ratio": 0.4,
+   "last_day": "2026-11-06",
+   "open_price": 4195,
+   "open_chg": -2.86,
+   "max_up": 6.6,
+   "range": 18.8,
+   "flags": [],
+   "sector": "IT서비스",
+   "theme": "AI",
+   "surge_n": 1,
+   "surge_last": "2026-09-11",
+   "surge_max": 37.8,
+   "flat_n": 6,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 3
+  }
+ ]
+}
