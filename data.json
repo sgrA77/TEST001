@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-07 08:22 KST",
+ "updated_at": "2026-11-07 11:59 KST",
  "warnings": [
   "IPO 캘린더 2건 중 AI 관련 0건 (정상일 수 있음. 키워드는 IPO_AI_KEYWORDS)"
  ],
@@ -275,7 +275,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": 29591000000
+     "rev_act": null
     }
    ]
   },
@@ -734,9 +734,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 75796.87,
+    "price": 75936.0,
     "prev_day": 75942.125,
-    "turnover": 30464858112,
+    "turnover": 27329054720,
     "prev_month": 77434.75,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
