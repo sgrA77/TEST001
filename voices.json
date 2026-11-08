@@ -1,11 +1,11 @@
 {
  "version": 1,
- "updated": "2026-11-06",
+ "updated": "2026-11-09",
  "window": "최근 3개월(기간 밖 항목은 표시)",
  "summary": [
   "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD·Nvidia). 저커버그는 공격적 투자 지속을 밝혔으나 FCF는 적자 전환, 머스크는 컴퓨팅 회수 단축을 주장하면서도 10/26 네오클라우드 다수 도산 가능성을 경고. 피차이는 10/28 검색 쿼리 성장 최고라 반박했으나 FCF 적자 속 Alphabet은 -13%. MS는 10/28 Azure +48%로 호조였으나 FCF 커버율은 51%로 하락. 리사 수는 11/3 Q4 가이던스 170억$로 수요를 재확인. 11/5 칩 급락 속 리사 수는 시장이 근시안적이라고 반응.",
   "투자업계는 핑크(강세) vs 달리오·그리핀(경계)로 갈림. 그레이·거스트너는 중립.",
-  "워시는 10/28 동결하며 인플레가 여전히 높다고 했고(AI 투자 붐이 물가 압력이라는 입장 유지), 트럼프는 데이터센터 전력·지역 배당 의무화."
+  "워시는 10/28 동결하며 인플레가 여전히 높다고 했고(AI 투자 붐이 물가 압력이라는 입장 유지), 트럼프는 데이터센터 전력·지역 배당 의무화 11/6에는 트럼프가 AI 구축 전폭 지지를 밝힘(2차 보도)."
  ],
  "groups": [
   {
@@ -242,10 +242,11 @@
      "who": "트럼프",
      "org": "대통령",
      "stance": "정책",
-     "quote": "데이터센터 자체발전·지역 배당 의무화",
-     "date": "10/21 Truth Social",
-     "detail": "신규 대형 데이터센터는 \"스스로 전기를 만들도록 의무화\", 지역 사회에 '배당'을 주고 \"거래를 하라, 짓게 하라\". (참고: 1월 H200 등 고성능 칩에 25% 관세·중국 수출 로열티.)",
+     "quote": "AI 투자 확대 전폭 지지",
+     "date": "11/6 발언(2차 보도)",
+     "detail": "11/6 칩 반등 국면에서 트럼프가 AI 구축을 전폭 지지한다고 밝힘(CNBC 인용 StockTitan, 원문 미확인). 10/21 Truth Social: 신규 대형 데이터센터는 \"스스로 전기를 만들도록 의무화\", 지역 사회에 '배당'.",
      "src": [
+      36,
       12,
       17
      ],
@@ -433,6 +434,11 @@
    "n": 35,
    "title": "Stock market today: Nasdaq plunges 5% amid chip stock wipeout (Yahoo Finance, 11/5)",
    "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-oil-rises-chip-stocks-141439950.html"
+  },
+  {
+   "n": 36,
+   "title": "Stock Market Today Live, November 6, 2026 (StockTitan, CNBC 인용)",
+   "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-6-2026"
   }
  ]
 }

@@ -1,10 +1,10 @@
 {
  "version": 2,
- "data_as_of": "2026-11-05 미국 장 마감(마감 직전 집계 기준)",
+ "data_as_of": "2026-11-06 미국 장 마감",
  "market_view": {
   "label": "Bearish",
-  "summary": "11/5 나스닥 약 -5.3%로 10/6 고점 대비 조정권에 진입했고 S&P 500 -4.2%, 다우 -3.4%로 전날 선거 후 랠리를 모두 반납했다. 민주당 의회 장악이 AI 인프라 확대를 늦추고 비싸게 만든다는 해석에 칩·데이터센터 밸류체인이 급락했고 VIX는 27로 급등했다. 일부는 '과도한 낙폭·항복 국면'으로 보지만 11/6 고용과 11/10 CPI 전까지 변동성이 클 전망이다.",
-  "ai_line": "반도체지수(SOX) 약 -10.7%, Nvidia -6~8%, Micron -12%, AMD -13~15%; 네오클라우드·전력주도 동반 급락.",
+  "summary": "11/6 나스닥 +1.09%·S&P +0.31%로 전날 폭락 뒤 기술적 반등했지만 Nasdaq은 10/6 고점 대비 조정권이고 주간 S&P -2.68%, 나스닥 -3.37%였다. 10월 고용이 +16.5만 명(예상 약 5.9만)으로 강해 12월 인상 확률이 65% 이상(CME 기준)으로 올랐고, 민주당 의회 장악발 데이터센터 규제 우려는 그대로다. 11/10 CPI 전까지 단기 경계 유지.",
+  "ai_line": "칩 반등(AMD +11%, Micron +5%, Nvidia +2.8%)은 전날 낙폭의 일부 회복이며 Lam은 250억$ 자사주 매입으로 +8%.",
   "src": [
    "s1",
    "s2"
@@ -12,17 +12,8 @@
  },
  "key_changes": [
   {
-   "title": "나스닥 -5.3%·S&P -4.2%·다우 -3.4%: 전날 선거 후 랠리 전액 반납",
-   "detail": "Nasdaq 24,371.93(-5.30%), S&P 500 7,366.75(-4.19%), Dow 51,554.34(-3.38%). 나스닥은 10/6 종가 고점 대비 10% 이상 하락해 조정권에 들어섰다(Yahoo 위젯 기준, 공식 종가 미확인).",
-   "importance": "HIGH",
-   "src": [
-    "s2",
-    "s1"
-   ]
-  },
-  {
-   "title": "SOX 약 -10.7%: 민주당 의회 장악이 AI 인프라 확대 둔화 우려로 번짐",
-   "detail": "eToro 애널리스트는 시장이 'AI 인프라 구축이 더 느리고 비싸질 것'으로 해석한다고 설명. Nvidia·Micron 등 칩주가 급락했고 IREN·CoreWeave·Nebius 등은 12% 이상 하락했다.",
+   "title": "칩 반등: SOX +4.2%, AMD +11%: 전날 -12% 폭락의 일부 회복",
+   "detail": "트럼프의 AI 투자 전폭 지지 발언과 저가 매수가 배경이며, 주요 칩 8종은 전날 손실의 평균 3분의 1 이상을 회복했다(2차 보도 기준, StockTitan 자체 계산).",
    "importance": "HIGH",
    "src": [
     "s1",
@@ -30,16 +21,18 @@
    ]
   },
   {
-   "title": "VIX 27(+62%), 개인 투자자 순매도 3.58억$: 2020년 3월 이후 최대",
-   "detail": "Vanda는 개인의 '완전한 항복'이라 평가했고 기관 '구매자 파업'과 시스템·레버리지 전략 강제 매도도 지적했다. Nomura는 개별 종목 변동이 '말도 안 될 정도'라고 했다.",
-   "importance": "MEDIUM",
+   "title": "10월 고용 +16.5만 명(예상 약 5.9만), 실업률 4.1%: 12월 인상 확률 65%↑",
+   "detail": "고용 호조로 10년물 4.86%·2년물 4.51%(+5bp)로 올랐다. 인상 확률은 CME 기준 65% 이상, 예측시장 약 78%로 집계처마다 다르다.",
+   "importance": "HIGH",
    "src": [
-    "s2"
+    "s1",
+    "s2",
+    "s3"
    ]
   },
   {
-   "title": "WTI 약 90달러(+2.9%) 반등: 트럼프의 이란 합의 추진 불확실성",
-   "detail": "Brent는 97달러 안팎까지 올랐다. 전날은 이란 외교 기대로 Brent가 8% 이상 급락했었다. 10년물은 4.84%(-5.7bp)로 내렸다.",
+   "title": "코스피 -6.0%, 닛케이 -6.0%: 미국 폭락이 아시아로 전이, 미국 반등과 대조",
+   "detail": "코스피 5,059.69, 닛케이 57,434.77로 마감했고 StockTitan은 닛케이가 약세장에 진입했다고 전했다.",
    "importance": "MEDIUM",
    "src": [
     "s2",
@@ -47,73 +40,68 @@
    ]
   },
   {
-   "title": "BOE 0.25%p 인상(4.00%): 중동 분쟁 지속 시 추가 인상 가능 시사",
-   "detail": "Bailey 총재는 이번 인상이 긴 인상 사이클의 시작은 아니지만, 분쟁이 풀리지 않으면 마지막도 아닐 것 같다고 말했다.",
-   "importance": "LOW",
+   "title": "주간 S&P -2.68%·나스닥 -3.37%, XLK -8.2%: 4월 관세 쇼크 주간 이후 최악",
+   "detail": "VIX는 25.64로 하루 -9%였으나 주간으로는 +32%. WTI는 주간 -13%(90달러 안팎)로 에너지 -12%.",
+   "importance": "MEDIUM",
    "src": [
-    "s2"
+    "s1",
+    "s3"
    ]
   }
  ],
  "issues": [
   {
-   "title": "민주당 의회 장악 후 AI·데이터센터 정책 리스크 가격 반영",
-   "detail": "전기요금 상승이 정치 쟁점이 되며 일부 민주당 인사가 신규 데이터센터 제한·중단을 거론한다. 전날 '예상된 결과' 안도가 하루 만에 뒤집혔다.",
+   "title": "민주당 의회 장악발 AI·데이터센터 규제 우려",
+   "detail": "전날 칩 지수 -12%의 원인으로, 데이터센터 모라토리엄·제한 공약과 전력비 상승이 쟁점이다. UBS는 데이터센터 중단이 2028년 계획 용량의 약 30%를 위험에 둔다고 봤다.",
    "tag": "지속",
-   "trend": "up",
+   "trend": "steady",
    "importance": "HIGH",
+   "src": [
+    "s4",
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "title": "칩 주식 부분 반등, 종목별 온도차",
+   "detail": "Lam +8.2%(250억$ 자사주 매입), AMD +11%인 반면 Broadcom은 +0.7%에 그쳤다. 시장 폭은 여전히 하락 종목이 우세했다(318 대 184).",
+   "tag": "지속",
+   "trend": "steady",
+   "importance": "MEDIUM",
    "src": [
     "s1",
     "s2"
    ]
   },
   {
-   "title": "칩·AI 인프라 연쇄 매도: 한 달간 Lam -36%, AMAT -30%, AMD -22%",
-   "detail": "Argent의 Ellerbroek는 '데이터센터 capex 수혜주의 항복 국면이지만 낙폭은 과도하다'고 평가. Nomura는 연말 앞둔 헤지펀드 이익 확정으로 봤고 펀더멘털 변화는 아니라고 설명했다.",
-   "tag": "지속",
+   "title": "고용 서프라이즈로 12월 금리 인상 재부각",
+   "detail": "인플레 우려가 남은 상태에서 고용이 강해 인상 기대가 커졌고 다음 분수령은 11/10 CPI다.",
+   "tag": "신규",
    "trend": "up",
    "importance": "HIGH",
+   "src": [
+    "s1",
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "title": "AI 인프라 수혜·피해 분화: Atlassian -16%, IREN +20%",
+   "detail": "Atlassian은 약한 데이터센터 전망으로 급락, IREN은 AI 클라우드 매출이 약 3배로 급등했다. Qualcomm은 메모리 비용 상승으로 폰용 칩 매출이 -26%였다.",
+   "tag": "신규",
+   "trend": "up",
+   "importance": "MEDIUM",
    "src": [
     "s2",
-    "s1"
-   ]
-  },
-  {
-   "title": "Palantir·CrowdStrike 등 소프트웨어 AI 승자주도 동반 매도",
-   "detail": "Palantir은 약 400억$ 시총이 증발해 10/9 고점 대비 약 4분의 1 낮아졌다(Yahoo 요약 기준).",
-   "tag": "신규",
-   "trend": "up",
-   "importance": "MEDIUM",
-   "src": [
-    "s2"
-   ]
-  },
-  {
-   "title": "Tesla·SpaceX 급락: 민주당 승리로 합병 전망 의문",
-   "detail": "Tesla는 약 -9~12%, SpaceX는 약 -8~9% 하락했다. 정치 구도 변화가 머스크 계열 합병 시나리오에 부담이라는 해석이다.",
-   "tag": "신규",
-   "trend": "up",
-   "importance": "MEDIUM",
-   "src": [
-    "s1",
-    "s2"
+    "s6"
    ]
   }
  ],
  "risks": [
   {
-   "title": "연말 앞둔 강제 매도·유동성 악화(시스템·레버리지 전략)",
-   "detail": "기관 구매자 파업과 개인 항복 매도가 겹쳤다. 나스닥은 200일선 아래로 내려갔고 전문가들은 추가 변동성을 경고한다.",
-   "watch": "11/6 10월 고용보고서, VIX 25 이상 유지 여부, 나스닥 200일선 회복 여부",
-   "importance": "HIGH",
-   "src": [
-    "s2"
-   ]
-  },
-  {
-   "title": "데이터센터 입법·인허가 제한이 실제 capex 감축으로 이어질 위험",
-   "detail": "현재는 정치 해석 단계다. 구체 법안·주 정부 조치가 나오면 하이퍼스케일러 투자 계획과 칩 수요 가정이 흔들릴 수 있다.",
-   "watch": "새 의회 개원 후 데이터센터 관련 법안, 지방 규제, 하이퍼스케일러 capex 코멘트",
+   "title": "CPI·인플레 재가열로 12월 인상 확정적 반영",
+   "detail": "고용 호조에 CPI까지 높으면 인상이 기정사실화돼 장기금리·밸류에이션 부담이 커진다.",
+   "watch": "11/10 CPI, 11/13 PPI, 12/9 FOMC",
    "importance": "HIGH",
    "src": [
     "s1",
@@ -121,9 +109,20 @@
    ]
   },
   {
-   "title": "인플레 재가열과 금리 부담",
-   "detail": "BOE는 중동 분쟁이 이어지면 추가 인상 가능성을 열어뒀다. 미국도 유가 반등 시 물가 부담이 되살아날 수 있다.",
-   "watch": "11/10 CPI, 이란 합의 진행, Brent 97달러 안착 여부",
+   "title": "데이터센터 건설 중단이 실제 capex 감축으로 이어질 위험",
+   "detail": "반응적 매도라는 시각도 있으나 지방 모라토리엄이 현실화되면 칩·메모리 수요 전망이 바뀐다.",
+   "watch": "주(州)·지방 데이터센터 규제 입법, 하이퍼스케일러 capex 코멘트",
+   "importance": "HIGH",
+   "src": [
+    "s4",
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "title": "아시아 투매 후 월요일 재변동",
+   "detail": "코스피·닛케이 -6%로 미국 반등과 괴리가 크고 월요일 갭 재조정 가능성이 있다.",
+   "watch": "11/9 아시아 개장, VIX 25 부근 유지 여부",
    "importance": "MEDIUM",
    "src": [
     "s2",
@@ -131,33 +130,57 @@
    ]
   }
  ],
- "flow": "Bearish 전환(단기): 민주당 의회 장악이 AI 인프라 확대 둔화 우려로 번져 나스닥 -5%·SOX -10%로 조정권에 들어갔고, 낙폭 과대·항복 매도 해석이 나오지만 11/6 고용·11/10 CPI 전까지 변동성이 크다.",
+ "flow": "Bearish 유지(단기): 칩 반등과 낙폭 과대 인식에도 10월 고용 호조로 12월 인상 확률이 65%↑로 올랐고 데이터센터 규제 우려·아시아 투매가 남아 11/10 CPI까지 변동성이 크다.",
  "sources": [
   {
    "id": "s1",
-   "title": "Stocks plunge as Dem midterm sweep fuels AI regulatory concerns",
-   "publisher": "Fox Business",
-   "url": "https://foxbusiness.com/markets/stocks-nov-5-2026",
-   "date": "2026-11-05",
-   "tier": "언론"
+   "title": "Post-Market & Weekly Summary (11/6)",
+   "publisher": "The Closing Print",
+   "url": "https://www.theclosingprint.net/2026/11/post-market-and-weekly-summary-2026-11-06/",
+   "date": "2026-11-06",
+   "tier": "집계"
   },
   {
    "id": "s2",
-   "title": "Stock market today: Nasdaq plunges 5% amid chip stock wipeout, Dow and S&P 500 erase post-election rally gains",
-   "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-oil-rises-chip-stocks-141439950.html",
+   "title": "Stock Market Today Live, November 6, 2026",
+   "publisher": "StockTitan (CNBC·Reuters 인용)",
+   "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-6-2026",
+   "date": "2026-11-06",
+   "tier": "집계"
+  },
+  {
+   "id": "s3",
+   "title": "Closing Look — Friday, November 6, 2026",
+   "publisher": "CappNotes",
+   "url": "https://cappnotes.substack.com/p/closing-look-friday-november-6-2026",
+   "date": "2026-11-06",
+   "tier": "집계"
+  },
+  {
+   "id": "s4",
+   "title": "Stocks plunge as Dem midterm sweep fuels AI regulatory concerns",
+   "publisher": "Fox Business",
+   "url": "https://www.foxbusiness.com/markets/stocks-nov-5-2026",
    "date": "2026-11-05",
    "tier": "언론"
   },
   {
-   "id": "s3",
-   "title": "Market Pulse November 05 2026",
-   "publisher": "NordFX",
-   "url": "https://nordfx.com/market-news/market-pulse-november-05-2026",
+   "id": "s5",
+   "title": "Micron, SanDisk stocks are tumbling",
+   "publisher": "Fast Company",
+   "url": "https://www.fastcompany.com/91636356/micron-sandisk-stocks-are-tumbling-why",
+   "date": "2026-11-05",
+   "tier": "언론"
+  },
+  {
+   "id": "s6",
+   "title": "Nasdaq 100 falls as chip stocks slide",
+   "publisher": "StockAnalysis",
+   "url": "https://stockanalysis.com/news/nasdaq-100-falls-chip-stocks-slide/",
    "date": "2026-11-05",
    "tier": "집계"
   }
  ],
- "date": "2026-11-06",
- "generated_at": "2026-11-06T06:26:09+09:00"
+ "date": "2026-11-09",
+ "generated_at": "2026-11-09T06:26:29+09:00"
 }
