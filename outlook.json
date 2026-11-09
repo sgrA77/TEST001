@@ -1,19 +1,19 @@
 {
  "version": 2,
- "data_as_of": "2026-11-06 미국 장 마감",
+ "data_as_of": "2026-11-09 미국 장 마감(Yahoo 지수 위젯 기준)",
  "market_view": {
   "label": "Bearish",
-  "summary": "11/6 나스닥 +1.09%·S&P +0.31%로 전날 폭락 뒤 기술적 반등했지만 Nasdaq은 10/6 고점 대비 조정권이고 주간 S&P -2.68%, 나스닥 -3.37%였다. 10월 고용이 +16.5만 명(예상 약 5.9만)으로 강해 12월 인상 확률이 65% 이상(CME 기준)으로 올랐고, 민주당 의회 장악발 데이터센터 규제 우려는 그대로다. 11/10 CPI 전까지 단기 경계 유지.",
-  "ai_line": "칩 반등(AMD +11%, Micron +5%, Nvidia +2.8%)은 전날 낙폭의 일부 회복이며 Lam은 250억$ 자사주 매입으로 +8%.",
+  "summary": "11/9 S&P 500 +2.35%, 나스닥 +2.74%로 유가 하락과 함께 급락 뒤 반등했지만, 나스닥은 10/6 고점 대비 약 12% 아래의 조정권이다. Nvidia는 CEO 관련 이사회 조사로 5~6% 약세였고, 12월 인상 확률 약 80%와 11/10 CPI가 부담이다. CPI 확인 전까지 단기 경계를 유지한다.",
+  "ai_line": "AMD·Coherent 등 반등, Nvidia는 이사회 조사로 약세: 칩·AI 내부 분화",
   "src": [
    "s1",
-   "s2"
+   "s4"
   ]
  },
  "key_changes": [
   {
-   "title": "칩 반등: SOX +4.2%, AMD +11%: 전날 -12% 폭락의 일부 회복",
-   "detail": "트럼프의 AI 투자 전폭 지지 발언과 저가 매수가 배경이며, 주요 칩 8종은 전날 손실의 평균 3분의 1 이상을 회복했다(2차 보도 기준, StockTitan 자체 계산).",
+   "title": "S&P +2.35%·나스닥 +2.74%: 유가 하락(WTI 약 87~88달러)과 VIX -22%(20.0)로 반등",
+   "detail": "전 거래일 +0.31%에 이은 반등으로 급락 뒤 안도가 이어졌다. 다만 주간 S&P -2.68%의 낙폭은 아직 회복 전이다.",
    "importance": "HIGH",
    "src": [
     "s1",
@@ -21,166 +21,181 @@
    ]
   },
   {
-   "title": "10월 고용 +16.5만 명(예상 약 5.9만), 실업률 4.1%: 12월 인상 확률 65%↑",
-   "detail": "고용 호조로 10년물 4.86%·2년물 4.51%(+5bp)로 올랐다. 인상 확률은 CME 기준 65% 이상, 예측시장 약 78%로 집계처마다 다르다.",
+   "title": "Nvidia -5~6%: CEO 황의 외국 정보기관 표적 의혹에 이사회 독립조사",
+   "detail": "회사는 기밀 유출 정황은 없고 CEO는 유임한다고 밝혔다. 11/17 실적, 11/18 하원 비공개 브리핑 요청이 이어진다.",
    "importance": "HIGH",
    "src": [
     "s1",
-    "s2",
-    "s3"
+    "s4",
+    "s5"
    ]
   },
   {
-   "title": "코스피 -6.0%, 닛케이 -6.0%: 미국 폭락이 아시아로 전이, 미국 반등과 대조",
-   "detail": "코스피 5,059.69, 닛케이 57,434.77로 마감했고 StockTitan은 닛케이가 약세장에 진입했다고 전했다.",
+   "title": "Citi 미국 주식·기술 중립 하향: AI 규제 우려로 S&P 주간 낙폭 2025년 4월 이후 최대",
+   "detail": "Citi는 유럽을 상향했다. 목요일 하루에만 나스닥100 시총 2.3조$가 증발했다고 보도됐다.",
    "importance": "MEDIUM",
    "src": [
-    "s2",
-    "s3"
+    "s1"
    ]
   },
   {
-   "title": "주간 S&P -2.68%·나스닥 -3.37%, XLK -8.2%: 4월 관세 쇼크 주간 이후 최악",
-   "detail": "VIX는 25.64로 하루 -9%였으나 주간으로는 +32%. WTI는 주간 -13%(90달러 안팎)로 에너지 -12%.",
-   "importance": "MEDIUM",
+   "title": "12월 인상 확률 약 80%(CME): 10월 고용 +16.5만 명 후 11/10 CPI 대기",
+   "detail": "정책금리는 3.75~4.00%이고 시장은 추가 2회 인상을 반영한다. 로이터 기준 목요일엔 약 65%였다.",
+   "importance": "HIGH",
    "src": [
-    "s1",
-    "s3"
+    "s3",
+    "s4",
+    "s6"
+   ]
+  },
+  {
+   "title": "TAIEX +4.94% 반등: 전 거래일 -4.5%, 대만은 공매도 규제 강화",
+   "detail": "아시아도 반등했지만 낙폭 전액을 회복하지는 못했다.",
+   "importance": "LOW",
+   "src": [
+    "s4",
+    "s5"
    ]
   }
  ],
  "issues": [
   {
-   "title": "민주당 의회 장악발 AI·데이터센터 규제 우려",
-   "detail": "전날 칩 지수 -12%의 원인으로, 데이터센터 모라토리엄·제한 공약과 전력비 상승이 쟁점이다. UBS는 데이터센터 중단이 2028년 계획 용량의 약 30%를 위험에 둔다고 봤다.",
+   "title": "민주당 의회 장악발 AI·데이터센터 규제·인허가 우려",
+   "detail": "텍사스 주지사 당선자가 신규 AI 데이터센터 건설 중단을 공약했고 CoreWeave CEO가 협력 의사를 서한으로 전했다. 구체 규제안은 아직 확인되지 않았다.",
    "tag": "지속",
    "trend": "steady",
+   "importance": "HIGH",
+   "src": [
+    "s5",
+    "s6",
+    "s1"
+   ]
+  },
+  {
+   "title": "Nvidia 이사회 조사와 거버넌스 불확실성",
+   "detail": "CEO가 직원들에게 사과했고, 뉴스가 사업을 늦추지 않는다는 회사 입장이 나왔다. 장기 매출 전망은 훼손되지 않았다는 애널리스트 평가도 있다.",
+   "tag": "신규",
+   "trend": "up",
    "importance": "HIGH",
    "src": [
     "s4",
     "s5",
-    "s6"
+    "s7"
    ]
   },
   {
-   "title": "칩 주식 부분 반등, 종목별 온도차",
-   "detail": "Lam +8.2%(250억$ 자사주 매입), AMD +11%인 반면 Broadcom은 +0.7%에 그쳤다. 시장 폭은 여전히 하락 종목이 우세했다(318 대 184).",
+   "title": "고용 호조로 12월 금리 인상 기정사실화",
+   "detail": "Deutsche Bank는 12월·3월 인상을 예상하고, Wells Fargo는 근원 CPI가 낮아도 12월 인상 전망을 유지한다.",
    "tag": "지속",
    "trend": "steady",
-   "importance": "MEDIUM",
-   "src": [
-    "s1",
-    "s2"
-   ]
-  },
-  {
-   "title": "고용 서프라이즈로 12월 금리 인상 재부각",
-   "detail": "인플레 우려가 남은 상태에서 고용이 강해 인상 기대가 커졌고 다음 분수령은 11/10 CPI다.",
-   "tag": "신규",
-   "trend": "up",
    "importance": "HIGH",
    "src": [
-    "s1",
-    "s2",
-    "s3"
+    "s7",
+    "s4"
    ]
   },
   {
-   "title": "AI 인프라 수혜·피해 분화: Atlassian -16%, IREN +20%",
-   "detail": "Atlassian은 약한 데이터센터 전망으로 급락, IREN은 AI 클라우드 매출이 약 3배로 급등했다. Qualcomm은 메모리 비용 상승으로 폰용 칩 매출이 -26%였다.",
+   "title": "반등 속 분화: AMD 상향(Oppenheimer 목표가 600달러)·Coherent +18% vs Nvidia 약세",
+   "detail": "전력·부품주가 급등한 반면 Nvidia는 이탈했다. 칩 내부에서 종목별 온도차가 크다.",
    "tag": "신규",
    "trend": "up",
    "importance": "MEDIUM",
    "src": [
-    "s2",
-    "s6"
+    "s1"
    ]
   }
  ],
  "risks": [
   {
-   "title": "CPI·인플레 재가열로 12월 인상 확정적 반영",
-   "detail": "고용 호조에 CPI까지 높으면 인상이 기정사실화돼 장기금리·밸류에이션 부담이 커진다.",
-   "watch": "11/10 CPI, 11/13 PPI, 12/9 FOMC",
+   "title": "CoreWeave 등 네오클라우드 자금조달 경색",
+   "detail": "CoreWeave 주가는 52주 고점 대비 66% 낮고 회사채 금리가 17%를 넘었다. 실적에서 현금 소진과 전력 연결 지연이 확인되면 충격이 클 수 있다.",
+   "watch": "11/10 CoreWeave 실적(옵션 내재 변동 약 ±21%), 회사채 금리",
    "importance": "HIGH",
    "src": [
-    "s1",
-    "s2"
+    "s5"
    ]
   },
   {
-   "title": "데이터센터 건설 중단이 실제 capex 감축으로 이어질 위험",
-   "detail": "반응적 매도라는 시각도 있으나 지방 모라토리엄이 현실화되면 칩·메모리 수요 전망이 바뀐다.",
-   "watch": "주(州)·지방 데이터센터 규제 입법, 하이퍼스케일러 capex 코멘트",
+   "title": "인플레 재가열로 인상 경로 상향(4.25~4.50% 이상)",
+   "detail": "CPI·PPI가 예상을 웃돌면 AI 고밸류에 금리 부담이 겹친다. 10월 전년비 수치는 셧다운 데이터 공백으로 BLS가 대부분 발표하지 않는다.",
+   "watch": "11/10 CPI, 11/13 PPI, 12/8~9 FOMC",
    "importance": "HIGH",
    "src": [
+    "s3",
     "s4",
-    "s5",
-    "s6"
+    "s7"
    ]
   },
   {
-   "title": "아시아 투매 후 월요일 재변동",
-   "detail": "코스피·닛케이 -6%로 미국 반등과 괴리가 크고 월요일 갭 재조정 가능성이 있다.",
-   "watch": "11/9 아시아 개장, VIX 25 부근 유지 여부",
+   "title": "이란 전쟁발 에너지 공급 차질·유가 재반등",
+   "detail": "유가 급락이 이번 반등의 한 축이어서 협상 진전이 막히면 되돌림 위험이 있다.",
+   "watch": "미·이란 협상 헤드라인, WTI 87달러대 유지 여부",
    "importance": "MEDIUM",
    "src": [
-    "s2",
-    "s3"
+    "s5",
+    "s1"
    ]
   }
  ],
- "flow": "Bearish 유지(단기): 칩 반등과 낙폭 과대 인식에도 10월 고용 호조로 12월 인상 확률이 65%↑로 올랐고 데이터센터 규제 우려·아시아 투매가 남아 11/10 CPI까지 변동성이 크다.",
+ "flow": "Bearish 유지(단기): 유가 하락으로 지수는 반등했지만 Nvidia 이사회 조사, 12월 인상 확률 약 80%, 데이터센터 규제 우려가 남아 11/10 CPI·CoreWeave 실적까지 변동성이 크다.",
  "sources": [
   {
    "id": "s1",
-   "title": "Post-Market & Weekly Summary (11/6)",
-   "publisher": "The Closing Print",
-   "url": "https://www.theclosingprint.net/2026/11/post-market-and-weekly-summary-2026-11-06/",
-   "date": "2026-11-06",
-   "tier": "집계"
+   "title": "Stock Market Today (Nov. 9, 2026): Nasdaq rises 3% as oil slides, AI rout pauses",
+   "publisher": "TheStreet / Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-nov-9-145714241.html",
+   "date": "2026-11-09",
+   "tier": "언론"
   },
   {
    "id": "s2",
-   "title": "Stock Market Today Live, November 6, 2026",
-   "publisher": "StockTitan (CNBC·Reuters 인용)",
-   "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-6-2026",
-   "date": "2026-11-06",
+   "title": "S&P 500 Sinks 2.68% in a Week: Why Tuesday's CPI Is Unusual",
+   "publisher": "FinanceFeeds",
+   "url": "https://financefeeds.com/sp-500-at-7376-86-after-a-2-68-weekly-drop-cpi-tuesday-comes-next/",
+   "date": "2026-11-09",
    "tier": "집계"
   },
   {
    "id": "s3",
-   "title": "Closing Look — Friday, November 6, 2026",
-   "publisher": "CappNotes",
-   "url": "https://cappnotes.substack.com/p/closing-look-friday-november-6-2026",
-   "date": "2026-11-06",
+   "title": "US Market Week Ahead: October CPI and AI Earnings in Focus",
+   "publisher": "HeyGoTrade",
+   "url": "https://www.heygotrade.com/en/news/weekly-economic-outlook-2026-11-09/",
+   "date": "2026-11-09",
    "tier": "집계"
   },
   {
    "id": "s4",
-   "title": "Stocks plunge as Dem midterm sweep fuels AI regulatory concerns",
-   "publisher": "Fox Business",
-   "url": "https://www.foxbusiness.com/markets/stocks-nov-5-2026",
-   "date": "2026-11-05",
-   "tier": "언론"
+   "title": "Wall Street Futures Waver as Traders Brace for CPI and a Nvidia Board Probe",
+   "publisher": "BigGo Finance",
+   "url": "https://finance.biggo.com/news/8c703849-52eb-4dfb-bb7c-0972ceaab87d",
+   "date": "2026-11-09",
+   "tier": "집계"
   },
   {
    "id": "s5",
-   "title": "Micron, SanDisk stocks are tumbling",
-   "publisher": "Fast Company",
-   "url": "https://www.fastcompany.com/91636356/micron-sandisk-stocks-are-tumbling-why",
-   "date": "2026-11-05",
-   "tier": "언론"
+   "title": "New York Stocks Face AI Correction Test Ahead of CPI, CoreWeave Earnings",
+   "publisher": "BigGo Finance",
+   "url": "https://finance.biggo.com/news/e4483964-462e-4dad-8f9d-1f957b6feffb",
+   "date": "2026-11-08",
+   "tier": "집계"
   },
   {
    "id": "s6",
-   "title": "Nasdaq 100 falls as chip stocks slide",
-   "publisher": "StockAnalysis",
-   "url": "https://stockanalysis.com/news/nasdaq-100-falls-chip-stocks-slide/",
-   "date": "2026-11-05",
-   "tier": "집계"
+   "title": "Wall Street Week Ahead: As tech swoon roils market, US inflation data on tap",
+   "publisher": "Reuters / Business Recorder",
+   "url": "https://www.brecorder.com/news/40448058/wall-street-week-ahead-as-tech-swoon-roils-market-us-inflation-data-on-tap",
+   "date": "2026-11-09",
+   "tier": "언론"
+  },
+  {
+   "id": "s7",
+   "title": "Week ahead: US stocks face inflation test as AI uncertainty keeps investors on edge",
+   "publisher": "Proactive Investors / Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/week-ahead-us-stocks-face-160500670.html",
+   "date": "2026-11-09",
+   "tier": "언론"
   }
  ],
- "date": "2026-11-09",
- "generated_at": "2026-11-09T06:26:29+09:00"
+ "date": "2026-11-10",
+ "generated_at": "2026-11-10T06:26:22+09:00"
 }
