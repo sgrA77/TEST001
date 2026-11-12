@@ -1,10 +1,10 @@
 {
  "version": 2,
- "data_as_of": "2026-11-11 미국 장 마감",
+ "data_as_of": "2026-11-11 미국 장 마감(+시간외)",
  "market_view": {
   "label": "Bearish",
-  "summary": "11/11 나스닥 +1.55%·S&P 500 +1.3%·다우 +0.48%로 반등했다. CoreWeave의 3분기 호실적과 선결제 유입 전망이 네오클라우드 자금조달 우려를 덜어 칩·전력주가 급등했다. 다만 인플레 재확산에 따른 12월 인상 기정사실화, Nvidia 이사회 조사, 데이터센터 규제 논쟁이 남아 단기 경계를 유지한다.",
-  "ai_line": "CoreWeave +24%, SanDisk +13%, Arm +12%로 칩·AI 인프라 급반등, Nvidia는 장중 +3.5%로 이틀 하락 뒤 반등(11월 -14%).",
+  "summary": "11/11 나스닥 +1.60%·S&P 500 +1.31%·다우 +0.49%로 반등했다. CoreWeave 3분기 호실적(+24.7%)이 AI 지출 우려를 덜었다. 그러나 장 마감 후 Nvidia CEO 관련 이사회 해임 논의 보도로 Nvidia 시간외 -8% 이상, 나스닥 선물 -1%여서 단기 경계를 유지한다. 10월 CPI 상회로 12월 인상은 사실상 확정 국면이다.",
+  "ai_line": "CoreWeave 호실적에 Micron +11.9%·Dell +11.8% 급등했으나 Nvidia는 시간외 -8%대(보도)로 AI 인프라 심리는 갈린다.",
   "src": [
    "s1",
    "s2"
@@ -12,108 +12,111 @@
  },
  "key_changes": [
   {
-   "title": "CoreWeave +24%(종가 60.51달러): 3분기 호실적·향후 3개월 약 90억$ 선결제 전망으로 자금조달 우려 완화",
-   "detail": "연간 매출 전망과 선결제를 상향했고 2027년까지 고금리 부채를 더 늘리지 않겠다고 밝혔다. 다만 회사채는 크게 하락했다.",
+   "title": "CoreWeave +24.7%(60.77달러): 3분기 매출 36.6억$·연 매출 가이던스 130~133억$로 상향",
+   "detail": "3분기 매출이 시장 예상 35.5억$를 웃돌았고 연 가이던스 하단을 124억$에서 130억$로 올렸다. AI 지출 지속 우려가 완화됐다.",
    "importance": "HIGH",
    "src": [
-    "s1",
-    "s2"
+    "s1"
    ]
   },
   {
-   "title": "칩·전력주 급반등: SanDisk +13.3%, Arm +11.9%, Dell +11.9%, Bloom Energy +12.5%",
-   "detail": "CoreWeave 실적이 AI 인프라 수요 신호로 읽히며 기술주가 지수 상승을 주도했다(나스닥 +1.55% vs 다우 +0.48%).",
+   "title": "장 마감 후 Nvidia -8% 이상: 황 CEO 관련 보도로 이사회 해임 논의(보도)",
+   "detail": "정규장은 +2.9%(173.73달러)였으나 마감 후 NYT·WSJ·Reuters 보도로 급락했고 이사회 결정은 확인되지 않았다. 이번 주 시총 손실은 약 6,000억$로 계산됐다(Reuters 인용 보도).",
    "importance": "HIGH",
    "src": [
     "s1",
-    "s2"
+    "s5"
    ]
   },
   {
-   "title": "Nvidia 장중 +3.5% 반등: 이틀 연속 급락 뒤, 11월 -14%·시총 약 7,000억$ 증발",
-   "detail": "CEO 관련 보도 이후 이사회가 독립 조사에 착수했고 결과는 아직 없다.",
+   "title": "칩·하드웨어 급반등: Micron +11.9%, Dell +11.8%, Seagate +10.0%",
+   "detail": "CoreWeave 호실적이 AI 인프라 수요 우려를 누그러뜨렸다. 시간외에는 AMD +4%, Broadcom +3%.",
    "importance": "MEDIUM",
    "src": [
-    "s2"
+    "s1"
    ]
   },
   {
-   "title": "인플레 확산에 12월 추가 인상 기정사실: 채권시장은 재향군인의 날 휴장",
-   "detail": "10월 CPI가 예상을 웃돌아 10년물이 화요일 5%를 잠시 넘었다. Bowman 이사는 '물가 2% 복귀까지 할 일이 남았다'고 했다.",
+   "title": "10월 CPI 상회 후 12월 인상 확률 약 90~100%: 10년물 4.99%·30년물 5.18%(11/10 기준)",
+   "detail": "CPI 전월비 +0.4%(근원 +0.3%)로 예상을 웃돌았다. 11/11은 채권시장 휴장이라 금리 반영은 이어진다.",
    "importance": "HIGH",
    "src": [
-    "s2"
+    "s2",
+    "s1"
    ]
   }
  ],
  "issues": [
   {
-   "title": "CoreWeave 호실적으로 네오클라우드 자금조달 불안 일단 완화",
-   "detail": "선결제 약 90억$ 유입 전망이 지지력이나 회사채 약세는 지속되어 확인이 더 필요하다.",
+   "title": "CoreWeave 호실적으로 네오클라우드 자금조달·AI 지출 불안 완화",
+   "detail": "매출·가이던스 상향으로 주가 +24.7%. 다만 하루 반응이라 지속성은 더 봐야 한다.",
    "tag": "지속",
    "trend": "down",
    "importance": "HIGH",
    "src": [
-    "s1",
-    "s2"
+    "s1"
    ]
   },
   {
-   "title": "인플레 재확산과 12월 인상 기정사실",
-   "detail": "3개월 연속 인플레 악재로 일부 분석가는 더 큰 폭 인상까지 거론한다.",
+   "title": "인플레 재확산과 12월 인상: Waller 50bp 가능성 언급",
+   "detail": "CME FedWatch 기준 12월 25bp 88.5%·50bp 11.5%(11/10). Waller는 25bp만 올리면 신뢰가 흔들릴 수 있다고 말했고 Logan은 추가 인상을 지지했다.",
    "tag": "지속",
    "trend": "up",
    "importance": "HIGH",
-   "src": [
-    "s2"
-   ]
-  },
-  {
-   "title": "Nvidia CEO 관련 이사회 조사와 거버넌스 불확실성",
-   "detail": "조사 결과가 나오기 전까지 변동성이 크다. Baird가 Neutral로 하향했다는 보도가 있다(요약 기준).",
-   "tag": "지속",
-   "trend": "steady",
-   "importance": "HIGH",
-   "src": [
-    "s2"
-   ]
-  },
-  {
-   "title": "Anthropic 상장 임박: 기업가치 약 1.4조$ 목표, 다음 주 상장 예정",
-   "detail": "Vanda는 상장 첫날 개인 자금이 최대 2.5억$ 유입될 수 있다고 추정했다.",
-   "tag": "지속",
-   "trend": "up",
-   "importance": "MEDIUM",
-   "src": [
-    "s2"
-   ]
-  },
-  {
-   "title": "중간선거 뒤 데이터센터 확대 속도 논쟁",
-   "detail": "전기요금·전력망 부담을 누가 지느냐가 쟁점이며 지연이나 초기 비용 증가 요인이다.",
-   "tag": "지속",
-   "trend": "steady",
-   "importance": "MEDIUM",
    "src": [
     "s2",
     "s3"
+   ]
+  },
+  {
+   "title": "Nvidia CEO 거버넌스 리스크: 이사회 조사에서 해임 논의 보도로 확대",
+   "detail": "11/9 이사회 독립 조사 착수, 11/10 -5.5%에 이어 11/11 마감 후 -8% 이상. 후임은 지정되지 않았다(보도).",
+   "tag": "지속",
+   "trend": "up",
+   "importance": "HIGH",
+   "src": [
+    "s4",
+    "s2",
+    "s1"
+   ]
+  },
+  {
+   "title": "Anthropic 상장 임박: 최대 644억$ 조달·기업가치 최대 1.4조$",
+   "detail": "상장 시점은 '다음 주'(AFP)와 '이달 중'(Reuters 자동기사)로 보도가 갈린다. 3분기 매출 170억$(전년 14억$).",
+   "tag": "지속",
+   "trend": "up",
+   "importance": "MEDIUM",
+   "src": [
+    "s3",
+    "s5"
+   ]
+  },
+  {
+   "title": "유가: 이란 합의 기대로 11월 중 Brent 약 -21%, 11/11은 반등(92.76달러)",
+   "detail": "이란 측이 농축 핵물질 반출을 불허한다고 밝혀 공급 우려가 재부각됐다.",
+   "tag": "신규",
+   "trend": "steady",
+   "importance": "MEDIUM",
+   "src": [
+    "s1"
    ]
   }
  ],
  "risks": [
   {
-   "title": "인상 폭 확대와 장기금리 5% 돌파 재개",
-   "detail": "인플레가 상품가격으로 번지고 있어 금리 부담이 밸류에이션을 압박할 수 있다.",
-   "watch": "12월 FOMC, 다음 물가 지표, 10년물 5% 안착 여부",
+   "title": "인상 폭 확대(50bp)와 장기금리 5% 돌파",
+   "detail": "10년물 4.99%·30년물 5.18%에서 Waller·Logan이 공격적 대응을 시사했다.",
+   "watch": "12월 FOMC, 다음 CPI·고용, 10년물 5% 돌파 여부",
    "importance": "HIGH",
    "src": [
-    "s2"
+    "s2",
+    "s3"
    ]
   },
   {
-   "title": "네오클라우드·데이터센터 부채시장 경색",
-   "detail": "CoreWeave 회사채가 크게 약세를 보여 자금조달 비용 부담이 남아 있다.",
-   "watch": "CoreWeave 회사채 흐름, 데이터센터 대출 보험 규제 논의",
+   "title": "Nvidia CEO 교체·대중국 수출통제 우려",
+   "detail": "CEO 교체 시 후임 부재(보도)와 중국향 칩 출하·수출제한 우려가 겹친다.",
+   "watch": "이사회 결정 발표, 회사 공식 입장",
    "importance": "HIGH",
    "src": [
     "s1",
@@ -121,42 +124,58 @@
    ]
   },
   {
-   "title": "Nvidia CEO 교체·기술 유출 우려",
-   "detail": "시장은 CEO 퇴진과 민감 기술 노출 가능성을 두 가지 악재로 반영 중이다.",
-   "watch": "이사회 독립 조사 결과, 다음 Nvidia 실적",
+   "title": "AI 대형주 약세 확산: Microsoft -2.3%, Amazon -1.7%",
+   "detail": "11/11에도 지수 반등 속에서 하락했고 Nasdaq 100 선물은 -1%다.",
+   "watch": "11/12 개장 후 선물 낙폭과 대형 기술주 반응",
    "importance": "MEDIUM",
    "src": [
-    "s2"
+    "s1"
    ]
   }
  ],
- "flow": "Bearish 유지(단기): CoreWeave 호실적으로 칩·AI 인프라가 급반등했지만 인플레 재확산에 따른 12월 인상 기정사실, Nvidia 이사회 조사, 데이터센터 규제 논쟁이 남아 반등의 지속성은 확인이 필요하다.",
+ "flow": "Bearish 유지(단기): CoreWeave 호실적으로 지수는 반등했지만 마감 후 Nvidia CEO 해임 논의 보도(-8% 시간외)와 12월 인상 기정사실화, 장기금리 5% 근접이 반등 지속성을 위협한다.",
  "sources": [
   {
    "id": "s1",
-   "title": "S&P 500 Closes Up 1.3% as Tech Pulls the Market Higher (Closing Bell)",
-   "publisher": "24/7 Wall St.",
-   "url": "https://247wallst.com/cards/tech-did-the-heavy-lifting-again-the-nasdaq-s-1-55-close-m-gspc-market-bell-01m766s5wqxj8egm37q8ks13gp",
-   "date": "2026-11-11",
-   "tier": "언론"
+   "title": "U.S. Stocks Trend (Nov. 12): CoreWeave Surges 24.7%, Nasdaq Rises 1.6%, Nvidia Falls Over 8% After Hours",
+   "publisher": "TechFlow",
+   "url": "https://www.techflowpost.com/en-US/article/35301",
+   "date": "2026-11-12",
+   "tier": "집계"
   },
   {
    "id": "s2",
-   "title": "Stock market today: Dow, S&P 500, Nasdaq rise as chip stock rally rekindles AI trade",
-   "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-november-11-dow-sp-500-nasdaq-nvidia-treasurys-veterans-day-140638547.html",
+   "title": "Herald Business 11/10 미국 증시 마감 기사",
+   "publisher": "The Herald Business",
+   "url": "https://mbiz.heraldcorp.com/article/10932889",
    "date": "2026-11-11",
    "tier": "언론"
   },
   {
    "id": "s3",
-   "title": "Wall Street Is Rechecking The AI Trade As CoreWeave Reports",
-   "publisher": "Finimize",
-   "url": "https://finimize.com/content/wall-street-is-rechecking-the-ai-trade-as-coreweave-reports",
-   "date": "2026-11-09",
+   "title": "US stocks fall on hot inflation report as Nvidia tumbles again",
+   "publisher": "Gulf News(AFP)",
+   "url": "https://gulfnews.com/business/markets/us-stocks-fall-on-hot-inflation-report-as-nvidia-tumbles-again-1.500741892",
+   "date": "2026-11-11",
+   "tier": "언론"
+  },
+  {
+   "id": "s4",
+   "title": "Stock Market News for Nov 10, 2026",
+   "publisher": "Zacks",
+   "url": "https://www.zacks.com/stock/news/3026944/stock-market-news-for-nov-10-2026",
+   "date": "2026-11-10",
+   "tier": "리서치"
+  },
+  {
+   "id": "s5",
+   "title": "US STOCKS-Wall St falls as hot inflation data fuels rate-hike jitters",
+   "publisher": "Devdiscourse(Reuters)",
+   "url": "https://www.devdiscourse.com/article/international/4004666-us-stocks-wall-st-falls-as-hot-inflation-data-fuels-rate-hike-jitters",
+   "date": "2026-11-10",
    "tier": "언론"
   }
  ],
- "date": "2026-11-12",
- "generated_at": "2026-11-12T06:30:49+09:00"
+ "date": "2026-11-13",
+ "generated_at": "2026-11-13T06:26:34+09:00"
 }
