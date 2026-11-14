@@ -1,6 +1,11 @@
 {
- "updated_at": "2026-11-14 23:55 KST",
- "warnings": [],
+ "updated_at": "2026-11-15 04:43 KST",
+ "warnings": [
+  "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLH0A0HYM2 | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0H",
+  "MACRO HY Spread 전체 실패 → 캐시/static 사용",
+  "MACRO BBB Spread ← fred:BAMLC0A4CBBB 실패: FRED 실패 → BAMLC0A4CBBB: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLC0A4CBBB | BAMLC0A4CBBB: 연결 실패 ReadTimeout | BAMLC0A4",
+  "MACRO BBB Spread 전체 실패 → 캐시/static 사용"
+ ],
  "macro": {
   "유동성 / 환율": {
    "US M2": {
@@ -122,7 +127,8 @@
     "prev_2year": 2.92,
     "prev_day": 3.3,
     "kind": "pp",
-    "suffix": "%"
+    "suffix": "%",
+    "stale": true
    },
    "BBB Spread": {
     "value": 1.11,
@@ -131,7 +137,8 @@
     "prev_2year": 1.02,
     "prev_day": 1.12,
     "kind": "pp",
-    "suffix": "%"
+    "suffix": "%",
+    "stale": true
    }
   }
  },
@@ -140,43 +147,43 @@
    "name": "IPO · Anthropic, PBC",
    "date": "2026-11-19",
    "ts": null,
-   "d_day": 5
+   "d_day": 4
   },
   {
    "name": "PCE",
    "date": "2026-11-25",
    "ts": 1795613400,
-   "d_day": 11
+   "d_day": 10
   },
   {
    "name": "NFP",
    "date": "2026-12-04",
    "ts": 1796391000,
-   "d_day": 20
+   "d_day": 19
   },
   {
    "name": "FOMC",
    "date": "2026-12-09",
    "ts": 1796842800,
-   "d_day": 25
+   "d_day": 24
   },
   {
    "name": "Fed Press",
    "date": "2026-12-09",
    "ts": 1796844600,
-   "d_day": 25
+   "d_day": 24
   },
   {
    "name": "CPI",
    "date": "2026-12-10",
    "ts": 1796909400,
-   "d_day": 26
+   "d_day": 25
   },
   {
    "name": "미국 대선",
    "date": "2028-11-07",
    "ts": null,
-   "d_day": 724
+   "d_day": 723
   }
  ],
  "earnings": [
@@ -185,7 +192,7 @@
    "name": "NVIDIA",
    "date": "2026-11-17",
    "ts": 1794949200,
-   "d_day": 3,
+   "d_day": 2,
    "eps_est": 2.4712,
    "rev_est": 108731903900,
    "quarters": [
@@ -217,7 +224,7 @@
    "name": "Broadcom",
    "date": "2026-12-09",
    "ts": 1796850000,
-   "d_day": 25,
+   "d_day": 24,
    "eps_est": 3.8377,
    "rev_est": 34906205760,
    "quarters": [
@@ -249,7 +256,7 @@
    "name": "Micron",
    "date": "2026-12-23",
    "ts": 1798059600,
-   "d_day": 39,
+   "d_day": 38,
    "eps_est": 38.2913,
    "rev_est": 61832643300,
    "quarters": [
@@ -281,7 +288,7 @@
    "name": "TSMC",
    "date": "2027-01-14",
    "ts": 1799933400,
-   "d_day": 61,
+   "d_day": 60,
    "eps_est": 5.1641,
    "rev_est": 1707801676350,
    "quarters": [
@@ -313,7 +320,7 @@
    "name": "Microsoft",
    "date": "2027-01-27",
    "ts": 1801083600,
-   "d_day": 74,
+   "d_day": 73,
    "eps_est": 4.8575,
    "rev_est": 96691687890,
    "quarters": [
@@ -345,7 +352,7 @@
    "name": "Meta",
    "date": "2027-01-27",
    "ts": 1801083600,
-   "d_day": 74,
+   "d_day": 73,
    "eps_est": 8.7188,
    "rev_est": 75155372690,
    "quarters": [
@@ -377,7 +384,7 @@
    "name": "Tesla",
    "date": "2027-01-27",
    "ts": 1801083600,
-   "d_day": 74,
+   "d_day": 73,
    "eps_est": 0.5001,
    "rev_est": 29313093470,
    "quarters": [
@@ -409,7 +416,7 @@
    "name": "ASML",
    "date": "2027-01-27",
    "ts": 1801056600,
-   "d_day": 74,
+   "d_day": 73,
    "eps_est": 15.3884,
    "rev_est": 14816055140,
    "quarters": [
@@ -441,7 +448,7 @@
    "name": "Lam Research",
    "date": "2027-01-27",
    "ts": 1801083600,
-   "d_day": 74,
+   "d_day": 73,
    "eps_est": 2.3492,
    "rev_est": 8643520980,
    "quarters": [
@@ -473,7 +480,7 @@
    "name": "Apple",
    "date": "2027-01-28",
    "ts": 1801170000,
-   "d_day": 75,
+   "d_day": 74,
    "eps_est": 2.9106,
    "rev_est": 156429989490,
    "quarters": [
@@ -505,7 +512,7 @@
    "name": "KLA",
    "date": "2027-01-28",
    "ts": 1801170000,
-   "d_day": 75,
+   "d_day": 74,
    "eps_est": 1.4492,
    "rev_est": 4720182520,
    "quarters": [
@@ -537,7 +544,7 @@
    "name": "Intel",
    "date": "2027-01-28",
    "ts": 1801170000,
-   "d_day": 75,
+   "d_day": 74,
    "eps_est": 0.249,
    "rev_est": 15618018670,
    "quarters": [
@@ -569,7 +576,7 @@
    "name": "AMD",
    "date": "2027-02-02",
    "ts": 1801602000,
-   "d_day": 80,
+   "d_day": 79,
    "eps_est": 2.9279,
    "rev_est": 17055313180,
    "quarters": [
@@ -601,9 +608,9 @@
    "name": "Applied Materials",
    "date": "2027-02-11",
    "ts": 1802379600,
-   "d_day": 89,
-   "eps_est": 4.3389,
-   "rev_est": 11051646660,
+   "d_day": 88,
+   "eps_est": 4.3477,
+   "rev_est": 11081907530,
    "quarters": [
     {
      "label": "1Q2026",
@@ -731,9 +738,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 65862.23,
+    "price": 65633.92,
     "prev_day": 68249.2734,
-    "turnover": 31770169344,
+    "turnover": 35329712128,
     "prev_month": 77434.75,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -1371,7 +1378,7 @@
    "ticker": "^GSPC",
    "price": 7561.67,
    "3Y": 18.76,
-   "5Y": 10.06,
+   "5Y": 9.99,
    "10Y": 13.23,
    "15Y": 12.96,
    "20Y": 8.79
@@ -1380,7 +1387,7 @@
    "ticker": "^NDX",
    "price": 27943.736,
    "3Y": 20.84,
-   "5Y": 11.52,
+   "5Y": 11.01,
    "10Y": 19.24,
    "15Y": 18.27,
    "20Y": 14.69
@@ -1570,8 +1577,8 @@
      "rev_est": 10297511440
     },
     "4Q2026": {
-     "eps_est": 4.33886,
-     "rev_est": 11051646660
+     "eps_est": 4.34766,
+     "rev_est": 11081907530
     }
    },
    "LRCX": {
@@ -1665,7 +1672,8 @@
    "2026-11-11": 4.97,
    "2026-11-12": 4.97,
    "2026-11-13": 4.97,
-   "2026-11-14": 4.97
+   "2026-11-14": 4.97,
+   "2026-11-15": 4.97
   },
   "GPU H100 SXM": {
    "2026-07-02": 2.57,
