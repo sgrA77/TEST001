@@ -1,11 +1,6 @@
 {
- "updated_at": "2026-11-14 10:33 KST",
- "warnings": [
-  "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLH0A0HYM2 | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0H",
-  "MACRO HY Spread 전체 실패 → 캐시/static 사용",
-  "MACRO BBB Spread ← fred:BAMLC0A4CBBB 실패: FRED 실패 → BAMLC0A4CBBB: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLC0A4CBBB | BAMLC0A4CBBB: 연결 실패 ReadTimeout | BAMLC0A4",
-  "MACRO BBB Spread 전체 실패 → 캐시/static 사용"
- ],
+ "updated_at": "2026-11-14 16:58 KST",
+ "warnings": [],
  "macro": {
   "유동성 / 환율": {
    "US M2": {
@@ -19,11 +14,11 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1335.11,
+    "value": 1336.2,
     "prev_month": 1337.98,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
-    "prev_day": 1336.26,
+    "prev_day": 1333.78,
     "kind": "pct"
    },
    "USD/JPY": {
@@ -127,8 +122,7 @@
     "prev_2year": 2.92,
     "prev_day": 3.3,
     "kind": "pp",
-    "suffix": "%",
-    "stale": true
+    "suffix": "%"
    },
    "BBB Spread": {
     "value": 1.11,
@@ -137,8 +131,7 @@
     "prev_2year": 1.02,
     "prev_day": 1.12,
     "kind": "pp",
-    "suffix": "%",
-    "stale": true
+    "suffix": "%"
    }
   }
  },
@@ -738,9 +731,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 68176.14,
-    "prev_day": 71342.9688,
-    "turnover": 42243731456,
+    "price": 67101.18,
+    "prev_day": 68249.2734,
+    "turnover": 33528612864,
     "prev_month": 77434.75,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -749,7 +742,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 3887.6,
+    "price": 3886.3,
     "prev_day": 3885.3,
     "turnover": null,
     "prev_month": 3898.8999,
@@ -760,7 +753,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 48.65,
+    "price": 49.121,
     "prev_day": 49.972,
     "turnover": null,
     "prev_month": 49.097,
@@ -771,7 +764,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.063,
+    "price": 6.09,
     "prev_day": 6.1825,
     "turnover": null,
     "prev_month": 6.4585,
@@ -782,7 +775,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 88.92,
+    "price": 88.56,
     "prev_day": 88.74,
     "turnover": null,
     "prev_month": 104.12,
@@ -793,7 +786,7 @@
     "ticker": "NG=F",
     "theme": "천연가스",
     "currency": "USD",
-    "price": 3.242,
+    "price": 3.23,
     "prev_day": 3.34,
     "turnover": null,
     "prev_month": 2.898,
@@ -899,7 +892,7 @@
     "theme": "NVDA 2x",
     "currency": "USD",
     "price": 17.83,
-    "prev_day": 20.4,
+    "prev_day": 18.57,
     "turnover": 929316075.0,
     "prev_month": 28.97,
     "prev_year": 29.3367,
@@ -912,7 +905,7 @@
     "theme": "AI · 빅데이터",
     "currency": "USD",
     "price": 58.72,
-    "prev_day": 59.91,
+    "prev_day": 59.49,
     "turnover": 61869506.0,
     "prev_month": 60.14,
     "prev_year": 50.86,
@@ -923,7 +916,7 @@
     "theme": "AI · 로보틱스",
     "currency": "USD",
     "price": 31.23,
-    "prev_day": 32.23,
+    "prev_day": 31.42,
     "turnover": 16873444.0,
     "prev_month": 32.22,
     "prev_year": 36.23,
@@ -1002,7 +995,7 @@
     "theme": "SNS · AI",
     "currency": "USD",
     "price": 641.69,
-    "prev_day": 628.77,
+    "prev_day": 623.61,
     "turnover": 9682112614.0,
     "prev_month": 614.99,
     "prev_year": 660.09,
@@ -1037,7 +1030,7 @@
     "theme": "AI 데이터 분석",
     "currency": "USD",
     "price": 167.99,
-    "prev_day": 172.4,
+    "prev_day": 171.58,
     "turnover": 2541957316.0,
     "prev_month": 184.11,
     "prev_year": 177.75,
@@ -1062,7 +1055,7 @@
     "currency": "KRW",
     "price": 1216000.0,
     "prev_day": 1254000.0,
-    "turnover": 3910061376000.0,
+    "turnover": 4297313600000.0,
     "prev_month": 1418000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -1073,7 +1066,7 @@
     "currency": "KRW",
     "price": 206000.0,
     "prev_day": 208000.0,
-    "turnover": 2642880090000.0,
+    "turnover": 3013057764000.0,
     "prev_month": 225000.0,
     "prev_year": 119900.0,
     "prev_2year": 53200.0
@@ -1107,7 +1100,7 @@
     "theme": "웨이퍼 AI칩",
     "currency": "USD",
     "price": 108.72,
-    "prev_day": 101.08,
+    "prev_day": 97.75,
     "turnover": 3943861488.0,
     "prev_month": 109.18,
     "prev_year": null,
@@ -1144,7 +1137,7 @@
     "theme": "NAND",
     "currency": "USD",
     "price": 885.01,
-    "prev_day": 977.69,
+    "prev_day": 937.46,
     "turnover": 10721393464.0,
     "prev_month": 1150.89,
     "prev_year": 237.38,
@@ -1216,7 +1209,7 @@
     "theme": "AI 데이터센터 스위치",
     "currency": "USD",
     "price": 197.29,
-    "prev_day": 196.68,
+    "prev_day": 206.63,
     "turnover": 1617535728.0,
     "prev_month": 168.86,
     "prev_year": 131.03,
@@ -1262,7 +1255,7 @@
     "theme": "전력 · 냉각 설비",
     "currency": "USD",
     "price": 202.07,
-    "prev_day": 206.51,
+    "prev_day": 209.64,
     "turnover": 1090172500.0,
     "prev_month": 232.5,
     "prev_year": 162.01,
@@ -1273,7 +1266,7 @@
     "theme": "가스터빈 · 전력망",
     "currency": "USD",
     "price": 803.13,
-    "prev_day": 808.24,
+    "prev_day": 818.49,
     "turnover": 2404502151.0,
     "prev_month": 857.87,
     "prev_year": 653.57,
@@ -1295,7 +1288,7 @@
     "theme": "원전 전력",
     "currency": "USD",
     "price": 280.2,
-    "prev_day": 274.73,
+    "prev_day": 282.4,
     "turnover": 643632850.0,
     "prev_month": 262.38,
     "prev_year": 353.27,
@@ -1306,7 +1299,7 @@
     "theme": "발전 · PPA",
     "currency": "USD",
     "price": 133.01,
-    "prev_day": 133.45,
+    "prev_day": 134.51,
     "turnover": 425528119.0,
     "prev_month": 138.37,
     "prev_year": 161.33,
@@ -1319,7 +1312,7 @@
     "theme": "GPU 클라우드",
     "currency": "USD",
     "price": 53.13,
-    "prev_day": 60.77,
+    "prev_day": 56.6,
     "turnover": 4229144440.0,
     "prev_month": 54.87,
     "prev_year": 71.61,
@@ -1354,7 +1347,7 @@
     "theme": "AI 서버",
     "currency": "USD",
     "price": 344.53,
-    "prev_day": 373.68,
+    "prev_day": 371.17,
     "turnover": 3298755198.0,
     "prev_month": 424.3,
     "prev_year": 125.88,
@@ -1414,45 +1407,45 @@
  "gpu_rental": {
   "H100 SXM": {
    "spec": "Hopper · 80GB HBM3",
-   "price": 3.39,
-   "date": "2026-11-12",
-   "prev_day": 3.25,
-   "w1": 3.13,
-   "m1": 3.19,
-   "m3": 2.78,
+   "price": 3.29,
+   "date": "2026-11-13",
+   "prev_day": 3.39,
+   "w1": 3.28,
+   "m1": 3.27,
+   "m3": 2.63,
    "m6": null,
    "y1": null
   },
   "H200": {
    "spec": "Hopper · 141GB HBM3e",
-   "price": 7.12,
-   "date": "2026-11-12",
-   "prev_day": 7.75,
-   "w1": 6.45,
-   "m1": 5.76,
-   "m3": 4.88,
+   "price": 6.73,
+   "date": "2026-11-13",
+   "prev_day": 7.12,
+   "w1": 6.85,
+   "m1": 6.28,
+   "m3": 4.93,
    "m6": null,
    "y1": null
   },
   "B200": {
    "spec": "Blackwell · 180GB HBM3e",
-   "price": 9.78,
-   "date": "2026-11-12",
-   "prev_day": 9.84,
-   "w1": 9.46,
-   "m1": 7.9,
-   "m3": 6.0,
+   "price": 9.72,
+   "date": "2026-11-13",
+   "prev_day": 9.78,
+   "w1": 9.53,
+   "m1": 7.89,
+   "m3": 5.89,
    "m6": null,
    "y1": null
   },
   "A100 SXM4": {
    "spec": "Ampere · 80GB HBM2e",
-   "price": 1.06,
-   "date": "2026-11-12",
+   "price": 1.04,
+   "date": "2026-11-13",
    "prev_day": 1.06,
    "w1": 1.05,
    "m1": 0.96,
-   "m3": 1.04,
+   "m3": 1.02,
    "m6": null,
    "y1": null
   }
@@ -1808,7 +1801,8 @@
    "2026-11-09": 3.3,
    "2026-11-10": 3.1,
    "2026-11-11": 3.25,
-   "2026-11-12": 3.39
+   "2026-11-12": 3.39,
+   "2026-11-13": 3.29
   },
   "GPU H200": {
    "2026-07-02": 4.02,
@@ -1944,7 +1938,8 @@
    "2026-11-09": 7.17,
    "2026-11-10": 7.24,
    "2026-11-11": 7.75,
-   "2026-11-12": 7.12
+   "2026-11-12": 7.12,
+   "2026-11-13": 6.73
   },
   "GPU B200": {
    "2026-07-02": 5.13,
@@ -2080,7 +2075,8 @@
    "2026-11-09": 9.9,
    "2026-11-10": 9.9,
    "2026-11-11": 9.84,
-   "2026-11-12": 9.78
+   "2026-11-12": 9.78,
+   "2026-11-13": 9.72
   },
   "GPU A100 SXM4": {
    "2026-07-02": 1.01,
@@ -2216,7 +2212,8 @@
    "2026-11-09": 1.04,
    "2026-11-10": 1.05,
    "2026-11-11": 1.06,
-   "2026-11-12": 1.06
+   "2026-11-12": 1.06,
+   "2026-11-13": 1.04
   }
  }
 }
