@@ -1,9 +1,9 @@
 {
- "updated_at": "2026-11-15 08:25 KST",
+ "updated_at": "2026-11-15 11:56 KST",
  "warnings": [
-  "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLH0A0HYM2 | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0H",
+  "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: HTTPError 401 Client Error: Unauthorized for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLH0A0H | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0H",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
-  "MACRO BBB Spread ← fred:BAMLC0A4CBBB 실패: FRED 실패 → BAMLC0A4CBBB: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLC0A4CBBB | BAMLC0A4CBBB: 연결 실패 ReadTimeout | BAMLC0A4",
+  "MACRO BBB Spread ← fred:BAMLC0A4CBBB 실패: FRED 실패 → BAMLC0A4CBBB: HTTPError 401 Client Error: Unauthorized for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLC0A4C | BAMLC0A4CBBB: 연결 실패 ReadTimeout | BAMLC0A4",
   "MACRO BBB Spread 전체 실패 → 캐시/static 사용"
  ],
  "macro": {
@@ -738,9 +738,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 63805.1,
+    "price": 64740.37,
     "prev_day": 68249.2734,
-    "turnover": 41409474560,
+    "turnover": 50733768704,
     "prev_month": 77434.75,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
