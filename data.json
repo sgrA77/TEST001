@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-16 02:21 KST",
+ "updated_at": "2026-11-16 06:57 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLH0A0HYM2 | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0H",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -19,7 +19,7 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1335.11,
+    "value": 1334.98,
     "prev_month": 1337.98,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
@@ -27,11 +27,11 @@
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 159.686,
+    "value": 159.615,
     "prev_month": 157.804,
     "prev_year": 156.413,
     "prev_2year": 156.995,
-    "prev_day": 159.734,
+    "prev_day": 159.875,
     "kind": "pct"
    }
   },
@@ -738,9 +738,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 64746.55,
+    "price": 65071.66,
     "prev_day": 64128.0508,
-    "turnover": 48590262272,
+    "turnover": 43920777216,
     "prev_month": 77434.75,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -771,7 +771,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 6.09,
+    "price": 6.0905,
     "prev_day": 6.1825,
     "turnover": null,
     "prev_month": 6.4585,
@@ -819,7 +819,7 @@
     "currency": "USD",
     "price": 679.89,
     "prev_day": 688.17,
-    "turnover": 28050774481.0,
+    "turnover": 28622436191.0,
     "prev_month": 690.49,
     "prev_year": 614.31,
     "prev_2year": 511.23
@@ -854,7 +854,7 @@
     "currency": "USD",
     "price": 57.68,
     "prev_day": 59.88,
-    "turnover": 4665315866.0,
+    "turnover": 4726543821.0,
     "prev_month": 62.01,
     "prev_year": 52.72,
     "prev_2year": 39.565
@@ -867,7 +867,7 @@
     "currency": "USD",
     "price": 486.75,
     "prev_day": 501.73,
-    "turnover": 5920429325.0,
+    "turnover": 6035787615.0,
     "prev_month": 522.49,
     "prev_year": 360.13,
     "prev_2year": 242.17
@@ -878,7 +878,7 @@
     "currency": "USD",
     "price": 149.3,
     "prev_day": 154.99,
-    "turnover": 6867662196.0,
+    "turnover": 7147592530.0,
     "prev_month": 157.17,
     "prev_year": 100.3833,
     "prev_2year": 71.83
@@ -900,7 +900,7 @@
     "currency": "USD",
     "price": 17.83,
     "prev_day": 18.57,
-    "turnover": 929316075.0,
+    "turnover": 946514661.0,
     "prev_month": 28.97,
     "prev_year": 29.3367,
     "prev_2year": 22.13
@@ -913,7 +913,7 @@
     "currency": "USD",
     "price": 58.72,
     "prev_day": 59.49,
-    "turnover": 61869506.0,
+    "turnover": 61931103.0,
     "prev_month": 60.14,
     "prev_year": 50.86,
     "prev_2year": 38.64
@@ -924,7 +924,7 @@
     "currency": "USD",
     "price": 31.23,
     "prev_day": 31.42,
-    "turnover": 16873444.0,
+    "turnover": 16892807.0,
     "prev_month": 32.22,
     "prev_year": 36.23,
     "prev_2year": 31.95
@@ -948,7 +948,7 @@
     "currency": "USD",
     "price": 162.85,
     "prev_day": 166.19,
-    "turnover": 59031551380.0,
+    "turnover": 59569968493.0,
     "prev_month": 204.64,
     "prev_year": 186.5,
     "prev_2year": 134.29
@@ -959,7 +959,7 @@
     "currency": "USD",
     "price": 523.88,
     "prev_day": 523.0,
-    "turnover": 13336956424.0,
+    "turnover": 13720020099.0,
     "prev_month": 521.91,
     "prev_year": 483.62,
     "prev_2year": 421.5
@@ -970,7 +970,7 @@
     "currency": "USD",
     "price": 356.27,
     "prev_day": 354.88,
-    "turnover": 13930151656.0,
+    "turnover": 14260585668.0,
     "prev_month": 344.63,
     "prev_year": 271.86,
     "prev_2year": 250.42
@@ -981,7 +981,7 @@
     "currency": "USD",
     "price": 266.66,
     "prev_day": 267.44,
-    "turnover": 8218121742.0,
+    "turnover": 8306061677.0,
     "prev_month": 240.35,
     "prev_year": 230.82,
     "prev_2year": 219.39
@@ -992,7 +992,7 @@
     "currency": "USD",
     "price": 295.77,
     "prev_day": 298.7,
-    "turnover": 9065465850.0,
+    "turnover": 9109306950.0,
     "prev_month": 279.84,
     "prev_year": 313.0,
     "prev_2year": 189.3
@@ -1003,7 +1003,7 @@
     "currency": "USD",
     "price": 641.69,
     "prev_day": 623.61,
-    "turnover": 9682112614.0,
+    "turnover": 9722213747.0,
     "prev_month": 614.99,
     "prev_year": 660.09,
     "prev_2year": 585.51
@@ -1014,7 +1014,7 @@
     "currency": "USD",
     "price": 390.22,
     "prev_day": 397.45,
-    "turnover": 12503758195.0,
+    "turnover": 12640382802.0,
     "prev_month": 399.81,
     "prev_year": 449.72,
     "prev_2year": 403.84
@@ -1038,7 +1038,7 @@
     "currency": "USD",
     "price": 167.99,
     "prev_day": 171.58,
-    "turnover": 2541957316.0,
+    "turnover": 2559062226.0,
     "prev_month": 184.11,
     "prev_year": 177.75,
     "prev_2year": 75.63
@@ -1051,7 +1051,7 @@
     "currency": "USD",
     "price": 778.31,
     "prev_day": 798.44,
-    "turnover": 21540571381.0,
+    "turnover": 21731198180.0,
     "prev_month": 884.74,
     "prev_year": 285.41,
     "prev_2year": 84.16
@@ -1086,7 +1086,7 @@
     "currency": "USD",
     "price": 534.06,
     "prev_day": 585.3,
-    "turnover": 26123893107.0,
+    "turnover": 26375940588.0,
     "prev_month": 504.8,
     "prev_year": 214.16,
     "prev_2year": 120.79
@@ -1097,7 +1097,7 @@
     "currency": "USD",
     "price": 347.01,
     "prev_day": 364.36,
-    "turnover": 10936227315.0,
+    "turnover": 10984318043.0,
     "prev_month": 326.08,
     "prev_year": 346.1,
     "prev_2year": 231.84
@@ -1108,7 +1108,7 @@
     "currency": "USD",
     "price": 108.72,
     "prev_day": 97.75,
-    "turnover": 3943861488.0,
+    "turnover": 4008844410.0,
     "prev_month": 109.18,
     "prev_year": null,
     "prev_2year": null
@@ -1121,7 +1121,7 @@
     "currency": "USD",
     "price": 534.06,
     "prev_day": 585.3,
-    "turnover": 26123893107.0,
+    "turnover": 26375940588.0,
     "prev_month": 504.8,
     "prev_year": 214.16,
     "prev_2year": 120.79
@@ -1132,7 +1132,7 @@
     "currency": "USD",
     "price": 59.66,
     "prev_day": 61.2,
-    "turnover": 6054912670.0,
+    "turnover": 6119582678.0,
     "prev_month": 65.76,
     "prev_year": 36.9,
     "prev_2year": 20.05
@@ -1145,7 +1145,7 @@
     "currency": "USD",
     "price": 885.01,
     "prev_day": 937.46,
-    "turnover": 10721393464.0,
+    "turnover": 10851998815.0,
     "prev_month": 1150.89,
     "prev_year": 237.38,
     "prev_2year": null
@@ -1171,7 +1171,7 @@
     "currency": "USD",
     "price": 1495.16,
     "prev_day": 1497.12,
-    "turnover": 2033610476.0,
+    "turnover": 2041959449.0,
     "prev_month": 1565.9,
     "prev_year": 1069.86,
     "prev_2year": 693.08
@@ -1182,7 +1182,7 @@
     "currency": "USD",
     "price": 370.5,
     "prev_day": 380.95,
-    "turnover": 4415655680.0,
+    "turnover": 4427765472.0,
     "prev_month": 390.09,
     "prev_year": 256.99,
     "prev_2year": 162.63
@@ -1193,7 +1193,7 @@
     "currency": "USD",
     "price": 225.92,
     "prev_day": 233.78,
-    "turnover": 2482392242.0,
+    "turnover": 2492455622.0,
     "prev_month": 239.11,
     "prev_year": 171.18,
     "prev_2year": 72.23
@@ -1204,7 +1204,7 @@
     "currency": "USD",
     "price": 152.32,
     "prev_day": 157.3,
-    "turnover": 1891426289.0,
+    "turnover": 1905082081.0,
     "prev_month": 157.91,
     "prev_year": 121.508,
     "prev_2year": 63.012
@@ -1228,7 +1228,7 @@
     "currency": "USD",
     "price": 156.76,
     "prev_day": 164.45,
-    "turnover": 3690888335.0,
+    "turnover": 3733466388.0,
     "prev_month": 196.4,
     "prev_year": 84.98,
     "prev_2year": 110.45
@@ -1296,7 +1296,7 @@
     "currency": "USD",
     "price": 280.2,
     "prev_day": 282.4,
-    "turnover": 643632850.0,
+    "turnover": 646576070.0,
     "prev_month": 262.38,
     "prev_year": 353.27,
     "prev_2year": 223.71
@@ -1320,7 +1320,7 @@
     "currency": "USD",
     "price": 53.13,
     "prev_day": 56.6,
-    "turnover": 4229144440.0,
+    "turnover": 4258171166.0,
     "prev_month": 54.87,
     "prev_year": 71.61,
     "prev_2year": null
@@ -1331,7 +1331,7 @@
     "currency": "USD",
     "price": 1053.79,
     "prev_day": 1072.77,
-    "turnover": 469912360.0,
+    "turnover": 469926059.0,
     "prev_month": 1013.7,
     "prev_year": 766.16,
     "prev_2year": 942.89
@@ -1366,7 +1366,7 @@
     "currency": "USD",
     "price": 26.865,
     "prev_day": 26.99,
-    "turnover": 1209061098.0,
+    "turnover": 1224187571.0,
     "prev_month": 32.95,
     "prev_year": 29.27,
     "prev_2year": 30.48
