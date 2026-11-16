@@ -1,214 +1,217 @@
 {
  "version": 2,
- "data_as_of": "2026-11-13 미국 장 마감",
+ "data_as_of": "2026-11-13 미국 장 마감(11/15 선물 반영)",
  "market_view": {
   "label": "Bearish",
-  "summary": "11/13 S&P 500 -0.4%(7,561.67)·나스닥 -0.9%(25,136.27)·다우 +0.1%로 Nvidia 황 CEO 사임 여파와 AMD -8.8% 등 반도체 급락이 지수를 눌렀다. 10월 PPI·CPI 상회로 12월 인상이 100% 반영됐고 10년물은 5.14%로 올랐다. 다음 주 Nvidia 실적과 Anthropic 상장이 분기점이다.",
-  "ai_line": "Nvidia 6주 연속 주간 하락, AMD -8.8%·Broadcom 거의 -5%·CoreWeave -6.1%로 AI 반도체 약세 확산",
+  "summary": "11/13 S&P 500 -0.40%(7,561.67)·나스닥 -0.91%(25,136.27)·다우 +0.10%로 마감했다. 지수는 주간 +2% 이상이었지만 Nvidia 황 CEO 사임 여파로 반도체가 3~3.6% 하락했다. 10월 CPI가 예상(+0.3%)을 웃돈 +0.4%여서 12월 25bp 인상이 약 90% 반영됐고 10년물은 5.15%다. 11/17 Nvidia 실적과 11/19 Anthropic 상장이 분기점이다.",
+  "ai_line": "SMH·iShares 반도체 ETF -3~3.6%, Nvidia 11/13 -2.0%(162.85달러)로 주간 -13%; 11/17 실적(컨센 매출 약 1,093억$)이 관건.",
   "src": [
    "s1",
-   "s2",
-   "s6"
+   "s6",
+   "s2"
   ]
  },
  "key_changes": [
   {
-   "title": "황 CEO 11/12 사임: Nvidia 장중 최대 -14% 후 반등, 11/13 -2.0%",
-   "detail": "이사회 조사·해임 준비 보도 뒤 황 CEO가 사임했고 CFO 콜레트 크레스가 임시 CEO를 맡았다(Fortune). 11/13 Nvidia는 -2.01%로 6주 연속 주간 하락했다.",
+   "title": "Nvidia 후임 논의 가열: Rene Haas 접촉설·Bessent '외부 영입' 요구, 11/13 -2.0%(162.85달러)",
+   "detail": "이사회가 Arm CEO 하스에게 접촉했다는 보도가 있고(BigGo), Bessent 장관은 대대적 쇄신과 10일 내 답변을 요구했다. Gerstner·Baker는 황 복귀 옵션을 열어두라는 공개서한을 냈다. Nvidia는 주간 -13%다.",
    "importance": "HIGH",
    "src": [
-    "s3",
-    "s2",
-    "s1"
+    "s6",
+    "s7",
+    "s5"
    ]
   },
   {
-   "title": "AI 반도체 급락: AMD -8.75%, Dell -7.24%, CoreWeave -6.13%, Broadcom -4.76%",
-   "detail": "전날 반등분을 차익실현으로 반납했고 SK hynix ADR도 -4.3%였다. Meta는 +2.9%로 엇갈렸다.",
-   "importance": "HIGH",
-   "src": [
-    "s2",
-    "s1"
-   ]
-  },
-  {
-   "title": "10월 PPI 전월 +0.3%·연 6.5% 후 10년물 5.14%(주간 +28bp)",
-   "detail": "PPI 연율은 2022년 11월 이후 최고다. 12월 인상은 선물에 100% 반영됐고 50bp 확률은 약 12%로 올랐다.",
+   "title": "S&P -0.40%·나스닥 -0.91%: 반도체 -3~3.6%가 낙폭 주도, 주간은 3대 지수 +2% 이상",
+   "detail": "S&P 7,561.67, 다우 52,347.55(+0.10%). Nvidia 주간 -13%로 2025년 4월 이후 최악이었다. 일요일 밤 선물은 S&P -0.22%, 나스닥100 -0.58%다.",
    "importance": "HIGH",
    "src": [
     "s1",
-    "s6"
+    "s2",
+    "s8"
    ]
   },
   {
-   "title": "달러 강세·엔 160 부근: DXY 약 103.4(주간 +1.1%)",
-   "detail": "유로 대비 달러는 2025년 4월 이후 최고 수준이다. 엔은 일본 당국 개입 구간인 160 부근이다.",
+   "title": "10월 CPI +0.4%(예상 +0.3%)로 12월 인상 약 90%: 10년물 5.15%(주간 +29bp)",
+   "detail": "근원 CPI +0.3%(예상 +0.2%). PPI는 +0.3%로 예상(+0.4%)보다 낮았으나 연 6.5%다. 2년물 4.88%(+37bp), 30년물 5.47%이며 국채는 2025년 4월 이후 최대 주간 상승이다.",
+   "importance": "HIGH",
+   "src": [
+    "s4",
+    "s3",
+    "s2"
+   ]
+  },
+  {
+   "title": "유가·달러: WTI 12월물 88.56달러(-2.5%), DXY 103.41(주간 +1.1%), 엔 160 일시 돌파",
+   "detail": "브렌트 1월물 95.84달러(-2.52%). 달러 강세가 유로(1.1027, -1.07%)와 엔에 부담을 줬다.",
    "importance": "MEDIUM",
    "src": [
-    "s1",
-    "s6"
+    "s2",
+    "s4"
    ]
   }
  ],
  "issues": [
   {
-   "title": "Nvidia 리더십 공백: 황 사임·FBI/의회 조사 보도",
-   "detail": "조사는 황 CEO와 중국 국가안전부 자산 의심 인물의 관계를 겨냥한다(CBS). Nvidia는 S&P 500의 약 6%, Nasdaq 100의 약 10%라 지수 영향이 크다.",
+   "title": "Nvidia 리더십 공백: 후임 탐색과 11/17 실적",
+   "detail": "황은 11/12 사임했고 CFO 콜레트 크레스가 임시 CEO다. HSBC는 Hold로 낮추고 목표가를 365→170달러로 내렸다. 11/17 장 마감 후 실적(컨센 매출 약 1,093억$, EPS 약 2.47달러)에서 임시 경영진의 가이던스가 첫 시험대다.",
+   "tag": "지속",
+   "trend": "up",
+   "importance": "HIGH",
+   "src": [
+    "s5",
+    "s7",
+    "s6"
+   ]
+  },
+  {
+   "title": "인플레 재확산과 12월 인상 약 90% 반영",
+   "detail": "CME FedWatch 기준 12월 25bp 약 89.7%, 50bp 약 10%. Waller는 25bp 지지지만 인플레가 높으면 50bp도 밀겠다고 했고 Logan은 추가 2회 인상을 언급했다. Goldman은 2027년 3월 인상 후 정점 4.25~4.50%를 본다.",
    "tag": "지속",
    "trend": "up",
    "importance": "HIGH",
    "src": [
     "s3",
     "s4",
-    "s5"
+    "s2"
    ]
   },
   {
-   "title": "인플레 재확산과 12월 인상 100% 반영",
-   "detail": "10월 CPI 전월 +0.4%·근원 +0.3%에 PPI까지 상회했다. 2년물 약 4.85%(주간 +34bp)로 단기금리도 급등했다.",
+   "title": "AI 반도체 약세 확산",
+   "detail": "11/13 SMH·iShares 반도체 ETF -3~3.6%, VGT -1.7%. Nvidia는 10/6 고점(239.24달러) 대비 약 30% 낮다. 반면 CoreWeave는 3분기 매출 36.6억$(예상 35.5억$)로 호실적이었다.",
    "tag": "지속",
    "trend": "up",
    "importance": "HIGH",
    "src": [
     "s1",
-    "s6"
+    "s6",
+    "s2"
    ]
   },
   {
-   "title": "AI 반도체 약세 확산: SOX 6/22 고점 대비 약 -31%",
-   "detail": "AMD·Broadcom·Dell·CoreWeave 동반 급락이다. Nvidia 실적을 앞두고 AI 수익성 의구심이 이어진다.",
-   "tag": "신규",
-   "trend": "up",
-   "importance": "HIGH",
-   "src": [
-    "s2",
-    "s6"
-   ]
-  },
-  {
-   "title": "Anthropic 상장 임박: 다음 주 월가 데뷔 예정",
-   "detail": "AFP는 다음 주 상장 예정이라고 전했다. 대규모 물량이 AI 자금 수급에 부담이 될 수 있다(2차 요약 기준).",
+   "title": "Anthropic 상장 임박: 11/19 나스닥 데뷔 예정",
+   "detail": "일요일 밤 보도 기준 가치 약 1.4조$, 이번 주 상장이며 공모가 밴드 70~78달러로 알려졌다. 약세 장에서의 첫 거래가 AI 심리의 시험대다.",
    "tag": "지속",
    "trend": "steady",
    "importance": "MEDIUM",
    "src": [
-    "s1",
-    "s7"
+    "s8",
+    "s2"
    ]
   },
   {
-   "title": "유가 하락: 공급이 수요 초과(IEA), WTI 88.91달러·주간 -1.6%",
-   "detail": "중동 수출 회복으로 이란 전쟁 이후 처음 공급이 수요를 넘었다. Brent는 4주간 약 -23%로 보도됐다.",
+   "title": "유가 하락과 에너지 강세: WTI 88.56달러(-2.5%)",
+   "detail": "에너지 업종은 주간 +5.11%로 가장 강했고 금 12월물은 -4.63%다.",
    "tag": "지속",
    "trend": "down",
-   "importance": "MEDIUM",
+   "importance": "LOW",
    "src": [
-    "s6",
-    "s7"
+    "s2"
    ]
   }
  ],
  "risks": [
   {
-   "title": "50bp 인상과 장기금리 상승 지속",
-   "detail": "10년물 5.14%·30년물 약 5.47%로 이미 5%를 넘었다. 50bp 확률이 약 12%까지 올라 인상 폭이 커지면 주식 밸류에이션 부담이 커진다.",
-   "watch": "11/17 소매판매, 11/18 FOMC 의사록, Waller 등 연준 발언",
+   "title": "50bp 인상과 장기금리 추가 상승",
+   "detail": "12월 50bp 가능성이 약 10%이고 30년물 5.47%, 모기지 금리 7.21%로 가계·주식 밸류에이션 부담이 커졌다.",
+   "watch": "11/17 소매판매(컨센 +0.2%), 11/18 FOMC 의사록, 11/25 근원 PCE, 12/8~9 FOMC",
+   "importance": "HIGH",
+   "src": [
+    "s2",
+    "s4",
+    "s3"
+   ]
+  },
+  {
+   "title": "Nvidia 지배구조 불확실성이 AI 투자 심리를 흔들 가능성",
+   "detail": "후임 인선이 지연되거나 Bessent의 압박으로 정치 변수가 커지면 가이던스·투자 기조 해석이 흔들릴 수 있다. 황 복귀설은 FT 인용 보도이며 공식 확인은 없다.",
+   "watch": "11/17 실적·가이던스, 후임 선임 일정, Bessent가 요구한 10일 시한",
    "importance": "HIGH",
    "src": [
     "s6",
+    "s5",
     "s7"
    ]
   },
   {
-   "title": "Nvidia 고객 금융지원 축소와 데이터센터 투자 둔화",
-   "detail": "SemiAnalysis 추정 Nvidia 대차대조표 외 보증 5,300억$(이전 1,840억$)다. 크레스 체제에서 지원이 줄면 건설이 둔화될 수 있다는 분석이다(2차 요약).",
-   "watch": "이번 주 Nvidia 실적의 가이던스·보증 공시",
-   "importance": "HIGH",
-   "src": [
-    "s7",
-    "s6"
-   ]
-  },
-  {
-   "title": "엔 160 부근 일본 개입과 달러 급등",
-   "detail": "달러 강세와 미 금리 급등이 겹쳐 엔 개입 구간에 있다. 개입이 나오면 글로벌 변동성이 커질 수 있다.",
-   "watch": "USD/JPY 160 돌파 여부, 일본 3분기 GDP",
+   "title": "엔 160 부근 일본 개입과 달러 급변",
+   "detail": "달러/엔이 11/13 일시 160을 넘었고 DXY는 주간 +1.1%였다.",
+   "watch": "엔 160 안착 여부와 일본 당국 발언, DXY 103 이상 유지",
    "importance": "MEDIUM",
    "src": [
-    "s1",
-    "s6"
-   ]
-  },
-  {
-   "title": "호르무즈·사우디 송유관 피격 재발",
-   "detail": "11/9 사우디 East-West 송유관에서 작은 화재가 있었으나 운영 중단은 없다고 발표됐다. 재발하면 유가 하락 흐름이 뒤집힐 수 있다.",
-   "watch": "호르무즈 선박 피격 보도, Brent 95달러 상회",
-   "importance": "MEDIUM",
-   "src": [
-    "s6",
-    "s7"
+    "s4",
+    "s2"
    ]
   }
  ],
- "flow": "Bearish 유지: 황 CEO 사임과 AMD·Broadcom 급락으로 AI 반도체가 약해졌고, PPI·CPI 상회로 12월 인상 100%·10년물 5.14%까지 올라 부담이 커졌다.",
+ "flow": "Bearish 유지: 황 사임 후임 논의와 반도체 -3%대 약세, CPI 상회로 12월 인상 약 90%·10년물 5.15%가 부담이고 11/17 Nvidia 실적·11/19 Anthropic 상장이 변수다.",
  "sources": [
   {
    "id": "s1",
-   "title": "Wall Street stocks mostly lower as Nvidia extends slump (AFP)",
-   "publisher": "Kuwait Times",
-   "url": "https://kuwaittimes.com/article/53575/business/wall-street-stocks-mostly-lower-as-nvidia-extends-slump/",
-   "date": "2026-11-14",
+   "title": "S&P 500, Dow, Nasdaq End Lower Amid Nvidia Turmoil, But Record Best Week Since August",
+   "publisher": "Yahoo Finance/Stocktwits",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/p-500-dow-nasdaq-end-233729977.html",
+   "date": "2026-11-13",
    "tier": "언론"
   },
   {
-   "title": "U.S. Markets Close Lower: Nasdaq Falls 0.91%, Nvidia Declines for Sixth Straight Week",
    "id": "s2",
-   "publisher": "KuCoin News(BitPush)",
-   "url": "https://www.kucoin.com/news/flash/us-markets-close-lower-nasdaq-falls-0-91-nvidia-drops-for-sixth-week",
-   "date": "2026-11-14",
+   "title": "Weekly Market Report/13 November 2026",
+   "publisher": "Investomine",
+   "url": "https://investomine.substack.com/p/weekly-market-report13-november-2026",
+   "date": "2026-11-15",
    "tier": "집계"
   },
   {
    "id": "s3",
-   "title": "Jensen Huang built Nvidia into a $4 trillion AI giant but owned less than 4% of it",
-   "publisher": "Fortune",
-   "url": "https://fortune.com/2026/11/12/jensen-huang-nvidia-ceo-resignation-ai-chip-founders-voting-power-board-control-mark-zuckerberg-meta-stock-market/",
-   "date": "2026-11-12",
+   "title": "PPI still 'uncomfortably high' as December rate hike looms",
+   "publisher": "InvestmentNews",
+   "url": "https://www.investmentnews.com/equities/ppi-still-uncomfortably-high-as-december-rate-hike-looms/269002",
+   "date": "2026-11-13",
    "tier": "언론"
   },
   {
    "id": "s4",
-   "title": "Nvidia's stock dives as chipmaker's board weighs move to oust CEO Jensen Huang",
-   "publisher": "CBS News",
-   "url": "https://www.cbsnews.com/news/nvidia-stock-dives-report-board-prepares-oust-jensen-huang/",
-   "date": "2026-11-11",
+   "title": "Fed turns hawkish as CPI beats and officials back further rate hikes",
+   "publisher": "Yahoo Finance(Investing.com)",
+   "url": "https://sg.finance.yahoo.com/news/fed-turns-hawkish-cpi-beats-205101795.html",
+   "date": "2026-11-13",
    "tier": "언론"
   },
   {
    "id": "s5",
-   "title": "Nvidia shares plunge amid reports board to discuss CEO Huang's future",
-   "publisher": "Al Jazeera",
-   "url": "https://www.aljazeera.com/economy/2026/11/12/nvidia-shares-plunge-amid-reports-board-to-discuss-ceo-huangs-future",
+   "title": "NVIDIA Announces CEO Transition",
+   "publisher": "NVIDIA(SEC EDGAR)",
+   "url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm",
    "date": "2026-11-12",
-   "tier": "언론"
+   "tier": "공식"
   },
   {
    "id": "s6",
-   "title": "Sunday Post - Recap & Week Ahead 11/15/2026",
-   "publisher": "PalmaFutures",
-   "url": "https://palmafutures.substack.com/p/sunday-post-recap-and-week-ahead-e67",
-   "date": "2026-11-15",
-   "tier": "리서치"
+   "title": "Jensen Huang May Return to Helm at Nvidia; Gray-Market Shares Briefly Surge Over 4%",
+   "publisher": "BigGo Finance",
+   "url": "https://finance.biggo.com/news/2794c415-60f8-4a41-9b7d-5958ccb32410",
+   "date": "2026-11-16",
+   "tier": "언론"
   },
   {
    "id": "s7",
-   "title": "Supermacro Weekly Briefing 2026-46",
-   "publisher": "Supermacro Briefing",
-   "url": "https://supermacrobriefing.substack.com/p/2026-46",
+   "title": "Nvidia live updates: Following Jensen Huang's resignation as CEO, allegations of a third affair emerge",
+   "publisher": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/technology/live/nvidia-live-updates-following-jensen-huangs-resignation-as-ceo-allegations-of-a-third-affair-emerge-195535310.html",
+   "date": "2026-11-13",
+   "tier": "언론"
+  },
+  {
+   "id": "s8",
+   "title": "Dow, S&P 500, Nasdaq Futures Edge Lower As Markets Brace For Nvidia Earnings, Anthropic IPO, Fed Minutes",
+   "publisher": "Stocktwits",
+   "url": "https://stocktwits.com/news-articles/markets/equity/dow-s-and-p-500-nasdaq-futures-edge-lower-as-markets-brace-for-nvidia-earnings-anthropic-ipo-fed-minutes-smmt-nbis-help-mstr-in-focus/cNb7ePKR9Xb",
    "date": "2026-11-15",
-   "tier": "리서치"
+   "tier": "언론"
   }
  ],
- "date": "2026-11-16",
- "generated_at": "2026-11-16T06:26:00+09:00"
+ "date": "2026-11-17",
+ "generated_at": "2026-11-17T06:26:45+09:00"
 }
