@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-11-17",
+ "updated": "2026-11-19",
  "window": "최근 3개월(기간 밖 항목은 표시)",
  "summary": [
   "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD). 저커버그는 공격적 투자 지속을 밝혔으나 FCF는 적자 전환, 머스크는 컴퓨팅 회수 단축을 주장하면서도 10/26 네오클라우드 다수 도산 가능성을 경고. 피차이는 10/28 검색 쿼리 성장 최고라 반박했으나 FCF 적자 속 Alphabet은 -13%. MS는 10/28 Azure +48%로 호조였으나 FCF 커버율은 51%로 하락. 리사 수는 11/3 Q4 가이던스 170억$로 수요를 재확인. 11/5 칩 급락 속 리사 수는 시장이 근시안적이라고 반응. Nvidia는 11/12 황 CEO 사임으로 리더십 공백이고, 11/15경 거스트너·베이커는 황 복귀 옵션을 열어두라는 서한을 냈다(2차 보도).",
@@ -15,15 +15,14 @@
      "who": "젠슨 황",
      "org": "Nvidia",
      "stance": "중립",
-     "quote": "\"There is no excuse for what I did. I am deeply sorry.\" (직원 메시지, CBS 인용)",
-     "date": "11/12 사임(보도)",
-     "detail": "11/8 Nvidia가 황 CEO 조사를 시작했고 황은 직원 메시지로 사과했다(CBS 인용). 11/12 사임했고 CFO 콜레트 크레스가 임시 CEO를 맡았다(Fortune 단독 확인). 황은 조사에 전면 협조하겠다고 밝혔다(Al Jazeera). 시장 전망 관련 직접 발언은 확인 못 함. 11/16 BigGo 보도(2차): FT 인용으로 황이 복귀를 논의했다고 하나 황·Nvidia 모두 확인하지 않았다. 11/17 장 마감 후 실적은 크레스 임시 CEO 체제로 발표(회사 보도자료 기준).",
+     "quote": "크레스 임시 CEO: FY28 성장 전망 \"70%에서 75%로\" 상향(Fortune 인용)",
+     "date": "11/17 실적(2차 보도)",
+     "detail": "황은 11/12 사임했고 CFO 콜레트 크레스가 임시 CEO를 맡았다. 11/17 마감 후 3분기 매출 1,158억$(+103%), 데이터센터 1,076억$, 4분기 전망 약 1,300억$(Fool). Fortune에 따르면 신임 의장 Harvey Jones는 황 복귀를 '의도하지 않는다'고 밝혔고 Heidrick & Struggles가 후임을 탐색 중이며 황은 복귀 의사를 밝혔다. 황 본인의 시장 전망 직접 발언은 확인 못 함. 모두 2차 보도 기준.",
      "src": [
       38,
-      39,
-      40,
-      41,
-      42
+      42,
+      43,
+      44
      ],
      "outside": false
     },
@@ -486,6 +485,16 @@
    "n": 42,
    "title": "NVIDIA Announces CEO Transition (Nvidia 보도자료/SEC, 11/12)",
    "url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm"
+  },
+  {
+   "n": 43,
+   "title": "Nvidia's message to Wall Street couldn't come at a better time for Anthropic (Fortune, 11/18)",
+   "url": "https://fortune.com/2026/11/18/nvidia-message-wall-street-couldnt-come-at-better-time-anthropic/"
+  },
+  {
+   "n": 44,
+   "title": "Stock Market Today, Nov. 17: Nvidia Slides Ahead of Earnings but Soars in After Hours Trading (Motley Fool)",
+   "url": "https://www.fool.com/coverage/stock-market-today/2026/11/17/stock-market-today-nov-17-nvidia-slides-ahead-of-earnings-but-soars-in-after-hours-trading/"
   }
  ]
 }
