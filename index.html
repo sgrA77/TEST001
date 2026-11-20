@@ -215,6 +215,10 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
 @media (max-width: 760px) { .key { margin: 8px 6px 4px; } .key .topbar { padding-top: 15px; } }
 
 /* 관심종목(핀) — 상단 지표 바로 아래 */
+.cdbar { display:flex; gap:6px; flex-wrap:wrap; align-items:center; padding:3px 20px; background:#fff; border-bottom:1px solid var(--line); font-size:11px; color:#64748b; }
+.cdbar .cd { background:#f1f5f9; border-radius:10px; padding:1px 8px; white-space:nowrap; }
+.cdbar .cd b { color:#0f172a; font-weight:700; }
+@media (max-width: 760px) { .cdbar { padding:3px 8px; font-size:10.5px; gap:4px; } .cdbar .cd { padding:1px 6px; } }
 .pin-wrap { background: #fff; border-bottom: 1px solid var(--line); padding: 8px 20px 10px; }
 .pin-wrap:empty, .pin-wrap:has(.pin:empty) { display: none; }
 .pin { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; max-width: 1760px; margin: 0 auto; }
@@ -458,6 +462,7 @@ details.block:not([open]) > summary.block-head { margin-bottom: 0; border-bottom
     <div class="updated" id="updated"></div>
 </div>
 
+<div class="cdbar" id="cdbar"></div>
 <div class="pin-wrap"><div class="pin" id="pinned"></div></div>
 <div class="yc-wrap" id="ycwrap"></div>
 </div>
@@ -1324,6 +1329,18 @@ fetch("data.json?t=" + Date.now())
     });
     el.innerHTML='<div class="yc"><span class="ycl">연봉 · '+yc.year+'년 시가 대비 (파랑=음봉)</span>'+h+'</div>';
   });
+})();
+</script>
+<script>
+(function(){
+  var EV=[["미 대선","2028-11-07",1],["미중 휴전 만료","2027-01-10",0]];
+  var now=new Date(), t0=new Date(now.getFullYear(),now.getMonth(),now.getDate()), h="";
+  EV.forEach(function(e){
+    var d=new Date(e[1]+"T00:00:00"), n=Math.round((d-t0)/864e5);
+    if(n<0) return;
+    h+='<span class="cd">'+e[0]+' <b>D-'+n+'</b>'+(e[2]?' · '+(n/30.4375).toFixed(1)+'개월':'')+'</span>';
+  });
+  var el=document.getElementById("cdbar"); if(el) el.innerHTML=h;
 })();
 </script>
 </body>
