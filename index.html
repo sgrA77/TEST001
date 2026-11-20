@@ -1314,7 +1314,7 @@ fetch("data.json?t=" + Date.now())
 // 연봉(올해 시가 대비) 양/음봉 스트립: Mag7 + TSMC/MU/AMD/AVGO
 (function(){
   var YC_URL="https://raw.githubusercontent.com/sgrA77/TEST001/yc-data/yc.json";
-  var NM={AAPL:"AAPL",MSFT:"MSFT",GOOGL:"GOOGL",AMZN:"AMZN",NVDA:"NVDA",META:"META",TSLA:"TSLA",TSM:"TSMC",MU:"MU",AMD:"AMD",AVGO:"AVGO"};
+  var NM={AAPL:"AAPL",MSFT:"MSFT",GOOGL:"GOOGL",AMZN:"AMZN",NVDA:"NVDA",META:"META",TSLA:"TSLA",TSM:"TSMC",MU:"MU",AMD:"AMD",AVGO:"AVGO",ORCL:"ORCL"};
   Promise.all([
     fetch(YC_URL+"?t="+Date.now()).then(function(r){return r.ok?r.json():null}).catch(function(){return null}),
     fetch(PRICES_URL+"?t="+Date.now()).then(function(r){return r.ok?r.json():null}).catch(function(){return null})
