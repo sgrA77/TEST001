@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-22 01:35 KST",
+ "updated_at": "2026-11-22 06:51 KST",
  "warnings": [],
  "macro": {
   "유동성 / 환율": {
@@ -209,7 +209,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": 29591000000
+     "rev_act": null
     }
    ]
   },
@@ -699,8 +699,8 @@
    "date": null,
    "ts": null,
    "d_day": null,
-   "eps_est": 7.1426,
-   "rev_est": 12506326860,
+   "eps_est": 7.1427,
+   "rev_est": 12506345610,
    "quarters": [
     {
      "label": "1Q2026",
@@ -732,9 +732,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 59896.71,
+    "price": 60314.11,
     "prev_day": 58798.9805,
-    "turnover": 67920658432,
+    "turnover": 58566455296,
     "prev_month": 77434.75,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -1605,8 +1605,8 @@
      "rev_est": 10700329480
     },
     "4Q2026": {
-     "eps_est": 7.14263,
-     "rev_est": 12506326860
+     "eps_est": 7.14271,
+     "rev_est": 12506345610
     }
    },
    "INTC": {
