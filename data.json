@@ -1,6 +1,11 @@
 {
- "updated_at": "2026-11-22 10:53 KST",
- "warnings": [],
+ "updated_at": "2026-11-22 18:20 KST",
+ "warnings": [
+  "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLH0A0HYM2 | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0H",
+  "MACRO HY Spread 전체 실패 → 캐시/static 사용",
+  "MACRO BBB Spread ← fred:BAMLC0A4CBBB 실패: FRED 실패 → BAMLC0A4CBBB: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLC0A4CBBB | BAMLC0A4CBBB: 연결 실패 ReadTimeout | BAMLC0A4",
+  "MACRO BBB Spread 전체 실패 → 캐시/static 사용"
+ ],
  "macro": {
   "유동성 / 환율": {
    "US M2": {
@@ -14,11 +19,11 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1346.13,
+    "value": 1337.8,
     "prev_month": 1337.98,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
-    "prev_day": 1330.4,
+    "prev_day": 1334.79,
     "kind": "pct"
    },
    "USD/JPY": {
@@ -122,7 +127,8 @@
     "prev_2year": 2.92,
     "prev_day": 3.47,
     "kind": "pp",
-    "suffix": "%"
+    "suffix": "%",
+    "stale": true
    },
    "BBB Spread": {
     "value": 1.17,
@@ -131,7 +137,8 @@
     "prev_2year": 1.02,
     "prev_day": 1.16,
     "kind": "pp",
-    "suffix": "%"
+    "suffix": "%",
+    "stale": true
    }
   }
  },
@@ -209,7 +216,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": 29591000000
+     "rev_act": null
     }
    ]
   },
@@ -732,9 +739,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 60045.41,
-    "prev_day": 58798.9805,
-    "turnover": 56491827200,
+    "price": 59942.4,
+    "prev_day": 60094.0898,
+    "turnover": 35899162624,
     "prev_month": 77434.75,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -1056,7 +1063,7 @@
     "currency": "KRW",
     "price": 1113000.0,
     "prev_day": 1183000.0,
-    "turnover": 3684964920000.0,
+    "turnover": 4089913275000.0,
     "prev_month": 1418000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -1067,7 +1074,7 @@
     "currency": "KRW",
     "price": 183100.0,
     "prev_day": 196900.0,
-    "turnover": 3243405385700.0,
+    "turnover": 3645590394900.0,
     "prev_month": 225000.0,
     "prev_year": 119900.0,
     "prev_2year": 53200.0
@@ -1408,44 +1415,44 @@
  "gpu_rental": {
   "H100 SXM": {
    "spec": "Hopper · 80GB HBM3",
-   "price": 2.9,
-   "date": "2026-11-20",
-   "prev_day": 2.78,
-   "w1": 3.29,
-   "m1": 3.1,
-   "m3": 2.71,
+   "price": 2.89,
+   "date": "2026-11-21",
+   "prev_day": 2.9,
+   "w1": 3.19,
+   "m1": 3.12,
+   "m3": 2.9,
    "m6": null,
    "y1": null
   },
   "H200": {
    "spec": "Hopper · 141GB HBM3e",
-   "price": 6.14,
-   "date": "2026-11-20",
-   "prev_day": 6.4,
-   "w1": 6.73,
-   "m1": 5.9,
-   "m3": 4.71,
+   "price": 6.0,
+   "date": "2026-11-21",
+   "prev_day": 6.14,
+   "w1": 6.6,
+   "m1": 5.99,
+   "m3": 4.35,
    "m6": null,
    "y1": null
   },
   "B200": {
    "spec": "Blackwell · 180GB HBM3e",
-   "price": 9.1,
-   "date": "2026-11-20",
-   "prev_day": 9.17,
-   "w1": 9.72,
-   "m1": 9.37,
-   "m3": 6.68,
+   "price": 9.09,
+   "date": "2026-11-21",
+   "prev_day": 9.1,
+   "w1": 9.66,
+   "m1": 9.39,
+   "m3": 6.6,
    "m6": null,
    "y1": null
   },
   "A100 SXM4": {
    "spec": "Ampere · 80GB HBM2e",
-   "price": 1.0,
-   "date": "2026-11-20",
+   "price": 1.01,
+   "date": "2026-11-21",
    "prev_day": 1.0,
-   "w1": 1.04,
-   "m1": 1.07,
+   "w1": 1.02,
+   "m1": 1.1,
    "m3": 1.07,
    "m6": null,
    "y1": null
@@ -1822,7 +1829,8 @@
    "2026-11-17": 2.92,
    "2026-11-18": 2.93,
    "2026-11-19": 2.78,
-   "2026-11-20": 2.9
+   "2026-11-20": 2.9,
+   "2026-11-21": 2.89
   },
   "GPU H200": {
    "2026-07-02": 4.02,
@@ -1966,7 +1974,8 @@
    "2026-11-17": 6.58,
    "2026-11-18": 7.11,
    "2026-11-19": 6.4,
-   "2026-11-20": 6.14
+   "2026-11-20": 6.14,
+   "2026-11-21": 6.0
   },
   "GPU B200": {
    "2026-07-02": 5.13,
@@ -2110,7 +2119,8 @@
    "2026-11-17": 9.43,
    "2026-11-18": 9.21,
    "2026-11-19": 9.17,
-   "2026-11-20": 9.1
+   "2026-11-20": 9.1,
+   "2026-11-21": 9.09
   },
   "GPU A100 SXM4": {
    "2026-07-02": 1.01,
@@ -2254,7 +2264,8 @@
    "2026-11-17": 1.0,
    "2026-11-18": 0.99,
    "2026-11-19": 1.0,
-   "2026-11-20": 1.0
+   "2026-11-20": 1.0,
+   "2026-11-21": 1.01
   }
  }
 }
