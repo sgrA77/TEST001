@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-22 06:51 KST",
+ "updated_at": "2026-11-22 10:53 KST",
  "warnings": [],
  "macro": {
   "유동성 / 환율": {
@@ -209,7 +209,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": null
+     "rev_act": 29591000000
     }
    ]
   },
@@ -732,9 +732,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 60314.11,
+    "price": 60045.41,
     "prev_day": 58798.9805,
-    "turnover": 58566455296,
+    "turnover": 56491827200,
     "prev_month": 77434.75,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
