@@ -1,11 +1,11 @@
 {
  "version": 1,
- "updated": "2026-11-19",
+ "updated": "2026-11-23",
  "window": "최근 3개월(기간 밖 항목은 표시)",
  "summary": [
-  "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD). 저커버그는 공격적 투자 지속을 밝혔으나 FCF는 적자 전환, 머스크는 컴퓨팅 회수 단축을 주장하면서도 10/26 네오클라우드 다수 도산 가능성을 경고. 피차이는 10/28 검색 쿼리 성장 최고라 반박했으나 FCF 적자 속 Alphabet은 -13%. MS는 10/28 Azure +48%로 호조였으나 FCF 커버율은 51%로 하락. 리사 수는 11/3 Q4 가이던스 170억$로 수요를 재확인. 11/5 칩 급락 속 리사 수는 시장이 근시안적이라고 반응. Nvidia는 11/12 황 CEO 사임으로 리더십 공백이고, 11/15경 거스트너·베이커는 황 복귀 옵션을 열어두라는 서한을 냈다(2차 보도).",
-  "투자업계는 핑크(강세) vs 달리오·그리핀(경계)로 갈림. 그레이·거스트너는 중립.",
-  "워시는 10/28 동결하며 인플레가 여전히 높다고 했고(AI 투자 붐이 물가 압력이라는 입장 유지), 트럼프는 데이터센터 전력·지역 배당 의무화 11/6에는 트럼프가 AI 구축 전폭 지지를 밝힘(2차 보도). 베센트 재무장관은 11/15 Nvidia에 외부 인사 영입을 요구했다(2차 보도)."
+  "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD). 저커버그는 공격적 투자 지속을 밝혔으나 FCF는 적자 전환, 머스크는 컴퓨팅 회수 단축을 주장하면서도 10/26 네오클라우드 다수 도산 가능성을 경고. 피차이는 10/28 검색 쿼리 성장 최고라 반박했으나 FCF 적자 속 Alphabet은 -13%. MS는 10/28 Azure +48%로 호조였으나 FCF 커버율은 51%로 하락. 리사 수는 11/3 Q4 가이던스 170억$로 수요를 재확인. 11/5 칩 급락 속 리사 수는 시장이 근시안적이라고 반응. Nvidia는 11/12 황 CEO 사임으로 리더십 공백이고, 11/15경 거스트너·베이커는 황 복귀 옵션을 열어두라는 서한을 냈다(2차 보도). 11/17 WSJ의 SEC 조사 보도 이후 Nvidia는 11/20 -14%였다(주가는 시장 자료).",
+  "투자업계는 핑크(강세) vs 달리오·그리핀·건들락(경계)로 갈림. 드러켄밀러는 향후 12개월 가시성이 낮다고 했다(요약). 그레이·거스트너는 중립.",
+  "워시는 10/28 동결하며 인플레가 여전히 높다고 했고(AI 투자 붐이 물가 압력이라는 입장 유지), 트럼프는 데이터센터 전력·지역 배당 의무화 11/6에는 트럼프가 AI 구축 전폭 지지를 밝힘(2차 보도). 베센트 재무장관은 11/15 Nvidia에 외부 인사 영입을 요구했다(2차 보도). 베센트는 11/17 Nvidia 이사회에 10일 내 답변을 요구했다."
  ],
  "groups": [
   {
@@ -15,14 +15,15 @@
      "who": "젠슨 황",
      "org": "Nvidia",
      "stance": "중립",
-     "quote": "크레스 임시 CEO: FY28 성장 전망 \"70%에서 75%로\" 상향(Fortune 인용)",
-     "date": "11/17 실적(2차 보도)",
-     "detail": "황은 11/12 사임했고 CFO 콜레트 크레스가 임시 CEO를 맡았다. 11/17 마감 후 3분기 매출 1,158억$(+103%), 데이터센터 1,076억$, 4분기 전망 약 1,300억$(Fool). Fortune에 따르면 신임 의장 Harvey Jones는 황 복귀를 '의도하지 않는다'고 밝혔고 Heidrick & Struggles가 후임을 탐색 중이며 황은 복귀 의사를 밝혔다. 황 본인의 시장 전망 직접 발언은 확인 못 함. 모두 2차 보도 기준.",
+     "quote": "크레스 임시 CEO: \"Our ambition will not change\"; 황: \"I own my mistakes completely\"",
+     "date": "11/17 (2차 보도)",
+     "detail": "황은 11/12 사임했고 CFO 콜레트 크레스가 임시 CEO를 맡았다. 11/17 마감 후 3분기 매출 1,158억$(+103%), 데이터센터 1,076억$, 4분기 전망 약 1,300억$(Fool). Fortune에 따르면 신임 의장 Harvey Jones는 황 복귀를 '의도하지 않는다'고 밝혔고 Heidrick & Struggles가 후임을 탐색 중이며 황은 복귀 의사를 밝혔다. 황 본인의 시장 전망 직접 발언은 확인 못 함. 모두 2차 보도 기준. WSJ 보도(11/17)로 SEC가 공시·중국 우회 의혹을 조사 중이며 11/17 InvestmentNews가 전했다(2차 보도).",
      "src": [
       38,
       42,
       43,
-      44
+      44,
+      45
      ],
      "outside": false
     },
@@ -223,6 +224,30 @@
       15
      ],
      "outside": false
+    },
+    {
+     "who": "드러켄밀러",
+     "org": "Duquesne",
+     "stance": "신중",
+     "quote": "향후 12개월 전망의 명확성이 이렇게 낮았던 때가 기억나지 않는다(요약 표기)",
+     "date": "11/17 (TheStreet 요약, 2차)",
+     "detail": "TheStreet Pro가 요약 전달한 발언으로 직접 인용은 아니며 원문 미확인.",
+     "src": [
+      46
+     ],
+     "outside": false
+    },
+    {
+     "who": "건들락",
+     "org": "DoubleLine",
+     "stance": "경계",
+     "quote": "\"YTD the NASDAQ has underperformed T-Bills.\"",
+     "date": "11/21 X 글(24/7 Wall St. 인용)",
+     "detail": "이후 다우·S&P 500도 올해 T-bill 대비 부진이라고 X에 게시. 24/7 Wall St.가 ETF(SGOV·BIL)로 확인했다.",
+     "src": [
+      47
+     ],
+     "outside": false
     }
    ]
   },
@@ -260,11 +285,12 @@
      "who": "베센트",
      "org": "미 재무장관",
      "stance": "정책",
-     "quote": "Nvidia 리더십에 '대대적 쇄신' 필요, 외부에서 영입해야",
-     "date": "11/15 발언(2차 보도)",
-     "detail": "Nvidia는 외부에서 후임을 찾아야 하며 10일 내 답변을 원한다고 발언(BigGo 인용, 원문 미확인).",
+     "quote": "\"이사회와 외부 법률자문의 답을 10일 안에 들어야 한다\"",
+     "date": "11/17 Bloomberg 발언(2차 보도)",
+     "detail": "Nvidia 사태에 대해 \"I think we need answers in the next 10 days from the board and from the outside counsel\"라고 발언(InvestmentNews 인용, 앞서 외부 영입 요구는 BigGo 2차 보도).",
      "src": [
-      41
+      41,
+      45
      ],
      "outside": false
     }
@@ -272,8 +298,8 @@
   }
  ],
  "missing": [
-  "드러켄밀러·하워드 막스 등 투자자, a16z·세쿼이아·코슬라 등 VC의 최근 3개월 직접 발언",
-  "애플 AI 발언"
+  "애플 AI 발언",
+  "하워드 막스 등 투자자, a16z·세쿼이아·코슬라 등 VC의 최근 3개월 직접 발언"
  ],
  "sources": [
   {
@@ -495,6 +521,21 @@
    "n": 44,
    "title": "Stock Market Today, Nov. 17: Nvidia Slides Ahead of Earnings but Soars in After Hours Trading (Motley Fool)",
    "url": "https://www.fool.com/coverage/stock-market-today/2026/11/17/stock-market-today-nov-17-nvidia-slides-ahead-of-earnings-but-soars-in-after-hours-trading/"
+  },
+  {
+   "n": 45,
+   "title": "Embattled Nvidia faces SEC probe as California AG mulls action (InvestmentNews, 11/17)",
+   "url": "https://www.investmentnews.com/equities/embattled-nvidia-faces-sec-probe-as-california-attorney-general-mulls-action/269054"
+  },
+  {
+   "n": 46,
+   "title": "Nvidia delivers the numbers, but the SEC adds a new question (TheStreet Pro, 11/17)",
+   "url": "https://pro.thestreet.com/market-commentary/nvidia-delivers-the-numbers-but-the-sec-adds-a-new-question"
+  },
+  {
+   "n": 47,
+   "title": "T-Bills Are Beating the Nasdaq, S&P 500 and Dow This Year (24/7 Wall St., 11/21)",
+   "url": "https://247wallst.com/investing/2026/11/21/t-bills-are-beating-the-nasdaq-sp-500-and-dow-this-year/"
   }
  ]
 }

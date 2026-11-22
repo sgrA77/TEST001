@@ -184,5 +184,11 @@
   "label": "Bearish",
   "headline": "Nvidia 호실적에도 -2.89%: 장 초반 상승분 반납, 5연속 하락",
   "flow": "Bearish 유지: Nvidia 실적 호조에도 CEO 공백으로 -2.89%였고 10년물 5.07%·12월 인상 약 91%(Waller 50bp 시사)가 부담이며, Anthropic 상장(11/19)과 12/9 FOMC가 변수다."
+ },
+ {
+  "date": "2026-11-23",
+  "label": "Bearish",
+  "headline": "S&P -3.70%·나스닥 -5.28%: Nvidia·Micron·AMD -13~14% 투매로 지수 조정 진입",
+  "flow": "Bearish 유지: Nvidia SEC 조사·CEO 공백과 Anthropic 상장 후 차익실현으로 AI 반도체가 -13~14% 투매되며 S&P·다우가 조정 구간에 들었고, 12/8~9 FOMC 인상이 거의 확실해 부담이 크다."
  }
 ]
