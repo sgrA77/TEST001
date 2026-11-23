@@ -1,11 +1,11 @@
 {
  "version": 1,
- "updated": "2026-11-23",
+ "updated": "2026-11-24",
  "window": "최근 3개월(기간 밖 항목은 표시)",
  "summary": [
-  "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD). 저커버그는 공격적 투자 지속을 밝혔으나 FCF는 적자 전환, 머스크는 컴퓨팅 회수 단축을 주장하면서도 10/26 네오클라우드 다수 도산 가능성을 경고. 피차이는 10/28 검색 쿼리 성장 최고라 반박했으나 FCF 적자 속 Alphabet은 -13%. MS는 10/28 Azure +48%로 호조였으나 FCF 커버율은 51%로 하락. 리사 수는 11/3 Q4 가이던스 170억$로 수요를 재확인. 11/5 칩 급락 속 리사 수는 시장이 근시안적이라고 반응. Nvidia는 11/12 황 CEO 사임으로 리더십 공백이고, 11/15경 거스트너·베이커는 황 복귀 옵션을 열어두라는 서한을 냈다(2차 보도). 11/17 WSJ의 SEC 조사 보도 이후 Nvidia는 11/20 -14%였다(주가는 시장 자료).",
+  "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD). 저커버그는 공격적 투자 지속을 밝혔으나 FCF는 적자 전환, 머스크는 컴퓨팅 회수 단축을 주장하면서도 10/26 네오클라우드 다수 도산 가능성을 경고. 피차이는 10/28 검색 쿼리 성장 최고라 반박했으나 FCF 적자 속 Alphabet은 -13%. MS는 10/28 Azure +48%로 호조였으나 FCF 커버율은 51%로 하락. 리사 수는 11/3 Q4 가이던스 170억$로 수요를 재확인. 11/5 칩 급락 속 리사 수는 시장이 근시안적이라고 반응. Nvidia는 11/12 황 CEO 사임으로 리더십 공백이고, 11/15경 거스트너·베이커는 황 복귀 옵션을 열어두라는 서한을 냈다(2차 보도). 11/17 WSJ의 SEC 조사 보도 이후 Nvidia는 11/20 -14%였으나, 11/23 이사회가 황을 즉시 복귀시켜 장중 약 +30% 반등했다(보도자료·2차 집계).",
   "투자업계는 핑크(강세) vs 달리오·그리핀·건들락(경계)로 갈림. 드러켄밀러는 향후 12개월 가시성이 낮다고 했다(요약). 그레이·거스트너는 중립.",
-  "워시는 10/28 동결하며 인플레가 여전히 높다고 했고(AI 투자 붐이 물가 압력이라는 입장 유지), 트럼프는 데이터센터 전력·지역 배당 의무화 11/6에는 트럼프가 AI 구축 전폭 지지를 밝힘(2차 보도). 베센트 재무장관은 11/15 Nvidia에 외부 인사 영입을 요구했다(2차 보도). 베센트는 11/17 Nvidia 이사회에 10일 내 답변을 요구했다."
+  "워시는 10/28 동결하며 인플레가 여전히 높다고 했고(AI 투자 붐이 물가 압력이라는 입장 유지), 트럼프는 데이터센터 전력·지역 배당 의무화 11/6에는 트럼프가 AI 구축 전폭 지지를 밝힘(2차 보도). 트럼프는 11/16 황 복귀를 반대하지 않는다고 했다(2차 보도). 베센트 재무장관은 11/15 Nvidia에 외부 인사 영입을 요구했다(2차 보도). 베센트는 11/17 Nvidia 이사회에 10일 내 답변을 요구했다."
  ],
  "groups": [
   {
@@ -15,14 +15,11 @@
      "who": "젠슨 황",
      "org": "Nvidia",
      "stance": "중립",
-     "quote": "크레스 임시 CEO: \"Our ambition will not change\"; 황: \"I own my mistakes completely\"",
-     "date": "11/17 (2차 보도)",
-     "detail": "황은 11/12 사임했고 CFO 콜레트 크레스가 임시 CEO를 맡았다. 11/17 마감 후 3분기 매출 1,158억$(+103%), 데이터센터 1,076억$, 4분기 전망 약 1,300억$(Fool). Fortune에 따르면 신임 의장 Harvey Jones는 황 복귀를 '의도하지 않는다'고 밝혔고 Heidrick & Struggles가 후임을 탐색 중이며 황은 복귀 의사를 밝혔다. 황 본인의 시장 전망 직접 발언은 확인 못 함. 모두 2차 보도 기준. WSJ 보도(11/17)로 SEC가 공시·중국 우회 의혹을 조사 중이며 11/17 InvestmentNews가 전했다(2차 보도).",
+     "quote": "황: \"I am honored to return to NVIDIA\"; 의장 Jones: \"Jensen is the right person to lead NVIDIA\"",
+     "date": "11/23 보도자료",
+     "detail": "11/23 Nvidia 이사회가 만장일치로 황을 사장·CEO·이사로 즉시 복귀시켰다. 이사회는 미 정부 고위층 의견을 듣고 국가안보 위험이 없다고 판단했으며, 독립위원회 조사는 결론까지 진행되고 황은 협조한다고 밝혔다. 국가안보·수출통제 위원회 신설, 준법감시 책임자 탐색. 크레스는 CFO 유지. 황의 시장 전망 직접 발언은 없음(공식 보도자료 기준). 11/17 WSJ의 SEC 조사 보도는 2차 보도.",
      "src": [
-      38,
-      42,
-      43,
-      44,
+      48,
       45
      ],
      "outside": false
@@ -271,12 +268,12 @@
      "who": "트럼프",
      "org": "대통령",
      "stance": "정책",
-     "quote": "AI 투자 확대 전폭 지지",
-     "date": "11/6 발언(2차 보도)",
-     "detail": "11/6 칩 반등 국면에서 트럼프가 AI 구축을 전폭 지지한다고 밝힘(CNBC 인용 StockTitan, 원문 미확인). 10/21 Truth Social: 신규 대형 데이터센터는 \"스스로 전기를 만들도록 의무화\", 지역 사회에 '배당'.",
+     "quote": "황 복귀 \"I would certainly not mind seeing that\"",
+     "date": "11/16 발언(2차 보도)",
+     "detail": "11/16 백악관 출발 시 황이 \"큰 교훈을 얻었다고 본다\"며 복귀를 반대하지 않는다고 발언(TNW 인용 The Hill, 2차 보도). 11/6 AI 구축 전폭 지지(2차 보도), 10/21 데이터센터 자체 전력 의무화 언급.",
      "src": [
+      49,
       36,
-      12,
       17
      ],
      "outside": false
@@ -287,7 +284,7 @@
      "stance": "정책",
      "quote": "\"이사회와 외부 법률자문의 답을 10일 안에 들어야 한다\"",
      "date": "11/17 Bloomberg 발언(2차 보도)",
-     "detail": "Nvidia 사태에 대해 \"I think we need answers in the next 10 days from the board and from the outside counsel\"라고 발언(InvestmentNews 인용, 앞서 외부 영입 요구는 BigGo 2차 보도).",
+     "detail": "Nvidia 사태에 대해 \"I think we need answers in the next 10 days from the board and from the outside counsel\"라고 발언(InvestmentNews 인용, 앞서 외부 영입 요구는 BigGo 2차 보도). 11/23 Nvidia는 복귀를 발표하며 정부 고위층 의견을 들었다고 했으나 베센트 발언 여부는 확인 못 함.",
      "src": [
       41,
       45
@@ -536,6 +533,16 @@
    "n": 47,
    "title": "T-Bills Are Beating the Nasdaq, S&P 500 and Dow This Year (24/7 Wall St., 11/21)",
    "url": "https://247wallst.com/investing/2026/11/21/t-bills-are-beating-the-nasdaq-sp-500-and-dow-this-year/"
+  },
+  {
+   "n": 48,
+   "title": "NVIDIA Board Reinstates Jensen Huang as President, CEO and Board Director (NVIDIA 보도자료, 11/23)",
+   "url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000090/nov23pressrelease.htm"
+  },
+  {
+   "n": 49,
+   "title": "Trump backs Jensen Huang's return as Nvidia board reportedly says no (The Next Web, 11/17)",
+   "url": "https://thenextweb.com/news/trump-backs-jensen-huangs-return-as-nvidia-board-reportedly-says-no"
   }
  ]
 }

@@ -1,19 +1,20 @@
 {
  "version": 2,
- "data_as_of": "2026-11-20 미국 장 마감",
+ "data_as_of": "2026-11-23 미국 장 마감(장중 수치 기준)",
  "market_view": {
-  "label": "Bearish",
-  "summary": "11/20 S&P 500 -3.70%(6,910.39)로 7연속 하락, 나스닥 -5.28%(22,617.73)로 올해 상승분을 반납했고 S&P·다우는 조정 구간에 진입했다. 한 주 낙폭은 S&P 약 -8.4~8.6%, 다우 약 -8%(2020년 3월 이후 최악)다. Nvidia·Micron·AMD가 각각 -13~14%대로 급락했고 12월 인상 전망도 부담이다.",
-  "ai_line": "Nvidia -14%·Micron -13.9%·AMD -13.3%: Nvidia SEC 조사 보도와 CEO 공백, Anthropic 상장 후 차익실현이 겹친 AI 반도체 투매.",
+  "label": "Neutral",
+  "summary": "11/23 Nvidia 이사회가 황 CEO를 즉시 복귀시키자 나스닥이 약 +6.5%, S&P 500이 약 +4.6~5%로 급반등해 7연속 하락을 끊었다. 다만 장중 집계 기준이며 공식 종가는 미확인이고, 12/9 FOMC 인상 확률 약 91%·10년물 4.9%대·독립 조사 지속이 남아 있어 반등의 지속성은 불확실하다.",
+  "ai_line": "Nvidia 장중 약 +30%(163.94달러), SK hynix·CoreWeave 등 AI 관련주가 동반 급등했다(2차 집계).",
   "src": [
    "s1",
-   "s2"
+   "s2",
+   "s3"
   ]
  },
  "key_changes": [
   {
-   "title": "S&P -3.70%·나스닥 -5.28%: Nvidia·Micron·AMD -13~14% 투매로 지수 조정 진입",
-   "detail": "S&P 500 6,910.39(7연속 하락), 나스닥 22,617.73으로 연초 대비 -2.7%. 세 지수 모두 200일 이동평균 아래로 내려왔다.",
+   "title": "Nvidia, 황 CEO 즉시 복귀 발표: 나스닥 약 +6.5%·S&P 약 +4.6%",
+   "detail": "11/23 Nvidia 이사회가 만장일치로 황을 사장·CEO·이사로 복귀시켰고 정부 고위층 의견을 들어 국가안보 위험이 없다고 판단했다. 금요일 S&P -3.7% 급락 뒤 7연속 하락이 끊겼다.",
    "importance": "HIGH",
    "src": [
     "s1",
@@ -21,97 +22,89 @@
    ]
   },
   {
-   "title": "Nvidia SEC 조사 보도(WSJ 11/17)에 Nvidia -14%: 회계 점검 보도까지 겹쳐",
-   "detail": "SEC가 Megaspeed 관련 칩 중국 우회와 공시의 투자자 오도 여부를 민사 조사 중이라고 WSJ가 보도했고, 캘리포니아 법무장관도 검토 중이다. 11/20 종가 보도에서는 SEC가 회계 문제도 살펴본다는 언급이 있다.",
+   "title": "Nvidia 장중 약 +30%: AI 반도체 투매분 되돌림",
+   "detail": "Nvidia는 장중 약 +30.6%(163.94달러), 한때 +35%까지 올라 시총 1조 달러 이상이 늘었다. 숏커버링·옵션 헤지도 겹쳤다는 분석이 있고 SK hynix·CoreWeave도 급등했다(비공식 집계).",
    "importance": "HIGH",
    "src": [
-    "s4",
-    "s5",
-    "s1"
+    "s2",
+    "s4"
    ]
   },
   {
-   "title": "Anthropic(ANT) 상장 2일째 -8.5%: 첫날 +17% 후 차익실현",
-   "detail": "공모가 83달러 확정 후 11/19 +17%로 출발했으나 11/20은 -8.5%였다. 전문가는 상장이 시장의 더 큰 문제(금리 등)를 해소하지 못한다고 평가했다.",
-   "importance": "MEDIUM",
-   "src": [
-    "s1",
-    "s6",
-    "s7"
-   ]
-  },
-  {
-   "title": "금 -3.5%로 14개월 최저권·VIX 31: 안전자산도 매도, 위험회피 확산",
-   "detail": "11/20 개장 전 금 3,558달러(-3.5%), VIX 31.3, 달러지수 19개월 고점. 11/19 마감 기준 S&P 7,175.83(-2.02%)이었다.",
+   "title": "VIX 35.89→27.42, 유가 WTI -3.8%: 위험회피 완화",
+   "detail": "정오 무렵 VIX는 전 금요일 종가 대비 -23.6%였고 WTI는 80.82달러로 -3.76%, Brent는 -5.74%였다. 10년물은 4.946%로 소폭 올랐다.",
    "importance": "MEDIUM",
    "src": [
     "s3"
+   ]
+  },
+  {
+   "title": "Anthropic(ANT) 약 -1.4%(87.69달러): 급반등장에서 소외",
+   "detail": "상장가 83달러, 첫날 +17% 후 금요일 -9%였고 11/23 장중 약 -1.4%로 시장 반등에 동참하지 못했다.",
+   "importance": "LOW",
+   "src": [
+    "s2",
+    "s5"
    ]
   }
  ],
  "issues": [
   {
-   "title": "Nvidia 리더십 공백·SEC 조사",
-   "detail": "황 CEO 11/12 사임 후 크레스 임시 CEO 체제이고 신임 의장은 황 복귀를 의도하지 않는다고 밝혔다. 3분기 매출 1,158억$(+103%)에도 SEC·법무 조사 보도로 주가는 약세다.",
+   "title": "Nvidia 리더십 복원과 독립 조사 지속",
+   "detail": "황이 복귀했지만 이사회 독립위원회의 조사는 결론까지 진행되며 국가안보·수출통제 위원회와 준법감시 책임자 선임이 추진된다. SEC 조사 보도(11/17 WSJ)는 이번 발표문에 언급이 없다.",
    "tag": "지속",
-   "trend": "up",
+   "trend": "steady",
    "importance": "HIGH",
    "src": [
-    "s4",
-    "s5",
-    "s6"
+    "s1"
    ]
   },
   {
-   "title": "AI 반도체 투매 확산: 200일선 이탈",
-   "detail": "Nvidia·Micron·AMD가 -13~14%였고 SOX는 고점 대비 약 30% 하락했다. Schwab은 반등마다 매도세가 나오고 아직 투매 항복 국면은 아니라고 평가했다.",
+   "title": "AI 반도체 변동성: 투매 후 급반등",
+   "detail": "11/20 -3.7% 급락 뒤 11/23 나스닥 약 +6.5%로 되돌렸으나 하루 반등이 추세 전환인지는 불확실하다. Goldman은 지속 가능한 저점의 조건 3가지를 제시했다(2차 보도).",
    "tag": "지속",
    "trend": "up",
    "importance": "HIGH",
    "src": [
-    "s1",
     "s2",
     "s3"
    ]
   },
   {
    "title": "12월 인상 기정사실과 금리 부담",
-   "detail": "연준은 9월 인상으로 3.75~4.00%이고 12/8~9 FOMC 25bp 인상이 거의 확실하다는 보도다. 시장은 내년 6월까지 50~75bp 추가 인상을 반영한다.",
+   "detail": "Polymarket 기준 12/9 인상 확률 약 91%(채권 가격 약 92%)로 11/12의 98%에서 낮아졌고, Cook 이사는 인상 지연이 '뒤처질 위험'이라고 경고했다.",
    "tag": "지속",
    "trend": "steady",
    "importance": "HIGH",
    "src": [
-    "s2",
-    "s3"
+    "s2"
    ]
   },
   {
-   "title": "Anthropic 상장: 첫 대형 시험대 통과 못 해",
-   "detail": "상장 첫날 +17% 뒤 2일째 -8.5%로 AI 조정장에 매수세를 만들지 못했다.",
-   "tag": "지속",
-   "trend": "down",
-   "importance": "MEDIUM",
+   "title": "CrowdStrike, Zscaler 인수 합의: 주가 -9%",
+   "detail": "11/23 CrowdStrike가 Zscaler 인수에 합의하자 -9%였다(Trading Economics 요약 문구, 본문 미확인).",
+   "tag": "신규",
+   "trend": "steady",
+   "importance": "LOW",
    "src": [
-    "s1",
-    "s7"
+    "s6"
    ]
   }
  ],
  "risks": [
   {
-   "title": "Nvidia 조사 확대·후임 CEO 불확실",
-   "detail": "SEC·DOJ·캘리포니아 법무장관 조사가 공시·중국 우회 문제로 번지고, 영구 CEO 선임이 늦어질 수 있다.",
-   "watch": "Bessent가 요구한 '10일 내 답변'(11/17 기준) 시한, 이사회의 후임 발표",
+   "title": "독립 조사 결과·정부 조치 재점화",
+   "detail": "이사회 조사가 결론까지 진행 중이며 정부 조사·질의도 계속된다고 밝혔다. 결과에 따라 황 복귀 호재가 뒤집힐 수 있다.",
+   "watch": "Nvidia 독립위원회 조사 결과, SEC·의회 후속 보도",
    "importance": "HIGH",
    "src": [
-    "s4",
-    "s5"
+    "s1"
    ]
   },
   {
-   "title": "12월 인상 후 추가 인상·장기금리 5%대",
-   "detail": "금리 부담이 이미 AI 밸류에이션을 누르는 가운데 인상 경로가 더 가팔라지면 낙폭이 커질 수 있다.",
-   "watch": "12/8~9 FOMC, 연준 인사 발언, 시장의 내년 6월 50~75bp 반영 변화",
+   "title": "12월 인상 후 추가 긴축·장기금리 상승",
+   "detail": "인상이 거의 반영됐지만 10년물이 4.9%대에서 다시 오르면 급반등이 꺾일 수 있다.",
+   "watch": "12/8~9 FOMC, 11월 PCE·고용 지표, 10년물 5% 재돌파",
    "importance": "HIGH",
    "src": [
     "s2",
@@ -119,76 +112,67 @@
    ]
   },
   {
-   "title": "기술적 붕괴가 투매·유동성 경색으로 번질 위험",
-   "detail": "지수가 200일선을 이탈했고 VIX 31, 신저가 종목 급증 속에 투매 항복이 아직 안 나왔다는 평가라 추가 하락 여지가 있다.",
-   "watch": "VIX 30 이상 지속, S&P 6,900선 지지 여부, 월요일 개장 반응",
+   "title": "하루 급반등 후 되돌림: 숏커버링성 반등의 한계",
+   "detail": "Nasdaq-100이 장 초반 +8% 갭으로 출발한 점과 숏커버링·옵션 헤지 분석을 보면 수급 요인이 크다. 단기 지속성은 확인되지 않았다.",
+   "watch": "11/24~11/27 AI 반도체 종가 흐름, 11/27 조기 마감(오후 1시)",
    "importance": "MEDIUM",
    "src": [
-    "s1",
-    "s3",
-    "s5"
+    "s2",
+    "s3"
    ]
   }
  ],
- "flow": "Bearish 유지: Nvidia SEC 조사·CEO 공백과 Anthropic 상장 후 차익실현으로 AI 반도체가 -13~14% 투매되며 S&P·다우가 조정 구간에 들었고, 12/8~9 FOMC 인상이 거의 확실해 부담이 크다.",
+ "flow": "Neutral 전환: Nvidia 황 CEO 복귀로 AI 반도체가 급반등했지만, 12월 인상 약 91%·10년물 4.9%대와 독립 조사 지속으로 반등 지속성은 불확실하다.",
  "sources": [
   {
    "id": "s1",
-   "title": "S&P 500 and Dow close in correction as Nasdaq erases 2026 gains",
-   "publisher": "Dimsum Daily",
-   "url": "https://www.dimsumdaily.hk/sp-500-and-dow-close-in-correction-as-nasdaq-erases-2026-gains/",
-   "date": "2026-11-21",
-   "tier": "언론"
+   "title": "NVIDIA Board Reinstates Jensen Huang as President, CEO and Board Director",
+   "publisher": "NVIDIA(SEC EDGAR 게재)",
+   "url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000090/nov23pressrelease.htm",
+   "date": "2026-11-23",
+   "tier": "공식"
   },
   {
    "id": "s2",
-   "title": "T-Bills Are Beating the Nasdaq, S&P 500 and Dow This Year",
-   "publisher": "24/7 Wall St.",
-   "url": "https://247wallst.com/investing/2026/11/21/t-bills-are-beating-the-nasdaq-sp-500-and-dow-this-year/",
-   "date": "2026-11-21",
-   "tier": "언론"
+   "title": "US stock market today: Nasdaq Composite surges 6.5% as Nvidia stock jumps 30%",
+   "publisher": "Beinsure",
+   "url": "https://beinsure.com/news/us-stock-market-today-nasdaq-composite-surges-as-nvidia-jumps/",
+   "date": "2026-11-23",
+   "tier": "집계"
   },
   {
    "id": "s3",
-   "title": "Tech Carnage Continues, with Anthropic Now Falling",
-   "publisher": "Charles Schwab",
-   "url": "https://www.schwab.com/learn/story/stock-market-update-open",
-   "date": "2026-11-20",
-   "tier": "리서치"
+   "title": "Stock Market Today: S&P 500 Surges 4.99% and Nasdaq 6.91% at Midday as VIX Slides",
+   "publisher": "JournalArta",
+   "url": "https://journalarta.com/en/2026/11/24/stock-market-today-sp-500-surges-4-99-and-nasdaq-6-91-at-midday-as-vix-slides/",
+   "date": "2026-11-24",
+   "tier": "집계"
   },
   {
    "id": "s4",
-   "title": "Embattled Nvidia faces SEC probe as California attorney general mulls action",
-   "publisher": "InvestmentNews",
-   "url": "https://www.investmentnews.com/equities/embattled-nvidia-faces-sec-probe-as-california-attorney-general-mulls-action/269054",
-   "date": "2026-11-17",
-   "tier": "언론"
+   "title": "Nasdaq surged 6.5%, Nvidia skyrocketed 31%",
+   "publisher": "ChainCatcher(Gate 데이터)",
+   "url": "https://www.chaincatcher.com/en/article/2307448",
+   "date": "2026-11-24",
+   "tier": "집계"
   },
   {
    "id": "s5",
-   "title": "Nvidia delivers the numbers, but the SEC adds a new question",
-   "publisher": "TheStreet Pro",
-   "url": "https://pro.thestreet.com/market-commentary/nvidia-delivers-the-numbers-but-the-sec-adds-a-new-question",
-   "date": "2026-11-17",
-   "tier": "언론"
+   "title": "US stock market today (Anthropic ANT 시세 부분)",
+   "publisher": "Beinsure",
+   "url": "https://beinsure.com/news/us-stock-market-today-nasdaq-composite-surges-as-nvidia-jumps/",
+   "date": "2026-11-23",
+   "tier": "집계"
   },
   {
    "id": "s6",
-   "title": "Nvidia can run without Jensen Huang. Can the AI boom?",
-   "publisher": "Fortune",
-   "url": "https://fortune.com/2026/11/19/nvidia-jensen-huang-downdall-investment-ai-boom/",
-   "date": "2026-11-19",
-   "tier": "언론"
-  },
-  {
-   "id": "s7",
-   "title": "Friday 20 Nov 2026",
-   "publisher": "The Edge Malaysia",
-   "url": "https://theedgemalaysia.com/node/826582",
-   "date": "2026-11-20",
-   "tier": "언론"
+   "title": "US Stocks Rise as Thanksgiving Week Begins (News Stream 요약)",
+   "publisher": "Trading Economics",
+   "url": "https://tradingeconomics.com/united-states/stock-market/news/504530",
+   "date": "2026-11-23",
+   "tier": "집계"
   }
  ],
- "date": "2026-11-23",
- "generated_at": "2026-11-23T06:27:40+09:00"
+ "date": "2026-11-24",
+ "generated_at": "2026-11-24T06:26:50+09:00"
 }

@@ -190,5 +190,11 @@
   "label": "Bearish",
   "headline": "S&P -3.70%·나스닥 -5.28%: Nvidia·Micron·AMD -13~14% 투매로 지수 조정 진입",
   "flow": "Bearish 유지: Nvidia SEC 조사·CEO 공백과 Anthropic 상장 후 차익실현으로 AI 반도체가 -13~14% 투매되며 S&P·다우가 조정 구간에 들었고, 12/8~9 FOMC 인상이 거의 확실해 부담이 크다."
+ },
+ {
+  "date": "2026-11-24",
+  "label": "Neutral",
+  "headline": "Nvidia, 황 CEO 즉시 복귀 발표: 나스닥 약 +6.5%·S&P 약 +4.6%",
+  "flow": "Neutral 전환: Nvidia 황 CEO 복귀로 AI 반도체가 급반등했지만, 12월 인상 약 91%·10년물 4.9%대와 독립 조사 지속으로 반등 지속성은 불확실하다."
  }
 ]
