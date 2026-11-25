@@ -2,7 +2,7 @@
 """HS_FETCH.py - 반도체 ETF 상위 구성종목 주간 종가 -> hs.json (GitHub Actions)"""
 import json, time, requests
 UA = {"User-Agent": "Mozilla/5.0"}
-TK = ["SMH","SOXX","NVDA","TSM","AVGO","ASML","AMD","MU","INTC","TXN","QCOM","AMAT","LRCX","KLAC","ADI","MRVL","NXPI","MCHP","ARM"]
+TK = ["SMH","SOXX","NVDA","TSM","AVGO","ASML","AMD","MU","INTC","TXN","QCOM","AMAT","LRCX","KLAC","ADI","MRVL","NXPI","MCHP","ARM","ORCL","CRWV","MSFT","AMZN","GOOGL","META","ANT","000660.KS","005930.KS","^KS11","^GSPC","^NDX"]
 out = {}
 for s in TK:
     for host in ("query1", "query2"):
