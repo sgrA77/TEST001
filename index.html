@@ -1339,7 +1339,7 @@ fetch("data.json?t=" + Date.now())
   EV.forEach(function(e){
     var d=new Date(e[1]+"T00:00:00"), n=Math.round((d-t0)/864e5);
     if(n<0) return;
-    h+='<span class="cd">'+e[0]+' <b>D-'+n+'</b>'+(e[2]?' · '+(n/30.4375).toFixed(1)+'개월':'')+'</span>';
+    h+='<span class="cd">'+e[0]+' <b>D-'+n+'</b> '+(d.getMonth()+1)+"/"+d.getDate()+(e[2]?' · '+(n/30.4375).toFixed(1)+'개월':'')+'</span>';
   });
   var el=document.getElementById("cdbar"); if(el) el.innerHTML=h;
 })();
