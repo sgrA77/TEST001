@@ -1,11 +1,11 @@
 {
  "version": 1,
- "updated": "2026-11-24",
+ "updated": "2026-11-26",
  "window": "최근 3개월(기간 밖 항목은 표시)",
  "summary": [
-  "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD). 저커버그는 공격적 투자 지속을 밝혔으나 FCF는 적자 전환, 머스크는 컴퓨팅 회수 단축을 주장하면서도 10/26 네오클라우드 다수 도산 가능성을 경고. 피차이는 10/28 검색 쿼리 성장 최고라 반박했으나 FCF 적자 속 Alphabet은 -13%. MS는 10/28 Azure +48%로 호조였으나 FCF 커버율은 51%로 하락. 리사 수는 11/3 Q4 가이던스 170억$로 수요를 재확인. 11/5 칩 급락 속 리사 수는 시장이 근시안적이라고 반응. Nvidia는 11/12 황 CEO 사임으로 리더십 공백이고, 11/15경 거스트너·베이커는 황 복귀 옵션을 열어두라는 서한을 냈다(2차 보도). 11/17 WSJ의 SEC 조사 보도 이후 Nvidia는 11/20 -14%였으나, 11/23 이사회가 황을 즉시 복귀시켜 장중 약 +30% 반등했다(보도자료·2차 집계).",
-  "투자업계는 핑크(강세) vs 달리오·그리핀·건들락(경계)로 갈림. 드러켄밀러는 향후 12개월 가시성이 낮다고 했다(요약). 그레이·거스트너는 중립.",
-  "워시는 10/28 동결하며 인플레가 여전히 높다고 했고(AI 투자 붐이 물가 압력이라는 입장 유지), 트럼프는 데이터센터 전력·지역 배당 의무화 11/6에는 트럼프가 AI 구축 전폭 지지를 밝힘(2차 보도). 트럼프는 11/16 황 복귀를 반대하지 않는다고 했다(2차 보도). 베센트 재무장관은 11/15 Nvidia에 외부 인사 영입을 요구했다(2차 보도). 베센트는 11/17 Nvidia 이사회에 10일 내 답변을 요구했다."
+  "빅테크 수장 다수는 **수요가 용량을 앞선다**고 말함 (MS·Alphabet·Amazon·AMD). 저커버그는 공격적 투자 지속을 밝혔으나 FCF는 적자 전환, 머스크는 컴퓨팅 회수 단축을 주장하면서도 10/26 네오클라우드 다수 도산 가능성을 경고. 피차이는 10/28 검색 쿼리 성장 최고라 반박했으나 FCF 적자 속 Alphabet은 -13%. MS는 10/28 Azure +48%로 호조였으나 FCF 커버율은 51%로 하락. 리사 수는 11/3 Q4 가이던스 170억$로 수요를 재확인. 11/5 칩 급락 속 리사 수는 시장이 근시안적이라고 반응. Nvidia는 11/12 황 CEO 사임으로 리더십 공백이고, 11/15경 거스트너·베이커는 황 복귀 옵션을 열어두라는 서한을 냈다(2차 보도). 11/17 WSJ의 SEC 조사 보도 이후 Nvidia는 11/20 -14%였으나, 11/23 이사회가 황을 즉시 복귀시켜 장중 약 +30% 반등했다(보도자료·2차 집계). 머스크는 11/21 내년 AI 자금 부족이 극심할 것이라 경고했다(2차 보도).",
+  "투자업계는 핑크(강세) vs 달리오·그리핀·건들락·버리(경계)로 갈림. 버리는 11/24 황 복귀에도 Nvidia 공매도 논리가 유효하다고 했다(2차 보도). 드러켄밀러는 향후 12개월 가시성이 낮다고 했다(요약). 그레이·거스트너는 중립.",
+  "워시는 10/28 동결하며 인플레가 여전히 높다고 했고(AI 투자 붐이 물가 압력이라는 입장 유지), 트럼프는 데이터센터 전력·지역 배당 의무화 11/6에는 트럼프가 AI 구축 전폭 지지를 밝힘(2차 보도). 트럼프는 11/16 황 복귀를 반대하지 않는다고 했다(2차 보도). 베센트 재무장관은 11/15 Nvidia에 외부 인사 영입을 요구했다(2차 보도). 베센트는 11/17 Nvidia 이사회에 10일 내 답변을 요구했다. 베센트는 11/22 CBS에서 Nvidia에 '답이 필요하다'며 Fed 과잉 긴축도 경계했다."
  ],
  "groups": [
   {
@@ -91,10 +91,11 @@
      "who": "머스크",
      "org": "xAI·SpaceX",
      "stance": "경계",
-     "quote": "네오클라우드 200여 곳 다수 도산 가능, 부채시장이 자금 공급 중단(10/26)",
-     "date": "10/26 발언(보도)",
-     "detail": "10/26 머스크가 200여 네오클라우드 중 다수가 망할 수 있고 부채시장이 독립 수익 없는 AI 데이터센터 운영사에 자금 공급을 사실상 중단했다고 경고, Nebius·CoreWeave·Iren 하락(2차 보도, 원문 미확인). 앞서 10/20 SpaceX 콜에서는 컴퓨팅 투자 회수 6개월 가능·수요 문제 없다고 발언, 10/21 Tesla 연간 capex 가이던스 250억→200억$. 11/15경 Gerstner·Baker의 'Nvidia 이사회는 황 복귀 포함 모든 옵션을 열어두라' 공개서한을 머스크 등이 지지(BigGo 2차 보도, 원문 미확인).",
+     "quote": "\"The cash shortage is also going to be nuts next year\"(11/21 X)",
+     "date": "11/21 X 글(2차 보도)",
+     "detail": "11/21 X에서 내년 AI 자금(현금) 부족이 극심할 것이라 경고(TheStreet 인용). 10/26 머스크가 200여 네오클라우드 중 다수가 망할 수 있고 부채시장이 독립 수익 없는 AI 데이터센터 운영사에 자금 공급을 사실상 중단했다고 경고, Nebius·CoreWeave·Iren 하락(2차 보도, 원문 미확인). 앞서 10/20 SpaceX 콜에서는 컴퓨팅 투자 회수 6개월 가능·수요 문제 없다고 발언, 10/21 Tesla 연간 capex 가이던스 250억→200억$. 11/15경 Gerstner·Baker의 'Nvidia 이사회는 황 복귀 포함 모든 옵션을 열어두라' 공개서한을 머스크 등이 지지(BigGo 2차 보도, 원문 미확인).",
      "src": [
+      51,
       28,
       29,
       26,
@@ -214,10 +215,13 @@
      "who": "버리",
      "org": "Scion",
      "stance": "경계",
-     "quote": "엔비디아 고평가, 공매도 확대(보도)",
-     "date": "9/14 보도",
-     "detail": "엔비디아가 고평가라며 공매도 포지션을 확대(2차 보도, 발언 원문 미확인).",
+     "quote": "Nvidia 공매도 논리 \"still valid, still has legs\", 황 복귀는 \"precarious normal\"",
+     "date": "11/24 Substack(2차 보도)",
+     "detail": "11/24 Substack에서 황 복귀에도 Nvidia 공매도 논리가 유효하다며 \"precarious normal\"이 돌아올 뿐이라고 썼다(Stocktwits 인용, 원문 미확인). 11/19 X에 \"Coreweave, Nebius, Nvidia, semis, I tried to warn you all\", 1929·2000년과 비교. 9/14 공매도 확대 보도.",
      "src": [
+      50,
+      51,
+      53,
       15
      ],
      "outside": false
@@ -282,10 +286,11 @@
      "who": "베센트",
      "org": "미 재무장관",
      "stance": "정책",
-     "quote": "\"이사회와 외부 법률자문의 답을 10일 안에 들어야 한다\"",
-     "date": "11/17 Bloomberg 발언(2차 보도)",
-     "detail": "Nvidia 사태에 대해 \"I think we need answers in the next 10 days from the board and from the outside counsel\"라고 발언(InvestmentNews 인용, 앞서 외부 영입 요구는 BigGo 2차 보도). 11/23 Nvidia는 복귀를 발표하며 정부 고위층 의견을 들었다고 했으나 베센트 발언 여부는 확인 못 함.",
+     "quote": "\"we do need answers\"(11/22 CBS)",
+     "date": "11/22 CBS Face the Nation(2차 보도)",
+     "detail": "11/22 CBS에서 Nvidia 임시 경영진·선임이사·변호인과 접촉 중이며 \"we do need answers\"라고 했고, 이사회가 충실한 답변을 줄 것이라 언급. 같은 날 Fed의 과잉 긴축이 경제를 위협할 수 있다고 경고(Investing.com 요약). 11/17에는 10일 내 답변 요구.",
      "src": [
+      52,
       41,
       45
      ],
@@ -543,6 +548,26 @@
    "n": 49,
    "title": "Trump backs Jensen Huang's return as Nvidia board reportedly says no (The Next Web, 11/17)",
    "url": "https://thenextweb.com/news/trump-backs-jensen-huangs-return-as-nvidia-board-reportedly-says-no"
+  },
+  {
+   "n": 50,
+   "title": "Michael Burry Says Nvidia's 'Precarious Normal' Returns With Jensen Huang Back At The Helm (Stocktwits via Yahoo, 2026-11-24)",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/michael-burry-says-nvidias-precarious-190217857.html"
+  },
+  {
+   "n": 51,
+   "title": "Elon Musk's 2027 warning stokes stock market crash fears (TheStreet via Yahoo, 2026-11-23)",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/elon-musk-2027-warning-stokes-220300103.html"
+  },
+  {
+   "n": 52,
+   "title": "Futures bounce after AI selloff; Bessent on Nvidia probe (Investing.com, 2026-11-23)",
+   "url": "https://www.investing.com/news/economy-news/futures-bounce-after-ai-selloff-bessent-on-nvidia-probe--whats-moving-markets-5044447"
+  },
+  {
+   "n": 53,
+   "title": "Michael Burry warns AI stocks mirror 1929 and 2000 crashes (Moneywise via Yahoo, 2026-11-20)",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/michael-burry-warns-ai-stocks-223000286.html"
   }
  ]
 }

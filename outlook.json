@@ -1,157 +1,216 @@
 {
  "version": 2,
- "data_as_of": "2026-11-24 미국 장(장 막판 집계, 공식 종가 미확인)",
+ "data_as_of": "2026-11-25 미국 장(오후 3시경 집계, 공식 종가 미확인)",
  "market_view": {
-  "label": "Neutral",
-  "summary": "11/24 증시는 전날 Nvidia 황 CEO 복귀 급반등(+31%)을 되돌리며 나스닥 약 -1.6~2.0%, S&P 500 약 -0.6~0.9%로 밀렸고 다우만 +0.6~0.8%였다. 12월 25bp 인상 확률이 95%로 다시 올라 AI 반등이 물가 우려를 키운다는 해석이 나왔고, 10년물 4.90%·VIX 27대로 불안은 남아 있다.",
-  "ai_line": "Nvidia -7%·AMD -9%·Micron/SK hynix -10% 이상: 전날 반등분을 상당 부분 반납",
+  "label": "Bearish",
+  "summary": "11/25 나스닥은 오전 한때 -4%대까지 밀리며 나스닥100이 고점 대비 20% 하락선에 닿았다가 오후 3시경 약 -0.9%로 낙폭을 줄였고, 다우는 +0.4%로 돌아섰다. 근원 PCE 3.3%(예상 3.2%) 상회와 USTR의 14개국 신규 관세안이 겹쳐 12월 인상 확률은 97~98%다. 11/26 추수감사절 휴장, 11/27은 단축 거래다.",
+  "ai_line": "Nvidia 장중 -8%대 후 약 -5%(7주간 -40%), SOX -6% 안팎: AI 기업 CDS 스프레드 사상 최고가 부담",
   "src": [
-   "s1"
+   "s1",
+   "s2",
+   "s5"
   ]
  },
  "key_changes": [
   {
-   "title": "Nvidia -7%, Micron·SK hynix -10% 이상: 전날 +31% 급반등 되돌림",
-   "detail": "황 복귀 다음 날 AI 반도체가 다시 급락했고 AMD(-9%대)·Broadcom도 하락했다. 나스닥은 약 -1.6~2.0%로 밀렸다.",
+   "title": "근원 PCE 3.3%로 예상(3.2%) 상회, 헤드라인 3.8%",
+   "detail": "10월 PCE가 다시 가속했고 3분기 GDP는 4.3%로 상향됐다. 12월 25bp 인상 확률은 97~98%, 1월 추가 인상도 63%로 반영됐다.",
    "importance": "HIGH",
    "src": [
-    "s1"
-   ]
-  },
-  {
-   "title": "12월 인상 확률 95%(25bp), 50bp 5%: 인상 베팅 재상승",
-   "detail": "직전 인상 베팅이 줄었다가 다시 95%로 올라왔고, AI 랠리가 물가 우려를 키운다는 해석이 붙었다. 10년물은 4.90%대다.",
-   "importance": "HIGH",
-   "src": [
-    "s1"
-   ]
-  },
-  {
-   "title": "Anthropic(ANT) IPO가 83달러 아래로 하락",
-   "detail": "상장 후 급등했던 주가가 공모가 밑으로 내려갔다. 자금 수요·신용등급 대기·차익실현이 부담으로 언급됐다(요약 부분 포함).",
-   "importance": "MEDIUM",
-   "src": [
-    "s1"
-   ]
-  },
-  {
-   "title": "HPE 매출 +50%·수주 +88%지만 마진 전망 부담",
-   "detail": "HPE는 4분기 매출 +50%, 수주 +88%를 냈으나 장전 약 -13%였다(마진 전망이 원인이라는 내용은 요약 부분 기준).",
-   "importance": "LOW",
-   "src": [
-    "s1"
-   ]
-  }
- ],
- "issues": [
-  {
-   "title": "AI 반도체 변동성: 하루 단위 급등락 반복",
-   "detail": "11/23 Nvidia +31%, 11/24 -7%로 반등이 이어지지 못했다. 메모리(Micron·SK hynix)와 스토리지주도 5~10% 이상 하락했다.",
-   "tag": "지속",
-   "trend": "up",
-   "importance": "HIGH",
-   "src": [
-    "s1"
-   ]
-  },
-  {
-   "title": "Nvidia 황 CEO 복귀와 독립 조사 지속",
-   "detail": "이사회는 11/23 황을 즉시 복귀시키면서 독립이사 위원회의 조사는 끝까지 진행하고 정부 조사에도 협조한다고 밝혔다. 이사회는 정부 고위 인사 의견을 들어 국가안보 위험이 없다고 판단했다.",
-   "tag": "지속",
-   "trend": "steady",
-   "importance": "HIGH",
-   "src": [
+    "s1",
     "s2",
-    "s3"
+    "s4"
    ]
   },
   {
-   "title": "12월 FOMC 인상 기정사실과 AI발 물가 우려",
-   "detail": "25bp 인상 확률 95%이며, AI 랠리가 인플레 우려를 자극한다는 해석이 나온다.",
-   "tag": "지속",
-   "trend": "steady",
+   "title": "USTR, 14개국 신규 관세안: 중국 최대 20%·EU 15%·인도 최대 25%",
+   "detail": "과잉생산 조사(301조) 결과로 기존 관세에 더해지는 안이며, 의견 제출 1/5·공청회 1/25 이후 빨라야 1월 시행이다.",
    "importance": "HIGH",
    "src": [
-    "s1"
-   ]
-  },
-  {
-   "title": "Anthropic 상장 후 약세와 AI 수익성 시험",
-   "detail": "공모가 83달러 아래로 내려가며 상장 열기가 식었다. 같은 날 Microsoft가 11/12~13 장애 이후 '코드 레드'를 선언했다는 보도도 있다.",
-   "tag": "신규",
-   "trend": "up",
-   "importance": "MEDIUM",
-   "src": [
-    "s1"
-   ]
-  }
- ],
- "risks": [
-  {
-   "title": "Nvidia 독립 조사·SEC 조사 결과",
-   "detail": "WSJ 보도 기준 SEC가 공시가 투자자를 오도했는지 조사 중이며 SEC는 언급을 거부했다. 복귀 후에도 조사는 진행된다.",
-   "watch": "독립위원회 조사 결과, SEC·DOJ 관련 후속 보도",
-   "importance": "HIGH",
-   "src": [
-    "s2",
+    "s1",
     "s3",
     "s4"
    ]
   },
   {
-   "title": "12월 인상 후 추가 긴축·장기금리 상승",
-   "detail": "인상 95% 반영 상태에서 AI 랠리가 물가를 자극하면 장기금리가 다시 오를 수 있다.",
-   "watch": "12/8~9 FOMC, 10년물 4.90% 부근 흐름",
+   "title": "나스닥 장중 -4%대 → 오후 -0.9%: 나스닥100 약세장 문턱",
+   "detail": "오전 S&P 500 -2.8%·다우 -2%까지 밀렸다가 오후 3시경 S&P -0.4%, 다우 +0.4%로 회복했다(종가 미확인).",
    "importance": "HIGH",
    "src": [
+    "s1",
+    "s2",
+    "s6"
+   ]
+  },
+  {
+   "title": "Nvidia 장중 -8%대, 오후 약 -5%: 황 복귀 반등분 소진",
+   "detail": "이틀째 하락으로 7주간 -40%가 됐고, AMD·Micron·Broadcom도 장중 6~9% 내렸다.",
+   "importance": "MEDIUM",
+   "src": [
+    "s1",
+    "s2",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "issues": [
+  {
+   "title": "AI 반도체 급락 지속과 하루 단위 급등락",
+   "detail": "황 복귀 급반등 뒤 이틀 연속 하락했다. SOX는 장중 -6% 안팎이며 Micron·Sandisk 낙폭이 컸다.",
+   "tag": "지속",
+   "trend": "up",
+   "importance": "HIGH",
+   "src": [
+    "s1",
+    "s2",
+    "s5"
+   ]
+  },
+  {
+   "title": "AI 기업 신용 경색: CDS 스프레드 사상 최고",
+   "detail": "Alphabet·Oracle·SpaceX·CoreWeave 등 AI 관련 기업 CDS가 최고치이며 CoreWeave는 1,314bp다. 투자 과잉·수익성 우려와 맞물린다.",
+   "tag": "신규",
+   "trend": "up",
+   "importance": "HIGH",
+   "src": [
+    "s5",
     "s1"
    ]
   },
   {
-   "title": "은행 보유 증권 미실현 손실 확대",
-   "detail": "FDIC에 따르면 3분기 은행 미실현 증권 손실이 50% 늘어 4,860억 달러가 됐다.",
-   "watch": "금리 추가 상승 시 은행주·신용 지표",
+   "title": "끈적한 인플레와 12월 FOMC 인상 기정사실",
+   "detail": "근원 PCE 3.3% 상회로 12/8~9 인상 확률이 97~98%, 1월 추가 인상 63%다. 10년물은 4.82~4.85%로 오히려 내렸다.",
+   "tag": "지속",
+   "trend": "up",
+   "importance": "HIGH",
+   "src": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "title": "Nvidia 독립 조사와 정부 압박",
+   "detail": "황은 복귀했지만 독립위원회 조사는 계속되고, 베센트 재무장관은 11/22 이사회에 \"답이 필요하다\"고 했다.",
+   "tag": "지속",
+   "trend": "steady",
    "importance": "MEDIUM",
    "src": [
-    "s1"
+    "s7"
+   ]
+  },
+  {
+   "title": "Anthropic(ANT) 공모가 부근 등락",
+   "detail": "11/24 81.90달러로 마감한 뒤 11/25 장중 -3~8% 하락하는 등 상장 후 약세가 이어졌다.",
+   "tag": "지속",
+   "trend": "steady",
+   "importance": "MEDIUM",
+   "src": [
+    "s2",
+    "s4",
+    "s6"
    ]
   }
  ],
- "flow": "Neutral 유지: 황 복귀 급반등(+31%)을 하루 만에 되돌리며 Nvidia -7%·나스닥 약 -1.6~2.0%, 12월 인상 95%·10년물 4.90%와 독립 조사 지속이 부담이다.",
+ "risks": [
+  {
+   "title": "신규 관세 확정과 무역 보복",
+   "detail": "14개국 관세가 기존 세율에 더해지면 물가·기업 이익을 동시에 누를 수 있다.",
+   "watch": "1/5 의견 마감·1/25 공청회, 각국 대응",
+   "importance": "HIGH",
+   "src": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "title": "연속 인상과 금융여건 긴축",
+   "detail": "12월에 이어 1월 인상까지 가면 AI 고밸류·고부채 기업 조달 부담이 커진다.",
+   "watch": "12/8~9 FOMC 점도표, 11월 CPI",
+   "importance": "HIGH",
+   "src": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "title": "AI 신용 이벤트(네오클라우드·데이터센터 부채)",
+   "detail": "CDS 최고치가 실제 조달 실패나 디폴트로 번지면 AI 인프라 투자 전반이 흔들릴 수 있다.",
+   "watch": "CoreWeave 등 CDS·회사채 발행",
+   "importance": "HIGH",
+   "src": [
+    "s5"
+   ]
+  },
+  {
+   "title": "Nvidia 조사 결과(독립위원회·SEC)",
+   "detail": "아시아 매출 처리 등 회계 문제가 확인되면 반도체 전반 재평가로 번질 수 있다.",
+   "watch": "독립위원회 결론, 이사회 정부 답변",
+   "importance": "MEDIUM",
+   "src": [
+    "s7"
+   ]
+  }
+ ],
+ "flow": "Bearish 전환: 근원 PCE 상회(3.3%)와 14개국 신규 관세안, AI 기업 CDS 최고치로 나스닥100이 약세장 문턱을 찍었고 장중 회복에도 Nvidia는 7주간 -40%, 12월·1월 연속 인상 우려가 커졌다.",
  "sources": [
   {
    "id": "s1",
-   "title": "Stock market today: Dow gains, S&P 500 and Nasdaq decline as chip stocks tumble",
+   "title": "Stock market today: Dow, S&P 500, Nasdaq pare losses as AI-fueled rout continues (live)",
    "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-november-24-dow-sp-500-nasdaq-chip-stocks-nvidia-140629923.html",
-   "date": "2026-11-24",
+   "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-november-25-dow-sp-500-nasdaq-pce-inflation-data-091428237.html",
+   "date": "2026-11-25",
    "tier": "언론"
   },
   {
    "id": "s2",
-   "title": "NVIDIA Board Reinstates Jensen Huang as President, CEO and Board Director",
-   "publisher": "NVIDIA (SEC EDGAR)",
-   "url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000090/nov23pressrelease.htm",
-   "date": "2026-11-23",
-   "tier": "공식"
+   "title": "Stocks slide as AI sell-off deepens, Fed's preferred inflation gauge rises",
+   "publisher": "Fox Business",
+   "url": "https://www.foxbusiness.com/markets/stocks-11-25-2026",
+   "date": "2026-11-25",
+   "tier": "언론"
   },
   {
    "id": "s3",
-   "title": "Huang pitches Nvidia comeback, WSJ reports SEC probing the chipmaker",
-   "publisher": "Korea JoongAng Daily (Reuters)",
-   "url": "https://www.koreajoongangdaily.com/business/huang-pitches-nvidia-comeback-wsj-reports-sec-probing-the-chipmaker/12978169",
-   "date": "2026-11-18",
+   "title": "Nasdaq Falls 4% as Tariff Proposals Meet Hotter Core PCE",
+   "publisher": "FinanceFeeds",
+   "url": "https://financefeeds.com/nasdaq-falls-4-as-tariff-proposals-meet-hotter-core-pce/",
+   "date": "2026-11-25",
    "tier": "언론"
   },
   {
    "id": "s4",
-   "title": "SEC opens investigation into NVIDIA over whether investors were misled",
-   "publisher": "TweakTown",
-   "url": "https://www.tweaktown.com/news/114760/sec-opens-investigation-into-nvidia-over-whether-investors-were-misled-to-boost-earnings/index.html",
-   "date": "2026-11-18",
+   "title": "Nasdaq Plunges 4% Before Thanksgiving as AI Sell-Off and New Tariff Plan Hit Wall Street",
+   "publisher": "The Boston Report",
+   "url": "https://thebostonreport.com/2026/11/25/nasdaq-plunges-ai-sell-off-tariffs-thanksgiving-november-25-2026",
+   "date": "2026-11-25",
+   "tier": "언론"
+  },
+  {
+   "id": "s5",
+   "title": "Why Nvidia Stock Is Falling Again",
+   "publisher": "The Motley Fool",
+   "url": "https://www.fool.com/investing/2026/11/25/why-nvidia-stock-is-falling-again/",
+   "date": "2026-11-25",
+   "tier": "언론"
+  },
+  {
+   "id": "s6",
+   "title": "Nasdaq tumbles 4% as Nvidia leads AI sell-off, inflation and tariffs weigh on investors",
+   "publisher": "NY Post via Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-tumbles-4-nvidia-leads-164313502.html",
+   "date": "2026-11-25",
+   "tier": "언론"
+  },
+  {
+   "id": "s7",
+   "title": "Futures bounce after AI selloff; Bessent on Nvidia probe",
+   "publisher": "Investing.com",
+   "url": "https://www.investing.com/news/economy-news/futures-bounce-after-ai-selloff-bessent-on-nvidia-probe--whats-moving-markets-5044447",
+   "date": "2026-11-23",
    "tier": "언론"
   }
  ],
- "date": "2026-11-25",
- "generated_at": "2026-11-25T06:26:04+09:00"
+ "date": "2026-11-26",
+ "generated_at": "2026-11-26T06:29:57+09:00"
 }
