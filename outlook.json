@@ -1,122 +1,131 @@
 {
  "version": 2,
- "data_as_of": "2026-11-25 미국 장(오후 3시경 집계, 공식 종가 미확인)",
+ "data_as_of": "2026-11-25 미국 장 마감(11/26 휴장, 11/27 단축거래 전)",
  "market_view": {
   "label": "Bearish",
-  "summary": "11/25 나스닥은 오전 한때 -4%대까지 밀리며 나스닥100이 고점 대비 20% 하락선에 닿았다가 오후 3시경 약 -0.9%로 낙폭을 줄였고, 다우는 +0.4%로 돌아섰다. 근원 PCE 3.3%(예상 3.2%) 상회와 USTR의 14개국 신규 관세안이 겹쳐 12월 인상 확률은 97~98%다. 11/26 추수감사절 휴장, 11/27은 단축 거래다.",
-  "ai_line": "Nvidia 장중 -8%대 후 약 -5%(7주간 -40%), SOX -6% 안팎: AI 기업 CDS 스프레드 사상 최고가 부담",
+  "summary": "11/25 종가 기준 S&P 500 -0.25%(7,182.78)·나스닥 -0.62%(23,585.80)로 장중 -3.2%·-4.6% 낙폭을 대부분 만회했고, 다우는 +0.33%로 이틀 연속 50,000선 위에서 마감했다. 다만 나스닥100은 장중 10월 고점 대비 정확히 -20%를 찍었고 S&P 500은 10/6 고점 대비 -10%, 최근 10거래일 중 9일 하락이다. 근원 PCE 3.3% 상회로 12월 인상 확률은 94~99%로 반영됐다.",
+  "ai_line": "Nvidia -3.91%($149.30, 장중 -9% 이상), Oracle -5.1%로 52주 신저가: 은행권의 AI 데이터센터 대출 매각과 CoreWeave·Oracle CDS 급등이 부담",
   "src": [
    "s1",
    "s2",
-   "s5"
+   "s3",
+   "s4"
   ]
  },
  "key_changes": [
   {
-   "title": "근원 PCE 3.3%로 예상(3.2%) 상회, 헤드라인 3.8%",
-   "detail": "10월 PCE가 다시 가속했고 3분기 GDP는 4.3%로 상향됐다. 12월 25bp 인상 확률은 97~98%, 1월 추가 인상도 63%로 반영됐다.",
+   "title": "종가 확정: 나스닥 장중 -4.6% → -0.62%, 다우 +0.33%로 반전",
+   "detail": "다우는 장중 1,100포인트 넘게 빠졌다가 플러스로 마감했고 7개 섹터가 상승, 동일가중 S&P는 3일 연속 올랐다. 낙폭은 AI 반도체·소프트웨어에 집중됐다.",
    "importance": "HIGH",
    "src": [
-    "s1",
     "s2",
-    "s4"
-   ]
-  },
-  {
-   "title": "USTR, 14개국 신규 관세안: 중국 최대 20%·EU 15%·인도 최대 25%",
-   "detail": "과잉생산 조사(301조) 결과로 기존 관세에 더해지는 안이며, 의견 제출 1/5·공청회 1/25 이후 빨라야 1월 시행이다.",
-   "importance": "HIGH",
-   "src": [
-    "s1",
     "s3",
     "s4"
    ]
   },
   {
-   "title": "나스닥 장중 -4%대 → 오후 -0.9%: 나스닥100 약세장 문턱",
-   "detail": "오전 S&P 500 -2.8%·다우 -2%까지 밀렸다가 오후 3시경 S&P -0.4%, 다우 +0.4%로 회복했다(종가 미확인).",
+   "title": "WSJ: 기밀 브리핑서 '중국 정보기관 지시 증거 없음' → 기술주 낙폭 축소",
+   "detail": "미 당국자들이 의회 측에 황 사건 관련 중국 인사가 정보기관 지시로 황을 감시했다는 증거가 없다고 보고했다는 보도 후 기술주가 낙폭을 줄였다. Nvidia는 장중 -9% 이상에서 -3.9%로 마감했다.",
    "importance": "HIGH",
    "src": [
-    "s1",
-    "s2",
-    "s6"
+    "s2"
    ]
   },
   {
-   "title": "Nvidia 장중 -8%대, 오후 약 -5%: 황 복귀 반등분 소진",
-   "detail": "이틀째 하락으로 7주간 -40%가 됐고, AMD·Micron·Broadcom도 장중 6~9% 내렸다.",
+   "title": "10년물 4.84%로 8거래일 연속 하락(12일 전 5.174%)",
+   "detail": "인플레 상회에도 장기금리는 장중 4.80% 아래까지 내려가 주식 반등을 도왔다.",
    "importance": "MEDIUM",
    "src": [
-    "s1",
-    "s2",
-    "s5",
-    "s6"
+    "s3",
+    "s1"
+   ]
+  },
+  {
+   "title": "브렌트유 +3.5%(94.61달러): 후티, 사우디 최대 정유시설 공격 주장",
+   "detail": "WTI도 +2%로 83.68달러에 마감했다. 인플레 상회와 겹쳐 금리 인상 부담을 키운다.",
+   "importance": "MEDIUM",
+   "src": [
+    "s3",
+    "s2"
    ]
   }
  ],
  "issues": [
   {
-   "title": "AI 반도체 급락 지속과 하루 단위 급등락",
-   "detail": "황 복귀 급반등 뒤 이틀 연속 하락했다. SOX는 장중 -6% 안팎이며 Micron·Sandisk 낙폭이 컸다.",
+   "title": "AI 반도체 급락과 하루 단위 급등락 지속",
+   "detail": "Nvidia는 11/25 장중 -9% 이상에서 -3.91%로 마감, 거래량은 3개월 평균의 약 2배였다. 나스닥100은 장중 약세장 문턱(-20%)을 찍고 반등했다.",
    "tag": "지속",
-   "trend": "up",
+   "trend": "steady",
    "importance": "HIGH",
    "src": [
     "s1",
     "s2",
-    "s5"
+    "s3"
    ]
   },
   {
-   "title": "AI 기업 신용 경색: CDS 스프레드 사상 최고",
-   "detail": "Alphabet·Oracle·SpaceX·CoreWeave 등 AI 관련 기업 CDS가 최고치이며 CoreWeave는 1,314bp다. 투자 과잉·수익성 우려와 맞물린다.",
-   "tag": "신규",
-   "trend": "up",
-   "importance": "HIGH",
-   "src": [
-    "s5",
-    "s1"
-   ]
-  },
-  {
-   "title": "끈적한 인플레와 12월 FOMC 인상 기정사실",
-   "detail": "근원 PCE 3.3% 상회로 12/8~9 인상 확률이 97~98%, 1월 추가 인상 63%다. 10년물은 4.82~4.85%로 오히려 내렸다.",
+   "title": "AI 데이터센터 신용 경색: 은행 대출 매각·CDS 급등",
+   "detail": "CoreWeave·Oracle CDS 비용이 6개월간 2배 이상 올랐고 ING(5억$)·HSBC(Stargate 관련 3억$, 액면 80% 중반)·SocGen(3억$)이 대출 매각에 나섰다. Oracle은 -5.1%로 52주 신저가다.",
    "tag": "지속",
    "trend": "up",
    "importance": "HIGH",
    "src": [
-    "s1",
+    "s3",
+    "s5",
     "s2"
    ]
   },
   {
-   "title": "Nvidia 독립 조사와 정부 압박",
-   "detail": "황은 복귀했지만 독립위원회 조사는 계속되고, 베센트 재무장관은 11/22 이사회에 \"답이 필요하다\"고 했다.",
+   "title": "끈적한 인플레와 12월 FOMC 인상 기정사실",
+   "detail": "근원 PCE 3.3%(예상 3.2%), 3분기 GDP 4.3% 상향, 실업수당 청구 18.9만 건으로 12/9 인상 확률은 94~99%로 반영됐다.",
    "tag": "지속",
-   "trend": "steady",
-   "importance": "MEDIUM",
+   "trend": "up",
+   "importance": "HIGH",
    "src": [
-    "s7"
+    "s3",
+    "s4",
+    "s2"
    ]
   },
   {
-   "title": "Anthropic(ANT) 공모가 부근 등락",
-   "detail": "11/24 81.90달러로 마감한 뒤 11/25 장중 -3~8% 하락하는 등 상장 후 약세가 이어졌다.",
+   "title": "Nvidia 독립 조사·정부 압박: 첩보 의혹은 약화",
+   "detail": "WSJ는 기밀 브리핑에서 중국 정보기관 지시 증거가 없다고 보고됐다고 전했다. SEC 조사와 수출통제 강화 위험은 남아 있다.",
+   "tag": "지속",
+   "trend": "down",
+   "importance": "MEDIUM",
+   "src": [
+    "s2",
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "title": "Anthropic(ANT) 공모가(83달러) 공방",
+   "detail": "장중 73.85달러까지 밀렸다가 82.79달러(+1.1%)로 마감하며 공모가 부근을 회복했다.",
    "tag": "지속",
    "trend": "steady",
    "importance": "MEDIUM",
    "src": [
     "s2",
-    "s4",
-    "s6"
+    "s3"
    ]
   }
  ],
  "risks": [
   {
    "title": "신규 관세 확정과 무역 보복",
-   "detail": "14개국 관세가 기존 세율에 더해지면 물가·기업 이익을 동시에 누를 수 있다.",
-   "watch": "1/5 의견 마감·1/25 공청회, 각국 대응",
+   "detail": "USTR이 과잉생산을 이유로 중국·EU·일본·한국·대만 등 14개국에 신규 관세를 제안했고 중국이 최고세율 대상이다.",
+   "watch": "의견 제출 1/5·공청회 1/25, 상대국 보복 발표",
+   "importance": "HIGH",
+   "src": [
+    "s3",
+    "s1"
+   ]
+  },
+  {
+   "title": "연속 인상과 금융여건 긴축",
+   "detail": "12월 인상이 거의 반영된 상태에서 유가 반등(브렌트 94달러대)까지 겹치면 1월 추가 인상 압력이 커진다.",
+   "watch": "12/9 FOMC 결과와 1월 인상 확률",
    "importance": "HIGH",
    "src": [
     "s3",
@@ -124,93 +133,68 @@
    ]
   },
   {
-   "title": "연속 인상과 금융여건 긴축",
-   "detail": "12월에 이어 1월 인상까지 가면 AI 고밸류·고부채 기업 조달 부담이 커진다.",
-   "watch": "12/8~9 FOMC 점도표, 11월 CPI",
-   "importance": "HIGH",
-   "src": [
-    "s1",
-    "s2"
-   ]
-  },
-  {
    "title": "AI 신용 이벤트(네오클라우드·데이터센터 부채)",
-   "detail": "CDS 최고치가 실제 조달 실패나 디폴트로 번지면 AI 인프라 투자 전반이 흔들릴 수 있다.",
-   "watch": "CoreWeave 등 CDS·회사채 발행",
+   "detail": "은행들이 데이터센터 대출을 할인 매각하고 신용보험을 사는 단계로, 차환 실패나 디폴트가 나오면 AI 설비투자 전반으로 번질 수 있다.",
+   "watch": "CoreWeave·Oracle CDS, 데이터센터 ABS 스프레드",
    "importance": "HIGH",
    "src": [
+    "s3",
     "s5"
    ]
   },
   {
-   "title": "Nvidia 조사 결과(독립위원회·SEC)",
-   "detail": "아시아 매출 처리 등 회계 문제가 확인되면 반도체 전반 재평가로 번질 수 있다.",
-   "watch": "독립위원회 결론, 이사회 정부 답변",
+   "title": "중동 공급 차질에 따른 유가 급등",
+   "detail": "후티가 사우디 최대 정유시설 공격을 주장하며 브렌트가 하루 +3.5% 올랐다.",
+   "watch": "사우디 정유시설 피해 확인, 브렌트 100달러 근접 여부",
    "importance": "MEDIUM",
    "src": [
-    "s7"
+    "s3"
    ]
   }
  ],
- "flow": "Bearish 전환: 근원 PCE 상회(3.3%)와 14개국 신규 관세안, AI 기업 CDS 최고치로 나스닥100이 약세장 문턱을 찍었고 장중 회복에도 Nvidia는 7주간 -40%, 12월·1월 연속 인상 우려가 커졌다.",
+ "flow": "Bearish 유지: 종가 기준으로는 장중 급락을 대부분 만회했지만(나스닥 -0.62%) 나스닥100 약세장 문턱 터치, Nvidia -3.9%, 은행권 AI 대출 매각과 12월 인상 94~99%·유가 반등이 부담이다.",
  "sources": [
   {
    "id": "s1",
-   "title": "Stock market today: Dow, S&P 500, Nasdaq pare losses as AI-fueled rout continues (live)",
-   "publisher": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-november-25-dow-sp-500-nasdaq-pce-inflation-data-091428237.html",
+   "title": "Stock Market Today, Nov. 25: Nvidia Slides 3.9% as the Market Considers Hot PCE Inflation Data and New Tariff Proposals",
+   "publisher": "Motley Fool / Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-nov-25-220645995.html",
    "date": "2026-11-25",
    "tier": "언론"
   },
   {
    "id": "s2",
-   "title": "Stocks slide as AI sell-off deepens, Fed's preferred inflation gauge rises",
-   "publisher": "Fox Business",
-   "url": "https://www.foxbusiness.com/markets/stocks-11-25-2026",
+   "title": "U.S. Stocks Nov. 25 Close: Dow Erases 1,100-Point Intraday Drop to Finish Up 0.33%; Nvidia Falls 3.9% to $149.30",
+   "publisher": "GSM Global News",
+   "url": "https://gsmglobalnews.com/article/d20261125-mktclose1.html",
    "date": "2026-11-25",
-   "tier": "언론"
+   "tier": "집계"
   },
   {
    "id": "s3",
-   "title": "Nasdaq Falls 4% as Tariff Proposals Meet Hotter Core PCE",
-   "publisher": "FinanceFeeds",
-   "url": "https://financefeeds.com/nasdaq-falls-4-as-tariff-proposals-meet-hotter-core-pce/",
+   "title": "Market Review: November 25, 2026",
+   "publisher": "Investrade",
+   "url": "https://investrade.com/market-review-november-25-2026/",
    "date": "2026-11-25",
-   "tier": "언론"
+   "tier": "집계"
   },
   {
    "id": "s4",
-   "title": "Nasdaq Plunges 4% Before Thanksgiving as AI Sell-Off and New Tariff Plan Hit Wall Street",
-   "publisher": "The Boston Report",
-   "url": "https://thebostonreport.com/2026/11/25/nasdaq-plunges-ai-sell-off-tariffs-thanksgiving-november-25-2026",
-   "date": "2026-11-25",
+   "title": "US stock market holiday November 26: NYSE, Nasdaq closed for Thanksgiving",
+   "publisher": "CNBC TV18 (TradingView)",
+   "url": "https://www.tradingview.com/news/cnbctv:372043c8b094b:0/",
+   "date": "2026-11-26",
    "tier": "언론"
   },
   {
    "id": "s5",
-   "title": "Why Nvidia Stock Is Falling Again",
-   "publisher": "The Motley Fool",
-   "url": "https://www.fool.com/investing/2026/11/25/why-nvidia-stock-is-falling-again/",
-   "date": "2026-11-25",
-   "tier": "언론"
-  },
-  {
-   "id": "s6",
-   "title": "Nasdaq tumbles 4% as Nvidia leads AI sell-off, inflation and tariffs weigh on investors",
-   "publisher": "NY Post via Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-tumbles-4-nvidia-leads-164313502.html",
-   "date": "2026-11-25",
-   "tier": "언론"
-  },
-  {
-   "id": "s7",
-   "title": "Futures bounce after AI selloff; Bessent on Nvidia probe",
-   "publisher": "Investing.com",
-   "url": "https://www.investing.com/news/economy-news/futures-bounce-after-ai-selloff-bessent-on-nvidia-probe--whats-moving-markets-5044447",
-   "date": "2026-11-23",
+   "title": "AI bubble fears push lenders that bankrolled boom to pull back",
+   "publisher": "Korea JoongAng Daily",
+   "url": "https://www.koreajoongangdaily.com/business/ai-bubble-fears-push-lenders-that-bankrolled-boom-to-pull-back/12972392",
+   "date": "2026-11-20",
    "tier": "언론"
   }
  ],
- "date": "2026-11-26",
- "generated_at": "2026-11-26T06:29:57+09:00"
+ "date": "2026-11-27",
+ "generated_at": "2026-11-27T06:26:47+09:00"
 }
