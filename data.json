@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-27 08:05 KST",
+ "updated_at": "2026-11-27 13:57 KST",
  "warnings": [
   "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLH0A0HYM2 | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0H",
   "MACRO HY Spread 전체 실패 → 캐시/static 사용",
@@ -19,19 +19,19 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1343.05,
+    "value": 1340.18,
     "prev_month": 1337.98,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
-    "prev_day": 1342.65,
+    "prev_day": 1342.97,
     "kind": "pct"
    },
    "USD/JPY": {
-    "value": 159.268,
+    "value": 159.262,
     "prev_month": 157.804,
     "prev_year": 156.413,
     "prev_2year": 156.995,
-    "prev_day": 159.262,
+    "prev_day": 159.215,
     "kind": "pct"
    }
   },
@@ -210,7 +210,7 @@
      "eps_est": 3.238,
      "eps_act": 3.32,
      "rev_est": null,
-     "rev_act": 29591000000
+     "rev_act": null
     }
    ]
   },
@@ -668,8 +668,8 @@
    "date": "2027-02-15",
    "ts": 1802725200,
    "d_day": 80,
-   "eps_est": 7.1427,
-   "rev_est": 12506345610,
+   "eps_est": 7.1435,
+   "rev_est": 12486089980,
    "quarters": [
     {
      "label": "1Q2026",
@@ -733,9 +733,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 60419.74,
+    "price": 61351.08,
     "prev_day": 60378.1992,
-    "turnover": 22031667200,
+    "turnover": 20644970496,
     "prev_month": 77434.75,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -744,7 +744,7 @@
     "ticker": "GC=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 3593.4,
+    "price": 3664.0,
     "prev_day": 3535.8,
     "turnover": null,
     "prev_month": 3898.8999,
@@ -755,7 +755,7 @@
     "ticker": "SI=F",
     "theme": "귀금속",
     "currency": "USD",
-    "price": 41.75,
+    "price": 43.74,
     "prev_day": 40.052,
     "turnover": null,
     "prev_month": 49.097,
@@ -766,7 +766,7 @@
     "ticker": "HG=F",
     "theme": "산업금속",
     "currency": "USD",
-    "price": 5.4335,
+    "price": 5.639,
     "prev_day": 5.3325,
     "turnover": null,
     "prev_month": 6.4585,
@@ -777,7 +777,7 @@
     "ticker": "CL=F",
     "theme": "원유",
     "currency": "USD",
-    "price": 84.91,
+    "price": 85.76,
     "prev_day": 83.68,
     "turnover": null,
     "prev_month": 104.12,
@@ -788,7 +788,7 @@
     "ticker": "NG=F",
     "theme": "천연가스",
     "currency": "USD",
-    "price": 3.599,
+    "price": 3.608,
     "prev_day": 3.269,
     "turnover": null,
     "prev_month": 2.898,
@@ -1055,9 +1055,9 @@
     "ticker": "000660.KS",
     "theme": "DRAM · HBM",
     "currency": "KRW",
-    "price": 1053000.0,
-    "prev_day": 1030000.0,
-    "turnover": 3716450829000.0,
+    "price": 1102000.0,
+    "prev_day": 1053000.0,
+    "turnover": 2220691994000.0,
     "prev_month": 1418000.0,
     "prev_year": 651000.0,
     "prev_2year": 173900.0
@@ -1066,9 +1066,9 @@
     "ticker": "005930.KS",
     "theme": "메모리 · 파운드리",
     "currency": "KRW",
-    "price": 171300.0,
-    "prev_day": 170700.0,
-    "turnover": 2392544016600.0,
+    "price": 178750.0,
+    "prev_day": 171300.0,
+    "turnover": 1605438298750.0,
     "prev_month": 225000.0,
     "prev_year": 119900.0,
     "prev_2year": 53200.0
@@ -1389,21 +1389,21 @@
   },
   "KOSPI": {
    "ticker": "^KS11",
-   "price": 4711.21,
-   "3Y": 23.44,
-   "5Y": 9.92,
-   "10Y": 9.11,
-   "15Y": 6.18,
-   "20Y": 6.13
+   "price": 4898.58,
+   "3Y": 25.05,
+   "5Y": 10.78,
+   "10Y": 9.53,
+   "15Y": 6.46,
+   "20Y": 6.33
   },
   "KOSDAQ": {
    "ticker": "^KQ11",
-   "price": 655.71,
-   "3Y": -7.45,
-   "5Y": -8.2,
-   "10Y": 1.12,
-   "15Y": 1.85,
-   "20Y": 0.28
+   "price": 700.84,
+   "3Y": -5.38,
+   "5Y": -6.97,
+   "10Y": 1.79,
+   "15Y": 2.3,
+   "20Y": 0.62
   }
  },
  "gpu_rental": {
@@ -1606,8 +1606,8 @@
      "rev_est": 10700329480
     },
     "4Q2026": {
-     "eps_est": 7.14271,
-     "rev_est": 12506345610
+     "eps_est": 7.14353,
+     "rev_est": 12486089980
     }
    },
    "INTC": {
