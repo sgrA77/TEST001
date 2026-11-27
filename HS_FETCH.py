@@ -2,7 +2,7 @@
 """HS_FETCH.py - 반도체 ETF 상위 구성종목 주간 종가 -> hs.json (GitHub Actions)"""
 import json, time, requests
 UA = {"User-Agent": "Mozilla/5.0"}
-TK = ["SMH","SOXX","NVDA","TSM","AVGO","ASML","AMD","MU","INTC","TXN","QCOM","AMAT","LRCX","KLAC","ADI","MRVL","NXPI","MCHP","ARM","ORCL","CRWV","MSFT","AMZN","GOOGL","META","ANT","000660.KS","005930.KS","^KS11","^GSPC","^NDX"]
+TK = ["SMH","SOXX","NVDA","TSM","AVGO","ASML","AMD","MU","INTC","TXN","QCOM","AMAT","LRCX","KLAC","ADI","MRVL","NXPI","MCHP","ARM","ORCL","CRWV","MSFT","AMZN","GOOGL","META","ANT","000660.KS","005930.KS","^KS11","^GSPC","^NDX","GLW","LITE","COHR","CIEN","AAOI","FN","CRDO","ALAB","ANET","APH","AXTI","FCX","SCCO","VRT","GEV","ETN","BE","PWR","NVT","CEG","MOD","SNDK","WDC","STX","TSLA","SPCX","RKLB","ASTS","PL","LUNR","RDW","FLY","VOYG","SATS","IRDM","GSAT","KRMN","BKSY","KTOS","TDY","VIAV","012450.KS","272210.KS","099320.KQ","009150.KS"]
 out = {}
 for s in TK:
     for host in ("query1", "query2"):
