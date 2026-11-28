@@ -1,9 +1,9 @@
 {
  "version": 3,
- "week_start": "2026-11-16",
- "week_end": "2026-11-20",
- "label": "2026.11.16 ~ 11.20",
- "generated_at": "2026-11-21T17:39:21+09:00",
+ "week_start": "2026-11-23",
+ "week_end": "2026-11-27",
+ "label": "2026.11.23 ~ 11.27",
+ "generated_at": "2026-11-28T18:16:45+09:00",
  "thresholds": {
   "KOSPI": 20.0,
   "KOSDAQ": 30.0,
@@ -40,53 +40,1109 @@
   "ACCUM_STREAK_BAND": 5.0,
   "SURGE_MIN_CAP": 2000
  },
- "scanned": 2671,
- "failed": 4,
- "accum_before_history_filter": 67,
+ "scanned": 2674,
+ "failed": 1,
+ "accum_before_history_filter": 77,
  "kospi": [
   {
-   "code": "089590",
-   "name": "제주항공",
+   "code": "307950",
+   "name": "현대오토에버",
    "market": "KOSPI",
-   "price": 8420,
-   "cap_eok": 6790,
-   "vol_ratio": 2.7,
-   "last_day": "2026-11-20",
-   "prev_price": 6860,
-   "chg": 22.74,
+   "price": 377000,
+   "cap_eok": 103388,
+   "vol_ratio": 3.5,
+   "last_day": "2026-11-27",
+   "prev_price": 289500,
+   "chg": 30.22,
    "flags": [],
-   "sector": "항공사",
-   "theme": "항공사",
+   "sector": "IT서비스",
+   "theme": "AI",
    "news": [
     {
-     "title": "\"시진핑 덕에 웃었다\"…상한가 파티에 개미들 환호 [분석+]",
-     "url": "https://n.news.naver.com/mnews/article/015/0005356164",
+     "title": "[특징주] 로봇주, 수요 확대 기대감에 급등…일부 상한가(종합)",
+     "url": "https://n.news.naver.com/mnews/article/001/0016468074",
+     "office": "연합뉴스",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "272210",
+   "name": "한화시스템",
+   "market": "KOSPI",
+   "price": 55600,
+   "cap_eok": 105039,
+   "vol_ratio": 0.8,
+   "last_day": "2026-11-27",
+   "prev_price": 46200,
+   "chg": 20.35,
+   "flags": [],
+   "sector": "우주항공과국방",
+   "theme": "우주항공",
+   "news": [
+    {
+     "title": "[마켓뷰] AI 불안 잦아들어… 코스피 4%·코스닥 8% 급등",
+     "url": "https://n.news.naver.com/mnews/article/366/0001207823",
+     "office": "조선비즈",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "079550",
+   "name": "LIG디펜스앤에어로스페이스",
+   "market": "KOSPI",
+   "price": 419000,
+   "cap_eok": 92180,
+   "vol_ratio": 0.8,
+   "last_day": "2026-11-27",
+   "prev_price": 346000,
+   "chg": 21.1,
+   "flags": [],
+   "sector": "우주항공과국방",
+   "theme": "우주항공",
+   "news": [
+    {
+     "title": "[특징주] 방산주, 사우디 정유 시설 공격 소식에 강세(종합)",
+     "url": "https://n.news.naver.com/mnews/article/001/0016468053",
+     "office": "연합뉴스",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "006800",
+   "name": "미래에셋증권",
+   "market": "KOSPI",
+   "price": 23350,
+   "cap_eok": 126795,
+   "vol_ratio": 1.6,
+   "last_day": "2026-11-27",
+   "prev_price": 18800,
+   "chg": 24.2,
+   "flags": [],
+   "sector": "증권",
+   "theme": "증권",
+   "news": [
+    {
+     "title": "반포 큰손들이 먼저 움직인다…주식 접고 택한 투자법",
+     "url": "https://n.news.naver.com/mnews/article/025/0003568552",
+     "office": "중앙일보",
+     "date": "2026-11-28"
+    }
+   ]
+  },
+  {
+   "code": "039490",
+   "name": "키움증권",
+   "market": "KOSPI",
+   "price": 238500,
+   "cap_eok": 62555,
+   "vol_ratio": 1.3,
+   "last_day": "2026-11-27",
+   "prev_price": 188200,
+   "chg": 26.73,
+   "flags": [],
+   "sector": "증권",
+   "theme": "증권",
+   "news": [
+    {
+     "title": "바이오·로봇·배터리 급등…코스닥 간만에 웃었다",
+     "url": "https://n.news.naver.com/mnews/article/015/0005359167",
      "office": "한국경제",
-     "date": "2026-11-20"
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "030210",
+   "name": "다올투자증권",
+   "market": "KOSPI",
+   "price": 3855,
+   "cap_eok": 2348,
+   "vol_ratio": 35.9,
+   "last_day": "2026-11-27",
+   "prev_price": 3150,
+   "chg": 22.38,
+   "flags": [],
+   "sector": "증권",
+   "theme": "증권",
+   "news": [
+    {
+     "title": "M&A 시장 나온 다올투자증권, 3색〈운용·저축은행·PE〉 자회사도 매...",
+     "url": "https://n.news.naver.com/mnews/article/016/0002729402",
+     "office": "헤럴드경제",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "000650",
+   "name": "천일고속",
+   "market": "KOSPI",
+   "price": 199200,
+   "cap_eok": 2847,
+   "vol_ratio": 3.4,
+   "last_day": "2026-11-27",
+   "prev_price": 152300,
+   "chg": 30.79,
+   "flags": [],
+   "sector": "도로와철도운송",
+   "theme": "도로와철도운송",
+   "news": [
+    {
+     "title": "동양고속·천일고속, ‘고터 재개발’ 기대감 다시 꿈틀하나 [코주부...",
+     "url": "https://n.news.naver.com/mnews/article/011/0004686722",
+     "office": "서울경제",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "006110",
+   "name": "삼아알미늄",
+   "market": "KOSPI",
+   "price": 43300,
+   "cap_eok": 6548,
+   "vol_ratio": 0.6,
+   "last_day": "2026-11-27",
+   "prev_price": 33200,
+   "chg": 30.42,
+   "flags": [],
+   "sector": "비철금속",
+   "theme": "비철금속",
+   "news": [
+    {
+     "title": "[이 시각 시황] 코스피 보합·코스닥 3% 급등…바이오·로봇·2차전지...",
+     "url": "https://n.news.naver.com/mnews/article/374/0000546239",
+     "office": "SBS Biz",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "278470",
+   "name": "에이피알",
+   "market": "KOSPI",
+   "price": 299500,
+   "cap_eok": 112127,
+   "vol_ratio": 1.7,
+   "last_day": "2026-11-27",
+   "prev_price": 232500,
+   "chg": 28.82,
+   "flags": [],
+   "sector": "화장품",
+   "theme": "화장품",
+   "news": [
+    {
+     "title": "K-뷰티 수출 62% 급증…브랜드 인수부터 해외 판로까지 사업 확대 [뷰...",
+     "url": "https://n.news.naver.com/mnews/article/123/0002395024",
+     "office": "조세일보",
+     "date": "2026-11-28"
+    }
+   ]
+  },
+  {
+   "code": "003350",
+   "name": "한국화장품제조",
+   "market": "KOSPI",
+   "price": 14380,
+   "cap_eok": 3259,
+   "vol_ratio": 1.8,
+   "last_day": "2026-11-27",
+   "prev_price": 11700,
+   "chg": 22.91,
+   "flags": [],
+   "sector": "화장품",
+   "theme": "화장품",
+   "news": [
+    {
+     "title": "[마켓 프리뷰] 하루새 6%대 급등락 '5천피' 반납…물가·금리 촉각",
+     "url": "https://n.news.naver.com/mnews/article/374/0000545960",
+     "office": "SBS Biz",
+     "date": "2026-11-26"
+    }
+   ]
+  },
+  {
+   "code": "457190",
+   "name": "이수스페셜티케미컬",
+   "market": "KOSPI",
+   "price": 86600,
+   "cap_eok": 26170,
+   "vol_ratio": 1.6,
+   "last_day": "2026-11-27",
+   "prev_price": 66600,
+   "chg": 30.03,
+   "flags": [],
+   "sector": "화학",
+   "theme": "화학",
+   "news": [
+    {
+     "title": "[특징주] 美, 한국 관세 15% 유지 전망에…이차전지주 동반 강세",
+     "url": "https://n.news.naver.com/mnews/article/366/0001207413",
+     "office": "조선비즈",
+     "date": "2026-11-26"
     }
    ]
   }
  ],
  "kosdaq": [
   {
-   "code": "253450",
-   "name": "스튜디오드래곤",
+   "code": "024850",
+   "name": "HLB이노베이션",
    "market": "KOSDAQ",
-   "price": 30600,
-   "cap_eok": 9198,
-   "vol_ratio": 5.6,
-   "last_day": "2026-11-20",
-   "prev_price": 23300,
-   "chg": 31.33,
+   "price": 17920,
+   "cap_eok": 6208,
+   "vol_ratio": 1.2,
+   "last_day": "2026-11-27",
+   "prev_price": 13280,
+   "chg": 34.94,
    "flags": [],
-   "sector": "방송과엔터테인먼트",
-   "theme": "방송과엔터테인먼트",
+   "sector": "반도체와반도체장비",
+   "theme": "반도체",
    "news": [
     {
-     "title": "주가 급등하면 뭐하나…中 훈풍에 웃는 'K엔터' 서늘한 경고 [이수의 ...",
-     "url": "https://n.news.naver.com/mnews/article/015/0005356597",
+     "title": "HLB이노베이션, 진양곤 의장 잇단 지분 매입에 주가 강세 [Why 바이오]",
+     "url": "https://n.news.naver.com/mnews/article/011/0004686935",
+     "office": "서울경제",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "452430",
+   "name": "사피엔반도체",
+   "market": "KOSDAQ",
+   "price": 27800,
+   "cap_eok": 2300,
+   "vol_ratio": 0.8,
+   "last_day": "2026-11-27",
+   "prev_price": 20750,
+   "chg": 33.98,
+   "flags": [],
+   "sector": "반도체와반도체장비",
+   "theme": "반도체",
+   "news": [
+    {
+     "title": "젠슨 황 복귀에 반도체 관련주 줄줄이 급등…삼전·닉스, 7~8% ‘쑥’",
+     "url": "https://n.news.naver.com/mnews/article/009/0005768013",
+     "office": "매일경제",
+     "date": "2026-11-24"
+    }
+   ]
+  },
+  {
+   "code": "053800",
+   "name": "안랩",
+   "market": "KOSDAQ",
+   "price": 174000,
+   "cap_eok": 19360,
+   "vol_ratio": 1.9,
+   "last_day": "2026-11-27",
+   "prev_price": 109700,
+   "chg": 58.61,
+   "flags": [],
+   "sector": "소프트웨어",
+   "theme": "AI",
+   "news": [
+    {
+     "title": "코스닥 장중 5% '불기둥'에 매수사이드카…로봇·방산주 강세",
+     "url": "https://n.news.naver.com/mnews/article/374/0000546279",
+     "office": "SBS Biz",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "042510",
+   "name": "라온시큐어",
+   "market": "KOSDAQ",
+   "price": 18830,
+   "cap_eok": 2091,
+   "vol_ratio": 1.5,
+   "last_day": "2026-11-27",
+   "prev_price": 13500,
+   "chg": 39.48,
+   "flags": [],
+   "sector": "소프트웨어",
+   "theme": "AI",
+   "news": [
+    {
+     "title": "끊이지 않는 해킹 소식…보안주 강세",
+     "url": "https://n.news.naver.com/mnews/article/008/0005447275",
+     "office": "머니투데이",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "347700",
+   "name": "스피어",
+   "market": "KOSDAQ",
+   "price": 24400,
+   "cap_eok": 12579,
+   "vol_ratio": 3.2,
+   "last_day": "2026-11-27",
+   "prev_price": 16730,
+   "chg": 45.85,
+   "flags": [],
+   "sector": "우주항공과국방",
+   "theme": "방산",
+   "news": [
+    {
+     "title": "[ET특징주] 스페이스X '우주 데이터센터' 위성 배치 승인… 국내 관련...",
+     "url": "https://n.news.naver.com/mnews/article/030/0003490194",
+     "office": "전자신문",
+     "date": "2026-11-26"
+    }
+   ]
+  },
+  {
+   "code": "099320",
+   "name": "쎄트렉아이",
+   "market": "KOSDAQ",
+   "price": 82100,
+   "cap_eok": 8991,
+   "vol_ratio": 1.7,
+   "last_day": "2026-11-27",
+   "prev_price": 62500,
+   "chg": 31.36,
+   "flags": [],
+   "sector": "우주항공과국방",
+   "theme": "우주항공",
+   "news": [
+    {
+     "title": "'전강후약' 코스피, 4700선 가까스로 사수…외국인 또 '팔자'",
+     "url": "https://n.news.naver.com/mnews/article/015/0005358628",
      "office": "한국경제",
-     "date": "2026-11-21"
+     "date": "2026-11-26"
+    }
+   ]
+  },
+  {
+   "code": "189300",
+   "name": "인텔리안테크",
+   "market": "KOSDAQ",
+   "price": 55800,
+   "cap_eok": 5992,
+   "vol_ratio": 1.6,
+   "last_day": "2026-11-27",
+   "prev_price": 40600,
+   "chg": 37.44,
+   "flags": [],
+   "sector": "통신장비",
+   "theme": "우주항공",
+   "news": [
+    {
+     "title": "'전강후약' 코스피, 4700선 가까스로 사수…외국인 또 '팔자'",
+     "url": "https://n.news.naver.com/mnews/article/015/0005358628",
+     "office": "한국경제",
+     "date": "2026-11-26"
+    }
+   ]
+  },
+  {
+   "code": "376900",
+   "name": "로킷헬스케어",
+   "market": "KOSDAQ",
+   "price": 20700,
+   "cap_eok": 3621,
+   "vol_ratio": 0.7,
+   "last_day": "2026-11-27",
+   "prev_price": 15900,
+   "chg": 30.19,
+   "flags": [],
+   "sector": "건강관리장비와용품",
+   "theme": "건강관리장비와용품",
+   "news": [
+    {
+     "title": "로킷, ‘장기재생 3D프린터’ 올해안 국내 주요병원 공급",
+     "url": "https://n.news.naver.com/mnews/article/016/0002729529",
+     "office": "헤럴드경제",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "277810",
+   "name": "레인보우로보틱스",
+   "market": "KOSDAQ",
+   "price": 532000,
+   "cap_eok": 103207,
+   "vol_ratio": 2.8,
+   "last_day": "2026-11-27",
+   "prev_price": 403000,
+   "chg": 32.01,
+   "flags": [],
+   "sector": "기계",
+   "theme": "기계",
+   "news": [
+    {
+     "title": "외국인 매수에 증안펀드 기대 유입…코스피 4.3% 급등",
+     "url": "https://n.news.naver.com/mnews/article/374/0000546387",
+     "office": "SBS Biz",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "108490",
+   "name": "로보티즈",
+   "market": "KOSDAQ",
+   "price": 304000,
+   "cap_eok": 44600,
+   "vol_ratio": 1.9,
+   "last_day": "2026-11-27",
+   "prev_price": 233500,
+   "chg": 30.19,
+   "flags": [],
+   "sector": "기계",
+   "theme": "기계",
+   "news": [
+    {
+     "title": "외국인 매수에 증안펀드 기대 유입…코스피 4.3% 급등",
+     "url": "https://n.news.naver.com/mnews/article/374/0000546387",
+     "office": "SBS Biz",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "090710",
+   "name": "휴림로봇",
+   "market": "KOSDAQ",
+   "price": 7250,
+   "cap_eok": 8696,
+   "vol_ratio": 21.9,
+   "last_day": "2026-11-27",
+   "prev_price": 4390,
+   "chg": 65.15,
+   "flags": [],
+   "sector": "기계",
+   "theme": "기계",
+   "news": [
+    {
+     "title": "검색 1·2위 삼성전자·SK하이닉스 동반 상승… 나무가 17% 급등",
+     "url": "https://n.news.naver.com/mnews/article/081/0003703339",
+     "office": "서울신문",
+     "date": "2026-11-26"
+    }
+   ]
+  },
+  {
+   "code": "466100",
+   "name": "클로봇",
+   "market": "KOSDAQ",
+   "price": 23650,
+   "cap_eok": 7374,
+   "vol_ratio": 5.6,
+   "last_day": "2026-11-27",
+   "prev_price": 16060,
+   "chg": 47.26,
+   "flags": [],
+   "sector": "기계",
+   "theme": "기계",
+   "news": [
+    {
+     "title": "돌발상황도 AI가 스스로 복구…클로봇, 美 MIT와 ‘제조 피지컬 AI’ 공...",
+     "url": "https://n.news.naver.com/mnews/article/020/0003765789",
+     "office": "동아일보",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "160190",
+   "name": "하이젠알앤엠",
+   "market": "KOSDAQ",
+   "price": 19260,
+   "cap_eok": 5949,
+   "vol_ratio": 2.0,
+   "last_day": "2026-11-27",
+   "prev_price": 13780,
+   "chg": 39.77,
+   "flags": [],
+   "sector": "기계",
+   "theme": "기계",
+   "news": [
+    {
+     "title": "장 열리자 30% '불기둥'…검은 월요일 속 상한가 '이 종목' 정체는[특...",
+     "url": "https://n.news.naver.com/mnews/article/018/0006414033",
+     "office": "이데일리",
+     "date": "2026-11-23"
+    }
+   ]
+  },
+  {
+   "code": "348340",
+   "name": "뉴로메카",
+   "market": "KOSDAQ",
+   "price": 17290,
+   "cap_eok": 4047,
+   "vol_ratio": 2.5,
+   "last_day": "2026-11-27",
+   "prev_price": 13010,
+   "chg": 32.9,
+   "flags": [],
+   "sector": "기계",
+   "theme": "기계",
+   "news": [
+    {
+     "title": "장 열리자 30% '불기둥'…검은 월요일 속 상한가 '이 종목' 정체는[특...",
+     "url": "https://n.news.naver.com/mnews/article/018/0006414033",
+     "office": "이데일리",
+     "date": "2026-11-23"
+    }
+   ]
+  },
+  {
+   "code": "056080",
+   "name": "유진로봇",
+   "market": "KOSDAQ",
+   "price": 10050,
+   "cap_eok": 3843,
+   "vol_ratio": 6.4,
+   "last_day": "2026-11-27",
+   "prev_price": 7600,
+   "chg": 32.24,
+   "flags": [],
+   "sector": "기계",
+   "theme": "기계",
+   "news": [
+    {
+     "title": "삼성전자 로봇에 힘주자 관련주 줄줄이 급등…제닉스로보틱스 상한가",
+     "url": "https://n.news.naver.com/mnews/article/009/0005769825",
+     "office": "매일경제",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "475400",
+   "name": "씨메스로보틱스",
+   "market": "KOSDAQ",
+   "price": 18620,
+   "cap_eok": 2198,
+   "vol_ratio": 2.5,
+   "last_day": "2026-11-27",
+   "prev_price": 14170,
+   "chg": 31.4,
+   "flags": [],
+   "sector": "기계",
+   "theme": "기계",
+   "news": [
+    {
+     "title": "벌써 CES에 들썩…삼성 휴머노이드 소식에 로봇주 질주",
+     "url": "https://n.news.naver.com/mnews/article/003/0014348913",
+     "office": "뉴시스",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "295310",
+   "name": "에이치브이엠",
+   "market": "KOSDAQ",
+   "price": 63500,
+   "cap_eok": 8133,
+   "vol_ratio": 1.5,
+   "last_day": "2026-11-27",
+   "prev_price": 42050,
+   "chg": 51.01,
+   "flags": [],
+   "sector": "비철금속",
+   "theme": "비철금속",
+   "news": [
+    {
+     "title": "[애프터마켓 리뷰] '우주 데이터센터' 스페이스X 100만 위성 승인",
+     "url": "https://n.news.naver.com/mnews/article/374/0000546219",
+     "office": "SBS Biz",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "226950",
+   "name": "올릭스",
+   "market": "KOSDAQ",
+   "price": 108300,
+   "cap_eok": 24773,
+   "vol_ratio": 1.7,
+   "last_day": "2026-11-27",
+   "prev_price": 76600,
+   "chg": 41.38,
+   "flags": [],
+   "sector": "생명과학도구및서비스",
+   "theme": "생명과학도구",
+   "news": [
+    {
+     "title": "코스닥 4% 넘게 급등…증안펀드 투입 기대·저가매수 유입 영향 [줍줍...",
+     "url": "https://n.news.naver.com/mnews/article/011/0004686800",
+     "office": "서울경제",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "340450",
+   "name": "지씨지놈",
+   "market": "KOSDAQ",
+   "price": 10130,
+   "cap_eok": 2396,
+   "vol_ratio": 1.1,
+   "last_day": "2026-11-27",
+   "prev_price": 7610,
+   "chg": 33.11,
+   "flags": [],
+   "sector": "생명과학도구및서비스",
+   "theme": "생명과학도구",
+   "news": [
+    {
+     "title": "“지씨지놈, 내년 췌장암 검사 美 허가…2028년 매출 발생 목표” [Why...",
+     "url": "https://n.news.naver.com/mnews/article/011/0004684276",
+     "office": "서울경제",
+     "date": "2026-11-20"
+    }
+   ]
+  },
+  {
+   "code": "298380",
+   "name": "에이비엘바이오",
+   "market": "KOSDAQ",
+   "price": 47900,
+   "cap_eok": 26818,
+   "vol_ratio": 1.7,
+   "last_day": "2026-11-27",
+   "prev_price": 35050,
+   "chg": 36.66,
+   "flags": [],
+   "sector": "생물공학",
+   "theme": "생물공학",
+   "news": [
+    {
+     "title": "[속보]돌아온 외국인에 코스피 4900선 탈환…코스닥 8%대 급등",
+     "url": "https://n.news.naver.com/mnews/article/018/0006416644",
+     "office": "이데일리",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "950260",
+   "name": "인제니아테라퓨틱스(Reg.S)",
+   "market": "KOSDAQ",
+   "price": 31100,
+   "cap_eok": 15377,
+   "vol_ratio": 1.9,
+   "last_day": "2026-11-27",
+   "prev_price": 22900,
+   "chg": 35.81,
+   "flags": [],
+   "sector": "생물공학",
+   "theme": "생물공학",
+   "news": [
+    {
+     "title": "인제니아, MSD에 기술이전한 'IGT-427' 임상3상 적응증 5개로 확대",
+     "url": "https://n.news.naver.com/mnews/article/008/0005444777",
+     "office": "머니투데이",
+     "date": "2026-11-23"
+    }
+   ]
+  },
+  {
+   "code": "950160",
+   "name": "코오롱티슈진",
+   "market": "KOSDAQ",
+   "price": 16920,
+   "cap_eok": 14377,
+   "vol_ratio": 4.1,
+   "last_day": "2026-11-27",
+   "prev_price": 11670,
+   "chg": 44.99,
+   "flags": [],
+   "sector": "생물공학",
+   "theme": "생물공학",
+   "news": [
+    {
+     "title": "[Bio Story]②'최종병기' 연골 재생 치료제 개발, 올 연말이 분수령",
+     "url": "https://n.news.naver.com/mnews/article/277/0005848016",
+     "office": "아시아경제",
+     "date": "2026-11-26"
+    }
+   ]
+  },
+  {
+   "code": "476830",
+   "name": "알지노믹스",
+   "market": "KOSDAQ",
+   "price": 27450,
+   "cap_eok": 7737,
+   "vol_ratio": 2.3,
+   "last_day": "2026-11-27",
+   "prev_price": 20700,
+   "chg": 32.61,
+   "flags": [],
+   "sector": "생물공학",
+   "theme": "생물공학",
+   "news": [
+    {
+     "title": "펩트론은 본계약 불발…첫 후보물질 도출 앞둔 알지노믹스, 릴리 1.9조...",
+     "url": "https://n.news.naver.com/mnews/article/366/0001206537",
+     "office": "조선비즈",
+     "date": "2026-11-23"
+    }
+   ]
+  },
+  {
+   "code": "358570",
+   "name": "지아이이노베이션",
+   "market": "KOSDAQ",
+   "price": 9580,
+   "cap_eok": 6181,
+   "vol_ratio": 2.3,
+   "last_day": "2026-11-27",
+   "prev_price": 6610,
+   "chg": 44.93,
+   "flags": [],
+   "sector": "생물공학",
+   "theme": "생물공학",
+   "news": [
+    {
+     "title": "[ET특징주] 706억 유증 청약 흥행·파이프라인 수익화 기대… 큐리언트...",
+     "url": "https://n.news.naver.com/mnews/article/030/0003490656",
+     "office": "전자신문",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "257720",
+   "name": "실리콘투",
+   "market": "KOSDAQ",
+   "price": 30400,
+   "cap_eok": 19935,
+   "vol_ratio": 1.9,
+   "last_day": "2026-11-27",
+   "prev_price": 22850,
+   "chg": 33.04,
+   "flags": [],
+   "sector": "인터넷과카탈로그소매",
+   "theme": "인터넷과카탈로그소매",
+   "news": [
+    {
+     "title": "K-뷰티 수출 62% 급증…브랜드 인수부터 해외 판로까지 사업 확대 [뷰...",
+     "url": "https://n.news.naver.com/mnews/article/123/0002395024",
+     "office": "조세일보",
+     "date": "2026-11-28"
+    }
+   ]
+  },
+  {
+   "code": "125490",
+   "name": "한라캐스트",
+   "market": "KOSDAQ",
+   "price": 12450,
+   "cap_eok": 4545,
+   "vol_ratio": 2.4,
+   "last_day": "2026-11-27",
+   "prev_price": 9380,
+   "chg": 32.73,
+   "flags": [],
+   "sector": "자동차부품",
+   "theme": "자동차부품",
+   "news": [
+    {
+     "title": "피지컬AI 기대에 로봇주 급등…레인보우 15%·로보티즈 10%↑[핫종목]",
+     "url": "https://n.news.naver.com/mnews/article/421/0009256158",
+     "office": "뉴스1",
+     "date": "2026-10-28"
+    }
+   ]
+  },
+  {
+   "code": "448900",
+   "name": "한국피아이엠",
+   "market": "KOSDAQ",
+   "price": 57600,
+   "cap_eok": 3499,
+   "vol_ratio": 2.8,
+   "last_day": "2026-11-27",
+   "prev_price": 38350,
+   "chg": 50.2,
+   "flags": [],
+   "sector": "자동차부품",
+   "theme": "자동차부품",
+   "news": [
+    {
+     "title": "반도체 공장에 로봇 투입? 삼성 힘주자 일제히 질주...로봇주 달린다",
+     "url": "https://n.news.naver.com/mnews/article/008/0005447327",
+     "office": "머니투데이",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "354320",
+   "name": "알멕",
+   "market": "KOSDAQ",
+   "price": 37700,
+   "cap_eok": 2410,
+   "vol_ratio": 0.5,
+   "last_day": "2026-11-27",
+   "prev_price": 28400,
+   "chg": 32.75,
+   "flags": [],
+   "sector": "자동차부품",
+   "theme": "자동차부품",
+   "news": [
+    {
+     "title": "\"1억 넣었으면 4억 됐다\"…개미들 놀랄 '수익률 318%' 비결 [투자톡]",
+     "url": "https://n.news.naver.com/mnews/article/015/0005284912",
+     "office": "한국경제",
+     "date": "2026-05-09"
+    }
+   ]
+  },
+  {
+   "code": "000250",
+   "name": "삼천당제약",
+   "market": "KOSDAQ",
+   "price": 191300,
+   "cap_eok": 44874,
+   "vol_ratio": 1.0,
+   "last_day": "2026-11-27",
+   "prev_price": 145400,
+   "chg": 31.57,
+   "flags": [],
+   "sector": "제약",
+   "theme": "제약",
+   "news": [
+    {
+     "title": "외국인·기관 쌍끌이 매수에 코스피 4.3% 급등…4900선 탈환",
+     "url": "https://n.news.naver.com/mnews/article/015/0005359098",
+     "office": "한국경제",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "310210",
+   "name": "보로노이",
+   "market": "KOSDAQ",
+   "price": 151900,
+   "cap_eok": 28279,
+   "vol_ratio": 2.0,
+   "last_day": "2026-11-27",
+   "prev_price": 105000,
+   "chg": 44.67,
+   "flags": [],
+   "sector": "제약",
+   "theme": "제약",
+   "news": [
+    {
+     "title": "아리바이오랩 상한가…아리바이오 코스피 직상장·합병 구상에 촉각[...",
+     "url": "https://n.news.naver.com/mnews/article/018/0006416794",
+     "office": "이데일리",
+     "date": "2026-11-28"
+    }
+   ]
+  },
+  {
+   "code": "141080",
+   "name": "리가켐바이오",
+   "market": "KOSDAQ",
+   "price": 69200,
+   "cap_eok": 25627,
+   "vol_ratio": 1.4,
+   "last_day": "2026-11-27",
+   "prev_price": 51700,
+   "chg": 33.85,
+   "flags": [],
+   "sector": "제약",
+   "theme": "제약",
+   "news": [
+    {
+     "title": "SK하이닉스 110만 돌파...코스닥 8% 급등 700선 회복",
+     "url": "https://n.news.naver.com/mnews/article/243/0000106375",
+     "office": "이코노미스트",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "456160",
+   "name": "지투지바이오",
+   "market": "KOSDAQ",
+   "price": 49900,
+   "cap_eok": 8315,
+   "vol_ratio": 1.2,
+   "last_day": "2026-11-27",
+   "prev_price": 36300,
+   "chg": 37.47,
+   "flags": [],
+   "sector": "제약",
+   "theme": "제약",
+   "news": [
+    {
+     "title": "에임드바이오 이을 파트너는?…베링거, 내년 항암 연구진 방한",
+     "url": "https://n.news.naver.com/mnews/article/018/0006415387",
+     "office": "이데일리",
+     "date": "2026-11-25"
+    }
+   ]
+  },
+  {
+   "code": "476060",
+   "name": "온코닉테라퓨틱스",
+   "market": "KOSDAQ",
+   "price": 13370,
+   "cap_eok": 6071,
+   "vol_ratio": 2.8,
+   "last_day": "2026-11-27",
+   "prev_price": 10090,
+   "chg": 32.51,
+   "flags": [],
+   "sector": "제약",
+   "theme": "제약",
+   "news": [
+    {
+     "title": "위고비·마운자로 복제약 언제?⋯등재특허 만료 11년 차이",
+     "url": "https://n.news.naver.com/mnews/article/296/0000107803",
+     "office": "코메디닷컴",
+     "date": "2026-11-25"
+    }
+   ]
+  },
+  {
+   "code": "389470",
+   "name": "인벤티지랩",
+   "market": "KOSDAQ",
+   "price": 24950,
+   "cap_eok": 3320,
+   "vol_ratio": 1.4,
+   "last_day": "2026-11-27",
+   "prev_price": 18400,
+   "chg": 35.6,
+   "flags": [],
+   "sector": "제약",
+   "theme": "제약",
+   "news": [
+    {
+     "title": "에임드바이오 이을 파트너는?…베링거, 내년 항암 연구진 방한",
+     "url": "https://n.news.naver.com/mnews/article/018/0006415387",
+     "office": "이데일리",
+     "date": "2026-11-25"
+    }
+   ]
+  },
+  {
+   "code": "493280",
+   "name": "아이엠바이오로직스",
+   "market": "KOSDAQ",
+   "price": 16130,
+   "cap_eok": 2395,
+   "vol_ratio": 1.7,
+   "last_day": "2026-11-27",
+   "prev_price": 12370,
+   "chg": 30.4,
+   "flags": [],
+   "sector": "제약",
+   "theme": "제약",
+   "news": [
+    {
+     "title": "[VC는 지금]신약 후보는 한국서 개발, 임상은 해외 자본으로…\"시리즈...",
+     "url": "https://n.news.naver.com/mnews/article/277/0005848541",
+     "office": "아시아경제",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "code": "100790",
+   "name": "미래에셋벤처투자",
+   "market": "KOSDAQ",
+   "price": 19740,
+   "cap_eok": 10486,
+   "vol_ratio": 4.6,
+   "last_day": "2026-11-27",
+   "prev_price": 13070,
+   "chg": 51.03,
+   "flags": [],
+   "sector": "창업투자",
+   "theme": "창업투자",
+   "news": [
+    {
+     "title": "스페이스X 위성 100만 기 발사 승인…머스크, 복귀한 젠슨 황 찾아",
+     "url": "https://n.news.naver.com/mnews/article/654/0000213666",
+     "office": "강원도민일보",
+     "date": "2026-11-26"
+    }
+   ]
+  },
+  {
+   "code": "032500",
+   "name": "케이엠더블유",
+   "market": "KOSDAQ",
+   "price": 25600,
+   "cap_eok": 10801,
+   "vol_ratio": 2.4,
+   "last_day": "2026-11-27",
+   "prev_price": 19090,
+   "chg": 34.1,
+   "flags": [],
+   "sector": "통신장비",
+   "theme": "통신장비",
+   "news": [
+    {
+     "title": "외국인 매수에 증시 '화색'...신한證 \"유동성에 숨통 트였다\"",
+     "url": "https://n.news.naver.com/mnews/article/123/0002395022",
+     "office": "조세일보",
+     "date": "2026-11-28"
+    }
+   ]
+  },
+  {
+   "code": "073490",
+   "name": "LIG아큐버",
+   "market": "KOSDAQ",
+   "price": 45600,
+   "cap_eok": 3467,
+   "vol_ratio": 4.2,
+   "last_day": "2026-11-27",
+   "prev_price": 31750,
+   "chg": 43.62,
+   "flags": [],
+   "sector": "통신장비",
+   "theme": "통신장비",
+   "news": [
+    {
+     "title": "IBK투자증권 \"LIG아큐버, 실적 뚜렷한 반등세\"",
+     "url": "https://n.news.naver.com/mnews/article/001/0016461712",
+     "office": "연합뉴스",
+     "date": "2026-11-25"
+    }
+   ]
+  },
+  {
+   "code": "060720",
+   "name": "KH바텍",
+   "market": "KOSDAQ",
+   "price": 13900,
+   "cap_eok": 3291,
+   "vol_ratio": 27.6,
+   "last_day": "2026-11-27",
+   "prev_price": 9590,
+   "chg": 44.94,
+   "flags": [],
+   "sector": "핸드셋",
+   "theme": "핸드셋",
+   "news": [
+    {
+     "title": "[기업이슈] '반도체 깐부' 젠슨 황 복귀에 반도체주 급등",
+     "url": "https://n.news.naver.com/mnews/article/374/0000545722",
+     "office": "SBS Biz",
+     "date": "2026-11-25"
     }
    ]
   }
@@ -96,14 +1152,14 @@
    "code": "093320",
    "name": "케이아이엔엑스",
    "market": "KOSDAQ",
-   "price": 172300,
-   "cap_eok": 8408,
-   "vol_ratio": 0.3,
-   "last_day": "2026-11-20",
-   "open_price": 175500,
-   "open_chg": -1.82,
-   "max_up": 0.2,
-   "range": 2.2,
+   "price": 172000,
+   "cap_eok": 8394,
+   "vol_ratio": 0.4,
+   "last_day": "2026-11-27",
+   "open_price": 172100,
+   "open_chg": -0.06,
+   "max_up": 1.4,
+   "range": 2.3,
    "flags": [],
    "sector": "IT서비스",
    "theme": "AI",
@@ -112,182 +1168,44 @@
    "surge_max": 30.1,
    "flat_n": 12,
    "hist_weeks": 26,
-   "streak_n": 3,
-   "streak_max": 3
+   "streak_n": 4,
+   "streak_max": 4
   },
   {
    "code": "079940",
    "name": "가비아",
    "market": "KOSDAQ",
-   "price": 48700,
-   "cap_eok": 6536,
-   "vol_ratio": 0.2,
-   "last_day": "2026-11-20",
-   "open_price": 49400,
-   "open_chg": -1.42,
-   "max_up": 0.0,
-   "range": 1.8,
+   "price": 48050,
+   "cap_eok": 6449,
+   "vol_ratio": 0.6,
+   "last_day": "2026-11-27",
+   "open_price": 48200,
+   "open_chg": -0.31,
+   "max_up": 1.7,
+   "range": 2.4,
    "flags": [],
    "sector": "IT서비스",
    "theme": "AI",
    "surge_n": 1,
    "surge_last": "2026-07-24",
    "surge_max": 40.3,
-   "flat_n": 10,
+   "flat_n": 11,
    "hist_weeks": 26,
-   "streak_n": 3,
-   "streak_max": 5
-  },
-  {
-   "code": "100090",
-   "name": "SK오션플랜트",
-   "market": "KOSPI",
-   "price": 9270,
-   "cap_eok": 5792,
-   "vol_ratio": 0.7,
-   "last_day": "2026-11-20",
-   "open_price": 9270,
-   "open_chg": 0.0,
-   "max_up": 6.4,
-   "range": 12.9,
-   "flags": [],
-   "sector": "에너지장비및서비스",
-   "theme": "친환경에너지",
-   "surge_n": 1,
-   "surge_last": "2026-07-24",
-   "surge_max": 37.6,
-   "flat_n": 6,
-   "hist_weeks": 26,
-   "streak_n": 2,
-   "streak_max": 2
-  },
-  {
-   "code": "347700",
-   "name": "스피어",
-   "market": "KOSDAQ",
-   "price": 16730,
-   "cap_eok": 8625,
-   "vol_ratio": 1.3,
-   "last_day": "2026-11-20",
-   "open_price": 16670,
-   "open_chg": 0.36,
-   "max_up": 7.7,
-   "range": 23.4,
-   "flags": [],
-   "sector": "우주항공과국방",
-   "theme": "방산",
-   "surge_n": 2,
-   "surge_last": "2026-08-07",
-   "surge_max": 49.7,
-   "flat_n": 3,
-   "hist_weeks": 26,
-   "streak_n": 1,
-   "streak_max": 2
-  },
-  {
-   "code": "036710",
-   "name": "심텍홀딩스",
-   "market": "KOSDAQ",
-   "price": 5680,
-   "cap_eok": 3001,
-   "vol_ratio": 1.2,
-   "last_day": "2026-11-20",
-   "open_price": 5750,
-   "open_chg": -1.22,
-   "max_up": 3.8,
-   "range": 12.7,
-   "flags": [],
-   "sector": "반도체와반도체장비",
-   "theme": "반도체",
-   "surge_n": 2,
-   "surge_last": "2026-11-13",
-   "surge_max": 69.9,
-   "flat_n": 6,
-   "hist_weeks": 26,
-   "streak_n": 1,
-   "streak_max": 3
-  },
-  {
-   "code": "307950",
-   "name": "현대오토에버",
-   "market": "KOSPI",
-   "price": 289500,
-   "cap_eok": 79392,
-   "vol_ratio": 1.0,
-   "last_day": "2026-11-20",
-   "open_price": 287500,
-   "open_chg": 0.7,
-   "max_up": 8.5,
-   "range": 13.7,
-   "flags": [],
-   "sector": "IT서비스",
-   "theme": "AI",
-   "surge_n": 1,
-   "surge_last": "2026-05-29",
-   "surge_max": 47.5,
-   "flat_n": 8,
-   "hist_weeks": 26,
-   "streak_n": 1,
-   "streak_max": 5
-  },
-  {
-   "code": "053800",
-   "name": "안랩",
-   "market": "KOSDAQ",
-   "price": 109700,
-   "cap_eok": 12206,
-   "vol_ratio": 1.0,
-   "last_day": "2026-11-20",
-   "open_price": 112000,
-   "open_chg": -2.05,
-   "max_up": 6.8,
-   "range": 19.1,
-   "flags": [],
-   "sector": "소프트웨어",
-   "theme": "AI",
-   "surge_n": 1,
-   "surge_last": "2026-10-30",
-   "surge_max": 58.9,
-   "flat_n": 5,
-   "hist_weeks": 26,
-   "streak_n": 1,
-   "streak_max": 3
-  },
-  {
-   "code": "232680",
-   "name": "라온로보틱스",
-   "market": "KOSDAQ",
-   "price": 12300,
-   "cap_eok": 1631,
-   "vol_ratio": 0.4,
-   "last_day": "2026-11-20",
-   "open_price": 12620,
-   "open_chg": -2.54,
-   "max_up": 1.7,
-   "range": 14.7,
-   "flags": [],
-   "sector": "반도체와반도체장비",
-   "theme": "반도체",
-   "surge_n": 1,
-   "surge_last": "2026-10-30",
-   "surge_max": 31.1,
-   "flat_n": 6,
-   "hist_weeks": 26,
-   "streak_n": 1,
+   "streak_n": 4,
    "streak_max": 5
   },
   {
    "code": "452450",
    "name": "피아이이",
    "market": "KOSDAQ",
-   "price": 4115,
-   "cap_eok": 1483,
+   "price": 4265,
+   "cap_eok": 1537,
    "vol_ratio": 0.8,
-   "last_day": "2026-11-20",
-   "open_price": 4230,
-   "open_chg": -2.72,
-   "max_up": 9.9,
-   "range": 20.6,
+   "last_day": "2026-11-27",
+   "open_price": 4155,
+   "open_chg": 2.65,
+   "max_up": 4.7,
+   "range": 15.3,
    "flags": [],
    "sector": "IT서비스",
    "theme": "AI",
@@ -296,8 +1214,284 @@
    "surge_max": 37.8,
    "flat_n": 7,
    "hist_weeks": 26,
+   "streak_n": 2,
+   "streak_max": 3
+  },
+  {
+   "code": "323350",
+   "name": "다원넥스뷰",
+   "market": "KOSDAQ",
+   "price": 14530,
+   "cap_eok": 1164,
+   "vol_ratio": 1.1,
+   "last_day": "2026-11-27",
+   "open_price": 14610,
+   "open_chg": -0.55,
+   "max_up": 8.8,
+   "range": 18.3,
+   "flags": [],
+   "sector": "반도체와반도체장비",
+   "theme": "반도체",
+   "surge_n": 1,
+   "surge_last": "2026-11-13",
+   "surge_max": 42.9,
+   "flat_n": 4,
+   "hist_weeks": 26,
+   "streak_n": 2,
+   "streak_max": 2
+  },
+  {
+   "code": "131290",
+   "name": "티에스이",
+   "market": "KOSDAQ",
+   "price": 163100,
+   "cap_eok": 18041,
+   "vol_ratio": 0.9,
+   "last_day": "2026-11-27",
+   "open_price": 165000,
+   "open_chg": -1.15,
+   "max_up": 9.2,
+   "range": 20.4,
+   "flags": [],
+   "sector": "반도체와반도체장비",
+   "theme": "반도체",
+   "surge_n": 2,
+   "surge_last": "2026-11-13",
+   "surge_max": 49.6,
+   "flat_n": 2,
+   "hist_weeks": 26,
    "streak_n": 1,
    "streak_max": 3
+  },
+  {
+   "code": "089890",
+   "name": "코세스",
+   "market": "KOSDAQ",
+   "price": 36100,
+   "cap_eok": 5987,
+   "vol_ratio": 0.9,
+   "last_day": "2026-11-27",
+   "open_price": 36300,
+   "open_chg": -0.55,
+   "max_up": 5.9,
+   "range": 17.2,
+   "flags": [],
+   "sector": "반도체와반도체장비",
+   "theme": "반도체",
+   "surge_n": 2,
+   "surge_last": "2026-11-13",
+   "surge_max": 35.3,
+   "flat_n": 1,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 1
+  },
+  {
+   "code": "399720",
+   "name": "가온칩스",
+   "market": "KOSDAQ",
+   "price": 32600,
+   "cap_eok": 3866,
+   "vol_ratio": 0.6,
+   "last_day": "2026-11-27",
+   "open_price": 31650,
+   "open_chg": 3.0,
+   "max_up": 6.8,
+   "range": 15.0,
+   "flags": [],
+   "sector": "반도체와반도체장비",
+   "theme": "반도체",
+   "surge_n": 2,
+   "surge_last": "2026-11-13",
+   "surge_max": 52.7,
+   "flat_n": 3,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 2
+  },
+  {
+   "code": "098120",
+   "name": "마이크로컨텍솔",
+   "market": "KOSDAQ",
+   "price": 32350,
+   "cap_eok": 2689,
+   "vol_ratio": 1.1,
+   "last_day": "2026-11-27",
+   "open_price": 33100,
+   "open_chg": -2.27,
+   "max_up": 8.2,
+   "range": 21.5,
+   "flags": [],
+   "sector": "반도체와반도체장비",
+   "theme": "우주항공",
+   "surge_n": 2,
+   "surge_last": "2026-09-11",
+   "surge_max": 36.8,
+   "flat_n": 4,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 3
+  },
+  {
+   "code": "082800",
+   "name": "비보존 제약",
+   "market": "KOSDAQ",
+   "price": 2685,
+   "cap_eok": 1630,
+   "vol_ratio": 1.0,
+   "last_day": "2026-11-27",
+   "open_price": 2645,
+   "open_chg": 1.51,
+   "max_up": 2.1,
+   "range": 8.5,
+   "flags": [],
+   "sector": "제약",
+   "theme": "제약",
+   "surge_n": 2,
+   "surge_last": "2026-06-12",
+   "surge_max": 35.7,
+   "flat_n": 7,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 4
+  },
+  {
+   "code": "018260",
+   "name": "삼성에스디에스",
+   "market": "KOSPI",
+   "price": 201000,
+   "cap_eok": 155529,
+   "vol_ratio": 1.6,
+   "last_day": "2026-11-27",
+   "open_price": 201500,
+   "open_chg": -0.25,
+   "max_up": 2.0,
+   "range": 16.4,
+   "flags": [],
+   "sector": "IT서비스",
+   "theme": "AI",
+   "surge_n": 1,
+   "surge_last": "2026-05-29",
+   "surge_max": 53.6,
+   "flat_n": 8,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 3
+  },
+  {
+   "code": "064400",
+   "name": "LG씨엔에스",
+   "market": "KOSPI",
+   "price": 71800,
+   "cap_eok": 69564,
+   "vol_ratio": 0.9,
+   "last_day": "2026-11-27",
+   "open_price": 69800,
+   "open_chg": 2.87,
+   "max_up": 3.3,
+   "range": 16.6,
+   "flags": [],
+   "sector": "IT서비스",
+   "theme": "AI",
+   "surge_n": 1,
+   "surge_last": "2026-05-29",
+   "surge_max": 36.8,
+   "flat_n": 8,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 5
+  },
+  {
+   "code": "181710",
+   "name": "NHN",
+   "market": "KOSPI",
+   "price": 60000,
+   "cap_eok": 19397,
+   "vol_ratio": 1.2,
+   "last_day": "2026-11-27",
+   "open_price": 59800,
+   "open_chg": 0.33,
+   "max_up": 3.5,
+   "range": 22.4,
+   "flags": [],
+   "sector": "IT서비스",
+   "theme": "AI",
+   "surge_n": 1,
+   "surge_last": "2026-08-14",
+   "surge_max": 78.7,
+   "flat_n": 6,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 4
+  },
+  {
+   "code": "131970",
+   "name": "두산테스나",
+   "market": "KOSDAQ",
+   "price": 64100,
+   "cap_eok": 12389,
+   "vol_ratio": 0.9,
+   "last_day": "2026-11-27",
+   "open_price": 65400,
+   "open_chg": -1.99,
+   "max_up": 3.5,
+   "range": 19.1,
+   "flags": [],
+   "sector": "반도체와반도체장비",
+   "theme": "반도체",
+   "surge_n": 1,
+   "surge_last": "2026-08-14",
+   "surge_max": 31.9,
+   "flat_n": 1,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 1
+  },
+  {
+   "code": "080580",
+   "name": "오킨스전자",
+   "market": "KOSDAQ",
+   "price": 13490,
+   "cap_eok": 2845,
+   "vol_ratio": 0.7,
+   "last_day": "2026-11-27",
+   "open_price": 13400,
+   "open_chg": 0.67,
+   "max_up": 8.6,
+   "range": 19.0,
+   "flags": [],
+   "sector": "반도체와반도체장비",
+   "theme": "반도체",
+   "surge_n": 1,
+   "surge_last": "2026-11-13",
+   "surge_max": 32.7,
+   "flat_n": 1,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 2
+  },
+  {
+   "code": "330860",
+   "name": "네패스아크",
+   "market": "KOSDAQ",
+   "price": 16000,
+   "cap_eok": 1949,
+   "vol_ratio": 1.0,
+   "last_day": "2026-11-27",
+   "open_price": 16000,
+   "open_chg": 0.0,
+   "max_up": 5.6,
+   "range": 17.5,
+   "flags": [],
+   "sector": "반도체와반도체장비",
+   "theme": "반도체",
+   "surge_n": 1,
+   "surge_last": "2026-06-12",
+   "surge_max": 31.3,
+   "flat_n": 3,
+   "hist_weeks": 26,
+   "streak_n": 1,
+   "streak_max": 2
   }
  ]
 }
