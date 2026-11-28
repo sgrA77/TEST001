@@ -1,6 +1,11 @@
 {
- "updated_at": "2026-11-28 08:00 KST",
- "warnings": [],
+ "updated_at": "2026-11-28 13:42 KST",
+ "warnings": [
+  "MACRO HY Spread ← fred:BAMLH0A0HYM2 실패: FRED 실패 → BAMLH0A0HYM2: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLH0A0HYM2 | BAMLH0A0HYM2: 연결 실패 ReadTimeout | BAMLH0A0H",
+  "MACRO HY Spread 전체 실패 → 캐시/static 사용",
+  "MACRO BBB Spread ← fred:BAMLC0A4CBBB 실패: FRED 실패 → BAMLC0A4CBBB: HTTPError 403 Client Error: Forbidden for url: https://r.jina.ai/https://fred.stlouisfed.org/data/BAMLC0A4CBBB | BAMLC0A4CBBB: 연결 실패 ReadTimeout | BAMLC0A4",
+  "MACRO BBB Spread 전체 실패 → 캐시/static 사용"
+ ],
  "macro": {
   "유동성 / 환율": {
    "US M2": {
@@ -14,11 +19,11 @@
     "suffix": "T"
    },
    "USD/KRW": {
-    "value": 1333.0,
+    "value": 1333.9,
     "prev_month": 1337.98,
     "prev_year": 1437.91,
     "prev_2year": 1467.39,
-    "prev_day": 1342.97,
+    "prev_day": 1343.53,
     "kind": "pct"
    },
    "USD/JPY": {
@@ -122,7 +127,8 @@
     "prev_2year": 2.92,
     "prev_day": 3.77,
     "kind": "pp",
-    "suffix": "%"
+    "suffix": "%",
+    "stale": true
    },
    "BBB Spread": {
     "value": 1.24,
@@ -131,7 +137,8 @@
     "prev_2year": 1.02,
     "prev_day": 1.24,
     "kind": "pp",
-    "suffix": "%"
+    "suffix": "%",
+    "stale": true
    }
   }
  },
@@ -726,9 +733,9 @@
     "ticker": "BTC-USD",
     "theme": "Crypto",
     "currency": "USD",
-    "price": 59702.47,
+    "price": 59966.31,
     "prev_day": 60494.7109,
-    "turnover": 31980630016,
+    "turnover": 28927782912,
     "prev_month": 77434.75,
     "prev_year": 87508.8281,
     "prev_2year": 93429.2031
@@ -1132,7 +1139,7 @@
     "theme": "NAND",
     "currency": "USD",
     "price": 85.36,
-    "prev_day": 94.395,
+    "prev_day": 97.0275,
     "turnover": 8359151493.0,
     "prev_month": 143.8613,
     "prev_year": 29.6725,
